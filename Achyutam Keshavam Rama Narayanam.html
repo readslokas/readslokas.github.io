@@ -1,0 +1,133 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=1
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",50)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 270%;
+    text-align: center;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body>
+<BR>
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<P>
+Achyutha Ashtakam Lyrics<BR>
+<p>
+Achyutham Kesavam Rama Narayanam,<BR>
+Krishna damodharam vasudevam harim,<BR>
+Sreedharam madhavam gopika vallabham,<BR>
+Janaki nayakam ramachandram Bhaje 1<BR>
+<p>
+Achyutham kesavam sathya bhamadhavam,<BR>
+Madhavam sreedharam radhika aradhitham,<BR>
+Indira mandiram chethana sundaram,<BR>
+Devaki nandanam nandhajam sam bhaje 2<BR>
+<p>
+Vishnava jishnave sankhine chakrine,<BR>
+Rukhmani ragine janaki janaye,<BR>
+Vallavi vallabha yarchidha yathmane,<BR>
+Kamsa vidhvamsine vamsine the nama. 3<BR>
+<p>
+Krishna govinda he rama narayana,<BR>
+Sree pathe vasu deva jitha sree nidhe,<BR>
+Achyuthanantha he madhava adhokshaja,<BR>
+Drowpadhi rakshaka, pathu maam sarvadha (also Dwaraka Nayaka, drowpadhi rakshaka) 4<BR>
+<p>
+Rakshasa kshobitha seethaya shobitho,<BR>
+Danda karanya bhoo punyatha karana,<BR>
+Lakshmanananvitho vanarai ssevitho,<BR>
+Agasthya sampoojitho raghava pathu maam. 5<BR>
+<p>
+Dheenu karishtako anishta krudwesinaam,<BR>
+Kesiha kamsa hrud vamsika vaadhana,<BR>
+Poothana nasana sooraja khelano,<BR>
+Bala gopalaka pathu maam sarvadha 6<BR>
+<p>
+Vidhyu dudhyothavath prasphura dwasasam,<BR>
+Prouda bodhaval prollasad vigraham,<BR>
+Vanyaya Malaya shobhi thora sthalam,<BR>
+Lohinthangri dwayam vareejaksham bhaje. 7<BR>
+<p>
+Kanchithai kundalai braja maanananam,<BR>
+Rathna moulim lasad kundalam gandayo,<BR>
+Haara keyuragam kankana projwalam,<BR>
+Kinkini manjula syamalam tham bhaje. 8<BR>
+<p>
+Phalasruthi<BR>
+<p>
+Achyuthashtakam ya patdeth ishtadham,<BR>
+Premadha prathyaham poorusha saspruham,<BR>
+Vruthatha sundaram karthru viswambharam,<BR>
+Tasya vasyo harir jayathe sathwaram<BR>
+ </BODY>
+</HTML>

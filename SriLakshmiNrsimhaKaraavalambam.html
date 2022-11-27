@@ -1,0 +1,172 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=5
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",25)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 250%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 230%;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body class="block">
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<P>
+Srimat payonidhi nikethana chakra pane,<BR>
+Bhogeendra Bhoga mani rajitha punya moorthe,<BR>
+Yogeesa saswatha saranya Bhabdhi potha,<BR>
+Lakshmi Nrsimha Mama Dehi Karavalambam 1<BR>
+<p>
+Brahmendra, Rudra Arka kireeta koti,<BR>
+Sangattithangri kamala mala kanthi kantha,<BR>
+Lakshmi lasath kucha saroruha raja hamsa,<BR>
+Lakshmi Nrsimha Mama Dehi Karavalambam 2<BR>
+<p>
+Samsara gora gahane charathe murare,<BR>
+Marogra bheekara Mruga pravardhithasya,<BR>
+Aarthasya mathsara nidha chain peedithasya,<BR>
+Lakshmi Nrsimha Mama Dehi Karavalambam 3<BR>
+<p>
+Samsara koopam adhi ghora Magadha moolam,<BR>
+Samprapya dukha satha sarpa samakulasya,<BR>
+Dheenasya Deva krupana padamagadasya,<BR>
+Lakshmi Nrsimha Mama Dehi Karavalambam 4<BR>
+<p>
+Samsara Sagara vishala karala kala,<BR>
+Nakra graham grasana nigraha vigrahasya,<BR>
+Vyagrasya raga rasanormini peedithasya,<BR>
+Lakshmi Nrsimha Mama Dehi Karavalambam 5<BR>
+<p>
+Samasra Vrukshamagha bheeja manantha karma,<BR>
+Sakha satham karana pathramananga pushpam,<BR>
+Aroohasya dukha phalitham pathatho dayalo,<BR>
+Lakshmi Nrsimha Mama Dehi Karavalambam 6<BR>
+<p>
+Samsara sarpa Ghana vakthra bhyogra theevra,<BR>
+Damshtra karala visha daghdha vinashta murthe,<BR>
+Naagari vahana sudhabhdhi nivasa soure,<BR>
+Lakshmi Nrsimha Mama Dehi Karavalambam 7<BR>
+<p>
+Samsara dava dahanathura Bheekaroru,<BR>
+Jwala valee birathi dhighdha nooruhasya,<BR>
+Thwat pada padma sarasi saranagathasya,<BR>
+Lakshmi Nrsimha Mama Dehi Karavalambam 8<BR>
+<p>
+Samsara Jala pathithasya Jagan nivasa,<BR>
+Sarvendriyartha badisartha jashopamasya,<BR>
+Proth Ganditha prachoora thaluka masthakasya,<BR>
+Lakshmi Nrsimha Mama Dehi Karavalambam 9<BR>
+<p>
+Samsara bheekara kareeendra karabhigatha,<BR>
+Nishpishta marmma vapusha sakalarthi nasa,<BR>
+Prana prayana bhava bhhethi samakulasya,<BR>
+Lakshmi Nrsimha Mama Dehi Karavalambam 10<BR>
+<p>
+Andhasya me viveka maha danasya,<BR>
+Chorai prabho bhalibhi rindriya nama deyai,<BR>
+Mohanda koopa kuhare vinipathathasya,<BR>
+Lakshmi Nrsimha Mama Dehi Karavalambam 11<BR>
+<p>
+Baddhvaa gale yamabhataa bahutarjayantah,<BR>
+Karshhanti yatra bhavapaashashatairyutam maam.<BR>
+Ekaakinam paravasham chakitam dayaalo<BR>
+Lakshmi Nrsimha Mama Dehi Karavalambam 12<BR>
+<p>
+Lakshmi pathe Kamala nabha suresa vishno,<BR>
+Vaikunta Krishna Madhu soodhana pushkarksha,<BR>
+Brahmanya kesava janardhana vasudeva,<BR>
+Devesa dehi krupanasya karavalambam 13<BR>
+<p>
+Ekena chakramaparena karena shamkha-<BR>
+Manyena sindhutanyaaamavalambya tishhthan,<BR>
+Vaame karena varadaabhayapadmachihnam,<BR>
+Lakshmi Nrsimha Mama Dehi Karavalambam 14<BR>
+<p>
+Samsaara saagara nimajjana muhyamaanam<BR>
+diinam vilokaya vibho karunaanidhe maam,<BR>
+prahlaada kheda parihaara paraavataara<BR>
+Lakshmi Nrsimha Mama Dehi Karavalambam 15<BR>
+<p>
+Prahlaada naarada paraashara pundariika-<BR>
+vyaasaadi bhaagavata pungavah rinnivaasa ,<BR>
+Bhaktaanurakta paripaalana paarijaata,<BR>
+Lakshmi Nrsimha Mama Dehi Karavalambam 16<BR>
+<p>
+Lakshhminrisimha charana abja madhuvratena<BR>
+Stotram kritam shubhakaram bhuvi shankarena ,<BR>
+Ye tatpathanti manujaa haribhakti yuktaa-<BR>
+Ste yaanti tatpada saroja makhandaruupam 17<BR>
+<p>
+Sri Lakshmi Nrsimha Padarpanamasthu
+<p>
+
+</body>
+</html>
+

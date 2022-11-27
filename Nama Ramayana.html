@@ -1,0 +1,216 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=5
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",25)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 250%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 230%;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body class="block">
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<P>
+BalakANdam<BR>
+<p>
+1. shuddha brahma parAtpara rAm<BR>
+2: kAlAtmaka paramEshvara rAm<BR>
+3: shESa talpa sukha nidrita rAm<BR>
+4: brahmAdyamara prArtitha<BR>
+5: caNDa kiraNakula maNDana rAm<BR>
+6: shrImad-dasharatha nandana rAm<BR>
+7: kausalyA sukha vardhana rAm<BR>
+8: vishvAmitra priyadhana rAm<BR>
+9: ghOra tATakA dhAtaka rAm<BR>
+10: mArIcAdini pAtaka rAm<BR>
+11: kaushikamaka sam rAm<BR>
+12: shrImadahlyOddhAraka rAm<BR>
+13: gautama muni sampUjita rAm<BR>
+14: sura muni vara gaNa samstuta rAm<BR>
+15: nAvikadhAvita mrdupada rAm<BR>
+16: mithilApura jana mOhaka rAm<BR>
+17: vidEha mAnasa ranjaka rAm<BR>
+18: tryambaka kArmuka bhanjaka rAm<BR>
+19: sItArpita vara mAlika rAm<BR>
+20: krtavaivAhika kautuka rAm<BR>
+21: bhArgava darpa vinAshaka rAm<BR>
+22: shrImad ayOdhyA pAlaka rAm<BR>
+<p>
+ayOdhyA kANDam<BR>
+<p>
+23: agaNita guNagaNa bhUSita rAm<BR>
+24: avanItanayA kAmita rAm<BR>
+25: rAkA candra samAnana rAm<BR>
+26: pitru vAkyA-shrta kAnana rAm<BR>
+27: priya guha vinivEDita pada rAm<BR>
+28: takSAlita nija mrdupada rAm<BR>
+29: bharadvAja mukhAnandaka rAm<BR>
+30: citrakUTAdri nikEtana rAm<BR>
+31: dasharatha santata cintita rAm<BR>
+32: kaikEyI tanayArthita rAm<BR>
+33: viracita nija pitru karmaka rAm<BR>
+34: bharatArpita nija pAduka rAm<BR>
+<p>
+araNya kANDam<BR>
+<p>
+35: daNDakAvana jana pAvana rAm<BR>
+36: duSTa virAdha vinAshana rAm<BR>
+37: sharabhanga sutIkSaNa arcita rAm<BR>
+38: agastyAnugraha vardhita rAm<BR>
+39: grghrAdhipa samsEvita rAm<BR>
+40: pancavaTI taTa sustita rAm<BR>
+41: shUrpaNakhArthi vidhAyaka rAm<BR>
+42: kharadUSaNa mukha sUdaka rAm<BR>
+43: sItApriya hariNAnuga rAm<BR>
+44: mArIcArtti krdAshuga rAm<BR>
+45: vinaSTa sItAnvESaka rAm<BR>
+46: grdhrAdhipa gati dAyaka rAm<BR>
+47: shabarI datta phalAshana rAm<BR>
+48: kabanda bAhucchEdana rAm<BR>
+<p>
+kiSkindA kANDam<BR>
+<p>
+49: hanumat-sEvita nijapada rAm<BR>
+50: nata sugrIvAbhISTada rAm<BR>
+51: garvita vAli samhAraka rAm<BR>
+52: vAnara dUta prESaka rAm<BR>
+53: hitakara lakSmaNa samyuta rAm<BR>
+<p>
+<BR>
+sundara kANDam<BR>
+<p>
+54: kapivara santata samsmrta rAm<BR>
+55: tadgati vighna dhvamsaka rAm<BR>
+56: sItA prANA tAraka rAm<BR>
+57: duSTa dashAnana dUSita rAm<BR>
+58: shiSTa hanumad-bhUSita rAm<BR>
+59: sItA vEdita kAkAvana rAm<BR>
+60: krta cUDAmaNi darshana rAm<BR>
+61: kapivara vacanAshvAsita rAm<BR>
+<p>
+<BR>
+yuddha kANDam<BR>
+<p>
+62: rAvaNa nidhana prasthita rAm<BR>
+63: vAnara sainya samAvrta rAm<BR>
+64: shOSita sharidhIshArthita rAm<BR>
+65: vibhISaNA bhaya dAyaka rAm<BR>
+66: parvata sEtu nibandhaka rAm<BR>
+67: kumbhakarNa shirash-chEdaka rAm<BR>
+68: rAkSasa sangha vimardaka rAm<BR>
+69: ahimahi rAvaNa cAraNa rAm<BR>
+70: samhrta dashamukha rAvaNa rAm<BR>
+71: vidhibhava mukhasura samstuta rAm<BR>
+72: khasthita dasharatha vIkSita<BR>
+73: rAm sItA darshana mOdita rAm<BR>
+74: abhiSakta vibhISaNa nata rAm<BR>
+75: puSpakayAnA rOhita rAm<BR>
+76: bharadvAjAbhiniSEvaNa rAm<BR>
+77: bharata prANa priyakara rAm<BR>
+78: sAkEtapuri bhUSaNa rAm<BR>
+79: sakala svIya samAnata rAm<BR>
+80: ratnalasat-pIThAsthita rAm<BR>
+81: paTTAbhiSEkAlankrta rAm<BR>
+82: pArthiva kula sammAnita rAm<BR>
+83: vibhISanAprita rangaka rAm<BR>
+84: kIca kulAnugraha kara rAm<BR>
+85: sakala jIva sam rakSaka rAm<BR>
+86: samasta lOkAdhAraka rAm<BR>
+<p>
+uttara kANDam<BR>
+<p>
+87: Agata munigaNa samstuta rAm<BR>
+88: vishrta dasha kaNThOdbhava rAm<BR>
+89: sItA lingana nirvrta rAm<BR>
+90: nIti surakSita janapada rAm<BR>
+91: vipina tyAjita janakaja rAm<BR>
+92: kArita lavaNAsura vadha rAm<BR>
+93: svargata shambuka samstuta rAm<BR>
+94: svatanaya kushalava nandita rAm<BR>
+95: ashvamEdha krtu dIkSita rAm<BR>
+96: kAlAvEdita surapada rAm<BR>
+97: ayOdhyaka jana muktida rAm<BR>
+98: vidhi mukha vibudhAnanda rAm<BR>
+99: tEjOmaya nija rUpaka rAm<BR>
+100: samsrti bandha vimOcaka rAm<BR>
+101: dharma sthApana tatpara rAm<BR>
+102: bhakti parAyaNa muktita rAm<BR>
+103: sarva carAcara pAlaka rAm<BR>
+104: sarva bhavAmaya vAraka rAm<BR>
+105: vaikuNThAlaya samsthita rAm<BR>
+106: nityAnanda padasthita rAm<BR>
+107: rAma rAma jaya rAjA rAm<BR>
+108: rAma rAma jaya sItA rAm<BR>
+<p>
+
+</body>
+</html>
+

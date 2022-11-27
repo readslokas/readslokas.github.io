@@ -1,0 +1,326 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=1
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",50)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 270%;
+    text-align: center;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body>
+<BR>
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<BR>
+Kakada Aarthi<BR>
+Composed by :: Sant Tukaram Maharaj<BR>
+<p>
+
+Joduniyaa kara charanee ttevilaa mathaa<BR>
+Parisawee vinanthee maajzee Sadgurunaathaa<BR>
+Aso naso bhaava aalo tujziyaa ttaayaa<BR>
+Kripaa drishtee paahe majzakade Sadgururaayaa<BR>
+Akhandeeta asaave aise vaatate paayee<BR>
+Sandoonee sankoch ttaava todaasaa deyee.<BR>
+Tukaahmane Devaa maajzee vedeevaakudee<BR>
+Naame bhavapaasaa haathee aapulyaa thondi<BR>
+<p>
+
+2 . BHUPALI<BR>
+Composed by :: Sant Janabai<BR>
+Uttaa Paandurangaa aataa prabhaatasamayo paatalaa<BR>
+Vaishnawaancha melaa garudapaaree daatalaa<BR>
+Garuda paaraapaasunee mahaadwaaraa payanta<BR>
+Suravaraanchee maandee ubhee jodooniyaa haat<BR>
+Suka anakaadika naarada tumbara bhaktanchyaa kotee<BR>
+Trisool damaroo ghewooni wubhaa girijechaa patee<BR>
+Kaleeyugeechaa bhakta Namaa ubhaa keertanee<BR>
+Paatteemaage wubhee dolaa laavuniyaa Janee<BR>
+<p>
+
+3 BHUPALI<BR>
+Composed by :: Shri Krishna Jogiswar Bhishma<BR>
+Utta utta Sri Sainaathaguru charana kamala daavaa<BR>
+Aadhivyaadhi bhavataapa vaarunee taaraa jadajeevaa :(dhr):<BR>
+Gelee tumha soduniyaa bhava tama rajanee vilayaa<BR>
+Pareehi agnaanaasee tumachee bhulavi yogamaayaa<BR>
+Sakthi na amhaa yatkinchitahee tijalaa saaraya<BR>
+Tumheecha teete saaruni daavaa mukha jana taaraayaa<BR>
+Bho Sainaatha Maharaaja bhava timiranaasaka ravee<BR>
+Agnanee aamhee kitee tumhicha varnaava thoravee<BR>
+Thee varnitaa bhaagale bahuvadani sesvidhi kavee<BR>
+Sakripa howuni mahimaa tumachaa tumheecha vadavaava Adhi….. Utha…..<BR>
+Bhakta manee sadbhaava dharooni je tumha anusarale,<BR>
+Dhyaanyasthawa te darsana tumache dwwari ubhe ttele<BR>
+Dhyaanasthaa tumha asa paahunee mana amuche ghaale,<BR>
+Paree thwadvachanaamrith praasaayaate aatura jzhaale<BR>
+Wughadoonee netrakamalaa deenabandhu Ramakaanta,<BR>
+Paahi baa kripadrishtee baalakaa jashee maaataa<BR>
+Ranjavee madhuravaanee haree taapa Sainaatha<BR>
+Aamhceecha aapule karyaasthava tuja kashtavito Deva<BR>
+Sahana karisil te aikuni dyaavee bhett Krishna daava<BR>
+Utha…… adhivyadhi<BR>
+<p>
+
+4. BHUPALI<BR>
+Composed by :: Sant Namdev<BR>
+Utta Panduranga aataa darash dhya sakala<BR>
+Jzhala arunodaya sarali nidrechi vela<BR>
+Sant sadhu muni avaghe jhaleti ghola<BR>
+Soda sheje sukhe aata bagdu ghya mukha kamala<BR>
+Rang mandapi mahadwari jzzaalise daati<BR>
+Man utaaveel roop pahawaya drishti.<BR>
+Rahee rakhumabai tumha yewoo dya daya<BR>
+Sheje haalawunee jage kara Dev raya<BR>
+Garud Hanumant ubhe paahatee wat<BR>
+Swargiche surwar ghewuni aale bobhat<BR>
+Zhale muktha dwar laabha zhala rokada<BR>
+Vishnudas naama ubha ghewooni kakada.<BR>
+<p>
+
+5. ABHANG Aarthi with Five-Wick Lamp<BR>
+Composed by :: Shri Krishna Jogiswar Bhishma<BR>
+Ghewuniya panchaarati, karoo Babansi aarati<BR>
+Utta utta ho bandhawa. Owaaloo ha Ramadhava.<BR>
+Karooniya sthira man, pahu gambhirira he dhyan<BR>
+Sayeeche he dhyan pahu gambhirira he dhyan<BR>
+Krishnanatha Datt Sai jado chitta tujze paayee<BR>
+Chitta Deva paayee Jado chitta tuzhe paayee<BR>
+<p>
+
+6.KAKAD AARTHI<BR>
+Composed by:: Shri Krishna Jogiswar Bhishma<BR>
+Kaakad aarati kareeto Sainatha deva<BR>
+Chinmaya roop daakhavee ghewuni balak laghu seva<BR>
+Kaam krodh mad matsar aattunee kaakada kela<BR>
+Vairagyache toop ghaaluni mee to bhijaveela<BR>
+Sainath Guru bakti jwalane to mee petawila<BR>
+Tad vryitti jaluni guroo ne prakash paadila<BR>
+Dwaita tama naasooni milavi tatswaroopi jeewa<BR>
+Chinmaya …. Kaakad…. Aarati….<BR>
+Bhoochar khechar vyaapooni awaghe hritkamali raahasee<BR>
+Tochi dattaadev tu shridi raahuni paawasee<BR>
+Rahooni yethe anayatrahitoo baktaastava dhavasee<BR>
+Nirasooniyaa sankata daasaa anubhawa daavisee<BR>
+Na kale twalleelahee konyaa devaa waaa maanavaa<BR>
+Chinmaya …. Kaakad…. Aarati….<BR>
+Twat yasha dundubheene saare ambar he kondale<BR>
+Sagun murti paahanyaa aatur jan Shirdee aale<BR>
+Proshuni twadvachanaamrita aamuche dehabhaan haarpale<BR>
+Sodooniyaa durabhimaan maanas twaccharanee waahile<BR>
+Kripa karooniya Sai maawle daas padari ghyaawaa<BR>
+Chinmaya …. Kaakad…. Aarati….<BR>
+<p>
+
+7. KAKADA AARTHI<BR>
+Composed by :: Sant Tukaram Maharaj<BR>
+Bhaktaachiya potee bodh kaakada jyoti<BR>
+Pancha prana jeevebhave owaaloo aarthi<BR>
+Owaaloo aaratee maajyza pandhareenaatha majyza Sainathaa<BR>
+Donhi kara jodonee charanee ttevilaa mathaa<BR>
+Kaay mahima varnoo aataa sangane kitee<BR>
+Kotee brahma haiyaa makha pahataa jaatee<BR>
+Rahee rakhmaabaayee ubhya doghee do baahee<BR>
+Mayur pincha chaamara dhaaliti thaayee che thaayee<BR>
+Tuka mhane deep ghewuni unmaneet shobhaa<BR>
+Vittevaree ubha dise laawanya gaabhaa.<BR>
+Owaaloo aaratee …<BR>
+<p>
+
+8. PADH<BR>
+Composed by :: Sant Namadev<BR>
+Utta utta saadhu sant aapulale hit<BR>
+Jaaeel jaaeel ha nardeh mag kaincha bhagawan<BR>
+tUttoniya pahaante baba ubha ase vitte<BR>
+Charan tayaache gomate amrit drishti awalokaa<BR>
+Utta utta ho vegesee chalaa jaawoonya raawulaasee<BR>
+Jalatil patakaanchya raashi kaakad aarati dekhliyaa<BR>
+Jaage karaa rukhminivar, dev aahe nijasuraant<BR>
+Vege limbalon karaa drisht hoeel tayasee<BR>
+Daaree waajantree vaajatee dhol damaame garijatee<BR>
+Hote kaakad aarati maazhyaa Sadguru rayaanchee<BR>
+Simhanaad shankabheree aanand hoto mahaa dwaaree<BR>
+Keshawaraaj vittewaree naamaa charan vandito<BR>
+<p>
+
+9. BHAJAN<BR>
+Composed by :: Smt. Raghunath Savitri Tendulkar<BR>
+Sainath Guru maajhe aaee<BR>
+Majlaa thaav dhyaavaa paayeen<BR>
+Datta raaja Guru majhe aaee<BR>
+Majlaa thaav dhyaavaa paayeen<BR>
+<p>
+
+10. SAINATH PHABHATASTAK<BR>
+Composed by :: Shri Krishna Jogiswar Bhisma<BR>
+Prabhaat samayeen nabhaa shubh ravi prabha phaankalee<BR>
+Smare guru sadaa ashaa samayin tya chhale naa kalee<BR>
+Monhoni kar jodoonee karoon ataa Guru praarthanaa<BR>
+Samartha Guru Sainath puravee manovaasanaa<BR>
+Tamaa nirasi bhaanu ha Guruhi naasi agnyaanataa<BR>
+Parantu Suruchee karaa na ravihee kadhee saamyathaa<BR>
+Punhaa thimir janm ghe Gurukrupeni agnaan naa<BR>
+Samartha Guru Sainath puravee manovaasanaa<BR>
+Ravi pragat howuni twarita ghaalawee aalasaa<BR>
+Tasa guruhi sodawee sakal dushkriti laalasaa<BR>
+Haroni abhimaanahee jadwi tatpadee bhavanaa<BR>
+Samartha Guru Sainath puravee manovaasanaa<BR>
+Guroosi upama dise vidhi hareeharaanchi unee<BR>
+Kuttoni mag yeie tee kavaniyaa ugee paahunee<BR>
+Tuzheech upama tulaa baravi shobhate sajjanaa<BR>
+Samartha Guru Sainath puravee manovaasanaa<BR>
+Samaadhi uthroniyaa Guru chalaa mashidee kade<BR>
+Twadeeya vachnokti tee madhur vaaritee saankhade<BR>
+Ajaataripu Sadguro akhil pathkaa bhanjanaa<BR>
+Samartha Guru Sainath puravee manovaasanaa<BR>
+Ahaa susamayaasi yaa Guru uttoniyaa baisale<BR>
+Vilokuni padaashrithaa tadiya aapade naasile<BR>
+Asaa suhithkaaree yaa jagati konihee anya naa<BR>
+Samartha Guru Sainath puravee manovaasanaa<BR>
+Asa bahut shaahanaaa pari na jyaa Guroochi kripaa<BR>
+Na tatswahit tyaa kalae karitase rikamya gapaa<BR>
+Jari Gurupada dhari sudhrid bhaktineh tho manaa<BR>
+Samartha Guru Sainath puravee manovaasanaa<BR>
+Guro vinati mee karee hridayamandiree yaa basaa<BR>
+Samasth jag he guruswaroopee ttaso maanasaa<BR>
+Ghado satat sathkrutee matihi deh jagatjpaavanaa<BR>
+Samartha Guru Sainath puravee manovaasanaa<BR>
+Preme yaa asthakaashi paduni Guruvaraa<BR>
+Praarthitee je prabhaatee<BR>
+Tyaanche chittasee deto akhilharooniyaan<BR>
+Braanti mee nitya shaantee<BR>
+Aise he Sainathe kathuneesuchvileh jevee yaa baalakaasee<BR>
+Tevee tyaa Krishnapaayee namuni<BR>
+Savinayeh arpito ashtakaasee<BR>
+<p>
+
+XI. PADH<BR>
+Composed by :: Sri Dasganu Maharaj<BR>
+Sai raham nazar karnaa Bachonkaa paalan karnaa<BR>
+Sai raham nazar karnaa Bachonkaa paalan karnaa<BR>
+Jaanaatumneh jagat pasaaraa Sabahee jzhoott jamaanaa<BR>
+Jaanaatumneh jagat pasaaraa Sabahee jzhoott jamaanaa Sai raham…<BR>
+Mein andhaa hoon bandaa aabkaa Mujhse prabhu dikhlaanaa<BR>
+Mein andhaa hoon bandaa aabkaa Mujhse prabhu dikhlaanaa Sai raham…<BR>
+Daas ganu kahe ab kyaa boloo Thak gayi meree rasnaa.<BR>
+Daas Ganu kahe ab kyaa boloo Thak gayi meree rasnaa. Sai raham…<BR>
+<p>
+
+XII. PADH<BR>
+Composed by :: Sri Dasganu Maharaj<BR>
+Raham nazar karo, ab more Sayee Tumbin naheen mujze maa baap bhaayee<BR>
+Raham nazar karo Raham nazar karo<BR>
+Mein andhaa hoon banda tumhaaraa Mein andhaa hoon banda tumhaaraa<BR>
+Mein naa jaanoon Mein naa jaanoon Mein naa jaanoon Allaah ilaahee Raham ....<BR>
+Khalee jamaanaa meineh gamaayaa Khalee jamaanaa meineh gamaayaa<BR>
+Saathee aakhar kaa Saathee aakhar kaa Saathee aakhar kaa kiyaa na koyee Raham ....<BR>
+Apne maszhid ka zhaadoo Ganoo hai Apne maszhid ka zhaadoo Ganoo hai<BR>
+Maalik hamaare Maalik hamaare Maalik hamaare tum Baabaa Sayee Raham ....<BR>
+<p>
+
+XIII. PADH<BR>
+Composed by :: Sant Jana Bai<BR>
+Tujze kai devoon Saawalyaa mee khaayaa taree hoo<BR>
+Tujze kai devoon Sadguru mee khaayaa taree<BR>
+Mee dubalee batik Naamyaachee jaan Shreeharee<BR>
+Mee dubalee batik Naamyaachee jaan Shreeharee<BR>
+Uchishta tulaa denen hee ghosht naa baree hoo<BR>
+Uchishta tulaa denen hee ghosht naa baree<BR>
+Toon jagannaath tujze deoon kashire bhaakaree<BR>
+Toon jagannaath tujze deoon kashire bhaakaree<BR>
+Nako ant madeeya pahoon sakhya bhagwantaa, Shrikaantaa<BR>
+Maadhyaahnraatra vultoni gaelee hee aatan aan chittaa<BR>
+Ja hoieel tujha re kaakadaa hee raolaantaree hoo<BR>
+Ja hoieel tujha re kaakadaa hee raolaantaree<BR>
+Aanateel bhakt naivedya hi naanaaparee<BR>
+Aanateel bhakt naivedya hi naanaaparee<BR>
+<p>
+
+XIV. PADH<BR>
+Composed by:: Shri Krishna Jogiswar Bhishma<BR>
+Shreesadguru Baabaa Saayee hoo Shreesadguru Baabaa Saayee<BR>
+Tujh waanchuni aashraya naahi bhutalee, Tujh waanchuni aashraya naahi bhutalee<BR>
+Mee paapee patit dheemanda hoo Mee paapee patit dheemanda<BR>
+Taarane malaa Gurunathaa jhadkari Taarane malaa Sainathaa jhadkari<BR>
+Toon shaantikshamechaa meroo hoo Toon shaantikshamechaa meroo<BR>
+Toon bhavaarnaveeche taaru Guruvaraa Toon bhavaarnaveeche taaru Guruvaraa<BR>
+Guruvaraa majzasi paamaraa ataan udharaa<BR>
+Tvarit lavlaahee tvarit lavlaahee<BR>
+Mee budato bhavbhaya dohee udharaa Mee budato bhavbhaya dohee udharaa<BR>
+Shreesadguru Baabaa......<BR>
+<p>
+
+Shri Satchitaanand Sadguru Sainaath Maharaaj ki Jai<BR>
+Aum Raajaadhiraaja Yogiraaja ParaBrahma Sainaath Maharaaj<BR>
+Shri Satchitaanand Sadguru Sainaath Maharaaj ki
+ </BODY>
+</HTML>

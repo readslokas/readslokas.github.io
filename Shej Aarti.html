@@ -1,0 +1,201 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=1
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",50)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 270%;
+    text-align: center;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body>
+<BR>
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<p>
+1 - AARTHI<BR>
+Composed by : Sant Tukaram Maharaj.<BR>
+Owaloo aaratee mazhaa Sadgurunaathaa - maazhaa Sainaatha<BR>
+Paanchaahee tatwaanche deep laawilaa aataan<BR>
+Nirgunaachee sthitee kaisee aakaaraa aalee - Baba aakaaraa aalee<BR>
+Sarvaa ghatee bharooni vuralee Sayee Maawoolee Owaloo aaratee....<BR>
+RajaTamaSathwa tighe maayaa prasawalee - Mazyawara maayaa prasawalee<BR>
+Mayecheeye potee kaisee maayaa udbhavalee Owaloo aaratee....<BR>
+SaptaSaagaree kaisa khel maandeelaa - Baba khel maandeelaa<BR>
+Khelooniyaa khel awagha visthaar kelaa Owaloo aaratee....<BR>
+Brahmaandeechee rachanaa keisee daakhavilee dolaa - Baba daakhavilee dolaa<BR>
+Tuka hmane maazhaa Swaamee kripaaloo bholaa Owaloo aaratee....<BR>
+<p>
+
+2 : JNANESWAR AARTHI<BR>
+Composed by : Rama Janardhani Swami.<BR>
+Lopale jnaana jagin - hita nenatee konee<BR>
+Avataara Panduranga - nam ttevile jnanee<BR>
+Aaratee Jnaanaraaja - mahaa kaivalya tejaa<BR>
+Sevitee Saadhusanta - hmanu vedhalaa maazha Aaratee Jnaanaraaja.<BR>
+Kanakachee tat kareen - Ubhyaa gopikaa naaree<BR>
+Narada tumbaraho - samgaayan karee Aaratee Jnaanaraaja....<BR>
+Pragata guhya bole - vishwa brahmachi kele<BR>
+Rama Janardanee - payee masthak ttevile Aaratee Jnaanaraaja....<BR>
+<p>
+
+3: TUKARAM AARTHI<BR>
+Composed by : Shri Rameswar Bhat.<BR>
+Aaratee Tukaaraamaa - Swamee Sadguru dhaamaa<BR>
+Satchidaananda murtee - paaya dakhavi aamhaa Aaratee Tukaaraamaa<BR>
+Raaghave Saagaraat - jaise paashaan taarile<BR>
+Taise he tuko baache - abhang rakshile Aaratee Tukaaraamaa...<BR>
+Tukitaa tulanesee - brahma tukasee aale<BR>
+Hmanoni raamesware - charanee mastak ttevile Aaratee Tukaaraamaa...<BR>
+<p>
+
+4 : SEJ AARTHI<BR>
+Composed by : Shri Krishna Jogeswar Bhishma.<BR>
+Jai jai Sainatha aataa pahudaave mandiree ho, Jai jai Sainatha aataa pahudaave<BR>
+mandiree ho<BR>
+Aalavito sapreme tuzhala aaratee ghevuni kareeho, Jai jai Sainatha aataa<BR>
+pahudaave mandiree ho<BR>
+Ranjavisee too madhura bulunee - maaya jashi nija mulaa ho.<BR>
+Ranjavisee too madhura bulunee - maaya jashi nija mulaa ho<BR>
+Bhogisi vyadhee tunch haruniyaa - nijasevak dukhaalaa ho.<BR>
+Bhogisi vyadhee tunch haruniyaa - nijasevak dukhaalaa ho.<BR>
+Dhavuni bhakta vyasana harisi - darshan deshee tyaalaa ho<BR>
+Dhavuni bhakta vyasana harisi - darshan deshee tyaalaa ho<BR>
+Jzhaale astil kasta ateesaya tumache yaa dehaalaa ho Jai jai Sainatha...<BR>
+Skhmaa shayana sundara hee shobhaa - suman shej tyaavareen ho<BR>
+Skhmaa shayana sundara hee shobhaa - suman shej tyaavareen ho<BR>
+Gdhyaavee todee bhakta jananchee - pujan archan kareen ho<BR>
+Gdhyaavee todee bhakta jananchee - pujan archan kareen ho<BR>
+Owaalito panchaprana - jyotee sumatee kareen ho<BR>
+Owaalito panchaprana - jyotee sumatee kareen ho<BR>
+Sevaa kinkara bhakta preetee - attar parimala vaaree ho Jai jai Sainatha...<BR>
+Soduni jaayaa dukha waatate - Baba tava charanaansee ho<BR>
+Soduni jaayaa dukha waatate - Sayee tava charanaansee ho<BR>
+Agnesthavah aasi prasaada - ghevuni nijasadanaasee ho<BR>
+Agnesthavah aasi prasaada - ghevuni nijasadanaasee ho<BR>
+Jaato aata yevu punarapi - twatcharanaanche paashee ho<BR>
+Jaato aata yevu punarapi - twatcharanaanche paashee ho<BR>
+Uttavoon tujala Saimaavule - nijahitasaadhaa yaasee ho<BR>
+Uttavoon tujala Saimavule - nijahitasaadhaa yaasee ho Jai jai Sainatha...<BR>
+<p>
+
+5 : SEJ AARTHI<BR>
+Composed by : Shri Krishna Jogeswar Bhishma.<BR>
+Aataa Swaamee sukhe nidraa karaa avadhutaa - Baba karaa Sainathaa<BR>
+Chinmaya he sukhfhaama jaawuni pahudaa ekaantaa<BR>
+Vairaagyaachaa kunchaa ghewuni chowk jhadeela - Baba chowk jhadeela<BR>
+Tayaawaree supremaachaa shidakaavaa didhalaa Aataa Swaamee...<BR>
+Paayaghadadyaa ghatalyaa sundar navavidhaa bhakti - Baba navavidhaa bhakti<BR>
+Jnaanaachyaa samayaa laawuni ujalalyaa jyotee Aataa Swaamee...<BR>
+Bhaavaarthaanchaa manchaka hridaya kaashee taangilaa - hridaya kaashee<BR>
+taangilaa<BR>
+Manaachee sumane karunee kele sheejelaa Aataa Swaamee...<BR>
+Dwaitaache kapaat laavuni ekatra kele - Baba ekatra kele<BR>
+Durbuddheenchyaa gatte soduni padade sodeele Aataa swaamee...<BR>
+Aashaa trishnaa kal[anechaa Soonduni galabala - Baba Saanduni galabala<BR>
+Dayaa kshamaa shaantee daasee ubhyaa sewelaa Aataa Swaamee...<BR>
+Alakshya unmanee ghevunee Baba naajuk dusshaalaa - Baba naajuk dusshaalaa<BR>
+Niranjana Sadguru swamee nijavile shejelaa Aataa Swaamee...<BR>
+Shri Satchitaanand Sadguru Sainaath Maharaaj ki<BR>
+Shri Guru Deva Datta!<BR>
+<p>
+
+6 : ABHANG<BR>
+Composed by : Sant Tukaram Maharaj.<BR>
+Paahen prasadachee vaat ghyaave dhuvoniyaan taat<BR>
+Sesh ghewoniaan taat Tumche jhaliyaan bhojan<BR>
+Jhaalo aata eksavaa Tumha aadu niyaa devaa<BR>
+Tuka hmane aatan chitt karooni raahilo nischint.<BR>
+<p>
+
+7 : ABHANG<BR>
+Composed by : Sant Tukaram Maharaj.<BR>
+Paawala prasaad aataa vitto nijaave - Baba aataa nijaave<BR>
+Apulaa to shrama kalo yetase bhaave<BR>
+Aataan Swaamee sukhe nidraa karaa Gopala - Baba Sai dayaalaa<BR>
+Purale manorath jato aapule sthalaa.<BR>
+Tumhaasee jaagawoo aamhi aapulya chaada - Baba aapulya chaada<BR>
+Shubhashub karme dosh haraavayaa peedaa.<BR>
+Aataan Swaamee sukhe nidraa karaa Gopala - Baba Sai dayaalaa<BR>
+Purale manorath jato aapule sthalaa.<BR>
+Tuka hmane didhale utchistaache bhojan - utchistaache bhojan<BR>
+Naahi nivadile aamha apulya bhinn.<BR>
+Aataan Swaamee sukhe nidraa karaa Gopala - Baba Sai dayaalaa<BR>
+Purale manorath jato aapule sthalaa.<BR>
+Aataan Swaamee sukhe nidraa karaa Gopala - Baba Sai dayaalaa<BR>
+Purale manorath jato aapule sthalaa.<BR>
+Sadguru Sainaath Maharaaj ki<BR>
+Aum Raajaadhiraaja Yogiraaja ParaBrahma Sainaath Maharaaj<BR>
+<p>
+
+Shri Satchitaanand Sadguru Sainaath Maharaaj ki
+ </BODY>
+</HTML>

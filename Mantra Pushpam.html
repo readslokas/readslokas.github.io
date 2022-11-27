@@ -1,0 +1,207 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=1
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",50)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 270%;
+    text-align: center;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body>
+<BR>
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<p>
+Mantra Pushpam <BR><BR>
+
+Om Yopaam pushpam veda <BR>
+Pushpavaan prajavaan pashumaan Bhavathi <BR>
+Chandramaa vaa apaam pushpam <BR>
+Pushpavaan prajavaan pashumaan Bhavathi <BR><BR>
+
+Ya evam veda Yopaam aayathanam veda Aayathanavaan bhavathi <BR><BR>
+
+Agnirvaa Apam aayathanam <BR>
+Aayathanavaan bhavathi <BR>
+Yogner aayathanam veda <BR>
+Aayathanavaan bhavathi <BR>
+Aapo va Agner aayathanam <BR>
+Aayathanavaan bhavathi <BR><BR>
+
+Ya evam veda, Yopaamaayathanam veda, Aayathanavaan bhavathi <BR><BR>
+
+Vaayurvaa Apam aayathanam <BR>
+Aayathanavaan bhavathi <BR>
+Yo vaayor aayathanam veda <BR>
+Aayathanavaan bhavathi <BR>
+Aapo vhy vaayo ra ayathanam <BR>
+Aayathanavaan bhavathi <BR><BR>
+
+Ya evam veda, Yopaamaayathanam veda, Aayathanavaan bhavathi <BR><BR>
+
+Asou vhy tapann apaam aayathanam <BR>
+Aayathanavaan bhavathi <BR>
+Yo mushyathapatha aayathanam veda <BR>
+Aayathanavaan bhavathi <BR>
+Aapo vaa amushyatha patha aayathanam <BR>
+Aayathanavaan bhavathi <BR><BR>
+
+Ya evam veda, Yopaamaayathanam veda, Aayathanavaan bhavathi <BR><BR>
+
+Chandramaa vaa Apam ayathanam <BR>
+Aayathanavaan bhavathi <BR>
+Yas chandramasa aayathanam veda <BR>
+Aayathanavaan bhavathi <BR>
+Aapo vhy Chandramasa aayathanam <BR>
+Aayathanavaan bhavathi <BR><BR>
+
+Ya evam veda, Yopaamaayathanam veda, Aayathanavaan bhavathi <BR><BR>
+
+Nakshatraa Nivaa Apam ayathanam <BR>
+Aayathanavaan bhavathi <BR>
+Yo Nakshatraanaam aayathanam veda <BR>
+Aayathanavaan bhavathi <BR>
+Aapo vhy Nakshatraanaama ayathanam <BR>
+Aayathanavaan bhavathi <BR><BR>
+
+Ya evam veda, Yopaamaayathanam veda, Aayathanavaan bhavathi <BR><BR>
+
+Parjanyo vaa Apam ayathanam <BR>
+Aayathanavaan bhavathi <BR>
+Yah Parjanyasya aayathanam veda <BR>
+Aayathanavaan bhavathi <BR>
+Aapo vhy Parjanyasya ayathanam <BR>
+Aayathanavaan bhavathi <BR><BR>
+
+Ya evam veda, Yopaamaayathanam veda, Aayathanavaan bhavathi <BR><BR>
+
+Samvathsaro vaa Apama ayathanam <BR>
+Aayathanavaan bhavathi <BR>
+YaS samvathsarasy aayathanam veda <BR>
+Aayathanavaan bhavathi <BR>
+Aapo vhy Samvathsarasya ayathanam <BR>
+Aayathanavaan bhavathi <BR><BR>
+
+Ya evam veda, Yopsu naavam prathishtitaam veda, pratyeva thishTathi <BR><BR>
+
+Om, Raajaadhi raajaaya Prasahya saahine <BR>
+Namo Vayam whyshravanaya kurmahe <BR>
+Sa me kaamaan kaama kaamaaya mahyam <BR>
+Kaameshwaro whyshravaNo dadhaathu <BR>
+Kuberaaya whyshravaNaaya <BR>
+Mahaarajaaya Namaha <BR><BR>
+
+Om Thath Bramha <BR>
+Om Thath Vaayuhu <BR>
+Om Thath Aatma <BR>
+Om Thath Satyam <BR>
+Om Thath Sarvam <BR>
+Om Thath Purornamaha <BR><BR>
+
+Anthas-charathi Bhuteshu Guha yaam  <BR>
+Vishwamurthishu  <BR>
+Thvam-yagnas-tvam  <BR>
+Vashatkaaras-tvam  <BR>
+Indras-tvagam  <BR>
+Rudras-tvam  <BR>
+Vishnus-tvam  <BR>
+Bramhas-tvam  <BR>
+Prajaa Pathihi <BR><BR>
+
+Tvam Thadaapa Aapo-Jyothiraso Amritam Bramha Bhoorbhuvassuvarom <BR><BR>
+
+Na KarmaNaa na Prajayaa Dhanena Thyaage Naike <BR>
+Amritha Swamaanashuhu <BR><BR>
+
+PareNa naakam nihitam Guhaayaam <BR>
+Vibhrajade Thadyathayo Vishanthi <BR><BR>
+
+Vedantha Vigyaana Sunishchitaartha-ssanyaasa <BR>
+Yogaa-dyatha-Yashshudda-satvaaha <BR><BR>
+
+Te Bramha Loke Tu Paraantha Kaale <BR>
+Paraamritaath Parimuchyanthi sarve <BR><BR>
+
+Dahram dvipaapam Parame-shwabhutam <BR>
+Yat-pundareekam Paramadhya Sagum-stham <BR><BR>
+
+Tatraapi Dahram gaganam vishokas-tasmin <BR>
+Yadanthas-thadupaasi-tavyam <BR><BR>
+
+Yo vedaadou swarah prokta vedante <BR>
+Cha prathishtitaha <BR><BR>
+
+Thasya Prakriti Leenasya <BR>
+Yah paraswa maheshwaraha<BR>
+
+</BODY>
+</HTML>

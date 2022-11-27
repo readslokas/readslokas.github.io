@@ -1,0 +1,189 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=4
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",25)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 250%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 230%;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body class="block">
+
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<p>
+Angam hare pulaka bhooshanamAsrayanthi<BR>
+BhringAnga neva mukulAbharanam thamAlam<BR>
+Angi krithA khila vibhuthira pAnga leelA<BR>
+MAngalya dAsthu mama mangala devathAyAha 1<BR><BR>
+
+MugdhA muhur vidha dhadathi vadhane MurarEhe |<BR>
+PremathrapA pranihithAni gathA gathAni<BR>
+MALA dhrishOr madhukareeva mahoth paleyA<BR>
+SAme sriyam dhisathu sagara sambhavAyAhA 2<BR><BR>
+
+AmeelithAksha madhigamya mudhA Mukundam<BR>
+Ananda kandha manimesha mananga thanthram<BR>
+Akekara stiththa kanI nika pashma nethram<BR>
+Bhoothyai bhavenmama bhujanga sayAnga nAyAAha 3<BR><BR>
+
+BAhwanthare madhujitha sritha kausthubeyA<BR>
+HArA valeeva Hari neela mayi vibhAthI<BR>
+KamapradhA bhagavathopi kadAksha mAlA<BR>
+KalyAnamA vahathu me kamala layAyAAha 4<BR><BR>
+
+KAlAmbudhAli lalithOrasi kaita bhArEhe<BR>
+DhArA dhare sphurathi yA thadi thanga neva<BR>
+MAthus samastha jagatham mahaneeya muurthihi<BR>
+BadrAnime dhisathu bhargAva nandanAyAAha 5<BR><BR>
+
+Praptham padam pradhamatha khaluyat prabhavAthu<BR>
+MangalyabhAji madhu mAdhini manamathena<BR>
+Mayyapadet thathiha manthara meeksha nArdham<BR>
+ManthAlasam cha makaralaya kanyakAyAAha 6<BR><BR>
+
+ViswAmarendra padhavibrama dhAna dhaksham<BR>
+Ananda hethu radhikam mura vidhvishopi<BR>
+Eshan nisheedhathu mayi kshanamee kshanArtham<BR>
+Indhivarodhara sahodhara mindhirayAAha 7<BR><BR>
+
+IshtA visishta mathayopi yaya dhayardhra<BR>
+Dhrishtya thrivishta papadam sula bham labhanthe<BR>
+Drishti prahrushta kamlodhara deepthi rishtAm<BR>
+Pushtim krishIshta mama pushkara vishtarayAAha 8<BR><BR>
+
+DhadyAd dhayAnu pavano dravinAmbhudarAm<BR>
+Asminna kinchana vihanga sishou vishanne<BR>
+Dhushkarma garmma mapaneeya chiraya dhooram<BR>
+NarAyana pranayinee nayanambhu vahaha 9<BR><BR>
+
+Gheerdheva thethi garuda dwaja sundarIthi<BR>
+SAkambhareethi sasi shekara vallebhethi<BR>
+Srishti sthithi pralaya kelishu samsthitha yai<BR>
+Thasyainamas thribhuvanai ka-guros tharunyai 10<BR><BR>
+
+SruthyaI namosthu shubha karma phala prasoothyai<BR>
+RathyaI namosthu ramaneeya gunArna vAyai<BR>
+ShakthyaI namosthu satha pathra nikethanAyai<BR>
+PushtyaI namosthu purushOtthama vallabhAyai 11<BR><BR>
+
+Namosthu nAleekha nibhAnanAyAi<BR>
+Namosthu dhugdhog dhadhi janma bhoomyAi<BR>
+Namosthu somAmrutha sOdharAyAi<BR>
+Namosthu nArayana vallabhAyAi 12<BR><BR>
+
+Namosthu hemAmbhuja peetikAyAi<BR>
+Namosthu bhoo mandala nAyikAyAi<BR>
+Namosthu devAthi dhayA parAyAi<BR>
+Namosthu SArangAyudha vallabhAyAi 13<BR><BR>
+
+Namosthu devyai bhrugu nandanAyAi<BR>
+Namosthu vishnorura sisthithAyAi<BR>
+Namosthu lakshmyai kamalAlayayAi<BR>
+Namosthu dhamodhara vallabhAyAi 14<BR><BR>
+
+Namosthu KAnthyai kamalekshanAyAi<BR>
+Namosthu bhoothyai bhuvanaprasoothyAi<BR>
+Namosthu devadhibhir archithAyAi<BR>
+Namosthu nandhAthmaja vallabhAyAi 15<BR><BR>
+
+Sampath karaani sakalendriya nandanAni<BR>
+SAmrajya dhAna vibhavAni saroruhAkshi<BR>
+Twad vandanAni dhurithA haranodhya thAni<BR>
+Mameva mAtharanisam kalayanthu mAnye 16<BR><BR>
+
+Yath KadAksha samupAsanA vidhihi<BR>
+Sevakasya sakalArtha sampadhaha<BR>
+Santhanodhi vachanAnga mAnasaihi<BR>
+Twaam murari hridayaeswareem bhaje 17<BR><BR>
+
+Sarasija nilaye saroja hasthe<BR>
+Dhavalatha mAmsuka gandha mAlya shobhe<BR>
+Bhagavathi hari vallabhe manogne<BR>
+Tribhuvana bhoothikari praseeda mahyam 18<BR><BR>
+
+Dhiggasthibhihi kanaka kumbha mukhA vasrushta<BR>
+Svarvahini vimala chAru jalaapluthAngim<BR>
+PrAthar namami jagathaam janani masesha<BR>
+LokAdhinAtha grihinim amrithAbhi puthreem 19<BR><BR>
+
+Kamale KamalAksha vallabhe twam<BR>
+KarunA poora tharangithaira pAngaihi<BR>
+Avalokaya mAma kincha nAnAm<BR>
+Prathamam pAthrama krithrimam dhAya yAha 20<BR><BR>
+
+Sthuvanthi ye sthuthibhira meediranwam<BR>
+Thrayeemayim thribhuvana mAtharam ramAm<BR>
+GunAdhikA guruthara bhAgya bhAgino<BR>
+Bhavanthi the bhuvi budha bhAvithA sayAha 21<BR><BR>
+
+</body>
+</html>

@@ -1,0 +1,184 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=1.45
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",25)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 160%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 160%;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body class="block">
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+
+<p>
+இடரினுந் தளரினும் எனதுறுநோய்<BR>
+தொடரினும் உனகழல் தொழுதெழுவேன்<BR>
+கடல்தனில் அமுதொடு கலந்தநஞ்சை<BR>
+மிடறினில் அடக்கிய வேதியனே<BR>
+இதுவோஎமை யாளுமா<BR>
+றீவதொன் றெமக்கில்லையேல்<BR>
+அதுவோவுன தின்னருள்<BR>
+ஆவடு துறையரனே….1<BR><BR>
+
+வாழினுஞ் சாவினும் வருந்தினும்போய்<BR>
+வீழினும் உனகழல் விடுவேனல்லேன்<BR>
+தாழிளந் தடம்புனல் தயங்குசென்னிப்<BR>
+போழிள மதிவைத்த புண்ணியனே<BR>
+இதுவோஎமை யாளுமா<BR>
+றீவதொன் றெமக்கில்லையேல்<BR>
+அதுவோவுன தின்னருள்<BR>
+ஆவடு துறையரனே….2<BR><BR>
+
+நனவினுங் கனவினும் நம்பாவுன்னை<BR>
+மனவினும் வழிபடல் மறவேன்அம்மான்<BR>
+புனல்விரி நறுங்கொன்றைப் போதணிந்த<BR>
+கனலெரி யனல்புல்கு கையவனே<BR>
+இதுவோஎமை யாளுமா<BR>
+றீவதொன் றெமக்கில்லையேல்<BR>
+அதுவோவுன தின்னருள்<BR>
+ஆவடு துறையரனே….3<BR><BR>
+
+தும்மலோ டருந்துயர் தோன்றிடினும்<BR>
+அம்மல ரடியலால் அரற்றாதென்நாக்<BR>
+கைம்மல்கு வரிசிலைக்<BR> கணையொன்றினால்<BR>
+மும்மதிள் எரியெழ முனிந்தவனே<BR>
+இதுவோஎமை யாளுமா<BR>
+றீவதொன் றெமக்கில்லையேல்<BR>
+அதுவோவுன தின்னருள்<BR>
+ஆவடு துறையரனே….4<BR><BR>
+
+கையது வீழினுங் கழிவுறினுஞ்<BR>
+செய்கழல் அடியலால் சிந்தைசெய்யேன்<BR>
+கொய்யணி நறுமலர் குலாயசென்னி<BR>
+மையணி மிடறுடை மறையவனே<BR>
+இதுவோஎமை யாளுமா<BR>
+றீவதொன் றெமக்கில்லையேல்<BR>
+அதுவோவுன தின்னருள்<BR>
+ஆவடு துறையரனே….5<BR><BR>
+
+வெந்துயர் தோன்றியோர் வெருவுறினும்<BR>
+எந்தாயுன் அடியலால் ஏத்தாதென்நா<BR>
+ஐந்தலை யரவுகொண் டரைக்கசைத்த<BR>
+சந்தவெண் பொடியணி சங்கரனே<BR>
+இதுவோஎமை யாளுமா<BR>
+றீவதொன் றெமக்கில்லையேல்<BR>
+அதுவோவுன தின்னருள்<BR>
+ஆவடு துறையரனே….6<BR><BR>
+
+வெப்பொடு விரவியோர் வினைவரினும்<BR>
+அப்பாவுன் னடியலால் அரற்றாதென்நா<BR>
+ஒப்புடை யொருவனை உருவழிய<BR>
+அப்படி அழலெழ விழித்தவனே<BR>
+இதுவோஎமை யாளுமா<BR>
+றீவதொன் றெமக்கில்லையேல்<BR>
+அதுவோவுன தின்னருள்<BR>
+ஆவடு துறையரனே….7<BR><BR>
+
+பேரிடர் பெருகியோர் பிணிவரினுஞ்<BR>
+சீருடைக் கழலலாற் சிந்தைசெய்யேன்<BR>
+ஏருடை மணிமுடி இராவணனை<BR>
+ஆரிடர் படவரை யடர்த்தவனே<BR>
+இதுவோஎமை யாளுமா<BR>
+றீவதொன் றெமக்கில்லையேல்<BR>
+அதுவோவுன தின்னருள்<BR>
+ஆவடு துறையரனே….8<BR><BR>
+
+உண்ணினும் பசிப்பினும் உறங்கினும்நின்<BR>
+ஒண்மல ரடியலால் உரையாதென்நாக்<BR>
+கண்ணனுங் கடிகமழ் தாமரைமேல்<BR>
+அண்ணலும் அளப்பரி தாயவனே<BR>
+இதுவோஎமை யாளுமா<BR>
+றீவதொன் றெமக்கில்லையேல்<BR>
+அதுவோவுன தின்னருள்<BR>
+ஆவடு துறையரனே….9<BR><BR>
+
+பித்தொடு மயங்கியோர் பிணிவரினும்<BR>
+அத்தாவுன் அடியலால் அரற்றாதென்நாப்<BR>
+புத்தருஞ் சமணரும் புறனுரைக்கப்<BR>
+பத்தர்கட் கருள்செய்து பயின்றவனே<BR>
+இதுவோஎமை யாளுமா<BR>
+றீவதொன் றெமக்கில்லையேல்<BR>
+அதுவோவுன தின்னருள்<BR>
+ஆவடு துறையரனே….10<BR><BR>
+
+அலைபுனல் ஆவடு துறையமர்ந்த<BR>
+இலைநுனை வேற்படை யெம்மிறையை<BR>
+நலம்மிகு ஞானசம் பந்தன்சொன்ன<BR>
+விலையுடை யருந்தமிழ் மாலைவல்லார்<BR>
+வினையாயின நீங்கிப்போய்<BR>
+விண்ணவர் வியனுலகம்<BR>
+நிலையாகமுன் னேறுவர்<BR>
+நிலமிசை நிலையிலரே….11<BR>
+</p>
+
+</body>
+</html>

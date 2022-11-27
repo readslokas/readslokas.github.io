@@ -1,0 +1,124 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=0
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",25)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 250%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 230%;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body class="block">
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<P>
+Shambho Maha deva deva, Shiva<BR>
+Shambho Maha deva devesa Shambho,<BR>
+Shambho Mahadeva deva deva<BR><BR>
+
+PhAlA vanam rath kireetam<BR>
+PhAlA nethrA chisha Dagdha pancheshu Keetam<BR>
+Soola hathArAthi kootam Shudha mardhendu choodam<BR>
+Bhajhe MArga bandhum 1 <BR>
+(Shambho Maha deva deva)<BR><BR>
+
+Ange virAjad bhujaNgaM,<BR>
+Abhra GangA tharangAbhi rAmoththa mAngam,<BR>
+Om kAra vAti kurangam, Sidha saMsevitAngriM<BR>
+Bhajhe MArga bandhum 2<BR>
+(Shambho Maha deva deva)<BR><BR>
+
+NithyaM ChidAnanda rUpam,<BR>
+Ninhu thA sesha lokEsha vairi prathApam,<BR>
+KArthAs varAgendra chApaM, krithivAsam,<BR>
+Bhaje divya sanmArga bandhum 3<BR>
+(Shambho Maha deva deva)<BR><BR>
+
+Kandarpa darpagna mEsam,<BR>
+KAla kantam Mahesam MahA vyoma kesam,<BR>
+KundAbha dantaM Suresham, Koti surya prakAsam,<BR>
+Bhajhe MArga bandhum 4<BR>
+(Shambho Maha deva deva)<BR><BR>
+
+MandAra Bhutheru dAram, <BR>
+MathA ragendra sAram, Maha gouryA dooram,<BR>
+Sindhura dhura prachAram, Sindhu rAjAdhi dheeram, <BR>
+Bhajhe MArga bandhum 5<BR>
+(Shambho Maha deva deva)<BR><BR>
+
+Appayya yajjvendra Geetham,<BR>
+stotra rAjam Patedh yasthu Bhakthya prayAne,<BR>
+ThasyArtha sidhim Vidath the, MArga madhye<BR>
+AbhayaM chAshu thoshI MahesaH 6<BR>
+(Shambho Maha deva deva)<BR><BR>
+
+<P>
+ </BODY>
+</HTML>

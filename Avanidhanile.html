@@ -1,0 +1,121 @@
+<HTML>
+<meta charset="UTF-8">
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=1
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",50)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 270%;
+    text-align: center;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body>
+<BR>
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<P>
+அவனிதனிலே பிறந்து<BR>
+மதலை எனவே தவழ்ந்து<BR>
+அழகு பெறவே நடந்து<BR>
+இளைஞோனாய்<BR><BR>
+
+அருமழலையே மிகுந்து<BR>
+குதலை மொழியே புகன்று<BR>
+அதிவிதம் அதாய் வளர்ந்து<BR>
+பதினாறாய்<BR><BR>
+
+சிவகலைகள் ஆகமங்கள்<BR>
+மிகவுமறை ஓதும் அன்பர்<BR>
+திருவடிகளே நினைந்து துதியாமல்<BR>
+தெரிவையர்கள் ஆசை மிஞ்சி <BR>
+வெகுகவலை யாய்உழன்று <BR>
+திரியும் அடியேனை<BR>
+உன்றன் அடிசேராய்<BR><BR>
+
+மவுன உபதேச சம்பு<BR>
+மதியறுகு வேணி தும்பை<BR>
+மணிமுடியின் மீதணிந்த மகதேவர்<BR>
+மனமகிழவே அணைந்து<BR>
+ஒருபுறமதாகவந்த<BR>
+மலைமகள் குமார<BR>
+துங்க வடிவேலா<BR><BR>
+
+பவனி வரவே உகந்து<BR>
+மயிலின் மிசையே திகழ்ந்து<BR>
+படி அதிரவே நடந்த<BR>
+கழல்வீரா<BR>
+பரம பதமே செறிந்த<BR>
+முருகன் எனவே உகந்து<BR>
+பழனிமலை மேல் அமர்ந்த பெருமாளே<BR>
+<P>
+
+</body>
+</html>
+

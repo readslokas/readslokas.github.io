@@ -1,0 +1,189 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=5
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",25)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 250%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 230%;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body class="block">
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<P>
+Thiru kolaru pathigam
+<P>
+Veyuru tholi pangan vidamunda kandan<BR>
+Miganalla vinai thadavi<BR>
+Maasaru thingal gangai mudimel anindhen<BR>
+Ulame pugundha adhanaal<BR>
+Nyaayiru thingal sevvaay pudhan viyaalam velli<BR>
+Sani paambirandum udane<BR>
+Aasaru nalla nalla avai Nalla nalla<BR>
+Adiyaaravarkku migave. 01<BR>
+<P>
+Enpodu komgodaamai ivaimaarb- ilanga<BR>
+Erudheri Elai yudane<BR>
+Ponbodhi matha maalai punalsoodi vandhen<BR>
+Ulame pugundha adhanaal<BR>
+Onbadhodu onrod- Elu padhinettod- aarum<BR>
+Udanaaya naalgal avaidhaam<BR>
+Anbodu nalla nalla avai Nalla nalla<BR>
+Adiyaaravarkku migave. 02<BR>
+<P>
+Uruvalar pavalameni olineeru anindhu<BR>
+Umaiyodum vellai vidaimel<BR>
+Murugalar konrai thingal mudimel anindhen<BR>
+Ulame poogundha adhanaal<BR>
+Thirumagal kalaiya thoordhi seyamaadhu poomi<BR>
+Thisaidheyvam aana palavum<BR>
+Arunedhi nalla nalla avai Nalla nalla<BR>
+Adiyaaravarkku migave. 03<BR>
+<P>
+Mathinuthal mangaiyodu vadabaal irundhu<BR>
+Maraiyodhum engal paraman<BR>
+Nadhiyodu konrai maalai mudimel anindhen<BR>
+Ulame pugundha adhanaal<BR>
+Kodhiyuru kaalan angi namanodu thoodhar<BR>
+Kodu noygalaana palavum<BR>
+Adhiguna nalla nalla avai Nalla nalla<BR>
+Adiyaaravarkku migave. 04<BR>
+<P>
+Nansani kandan endhai madavaal thanodum<BR>
+Vidaiyerum nangal paraman<BR>
+Thunsirul vani konrai mudimel anindhen<BR>
+Ulame pugundha adhanaal<BR>
+Vensina avunarodum urumidiyum minum<BR>
+Migaiyaana poodham avaiyum<BR>
+Ansidu nalla nalla avai Nalla nalla<BR>
+Adiyaaravarkku migave. 05<BR>
+<P>
+Vaalvariya thaladhaadai varigova Nathar<BR>
+Madavaal thanodum udanaay<BR>
+Naanmalar vanigonrai nadhisoodi vandhen<BR>
+Ulame pugundha adhanaal<BR>
+Kolari uluvaiyodu kolaiyaanai gelal<BR>
+Kodu naaga modu karadi<BR>
+Aalari nalla nalla avai Nalla nalla<BR>
+Adiyaaravarkku migave. 06<BR>
+<P>
+Seppilamulainan mangai orupaaga maaga<BR>
+Vidaiyeru selvan adaivaar<BR>
+Oppila madhiyum appumudi mel anindhen<BR>
+Ulame pugundha adhanaal<BR>
+Veppodu kulirum vaadham migaiyaana pithum<BR>
+Vinaiyaana vandhu naliyaa<BR>
+Appadi nalla nalla avai Nalla nalla<BR>
+Adiyaaravarkku migave. 07<BR>
+<P>
+Velpada viliseydh- anru vidaimel irundhu<BR>
+Madavaal thanodum udanaay<BR>
+Vaanmadhi vanigonrai malarsoodi vandhen<BR>
+Ulame pugundha adhanaal<BR>
+Elgadal soolilangai araiyan ranodum<BR>
+Idaraana vandhu naliyaa<BR>
+Aalgadal nalla nalla avai Nalla nalla<BR>
+Adiyaaravarkku migave. 08<BR>
+<P>
+Palapala veda maagum paranaari paagan<BR>
+Pasuverum engal paraman<BR>
+Salamaga lod- erukku mudimel anindhen<BR>
+Ulame pugundha adhanaal<BR>
+Malarmisai yonu maalumaraiyodu thevar<BR>
+Varukaala maana palavum<BR>
+Alaigadal meru nalla avai Nalla nalla<BR>
+Adiyaaravarkku migave. 09<BR>
+<P>
+Kothalar kulaliyodu visaiyatku nalgu<BR>
+Gunamaaya veda vigirdhan<BR>
+Mathamum madhiyu naaga mudimel anindhen<BR>
+Ulame pugundha adhanaal<BR>
+Putharodu amanai vaadhil alivikkum annal<BR>
+Thiruneeru semmai thidame<BR>
+Athagu nalla nalla avai Nalla nalla<BR>
+Adiyaaravarkku migave. 10<BR>
+<P>
+Thenamarpolil kolaalai vilai sennel dhuni<BR>
+Valarsembon engum nigala<BR>
+Naanmugan aadhiyaaya piramaapurathu<BR>
+Marainyaana nyaana munivan<BR>
+Thaanuru kolu naalum adiyaarai vandhu<BR>
+Naliyaadha vannam uraisey<BR>
+Aanasol maalai yodhum adiyaargal vaanil<BR>
+Arasaalvar aanai namadhe. 11<BR>
+<P>
+Thiruchitrambalam<BR>
+<P>
+<p>
+
+</body>
+</html>
+

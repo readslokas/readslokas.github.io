@@ -1,0 +1,110 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=5
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",25)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 250%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 230%;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body class="block">
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<p>
+Ganapatichi Aarti<BR><BR>
+ 
+Sukhkarta dukhharta varta vighnachi ||<BR>
+Nurvi purvi prem krupa jayachi ||<BR>
+Sarvangi sundar uti shendurachi ||<BR>
+Kanthi zalke mal mukta- phalachi || 1 ||<BR><BR>
+
+Jay dev jai dev jay mangal murti || <BR>
+Darshanmatre mankamana purti ||<BR>
+Jay dev jai dev  ||<BR>
+Ratnakhachit fara tuj gaurikumra ||<BR>
+Chandanachi uti kumkumkeshara ||<BR>
+Hirejadit mugut Shobhato bara ||<BR>
+Runzunati nupure charni ghagaria || 2 ||<BR><BR>
+
+Jay dev jai dev jay mangal murti || <BR>
+Darshanmatre mankamana purti ||<BR>
+Jay dev jai dev  ||<BR><BR>
+
+Lambodar Pitambar phadivarbandhana || <BR>
+Saral sond vakratunda trinayan ||<BR>
+Das ramacha vat pahe sadana ||<BR>
+Sankti pavave Nirvani Rakshave survarvandana || 3 ||<BR><BR>
+Jay dev jai dev ||<BR>
+<p>
+
+</body>
+</html>
+

@@ -1,0 +1,138 @@
+<HTML>
+<meta charset="UTF-8">
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=1
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",50)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 270%;
+    text-align: center;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body>
+<BR>
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<P>
+சொற்றுணை வேதியன் சோதி வானவன்<BR>
+பொற்றுணை திருந்தடி பொருந்தக் கைதொழக்<BR>
+கற்றுணைப் பூட்டியோர் கடலிற் பாய்ச்சினும்<BR>
+நற்றுணை யாவது நமச்சி வாயவே<BR><BR>
+
+பூவினுக்கு அருங்கலம் பொங்கு தாமரை<BR>
+ஆவினுக்கு அருங்கலம் அரனஞ் சாடுதல்<BR>
+கோவினுக்கு அருங்கலம் கோட்டமில்லது<BR>
+நாவினுக்கு அருங்கலம் நமச்சி வாயவே<BR><BR>
+
+விண்ணுற அடுக்கிய விறகின் வெவ்வழல்<BR>
+உண்ணிய புகிலவை யொன்று மில்லையாம்<BR>
+பண்ணிய வுலகினிற்பயின்ற பாவத்தை<BR>
+நண்ணிநின் றறுப்பது நமச்சி வாயவே<BR><BR>
+
+இடுக்கண்பட் டிருக்கினும் இரந்து யாரையும்<BR>
+விடுக்கிற் பிரானென்று வினவுவோ மல்லோம்<BR>
+அடுக்கற்கீழ்க் கிடக்கினும் அருளின் நாமுற்ற<BR>
+நடுக்கத்தைக் கெடுப்பது நமச்சி வாயவே<BR><BR>
+
+வெந்தநீறு அருங்கலம் விரதி கட்கெலாம்<BR>
+அந்தணர்க்கு அருங்கலம் அருமறை யாறங்கலம்<BR>
+திங்களுக்கு அருங்கலம் திகழு நீள்முடி<BR>
+நங்களுக்கு அருங்கலம் நமச்சி வாயவே<BR><BR>
+
+சலமிலன் சங்கரன் சார்ந்த வர்க்கலால்<BR>
+நலமிலன் நாடொறும் நல்குவான் நலன்<BR>
+குலமில ராகிலும் குலத்திர்க் கேற்பதோர்<BR>
+நலமிகக் கொடுப்பது நமச்சி வாயவே<BR><BR>
+
+வீடினா ருலகினில் விழுமிய தொண்டர்கள்<BR>
+கூடினா ரந்நெறி கூடிச் சென்றலும்<BR>
+ஓடினே னோடிச்சென்றுருவங் காண்டலும்<BR>
+நாடினேன் நாடிற்று நமச்சி வாயவே<BR><BR>
+
+இல்லக விளக்கதுஇருள்கெ டுப்பது<BR>
+சொல்லக விளக்கது சோதி யுள்ளது<BR>
+பல்லக விளக்கது பலருங் காண்பது<BR>
+நல்லக விளக்கது நமச்சி வாயவே<BR><BR>
+
+முன்னெறி யாகியமுதல்வன் முக்கணன்<BR>
+தன்னெறி யேசர ணாதல் திண்ணமே<BR>
+அந்நெறி யேசென்றங் அடைந்த வர்க் கெலாம்<BR>
+நன்னெறி யாவது நமச்சி வாயவே<BR><BR>
+
+மாப்பிணை தழுவிய மாதொர் பாகத்தன்<BR>
+பூப்பிணை திருந்தடி பொருந்தக் கைதொழ<BR>
+நாப்பிணை தழுவிய நமச்சி வாயப்பத்து<BR>
+ஏத்தவல் லார்தமக்கு இடுக்க னில்லையே<BR>
+
+</body>
+</html>
+
+
+

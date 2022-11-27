@@ -1,0 +1,519 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=1
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",50)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 270%;
+    text-align: center;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body>
+<BR>
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<P>
+Srimatha Sri Maharajni Sri Math Simasaneshwari<BR>
+Chidagni Kunda Sambootha Deva Karya Samudhyatha<BR>
+Udyath Bhanu Sahasrabha Chadur Bahu Samanvidha<BR>
+Ragha Swaroopa Pasadya Krodhakarankusojwala<BR>
+Mano Rupeshu Kodanda Pancha than mathra sayaka<BR>
+Nijaruna prabha poora majjath brahmanda mandala<BR><BR>
+
+Champakasoka – punnaga-sowgandhika-lasath kacha<BR>
+Kuru vinda mani – sreni-kanath kotira manditha<BR>
+Ashtami Chandra vibhraja – dhalika sthala shobhitha<BR>
+Muka Chandra kalankabha mriganabhi viseshaka<BR>
+Vadana smara mangalya griha thorana chillaka<BR>
+Vakthra lakshmi –parivaha-chalan meenabha lochana<BR><BR>
+
+Nava champaka –pushpabha-nasa dhanda virajitha<BR>
+Thara kanthi thiraskari nasabharana bhasura<BR>
+Kadambha manjari kluptha karna poora manohara<BR>
+Thadanga yugali bhootha thapanodupa mandala<BR>
+Padma raga sila darsha paribhavika polabhu<BR>
+Nava vidhruma bimbha sri nyakkari rathna chhadha<BR><BR>
+
+Shuddha vidyangurakara dwija pangthi dwayojjala<BR>
+Karpoora Veedi Kamodha Samakarsha digandara<BR>
+Nija Sallabha Madhurya Vinirbhardista Kacchabhi<BR>
+Mandasmitha prabha poora majjat Kamesha manasa<BR>
+Anakalidha Sadrushya Chibuka sri virajitha<BR>
+Kamesha baddha mangalya sutra shobitha kandhara<BR><BR>
+
+Kankangadha Keyura Kamaniya Bujanvidha<BR>
+Rathna graiveya chinthaka lola muktha phalanvitha<BR>
+Kameswara prema rathna mani prathi pana sthani<BR>
+Nabhyala vala Romali latha phala kucha dwayi<BR>
+Lakshya Roma Latha Dharatha Samunneya Madhyama<BR>
+Sthana bhara dalan Madhya patta bhandha valithraya<BR><BR>
+
+Arunaruna kausumba vasthra bhaswat kati thati<BR>
+Rathna kinkinika ramya rasana dhama bhooshitha<BR>
+Kamesha gnatha sowbhagya mardworu dwayanvitha<BR>
+Manikhya mukuta kara janu dwaya virajitha<BR>
+Indra kopa parikshiptha smarathunabha jangika<BR>
+Kooda Gulpha Koorma prashta jayishnu prapadanvidha<BR><BR>
+
+Nakadhi dhithi samchanna namajjana thamoguna<BR>
+Pada dwaya Prabha jala parakrutha saroruha<BR>
+Sinchana mani manjira manditha sri pamambuja<BR>
+Marali Mandha Gamana Maha Lavanya Sewadhi<BR>
+Sarvaruna Anavadhyangi Srvabharana Bhooshita<BR>
+Shivakameswarangastha Shiva Swadheena Vallabha<BR><BR>
+
+Summeru Madhya sringastha Sriman nagara nayika<BR>
+Chinthamani grihanthastha Pancha brahmasana sthitha<BR>
+Maha padma davi samstha Kadambha vana vasini<BR>
+Sudha sagara madhyastha Kamakshi Kamadhayini<BR>
+Devarshi Gana-sangatha-stuyamanathma-vaibhava<BR>
+Bhandasura vadodyuktha shakthi sena samavitha<BR><BR>
+
+Sampathkari samarooda sindhoora vrija sevitha<BR>
+Aswaroodadishidaswa kodi kodi biravrutha<BR>
+Chakra raja ratha rooda sarvayudha parishkridha<BR>
+Geya chakra ratha rooda manthrini pari sevitha<BR>
+Giri chakra ratharooda dhanda natha puraskrutha<BR>
+Jwalimalika ksiptha vanhi prakara madhyaka<BR><BR>
+
+Bhanda sainya vadodyuktha shakthi vikrama harshitha<BR>
+Nithya parakamatopa nireekshana samutsuka<BR>
+Banda puthra vadodyuktha bala vikrama nandhita<BR>
+Manthrinyamba virachitha vishangavatha Doshitha<BR>
+Vishuka prana harana varahi veeerya nandhitha<BR>
+Kameshwara mukaloka kalpitha sri Ganeshwara<BR><BR>
+
+Mahaganesha nirbhinna vignayanthra praharshitha<BR>
+Banda surendra nirmuktha sashtra prathyasthra varshani<BR>
+Karanguli nakhothpanna narayana dasakrithi<BR>
+Maha pasupathasthragni nirdagdhasura sainika<BR>
+Kameshwarasthra nirdhagdha sabandasura sunyaka<BR>
+Brhmopendra mahendradhi deva samsthutha vaibhava<BR><BR>
+
+Hara nethragni sandhagdha kama sanjeevanoushadhi<BR>
+Sri vagbhave koodaiga swaroopa mukha pankaja<BR>
+Kantatha kadi paryantha Madhya koodaiga swaroopini<BR>
+Sakthi koodaiga thapanna Kadyatho bhaga dharini<BR>
+Moola manthrathmikha Moola kooda thraya kalebhara<BR>
+Kulamruthaika rasika Kula sanketha palini<BR><BR>
+
+Kulangana Kulanthastha Kaulini Kula yogini<BR>
+Akula Samayanthastha Samayachara that para<BR>
+Moladharaika nilaya Brhama Grandhi Vibhedini<BR>
+Mani poorantharudhitha Vishnu grandhi vibedhini<BR>
+Agna chakarantharalastha Rudra grandhi vibhedini<BR>
+Sahararambhujarooda Sudha sarabhi varshini<BR><BR>
+
+Thadillatha samaruchya Shad chakropari samshitha<BR>
+Maha ssakthya Kundalini Bisa thanthu thaniyasi<BR>
+Bhavani Bhavana gamya Bhavarany kudariga<BR>
+Bhadra priya Bhadra moorthy Bhaktha sowbhagya dhayini<BR>
+Bhakthi priya Bhakthi gamya Bhakthi vasya Bhayapaha<BR>
+Sambhavya Saradharadya Sarvani Sarmadhayini<BR><BR>
+
+Sankari Sreekari Sadhwi Sarat chandra nibhanana<BR>
+Satho dhari Santhimathi Niradhara Niranjana<BR>
+Nirlepa Nirmala Nithya Nirakara Nirakula<BR>
+Nirguna Nishkala Santha Nishkama Niruppallava<BR>
+Nithya muktha Nirvikara Nishprapancha Nirasraya<BR><BR>
+
+Nithya shuddha Nithya bhuddha Niravadhya Niranthara<BR>
+Nishkarana Nishkalanka Nirupadhi Nireeswara<BR>
+Neeraga Ragha madhani Nirmadha Madhanasini<BR>
+Nischintha Nirahankara Nirmoha Mohanasini<BR>
+Nirmama Mamatha hanthri Nishpapa Papa nashini<BR>
+Nishkrodha Krodha–samani Nir Lobha Lobha nasini<BR><BR>
+
+Nissamsaya Samsayagni Nirbhava Bhava nasini<BR>
+Nirvikalpa Nirabhadha Nirbhedha Bhedha nasini<BR>
+Nirnasa Mrityu madhani Nishkriya Nishparigraha<BR>
+Nisthula Neela chikura Nirapaya Nirathyaya<BR>
+Dhurlabha Dhurgama Dhurga<BR>
+Dhuka hanthri Sukha prada<BR>
+Dushta doora Durachara samani Dosha varjitha<BR><BR>
+
+Sarvangna Saandra karuna Samanadhika varjitha<BR>
+Sarva shakthi mayi Sarva mangala Sadgathi prada<BR>
+Sarveshwari Sarva mayi<BR>
+Sarva manthra swaroopini<BR><BR>
+
+Sarva yanthrathmika Sarva thanthra roopa Manonmani<BR>
+Maaheswari Mahaa devi Maha lakshmi Mrida priya<BR>
+Maha roopa Maha poojya Maha pathaka nasini<BR>
+Maha maya Maha sathva Maha sakthi Maha rathi<BR><BR>
+
+Maha bhoga Mahaiswarya Maha veerya Maha bala<BR>
+Maha bhudhi Maha sidhi Maha Yogeswareswari<BR>
+Mahathanthra Mahamanthra Mahayanthra Mahasana<BR><BR>
+
+Maha yaga kramaradhya Maha bhairava poojitha<BR>
+Maheswara Mahakalpa Maha thandava sakshini<BR>
+Maha kamesha mahishi Maha tripura sundari<BR><BR>
+
+Chatustatyupacharadya Chathu sashti kala mayi<BR>
+Maha Chathusashti kodi yogini gana sevitha<BR>
+Manu Vidya Chandra Vidya Chandra mandala Madhyaga<BR>
+Charu Roopa Charu Hasa Charu Chandra Kaladhara<BR>
+Charachara Jagannatha Chakra Raja Nikethana<BR><BR>
+
+Parvathi Padma nayana Padma raga samaprabha<BR>
+Pancha prethasana seena Pancha brahma swaroopini<BR>
+Chinmayi Paramananda Vignana Gana Roopini<BR>
+Dhyana Dhyathru dhyeya roopa Dharmadhrama vivarjitha<BR>
+Viswa roopa Jagarini Swapanthi Thaijasathmika<BR><BR>
+
+Suptha Prangnathmika Thurya Sarvavastha vivarjitha<BR>
+Srishti karthri Brahma roopa Gopthri Govinda roopini<BR>
+Samharini Rudhra roopa Thirodhana kari Eeswari<BR>
+Sadashivaa Anugrahada Pancha krithya parayana<BR>
+Bhanu mandala madhyastha Bhairavi Bhaga malini<BR>
+Padmasana Bhagavathi Padmanabha sahodari<BR>
+Unmesha Nimishotpanna Vipanna Bhuvanavali<BR>
+Sahasra seersha vadana Saharakshi Sahasra path<BR><BR>
+
+Aabrahma keeda janani Varnashrama vidhayini<BR>
+Nijangna roopa nigama Punyapunya phala pradha<BR>
+Sruthi seemantha kula sindhoori kritha padabjha dhooliga<BR>
+Sakalagama sandoha shukthi samputa maukthika<BR>
+Purashartha pradha Poorna Bhogini Bhuvaneshwari<BR>
+Ambika Anadhi nidhana Hari brahmendra sevitha<BR><BR>
+
+Naarayani Naada roopa Nama roopa vivarjitha<BR>
+Hrim kari Harimathi Hrudya Heyopadeya varjitha<BR>
+Raja rajarchitha Rakhini Ramya Rajeeva lochana<BR>
+Ranjani Ramani Rasya Ranath kinkini mekhala<BR>
+Ramaa Raakendu vadana Rathi roopa Rathi priya<BR><BR>
+
+Rakshaa kari Rakshasagni Raamaa Ramana lampata<BR>
+Kaamya Kamakala roopa Kadambha kusuma priya<BR>
+Kalyani Jagathi kandha Karuna rasa sagara<BR>
+Kalavathi Kalaalapa Kaantha Kadambari priya<BR>
+Varadha Vama nayana Vaaruni madha vihwala<BR>
+Viswadhika Veda vedya Vindhyachala nivasini<BR>
+Vidhatri Veda janani Vishnu maya Vilasini<BR><BR>
+
+Kshetra swaroopa Kshetresi Kshethra kshethragna palini<BR>
+Kshaya vridhi nirmuktha Kshetra pala samarchitha<BR>
+Vijaya Vimala Vandhya Vandharu jana vatsala<BR>
+Vaag vadhini Vama kesi Vahni mandala vaasini<BR>
+Bhakthi mat kalpa lathika Pasu pasa vimochani<BR><BR>
+
+Samhrutha sesha pashanda Sadachara pravarthika<BR>
+Thapatryagni santhaptha samahladahna chandrika<BR>
+Tharuni Thapasa aradhya Thanu Madhya Thamopaha<BR>
+Chithi Thatpada lakshyartha Chidekara swaroopini<BR>
+Swathmananda lavi bhootha brahmadyanantha santhathi<BR><BR>
+
+Paraa Prathyak chidi roopa Pasyanthi Para devatha<BR>
+Madhyama Vaikhari roopa Bhaktha manasa hamsikha<BR>
+Kameshwara prana nadi Kruthagna Kama poojitha<BR>
+Srungara rasa sampoorna Jayaa Jalandhara sthitha<BR>
+Odyana peeda nilaya Bindu mandala vaasini<BR>
+Raho yoga kramaradhya Rahas tarpana tarpitha<BR><BR>
+
+Sadya prasadini Viswa sakshini Sakshi varjitha<BR>
+Shadanga devatha yuktha Shadgunya paripooritha<BR>
+Nithya klinna Nirupama Nirvanasukha dayini<BR>
+Nithya Shodasika Roopa Sri Kandartha Sareerini<BR>
+Prabhavathi Prabha roopa Prasiddha Parameshwari<BR>
+Moola prakrithi Avyaktha Vyktha Avyaktha swaroopini<BR>
+Vyapini Vividhakara Vidhya avidhya swaroopini<BR>
+Maha kamesha nayana kumudahladha kaumudhi<BR>
+Bhaktha hardha thamo bedha bhanu mat bhanu santhathi<BR><BR>
+
+Shivadhoothi Shivaradhya Shiva moorthi Shivangari<BR>
+Shiva priya Shivapara Shishteshta Shishta poojitha<BR>
+Aprameya Swaprakasha Mano vachama gochara<BR>
+Chitsakthi Chethana roopa Jada shakthi Jadathmikha<BR>
+Gayathri Vyahruthi Sandhya Dwija brinda nishewitha<BR><BR>
+
+Tatwasana Tat Twam Ayee Pancha kosandara sthitha<BR>
+Nissema mahima Nithya youawana Madha shalini<BR>
+Madha goornitha rakthakshi Madha patala khandaboo<BR><BR>
+
+Chandana drava dhigdhangi Champeya kusuma priya<BR>
+Kusala Komalakara Kuru kulla Kuleshwari<BR>
+Kula kundalaya Kaula marga that para sevitha<BR>
+Kumara gana nadambha<BR>
+Thushti Pushti Mathi Dhrithi<BR>
+Santhi Swasthimathi Kanthi Nandhini Vigna nasini<BR><BR>
+
+Tejowathi Trinayana Lolakshi-Kamaroopini<BR>
+Malini Hamsini Matha Malayachala vasini<BR>
+Sumukhi Nalini Subru Shobhana Sura Nayika<BR>
+Kala kanti Kanthi mathi Kshobhini Sukshma Roopini<BR><BR>
+
+Vajreshwari Vamadevi Vayovastha vivarjitha<BR>
+Sidheswari Sidha vidya Sidha matha Yasawini<BR>
+Vishudhichakra Nilaya Aarakthavarni Trilochana<BR>
+Khadwangadhi prakarana Vadanaika samavidha<BR>
+Payasanna priya Twakstha Pasu loka Bhayamkari<BR>
+Amruthathi maha sakthi samvrutha Dakineeswari<BR><BR>
+
+Anahathabja nilaya Syamabha Vadanadwaya<BR>
+Dhamshtrojwala Aksha maladhi dhara Rudhira samsthida<BR>
+Kala rathryadhi Shakthi youga vrudha Sniggdowdhana priya<BR><BR>
+
+Maha veerendra varadha Rakinyambha swaroopini<BR>
+Mani poorabja nilaya Vadana thraya samyudha<BR>
+Vajradhikayudhopetha Damaryadhibhi ravrutha<BR>
+Raktha varna Mamsa nishta Gudanna preetha manasa<BR><BR>
+
+Samastha bhaktha sukhadha Lakinyambha swaroopini<BR>
+Swadhishtanambujagatha Chathur vakthra manohara<BR>
+Sulayudha sampanna Peetha varna Adhi garvitha<BR><BR>
+
+Medho nishta Madhu preetha Bhandinyadhi samanvidha<BR>
+Dhadyanna saktha hridhaya Kakini roopa dharini<BR>
+Mooladrambujarooda Pancha vakthra Sthithi samsthitha<BR>
+Ankusathi praharana Varadadhi nishevitha<BR>
+Mudgou danasaktha chittha Sakinyambha swaroopini<BR><BR>
+
+Agna chakrabja nilaya Shukla varna Shadanana<BR>
+Majja samstha Hamsavathi mukhya shakthi samanvitha<BR>
+Hardrannaika rasika Hakini roopa dharini<BR>
+Sahasra dhala padhmastha Sarva varnopi shobitha<BR>
+Sarvayudha dhara Shukla samsthitha Sarvathomukhi<BR>
+Sarvou dhana preetha chittha Yakinyambha swaroopini<BR><BR>
+
+Swaha Swadha Amathi Medha Sruthi Smrithi Anuthama<BR>
+Punya keerthi Punya labhya Punya sravana keerthana<BR>
+Pulomajarchidha Bandha mochini Barbharalaka<BR><BR>
+
+Vimarsa roopini Vidhya Viyadhadhi jagat prasu<BR>
+Sarva vyadhi prasamani Sarva mrutyu nivarini<BR>
+Agraganya Achintya roopa Kali kalmasha nasini<BR>
+Kathyayini Kala hanthri Kamalaksha nishevitha<BR>
+Thamboola pooritha mukhi Dhadimi kusuma prabha<BR><BR>
+
+Mrgakshi Mohini Mukhya Mridani Mithra roopini<BR>
+Nithya Truptha Bhaktha Nidhi Niyanthri Nikhileswari<BR>
+Maitryadhi vasana Labhya Maha pralaya sakshini<BR>
+Para Shakthi Para Nishta Prgnana Gana Roopini<BR><BR>
+
+Madhvi pana lasaa Matha Mathruka Varna roopini<BR>
+Maha Kailasa nilaya Mrinala mrudhu dhorllatha<BR>
+Mahaneeya Dhaya moorthi Maha samrajya shalini<BR>
+Atma vidhya Maha Vidhya Srividhya Kama sevitha<BR>
+Sri Shodasakshari vidhya Trikoota Kama Kotika<BR><BR>
+
+Kataksha kimkari bhootha kamala koti sevitha<BR>
+Shira sthitha Chandra nibha Bhalastha Indra Dhanu Prabha<BR>
+Hridayastha Ravi pragya Tri konanthara deepika<BR>
+Dakshayani Dhithya hanthri Daksha yagna vinasini<BR>
+Dharandholitha deergakshi Dharahasojwalanmukhi<BR>
+Guru Moorthi Guna nidhi Gomatha Guhajanma bhoo<BR><BR>
+
+Deveshi Dhanda neethistha Dhaharakasa roopini<BR>
+Prathi panmukhya rakantha thidhi mandala poojitha<BR>
+Kalathmika Kala nadha Kavya labha vimodhini<BR>
+Sachamara Rama vani Savya dhakshina sevitha Adishakthi<BR>
+Ameya Atma Parama Pavana krithi<BR>
+Aneka koti Bramanda janani Divya Vigraha<BR>
+Klim karee Kevalaa Guhya Kaivalya Padha dhayini<BR>
+Tripura Trijagat vandhya Trimurthi Tri daseswari<BR><BR>
+
+Tryakshya Divya Gandhadya Sindhura thila kanchidha<BR>
+Uma Sailendra Thanaya Gowri Gandharwa Sevitha<BR>
+Viswa Grabha Swarna Garbha Avaradha Vagadeeswaree<BR>
+Dhyanagamya Aparichedya Gnadha Gnana Vigraha<BR>
+Sarva Vedhantha Samvedya Satyananda Swaroopini<BR>
+Lopa mudrarchitha Leela kluptha brahmanda mandala<BR>
+Adurshya Drusya rahitha Vignathree Vedhya varjitha<BR><BR>
+
+Yogini Yogadha Yogya Yogananda Yugandhara<BR>
+Iccha shakthi-Gnana shakthi-Kriya Shakthi Swaroopini<BR>
+Sarvaadhara Suprathishta Sada Sadroopa Dharini<BR>
+Ashta moorthy Aja jethree Loka yathra vidahyini<BR>
+Ekakini Bhooma roopa Nirdwaitha Dwaitha varjitha<BR>
+Annadha Vasudha Vriddha Brhmatmykya Swaroopini<BR><BR>
+
+Brihathi Brahmani Brahmi Brahmananda Bali priya<BR>
+Bhasha roopa Brihat sena Bhavabhava vivarjitha<BR>
+Sukharadhya Shubhakaree Shobhana sulabha gathi<BR>
+Raja Rajeswari Rajya Dhayini Rajya vallabha<BR>
+Rajat krupa Raja peetha nivesitha nijasritha<BR>
+Rajya lakshmi Kosa natha Chathuranga baleswai<BR><BR>
+
+Samrajya Dhayini Sathya Sandha Sagara Mekhala<BR>
+Deekshitha Dhaitya Shamani Sarva loka vasam kari<BR>
+Sarvartha Dhatri Savithri Sachidananda Roopini<BR>
+Desa kala parischinna Sarvaga Sarva mohini<BR><BR>
+
+Saraswathi Sasthra mayi Guhamba Guhya roopini<BR>
+Sarvo padhi vinirmuktha Sada Shiva pathi vritha<BR>
+Sampradhayeshwari Sadhu Ee Guru mandala roopini<BR>
+Kulotheerna Bhagaradhya Maya Madhumathi Mahee<BR>
+Ganamba Guhyakaradhya Komalangi Guru Priya<BR>
+Swathanthra Sarwa thanthresi Dakshina Moorthi Roopini<BR><BR>
+
+Sanakadhi Samaradhya Siva Gnana Pradhayini<BR>
+Chid kala Ananda Kalika Prema roopa Priyamkaree<BR>
+Nama parayana preetha Nandhi Vidhya Nateshwaree<BR>
+Mithya Jagat athishtana Mukthida Mukthi roopini<BR>
+Lasya priya Laya karee Lajja Rambha adhi vandhitha<BR>
+Bhava dhava sudha vrishti Paparanya dhavanala<BR>
+Daurbhagya thoolavathoola Jaradwanthara viprabha<BR>
+Bhagyabdhi chandrika Bhaktha Chitta Keki Ganagana<BR><BR>
+
+Roga parvatha Dhambola Mrutyu Dharu Kudarika<BR>
+Maheswaree Maha kali Maha grasa Mahasana<BR>
+Aparna Chandika Chanda mundasura nishoodhini<BR>
+Ksharaksharathmika Sarva lokesi Viswa Dharini<BR>
+Thrivarga Dhathri Subhaga Thryambhaga Trigunathmika<BR>
+Swargapavargadha Shuddha Japapushpa nibhakrithi<BR>
+Ojovathi Dhyuthidhara Yagna roopa Priyavrudha<BR>
+Dhuraradhya Dhuradharsha Patali kusuma priya<BR>
+Mahathi Meru nilaya Mandhara kusuma priya<BR><BR>
+
+Veeraradhya Virad Roopa Viraja Viswathomukhi<BR>
+Prathyg roopa Parakasa Pranadha Prana roopini<BR>
+Marthanda Bhairavaradhya Manthrini nyashtha rajyadhoo<BR>
+Tripuresi Jayatsena Nistrai gunya Parapara<BR>
+Satya gnananda roopa Samarasya parayana<BR>
+Kapardhini Kalamala Kamadhukh Kama roopini<BR>
+Kala nidhi Kavya kala Rasagna Rasa sevadhi<BR><BR>
+
+Pushta Purathana Poojya Pushkara Pushkarekshana<BR>
+Paramjyothi Param dhama Paramanu Parath para<BR>
+Pasa Hastha Pasa Hanthri Para manthra Vibhedini<BR>
+Moortha Amoortha Anithya thriptha Muni manasa hamsika<BR>
+Satya vritha Sathya roopa Sarvantharyamini Sathee<BR>
+Brahmani Brahmaa Janani Bahu roopa Budharchitha<BR>
+Prasavithri Prachanda Aagna Prathishta Prakata Krithi<BR>
+Praneshwari Prana Dhatri Panchast Peeta Roopini<BR>
+Vishungala Vivikthastha Veera matha Viyat prasoo<BR><BR>
+
+Mukundaa Mukthi Nilaya Moola Vigraha Roopini<BR>
+Bavagna Bhava rokagni Bhava Chakra Pravarthani<BR>
+Chanda sara Sasthra sara Manthra sara Thalodharee<BR>
+Udara keerthi Uddhhama vaibhava Varna roopini<BR>
+Janma mrutyu jara thaptha Jana Vishranthi dhayini<BR>
+Sarvopanisha dhudh gushta Shantyathheetha kalathmika<BR><BR>
+
+Gambheera Gagananthastha Garvitha Gana lolupa<BR>
+Kalpana rahitha Kashta Akantha Kanthatha vigraha<BR>
+Karya karana nirmuktha Kama keli tharangitha<BR>
+Kanath kanaka thadanga Leela vigraha dharini<BR>
+Ajha Kshaya nirmuktha Gubdha Ksipra prasadhini<BR>
+Anthar mukha samaradhya Bahir mukha sudurlabha<BR><BR>
+
+Thrayee Trivarga nilaya Thristha Tripura malini<BR>
+Niramaya Niralamba Swatma rama Sudha sruthi<BR>
+Samsara panga nirmagna samuddharana panditha<BR>
+Yagna priya Yagna karthree Yajamana swaroopini<BR>
+Dharma dhara Dhanadyaksha Dhanadhanya vivardhani<BR><BR>
+
+Vipra priya Vipra roopa Viswa brhamana karini<BR>
+Viswa grasa Vidhrumabha Vaishnavi Vishnu roopini<BR>
+Ayoni Yoni nilaya Kootastha Kula roopini<BR>
+Veera goshti priya Veera Naish karmya Nadha roopini<BR>
+Vignana kalana Kalya Vidhagdha Baindavasana<BR>
+Tathwadhika Tatwa mayee Tatwa Martha Swaroopini<BR><BR>
+
+Sama gana priya Soumya Sada Shiva kutumbini<BR>
+Savyapa savya margastha Sarva apadvi nivarini<BR>
+Swastha Swabhava madura Dheera Dheera samarchida<BR>
+Chaithnyarkya samaradhya Chaitanya kusuma priya<BR>
+Saddothitha Sadha thushta Tharunadithya patala<BR>
+Dakshina Daksinaradhya Dharasmera mukhambuja<BR><BR>
+
+Kaulini kevala Anargya kaivalya pada dhayini<BR>
+Stotra priya Sthuthi mathi Sthuthi samsthutha vaibhava<BR>
+Manaswaini Manavathi Mahesi Mangala kruthi<BR>
+Viswa Matha Jagat Dhathri Visalakshi Viragini<BR>
+Pragalbha Paramodhara Paramodha Manomayi<BR>
+Vyoma kesi Vimanastha Vajrini Vamakeshwaree<BR><BR>
+
+Pancha yagna priya Pancha pretha manchadhi sayini<BR>
+Panchami Pancha bhoothesi Pancha sankhyopacharini<BR>
+Saswathi Saswathaiswarya Sarmadha Sambhu mohini<BR>
+Dhara Dharasutha Dhanya Dharmini Dharma vardhini<BR>
+Loka theetha Guna theetha Sarvatheetha Samathmika<BR>
+Bhandhooka kusuma prakhya Bala Leela Vinodhini<BR>
+Sumangali Sukha kari Suveshadya Suvasini<BR>
+Suvasinyarchana preetha AAshobhana Shuddha manasa<BR><BR>
+
+Bindhu tharpana santhushta Poorvaja Tripurambika<BR>
+Dasa mudhra samaradhya Thrpura sree vasankari<BR>
+Gnana mudhra Gnana gamya Gnana gneya swaroopini<BR>
+Yoni mudhra Trikhandesi Triguna AmbaTrikonaga<BR>
+Anaga Adbutha charithra Vanchithartha pradayini<BR>
+Abhyasathisaya gnatha Shaddwatheetha roopini<BR><BR>
+
+Avyaja karuna moorhy Agnana dwantha deepika<BR>
+Abala gopa vidhitha Sarvan Ullangya Sasana<BR>
+Sri Chakra raja nilaya Sri Math Thripura Sundari<BR>
+Sri Shivaa Shiva Shakthaikya Roopini Lalithambika<BR>
+Evam Srilalita devya Namnam Sahasrakam Jaguh<BR><BR>
+
+</BODY>
+</HTML>

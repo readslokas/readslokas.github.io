@@ -1,0 +1,118 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=0
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",25)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 160%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 160%;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body class="block">
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<p>
+அகரமுத லெனவுரைசெய் ஐம்பந்தொர் அக்ஷரமும் <BR>
+அகிலகலைகளும் வெகுவிதங்கொண்ட தத்துவமும் <BR>
+அபரிமித சுருதியும் அடங்குந்தனிப்பொருளை<BR>
+எப்பொருளும் ஆய<BR>
+<BR>
+அறிவை அறிபவர் அறியும் இன்பந்தனை துரிய <BR>
+முடிவை அடி நடுமுடிவில் துங்கந்தனை  சிறிய <BR>
+அணுவை அணுவினின் மலமு நெஞ்சுங் குணத்ரயமும்<BR>
+அற்றதொரு காலம் <BR>
+<BR>
+நிகழும் வடிவினை முடிவி லொன்றென்றி ருப்பதனை<BR>
+நிறைவுகுறைவு ஒழிவற நிறைந்தெங்கு நிற்பதனை<BR>
+நிகர்பகர அரியதை விசும்பின்புரத்ரயம் எரித்தபெருமானும்<BR>
+<BR>
+நிருப குரு பரகுமர என்றென்று பத்திகொடு <BR>
+பரவ அருளிய மவுன மந்த்ரந்தனை பழைய <BR>
+நினது வழியடிமையும் விளங்கும்படிக்கு இனிது உணர்த்தியருள்வாயே<BR>
+<BR>
+தகுதகுகு தகுதகுகு தந்தந்த குத்தகுகு<BR>
+டிகுடிகுகு டிகுடிகுகு டிண்டிண்டி குக்குடிகு<BR>
+தகுதகெண கெணசெகுத தந்தந்த ரித்தகுத தத்ததகுதீதோ<BR>
+<BR>
+தனதனன தனதனன தந்தந்த னத்ததன<BR>
+டுடுடுடுடு டுடுடுடுடு டுண்டுண்டு டுட்டுடுடு<BR>
+தரரரர ரிரிரிரிரி என்றென்று இடக்கையும் உடுக்கையுமியாவும் x2<BR>
+<BR>
+மொகுமொகென அதிர முதிர் அண்டம் பிளக்க நிமிர் <BR>
+அலகை கரணமிடஉலகெங்கும் ப்ரமிக்க நட<BR>
+முடுகு பயிரவர் பவுரி கொண்டின்புற படுகளத்திலொரு கோடி<BR>
+<BR>
+முதுகழுகு கொடிகருடன் அங்கம்பொரக்குருதி <BR>
+நதிபெருக வெகுமுக கவந்தங்கள் நிர்த்தமிட<BR>
+முரசதிர நிசிசரரை வென்று இந்தி ரற்கரசளித்த பெருமாளே<BR>
+<BR>
+</p>
+</body>
+</html>

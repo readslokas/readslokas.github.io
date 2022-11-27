@@ -1,0 +1,121 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=4
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",25)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 250%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 230%;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body class="block">
+
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<p>
+
+Om yashChandasAm RuShabho vishvaroopaH | <BR><BR>
+Chandobhyo dhyamRutAth sambabhoova | <BR><BR>
+sa mendro medhayA spRuNotu | <BR><BR>
+amRutasya deva dhAraNo bhooyAsam | <BR><BR>
+shareeraM me vicharShaNam | <BR><BR>
+jihvA me madhumattamA | <BR><BR>
+karNAbyAM bhoori vishruvam | <BR><BR>
+brahmaNaH kOshOsi medhayA pihitaHah | <BR><BR>
+shrutaM me gopAya | <BR><BR>
+Om shAntiH shAntiH shAntiHi || <BR><BR>
+
+Om mEdhA dEvi juShamANA na aagA <BR><BR>
+viShvAchi bhadrA sumanasyamAnA | <BR><BR>
+tvayA juShTA nudhamANA duruktAn bruhad vadema vidathe suveerAHah || <BR><BR>
+
+tvayA juShTa rishir bhavathi devi tvayA brahma Agat sree rutat tvayAA | <BR>
+tvayA juShTas chitram vindate vasu sAno juShasva draviNona medhe || <BR><BR>
+
+medhAM ma indro dadAtu <BR>
+medhAM dEvi Saraswati | <BR><BR>
+medhAM me ashvinA ubhAvA dattAm puShkarasrajA | <BR><BR>
+apsarAsu cha yA medhA gandhar veShu cha yanmanaH | <BR><BR>
+dEivee medhA sarasvatee sA mAM medhA surabhir juShatAgus svAhA || <BR><BR>
+
+aamAM medhA surabhir vishva roopA hiraNya varNA jagatee jagamyA | <BR><BR>
+oorjas vatee payasA pinvamAnA sAmAM medhA suprateekA juShantAm || <BR><BR>
+
+mayi medhAM mayi prajAM may yagnistejo dadhAtu | <BR>
+mayi medhAM mayi prajAM mai indra indriyaM dadhAtu | <BR>
+mayi medhAM mayi prajAM mayi sooryO bhrAjo dadhAtu || <BR><BR>
+
+Om Hamsa Hamsaya vidmahe <BR>
+parama hamsaye dhimahi thanno-Hamsah prachodhayaath <BR><BR>
+
+Om shAntiH shAntiH shAntiHi || <BR></p>
+
+</body>
+</html>

@@ -1,0 +1,290 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=1
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",50)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 270%;
+    text-align: center;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body>
+<BR>
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<P>
+1 ABHANG Aarthi with Five-Wick Lamp<BR>
+Composed by :: Shri Krishna Jogiswar Bhishma<BR>
+(Abhang is a Maratha style of poetry)<BR>
+Ghewuniya panchaarati, karoo Babansi aarati<BR>
+Karoo Sai see aarati Karoo Babansi arati.<BR>
+Utta utta ho bandhawa. Owaaloo ha Ramadhava.<BR>
+Sayee Ramadhava. Owaloo ha Ramadhava.<BR>
+Karooniya sthira man, pahu gambhirira he dhyan<BR>
+Sayeeche he dhyan pahu gambhirira he dhyan<BR>
+Krishnanatha Datt Sai jado chitta tujze paayee<BR>
+Chitta Baba paayee Jado chitta tuzhe paayee<BR>
+<p>
+
+2 Aarthi Sai Baba<BR>
+Composed By:: Shri Madhavrao Vamanrao Adkar<BR>
+Aarti Sai Baba, saukhyadaataara jeeva. Charana rajaatalee<BR>
+Dhyaava daasaan visaawaa, bhaktaa visaawaa. Aarti Sai Baba<BR>
+Jaaluniyaan aananng swaswaroopee raahe dhanga<BR>
+Mumukshu janaan daavee nija dolaan Sreeranga, dolaan Sreeranga Aarti Sai Baba<BR>
+Jayaa manee jaisaa bhaava tayaa taisaa anubhava<BR>
+Daawisee dayaaghanaa aisee tujzee hee maava tujzeeheemaava Aarti Sai Baba<BR>
+Tumache naama dhyaataan hare sansrithi vyathaa<BR>
+Agaadha tava karanee maarga daawisee anaadhaa,daawisee anaadhaa Aarti Sai<BR>
+Baba<BR>
+Kaliyugee avataara saguna parabrahm saachara<BR>
+Avateerna jhaalase swami Datta digambara, Datta digambara Aarti Sai Baba<BR>
+Aattan divasaan guruwaaree bhakta karitee waaree<BR>
+Prabhupada pahaavayaa bhavabhaya niwaree, bhaya niwaree Aarti Sai Baba:<BR>
+Maajan nija dravya tteewaa tav charan rajasevaa<BR>
+Maagane hechiyaataa tumhan devaadhideva, Devaadhideva Aarti Sai Baba<BR>
+Ichchita deena chaatak nirmala toya nijasookha<BR>
+Paajaawe maadhavaa yaa saambhal aapulee bhaaka, aapulee bhaaka Aarti ...<BR>
+<p>
+
+3 Aarthi<BR>
+Composed By:: Shri Krishna Jogiswar Bhishma<BR>
+Jaya Deva Jaya Deva Datta avadhutaa, O Sayee avadhutaa<BR>
+Jodoonikara tava charanee ttevito maathaa, Jaya Deva Jaya Dev<BR>
+Avataraseen too yaetaan dharmaante glanee, Naastheekaanaahee too laavisi<BR>
+nijabhajanee<BR>
+Daavisi naanaa leela asankhya roopaanee, Harisee dheenanche too sankata<BR>
+dinarajanee<BR>
+Jaya Deva Jaya Deva...<BR>
+Yavana swaroopee aikhyaa darshana twaan dhidhale, Samsaya nirsuniyaan<BR>
+thathdwaitaa ghaalavile<BR>
+Gopichandaa mandaa twaanchee uddharile, Momina vamsee janmuni lokaan<BR>
+taariyale<BR>
+Jaya Deva Jaya Deva...<BR>
+Bhed na tathwee hindoo yavananchaa kaanhee Daawayaansee jzaalaa punarapi<BR>
+naradehee<BR>
+Paahasin premaane too Hindu yavanaanhee, Daavisi aatmatwaane vyaapaka haa<BR>
+sayee<BR>
+Jaya Deva Jaya Deva...<BR>
+Devaa Sayeenaathaa twatpadanata vhaahe, paramaayaamohita janamochana<BR>
+jhanin vhaave<BR>
+Twakripayaa sakalaanche sankata nirasaawe, deshila tari de twadhyash<BR>
+krishnaane gaave<BR>
+Jaya Deva Jaya Deva...<BR>
+<p>
+
+4 ABHANG<BR>
+Composed By:: Shri Dasganu Maharaj<BR>
+Shirdee maajze Pandharapura Saibaba Ramaavara<BR>
+Baba Ramaavara, Sai Baba Ramaavara<BR>
+Shuddha bhaktee chandrabhaabagaa, Bhaava pundaleeka jaagaa<BR>
+pundaleeka jaagaa. Bhaava pundaleeka jaagaa<BR>
+Yaa ho yaa ho avaghe jana karaa Babaansee vandana.<BR>
+Saisi vandana karoo Babaansee vandana<BR>
+Ganu mhane Baba Sayee. Dhaava paava maajze aayee<BR>
+paava maajze aayee. Dhaava paava maajze aayee<BR>
+<p>
+
+5 Naman<BR>
+{ A garland of traditional prayers}<BR>
+Ghaaleena lotaangana vandeen charana Dolyanee paaheen roop tujze<BR>
+Preme aalingana aanande poojin, Bhave oowaalina mhane Naamaa.<BR>
+Tvameva maataa cha pitaa tvameva Tvameva bandhuscha sakhaa tvameva<BR>
+Tvameva vidyaa dravinam tvameva, Tvameva servam mama Devadeva.<BR>
+Kaayena vaachaa manasrendriyaiarwan Budhyatmanaa vaa prakriti swabhavaat<BR>
+Karomi yadyatsakalam parasmai, Narayanaayeti samarpayaami<BR>
+Acyutam Keshavam Raamanaaraayanam Krishnadaamodaram Vaasudevam Harim<BR>
+Shreedharam Maadhavam Gopikaa Vallabham, Jaanakeenaayakam<BR>
+Raamachandram Bhaje.<BR>
+Hare Rama, Hare Rama. Rama Rama Hare Hare<BR>
+Hare Krishna, Hare Krishna. Krishna Krishna Hare Hare. X 3<BR>
+Shri Gurudeva Datta.<BR>
+<p>
+
+6 Mantra Pushpam<BR>
+Hari Om yagnena yagnamayajanta devaastaani dharmaani prathamaabyaasan<BR>
+Tehanakam mahimaanah sachanta yatra poorve sadhyaa santi Devaah;<BR>
+Aum rajaadhiraajaaya prasahya saahine namo vayam Vaishravanaaya kurmahe<BR>
+Sa me kaaman kaama kaamaya mahyam kameswaro Vaishravano tathatu.<BR>
+Kuberaraya Vaishravanaaya Mahaaraajaaya namah.<BR>
+Om swasti saamrajyam bhojyam swaaraajyam vairaajyam, paarameshtyam<BR>
+Raajyam mahaarajya maadhi patya mayam Samantaparyaa yeesyat<BR>
+Saarvabhoumah saarvayushya aantaadaaparaaraadhaat prithivyai<BR>
+Samudraparyanthaayaa ekaraalithi<BR>
+Tadapyesha slokobhigeeto marutah parivestaaro marutah pariveshtaaro<BR>
+maruttasyaavasan gruhe Avikshitasya kamaprer Visvedevaah sabhaa sada ithi<BR>
+Shri Naarayana Vaasudevaaya Sri saccidananda Sadguru Saiñatha Maharaja ki<BR>
+Jaya<BR>
+<p>
+
+7 Namaskaaraastak<BR>
+COMPOSED BY :: Shri Mohani Raj<BR>
+Anantaa tulaa ten kase re sthavaave, Anantaa tulaa ten kase re namaave<BR>
+Anantaa mukhaanchaa shine shesh gaataan, Namaskaar saashtaang Shri<BR>
+Sainaatha.<BR>
+Smaraave hmanee twatpadaa nitya bhaave, Wurave taree bhaktisaattee<BR>
+swabhaave<BR>
+Tarave jagaa taarunee maaya taataa,Namaskaar saashtaang Shri Sainaatha.<BR>
+Vase jo sadaa daavayaa santleela, Dise agna lokaanparee jo janaalaa<BR>
+Paree antaree gnaana kaiwalya daataa, Namaskaar saashtaang Shri Sainaatha.<BR>
+Baraa laadhalaa janma haa maanvaachaa Naraa saarthakaa saadhaneebhuta<BR>
+saacha<BR>
+Dharoon Sayeepremaa galaayaa ahantaa, Namaskaar saashtaang Shri Sainaatha.<BR>
+Dharave karee saana alpagna baala, Karaave amhaa dhanya chumboni gaalaa<BR>
+Mukhee gala preme karaa graas aataan, Namaskaar saashtaang Shri Sainaatha.<BR>
+Suraadeeka jyaanchyaa padaa vanditaantee, Sukadeeka jyaante samaanatva<BR>
+detee<BR>
+Prayagaadi teerthen padee nasmra hotaa, Namaskaar saashtaang Shri Sainaatha.<BR>
+Tujhyaa jhya padaa paahtan gopabaalee, Sadaa rangalee chitswaroopee milaalee<BR>
+Karee raasakreedaa save Krishna naathaa, Namaskaar saashtaang Shri Sainaatha.<BR>
+Tulaa maahato maagane eka dhyaave, Karaa jodito deena atyanta bhaave<BR>
+Bhavee mohaneeraaja haa taari aataan, Namaskaar saashtaang Shri Sainaatha.<BR>
+<p>
+
+8 Aisaa eyee baa<BR>
+Aisaa eyee baa - Sayee digambaraa - Akshyaya roopa avataara<BR>
+Sarvahi vyapaka too - Shrutisaara - anusayaatrikumaaraa - Aisaa eyee baa!<BR>
+Kaashee snaana japa - pratidivashee - Kolhapura bhikshesee - nirmala nadi tungaa<BR>
+Jala praasee - Nidra maahur deshee - Aisaa eyee baa<BR>
+Jzholee lombatase vaamakaree - trishoola damaroo dhari<BR>
+Bhakta varada sadaa sukhakaaree Deseel mukti charee - Aisaa eyee baa<BR>
+Paayee paadukaa japamaala - kamandaloo - Mrigacchalaa - dhaarana kariseebaa<BR>
+Naagajataa - Mukuta sobhato maathaa - Aisaa eyee baa<BR>
+Tatpara tujyaa je dhyaanee - akshyaya Thyaanche sadhanee - Lakshmeevasa karee<BR>
+Dinarajanee - Rakshisi sankat vaaruni - Aisaa eyee baa<BR>
+Yaa pari dhyaana tujze gururaayaa - Drishya karee nayanaan yaa<BR>
+Poornaananda sukhe hee kaayaa - Laavise hariguna gaayaa - Aisaa eyee....<BR>
+<p>
+
+9 Shri Sainatha Mahimna Strotrama<BR>
+COMPOSED BY :: Shri Upasani Baba Maharaj<BR>
+Sadaa satswaroopam chidaananda kandam<BR>
+Jagat sambhavasthaana samhaara hetum<BR>
+Swabhaktechhayaa maanusham darsayantam<BR>
+Nameeswaram Sadgurum Sainaatham.<BR>
+Bhavadwaantha vidhwamsa maarthaanda meeddyam<BR>
+manovaagateetam munir dhyana gamyam<BR>
+Jagadvyapakam nirmalam nirgunam twaam<BR>
+Nameeswaram Sadgurum Sainaatham.<BR>
+Bhawaambhodi magnaarthitaanaam lanaanaam<BR>
+Swapaadaasritaanaam swabhakti priyaanaam<BR>
+Samuddhaaranaartham kalow sambhavantam<BR>
+Nameeswaram Sadgurum Sainaatham.<BR>
+Sadaa nimba vrikshasya mooladhivaasaat<BR>
+Sudhaasravinam tiktamapya priyantam<BR>
+Tarum kalpa vrikshaadhikam saadhayantam<BR>
+Nameeswaram Sadgurum Sainaatham.<BR>
+Sadaa kalpavrikshyasya tasyaadhi moole<BR>
+Bhawadbhava budhyaa saparyaadisevaam<BR>
+Nrinaam kurwataam bhukti mukti pradantam<BR>
+Nameeswaram Sadgurum Sainaatham<BR>
+Anekaashrutaa tarkya leelaa vilaasaeih<BR>
+Samaavishkruteshaana bhaasvat prabhaavam<BR>
+Ahambhaava heenam prasannathma bhaawam<BR>
+Nameeswaram Sadgurum Sainaatham.<BR>
+Sataam Vishramaaraama mevaabhiraamam<BR>
+sadaa sajjanaih samsthutam sannamadbhih<BR>
+Janaamodadam bhakta bhadrapradantam<BR>
+Nameeswaram Sadgurum Sainaatham.<BR>
+Ajanmaadhyamekam param brahma saakshaat<BR>
+Swayam sambhavam raamamevaavateernam<BR>
+Bhawadharshanaathsam puneetah praboham<BR>
+Nameeswaram Sadgurum Sainaatham.<BR>
+Sree Sayeesa kripaanidhe akhilanrinaam sarwaartha siddhi prada<BR>
+Yushmatpaadarajah prabahavamatulam dhaataapi vaktaakshhamah<BR>
+Sadbhakthyaa saranam kritaan jali putah samprapthithosmi prabho<BR>
+Shrimath Sayi paresa paada kamalaa naanya ccharanyam mama<BR>
+Sayiroopadhara raaghavottamam, Bhakta kaama vibhuda dhrumam prabhum<BR>
+Maayayopahata chitta shudhayae, Chintayaamyahamaharnisam mudaa<BR>
+Sharat sudhaamsu pratrima prakaasam, kripatapaatram tava Sainaatha<BR>
+Twadeeya paadaabja samaashritaanaam, Swachhaayayaa taapamapaa karothu<BR>
+Upaasanaa Daivata Sainaatha, Sthavairmayopaasaninaasthu sthatwam<BR>
+Ramenmaromne tava paadayugme bhrungo, Yathaabji makarmda lubdhah<BR>
+Aneka janmaarjita paapasamkshayo, Bhavet bhawatpaada saroja darshanaat<BR>
+Kshamaswa sarvaanaparaadha poonjakaan, praseeda Sayeesa Sadguro<BR>
+dayaanidhe<BR>
+Sri Sainatha charanaamrita putachithaah, Sthwatpaada seva natrataah<BR>
+satatamcha bhaktyaa<BR>
+Samsaara janya duritaagha vinirgataaste, kaivalya dhaama paramam<BR>
+samavaapnuvanti<BR>
+Strotrame tatpatte bhakthyaa yonara athanmanaahsadaa<BR>
+Sadguroh Sainaadhasya kripa paatram bhaveddhruham.<BR>
+Karacharanakritam vaakkaayajam karmajam vaa<BR>
+Shravananayanajam vaa maanasam vaaparadham<BR>
+Viditamaviditam vaa sarvame tatshkamasva<BR>
+<p>
+
+Jaya Jaya karunaabdhe shri pabho sainaatha.<BR>
+Shri Satchitaanand Sadguru Sainaath Maharaaj ki<BR>
+Aum Raajaadhiraaja Yogiraaja ParaBrahma Sainaath Maharaaj<BR>
+Shri Satchitaanand Sadguru Sainaath Maharaaj ki
+ </BODY>
+</HTML>

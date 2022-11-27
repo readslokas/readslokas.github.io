@@ -1,0 +1,152 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=1
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",50)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 270%;
+    text-align: center;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body>
+<BR>
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<p>
+HARIVARASANAM<BR>
+<BR>
+
+Harivarasanam Viswamohanam<BR>
+Haridadhiswaram Aaradhyapadhukam<BR>
+Arivimardhanam Nithyanarthanam<BR>
+Hariharatmajam Devamashreye<BR><BR>
+
+Sharanam Ayyappa Swamy Sharanam Ayyappa<BR>
+Sharanam Ayyappa Swamy Sharanam Ayyappa<BR><BR>
+
+Saranakirtanam Bakhtamanasam<BR>
+Bharanalolupam Narthanalasam<BR>
+Arunabhasuram Bhoothanayakam<BR>
+Hariharatmajam Devamashreye<BR><BR>
+
+Sharanam Ayyappa Swamy Sharanam Ayyappa<BR>
+Sharanam Ayyappa Swamy Sharanam Ayyappa<BR><BR>
+
+Pranayasathyakam Praananayakam<BR>
+Pranathakalpakam Suprabhanjitham<BR>
+Pranavamanidram Keerthanapriyam<BR>
+Hariharatmajam Devamashreye<BR><BR>
+
+Sharanam Ayyappa Swamy Sharanam Ayyappa<BR>
+Sharanam Ayyappa Swamy Sharanam Ayyappa<BR><BR>
+
+Thuragavahanam Sundarananam<BR>
+Varagadhayudham Vedavavarnitham<BR>
+Gurukrupakaram Keerthanapriyam<BR>
+Hariharatmajam Devamashreye<BR><BR>
+
+sharanam Ayyappa Swamy Sharanam Ayyappa<BR>
+Sharanam Ayyappa Swamy Sharanam Ayyappa<BR><BR>
+
+Tribuvanarchitam Devathathmakam<BR>
+Trinayanam Prabhum Divyadeshikam<BR>
+Tridashapoojitham Chinthithapradam<BR>
+Hariharatmajam Devamashreye<BR><BR>
+
+Sharanam Ayyappa Swamy Sharanam Ayyappa<BR>
+Sharanam Ayyappa Swamy Sharanam Ayyappa<BR><BR>
+
+Bhavabhayapaham Bhavukavaham<BR>
+Bhuvanamohanam Bhoothibhooshanam<BR>
+Dhavalavahanam Divyavaranam<BR>
+Hariharatmajam Devamashreye<BR><BR>
+
+Sharanam Ayyappa Swamy Sharanam Ayyappa<BR>
+Sharanam Ayyappa Swamy Sharanam Ayyappa<BR><BR>
+
+Kalamrudusmitham Sundarananam<BR>
+Kalabhakomalam Gathramohanam<BR>
+Kalabhakesari Vajivahanam<BR>
+Hariharatmajam Devamashreye<BR><BR>
+
+Sharanam Ayyappa Swamy Sharanam Ayyappa<BR>
+Sharanam Ayyappa Swamy Sharanam Ayyappa<BR><BR>
+
+Srithajanapriyam Chinthithapradam<BR>
+Sruthivibhushanam Sadhujeevanam<BR>
+Sruthimanoharam Geethalalasam<BR>
+Hariharatmajam Devamashreye<BR><BR>
+
+Swamy Sharanam Ayyappa Swamy Sharanam Ayyappa<BR>
+Swamy Sharanam Ayyappa Swamy Sharanam Ayyappa<BR><BR>
+
+</body>
+</html>

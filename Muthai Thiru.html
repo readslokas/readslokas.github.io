@@ -1,0 +1,119 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=1
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",50)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 270%;
+    text-align: center;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body>
+<BR>
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<P>
+முத்தைத்தரு பத்தித் திருநகை<BR>
+அத்திக்கிறை சத்திச் சரவண<BR>
+முத்திக்கொரு வித்துக் குருபர ...... எனவோதும்<BR>
+<BR>
+முக்கட்பர மற்குச் சுருதியின்<BR>
+முற்பட்டது கற்பித் திருவரும்<BR>
+முப்பத்துமு வர்க்கத் தமரரும் ...... அடிபேணப்<BR>
+<BR>
+பத்துத்தலை தத்தக் கணைதொடு<BR>
+ஒற்றைக்கிரி மத்தைப் பொருதொரு<BR>
+பட்டப்பகல் வட்டத் திகிரியில் ...... இரவாகப்<BR>
+<BR>
+பத்தற்கிர தத்தைக் கடவிய<BR>
+பச்சைப்புயல் மெச்சத் தகுபொருள்<BR>
+பட்சத்தொடு ரட்சித் தருள்வதும் ...... ஒருநாளே<BR>
+<BR>
+தித்தித்தெய ஒத்தப் பரிபுர<BR>
+நிர்த்தப்பதம் வைத்துப் பயிரவி<BR>
+திக்கொட்கந டிக்கக் கழுகொடு ...... கழுதாடத்<BR>
+<BR>
+திக்குப்பரி அட்டப் பயிரவர்<BR>
+தொக்குத்தொகு தொக்குத் தொகுதொகு<BR>
+சித்ரப்பவு ரிக்குத் த்ரிகடக ...... எனவோதக்<BR>
+<BR>
+கொத்துப்பறை கொட்டக் களமிசை<BR>
+குக்குக்குகு குக்குக் குகுகுகு<BR>
+குத்திப்புதை புக்குப் பிடியென ...... முதுகூகை<BR>
+<BR>
+கொட்புற்றெழ நட்பற் றவுணரை<BR>
+வெட்டிப்பலி யிட்டுக் குலகிரி<BR>
+குத்துப்பட ஒத்துப் பொரவல ...... பெருமாளே<BR>
+<p>
+
+</body>
+</html>
+

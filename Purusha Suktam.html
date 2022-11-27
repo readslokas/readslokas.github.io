@@ -1,0 +1,255 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=3
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",25)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 250%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 230%;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body class="block">
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<p>
+<BR>
+Thachamyo rAvrunimahE<BR>
+gAthum yagnAyA<BR>
+GAthum Yagna pathayE<BR>
+Daivee swasthi rasthu na<BR>
+Swasthir ManushebhyAha<BR>
+Urdhwam Jigathu beshayam<BR>
+Sanno asthu dwipadhE<BR>
+Sam chatush pathe<BR>
+Om Shanthi shanthi Shanthi<BR>
+<BR>
+1-1<BR>
+Sahasra seerushaa purushahA <BR>
+SahasrAksha saharapAth<BR>
+Sa bhoomim viswatho vruthwA<BR>
+Athyathishta dhasAngulam <BR>
+Purusha eevedagum sarvaM <BR>
+Yad bhootam yachra bhavyaM<BR>
+<BR>
+1-2<BR>
+Uthaamru thathwasya eesanAha <BR>
+Yad annena dhirohathi <BR>
+Ethaa vaanasya mahimA <BR>
+Atho jyaayaguscha pUrushahA<BR>
+<BR>
+1-3<BR>
+Padhosya viswa bhoothanee<BR>
+Tripaadasya mrutham divi<BR>
+Tripadd urdhwam udaith prurusha<BR>
+Padhosye habhavaath punaha<BR>
+<BR>
+1-4<BR>
+Thatho vishvang vyakramathu <BR>
+Sasanana sane abhi <BR>
+Tasmath virada jayatha<BR>
+Virajo athi purusha<BR>
+<BR>
+1-5<BR>
+Sa jatho athya richyatha<BR>
+Paschad bhoomi madho pura<BR>
+Yat purushena havishaa<BR>
+Devaa yagna mathanvath<BR>
+<BR>
+1-6<BR>
+Vasantho asyaasee dhajyam<BR>
+Greeshma idhma saraddhavi<BR>
+Sapthaasyasan paridhaya<BR>
+Thri saptha samidha Krutha<BR>
+<BR>
+1-7<BR>
+Devaa yad yagnam thanvaana<BR>
+Abhadhnan purusham pasum<BR>
+Tham yagnam barhisi prokshan<BR>
+Purusham Jaatham agradha<BR>
+<BR>
+1-8<BR>
+Thena deva ayajantha<BR>
+Saadhya rushayascha ye<BR>
+Tasmad yagnath sarva hutha<BR>
+Sam brutham prushadajyam<BR>
+<BR>
+1-9<BR>
+Pasugus thagus chakre vayavyaan<BR>
+Aaranyaan graamyascha ye<BR>
+Tasmad yagnath sarva huthaha<BR>
+Rucha saamanee jagniree<BR>
+<BR>
+1-10<BR>
+Chanadaagum si jagnire tasmAath<BR>
+Yajus tasmad jaayatha <BR>
+Tasmad aswaa ajaayantha<BR>
+Ye ke chobhaya tha tha ha<BR>
+<BR>
+1-11<BR>
+Gavooha jagnire tasmath<BR>
+Tasmad gnatha ajavaya<BR>
+Yad purusha vyadhadhu<BR>
+Kathidhaa vyakalpayan<BR>
+<BR>
+1-12<BR>
+Mukham kimasya kau bahu<BR>
+Kaavuruu padaa uchyathe<BR>
+Brahmanosya Mukhamaseed<BR>
+Bahu rajanya krutha<BR>
+<BR>
+1-13<BR>
+Ooru tadasysa yad vaisya ha<BR>
+Padbhyagum sudro aajayatha<BR>
+Chandrama manaso Jatha ha<BR>
+Chaksho surya Ajayatha<BR>
+<BR>
+1-14<BR>
+Mukhad Indras cha Agnis cha<BR>
+Pranad Vayura jAyatha<BR>
+Nabhya aseed anthareeksham<BR>
+seershno dhou samavarthatha<BR>
+<BR>
+1-15<BR>
+Padbyam Bhoomir disaa srothrath<BR>
+Tadha lokaagum akalpayan<BR>
+Vedahametham purusham mahantham<BR>
+Adhitya varnam thamasathu pare<BR>
+<BR>
+1-16<BR>
+Sarvani roopani vichinthya dheeraha<BR>
+Namaani kruthwa abhivadan yadasthe<BR>
+Dhaatha purasthad yamudhajahara<BR>
+sakra pravidhaan pradhisascha thathra<BR>
+<BR>
+1-17<BR>
+Thamevam vidwaan anu mrutha iha bavathi<BR>
+Naanya pandha ayanaaya vidhyathe<BR>
+Yagnena yagnam aya jantha devaa<BR>
+Thaani dharmani pradhamanyasan<BR>
+<BR>
+1-18<BR>
+Theha naakam mahimaana sachanthe<BR>
+yatra poorvo saadhyaa santhi devaa<BR>
+Adhbhyaa sambhootha pruthvyai rasascha<BR>
+Viswakarmanas samavarthadhi<BR>
+<BR>
+2-1<BR>
+Tasyas twashtaa vidhadh rupamethi<BR>
+tad purushasya viswa maajanam agre<BR>
+Vedaham etham purusham mahantham<BR>
+Aadithyavarnam thamasa parasthath<BR>
+<BR>
+2-2<BR>
+Thamevam vidwan amrutha iha bhavathi<BR>
+nanya pandhaa vidhyathe ayanaaya<BR>
+Prajapathis charathi garbhe antha<BR>
+Aajayamano bahudha vijaayathe<BR>
+<BR>
+2-3<BR>
+Tasya dheera parijananthi yonim<BR>
+Mareechinaam padamicchanthi vedhasa<BR>
+Yo devebhya aathapathi<BR>
+Yo devaanaam purohitha<BR>
+<BR>
+2-4<BR>
+Poorvo yo devebhyo jathaha<BR>
+Namo ruchaaya brahmaye<BR>
+Rucham brahmam janayantha<BR>
+Devaa agne tadha bruvan<BR>
+<BR>
+2-5<BR>
+Yasthaivam barahmano vidhyat<BR>
+Tasya deva asaan vase<BR>
+Hreescha the lakshmischa patnyou<BR>
+Ahorathre paarswe<BR>
+<BR>
+2-6<BR>
+Nakshatrani roopam<BR>
+Aswinou vyatham<BR>
+<BR>
+2-7<BR>
+Ishtam manishaana<BR>
+Amum manishana<BR>
+Sarvam manishana<BR>
+<BR>
+Thachamyo ravrunimahe<BR>
+gathum yagnaya<BR>
+Gathum Yagna pathaye<BR>
+Daivee swasthi rasthu na<BR>
+Swasthir Manushebhya<BR>
+Urdhwa Jigathu beshajam<BR>
+Sam no asthu dwipadhe<BR>
+Sam chatush pade<BR>
+<BR>
+Om Shanthi shanthi Shanthihi<BR>
+</p>
+
+</body>
+</html>

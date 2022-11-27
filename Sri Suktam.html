@@ -1,0 +1,196 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=5
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",25)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 250%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 230%;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body class="block">
+
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<p>
+<BR>
+Sri gurubhyo namaha Harihi om<BR>
+<BR>
+Hirannya-Varnnaam Harinniim Suvarnna-Rajata-Srajaam |<BR>
+Candraam Hirannmayiim Lakssmiim Jaatavedo Ma Aavaha ||1||<BR>
+<BR>
+Taam Ma Aavaha Jaatavedo Lakssmiim-Anapagaaminiim |<BR>
+Yasyaam Hirannyam Vindeyam Gaam-Ashvam Purussaan-Aham ||2||<BR>
+<BR>
+Ashva-Puurvaam Ratha-Madhyaam Hastinaada-Prabodhiniim |<BR>
+Shriyam Deviim-Upahvaye Shriirmaa Devii Jussataam ||3||<BR>
+<BR>
+Kaam SOO-Smitaam Hirannya-Praakaaraam-Aardraam Jvalantiim Trptaam Tarpayantiim |<BR>
+Padme Sthitaam Padma-Varnnaam Taam-Iho[a-u]pahvaye Shriyam ||4||<BR>
+<BR>
+Candraam Prabhaasaam Yashasaa Jvalantiim Shriyam Loke Deva-Jussttaam-Udaaraam |<BR>
+Taam Padminiim-Iim Sharannam-Aham Prapadye-[A]lakssmiir-Me Nashyataam Tvaam Vrnne ||5||<BR>
+<BR>
+Aaditya-Varnne Tapaso[a-A]dhi-Jaato Vanaspatis-Tava Vrksso[ah-A]tha Bilvah |<BR>
+Tasya Phalaani Tapasaa-Nudantu Maaya-Antaraayaashca Baahyaa Alakssmiih ||6||<BR>
+<BR>
+Upaitu Maam Deva-Sakhah Kiirtish-Ca Manninaa Saha |<BR>
+Praadurbhuuto[ah-A]smi Raassttre-[A]smin Kiirtim-Rddhim Dadaatu Me ||7||<BR>
+<BR>
+Kssut-Pipaasaa-Malaam Jyesstthaam-Alakssmiim Naashayaamy-Aham |<BR>
+Abhuutim-Asamrddhim Ca Sarvaam Nirnnuda Me Grhaat ||8||<BR>
+<BR>
+Gandha-Dvaaraam Duraadharssaam Nitya-Pussttaam Kariissinniim |<BR>
+Iishvariing Sarva-Bhuutaanaam Taam-Iho[a-u]pahvaye Shriyam ||9||<BR>
+<BR>
+Manasah Kaamam-Aakuutim Vaacah Satyam-Ashiimahi |<BR>
+Pashuunaam Ruupam-Annasya Mayi Shriih Shrayataam Yashah ||10||<BR>
+<BR>
+Kardamena Prajaa-Bhuutaa Mayi Sambhava Kardama |<BR>
+Shriyam Vaasaya Me Kule Maataram Padma-Maaliniim ||11||<BR>
+<BR>
+Aapah Srjantu Snigdhaani Cikliita Vasa Me Grhe |<BR>
+Ni Ca Deviim Maataram Shriyam Vaasaya Me Kule ||12||<BR>
+<BR>
+Aardraam Pusskarinniim Pussttim Pinggalaam Padma-Maaliniim |<BR>
+Candraam Hirannmayiim Lakssmiim Jaatavedo Ma Aavaha ||13||<BR>
+<BR>
+Aardraam Yah Karinniim Yassttim Suvarnnaam Hema-Maaliniim |<BR>
+Suuryaam Hirannmayiim Lakssmiim Jaatavedo Ma Aavaha ||14||<BR>
+<BR>
+Taam Ma Aavaha Jaatavedo Lakssmiim-Anapagaaminiim |<BR>
+Yasyaam Hirannyam Prabhuutam Gaavo Daasyo-[A]shvaan Vindeyam Puurussaan-Aham ||15||<BR>
+<BR>
+Yah Shucih Prayato Bhuutvaa Juhu-Yaad-Aajyam-Anvaham |<BR>
+shriya Pancadasharcam Ca Shriikaamah Satatam Japet ||16||<BR>
+<BR>
+Aananda kardamas che va chikli tativa-visrutaa-haa |<BR>
+Rushaya-ha Sri-va-putraas-cha mayii Sri-Devi devtaa ||17||<BR>
+<BR>
+Padma-[A]anane Padma Uuru Padma-Akssii Padmaa-Sambhave |<BR>
+Tvam Maam Bhajasva Padma-Akssii Yena Saukhyam Labhaamy[i]-Aham ||18||<BR>
+<BR>
+<BR>
+Ashva-Daayi Go-Daayi Dhana-Daayi Mahaa-Dhane |<BR>
+Dhanam Me Jussataam Devi Sarva-Kaamaamsh-Ca Siddhaye ||19||<BR>
+<BR>
+Putra-Pautra Dhanam Dhaanyam Hasty-Ashva-[A]adi-Gavo Ratham |<BR>
+Prajaanaam Bhavasi Maataa Aayussmantam Karotu Maam ||20||<BR>
+<BR>
+Chandrabam Lakshmiim Ishanaam Suuryaabham shriyam Eshvarim<BR>
+ChandraSuryagni Sarvaabham Sri Mahalakshmi Upasmahe ||21||<BR>
+<BR>
+Dhanam-Agnir-Dhanam Vaayur-Dhanam Suuryo Dhanam Vasuh |<BR>
+Dhanam-Indro Brhaspatir-Varunnam Dhanam-Ashnute ||22||<BR>
+<BR>
+Vainateya Somam Piba Somam Pibatu Vrtrahaa |<BR>
+Somam Dhanasya Somino Mahyam Dadaatu Sominii ||23||<BR>
+<BR>
+Na Krodho Na Ca Maatsarya Na Lobho Na-Ashubhaa Matih |<BR>
+Bhavanti Krtapunnyaanaam Bhaktaanaam Shriisuuktam Japet-Sadaa ||24||<BR>
+<BR>
+Varssantu Te Vibhaavari Divo Abhrasya Vidyutah |<BR>
+Rohantu Sarva-Biija-Anyava Brahma Dvisso Jahi ||25||<BR>
+<BR>
+Padma-Priye Padmini Padma-Haste Padma-[A]alaye Padma-Dalaayata-Akssi |<BR>
+Vishva-Priye Vissnnu Mano-[A]nukuule Tvat-Paada-Padmam Mayi Sannidhatsva ||26||<BR>
+<BR>
+Yaa Saa Padma-[A]asana-Sthaa Vipula-Kattitattii Padma-Patraayata-Akssii |<BR>
+Gambhiiraa Varta-Naabhih Stanabhara Namitaa Shubhra Vastro[a-u]ttariiyaa ||27||<BR>
+<BR>
+<BR>
+Lakssmiir-Divyair-Gajendrair-Manni-Ganna-Khacitais-Snaapitaa Hema-Kumbhaih |<BR>
+Nityam Saa Padma-Hastaa Mama Vasatu Grhe Sarva-Maanggalya-Yuktaa ||28||<BR>
+<BR>
+<BR>
+Lakssmiim Kssiira-Samudra Raaja-Tanayaam Shriirangga-Dhaame[a-Ii]shvariim |<BR>
+Daasii-Bhuuta-Samasta Deva Vanitaam Loka-i[e]ka Diipa-Am kuraam ||29||<BR>
+<BR>
+<BR>
+Shriiman[t]-Manda-Kattaakssa-Labdha Vibhava Brahme(a-I)ndra-Ganggaadharaam |<BR>
+Tvaam Trai-Lokya Kuttumbiniim Sarasijaam Vande Mukunda-Priyaam ||30||<BR>
+<BR>
+Suddha-Lakssmiir-Mokssa-Lakssmiir-Jaya-Lakssmiis-Sarasvatii |<BR>
+Shrii-Lakssmiir-Vara-Lakssmiishca Prasannaa Mama Sarvadaa ||31||<BR>
+<BR>
+Vara-Angkushau Paasham-Abhiiti-Mudraam Karair-Vahantiim Kamala-[A]asana-Sthaam |<BR>
+Baala-[A]arka Kotti Pratibhaam Tri-Netraam Bhaje-[A]ham-Aadyaam Jagad-Iisvariim Tvaam ||32||<BR>
+<BR>
+Sarva-Manggala-Maanggalye Shive Sarva-Artha Saadhike |<BR>
+Sharannye Try-Ambake Devi Naaraayanni Namostu Te ||33||<BR>
+<BR>
+Mahaalakssmii Ca Vidmahe Vissnnu-Patnii Ca Dhiimahi |<BR>
+Tan[t]-No Lakssmiih Pracodayaat ||34||<BR>
+<BR>
+Om Shanthi shanthi Shanthihi<BR>
+</p>
+
+</body>
+</html>

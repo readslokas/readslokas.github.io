@@ -1,0 +1,1634 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=3
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",25)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 250%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 230%;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body class="block">
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<p>
+Sri Rudhra Dhyanam <BR><BR>
+
+Om asyaSrI rudhrADHyAyap <BR>
+praSna mahAmanthrasyaa <BR><BR>
+
+aGOra rushihi <BR><BR>
+
+anushtup Candhahaa <BR><BR>
+
+sangkarshaNa mUrthis svarUpO <BR>
+yOsA-vAdhithyahaa <BR><BR>
+
+paramapurusha sa Esha<BR>
+rudhrO dhEvathA <BR><BR>
+
+namaS SivAyEthi bIjam <BR><BR>
+
+SivatharA-yEthi Sakthihi <BR><BR>
+
+mahAdhEvA-yEthi kIlakam <BR><BR>
+
+SrI sAmba sadhASivap<BR>
+prasAdha sidhDHyarTHE<BR>
+japE viniyOgaha<BR><BR>
+
+agni-hOthrAth-manE<BR>
+anggushTAB-byAn namaha<BR><BR>
+
+dharSa-pUrNa-mAsAth-manE<BR>
+tharjanIB-byAn namaha<BR><BR>
+
+cAthur-mAs-yAthmanE maDHyamAB-byAn namaha<BR><BR>
+
+nirUDa-paSubanDHAth-manE<BR>
+anAmikAB-byAn namaha<BR><BR>
+
+jyOthishtO-mAthmanE<BR>
+kanishTikAB-byAn namaha<BR><BR>
+
+sarvak-krathvAth-manE<BR>
+kara thala kara<BR>
+prushTAB-byAn<BR>
+namaha<BR><BR>
+
+agni-hOthrAth-manE <BR>
+hrudhayAya namaha<BR>
+dharSa-pUrNa-mAsAth-manE<BR>
+SirasE<BR>
+svAhA<BR><BR>
+
+cAthur-mAs-yAthmanE<BR>
+SiKAyai vashat<BR><BR>
+
+nirUDa-paSubanDHAth-manE<BR>
+kavacAya hum<BR><BR>
+
+jyOthishtO-mAthmanE<BR>
+nEthrath-thrayAya<BR>
+vaushat<BR><BR>
+
+sarva-krathvAth-manE<BR>
+asthrA-yaPat<BR><BR>
+
+BUr-Buvas-svarOm-ithi<BR>
+dhigbanDHa <BR><BR>
+
+DHyAnam<BR><BR>
+
+ApAthALana-BasTHalAntha<BR>
+Buvana brahmANda mAvis<BR>
+Purath<BR>
+jyOthis sPAtika<BR>
+lingga mauli<BR>
+vilasath<BR>
+pUrNEndhu-vAnthAmruthaIhi<BR><BR>
+
+asthO kAputha<BR>
+mEka mISa maniSam<BR>
+rudhrAnu vAkAnjjapan<BR>
+DHyAyE dhIpsitha<BR>
+sidhDHayE<BR>
+dhruva padham<BR>
+viprO Bishinjj-jEcCivam<BR><BR>
+
+Shancha Me<BR>
+Mayashcha Me<BR>
+Priyan ChaMenukaamashcha Me<BR>
+Kaamashcha Me<BR>
+Saumanasashcha Me<BR>
+Bhadram Cha Me<BR>
+Shreyashcha Me<BR>
+Vasyashcha Me<BR>
+Yashashcha Me<BR>
+Bhagashcha Me<BR>
+Dravinam Cha Me<BR>
+Yantaa Cha Me<BR>
+Dhartaa Cha Me<BR>
+Kshemashcha Me<BR>
+Dhritishcha Me<BR>
+Vishvam Cha Me<BR>
+Mahashcha Me<BR>
+Samvichcha Me<BR>
+Gnyaatram Cha Me<BR>
+Suushcha Me<BR>
+Prasuushcha Me<BR>
+Siiram Cha Me<BR>
+Layashcha Ma<BR>
+Ritam Cha Me<BR>
+Amritam Cha Me<BR>
+yakshmam Cha<BR>
+Meanaamayachcha Me<BR>
+Jiivaatushcha Me<BR>
+Diirghaayutvam Cha Me<BR>
+namitram Cha Me<BR>
+Abhayam Cha Me<BR>
+Sugam Cha Me<BR>
+Shayanam Cha Me<BR>
+Suushhaa Cha Me<BR>
+Sudinam Cha Me|<BR><BR>
+
+Om<BR>
+shanthi<BR>
+shanthi<BR>
+shanthihi<BR><BR>
+
+SrI rudhrapraSnahA<BR><BR>
+
+Om namO<BR>
+BagavathE<BR>
+rudhrAya<BR><BR>
+
+namasthE rudhra<BR>
+manyava uthOtha<BR>
+ishavE namaha <BR><BR>
+
+namasthE<BR>
+asthu DHanvanE<BR>
+bAhuByAm-uthathE<BR>
+namaha  1.1<BR><BR>
+
+yAtha ishuS<BR>
+SivathamA Sivam<BR>
+baBUva thE DHanuhu <BR><BR>
+
+SivA SaravyA yAthava<BR>
+thayAnO<BR>
+rudhra mrudaya 1.2<BR><BR>
+
+yAthE rudhra SivA thanUra<BR>
+GOrA pApa kASinI <BR>
+thayAnas-thanuvA <BR>
+SanthamayA <BR>
+giriSanthA-BicAkaSIhi 1.3<BR><BR>
+
+yAmishum <BR>
+giriSantha <BR>
+hasthE <BR>
+biBarshyasthavE <BR><BR>
+
+SivAm <BR>
+girithra-thAm <BR>
+kurumA-higumsIp <BR>
+purusham <BR>
+jagathu 1.4<BR><BR>
+
+SivEna<BR>
+vacasA thvA<BR>
+giriSAcCA<BR>
+vadhAmasi <BR><BR>
+
+yaTHAnas<BR>
+sarvamij<BR>
+jagadha<BR>
+yakshmagm<BR>
+sumanA asathu 1.5<BR><BR>
+
+aDHyavOcadhaDHi<BR>
+vakthA<BR>
+praTHamO<BR>
+dhaivyO<BR>
+Bishaku <BR><BR>
+
+ahIgSca sarvAnj-<BR>
+jamBayanth-sarvASca<BR>
+yAthu<BR>
+DHAnyaha 1.6<BR><BR>
+
+asauyas<BR>
+thAmrO aruNa<BR>
+utha baBrus<BR>
+sumanggalaha <BR><BR>
+
+yE cEmAgum<BR>
+rudhrA<BR>
+aBithO<BR>
+dhikshu <BR>
+SrithA sahasraSOvai<BR>
+shAgum<BR>
+hEda ImahE 1.7<BR><BR>
+
+asauyO<BR>
+vasarpathi<BR>
+nIlagrIvO vilOhithaha <BR><BR>
+
+uthainam<BR>
+gOpA<BR>
+adhruSan-adhruSannudha<BR>
+hAryaha <BR><BR>
+
+uthainam viSvA<BR>
+BUthAni sadhrushtO<BR>
+mrudayAthinaha  1.8<BR><BR>
+
+namO asthu<BR>
+nIlag-rIvAya<BR>
+sahas-rAkshAya<BR>
+mIDushEE <BR><BR>
+
+aTHOyE asya<BR>
+sathvA nOham<BR>
+thEByO karannamaha 1.9<BR><BR>
+
+pramunjca DHanvanasth<BR>
+thvamuBayOr<BR>
+ArthniyOrjyAm <BR><BR>
+
+yASca thE hastha<BR>
+ishava parAthA<BR>
+BagavO vapa  1.10<BR><BR>
+
+avathathya DHanusthvagum<BR>
+sahasrAksha SathEshuDHE <BR><BR>
+
+niSIlya SalyAnAm<BR>
+muKA SivOnas<BR>
+sumanA Bava 1.11<BR><BR>
+
+vijyam <BR>
+DHanu <BR>
+kapardhinO <BR>
+viSalyO <BR>
+bANavAgum utha <BR><BR>
+
+anESan nasyEshava<BR>
+ABurasya nishanggaTHihi 1.12<BR><BR>
+
+yAthE hEthirmIDushtama<BR>
+hasthE<BR>
+baBUva thE<BR>
+DHanuhu <BR><BR>
+
+thayAsmAn viSvathasth<BR>
+thvamayakshmayA<BR>
+paribBuja 1.13<BR><BR>
+
+namasthE asthvAyu<BR>
+DHAyAnA<BR>
+thathAya DHrushNavE <BR><BR>
+
+uBAByAm-uthathE<BR>
+namO bAhuByAm <BR>
+thava DHanvanE  1.14<BR><BR>
+
+parithE DHanvanO<BR>
+hEthirasmAn<BR>
+vruNakthu viSvathahaa <BR><BR>
+
+aTHOya ishuDHisthavArE<BR>
+asmanniDHE hitham 1.15 <BR><BR>
+
+namasthE<BR>
+asthu<BR>
+Bagavan<BR>
+viSvESvarAya<BR>
+mahAdhEvAya<BR>
+thryambakAya<BR>
+thripurAnthakAya<BR>
+thrikAlAgni<BR>
+kAlAya<BR>
+kAlAgni<BR>
+rudhrAya<BR>
+nIlakaNTAya<BR>
+mruthyunjjayAya<BR>
+sarvESvarAya<BR>
+sadhASivAya<BR>
+SrIman mahAdhEvAya<BR>
+namahaa 2.0<BR><BR>
+
+namO hiraNya bAhavE<BR>
+sE-nAnyE dhiShAnjca<BR>
+pathayE<BR>
+namO namO<BR><BR>
+
+vrukshEByO <BR>
+harikESEByap<BR>
+paSUnAm<BR>
+pathayE<BR>
+namO namas<BR><BR>
+
+saspinjjarA <BR>
+yathvishImathE<BR>
+paTHInAm pathayE<BR>
+namO namO<BR><BR>
+
+baBluSAya <BR>
+vivyADHinEnnA<BR>
+nAm pathayE<BR>
+namO namO<BR><BR>
+
+harikESAyOpa <BR>
+vIthinE<BR>
+pushtA<BR>
+nAm pathayE<BR>
+namO namO<BR><BR>
+
+Bavasya hEthyai<BR>
+jagathAm pathayE<BR>
+namO namO<BR><BR>
+
+rudhrAyA <BR>
+thathAvinE<BR>
+kshEthrA NAm<BR>
+pathayE<BR>
+namO namas<BR><BR>
+
+sUthAyA hanthyAya<BR>
+vanA<BR>
+nAm pathayE<BR>
+namO namO  2.1<BR><BR>
+
+rOhithAyas <BR>
+sTHapathayE<BR>
+vrukshA<BR>
+NAm pathayE <BR>
+namO namO<BR><BR>
+
+manthriNE vANijAya<BR>
+kakshA<BR>
+NAm pathayE<BR>
+namO namO<BR><BR>
+
+BuvanthayE <BR>
+vArivaskruthA<BR>
+yaushaDHI <BR>
+nAm pathayE<BR>
+namO nama<BR><BR>
+
+uccair GOshAyAk<BR>
+krandhayathE paththI<BR>
+nAm pathayE<BR>
+namO namak<BR><BR>
+
+kruthsna vIthAya<BR>
+DHAvathE sathva<BR>
+nAm pathayE<BR>
+namahaa  2.2<BR><BR>
+
+namas sahamAnAya<BR>
+niv yADHina<BR>
+AvyADHinI<BR>
+nAm pathayE<BR>
+namO namak<BR><BR>
+
+kakuBAya <BR>
+nishanggiNE<BR>
+sthEnA<BR>
+nAm pathayE<BR>
+namO namO<BR><BR>
+
+nishanggiNa <BR>
+ishuDHimathE<BR>
+thaskarA<BR>
+NAm pathayE<BR>
+namO namO<BR><BR>
+
+vanjcathE <BR>
+parivanjcathE<BR>
+sthAyU<BR>
+nAm pathayE<BR>
+namO namO<BR><BR>
+
+nicEravE <BR>
+paricarAyA<BR>
+raNyA<BR>
+nAm pathayE<BR>
+namO namas<BR><BR>
+
+srukAviByO jiGAgm<BR>
+sadhByO mushNa<BR>
+thAm pathayE<BR>
+namO namO<BR><BR>
+
+simadhByO <BR>
+nakthanjcaradhByap<BR>
+prakrunthA<BR>
+nAm pathayE<BR>
+namO nama<BR><BR>
+
+ushNIshiNE <BR>
+giricarAya<BR>
+kulunjcA nAm<BR>
+pathayE<BR>
+namO nama  3.1<BR><BR>
+
+ishumadhByO<BR>
+DHanvAviByaSca vO<BR>
+namO nama<BR><BR>
+
+Athan vAnEByap<BR>
+prathidha<BR>
+DHAnEByaSca vO<BR>
+namO nama<BR><BR>
+
+AyacCadhByO<BR>
+visrujadhByaSca vO<BR>
+namO namOs<BR><BR>
+
+syadhByO<BR>
+vidhyadhByaSca vO<BR>
+namO nama<BR><BR>
+
+AsInEBya<BR>
+SayAnEByaSca vO<BR>
+namO namas<BR><BR>
+
+svapadhByO<BR>
+jAgradhByaSca vO<BR>
+namO namas<BR><BR>
+
+sthishTadhByO<BR>
+DHAvadhByaSca vO<BR>
+namO namas<BR><BR>
+
+saBABya<BR>
+saBApathiByaSca vO<BR>
+namO namO<BR><BR>
+
+aSvEByOS<BR>
+SvapathiByaSca vO<BR>
+namaHaa  3.2<BR><BR>
+
+nama Av<BR>
+yADHinIIByO<BR>
+viviDHyanthIByaSca vO<BR>
+namO nama<BR><BR>
+
+ugaNAByas thrugm<BR>
+hathIByaSca vO<BR>
+namO namO<BR><BR>
+
+gruthsEByO gruthsa<BR>
+pathiByaSca vO<BR>
+namO namO<BR><BR>
+
+vrAthEByO vrAtha<BR>
+pathiByaSca vO<BR>
+namO namO<BR><BR>
+
+gaNEByO<BR>
+gaNapathiByaSca vO<BR>
+namO namO<BR><BR>
+
+virUpEByO viSva<BR>
+rUpEByaSca vO<BR>
+namO namO<BR><BR>
+
+mahadhByaha kshulla<BR>
+kEByaSca vO<BR>
+namO namO<BR><BR>
+
+raTHiByO<BR>
+raTHEByaSca vO<BR>
+namO namO  4.1<BR><BR>
+
+raTHEByO<BR>
+raTHapathiByaSca vO<BR>
+namO namas<BR><BR>
+
+sEnABya sEnA<BR>
+niByaSca vO<BR>
+namO namaha<BR><BR>
+
+kshaththruBya<BR>
+sanggrahIth<BR>
+thruByaSca vO<BR>
+namO nama<BR><BR>
+
+sthakshaByO<BR>
+raTHakArE-ByaSca vO<BR>
+namO nama<BR><BR>
+
+kulAlEBya<BR>
+karmArEByaSca vO<BR>
+namO nama<BR><BR>
+
+punjjishtEByO<BR>
+nishAdhEByaSca vO<BR>
+namO nama<BR><BR>
+
+ishukrudhByO<BR>
+DHanvakrudhByaSca vO<BR>
+namO namO<BR><BR>
+
+mrugayuBya<BR>
+SvaniByaSca vO<BR>
+namO namaS<BR><BR>
+
+SvaBya<BR>
+SvapathiByaSca vO<BR>
+namahaa  4.2<BR><BR>
+
+namO BavAya<BR>
+ca-rudhrAya<BR>
+ca-nama <BR><BR>
+SarvAya<BR>
+ca-paSu pathayE<BR>
+ca-namO <BR><BR>
+
+nIlag grIvAya<BR>
+ca-Sithi kaNTAya<BR>
+ca-namak <BR><BR>
+
+kapardhinE<BR>
+ca-vyuptha kESAya<BR>
+ca-namas <BR><BR>
+
+sahas-rAk-shAya<BR>
+ca-Satha DHanvanE<BR>
+ca-namO <BR><BR>
+
+giriSAya<BR>
+caSipi vishtAya<BR>
+ca-namO <BR><BR>
+
+mIDushtamAya<BR>
+cEshumathE<BR>
+ca-namOO<BR><BR>
+
+hrasvAya ca-vAmanAya<BR>
+ca-namO <BR><BR>
+
+bruhathE<BR>
+ca-varshIyasE<BR>
+ca-namO <BR><BR>
+
+vrudhDHAya<BR>
+ca-samvrudhDHvanE<BR>
+ca-namO <BR><BR>
+
+agriyAya<BR>
+capraTHamAya<BR>
+ca-nama <BR><BR>
+
+ASavE<BR>
+cAjirAya<BR>
+ca-nama <BR><BR>
+
+SIGriyAya<BR>
+caSIByAya<BR>
+ca-nama <BR><BR>
+
+UrmyAya<BR>
+cAvasvanyAya<BR>
+ca-nama <BR><BR>
+
+srOthasyAya<BR>
+cadhvIpyAya caa  5.2<BR><BR>
+
+namOO jyEshTAya<BR>
+cakanishTAya<BR>
+ca-nama <BR><BR>
+
+pUrva jAya<BR>
+cApara jAya<BR>
+ca-namO <BR><BR>
+
+maDHya mAya<BR>
+cApa galBAya<BR>
+ca-namO <BR><BR>
+
+jaGanyAya<BR>
+cabuDHniyAya<BR>
+ca-nama <BR><BR>
+
+sOByAya<BR>
+caprathi<BR>
+saryAya<BR>
+ca-namO <BR><BR>
+
+yAmyAya ca<BR>
+kshEmyAya<BR>
+ca-nama <BR><BR>
+
+urvaryAya<BR>
+caKalyAya<BR>
+ca-nama <BR><BR>
+
+SlOkyAya cAva<BR>
+sAnyAya<BR>
+canamO <BR><BR>
+
+vanyAya<BR>
+cakakshyAya<BR>
+ca-nama <BR><BR>
+
+SravAya<BR>
+caprathiSravAya  6.1<BR>
+ca-nama <BR><BR>
+
+ASu shENAya<BR>
+cASuraTHAya<BR>
+ca-nama <BR><BR>
+
+SUrAya<BR>
+cAva BindhathE<BR>
+ca-namO <BR><BR>
+
+
+varmiNE<BR>
+cavarUTHinE<BR>
+ca-namO <BR><BR>
+
+bilminE<BR>
+cakavacinE<BR>
+ca nama <BR><BR>
+
+SruthAya<BR>
+caSrutha sEnAya caa 6.2<BR><BR>
+
+namO dhundhuByAya<BR>
+cAha nanyAya<BR>
+ca-namO <BR><BR>
+
+DHrushNavE<BR>
+ca-pramruSAya<BR>
+ca-namO <BR><BR>
+
+dhUthAya<BR>
+ca-prahithAya<BR>
+ca-namO<BR><BR>
+
+nishanggiNE cEshuDHimathE<BR>
+ca-namas<BR><BR>
+
+thIkshNEshavE cAyuDHinE<BR>
+ca-nama <BR><BR>
+
+svAyuDHAya<BR>
+ca-suDHanvanE<BR>
+ca-namas <BR><BR>
+
+sruthyAya<BR>
+ca-paTHyAya<BR>
+ca-namak <BR><BR>
+
+kAtyAya<BR>
+ca-nIpyAya<BR>
+ca-namas <BR><BR>
+
+sUdhyAya<BR>
+ca-sarasyAya ca-namO<BR><BR>
+
+nAdhyAya<BR>
+ca-vaiSanthAya  7.1<BR>
+ca-namak <BR><BR>
+
+kUpyAya cA<BR>
+vatyAya ca-namO<BR><BR>
+
+varshyAya cA<BR>
+varshyAya<BR>
+ca-namO <BR><BR>
+
+mEGyAya<BR>
+ca-vidhyuthyAya<BR>
+ca-nama<BR><BR>
+
+HEDHriyAya cA<BR>
+thapyAya<BR>
+ca-namO <BR><BR>
+
+vAthyAya<BR>
+ca-rEshmiyAya<BR>
+ca-namO<BR><BR>
+
+vAsthavyAya<BR>
+cavAsthupAya cAA  7.2<BR><BR>
+
+namas sOmAya<BR>
+ca-rudhrAya<BR>
+ca-namas<BR><BR>
+
+thAmrAya cAruNAya<BR>
+ca-namaS <BR><BR>
+
+SanggAya<BR>
+ca-paSupathayE<BR>
+ca-nama <BR><BR>
+
+ugrAya<BR>
+ca-BImAya<BR>
+ca-namO <BR><BR>
+
+agrEva<BR>
+DHAya ca-dhUrEva DHAya<BR>
+ca-namO <BR><BR>
+
+hanthrE<BR>
+ca-hanIyasE<BR>
+ca-namO<BR><BR>
+
+vrukshEByO harikESEByO<BR>
+namasthArAya namaS<BR><BR>
+
+SamBavE ca-mayOBavE<BR>
+ca-namaS <BR><BR>
+
+SangkarAya<BR>
+ca-mayaskarAya<BR>
+ca-namaS <BR><BR>
+
+SivAya<BR>
+caSivatharAya  8.1<BR>
+ca-namas <BR><BR>
+
+thIrTHyAya<BR>
+ca-kUlyAya<BR>
+ca-namap <BR><BR>
+
+pAryAya cA<BR>
+vAryAya<BR>
+ca-namap <BR><BR>
+
+pratharaNAya<BR>
+cOththaraNAya<BR>
+ca-namaha <BR><BR>
+
+AthAryAya<BR>
+cAlAdhyAya<BR>
+ca-namaS <BR><BR>
+
+SashpyAya<BR>
+ca-PEnyAya<BR>
+ca-namas <BR><BR>
+
+sikathyAya<BR>
+ca-pravAhyAya caa  8.2<BR><BR>
+
+nama iriNyAya<BR>
+ca-prapaTHyAya<BR>
+ca-namak <BR><BR>
+
+kigmSilAya<BR>
+ca-kshayaNAya<BR>
+ca-namak <BR><BR>
+
+kapardhinE<BR>
+ca-pulasthayE<BR>
+ca-namO <BR><BR>
+
+gOshTyAya<BR>
+ca-gruhyAya<BR>
+ca-namas <BR><BR>
+
+thalpyAya<BR>
+ca-gEhyAya<BR>
+ca-namak <BR><BR>
+
+kAtyAya ca-gah<BR>
+varEshTAya<BR>
+ca-namOO <BR><BR>
+
+hrudhayyAya<BR>
+ca-nivEshpyAya<BR>
+ca-namap <BR><BR>
+
+pAgmsavyAya<BR>
+ca-rajasyAya<BR>
+ca-namaS <BR><BR>
+
+SushkyAya<BR>
+ca-harithyAya<BR>
+ca-namO <BR><BR>
+
+lOpyAya<BR>
+cOlapyAya  9.1<BR>
+ca-nama <BR><BR>
+
+UrmvyAya<BR>
+ca-sUrmyAya<BR>
+ca-namap <BR><BR>
+
+parNyAya<BR>
+ca-parNa SadhyAya<BR>
+ca-namO<BR><BR>
+
+paguramANAya<BR>
+cABiGnathE<BR>
+ca-nama AK<BR><BR>
+
+KidhathE<BR>
+ca-praK-KidhathE<BR>
+ca-namO<BR><BR>
+
+vak-kiri-kEByO<BR>
+dhEvA-nAgm<BR>
+hrudhayEByO<BR><BR>
+
+namO<BR>
+vikshINa kEByO<BR>
+namO<BR>
+vicinvath kEByO<BR>
+nama<BR>
+Anir hathEByO<BR>
+nama AmIvath<BR>
+kEByahaa  9.2<BR><BR>
+
+dhrApE anDHasaspathE<BR>
+dharidhran<BR>
+nIlalOhitha<BR><BR>
+
+EshAm<BR>
+purushANAm-EshAm<BR>
+paSUnAm<BR>
+mABEr mArO<BR>
+mO EshAm<BR>
+kinjca nAmamathu 10.1<BR><BR>
+
+yAthE rudhra<BR>
+SivA thanU<BR>
+SivA viSvAha<BR>
+BEshajI<BR><BR>
+
+SivA rudhrasya<BR>
+BEshajI thayAnO<BR>
+mruda jIvasEE  10.2<BR><BR>
+
+imAgm rudhrAya<BR>
+thavasE<BR>
+kapardhinEE<BR>
+kshayadhvIrAyap<BR>
+praBarAmahE mathim<BR><BR>
+
+
+yaTHAnaS Samasadh<BR>
+dhvipadhE<BR>
+cathushpadhE viSvam<BR>
+pushtam grAmE<BR>
+asmin nanAthuram  10.3<BR><BR>
+
+mrudAnO rudhrO<BR>
+thanO mayaskruDHi<BR>
+kshayadhvIrAya<BR>
+namasA viDHE mathE <BR><BR>
+
+yacCanjca<BR>
+yOSca manurAyajE<BR>
+pithA thadhaSyAma<BR>
+thava rudhrap<BR>
+praNIthau  10.4<BR><BR>
+
+mAnO mahAntham-utha<BR>
+mAnO arBakam<BR>
+mAna<BR>
+ukshantham-utha<BR>
+mAna ukshitham<BR><BR>
+
+mAnOvaDHIp<BR>
+pitharam mOtha<BR>
+mAtharam priyA<BR>
+mAnas thanuvO<BR>
+rudhra rIrishaha  10.5<BR><BR>
+
+mAnas thOkE<BR>
+thanayE mAna<BR>
+Ayushi<BR>
+mAnO gOshu<BR>
+mAnO aSvEshu<BR>
+rIrishaha <BR><BR>
+
+vIrAn mAnO<BR>
+rudhra BAmithOvaDHIr<BR>
+havishmanthO<BR>
+namasA<BR>
+viDHEmathE  10.6<BR><BR>
+
+ArAththE gOGna<BR>
+utha pUrushaGnE<BR>
+kshayadhvIrAyasum<BR>
+namasmE<BR>
+thE asthu<BR><BR>
+
+rakshA canO<BR>
+aDHi ca dhEva<BR>
+brUhyaTHA canaS Sarma<BR>
+yacCadh vibarhAHaA  10.7<BR><BR>
+
+sthuhi Srutham<BR>
+garthasadham yuvAnam<BR>
+mruganna<BR>
+BIma-mupahathnu-mugram<BR><BR>
+
+mrudA jarithrE<BR>
+rudhrastha vAnO<BR>
+anyanthE asman<BR>
+nivapanthu sEnaAA  10.8<BR><BR>
+
+pariNO rudhrasya<BR>
+hEthirvruNakthu<BR>
+parithvEshasya<BR>
+dhurmathiraGAyOho<BR><BR>
+
+ava sTHirA<BR>
+maGavadhByas thanushva<BR>
+mIDvas thOkAya<BR>
+thanayAya mrudayaa  10.9<BR><BR>
+
+mIDushtama Sivathama<BR>
+SivOnas sumanA Bava<BR><BR>
+
+paramE vruksha<BR>
+AyuDHan niDHAya<BR>
+kruththim vasAna<BR>
+Acara pinA kamviB<BR>
+radhAgahii 10.10<BR><BR>
+
+vikiridha vilOhitha<BR>
+namasthE<BR>
+asthu Bagavahaa<BR><BR>
+
+yAsthE sahasragum<BR>
+hEthayOnyamas<BR>
+mannivapanthu thAha  10.11<BR><BR>
+
+sahasrANi sahasraDHA<BR>
+bAhuvOsthava hEthayaha<BR><BR>
+
+thAsAm-ISAnO Bagavap<BR>
+parAcInA muKA<BR>
+kruDHi  10.12<BR><BR>
+
+sahasrANi sahasraSOyE<BR>
+rudhrA aDHi BUmyAam<BR>
+thEshAgm sahasrayOjanE<BR>
+vaDHanvAni thanmasi<BR><BR>
+
+asmin mahathyarNavEntharikshE<BR>
+BavA aDHi  11.2<BR><BR>
+
+nIlagrIvA SithikaNTA<BR>
+SarvA aDHaha kshamAcarAha  11.3<BR><BR>
+
+nIlagrIvA<BR>
+SithikaNTA-dhivagum rudhrA<BR>
+upaSrithAha  11.4<BR><BR>
+
+yE vrukshEshu<BR>
+saspinjjarA nIlagrIvA<BR>
+vilOhithAha  11.5<BR><BR>
+
+yE BUthAnAm aDHipathayO<BR>
+viSiKAsak kapardhinaha  11.6<BR><BR>
+
+yE annEshu<BR>
+viviDHyanthi<BR>
+pAthrEshu pibathO janAnu  11.7<BR><BR>
+
+yE paTHAm paTHirakshaya<BR>
+aila brudhA<BR>
+yavyuDHaha  11.8<BR><BR>
+
+yE thIrTHAni pracaranthi<BR>
+srukAvanthO<BR>
+nishanggiNaha  11.9<BR><BR>
+
+ya EthAvanthaSca<BR>
+BUyAgmsaS<BR>
+cadhiSO<BR>
+rudhrA vithasTHirE<BR><BR>
+
+thEshAgm sahasra yOjanE<BR>
+vaDHanvAni thanmasi  11.10<BR><BR>
+
+namO rudhrEByO<BR>
+yEpruTHivyAm yEntharikshE<BR>
+yEdhivi yEshA<BR>
+mannam vAthO<BR>
+varshamishavas-thEByO<BR>
+dhaSa-prAcIr<BR>
+dhaSa-dhakshiNA<BR>
+dhaSa-prathIcIr<BR>
+dhaSOdhIcIr<BR>
+dhaSOr DHvAs<BR>
+thEByO namasthE nO<BR>
+mrudayanthu thEyam<BR>
+dhvishmO yaSca nO<BR>
+dhvEshtitham vO<BR>
+jamBE dhaDHAmi  11.11<BR><BR>
+
+thryambakam yajAmahE<BR>
+suganDHim<BR>
+pushti varDHanam<BR>
+urvA rukamiva<BR>
+banDHanAn<BR>
+mruthyOr<BR>
+mukshIya mAmruthAthu<BR><BR>
+
+yO rudhrO agnauyO<BR>
+apsuyaOsha DHIshu yO<BR>
+rudhrO viSvA<BR>
+BuvanA vivESa<BR>
+thasmai rudhrAya<BR>
+namO asthu<BR><BR>
+
+thamush-tuhiyas vishu<BR>
+suDHanvA yO viSvas<BR>
+yakshayathi BEshajasyaa<BR><BR>
+
+yakshvA<BR>
+mahEsau<BR>
+manasAya rudhram<BR>
+namOBir dhEvamasurandhu<BR>
+vasya  3<BR><BR>
+
+ayam mE hasthO<BR>
+BagavAn-ayam mE<BR>
+Bagavaththaraha<BR>
+ayam mE viSvaBE<BR>
+shajOyagm SivABi<BR>
+marSanaha<BR><BR>
+
+yEthE sahasra<BR>
+mayutham pASA<BR>
+mruthyO marthyAya<BR>
+hanthavE<BR><BR>
+
+thAn yajnjasya mAyayA<BR>
+sarvAnava yajAmahE<BR><BR>
+
+mruthyavE svAhA<BR>
+mruthyavE svAhAhA<BR><BR>
+
+Om namO BagavathE<BR>
+rudhrAya vishNavE<BR>
+mruthyurmE pAhi<BR><BR>
+
+prANAnAm granTHiradhi<BR>
+rudhrOmA viSAnthakaha <BR><BR>
+
+thEnAn nEnApyAyasva  6<BR><BR>
+
+namO rudhrAya vishNavE<BR>
+mruthyurmE pAhi<BR><BR>
+
+Om<BR>
+SAnthi<BR>
+SAnthi<BR>
+SAnthi<BR><BR>
+
+Chamakam <BR>
+(Yajur-Veda Chapter 18)<BR><BR>
+
+Om <BR>
+Agnaavishhnuu<BR>
+Sajoshhasemaa<BR>
+Vardhantu Vaam<BR>
+Girahaa<BR><BR>
+
+Dyumnairvaaje bhiraagatam<BR><BR>
+
+Vaajashcha Me<BR>
+Prasavashcha Me<BR>
+Pragatishcha Me<BR>
+Pratisishcha Me<BR>
+Dhiitishcha Me<BR>
+Kratushcha Me<BR>
+Svarashcha Me<BR>
+Shlokashcha Me<BR>
+Shraavashcha Me<BR>
+Shrutishcha Me<BR>
+Jyotishcha Me<BR>
+Suvashcha Me<BR>
+Praanashcha Me<BR>
+Paanashcha Me<BR>
+Vyaanashcha Me<BR>
+Sushcha Me<BR>
+Chittam Cha Ma<BR>
+Aadhiitan Cha Me<BR>
+Vaakcha Me<BR>
+Manashcha Me<BR>
+Chakshushcha Me<BR>
+Shrotram Cha Me<BR>
+Dakshashcha Me<BR>
+Balam Cha Ma<BR>
+Ojashcha Me<BR>
+Sahashcha Ma<BR>
+Aayushcha Me<BR>
+Jaraa Cha Ma<BR>
+Aatmaa Cha Me<BR>
+Tanuushcha Me<BR>
+Sharma Cha Me<BR>
+Varma Cha<BR>
+Mengaani Cha Me<BR>
+Sthaani Cha Me<BR>
+Parugumshhi Cha Me<BR>
+Shariiraani Cha ME|<BR><BR>
+
+
+Jyaishhthyam Cha Ma<BR>
+Aadhipathyam Cha Me<BR>
+Manyushcha Me<BR>
+Bhaamashcha<BR>
+Meamashcha<BR>
+Meambhashcha Me<BR>
+Jemaa Cha Me<BR>
+Mahimaa Cha Me<BR>
+Varimaa Cha Me<BR>
+Prathimaa<BR>
+Cha Me<BR>
+Varshhmaa<BR>
+Cha Me<BR>
+Draaghuyaa Cha Me<BR>
+Vriddham Cha Me<BR>
+Vriddhishcha Me<BR>
+Satyan Cha Me<BR>
+Shraddhaa Cha Me<BR>
+Jagachcha Me<BR>
+Dhanan Cha Me<BR>
+Vashashcha Me<BR>
+Tvishhishcha Me<BR>
+Kriidaa Cha Me<BR>
+Modashcha Me<BR>
+Jaatan Cha Me<BR>
+Janishhyamaanan<BR>
+Cha Me<BR>
+Suuktam Cha Me<BR>
+Sukritam Cha Me<BR>
+Vittam Cha Me<BR>
+Vedyam Cha Me<BR>
+Bhuutam Cha Me<BR>
+Bhavishhyachcha Me<BR>
+Sugan Cha Me<BR>
+Supathan Cha Ma<BR>
+Riddham Cha Ma<BR>
+Riddhishcha Me<BR>
+Kliptam Cha Me<BR>
+Kliptishcha Me<BR>
+Matishcha Me<BR>
+Sumatishcha ME|<BR><BR>
+
+Shancha Me<BR>
+Mayashcha Me<BR>
+Priyam ChaMenu<BR>
+kaamashcha Me<BR>
+Kaamashcha Me<BR>
+Saumanasashcha Me<BR>
+Bhadram Cha Me<BR>
+Shreyashcha Me<BR>
+Vasyashcha Me<BR>
+Yashashcha Me<BR>
+Bhagashcha Me<BR>
+Dravinam Cha Me<BR>
+Yantaa Cha Me<BR>
+Dhartaa Cha Me<BR>
+Kshemashcha Me<BR>
+Dhritishcha Me<BR>
+Vishvam Cha Me<BR>
+Mahashcha Me<BR>
+Samvichcha Me<BR>
+Gnyaatram Cha Me<BR>
+Suushcha Me<BR>
+Prasuushcha Me<BR>
+Siiram Cha Me<BR>
+Layashcha Ma<BR>
+Ritam Cha Me<BR>
+Amritam Cha Me<BR>
+yakshmam Cha<BR>
+Meanaamayachcha Me<BR>
+Jiivaatushcha Me<BR>
+Diirghaayutvam Cha Me<BR>
+namitram Cha Me<BR>
+Abhayam Cha Me<BR>
+Sugam Cha Me<BR>
+Shayanam Cha Me<BR>
+Suushhaa Cha Me<BR>
+Sudinam Cha ME|<BR><BR>
+
+Uurkcha Me<BR>
+Suunritaa Cha Me<BR>
+Payashcha Me<BR>
+Rasashcha Me<BR>
+Ghritam Cha Me<BR>
+Madhu Cha Me<BR>
+Sagdhishcha Me<BR>
+Sapiitishcha Me<BR>
+Krishhishcha Me<BR>
+Vrishhtishcha Me<BR><BR>
+
+Jaitram Cha Ma<BR>
+Audbhidyam Cha Me<BR>
+Rayishcha Me<BR>
+Raayashcha Me<BR>
+Pushhtam Cha Me<BR>
+Pushhtishcha Me<BR>
+Vibhu Cha Me<BR>
+Prabhu Cha Me<BR>
+Bahu Cha Me<BR>
+Bhuuyashcha Me<BR><BR>
+
+Puurnam Cha Me<BR>
+Puurnataram Cha Me<BR>
+Akshitishcha Me<BR>
+Kuuyavaashcha Me<BR>
+Annam Cha Me<BR>
+akshuchcha Me<BR>
+Vriihiyashcha Me<BR><BR>
+
+YavaAshcha Me<BR>
+MaashhaAshcha Me<BR>
+TilaAshcha Me<BR>
+Mudgashcha Me<BR>
+KhalvAashcha Me<BR>
+GodhuumaAshcha Me<BR><BR>
+
+MasuraAshcha Me<BR>
+Priyangavashcha Me<BR>
+navashcha Me<BR>
+ShyaamaakAashcha Me<BR>
+NivaarAashcha Me|<BR><BR>
+
+Ashmaa Cha Me<BR>
+Mrittikaa Cha Me<BR>
+Girayashcha Me<BR>
+Parvataashcha Me<BR>
+Sikataashcha Me<BR>
+Vanaspatayashcha Me<BR><BR>
+
+Hiranyan Cha Me<BR>
+Ayashcha Me<BR>
+Siisam Cha Me<BR>
+Trapushcha Me<BR>
+Shyaamam Cha Me<BR><BR>
+
+Loham Cha Me<BR>
+Agnishcha Ma<BR>
+Aapashcha Me<BR>
+Viirudhashcha Ma<BR>
+Oshhadhayashcha Me<BR>
+Krishhnapatyam Cha Me<BR><BR>
+
+Akrishhnapatyam Cha Me<BR>
+Graamyaashcha Me<BR>
+Pashava Aaranyaashcha<BR>
+Yagyena Kalpantaam<BR>
+Vittam Cha Me<BR>
+Vittish cha Me<BR>
+Bhuutan Cha Me<BR>
+Bhuutish cha Me<BR><BR>
+
+Vasu Cha Me<BR>
+Vasatish cha Me<BR>
+Karma Cha Me<BR>
+Shaktish cha<BR>
+Merthashcha Ma<BR>
+Emashcha Ma<BR>
+Itishcha Me<BR>
+Gatishcha ME|<BR><BR>
+
+Agnishcha Ma<BR>
+Indrashcha Me<BR><BR>
+
+Somashcha Ma<BR>
+Indrashcha Me<BR><BR>
+
+Savitaa Cha Ma<BR>
+Indrashcha Me<BR><BR>
+
+SarasvatI Cha Ma<BR>
+Indrashcha Me<BR><BR>
+
+Puushhaa Cha Ma<BR>
+Indrashcha Me<BR><BR>
+
+Brihaspatishcha Ma<BR>
+Indrashcha Me<BR><BR>
+
+Mitrashcha Ma<BR>
+Indrashcha Me<BR><BR>
+
+Varunashcha Ma<BR>
+Indrashcha Me<BR><BR>
+
+Tvashhtaa Cha Ma<BR>
+Indrashcha Me<BR><BR>
+
+Dhaataa Cha Ma<BR>
+Indrashcha Me<BR><BR>
+
+Vishhnushcha Ma<BR>
+Indrashcha Me<BR><BR>
+
+ashvinau Cha Ma<BR>
+Indrashcha Me<BR><BR>
+
+Marutashcha Ma<BR>
+Indrashcha Me<BR><BR>
+
+Vishve Cha Me<BR>
+Devaa Indrashcha Me<BR><BR>
+
+Prithivii Cha Ma<BR>
+Indrashcha MeantarIksham<BR>
+Cha Ma<BR>
+Indrashcha Me<BR><BR>
+
+Dyaushcha Ma<BR>
+Indrashcha Me<BR><BR>
+
+Dishashcha Ma<BR>
+Indrashcha Me<BR><BR>
+
+Muurdhaa Cha Ma<BR>
+Indrashcha Me<BR><BR>
+
+Prajaapatishcha Ma<BR>
+Indrashcha ME|<BR><BR>
+
+Agum shushcha Me<BR>
+Rashmishcha <BR>
+Meadaabhyashcha Me<BR>
+Adhipatishcha Ma<BR>
+Upaagum<BR>
+shushcha Me<BR>
+Antaryamashcha Ma<BR>
+Aindravaayashcha Me<BR>
+Maitraavarunashcha Ma<BR>
+Aashvinashcha Me<BR>
+Pratipasthaanashcha Me<BR><BR>
+
+Shukrashcha Me<BR>
+Manthii Cha Ma<BR>
+Aagrayanashcha Me<BR>
+Vaishvadevashcha Me<BR>
+Dhruvashcha Me<BR>
+Vaishvanarashcha Ma<BR>
+Ratugraahaashcha Me<BR>
+AtigraahyAashcha Ma<BR>
+Aindraagnashcha Me<BR>
+Vaishvadevaashcha Me<BR>
+MarutvatiyAashcha Me<BR>
+Maahendrashcha Ma<BR>
+Aadityashcha Me<BR>
+Saavitrashcha Me<BR>
+Saarasvatashcha Me<BR>
+Paushhnashcha Me<BR>
+Paatnivatashcha Me<BR>
+Haariyojanashcha ME|<BR><BR>
+
+Idhmashcha Me<BR>
+Barhishcha Me<BR>
+Vedishcha Me<BR>
+Dhishhniyaashcha Me<BR>
+Sruchashcha Me<BR><BR>
+
+Chamasaashcha Me<BR>
+Graavaanashcha Me<BR>
+Svaravashcha Ma<BR>
+Uparavaashcha Me<BR>
+Adhishhavane <BR>
+Cha Me<BR>
+Dronakalashashcha Me<BR>
+Vaayavyaani <BR>
+Cha Me<BR>
+Puutabhrichcha Me<BR>
+Aadhavaniiyashcha Ma<BR>
+AagnIidhram Cha Me<BR>
+Havirdhaanam <BR>
+Cha Me<BR>
+Grihaashcha Me<BR>
+Sadashcha Me<BR>
+PurodaashAashcha Me<BR>
+Pachataashcha Me<BR>
+Avabhrithashcha Me<BR>
+Svagaakaarashcha ME|<BR><BR>
+
+Agnishcha Me<BR>
+Dharmashcha<BR>
+Mearkashcha Me<BR>
+Suuryashcha Me<BR>
+Praanashcha<BR>
+Meashvamedhashcha Me<BR>
+Prithivii <BR>
+Cha Me <BR>
+ditishcha Me<BR>
+Ditishcha Me<BR>
+Dyaushcha Me<BR>
+Shakkvariirangulayo<BR>
+Dishashcha Me<BR>
+Yagyena Kalpantaam<BR>
+Rikcha Me<BR>
+Saama Cha Me<BR>
+Stomashcha Me<BR>
+Yajushcha Me<BR>
+Diikshaa Cha Me<BR>
+Tapashcha Ma <BR>
+Ratushcha Me<BR>
+Vratam <BR>
+Cha Me<BR>
+AhoraatraYOr vrishhtyaa<BR>
+Brihadrathantare <BR>
+Cha Me<BR>
+Yagyena Kalpetaam|<BR><BR>
+
+GarbhaAshcha Me<BR>
+Vatsaashcha Me<BR>
+Travishcha Me<BR>
+Travii Cha Me<BR>
+Dityavaath <BR>
+Cha Me<BR>
+Dityauhii Cha Me<BR>
+Pajnchaavishcha Me<BR>
+Pajnchaavii <BR>
+Cha Me<BR>
+Trivatsashcha Me<BR>
+Trivatsaa Cha Me<BR>
+Turyavaath Cha Me<BR>
+Turyauhii Cha Me<BR>
+Pashhthavaath Cha Me<BR>
+Pashhthauhii Cha Ma<BR>
+Ukshaa Cha Me<BR>
+Vashaa Cha Ma<BR>
+Rishhabhashcha Me<BR>
+Vehashcha Me<BR>
+Anadvaajncha Me<BR>
+Dhenushcha Ma Aayur<BR>
+yagyena Kalpataam<BR>
+Praano<BR>
+Yagyena Kalpataam<BR>
+apaano<BR>
+Yagyena Kalpataam<BR>
+Vyaano<BR>
+Yagyena Kalpataam<BR>
+Chakshur<BR>
+yagyena Kalpataam<BR>
+agaShrotram<BR>
+Yagyena Kalpataam<BR>
+Mano<BR>
+Yagyena Kalpataam<BR>
+Vaag<BR>
+yagyena Kalpataam<BR>
+Aatmaa<BR>
+Yagyena Kalpataam<BR>
+Yagnyo<BR>
+Yagyena Kalpataam|<BR><BR>
+
+Ekaa Cha Me<BR>
+Tisrashcha Me<BR>
+Panjcha Cha Me<BR>
+Saptacha <BR>
+Cha Me<BR>
+Nava <BR>
+Cha Ma<BR><BR>
+
+Eka dasha<BR>
+Cha Me<BR>
+Trayo dacha<BR>
+Cha Me<BR>
+Pancha dacha<BR>
+Cha Me<BR>
+Sapta dacha<BR>
+Cha Me<BR>
+Nava dacha<BR>
+Cha Ma<BR><BR>
+
+Eka Vigum<BR>
+satischa Me<BR>
+Trayo vigum<BR>
+shatish<BR>
+cha Me<BR>
+Pancha vigum<BR>
+shatishcha Me<BR>
+Sapta vigum<BR>
+shatishcha Me<BR>
+Nava vigum<BR>
+shatishcha Ma<BR><BR>
+
+Eka trigum<BR>
+shachcha Me<BR>
+Traya strigum<BR>
+shach<BR>
+cha Me<BR>
+Chata srashcha Me<BR>
+Ashhtau Cha Me<BR>
+Dvaadasha Cha Me<BR>
+Shhodasha Cha Me<BR>
+Vigum<BR>
+shatishcha Me<BR><BR>
+
+Chaturvigum<BR>
+shatishcha Me<BR>
+ashhtaavigum<BR>
+shatishcha Me<BR>
+Vaatrigum<BR>
+shachcha Me<BR>
+Shhattrigum<BR>
+shachcha Me<BR>
+Chatvaarigum<BR>
+shachcha Me<BR>
+Chatushchatvaarigum<BR>
+shachcha Meashhtaa<BR>
+chatvaarigum<BR>
+shachcha Me<BR><BR>
+
+Vaajashcha Prasavashchaa<BR>
+pijashcha Kratushcha<BR>
+Suvashcha<BR>
+Muurdhaa Cha<BR>
+Vyashniyashcha<BR>
+Antyaayanashcha<BR>
+Antyashcha<BR>
+Bhauvanashcha<BR>
+Bhuvanashchaa<BR>
+dhipatishchaa|<BR><BR>
+
+Idaa Devahuur<BR>
+manuryagyaniir<BR>
+brihaspatirukthaama daani<BR>
+Shagum sishhadvishvedevA<BR>
+Suuktavaachah<BR>
+Prithiviimaatarmaa<BR>
+Maa Higum siir<BR>
+Madhu Manishhye<BR>
+Madhu Janishhye<BR>
+Madhu Vakshyaami<BR>
+Madhu Vadishhyaami<BR>
+Madhumatiim Devebhyo<BR>
+Vaachamudyaasagum<BR>
+ShushruushhenyaAm<BR><BR>
+
+ManushhyEbhyastam Maa<BR><BR>
+
+Devaa<BR>
+Avantu Shobhaayai<BR>
+Pitaroanumadantu<BR><BR>
+
+Om<BR>
+Shaantih<BR>
+Shaantih<BR>
+Shaantih|<BR>
+<BR>
+</p>
+</body>
+</htl>

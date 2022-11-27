@@ -1,0 +1,213 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=5
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",25)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 250%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 230%;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body class="block">
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<p>
+Shri Guru Charana Sarojaraja<BR>
+Nija mana mukura sudhaara |<BR>
+<P>
+Varanau Raghuvara Vimala yasha<BR>
+Jo daayaka phala chaara |<BR>
+Budhi Hinatanu Janikai<BR>
+Sumirau Pavana Kumaara |<BR>
+Bala budhi vidhyaa dehu mauhi<BR>
+HarahuKa lesa Vikaara |<BR>
+<P>
+Jai Hanumana gnana guna sagara<BR>
+Jai Kapisa tihun loka ujjagara<BR>
+Rama doota atulita bala dhama<BR>
+Anjani-putra Pavana suta nama<BR>
+Mahaavira Vikrama Bajrangi<BR>
+Kumati nivara sumati Ke sangi<BR>
+<P>
+Kanchana varana viraja subesha<BR>
+Kanana Kundala Kunchita Kesa<BR>
+Hatha Vajra Aur Dhvaje Viraje<BR>
+Kandhe moonja janevu sajai<BR>
+Sankara suvana kesari Nandana<BR>
+Teja prataapa maha jaga vandana<BR>
+<P>
+Vidyavana guni, ati chatura<BR>
+Rama kaja karibe ko aatura<BR>
+Prabu charitra suni be ko rasiya<BR>
+Rama Lakhana Sita mana Basiya<BR>
+<P>
+Rama Lakshmana janaki jai bolo hanumaana ki<BR>
+Rama Lakshmana janaki jai bolo hanumaana ki<BR>
+<P>
+Sukshma roopa dhari Siyahi dikhava<BR>
+Vikata roopa dhari lanku jarava<BR>
+Bhima roopa dhari asura samhare<BR>
+Ramachandra ke kaja samvare<BR>
+Laye Sanjivana Lakhana Jiyaye<BR>
+Shri Raghuvira Harashi ur laye<BR>
+Raghupati Keenhi bahutu badai<BR>
+Tum mama priya Bharata sama bhai<BR>
+Sahasa badana tumharo yasha gaavai<BR>
+Asa kahi Shripati kancha lagaavai...<BR>
+Sanakaadika Brahmaadi Muneesa<BR>
+Narada Sharada sahita Aheesa<BR>
+Yama Kubera Digpaala Jahan te<BR>
+Kavi kovida kahi sakhai kahan te<BR>
+Tuma upakaara Sugreevahin keenha<BR>
+Rama milaya rajapada deenha<BR>
+<P>
+Rama Lakshmana janaki jai bolo hanumaana ki<BR>
+Rama Lakshmana janaki jai bolo hanumaana ki<BR>
+<P>
+Tumharo mantra Vibheeshana maana<BR>
+Lankeshwara Bhaya Sab jagu jana<BR>
+<P>
+Yuga sahasra jojan para Bhanu<BR>
+Leelyo tahi madhura phala janu<BR>
+Prabhu mudrika meli mukha mahee<BR>
+Jaladhi langhi gaye achraja nahee<BR>
+Durgama kaaja jagata ke jete<BR>
+Sugama anugraha tumhare tete<BR>
+<P>
+Rama duware tuma rakhvare<BR>
+Hota na agnya bina paisare<BR>
+Sab sukhu lahai tumhari sarna<BR>
+Tuma rakshaka kahu ko darna<BR>
+Aapana teja samharo aapai<BR>
+Teenhon loku haanku te kanpai<BR>
+<P>
+Bhoota pisacha Nikatu nahin aave<BR>
+Mahaavira jab naama sunavai<BR>
+<P>
+Rama Lakshmana janaki jai bolo hanumaana ki<BR>
+Rama Lakshmana janaki jai bolo hanumaana ki<BR>
+<P>
+Naase roga hare sabu peera<BR>
+Japatanirantara Hanumata beera<BR>
+<P>
+Sankata se Hanumana chudavai<BR>
+Mana Krama Vachana dyana jo lavai<BR>
+Sab par Rama tapasvee raja<BR>
+Tina ke kaja sakala Tuma saja<BR>
+Auru manoratha jo koi lavai<BR>
+Tasua amita jeevana phala paavai<BR>
+Chaaron Yuga partaapa tumhara<BR>
+Hai prasidhha jagata ujiyara<BR>
+<P>
+Sadhu Sant ke tuma Rakhware<BR>
+Asura nikandana Rama dulhare<BR>
+<P>
+Ashta siddhi nava nidhi ke dhata<BR>
+Asavara deena Jaanaki maata<BR>
+Rama rasayana tumhare pasa<BR>
+Sada raho Raghupati ke dasa<BR>
+<P>
+Ashta siddhi nava nidhi ke dhata<BR>
+Asavara deena Jaanaki maata<BR>
+Rama rasayana tumhare pasa<BR>
+Sada raho Raghupati ke dasa<BR>
+<P>
+Rama Lakshmana janaki jai bolo hanumaana ki<BR>
+Rama Lakshmana janaki jai bolo hanumaana ki<BR>
+<P>
+Tumhare bhajanu Rama ko bhavai<BR>
+Janma janma ke dukha bisaravai<BR>
+Antha kaala Raghu pathipuru jayee<BR>
+Jahan janmi Hari Bhaktha Kahayee<BR>
+Aur Devata Chittana dharayee<BR>
+Hanumatha seyi sarve sukha kareyi<BR>
+Sankata hare mite sab peera<BR>
+Jo sumirai Hanumata Balabeera<BR>
+<P>
+Jai Jai Jai Hanuman ko sai<BR>
+Jai Jai Jai Hanuman Go sai<BR>
+<P>
+Kripa Karahu Gurudeva ki nayin<BR>
+Yahu sath par pat kar joi <BR>
+Chutehi bandhi maha sukha hoi<BR>
+Jo yaha pade Hanumana Chalisa<BR>
+Hoya siddhi saakhi Gaureesa<BR>
+Tulsidas sada hari chera<BR>
+Keejai Dasa Hrudaye maan dera<BR>
+Keejai Dasa Hrudaye maan dera<BR>
+<P>
+Rama Lakshmana janaki jai bolo hanumaana ki<BR>
+Rama Lakshmana janaki jai bolo hanumaana ki<BR>
+<P>
+<p>
+
+</body>
+</html>
+

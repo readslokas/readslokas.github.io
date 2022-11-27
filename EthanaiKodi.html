@@ -1,0 +1,107 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=0
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",25)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 160%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 160%;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body class="block">
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<p>
+எத்தனை கோடி கோடி விட்டுடல் ஓடி ஆடி<BR>
+எத்தனை கோடி போனது அளவேதோ<BR>
+<BR>
+இப்படி மோக போகம் இப்படி யாகி யாகி<BR>
+இப்படி யாவ தேது இனிமேல் <BR>
+<BR>
+யோசித்திடில் சீசி சீசி குத்திர மாய மாயை<BR>
+சிக்கினில் ஆயும் மாயும் அடியேனை<BR>
+<BR>
+சித்தினில் ஆடலோடு முத்தமிழ் வாணர் ஓது<BR>
+சித்திர ஞான பாதம் அருள்வாயே<BR>
+<BR>
+நித்தமும் ஓதுவார்கள் சித்தமெ வீடதாக<BR>
+நிர்த்தமது ஆடும் ஆறுமுகவோனே<BR>
+<BR>
+நிட்கள ரூபர் பாதி பச்சுருவான மூணு <BR>
+நெட்டிலை சூல பாணி அருள்பாலா<BR>
+<BR>
+பைத்தலை நீடும் ஆயிரத்தலை மீது பீறு <BR>
+பத்திர பாத நீல மயில் வீரா<BR>
+<BR>
+பச்சிள பூக பாளை செய்க்கயல் தாவு வேளூர்<BR>
+பற்றிய மூவர் தேவர் பெருமாளே<BR>
+</p>
+</body>
+</html>

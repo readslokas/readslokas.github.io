@@ -1,519 +1,670 @@
 <HTML>
 
-<SCRIPT language=JavaScript1.2>
-//change 1 to another integer to alter the scroll speed. Greater is faster
-var speed=1
-
-var currentpos=0,alt=1,curpos1=0,curpos2=-1
-function initialize(){
-startit()
-}
-function scrollwindow(){
-if (document.all && !document.getElementById)
-temp=document.body.scrollTop
-else
-temp=window.pageYOffset
-if (alt==0)  alt=2
-else alt=1
-
-if (alt==0)
-curpos1=temp
-else
-curpos2=temp
-
-if (curpos1!=curpos2){
-if (document.all)
-currentpos=document.body.scrollTop+speed
-else
-currentpos=window.pageYOffset+speed
-window.scroll(0,currentpos)
-}
-else{
-currentpos=0
-window.scroll(0,currentpos)
-}
-}
-
-function startit(){
-setInterval("scrollwindow()",50)
-}
-window.onload=initialize
-
-var elem = document.documentElement;
-
-function openFullscreen() {
-  if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-  } else if (elem.mozRequestFullScreen) { /* Firefox */
-    elem.mozRequestFullScreen();
-  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-    elem.webkitRequestFullscreen();
-  } else if (elem.msRequestFullscreen) { /* IE/Edge */
-    elem.msRequestFullscreen();
+  <SCRIPT language=JavaScript1.2>
+  //change 1 to another integer to alter the scroll speed. Greater is faster
+  var speed=1
+  
+  var currentpos=0,alt=1,curpos1=0,curpos2=-1
+  function initialize(){
+  startit()
   }
-}
-
-</SCRIPT>
-
-<head>
-<style>
-body {background-color: black;}
-p  {
-    color: white;
-    font-family: calibri;
+  function scrollwindow(){
+  if (document.all && !document.getElementById)
+  temp=document.body.scrollTop
+  else
+  temp=window.pageYOffset
+  if (alt==0)  alt=2
+  else alt=1
+  
+  if (alt==0)
+  curpos1=temp
+  else
+  curpos2=temp
+  
+  if (curpos1!=curpos2){
+  if (document.all)
+  currentpos=document.body.scrollTop+speed
+  else
+  currentpos=window.pageYOffset+speed
+  window.scroll(0,currentpos)
+  }
+  else{
+  currentpos=0
+  window.scroll(0,currentpos)
+  }
+  }
+  
+  function startit(){
+  setInterval("scrollwindow()",50)
+  }
+  window.onload=initialize
+  
+  var elem = document.documentElement;
+  
+  function openFullscreen() {
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+      elem.msRequestFullscreen();
+    }
+  }
+  
+  </SCRIPT>
+  
+  <head>
+  <style>
+  body {background-color: black;}
+  p  {
+      color: white;
+      font-family: calibri;
+      font-size: 270%;
+    word-wrap: break-word;
+  }
+  
+  .block {
+      display: block;
+      width: 100%;
     font-size: 270%;
-	word-wrap: break-word;
-}
-
-.block {
-    display: block;
-    width: 100%;
-	font-size: 270%;
-    text-align: center;
-	max-width: 100%;
-    overflow-x: hidden;
-}
-
-</style>
-</head>
-
-<body>
-<BR>
-<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
-<P>
-Srimatha Sri Maharajni Sri Math Simasaneshwari<BR>
-Chidagni Kunda Sambootha Deva Karya Samudhyatha<BR>
-Udyath Bhanu Sahasrabha Chadur Bahu Samanvidha<BR>
-Ragha Swaroopa Pasadya Krodhakarankusojwala<BR>
-Mano Rupeshu Kodanda Pancha than mathra sayaka<BR>
-Nijaruna prabha poora majjath brahmanda mandala<BR><BR>
-
-Champakasoka � punnaga-sowgandhika-lasath kacha<BR>
-Kuru vinda mani � sreni-kanath kotira manditha<BR>
-Ashtami Chandra vibhraja � dhalika sthala shobhitha<BR>
-Muka Chandra kalankabha mriganabhi viseshaka<BR>
-Vadana smara mangalya griha thorana chillaka<BR>
-Vakthra lakshmi �parivaha-chalan meenabha lochana<BR><BR>
-
-Nava champaka �pushpabha-nasa dhanda virajitha<BR>
-Thara kanthi thiraskari nasabharana bhasura<BR>
-Kadambha manjari kluptha karna poora manohara<BR>
-Thadanga yugali bhootha thapanodupa mandala<BR>
-Padma raga sila darsha paribhavika polabhu<BR>
-Nava vidhruma bimbha sri nyakkari rathna chhadha<BR><BR>
-
-Shuddha vidyangurakara dwija pangthi dwayojjala<BR>
-Karpoora Veedi Kamodha Samakarsha digandara<BR>
-Nija Sallabha Madhurya Vinirbhardista Kacchabhi<BR>
-Mandasmitha prabha poora majjat Kamesha manasa<BR>
-Anakalidha Sadrushya Chibuka sri virajitha<BR>
-Kamesha baddha mangalya sutra shobitha kandhara<BR><BR>
-
-Kankangadha Keyura Kamaniya Bujanvidha<BR>
-Rathna graiveya chinthaka lola muktha phalanvitha<BR>
-Kameswara prema rathna mani prathi pana sthani<BR>
-Nabhyala vala Romali latha phala kucha dwayi<BR>
-Lakshya Roma Latha Dharatha Samunneya Madhyama<BR>
-Sthana bhara dalan Madhya patta bhandha valithraya<BR><BR>
-
-Arunaruna kausumba vasthra bhaswat kati thati<BR>
-Rathna kinkinika ramya rasana dhama bhooshitha<BR>
-Kamesha gnatha sowbhagya mardworu dwayanvitha<BR>
-Manikhya mukuta kara janu dwaya virajitha<BR>
-Indra kopa parikshiptha smarathunabha jangika<BR>
-Kooda Gulpha Koorma prashta jayishnu prapadanvidha<BR><BR>
-
-Nakadhi dhithi samchanna namajjana thamoguna<BR>
-Pada dwaya Prabha jala parakrutha saroruha<BR>
-Sinchana mani manjira manditha sri pamambuja<BR>
-Marali Mandha Gamana Maha Lavanya Sewadhi<BR>
-Sarvaruna Anavadhyangi Srvabharana Bhooshita<BR>
-Shivakameswarangastha Shiva Swadheena Vallabha<BR><BR>
-
-Summeru Madhya sringastha Sriman nagara nayika<BR>
-Chinthamani grihanthastha Pancha brahmasana sthitha<BR>
-Maha padma davi samstha Kadambha vana vasini<BR>
-Sudha sagara madhyastha Kamakshi Kamadhayini<BR>
-Devarshi Gana-sangatha-stuyamanathma-vaibhava<BR>
-Bhandasura vadodyuktha shakthi sena samavitha<BR><BR>
-
-Sampathkari samarooda sindhoora vrija sevitha<BR>
-Aswaroodadishidaswa kodi kodi biravrutha<BR>
-Chakra raja ratha rooda sarvayudha parishkridha<BR>
-Geya chakra ratha rooda manthrini pari sevitha<BR>
-Giri chakra ratharooda dhanda natha puraskrutha<BR>
-Jwalimalika ksiptha vanhi prakara madhyaka<BR><BR>
-
-Bhanda sainya vadodyuktha shakthi vikrama harshitha<BR>
-Nithya parakamatopa nireekshana samutsuka<BR>
-Banda puthra vadodyuktha bala vikrama nandhita<BR>
-Manthrinyamba virachitha vishangavatha Doshitha<BR>
-Vishuka prana harana varahi veeerya nandhitha<BR>
-Kameshwara mukaloka kalpitha sri Ganeshwara<BR><BR>
-
-Mahaganesha nirbhinna vignayanthra praharshitha<BR>
-Banda surendra nirmuktha sashtra prathyasthra varshani<BR>
-Karanguli nakhothpanna narayana dasakrithi<BR>
-Maha pasupathasthragni nirdagdhasura sainika<BR>
-Kameshwarasthra nirdhagdha sabandasura sunyaka<BR>
-Brhmopendra mahendradhi deva samsthutha vaibhava<BR><BR>
-
-Hara nethragni sandhagdha kama sanjeevanoushadhi<BR>
-Sri vagbhave koodaiga swaroopa mukha pankaja<BR>
-Kantatha kadi paryantha Madhya koodaiga swaroopini<BR>
-Sakthi koodaiga thapanna Kadyatho bhaga dharini<BR>
-Moola manthrathmikha Moola kooda thraya kalebhara<BR>
-Kulamruthaika rasika Kula sanketha palini<BR><BR>
-
-Kulangana Kulanthastha Kaulini Kula yogini<BR>
-Akula Samayanthastha Samayachara that para<BR>
-Moladharaika nilaya Brhama Grandhi Vibhedini<BR>
-Mani poorantharudhitha Vishnu grandhi vibedhini<BR>
-Agna chakarantharalastha Rudra grandhi vibhedini<BR>
-Sahararambhujarooda Sudha sarabhi varshini<BR><BR>
-
-Thadillatha samaruchya Shad chakropari samshitha<BR>
-Maha ssakthya Kundalini Bisa thanthu thaniyasi<BR>
-Bhavani Bhavana gamya Bhavarany kudariga<BR>
-Bhadra priya Bhadra moorthy Bhaktha sowbhagya dhayini<BR>
-Bhakthi priya Bhakthi gamya Bhakthi vasya Bhayapaha<BR>
-Sambhavya Saradharadya Sarvani Sarmadhayini<BR><BR>
-
-Sankari Sreekari Sadhwi Sarat chandra nibhanana<BR>
-Satho dhari Santhimathi Niradhara Niranjana<BR>
-Nirlepa Nirmala Nithya Nirakara Nirakula<BR>
-Nirguna Nishkala Santha Nishkama Niruppallava<BR>
-Nithya muktha Nirvikara Nishprapancha Nirasraya<BR><BR>
-
-Nithya shuddha Nithya bhuddha Niravadhya Niranthara<BR>
-Nishkarana Nishkalanka Nirupadhi Nireeswara<BR>
-Neeraga Ragha madhani Nirmadha Madhanasini<BR>
-Nischintha Nirahankara Nirmoha Mohanasini<BR>
-Nirmama Mamatha hanthri Nishpapa Papa nashini<BR>
-Nishkrodha Krodha�samani Nir Lobha Lobha nasini<BR><BR>
-
-Nissamsaya Samsayagni Nirbhava Bhava nasini<BR>
-Nirvikalpa Nirabhadha Nirbhedha Bhedha nasini<BR>
-Nirnasa Mrityu madhani Nishkriya Nishparigraha<BR>
-Nisthula Neela chikura Nirapaya Nirathyaya<BR>
-Dhurlabha Dhurgama Dhurga<BR>
-Dhuka hanthri Sukha prada<BR>
-Dushta doora Durachara samani Dosha varjitha<BR><BR>
-
-Sarvangna Saandra karuna Samanadhika varjitha<BR>
-Sarva shakthi mayi Sarva mangala Sadgathi prada<BR>
-Sarveshwari Sarva mayi<BR>
-Sarva manthra swaroopini<BR><BR>
-
-Sarva yanthrathmika Sarva thanthra roopa Manonmani<BR>
-Maaheswari Mahaa devi Maha lakshmi Mrida priya<BR>
-Maha roopa Maha poojya Maha pathaka nasini<BR>
-Maha maya Maha sathva Maha sakthi Maha rathi<BR><BR>
-
-Maha bhoga Mahaiswarya Maha veerya Maha bala<BR>
-Maha bhudhi Maha sidhi Maha Yogeswareswari<BR>
-Mahathanthra Mahamanthra Mahayanthra Mahasana<BR><BR>
-
-Maha yaga kramaradhya Maha bhairava poojitha<BR>
-Maheswara Mahakalpa Maha thandava sakshini<BR>
-Maha kamesha mahishi Maha tripura sundari<BR><BR>
-
-Chatustatyupacharadya Chathu sashti kala mayi<BR>
-Maha Chathusashti kodi yogini gana sevitha<BR>
-Manu Vidya Chandra Vidya Chandra mandala Madhyaga<BR>
-Charu Roopa Charu Hasa Charu Chandra Kaladhara<BR>
-Charachara Jagannatha Chakra Raja Nikethana<BR><BR>
-
-Parvathi Padma nayana Padma raga samaprabha<BR>
-Pancha prethasana seena Pancha brahma swaroopini<BR>
-Chinmayi Paramananda Vignana Gana Roopini<BR>
-Dhyana Dhyathru dhyeya roopa Dharmadhrama vivarjitha<BR>
-Viswa roopa Jagarini Swapanthi Thaijasathmika<BR><BR>
-
-Suptha Prangnathmika Thurya Sarvavastha vivarjitha<BR>
-Srishti karthri Brahma roopa Gopthri Govinda roopini<BR>
-Samharini Rudhra roopa Thirodhana kari Eeswari<BR>
-Sadashivaa Anugrahada Pancha krithya parayana<BR>
-Bhanu mandala madhyastha Bhairavi Bhaga malini<BR>
-Padmasana Bhagavathi Padmanabha sahodari<BR>
-Unmesha Nimishotpanna Vipanna Bhuvanavali<BR>
-Sahasra seersha vadana Saharakshi Sahasra path<BR><BR>
-
-Aabrahma keeda janani Varnashrama vidhayini<BR>
-Nijangna roopa nigama Punyapunya phala pradha<BR>
-Sruthi seemantha kula sindhoori kritha padabjha dhooliga<BR>
-Sakalagama sandoha shukthi samputa maukthika<BR>
-Purashartha pradha Poorna Bhogini Bhuvaneshwari<BR>
-Ambika Anadhi nidhana Hari brahmendra sevitha<BR><BR>
-
-Naarayani Naada roopa Nama roopa vivarjitha<BR>
-Hrim kari Harimathi Hrudya Heyopadeya varjitha<BR>
-Raja rajarchitha Rakhini Ramya Rajeeva lochana<BR>
-Ranjani Ramani Rasya Ranath kinkini mekhala<BR>
-Ramaa Raakendu vadana Rathi roopa Rathi priya<BR><BR>
-
-Rakshaa kari Rakshasagni Raamaa Ramana lampata<BR>
-Kaamya Kamakala roopa Kadambha kusuma priya<BR>
-Kalyani Jagathi kandha Karuna rasa sagara<BR>
-Kalavathi Kalaalapa Kaantha Kadambari priya<BR>
-Varadha Vama nayana Vaaruni madha vihwala<BR>
-Viswadhika Veda vedya Vindhyachala nivasini<BR>
-Vidhatri Veda janani Vishnu maya Vilasini<BR><BR>
-
-Kshetra swaroopa Kshetresi Kshethra kshethragna palini<BR>
-Kshaya vridhi nirmuktha Kshetra pala samarchitha<BR>
-Vijaya Vimala Vandhya Vandharu jana vatsala<BR>
-Vaag vadhini Vama kesi Vahni mandala vaasini<BR>
-Bhakthi mat kalpa lathika Pasu pasa vimochani<BR><BR>
-
-Samhrutha sesha pashanda Sadachara pravarthika<BR>
-Thapatryagni santhaptha samahladahna chandrika<BR>
-Tharuni Thapasa aradhya Thanu Madhya Thamopaha<BR>
-Chithi Thatpada lakshyartha Chidekara swaroopini<BR>
-Swathmananda lavi bhootha brahmadyanantha santhathi<BR><BR>
-
-Paraa Prathyak chidi roopa Pasyanthi Para devatha<BR>
-Madhyama Vaikhari roopa Bhaktha manasa hamsikha<BR>
-Kameshwara prana nadi Kruthagna Kama poojitha<BR>
-Srungara rasa sampoorna Jayaa Jalandhara sthitha<BR>
-Odyana peeda nilaya Bindu mandala vaasini<BR>
-Raho yoga kramaradhya Rahas tarpana tarpitha<BR><BR>
-
-Sadya prasadini Viswa sakshini Sakshi varjitha<BR>
-Shadanga devatha yuktha Shadgunya paripooritha<BR>
-Nithya klinna Nirupama Nirvanasukha dayini<BR>
-Nithya Shodasika Roopa Sri Kandartha Sareerini<BR>
-Prabhavathi Prabha roopa Prasiddha Parameshwari<BR>
-Moola prakrithi Avyaktha Vyktha Avyaktha swaroopini<BR>
-Vyapini Vividhakara Vidhya avidhya swaroopini<BR>
-Maha kamesha nayana kumudahladha kaumudhi<BR>
-Bhaktha hardha thamo bedha bhanu mat bhanu santhathi<BR><BR>
-
-Shivadhoothi Shivaradhya Shiva moorthi Shivangari<BR>
-Shiva priya Shivapara Shishteshta Shishta poojitha<BR>
-Aprameya Swaprakasha Mano vachama gochara<BR>
-Chitsakthi Chethana roopa Jada shakthi Jadathmikha<BR>
-Gayathri Vyahruthi Sandhya Dwija brinda nishewitha<BR><BR>
-
-Tatwasana Tat Twam Ayee Pancha kosandara sthitha<BR>
-Nissema mahima Nithya youawana Madha shalini<BR>
-Madha goornitha rakthakshi Madha patala khandaboo<BR><BR>
-
-Chandana drava dhigdhangi Champeya kusuma priya<BR>
-Kusala Komalakara Kuru kulla Kuleshwari<BR>
-Kula kundalaya Kaula marga that para sevitha<BR>
-Kumara gana nadambha<BR>
-Thushti Pushti Mathi Dhrithi<BR>
-Santhi Swasthimathi Kanthi Nandhini Vigna nasini<BR><BR>
-
-Tejowathi Trinayana Lolakshi-Kamaroopini<BR>
-Malini Hamsini Matha Malayachala vasini<BR>
-Sumukhi Nalini Subru Shobhana Sura Nayika<BR>
-Kala kanti Kanthi mathi Kshobhini Sukshma Roopini<BR><BR>
-
-Vajreshwari Vamadevi Vayovastha vivarjitha<BR>
-Sidheswari Sidha vidya Sidha matha Yasawini<BR>
-Vishudhichakra Nilaya Aarakthavarni Trilochana<BR>
-Khadwangadhi prakarana Vadanaika samavidha<BR>
-Payasanna priya Twakstha Pasu loka Bhayamkari<BR>
-Amruthathi maha sakthi samvrutha Dakineeswari<BR><BR>
-
-Anahathabja nilaya Syamabha Vadanadwaya<BR>
-Dhamshtrojwala Aksha maladhi dhara Rudhira samsthida<BR>
-Kala rathryadhi Shakthi youga vrudha Sniggdowdhana priya<BR><BR>
-
-Maha veerendra varadha Rakinyambha swaroopini<BR>
-Mani poorabja nilaya Vadana thraya samyudha<BR>
-Vajradhikayudhopetha Damaryadhibhi ravrutha<BR>
-Raktha varna Mamsa nishta Gudanna preetha manasa<BR><BR>
-
-Samastha bhaktha sukhadha Lakinyambha swaroopini<BR>
-Swadhishtanambujagatha Chathur vakthra manohara<BR>
-Sulayudha sampanna Peetha varna Adhi garvitha<BR><BR>
-
-Medho nishta Madhu preetha Bhandinyadhi samanvidha<BR>
-Dhadyanna saktha hridhaya Kakini roopa dharini<BR>
-Mooladrambujarooda Pancha vakthra Sthithi samsthitha<BR>
-Ankusathi praharana Varadadhi nishevitha<BR>
-Mudgou danasaktha chittha Sakinyambha swaroopini<BR><BR>
-
-Agna chakrabja nilaya Shukla varna Shadanana<BR>
-Majja samstha Hamsavathi mukhya shakthi samanvitha<BR>
-Hardrannaika rasika Hakini roopa dharini<BR>
-Sahasra dhala padhmastha Sarva varnopi shobitha<BR>
-Sarvayudha dhara Shukla samsthitha Sarvathomukhi<BR>
-Sarvou dhana preetha chittha Yakinyambha swaroopini<BR><BR>
-
-Swaha Swadha Amathi Medha Sruthi Smrithi Anuthama<BR>
-Punya keerthi Punya labhya Punya sravana keerthana<BR>
-Pulomajarchidha Bandha mochini Barbharalaka<BR><BR>
-
-Vimarsa roopini Vidhya Viyadhadhi jagat prasu<BR>
-Sarva vyadhi prasamani Sarva mrutyu nivarini<BR>
-Agraganya Achintya roopa Kali kalmasha nasini<BR>
-Kathyayini Kala hanthri Kamalaksha nishevitha<BR>
-Thamboola pooritha mukhi Dhadimi kusuma prabha<BR><BR>
-
-Mrgakshi Mohini Mukhya Mridani Mithra roopini<BR>
-Nithya Truptha Bhaktha Nidhi Niyanthri Nikhileswari<BR>
-Maitryadhi vasana Labhya Maha pralaya sakshini<BR>
-Para Shakthi Para Nishta Prgnana Gana Roopini<BR><BR>
-
-Madhvi pana lasaa Matha Mathruka Varna roopini<BR>
-Maha Kailasa nilaya Mrinala mrudhu dhorllatha<BR>
-Mahaneeya Dhaya moorthi Maha samrajya shalini<BR>
-Atma vidhya Maha Vidhya Srividhya Kama sevitha<BR>
-Sri Shodasakshari vidhya Trikoota Kama Kotika<BR><BR>
-
-Kataksha kimkari bhootha kamala koti sevitha<BR>
-Shira sthitha Chandra nibha Bhalastha Indra Dhanu Prabha<BR>
-Hridayastha Ravi pragya Tri konanthara deepika<BR>
-Dakshayani Dhithya hanthri Daksha yagna vinasini<BR>
-Dharandholitha deergakshi Dharahasojwalanmukhi<BR>
-Guru Moorthi Guna nidhi Gomatha Guhajanma bhoo<BR><BR>
-
-Deveshi Dhanda neethistha Dhaharakasa roopini<BR>
-Prathi panmukhya rakantha thidhi mandala poojitha<BR>
-Kalathmika Kala nadha Kavya labha vimodhini<BR>
-Sachamara Rama vani Savya dhakshina sevitha Adishakthi<BR>
-Ameya Atma Parama Pavana krithi<BR>
-Aneka koti Bramanda janani Divya Vigraha<BR>
-Klim karee Kevalaa Guhya Kaivalya Padha dhayini<BR>
-Tripura Trijagat vandhya Trimurthi Tri daseswari<BR><BR>
-
-Tryakshya Divya Gandhadya Sindhura thila kanchidha<BR>
-Uma Sailendra Thanaya Gowri Gandharwa Sevitha<BR>
-Viswa Grabha Swarna Garbha Avaradha Vagadeeswaree<BR>
-Dhyanagamya Aparichedya Gnadha Gnana Vigraha<BR>
-Sarva Vedhantha Samvedya Satyananda Swaroopini<BR>
-Lopa mudrarchitha Leela kluptha brahmanda mandala<BR>
-Adurshya Drusya rahitha Vignathree Vedhya varjitha<BR><BR>
-
-Yogini Yogadha Yogya Yogananda Yugandhara<BR>
-Iccha shakthi-Gnana shakthi-Kriya Shakthi Swaroopini<BR>
-Sarvaadhara Suprathishta Sada Sadroopa Dharini<BR>
-Ashta moorthy Aja jethree Loka yathra vidahyini<BR>
-Ekakini Bhooma roopa Nirdwaitha Dwaitha varjitha<BR>
-Annadha Vasudha Vriddha Brhmatmykya Swaroopini<BR><BR>
-
-Brihathi Brahmani Brahmi Brahmananda Bali priya<BR>
-Bhasha roopa Brihat sena Bhavabhava vivarjitha<BR>
-Sukharadhya Shubhakaree Shobhana sulabha gathi<BR>
-Raja Rajeswari Rajya Dhayini Rajya vallabha<BR>
-Rajat krupa Raja peetha nivesitha nijasritha<BR>
-Rajya lakshmi Kosa natha Chathuranga baleswai<BR><BR>
-
-Samrajya Dhayini Sathya Sandha Sagara Mekhala<BR>
-Deekshitha Dhaitya Shamani Sarva loka vasam kari<BR>
-Sarvartha Dhatri Savithri Sachidananda Roopini<BR>
-Desa kala parischinna Sarvaga Sarva mohini<BR><BR>
-
-Saraswathi Sasthra mayi Guhamba Guhya roopini<BR>
-Sarvo padhi vinirmuktha Sada Shiva pathi vritha<BR>
-Sampradhayeshwari Sadhu Ee Guru mandala roopini<BR>
-Kulotheerna Bhagaradhya Maya Madhumathi Mahee<BR>
-Ganamba Guhyakaradhya Komalangi Guru Priya<BR>
-Swathanthra Sarwa thanthresi Dakshina Moorthi Roopini<BR><BR>
-
-Sanakadhi Samaradhya Siva Gnana Pradhayini<BR>
-Chid kala Ananda Kalika Prema roopa Priyamkaree<BR>
-Nama parayana preetha Nandhi Vidhya Nateshwaree<BR>
-Mithya Jagat athishtana Mukthida Mukthi roopini<BR>
-Lasya priya Laya karee Lajja Rambha adhi vandhitha<BR>
-Bhava dhava sudha vrishti Paparanya dhavanala<BR>
-Daurbhagya thoolavathoola Jaradwanthara viprabha<BR>
-Bhagyabdhi chandrika Bhaktha Chitta Keki Ganagana<BR><BR>
-
-Roga parvatha Dhambola Mrutyu Dharu Kudarika<BR>
-Maheswaree Maha kali Maha grasa Mahasana<BR>
-Aparna Chandika Chanda mundasura nishoodhini<BR>
-Ksharaksharathmika Sarva lokesi Viswa Dharini<BR>
-Thrivarga Dhathri Subhaga Thryambhaga Trigunathmika<BR>
-Swargapavargadha Shuddha Japapushpa nibhakrithi<BR>
-Ojovathi Dhyuthidhara Yagna roopa Priyavrudha<BR>
-Dhuraradhya Dhuradharsha Patali kusuma priya<BR>
-Mahathi Meru nilaya Mandhara kusuma priya<BR><BR>
-
-Veeraradhya Virad Roopa Viraja Viswathomukhi<BR>
-Prathyg roopa Parakasa Pranadha Prana roopini<BR>
-Marthanda Bhairavaradhya Manthrini nyashtha rajyadhoo<BR>
-Tripuresi Jayatsena Nistrai gunya Parapara<BR>
-Satya gnananda roopa Samarasya parayana<BR>
-Kapardhini Kalamala Kamadhukh Kama roopini<BR>
-Kala nidhi Kavya kala Rasagna Rasa sevadhi<BR><BR>
-
-Pushta Purathana Poojya Pushkara Pushkarekshana<BR>
-Paramjyothi Param dhama Paramanu Parath para<BR>
-Pasa Hastha Pasa Hanthri Para manthra Vibhedini<BR>
-Moortha Amoortha Anithya thriptha Muni manasa hamsika<BR>
-Satya vritha Sathya roopa Sarvantharyamini Sathee<BR>
-Brahmani Brahmaa Janani Bahu roopa Budharchitha<BR>
-Prasavithri Prachanda Aagna Prathishta Prakata Krithi<BR>
-Praneshwari Prana Dhatri Panchast Peeta Roopini<BR>
-Vishungala Vivikthastha Veera matha Viyat prasoo<BR><BR>
-
-Mukundaa Mukthi Nilaya Moola Vigraha Roopini<BR>
-Bavagna Bhava rokagni Bhava Chakra Pravarthani<BR>
-Chanda sara Sasthra sara Manthra sara Thalodharee<BR>
-Udara keerthi Uddhhama vaibhava Varna roopini<BR>
-Janma mrutyu jara thaptha Jana Vishranthi dhayini<BR>
-Sarvopanisha dhudh gushta Shantyathheetha kalathmika<BR><BR>
-
-Gambheera Gagananthastha Garvitha Gana lolupa<BR>
-Kalpana rahitha Kashta Akantha Kanthatha vigraha<BR>
-Karya karana nirmuktha Kama keli tharangitha<BR>
-Kanath kanaka thadanga Leela vigraha dharini<BR>
-Ajha Kshaya nirmuktha Gubdha Ksipra prasadhini<BR>
-Anthar mukha samaradhya Bahir mukha sudurlabha<BR><BR>
-
-Thrayee Trivarga nilaya Thristha Tripura malini<BR>
-Niramaya Niralamba Swatma rama Sudha sruthi<BR>
-Samsara panga nirmagna samuddharana panditha<BR>
-Yagna priya Yagna karthree Yajamana swaroopini<BR>
-Dharma dhara Dhanadyaksha Dhanadhanya vivardhani<BR><BR>
-
-Vipra priya Vipra roopa Viswa brhamana karini<BR>
-Viswa grasa Vidhrumabha Vaishnavi Vishnu roopini<BR>
-Ayoni Yoni nilaya Kootastha Kula roopini<BR>
-Veera goshti priya Veera Naish karmya Nadha roopini<BR>
-Vignana kalana Kalya Vidhagdha Baindavasana<BR>
-Tathwadhika Tatwa mayee Tatwa Martha Swaroopini<BR><BR>
-
-Sama gana priya Soumya Sada Shiva kutumbini<BR>
-Savyapa savya margastha Sarva apadvi nivarini<BR>
-Swastha Swabhava madura Dheera Dheera samarchida<BR>
-Chaithnyarkya samaradhya Chaitanya kusuma priya<BR>
-Saddothitha Sadha thushta Tharunadithya patala<BR>
-Dakshina Daksinaradhya Dharasmera mukhambuja<BR><BR>
-
-Kaulini kevala Anargya kaivalya pada dhayini<BR>
-Stotra priya Sthuthi mathi Sthuthi samsthutha vaibhava<BR>
-Manaswaini Manavathi Mahesi Mangala kruthi<BR>
-Viswa Matha Jagat Dhathri Visalakshi Viragini<BR>
-Pragalbha Paramodhara Paramodha Manomayi<BR>
-Vyoma kesi Vimanastha Vajrini Vamakeshwaree<BR><BR>
-
-Pancha yagna priya Pancha pretha manchadhi sayini<BR>
-Panchami Pancha bhoothesi Pancha sankhyopacharini<BR>
-Saswathi Saswathaiswarya Sarmadha Sambhu mohini<BR>
-Dhara Dharasutha Dhanya Dharmini Dharma vardhini<BR>
-Loka theetha Guna theetha Sarvatheetha Samathmika<BR>
-Bhandhooka kusuma prakhya Bala Leela Vinodhini<BR>
-Sumangali Sukha kari Suveshadya Suvasini<BR>
-Suvasinyarchana preetha AAshobhana Shuddha manasa<BR><BR>
-
-Bindhu tharpana santhushta Poorvaja Tripurambika<BR>
-Dasa mudhra samaradhya Thrpura sree vasankari<BR>
-Gnana mudhra Gnana gamya Gnana gneya swaroopini<BR>
-Yoni mudhra Trikhandesi Triguna AmbaTrikonaga<BR>
-Anaga Adbutha charithra Vanchithartha pradayini<BR>
-Abhyasathisaya gnatha Shaddwatheetha roopini<BR><BR>
-
-Avyaja karuna moorhy Agnana dwantha deepika<BR>
-Abala gopa vidhitha Sarvan Ullangya Sasana<BR>
-Sri Chakra raja nilaya Sri Math Thripura Sundari<BR>
-Sri Shivaa Shiva Shakthaikya Roopini Lalithambika<BR>
-Evam Srilalita devya Namnam Sahasrakam Jaguh<BR><BR>
-
-</BODY>
-</HTML>
+      text-align: center;
+    max-width: 100%;
+      overflow-x: hidden;
+  }
+  
+  </style>
+  </head>
+  
+  <body>
+  <BR>
+  <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+  <P>
+  ஸ்ரீ லலிதா சஹஸ்ரநாமம்<BR><BR>
+  அஸ்ய ஶ்ரீலலிதா திவ்யஸஹஸ்ரனாமஸ்தோத்ர மஹாமந்த்ரஸ்ய<BR>
+  வஶின்யாதி வாக்தேவதா ருஷய꞉ அனுஷ்டுப்சந்த꞉<BR>
+  ஶ்ரீலலிதாபரமேஶ்வரீ தேவதா ஶ்ரீமத்வாக்பவகூடேதி பீஜம்<BR>
+  மத்யகூடேதி ஶக்தி꞉ ஶக்திகூடேதி கீலகம் மூலப்ரக்ருதிரிதி த்யானம்<BR>
+  மூலமந்த்ரேணாங்கன்யாஸம் கரன்யாஸம் ச குர்யாத் மம ஶ்ரீலலிதா<BR>
+  மஹாத்ரிபுரஸுந்தரீ ப்ரஸாதஸித்த்யர்தே ஜபே வினியோக꞉ |<BR>
+  <BR>
+  த்யானம் |<BR>
+  ஸிந்தூராருணவிக்ரஹாம் த்ரினயனாம் மாணிக்யமௌளிஸ்புரத்<BR>
+  தாரானாயகஶேகராம் ஸ்மிதமுகீமாபீன வக்ஷோருஹாம் |<BR>
+  பாணிப்யாமலிபூர்ணரத்னசஷகம் ரக்தோத்பலம் பிப்ரதீம்<BR>
+  ஸௌம்யாம் ரத்னகடஸ்தரக்தசரணாம் த்யாயேத்பராமம்பிகாம் ||<BR>
+  <BR>
+  அருணாம் கருணாதரங்கிதாக்ஷீம்<BR>
+  த்ருதபாஶாங்குஶபுஷ்பபாணசாபாம் |<BR>
+  அணிமாதிபிராவ்ருதாம் மயூகை-<BR>
+  ரஹமித்யேவ விபாவயே பவானீம் || 2 ||<BR>
+  <BR>
+  த்யாயேத்பத்மாஸனஸ்தாம் விகஸிதவதனாம் பத்மபத்ராயதாக்ஷீம்<BR>
+  ஹேமாபாம் பீதவஸ்த்ராம் கரகலிதலஸத்தேமபத்மாம் வராங்கீம் |<BR>
+  ஸர்வாலங்காரயுக்தாம் ஸததமபயதாம் பக்தனம்ராம் பவானீம்<BR>
+  ஶ்ரீவித்யாம் ஶாந்தமூர்திம் ஸகலஸுரனுதாம் ஸர்வஸம்பத்ப்ரதாத்ரீம் || 3||<BR>
+  <BR>
+  ஸகுங்குமவிலேபனாமளிகசும்பிகஸ்தூரிகாம்<BR>
+  ஸமந்தஹஸிதேக்ஷணாம் ஸஶரசாபபாஶாங்குஶாம் |<BR>
+  அஶேஷஜனமோஹினீம் அருணமால்யபூஷாம்பராம்<BR>
+  ஜபாகுஸுமபாஸுராம் ஜபவிதௌ ஸ்மரேதம்பிகாம் ||<BR>
+  <BR>
+  ஸ்தோத்ரம்<BR>
+  ஓம் ஐம் ஹ்ரீம் ஶ்ரீம் ஶ்ரீமாத்ரே நம꞉ |<BR>
+  <BR>
+  ஶ்ரீமாதா ஶ்ரீமஹாராஜ்ஞீ ஶ்ரீமத்ஸிம்ஹாஸனேஶ்வரீ |<BR>
+  சிதக்னிகுண்டஸம்பூதா தேவகார்யஸமுத்யதா || 1 ||<BR>
+  <BR>
+  உத்யத்பானுஸஹஸ்ராபா சதுர்பாஹுஸமன்விதா |<BR>
+  ராகஸ்வரூபபாஶாட்யா க்ரோதாகாராங்குஶோஜ்ஜ்வலா || 2 ||<BR>
+  <BR>
+  மனோரூபேக்ஷுகோதண்டா பஞ்சதன்மாத்ரஸாயகா |<BR>
+  நிஜாருணப்ரபாபூரமஜ்ஜத்ப்ரஹ்மாண்டமண்டலா || 3 ||<BR>
+  <BR>
+  சம்பகாஶோகபுன்னாகஸௌகந்திகலஸத்கசா |<BR>
+  குருவிந்தமணிஶ்ரேணீகனத்கோடீரமண்டிதா || 4 ||<BR>
+  <BR>
+  அஷ்டமீசந்த்ரவிப்ராஜதளிகஸ்தலஶோபிதா |<BR>
+  முகசந்த்ரகளங்காபம்ருகனாபிவிஶேஷகா || 5 ||<BR>
+  <BR>
+  வதனஸ்மரமாங்கள்யக்ருஹதோரணசில்லிகா |<BR>
+  வக்த்ரலக்ஷ்மீபரீவாஹசலன்மீனாபலோசனா || 6 ||<BR>
+  <BR>
+  நவசம்பகபுஷ்பாபனாஸாதண்டவிராஜிதா |<BR>
+  தாராகாந்திதிரஸ்காரினாஸாபரணபாஸுரா || 7 ||<BR>
+  <BR>
+  கதம்பமஞ்ஜரீக்லுப்தகர்ணபூரமனோஹரா |<BR>
+  தாடங்கயுகளீபூததபனோடுபமண்டலா || 8 ||<BR>
+  <BR>
+  பத்மராகஶிலாதர்ஶபரிபாவிகபோலபூ꞉ |<BR>
+  நவவித்ருமபிம்பஶ்ரீன்யக்காரிரதனச்சதா || 9 ||<BR>
+  <BR>
+  ஶுத்தவித்யாங்குராகாரத்விஜபங்க்தித்வயோஜ்ஜ்வலா |<BR>
+  கர்பூரவீடிகாமோதஸமாகர்ஷத்திகந்தரா || 10 ||<BR>
+  <BR>
+  நிஜஸல்லாபமாதுர்யவினிர்பர்த்ஸிதகச்சபீ |<BR>
+  மந்தஸ்மிதப்ரபாபூரமஜ்ஜத்காமேஶமானஸா || 11 ||<BR>
+  <BR>
+  அனாகலிதஸாத்ருஶ்யசிபுகஶ்ரீவிராஜிதா |<BR>
+  காமேஶபத்தமாங்கள்யஸூத்ரஶோபிதகந்தரா || 12 ||<BR>
+  <BR>
+  கனகாங்கதகேயூரகமனீயபுஜான்விதா |<BR>
+  ரத்னக்ரைவேயசிந்தாகலோலமுக்தாபலான்விதா || 13 ||<BR>
+  <BR>
+  காமேஶ்வரப்ரேமரத்னமணிப்ரதிபணஸ்தனீ |<BR>
+  நாப்யாலவாலரோமாளிலதாபலகுசத்வயீ || 14 ||<BR>
+  <BR>
+  லக்ஷ்யரோமலதாதாரதாஸமுன்னேயமத்யமா |<BR>
+  ஸ்தனபாரதளன்மத்யபட்டபந்தவளித்ரயா || 15 ||<BR>
+  <BR>
+  அருணாருணகௌஸும்பவஸ்த்ரபாஸ்வத்கடீதடீ |<BR>
+  ரத்னகிங்கிணிகாரம்யரஶனாதாமபூஷிதா || 16 ||<BR>
+  <BR>
+  காமேஶஜ்ஞாதஸௌபாக்யமார்தவோருத்வயான்விதா |<BR>
+  மாணிக்யமகுடாகாரஜானுத்வயவிராஜிதா || 17 ||<BR>
+  <BR>
+  இந்த்ரகோபபரிக்ஷிப்தஸ்மரதூணாபஜங்கிகா |<BR>
+  கூடகுல்பா கூர்மப்ருஷ்டஜயிஷ்ணுப்ரபதான்விதா || 18 ||<BR>
+  <BR>
+  நகதீதிதிஸஞ்சன்னனமஜ்ஜனதமோகுணா |<BR>
+  பதத்வயப்ரபாஜாலபராக்ருதஸரோருஹா || 19 ||<BR>
+  <BR>
+  ஶிஞ்ஜானமணிமஞ்ஜீரமண்டிதஶ்ரீபதாம்புஜா |<BR>
+  மராளீமந்தகமனா மஹாலாவண்யஶேவதி꞉ || 20 ||<BR>
+  <BR>
+  ஸர்வாருணா(அ)னவத்யாங்கீ ஸர்வாபரணபூஷிதா |<BR>
+  ஶிவகாமேஶ்வராங்கஸ்தா ஶிவா ஸ்வாதீனவல்லபா || 21 ||<BR>
+  <BR>
+  ஸுமேருமத்யஶ்ருங்கஸ்தா ஶ்ரீமன்னகரனாயிகா |<BR>
+  சிந்தாமணிக்ருஹாந்தஸ்தா பஞ்சப்ரஹ்மாஸனஸ்திதா || 22 ||<BR>
+  <BR>
+  மஹாபத்மாடவீஸம்ஸ்தா கதம்பவனவாஸினீ |<BR>
+  ஸுதாஸாகரமத்யஸ்தா காமாக்ஷீ காமதாயினீ || 23 ||<BR>
+  <BR>
+  தேவர்ஷிகணஸங்காதஸ்தூயமானாத்மவைபவா |<BR>
+  பண்டாஸுரவதோத்யுக்தஶக்திஸேனாஸமன்விதா || 24 ||<BR>
+  <BR>
+  ஸம்பத்கரீஸமாரூடஸிந்துரவ்ரஜஸேவிதா |<BR>
+  அஶ்வாரூடாதிஷ்டிதாஶ்வகோடிகோடிபிராவ்ருதா || 25 ||<BR>
+  <BR>
+  சக்ரராஜரதாரூடஸர்வாயுதபரிஷ்க்ருதா |<BR>
+  கேயசக்ரரதாரூடமந்த்ரிணீபரிஸேவிதா || 26 ||<BR>
+  <BR>
+  கிரிசக்ரரதாரூடதண்டனாதாபுரஸ்க்ருதா |<BR>
+  ஜ்வாலாமாலினிகாக்ஷிப்தவஹ்னிப்ராகாரமத்யகா || 27 ||<BR>
+  <BR>
+  பண்டஸைன்யவதோத்யுக்தஶக்திவிக்ரமஹர்ஷிதா |<BR>
+  நித்யாபராக்ரமாடோபனிரீக்ஷணஸமுத்ஸுகா || 28 ||<BR>
+  <BR>
+  பண்டபுத்ரவதோத்யுக்தபாலாவிக்ரமனந்திதா |<BR>
+  மந்த்ரிண்யம்பாவிரசிதவிஷங்கவததோஷிதா || 29 || [விஶுக்ர]<BR>
+  <BR>
+  விஶுக்ரப்ராணஹரணவாராஹீவீர்யனந்திதா | [விஷங்க]<BR>
+  காமேஶ்வரமுகாலோககல்பிதஶ்ரீகணேஶ்வரா || 30 ||<BR>
+  <BR>
+  மஹாகணேஶனிர்பின்னவிக்னயந்த்ரப்ரஹர்ஷிதா |<BR>
+  பண்டாஸுரேந்த்ரனிர்முக்தஶஸ்த்ரப்ரத்யஸ்த்ரவர்ஷிணீ || 31 ||<BR>
+  <BR>
+  கராங்குளினகோத்பன்னனாராயணதஶாக்ருதி꞉ |<BR>
+  மஹாபாஶுபதாஸ்த்ராக்னினிர்தக்தாஸுரஸைனிகா || 32 ||<BR>
+  <BR>
+  காமேஶ்வராஸ்த்ரனிர்தக்தஸபண்டாஸுரஶூன்யகா |<BR>
+  ப்ரஹ்மோபேந்த்ரமஹேந்த்ராதிதேவஸம்ஸ்துதவைபவா || 33 ||<BR>
+  <BR>
+  ஹரனேத்ராக்னிஸந்தக்தகாமஸஞ்ஜீவனௌஷதி꞉ |<BR>
+  ஶ்ரீமத்வாக்பவகூடைகஸ்வரூபமுகபங்கஜா || 34 ||<BR>
+  <BR>
+  கண்டாத꞉கடிபர்யந்தமத்யகூடஸ்வரூபிணீ |<BR>
+  ஶக்திகூடைகதாபன்னகட்யதோபாகதாரிணீ || 35 ||<BR>
+  <BR>
+  மூலமந்த்ராத்மிகா மூலகூடத்ரயகளேபரா |<BR>
+  குலாம்ருதைகரஸிகா குலஸங்கேதபாலினீ || 36 ||<BR>
+  <BR>
+  குலாங்கனா குலாந்தஸ்தா கௌளினீ குலயோகினீ |<BR>
+  அகுலா ஸமயாந்தஸ்தா ஸமயாசாரதத்பரா || 37 ||<BR>
+  <BR>
+  மூலாதாரைகனிலயா ப்ரஹ்மக்ரந்திவிபேதினீ |<BR>
+  மணிபூராந்தருதிதா விஷ்ணுக்ரந்திவிபேதினீ || 38 ||<BR>
+  <BR>
+  ஆஜ்ஞாசக்ராந்தராளஸ்தா ருத்ரக்ரந்திவிபேதினீ |<BR>
+  ஸஹஸ்ராராம்புஜாரூடா ஸுதாஸாராபிவர்ஷிணீ || 39 ||<BR>
+  <BR>
+  தடில்லதாஸமருசிஷ்ஷட்சக்ரோபரிஸம்ஸ்திதா |<BR>
+  மஹாஶக்தி꞉ குண்டலினீ பிஸதந்துதனீயஸீ || 40 ||<BR>
+  <BR>
+  பவானீ பாவனாகம்யா பவாரண்யகுடாரிகா |<BR>
+  பத்ரப்ரியா பத்ரமூர்திர்பக்தஸௌபாக்யதாயினீ || 41 ||<BR>
+  <BR>
+  பக்திப்ரியா பக்திகம்யா பக்திவஶ்யா பயாபஹா |<BR>
+  ஶாம்பவீ ஶாரதாராத்யா ஶர்வாணீ ஶர்மதாயினீ || 42 ||<BR>
+  <BR>
+  ஶாங்கரீ ஶ்ரீகரீ ஸாத்வீ ஶரச்சந்த்ரனிபானனா |<BR>
+  ஶாதோதரீ ஶாந்திமதீ நிராதாரா நிரஞ்ஜனா || 43 ||<BR>
+  <BR>
+  நிர்லேபா நிர்மலா நித்யா நிராகாரா நிராகுலா |<BR>
+  நிர்குணா நிஷ்களா ஶாந்தா நிஷ்காமா நிருபப்லவா || 44 ||<BR>
+  <BR>
+  நித்யமுக்தா நிர்விகாரா நிஷ்ப்ரபஞ்சா நிராஶ்ரயா |<BR>
+  நித்யஶுத்தா நித்யபுத்தா நிரவத்யா நிரந்தரா || 45 ||<BR>
+  <BR>
+  நிஷ்காரணா நிஷ்களங்கா நிருபாதிர்னிரீஶ்வரா |<BR>
+  நீராகா ராகமதனீ நிர்மதா மதனாஶினீ || 46 ||<BR>
+  <BR>
+  நிஶ்சிந்தா நிரஹங்காரா நிர்மோஹா மோஹனாஶினீ |<BR>
+  நிர்மமா மமதாஹந்த்ரீ நிஷ்பாபா பாபனாஶினீ || 47 ||<BR>
+  <BR>
+  நிஷ்க்ரோதா க்ரோதஶமனீ நிர்லோபா லோபனாஶினீ |<BR>
+  நிஸ்ஸம்ஶயா ஸம்ஶயக்னீ நிர்பவா பவனாஶினீ || 48 ||<BR>
+  <BR>
+  நிர்விகல்பா நிராபாதா நிர்பேதா பேதனாஶினீ |<BR>
+  நிர்னாஶா ம்ருத்யுமதனீ நிஷ்க்ரியா நிஷ்பரிக்ரஹா || 49 ||<BR>
+  <BR>
+  நிஸ்துலா நீலசிகுரா நிரபாயா நிரத்யயா |<BR>
+  துர்லபா துர்கமா துர்கா து꞉கஹந்த்ரீ ஸுகப்ரதா || 50 ||<BR>
+  <BR>
+  துஷ்டதூரா துராசாரஶமனீ தோஷவர்ஜிதா |<BR>
+  ஸர்வஜ்ஞா ஸாந்த்ரகருணா ஸமானாதிகவர்ஜிதா || 51 ||<BR>
+  <BR>
+  ஸர்வஶக்திமயீ ஸர்வமங்களா ஸத்கதிப்ரதா |<BR>
+  ஸர்வேஶ்வரீ ஸர்வமயீ ஸர்வமந்த்ரஸ்வரூபிணீ || 52 ||<BR>
+  <BR>
+  ஸர்வயந்த்ராத்மிகா ஸர்வதந்த்ரரூபா மனோன்மனீ |<BR>
+  மாஹேஶ்வரீ மஹாதேவீ மஹாலக்ஷ்மீர்ம்ருடப்ரியா || 53 ||<BR>
+  <BR>
+  மஹாரூபா மஹாபூஜ்யா மஹாபாதகனாஶினீ |<BR>
+  மஹாமாயா மஹாஸத்த்வா மஹாஶக்திர்மஹாரதி꞉ || 54 ||<BR>
+  <BR>
+  மஹாபோகா மஹைஶ்வர்யா மஹாவீர்யா மஹாபலா |<BR>
+  மஹாபுத்திர்மஹாஸித்திர்மஹாயோகேஶ்வரேஶ்வரீ || 55 ||<BR>
+  <BR>
+  மஹாதந்த்ரா மஹாமந்த்ரா மஹாயந்த்ரா மஹாஸனா |<BR>
+  மஹாயாகக்ரமாராத்யா மஹாபைரவபூஜிதா || 56 ||<BR>
+  <BR>
+  மஹேஶ்வரமஹாகல்பமஹாதாண்டவஸாக்ஷிணீ |<BR>
+  மஹாகாமேஶமஹிஷீ மஹாத்ரிபுரஸுந்தரீ || 57 ||<BR>
+  <BR>
+  சதுஷ்ஷஷ்ட்யுபசாராட்யா சதுஷ்ஷஷ்டிகளாமயீ |<BR>
+  மஹாசதுஷ்ஷஷ்டிகோடியோகினீகணஸேவிதா || 58 ||<BR>
+  <BR>
+  மனுவித்யா சந்த்ரவித்யா சந்த்ரமண்டலமத்யகா |<BR>
+  சாருரூபா சாருஹாஸா சாருசந்த்ரகளாதரா || 59 ||<BR>
+  <BR>
+  சராசரஜகன்னாதா சக்ரராஜனிகேதனா |<BR>
+  பார்வதீ பத்மனயனா பத்மராகஸமப்ரபா || 60 ||<BR>
+  <BR>
+  பஞ்சப்ரேதாஸனாஸீனா பஞ்சப்ரஹ்மஸ்வரூபிணீ |<BR>
+  சின்மயீ பரமானந்தா விஜ்ஞானகனரூபிணீ || 61 ||<BR>
+  <BR>
+  த்யானத்யாத்ருத்யேயரூபா தர்மாதர்மவிவர்ஜிதா |<BR>
+  விஶ்வரூபா ஜாகரிணீ ஸ்வபந்தீ தைஜஸாத்மிகா || 62 ||<BR>
+  <BR>
+  ஸுப்தா ப்ராஜ்ஞாத்மிகா துர்யா ஸர்வாவஸ்தாவிவர்ஜிதா |<BR>
+  ஸ்ருஷ்டிகர்த்ரீ ப்ரஹ்மரூபா கோப்த்ரீ கோவிந்தரூபிணீ || 63 ||<BR>
+  <BR>
+  ஸம்ஹாரிணீ ருத்ரரூபா திரோதானகரீஶ்வரீ |<BR>
+  ஸதாஶிவா(அ)னுக்ரஹதா பஞ்சக்ருத்யபராயணா || 64 ||<BR>
+  <BR>
+  பானுமண்டலமத்யஸ்தா பைரவீ பகமாலினீ |<BR>
+  பத்மாஸனா பகவதீ பத்மனாபஸஹோதரீ || 65 ||<BR>
+  <BR>
+  உன்மேஷனிமிஷோத்பன்னவிபன்னபுவனாவளி꞉ |<BR>
+  ஸஹஸ்ரஶீர்ஷவதனா ஸஹஸ்ராக்ஷீ ஸஹஸ்ரபாத் || 66 ||<BR>
+  <BR>
+  ஆப்ரஹ்மகீடஜனனீ வர்ணாஶ்ரமவிதாயினீ |<BR>
+  நிஜாஜ்ஞாரூபனிகமா புண்யாபுண்யபலப்ரதா || 67 ||<BR>
+  <BR>
+  ஶ்ருதிஸீமந்தஸிந்தூரீக்ருதபாதாப்ஜதூளிகா |<BR>
+  ஸகலாகமஸந்தோஹஶுக்திஸம்புடமௌக்திகா || 68 ||<BR>
+  <BR>
+  புருஷார்தப்ரதா பூர்ணா போகினீ புவனேஶ்வரீ |<BR>
+  அம்பிகா(அ)னாதினிதனா ஹரிப்ரஹ்மேந்த்ரஸேவிதா || 69 ||<BR>
+  <BR>
+  நாராயணீ நாதரூபா நாமரூபவிவர்ஜிதா |<BR>
+  ஹ்ரீங்காரீ ஹ்ரீமதீ ஹ்ருத்யா ஹேயோபாதேயவர்ஜிதா || 70 ||<BR>
+  <BR>
+  ராஜராஜார்சிதா ராஜ்ஞீ ரம்யா ராஜீவலோசனா |<BR>
+  ரஞ்ஜனீ ரமணீ ரஸ்யா ரணத்கிங்கிணிமேகலா || 71 ||<BR>
+  <BR>
+  ரமா ராகேந்துவதனா ரதிரூபா ரதிப்ரியா |<BR>
+  ரக்ஷாகரீ ராக்ஷஸக்னீ ராமா ரமணலம்படா || 72 ||<BR>
+  <BR>
+  காம்யா காமகலாரூபா கதம்பகுஸுமப்ரியா |<BR>
+  கள்யாணீ ஜகதீகந்தா கருணாரஸஸாகரா || 73 ||<BR>
+  <BR>
+  களாவதீ களாலாபா காந்தா காதம்பரீப்ரியா |<BR>
+  வரதா வாமனயனா வாருணீமதவிஹ்வலா || 74 ||<BR>
+  <BR>
+  விஶ்வாதிகா வேதவேத்யா விந்த்யாசலனிவாஸினீ |<BR>
+  விதாத்ரீ வேதஜனனீ விஷ்ணுமாயா விலாஸினீ || 75 ||<BR>
+  <BR>
+  க்ஷேத்ரஸ்வரூபா க்ஷேத்ரேஶீ க்ஷேத்ரக்ஷேத்ரஜ்ஞபாலினீ |<BR>
+  க்ஷயவ்ருத்திவினிர்முக்தா க்ஷேத்ரபாலஸமர்சிதா || 76 ||<BR>
+  <BR>
+  விஜயா விமலா வந்த்யா வந்தாருஜனவத்ஸலா |<BR>
+  வாக்வாதினீ வாமகேஶீ வஹ்னிமண்டலவாஸினீ || 77 ||<BR>
+  <BR>
+  பக்திமத்கல்பலதிகா பஶுபாஶவிமோசினீ |<BR>
+  ஸம்ஹ்ருதாஶேஷபாஷண்டா ஸதாசாரப்ரவர்திகா || 78 ||<BR>
+  <BR>
+  தாபத்ரயாக்னிஸந்தப்தஸமாஹ்லாதனசந்த்ரிகா |<BR>
+  தருணீ தாபஸாராத்யா தனுமத்யா தமோபஹா || 79 ||<BR>
+  <BR>
+  சிதிஸ்தத்பதலக்ஷ்யார்தா சிதேகரஸரூபிணீ |<BR>
+  ஸ்வாத்மானந்தலவீபூதப்ரஹ்மாத்யானந்தஸந்ததி꞉ || 80 ||<BR>
+  <BR>
+  பரா ப்ரத்யக்சிதீரூபா பஶ்யந்தீ பரதேவதா |<BR>
+  மத்யமா வைகரீரூபா பக்தமானஸஹம்ஸிகா || 81 ||<BR>
+  <BR>
+  காமேஶ்வரப்ராணனாடீ க்ருதஜ்ஞா காமபூஜிதா |<BR>
+  ஶ்ருங்காரரஸஸம்பூர்ணா ஜயா ஜாலந்தரஸ்திதா || 82 ||<BR>
+  <BR>
+  ஓட்யாணபீடனிலயா பிந்துமண்டலவாஸினீ |<BR>
+  ரஹோயாகக்ரமாராத்யா ரஹஸ்தர்பணதர்பிதா || 83 ||<BR>
+  <BR>
+  ஸத்ய꞉ப்ரஸாதினீ விஶ்வஸாக்ஷிணீ ஸாக்ஷிவர்ஜிதா |<BR>
+  ஷடங்கதேவதாயுக்தா ஷாட்குண்யபரிபூரிதா || 84 ||<BR>
+  <BR>
+  நித்யக்லின்னா நிருபமா நிர்வாணஸுகதாயினீ |<BR>
+  நித்யாஷோடஶிகாரூபா ஶ்ரீகண்டார்தஶரீரிணீ || 85 ||<BR>
+  <BR>
+  ப்ரபாவதீ ப்ரபாரூபா ப்ரஸித்தா பரமேஶ்வரீ |<BR>
+  மூலப்ரக்ருதிரவ்யக்தா வ்யக்தாவ்யக்தஸ்வரூபிணீ || 86 ||<BR>
+  <BR>
+  வ்யாபினீ விவிதாகாரா வித்யா(அ)வித்யாஸ்வரூபிணீ |<BR>
+  மஹாகாமேஶனயனகுமுதாஹ்லாதகௌமுதீ || 87 ||<BR>
+  <BR>
+  பக்தஹார்ததமோபேதபானுமத்பானுஸந்ததி꞉ |<BR>
+  ஶிவதூதீ ஶிவாராத்யா ஶிவமூர்திஶ்ஶிவங்கரீ || 88 ||<BR>
+  <BR>
+  ஶிவப்ரியா ஶிவபரா ஶிஷ்டேஷ்டா ஶிஷ்டபூஜிதா |<BR>
+  அப்ரமேயா ஸ்வப்ரகாஶா மனோவாசாமகோசரா || 89 ||<BR>
+  <BR>
+  சிச்சக்திஶ்சேதனாரூபா ஜடஶக்திர்ஜடாத்மிகா |<BR>
+  காயத்ரீ வ்யாஹ்ருதிஸ்ஸந்த்யா த்விஜப்ருந்தனிஷேவிதா || 90 ||<BR>
+  <BR>
+  தத்த்வாஸனா தத்த்வமயீ பஞ்சகோஶாந்தரஸ்திதா |<BR>
+  நிஸ்ஸீமமஹிமா நித்யயௌவனா மதஶாலினீ || 91 ||<BR>
+  <BR>
+  மதகூர்ணிதரக்தாக்ஷீ மதபாடலகண்டபூ꞉ |<BR>
+  சந்தனத்ரவதிக்தாங்கீ சாம்பேயகுஸுமப்ரியா || 92 ||<BR>
+  <BR>
+  குஶலா கோமலாகாரா குருகுள்லா குளேஶ்வரீ |<BR>
+  குளகுண்டாலயா கௌளமார்கதத்பரஸேவிதா || 93 ||<BR>
+  <BR>
+  குமாரகணனாதாம்பா துஷ்டி꞉ புஷ்டிர்மதிர்த்ருதி꞉ |<BR>
+  ஶாந்தி꞉ ஸ்வஸ்திமதீ காந்திர்னந்தினீ விக்னனாஶினீ || 94 ||<BR>
+  <BR>
+  தேஜோவதீ த்ரினயனா லோலாக்ஷீகாமரூபிணீ |<BR>
+  மாலினீ ஹம்ஸினீ மாதா மலயாசலவாஸினீ || 95 ||<BR>
+  <BR>
+  ஸுமுகீ நளினீ ஸுப்ரூஶ்ஶோபனா ஸுரனாயிகா |<BR>
+  காலகண்டீ காந்திமதீ க்ஷோபிணீ ஸூக்ஷ்மரூபிணீ || 96 ||<BR>
+  <BR>
+  வஜ்ரேஶ்வரீ வாமதேவீ வயோ(அ)வஸ்தாவிவர்ஜிதா |<BR>
+  ஸித்தேஶ்வரீ ஸித்தவித்யா ஸித்தமாதா யஶஸ்வினீ || 97 ||<BR>
+  <BR>
+  விஶுத்திசக்ரனிலயா(ஆ)ரக்தவர்ணா த்ரிலோசனா |<BR>
+  கட்வாங்காதிப்ரஹரணா வதனைகஸமன்விதா || 98 ||<BR>
+  <BR>
+  பாயஸான்னப்ரியா த்வக்ஸ்தா பஶுலோகபயங்கரீ |<BR>
+  அம்ருதாதிமஹாஶக்திஸம்வ்ருதா டாகினீஶ்வரீ || 99 ||<BR>
+  <BR>
+  அனாஹதாப்ஜனிலயா ஶ்யாமாபா வதனத்வயா |<BR>
+  தம்ஷ்ட்ரோஜ்ஜ்வலா(அ)க்ஷமாலாதிதரா ருதிரஸம்ஸ்திதா || 100 ||<BR>
+  <BR>
+  காளராத்ர்யாதிஶக்த்யௌகவ்ருதா ஸ்னிக்தௌதனப்ரியா |<BR>
+  மஹாவீரேந்த்ரவரதா ராகின்யம்பாஸ்வரூபிணீ || 101 ||<BR>
+  <BR>
+  மணிபூராப்ஜனிலயா வதனத்ரயஸம்யுதா |<BR>
+  வஜ்ராதிகாயுதோபேதா டாமர்யாதிபிராவ்ருதா || 102 ||<BR>
+  <BR>
+  ரக்தவர்ணா மாம்ஸனிஷ்டா குடான்னப்ரீதமானஸா |<BR>
+  ஸமஸ்தபக்தஸுகதா லாகின்யம்பாஸ்வரூபிணீ || 103 ||<BR>
+  <BR>
+  ஸ்வாதிஷ்டானாம்புஜகதா சதுர்வக்த்ரமனோஹரா |<BR>
+  ஶூலாத்யாயுதஸம்பன்னா பீதவர்ணா(அ)திகர்விதா || 104 ||<BR>
+  <BR>
+  மேதோனிஷ்டா மதுப்ரீதா பந்தின்யாதிஸமன்விதா |<BR>
+  தத்யன்னாஸக்தஹ்ருதயா காகினீரூபதாரிணீ || 105 ||<BR>
+  <BR>
+  மூலாதாராம்புஜாரூடா பஞ்சவக்த்ரா(அ)ஸ்திஸம்ஸ்திதா |<BR>
+  அங்குஶாதிப்ரஹரணா வரதாதினிஷேவிதா || 106 ||<BR>
+  <BR>
+  முத்கௌதனாஸக்தசித்தா ஸாகின்யம்பாஸ்வரூபிணீ |<BR>
+  ஆஜ்ஞாசக்ராப்ஜனிலயா ஶுக்லவர்ணா ஷடானனா || 107 ||<BR>
+  <BR>
+  மஜ்ஜாஸம்ஸ்தா ஹம்ஸவதீமுக்யஶக்திஸமன்விதா |<BR>
+  ஹரித்ரான்னைகரஸிகா ஹாகினீரூபதாரிணீ || 108 ||<BR>
+  <BR>
+  ஸஹஸ்ரதளபத்மஸ்தா ஸர்வவர்ணோபஶோபிதா |<BR>
+  ஸர்வாயுததரா ஶுக்லஸம்ஸ்திதா ஸர்வதோமுகீ || 109 ||<BR>
+  <BR>
+  ஸர்வௌதனப்ரீதசித்தா யாகின்யம்பாஸ்வரூபிணீ |<BR>
+  ஸ்வாஹா ஸ்வதா(அ)மதிர்மேதா ஶ்ருதி꞉ ஸ்ம்ருதிரனுத்தமா || 110 ||<BR>
+  <BR>
+  புண்யகீர்தி꞉ புண்யலப்யா புண்யஶ்ரவணகீர்தனா |<BR>
+  புலோமஜார்சிதா பந்தமோசனீ பந்துராலகா || 111 || [பர்பராலகா]<BR>
+  <BR>
+  விமர்ஶரூபிணீ வித்யா வியதாதிஜகத்ப்ரஸூ꞉ |<BR>
+  ஸர்வவ்யாதிப்ரஶமனீ ஸர்வம்ருத்யுனிவாரிணீ || 112 ||<BR>
+  <BR>
+  அக்ரகண்யா(அ)சிந்த்யரூபா கலிகல்மஷனாஶினீ |<BR>
+  காத்யாயனீ காலஹந்த்ரீ கமலாக்ஷனிஷேவிதா || 113 ||<BR>
+  <BR>
+  தாம்பூலபூரிதமுகீ தாடிமீகுஸுமப்ரபா |<BR>
+  ம்ருகாக்ஷீ மோஹினீ முக்யா ம்ருடானீ மித்ரரூபிணீ || 114 ||<BR>
+  <BR>
+  நித்யத்ருப்தா பக்தனிதிர்னியந்த்ரீ நிகிலேஶ்வரீ |<BR>
+  மைத்ர்யாதிவாஸனாலப்யா மஹாப்ரளயஸாக்ஷிணீ || 115 ||<BR>
+  <BR>
+  பராஶக்தி꞉ பரானிஷ்டா ப்ரஜ்ஞானகனரூபிணீ |<BR>
+  மாத்வீபானாலஸா மத்தா மாத்ருகாவர்ணரூபிணீ || 116 ||<BR>
+  <BR>
+  மஹாகைலாஸனிலயா ம்ருணாலம்ருதுதோர்லதா |<BR>
+  மஹனீயா தயாமூர்திர்மஹாஸாம்ராஜ்யஶாலினீ || 117 ||<BR>
+  <BR>
+  ஆத்மவித்யா மஹாவித்யா ஶ்ரீவித்யா காமஸேவிதா |<BR>
+  ஶ்ரீஷோடஶாக்ஷரீவித்யா த்ரிகூடா காமகோடிகா || 118 ||<BR>
+  <BR>
+  கடாக்ஷகிங்கரீபூதகமலாகோடிஸேவிதா |<BR>
+  ஶிரஸ்ஸ்திதா சந்த்ரனிபா பாலஸ்தேந்த்ரதனு꞉ப்ரபா || 119 ||<BR>
+  <BR>
+  ஹ்ருதயஸ்தா ரவிப்ரக்யா த்ரிகோணாந்தரதீபிகா |<BR>
+  தாக்ஷாயணீ தைத்யஹந்த்ரீ தக்ஷயஜ்ஞவினாஶினீ || 120 ||<BR>
+  <BR>
+  தராந்தோளிததீர்காக்ஷீ தரஹாஸோஜ்ஜ்வலன்முகீ |<BR>
+  குருமூர்திர்குணனிதிர்கோமாதா குஹஜன்மபூ꞉ || 121 ||<BR>
+  <BR>
+  தேவேஶீ தண்டனீதிஸ்தா தஹராகாஶரூபிணீ |<BR>
+  ப்ரதிபன்முக்யராகாந்ததிதிமண்டலபூஜிதா || 122 ||<BR>
+  <BR>
+  களாத்மிகா களானாதா காவ்யாலாபவினோதினீ |<BR>
+  ஸசாமரரமாவாணீஸவ்யதக்ஷிணஸேவிதா || 123 ||<BR>
+  <BR>
+  ஆதிஶக்திரமேயா(ஆ)த்மா பரமா பாவனாக்ருதி꞉ |<BR>
+  அனேககோடிப்ரஹ்மாண்டஜனனீ திவ்யவிக்ரஹா || 124 ||<BR>
+  <BR>
+  க்லீங்காரீ கேவலா குஹ்யா கைவல்யபததாயினீ |<BR>
+  த்ரிபுரா த்ரிஜகத்வந்த்யா த்ரிமூர்திஸ்த்ரிதஶேஶ்வரீ || 125 ||<BR>
+  <BR>
+  த்ர்யக்ஷரீ திவ்யகந்தாட்யா ஸிந்தூரதிலகாஞ்சிதா |<BR>
+  உமா ஶைலேந்த்ரதனயா கௌரீ கந்தர்வஸேவிதா || 126 ||<BR>
+  <BR>
+  விஶ்வகர்பா ஸ்வர்ணகர்பா(அ)வரதா வாகதீஶ்வரீ |<BR>
+  த்யானகம்யா(அ)பரிச்சேத்யா ஜ்ஞானதா ஜ்ஞானவிக்ரஹா || 127 ||<BR>
+  <BR>
+  ஸர்வவேதாந்தஸம்வேத்யா ஸத்யானந்தஸ்வரூபிணீ |<BR>
+  லோபாமுத்ரார்சிதா லீலாக்லுப்தப்ரஹ்மாண்டமண்டலா || 128 ||<BR>
+  <BR>
+  அத்ருஶ்யா த்ருஶ்யரஹிதா விஜ்ஞாத்ரீ வேத்யவர்ஜிதா |<BR>
+  யோகினீ யோகதா யோக்யா யோகானந்தா யுகந்தரா || 129 ||<BR>
+  <BR>
+  இச்சாஶக்திஜ்ஞானஶக்திக்ரியாஶக்திஸ்வரூபிணீ |<BR>
+  ஸர்வாதாரா ஸுப்ரதிஷ்டா ஸதஸத்ரூபதாரிணீ || 130 ||<BR>
+  <BR>
+  அஷ்டமூர்திரஜாஜைத்ரீ லோகயாத்ராவிதாயினீ |<BR>
+  ஏகாகினீ பூமரூபா நிர்த்வைதா த்வைதவர்ஜிதா || 131 ||<BR>
+  <BR>
+  அன்னதா வஸுதா வ்ருத்தா ப்ரஹ்மாத்மைக்யஸ்வரூபிணீ |<BR>
+  ப்ருஹதீ ப்ராஹ்மணீ ப்ராஹ்மீ ப்ரஹ்மானந்தா பலிப்ரியா || 132 ||<BR>
+  <BR>
+  பாஷாரூபா ப்ருஹத்ஸேனா பாவாபாவவிவர்ஜிதா |<BR>
+  ஸுகாராத்யா ஶுபகரீ ஶோபனாஸுலபாகதி꞉ || 133 ||<BR>
+  <BR>
+  ராஜராஜேஶ்வரீ ராஜ்யதாயினீ ராஜ்யவல்லபா |<BR>
+  ராஜத்க்ருபா ராஜபீடனிவேஶிதனிஜாஶ்ரிதா || 134 ||<BR>
+  <BR>
+  ராஜ்யலக்ஷ்மீ꞉ கோஶனாதா சதுரங்கபலேஶ்வரீ |<BR>
+  ஸாம்ராஜ்யதாயினீ ஸத்யஸந்தா ஸாகரமேகலா || 135 ||<BR>
+  <BR>
+  தீக்ஷிதா தைத்யஶமனீ ஸர்வலோகவஶங்கரீ |<BR>
+  ஸர்வார்ததாத்ரீ ஸாவித்ரீ ஸச்சிதானந்தரூபிணீ || 136 ||<BR>
+  <BR>
+  தேஶகாலாபரிச்சின்னா ஸர்வகா ஸர்வமோஹினீ |<BR>
+  ஸரஸ்வதீ ஶாஸ்த்ரமயீ குஹாம்பா குஹ்யரூபிணீ || 137 ||<BR>
+  <BR>
+  ஸர்வோபாதிவினிர்முக்தா ஸதாஶிவபதிவ்ரதா |<BR>
+  ஸம்ப்ரதாயேஶ்வரீ ஸாத்வீ குருமண்டலரூபிணீ || 138 ||<BR>
+  <BR>
+  குலோத்தீர்ணா பகாராத்யா மாயா மதுமதீ மஹீ |<BR>
+  கணாம்பா குஹ்யகாராத்யா கோமலாங்கீ குருப்ரியா || 139 ||<BR>
+  <BR>
+  ஸ்வதந்த்ரா ஸர்வதந்த்ரேஶீ தக்ஷிணாமூர்திரூபிணீ |<BR>
+  ஸனகாதிஸமாராத்யா ஶிவஜ்ஞானப்ரதாயினீ || 140 ||<BR>
+  <BR>
+  சித்களா(ஆ)நந்தகலிகா ப்ரேமரூபா ப்ரியங்கரீ |<BR>
+  நாமபாராயணப்ரீதா நந்திவித்யா நடேஶ்வரீ || 141 ||<BR>
+  <BR>
+  மித்யாஜகததிஷ்டானா முக்திதா முக்திரூபிணீ |<BR>
+  லாஸ்யப்ரியா லயகரீ லஜ்ஜா ரம்பாதிவந்திதா || 142 ||<BR>
+  <BR>
+  பவதாவஸுதாவ்ருஷ்டி꞉ பாபாரண்யதவானலா |<BR>
+  தௌர்பாக்யதூலவாதூலா ஜராத்வாந்தரவிப்ரபா || 143 ||<BR>
+  <BR>
+  பாக்யாப்திசந்த்ரிகா பக்தசித்தகேகிகனாகனா |<BR>
+  ரோகபர்வததம்போளிர்ம்ருத்யுதாருகுடாரிகா || 144 ||<BR>
+  <BR>
+  மஹேஶ்வரீ மஹாகாளீ மஹாக்ராஸா மஹாஶனா |<BR>
+  அபர்ணா சண்டிகா சண்டமுண்டாஸுரனிஷூதினீ || 145 ||<BR>
+  <BR>
+  க்ஷராக்ஷராத்மிகா ஸர்வலோகேஶீ விஶ்வதாரிணீ |<BR>
+  த்ரிவர்கதாத்ரீ ஸுபகா த்ர்யம்பகா த்ரிகுணாத்மிகா || 146 ||<BR>
+  <BR>
+  ஸ்வர்காபவர்கதா ஶுத்தா ஜபாபுஷ்பனிபாக்ருதி꞉ |<BR>
+  ஓஜோவதீ த்யுதிதரா யஜ்ஞரூபா ப்ரியவ்ரதா || 147 ||<BR>
+  <BR>
+  துராராத்யா துராதர்ஷா பாடலீகுஸுமப்ரியா |<BR>
+  மஹதீ மேருனிலயா மந்தாரகுஸுமப்ரியா || 148 ||<BR>
+  <BR>
+  வீராராத்யா விராட்ரூபா விரஜா விஶ்வதோமுகீ |<BR>
+  ப்ரத்யக்ரூபா பராகாஶா ப்ராணதா ப்ராணரூபிணீ || 149 ||<BR>
+  <BR>
+  மார்தாண்டபைரவாராத்யா மந்த்ரிணீன்யஸ்தராஜ்யதூ꞉ |<BR>
+  த்ரிபுரேஶீ ஜயத்ஸேனா நிஸ்த்ரைகுண்யா பராபரா || 150 ||<BR>
+  <BR>
+  ஸத்யஜ்ஞானானந்தரூபா ஸாமரஸ்யபராயணா |<BR>
+  கபர்தினீ களாமாலா காமதுக்காமரூபிணீ || 151 ||<BR>
+  <BR>
+  களானிதி꞉ காவ்யகளா ரஸஜ்ஞா ரஸஶேவதி꞉ |<BR>
+  புஷ்டா புராதனா பூஜ்யா புஷ்கரா புஷ்கரேக்ஷணா || 152 ||<BR>
+  <BR>
+  பரஞ்ஜ்யோதி꞉ பரந்தாம பரமாணு꞉ பராத்பரா |<BR>
+  பாஶஹஸ்தா பாஶஹந்த்ரீ பரமந்த்ரவிபேதினீ || 153 ||<BR>
+  <BR>
+  மூர்தா(அ)மூர்தா நித்யத்ருப்தா முனிமானஸஹம்ஸிகா |<BR>
+  ஸத்யவ்ரதா ஸத்யரூபா ஸர்வாந்தர்யாமினீ ஸதீ || 154 ||<BR>
+  <BR>
+  ப்ரஹ்மாணீ ப்ரஹ்மஜனனீ பஹுரூபா புதார்சிதா |<BR>
+  ப்ரஸவித்ரீ ப்ரசண்டா(ஆ)ஜ்ஞா ப்ரதிஷ்டா ப்ரகடாக்ருதி꞉ || 155 ||<BR>
+  <BR>
+  ப்ராணேஶ்வரீ ப்ராணதாத்ரீ பஞ்சாஶத்பீடரூபிணீ |<BR>
+  விஶ்ருங்கலா விவிக்தஸ்தா வீரமாதா வியத்ப்ரஸூ꞉ || 156 ||<BR>
+  <BR>
+  முகுந்தா முக்தினிலயா மூலவிக்ரஹரூபிணீ |<BR>
+  பாவஜ்ஞா பவரோகக்னீ பவசக்ரப்ரவர்தினீ || 157 ||<BR>
+  <BR>
+  சந்தஸ்ஸாரா ஶாஸ்த்ரஸாரா மந்த்ரஸாரா தலோதரீ |<BR>
+  உதாரகீர்திருத்தாமவைபவா வர்ணரூபிணீ || 158 ||<BR>
+  <BR>
+  ஜன்மம்ருத்யுஜராதப்தஜனவிஶ்ராந்திதாயினீ |<BR>
+  ஸர்வோபனிஷதுத்குஷ்டா ஶாந்த்யதீதகளாத்மிகா || 159 ||<BR>
+  <BR>
+  கம்பீரா ககனாந்தஸ்தா கர்விதா கானலோலுபா |<BR>
+  கல்பனாரஹிதா காஷ்டா(அ)காந்தா காந்தார்தவிக்ரஹா || 160 ||<BR>
+  <BR>
+  கார்யகாரணனிர்முக்தா காமகேளிதரங்கிதா |<BR>
+  கனத்கனகதாடங்கா லீலாவிக்ரஹதாரிணீ || 161 ||<BR>
+  <BR>
+  அஜா க்ஷயவினிர்முக்தா முக்தா க்ஷிப்ரப்ரஸாதினீ |<BR>
+  அந்தர்முகஸமாராத்யா பஹிர்முகஸுதுர்லபா || 162 ||<BR>
+  <BR>
+  த்ரயீ த்ரிவர்கனிலயா த்ரிஸ்தா த்ரிபுரமாலினீ |<BR>
+  நிராமயா நிராலம்பா ஸ்வாத்மாராமா ஸுதாஸ்ருதி꞉ || 163 ||<BR>
+  <BR>
+  ஸம்ஸாரபங்கனிர்மக்னஸமுத்தரணபண்டிதா |<BR>
+  யஜ்ஞப்ரியா யஜ்ஞகர்த்ரீ யஜமானஸ்வரூபிணீ || 164 ||<BR>
+  <BR>
+  தர்மாதாரா தனாத்யக்ஷா தனதான்யவிவர்தினீ |<BR>
+  விப்ரப்ரியா விப்ரரூபா விஶ்வப்ரமணகாரிணீ || 165 ||<BR>
+  <BR>
+  விஶ்வக்ராஸா வித்ருமாபா வைஷ்ணவீ விஷ்ணுரூபிணீ |<BR>
+  அயோனிர்யோனினிலயா கூடஸ்தா குலரூபிணீ || 166 ||<BR>
+  <BR>
+  வீரகோஷ்டீப்ரியா வீரா நைஷ்கர்ம்யா நாதரூபிணீ |<BR>
+  விஜ்ஞானகலனா கல்யா விதக்தா பைந்தவாஸனா || 167 ||<BR>
+  <BR>
+  தத்த்வாதிகா தத்த்வமயீ தத்த்வமர்தஸ்வரூபிணீ |<BR>
+  ஸாமகானப்ரியா ஸௌம்யா ஸதாஶிவகுடும்பினீ || 168 ||<BR>
+  <BR>
+  ஸவ்யாபஸவ்யமார்கஸ்தா ஸர்வாபத்வினிவாரிணீ |<BR>
+  ஸ்வஸ்தா ஸ்வபாவமதுரா தீரா தீரஸமர்சிதா || 169 ||<BR>
+  <BR>
+  சைதன்யார்க்யஸமாராத்யா சைதன்யகுஸுமப்ரியா |<BR>
+  ஸதோதிதா ஸதாதுஷ்டா தருணாதித்யபாடலா || 170 ||<BR>
+  <BR>
+  தக்ஷிணாதக்ஷிணாராத்யா தரஸ்மேரமுகாம்புஜா |<BR>
+  கௌளினீகேவலா(அ)னர்க்யகைவல்யபததாயினீ || 171 ||<BR>
+  <BR>
+  ஸ்தோத்ரப்ரியா ஸ்துதிமதீ ஶ்ருதிஸம்ஸ்துதவைபவா |<BR>
+  மனஸ்வினீ மானவதீ மஹேஶீ மங்களாக்ருதி꞉ || 172 ||<BR>
+  <BR>
+  விஶ்வமாதா ஜகத்தாத்ரீ விஶாலாக்ஷீ விராகிணீ |<BR>
+  ப்ரகல்பா பரமோதாரா பராமோதா மனோமயீ || 173 ||<BR>
+  <BR>
+  வ்யோமகேஶீ விமானஸ்தா வஜ்ரிணீ வாமகேஶ்வரீ |<BR>
+  பஞ்சயஜ்ஞப்ரியா பஞ்சப்ரேதமஞ்சாதிஶாயினீ || 174 ||<BR>
+  <BR>
+  பஞ்சமீ பஞ்சபூதேஶீ பஞ்சஸங்க்யோபசாரிணீ |<BR>
+  ஶாஶ்வதீ ஶாஶ்வதைஶ்வர்யா ஶர்மதா ஶம்புமோஹினீ || 175 ||<BR>
+  <BR>
+  தரா தரஸுதா தன்யா தர்மிணீ தர்மவர்தினீ |<BR>
+  லோகாதீதா குணாதீதா ஸர்வாதீதா ஶமாத்மிகா || 176 ||<BR>
+  <BR>
+  பந்தூககுஸுமப்ரக்யா பாலா லீலாவினோதினீ |<BR>
+  ஸுமங்களீ ஸுககரீ ஸுவேஷாட்யா ஸுவாஸினீ || 177 ||<BR>
+  <BR>
+  ஸுவாஸின்யர்சனப்ரீதா(அ)ஶோபனா ஶுத்தமானஸா |<BR>
+  பிந்துதர்பணஸந்துஷ்டா பூர்வஜா த்ரிபுராம்பிகா || 178 ||<BR>
+  <BR>
+  தஶமுத்ராஸமாராத்யா த்ரிபுராஶ்ரீவஶங்கரீ |<BR>
+  ஜ்ஞானமுத்ரா ஜ்ஞானகம்யா ஜ்ஞானஜ்ஞேயஸ்வரூபிணீ || 179 ||<BR>
+  <BR>
+  யோனிமுத்ரா த்ரிகண்டேஶீ த்ரிகுணா(அ)ம்பா த்ரிகோணகா |<BR>
+  அனகா(அ)த்புதசாரித்ரா வாஞ்சிதார்தப்ரதாயினீ || 180 ||<BR>
+  <BR>
+  அப்யாஸாதிஶயஜ்ஞாதா ஷடத்வாதீதரூபிணீ |<BR>
+  அவ்யாஜகருணாமூர்திரஜ்ஞானத்வாந்ததீபிகா || 181 ||<BR>
+  <BR>
+  ஆபாலகோபவிதிதா ஸர்வானுல்லங்க்யஶாஸனா |<BR>
+  ஶ்ரீசக்ரராஜனிலயா ஶ்ரீமத்த்ரிபுரஸுந்தரீ || 182 ||<BR>
+  <BR>
+  ஶ்ரீஶிவா ஶிவஶக்த்யைக்யரூபிணீ லலிதாம்பிகா |<BR>
+  ஏவம் ஶ்ரீலலிதாதேவ்யா நாம்னாம் ஸாஹஸ்ரகம் ஜகு꞉ || 180 ||<BR>
+  <BR>
+  இதி ஸ்ரீப்ரஹ்மாண்ட புராணே உத்தரகாண்டே<BR>
+  ஸ்ரீஹயக்ரீவ அகஸ்த்ய ஸம்வாதே ஸ்ரீலலிதா<BR>
+  ஸஹஸ்ரநாம ஸ்தோத்ரம் ஸம்பூர்ணம்.<BR>
+  </p>
+  </BODY>
+  </HTML>

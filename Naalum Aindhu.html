@@ -1,0 +1,107 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=0
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",25)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 160%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 160%;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body class="block">
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<p>
+நாலும் ஐந்து வாசல் கீறு தூறு உடம்பு கால்கை யாகி <BR>
+நாரி யென்பில் ஆகும் ஆகம்  அதனூடே <BR>
+<BR>
+நாதம் ஒன்ற  ஆதி வாயில் நாடகங்க ளான ஆடி <BR>
+நாடறிந்திடாமல் ஏக வளராமுன் <BR>
+<BR>
+நூல் அநந்த கோடி தேடி மால்மிகுந்து பாருளோரை <BR>
+நூறு செஞ்சொல் கூறி மாறி விளைதீமை <BR>
+<BR>
+நோய்கலந்த வாழ்வுறாமல் நீகலந்து உள் <BR>
+ஆகு ஞான நூல் அடங்க ஓத வாழ்வு தருவாயே <BR>
+<BR>
+காலன் வந்து பாலன் ஆவி காய வென்று <BR>
+பாசம் வீசு காலம் வந்து ஓலம் ஓலம் எனும் ஆதி <BR>
+<BR>
+காமன் ஐந்து பாணமோடு வேமின் என்றுகாணு மோனர் <BR>
+காள கண்ட ரோடு வேத மொழிவோனே <BR>
+<BR>
+ஆல மொன்று வேலை யாகி யானை யஞ்சல் தீரு மூல <BR>
+ஆழி யங்கை ஆயன் மாயன் மருகோனே <BR>
+<BR>
+ஆரணங்கள் தாளை நாட வாரணம் கை மேவும் <BR>
+ஆதியான செந்தில் வாழ்வதான பெருமாளே<BR>
+</p>
+</body>
+</html>

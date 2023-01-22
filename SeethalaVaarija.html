@@ -1,0 +1,116 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=0
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",25)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 160%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 160%;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body class="block">
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<p>
+சீதள வாரிஜ பாதாந மோநம<BR>
+நாரத கீதவி நோதாந மோநம<BR>
+சேவல மாமயில் ப்ரீதாந மோநம ...... மறைதேடுஞ்<BR>
+<BR>
+சேகர மானப்ர தாபாந மோநம<BR>
+ஆகம சாரசொ ரூபாந மோநம<BR>
+தேவர்கள் சேனைம கீபாந மோநம ...... கதிதோயப்<BR>
+<BR>
+பாதக நீவுகு டாராந மோநம<BR>
+மாவசு ரேசக டோராந மோநம<BR>
+பாரினி லேஜய வீராந மோநம ...... மலைமாது<BR>
+<BR>
+பார்வதி யாள்தரு பாலாந மோநம<BR>
+நாவல ஞானம னோலாந மோநம<BR>
+பாலகு மாரசு வாமீந மோநம ...... அருள்தாராய்<BR>
+<BR>
+போதக மாமுக னேரான சோதர<BR>
+நீறணி வேணியர் நேயாப்ர பாகர<BR>
+பூமக ளார்மரு கேசாம கோததி ...... யிகல்சூரா<BR>
+<BR>
+போதக மாமறை ஞானாத யாகர<BR>
+தேனவிழ் நீபந றாவாரு மார்பக<BR>
+பூரண மாமதி போலாறு மாமுக ...... முருகேசா<BR>
+<BR>
+மாதவர் தேவர்க ளோடேமு ராரியு<BR>
+மாமலர் மீதுறை வேதாவு மேபுகழ்<BR>
+மாநில மேழினு மேலான நாயக ...... வடிவேலா<BR>
+<BR>
+வானவ ரூரினும் வீறாகி வீறள<BR>
+காபுரி வாழ்வினு மேலாக வேதிரு<BR>
+வாழ்சிறு வாபுரி வாழ்வேசு ராதிபர் ...... பெருமாளே<BR>
+<BR>
+</p>
+</body>
+</html>

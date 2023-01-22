@@ -1,0 +1,250 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=0
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",25)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 160%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 160%;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body class="block">
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<p>
+sadā bālarūpā’pi vighnādrihantrī<BR>
+mahādantivaktrā’pi pañcāsyamānyā |<BR>
+vidhīndrādimṛgyā gaṇeśābhidhā me<BR>
+vidhattāṃ śriyaṃ kā’pi kaldyāṇamūrtiḥ  1 <BR>
+<BR>
+na jānāmi śabdaṃ na jānāmi cārthaṃ<BR>
+na jānāmi padyaṃ na jānāmi gadyam |<BR>
+cidekā śhaḍāsyā hṛdi dyotate me<BR>
+mukhānniḥsarante giraścāpi citram  2 <BR>
+<BR>
+mayūrādhirūḍhaṃ mahāvākyagūḍhaṃ<BR>
+manohāridehaṃ mahaccittageham |<BR>
+mahīdevadevaṃ mahāvedabhāvaṃ<BR>
+mahādevabālaṃ bhaje lokapālam  3 <BR>
+<BR>
+yadā saṃnidhānaṃ gatā mānavā me<BR>
+bhavāmbhodhipāraṃ gatāste tadaiva |<BR>
+iti vyañjayansindhutīre ya āste<BR>
+tamīḍe pavitraṃ parāśaktiputram  4 <BR>
+<BR>
+yathābdhestaraṅgā layaṃ yānti tuṅgā-<BR>
+stathaivāpadaḥ saṃnidhau sevatāṃ me |<BR>
+itīvormipaṅktīrnṛṇāṃ darśayantaṃ<BR>
+sadā bhāvaye hṛtsaroje guhaṃ tam  5 <BR>
+<BR>
+girau mannivāse narā yeadhirūḍhā-<BR>
+stadā parvate rājate teadhirūḍhāḥ |<BR>
+itīva bruvangandhaśailādhirūḍhaḥ<BR>
+sa devo mude me sadā śhaṇmukhoastu  6 <BR>
+<BR>
+mahāmbhodhitīre mahāpāpacore<BR>
+munīndrānukūle sugandhākhyaśaile |<BR>
+guhāyāṃ vasantaṃ svabhāsā lasantaṃ<BR>
+janārtiṃ harantaṃ śrayāmo guhaṃ tam  7 <BR>
+<BR>
+lasatsvarṇagehe nṛṇāṃ kāmadohe<BR>
+sumastomasañChannamāṇikyamañce |<BR>
+samudyatsahasrārkatulyaprakāśaṃ<BR>
+sadā bhāvaye kārtikeyaṃ sureśam  8 <BR>
+<BR>
+raṇaddhaṃsake mañjuleatyantaśoṇe<BR>
+manohārilāvaṇyapīyūśhapūrṇe |<BR>
+manaḥśhaṭpado me bhavakleśataptaḥ<BR>
+sadā modatāṃ skanda te pādapadme  9 <BR>
+<BR>
+suvarṇābhadivyāmbarairbhāsamānāṃ<BR>
+kvaṇatkiṅkiṇīmekhalāśobhamānām |<BR>
+lasaddhemapaṭṭena vidyotamānāṃ<BR>
+kaṭiṃ bhāvaye skanda te dīpyamānām  10 <BR>
+<BR>
+pulindeśakanyāghanābhogatuṅga-<BR>
+stanāliṅganāsaktakāśmīrarāgam |<BR>
+namasyāmyahaṃ tārakāre tavoraḥ<BR>
+svabhaktāvane sarvadā sānurāgam  11 <BR>
+<BR>
+vidhau klṛptadaṇḍānsvalīlādhṛtāṇḍā-<BR>
+nnirastebhaśuṇḍāndviśhatkāladaṇḍān |<BR>
+hatendrāriśhaṇḍānjagatrāṇaśauṇḍā-<BR>
+nsadā te pracaṇḍānśraye bāhudaṇḍān  12 <BR>
+<BR>
+sadā śāradāḥ śhaṇmṛgāṅkā yadi syuḥ<BR>
+samudyanta eva sthitāścetsamantāt |<BR>
+sadā pūrṇabimbāḥ kaldaṅkaiśca hīnā-<BR>
+stadā tvanmukhānāṃ bruve skanda sāmyam  13 <BR>
+<BR>
+sphuranmandahāsaiḥ sahaṃsāni cañca-<BR>
+tkaṭākśhāvalībhṛṅgasaṅghojjvalāni |<BR>
+sudhāsyandibimbādharāṇīśasūno<BR>
+tavālokaye śhaṇmukhāmbhoruhāṇi  14 <BR>
+<BR>
+viśāleśhu karṇāntadīrgheśhvajasraṃ<BR>
+dayāsyandiśhu dvādaśasvīkśhaṇeśhu |<BR>
+mayīśhatkaṭākśhaḥ sakṛtpātitaśce-<BR>
+dbhavette dayāśīla kā nāma hāniḥ  15 <BR>
+<BR>
+sutāṅgodbhavo measi jīveti śhaḍdhā<BR>
+japanmantramīśo mudā jighrate yān |<BR>
+jagadbhārabhṛdbhyo jagannātha tebhyaḥ<BR>
+kirīṭojjvalebhyo namo mastakebhyaḥ  16 <BR>
+<BR>
+sphuradratnakeyūrahārābhirāma-<BR>
+ścalatkuṇḍalaśrīlasadgaṇḍabhāgaḥ |<BR>
+kaṭau pītavāsāḥ kare cāruśaktiḥ<BR>
+purastānmamāstāṃ purārestanūjaḥ  17 <BR>
+<BR>
+ihāyāhi vatseti hastānprasāryā-<BR>
+hvayatyādarācChaṅkare māturaṅkāt |<BR>
+samutpatya tātaṃ śrayantaṃ kumāraṃ<BR>
+harāśliśhṭagātraṃ bhaje bālamūrtim  18 <BR>
+<BR>
+kumāreśasūno guha skanda senā-<BR>
+pate śaktipāṇe mayūrādhirūḍha |<BR>
+pulindātmajākānta bhaktārtihārin<BR>
+prabho tārakāre sadā rakśha māṃ tvam  19 <BR>
+<BR>
+praśāntendriye naśhṭasañjJṇe viceśhṭe<BR>
+kaphodgārivaktre bhayotkampigātre |<BR>
+prayāṇonmukhe mayyanāthe tadānīṃ<BR>
+drutaṃ me dayālo bhavāgre guha tvam  20 <BR>
+<BR>
+kṛtāntasya dūteśhu caṇḍeśhu kopā-<BR>
+ddahacChinddhi bhinddhīti māṃ tarjayatsu |<BR>
+mayūraṃ samāruhya mā bhairiti tvaṃ<BR>
+puraḥ śaktipāṇirmamāyāhi śīghram  21 <BR>
+<BR>
+praṇamyāsakṛtpādayoste patitvā<BR>
+prasādya prabho prārthayeanekavāram |<BR>
+na vaktuṃ kśhamoahaṃ tadānīṃ kṛpābdhe<BR>
+na kāryāntakāle manāgapyupekśhā  22 <BR>
+<BR>
+sahasrāṇḍabhoktā tvayā śūranāmā<BR>
+hatastārakaḥ siṃhavaktraśca daityaḥ |<BR>
+mamāntarhṛdisthaṃ manaḥkleśamekaṃ<BR>
+na haṃsi prabho kiṃ karomi kva yāmi  23 <BR>
+<BR>
+ahaṃ sarvadā duḥkhabhārāvasanno<BR>
+bhavāndīnabandhustvadanyaṃ na yāce |<BR>
+bhavadbhaktirodhaṃ sadā klṛptabādhaṃ<BR>
+mamādhiṃ drutaṃ nāśayomāsuta tvam  24 <BR>
+<BR>
+apasmārakuśhṭakśhayārśaḥ prameha-<BR>
+jvaronmādagulmādirogā mahāntaḥ |<BR>
+piśācāśca sarve bhavatpatrabhūtiṃ<BR>
+vilokya kśhaṇāttārakāre dravante  25 <BR>
+<BR>
+dṛśi skandamūrtiḥ śrutau skandakīrti-<BR>
+rmukhe me pavitraṃ sadā taccaritram |<BR>
+kare tasya kṛtyaṃ vapustasya bhṛtyaṃ<BR>
+guhe santu līnā mamāśeśhabhāvāḥ  26 <BR>
+<BR>
+munīnāmutāho nṛṇāṃ bhaktibhājā-<BR>
+mabhīśhṭapradāḥ santi sarvatra devāḥ |<BR>
+nṛṇāmantyajānāmapi svārthadāne<BR>
+guhāddevamanyaṃ na jāne na jāne  27 <BR>
+<BR>
+kalatraṃ sutā bandhuvargaḥ paśurvā<BR>
+naro vātha nārī gṛhe ye madīyāḥ |<BR>
+yajanto namantaḥ stuvanto bhavantaṃ<BR>
+smarantaśca te santu sarve kumāra  28 <BR>
+<BR>
+mṛgāḥ pakśhiṇo daṃśakā ye ca duśhṭā-<BR>
+stathā vyādhayo bādhakā ye madaṅge |<BR>
+bhavacChaktitīkśhṇāgrabhinnāḥ sudūre<BR>
+vinaśyantu te cūrṇitakrauñcaśaila  29 <BR>
+<BR>
+janitrī pitā ca svaputrāparādhaṃ<BR>
+sahete na kiṃ devasenādhinātha |<BR>
+ahaṃ cātibālo bhavān lokatātaḥ<BR>
+kśhamasvāparādhaṃ samastaṃ maheśa  30 <BR>
+<BR>
+namaḥ kekine śaktaye cāpi tubhyaṃ<BR>
+namaśChāga tubhyaṃ namaḥ kukkuṭāya |<BR>
+namaḥ sindhave sindhudeśāya tubhyaṃ<BR>
+punaḥ skandamūrte namaste namoastu  31 <BR>
+<BR>
+jayānandabhūmaṃ jayāpāradhāmaṃ<BR>
+jayāmoghakīrte jayānandamūrte |<BR>
+jayānandasindho jayāśeśhabandho<BR>
+jaya tvaṃ sadā muktidāneśasūno  32 <BR>
+<BR>
+bhujaṅgākhyavṛttena klṛptaṃ stavaṃ yaḥ<BR>
+paṭhedbhaktiyukto guhaṃ sampraṇamya |<BR>
+sa putrānkalatraṃ dhanaṃ dīrghamāyu-<BR>
+rlabhetskandasāyujyamante naraḥ saḥ  33 <BR>
+<BR>
+Ithi Sri Subramanya Bhujangam ||<BR>
+</p>
+</body>
+</html>

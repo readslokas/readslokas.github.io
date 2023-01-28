@@ -1,0 +1,175 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=5
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",25)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 250%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 230%;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body class="block">
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+
+<p>asya śrīnārāyaṇahr̥dayastōtramantrasya bhārgava r̥ṣiḥ, anuṣṭupchandaḥ, śrīlakṣmīnārāyaṇō dēvatā, ōṁ bījaṁ, namaśśaktiḥ, nārāyaṇāyēti kīlakaṁ, śrīlakṣmīnārāyaṇa prītyarthē japē viniyōgaḥ |</p>
+<p>karanyāsaḥ |<br>
+ōṁ nārāyaṇaḥ paraṁ jyōtiriti aṅguṣṭhābhyāṁ namaḥ |<br>
+nārāyaṇaḥ paraṁ brahmēti tarjanībhyāṁ namaḥ |<br>
+nārāyaṇaḥ parō dēva iti madhyamābhyāṁ namaḥ |<br>
+nārāyaṇaḥ paraṁ dhāmēti anāmikābhyāṁ namaḥ |<br>
+nārāyaṇaḥ parō dharma iti kaniṣṭhikābhyāṁ namaḥ |<br>
+viśvaṁ nārāyaṇa iti karatalakarapr̥ṣṭhābhyāṁ namaḥ |<br>
+aṅganyāsaḥ |<br>
+nārāyaṇaḥ paraṁ jyōtiriti hr̥dayāya namaḥ |<br>
+nārāyaṇaḥ paraṁ brahmēti śirasē svāhā |<br>
+nārāyaṇaḥ parō dēva iti śikhāyai vauṣaṭ |<br>
+nārāyaṇaḥ paraṁ dhāmēti kavacāya hum |<br>
+nārāyaṇaḥ parō dharma iti nētrābhyāṁ vauṣaṭ |<br>
+viśvaṁ nārāyaṇa iti astrāya phaṭ |<br>
+digbandhaḥ |<br>
+ōṁ aindryādidaśadiśaṁ ōṁ namaḥ sudarśanāya sahasrārāya huṁ phaṭ badhnāmi namaścakrāya svāhā | iti pratidiśaṁ yōjyam |</p>
+<p>atha dhyānam |<br>
+udyādādityasaṅkāśaṁ pītavāsaṁ caturbhujam |<br>
+śaṅkhacakragadāpāṇiṁ dhyāyēllakṣmīpatiṁ harim || 1 ||</p>
+<p>trailōkyādhāracakraṁ tadupari kamaṭhaṁ tatra cānantabhōgī<br>
+tanmadhyē bhūmipadmāṅkuśaśikharadalaṁ karṇikābhūtamērum |<br>
+tatrasthaṁ śāntamūrtiṁ maṇimayamakuṭaṁ kuṇḍalōdbhāsitāṅgaṁ<br>
+lakṣmīnārāyaṇākhyaṁ sarasijanayanaṁ santataṁ cintayāmi || 2 ||</p>
+<p>atha mūlāṣṭakam |<br>
+ōm || nārāyaṇaḥ paraṁ jyōtirātmā nārāyaṇaḥ paraḥ |<br>
+nārāyaṇaḥ paraṁ brahma nārāyaṇa namō:’stu tē || 1 ||</p>
+<p>nārāyaṇaḥ parō dēvō dhātā nārāyaṇaḥ paraḥ |<br>
+nārāyaṇaḥ parō dhātā nārāyaṇa namō:’stu tē || 2 ||</p>
+<p>nārāyaṇaḥ paraṁ dhāma dhyānam nārāyaṇaḥ paraḥ |<br>
+nārāyaṇa parō dharmō nārāyaṇa namō:’stu tē || 3 ||</p>
+<p>nārāyaṇaḥ parōvēdyaḥ vidyā nārāyaṇaḥ paraḥ |<br>
+viśvaṁ nārāyaṇaḥ sākṣānnārāyaṇa namō:’stu tē || 4 ||</p>
+<p>nārāyaṇādvidhirjātō jātō nārāyaṇādbhavaḥ |<br>
+jātō nārāyaṇādindrō nārāyaṇa namō:’stu tē || 5 ||</p>
+<p>ravirnārāyaṇastējaḥ candrō nārāyaṇō mahaḥ |<br>
+vahnirnārāyaṇaḥ sākṣānnārāyaṇa namō:’stu tē || 6 ||</p>
+<p>nārāyaṇa upāsyaḥ syādgururnārāyaṇaḥ paraḥ |<br>
+nārāyaṇaḥ parō bōdhō nārāyaṇa namō:’stu tē || 7 ||</p>
+<p>nārāyaṇaḥ phalaṁ mukhyaṁ siddhirnārāyaṇaḥ sukham |<br>
+sēvyōnārāyaṇaḥ śuddhō nārāyaṇa namō:’stu tē || 8 || [hari]</p>
+<p>atha prārthanādaśakam |<br>
+nārāyaṇa tvamēvāsi daharākhyē hr̥di sthitaḥ |<br>
+prērakaḥ prēryamāṇānāṁ tvayā prēritamānasaḥ || 9 ||</p>
+<p>tvadājñāṁ śirasā dhr̥tvā japāmi janapāvanam |<br>
+nānōpāsanamārgāṇāṁ bhavakr̥dbhāvabōdhakaḥ || 10 ||</p>
+<p>bhāvārthakr̥dbhavātītō bhava saukhyapradō mama |<br>
+tvanmāyāmōhitaṁ viśvaṁ tvayaiva parikalpitam || 11 ||</p>
+<p>tvadadhiṣṭhānamātrēṇa sā vai sarvārthakāriṇī |<br>
+tvamētāṁ ca puraskr̥tya sarvakāmānpradarśaya || 12 ||</p>
+<p>na mē tvadanyastrātāsti tvadanyanna hi daivatam |<br>
+tvadanyaṁ na hi jānāmi pālakaṁ puṇyavardhanam || 13 ||</p>
+<p>yāvatsāṁsārikō bhāvō manassthō bhāvanātmakaḥ |<br>
+tāvatsiddhirbhavētsādhyā sarvathā sarvadā vibhō || 14 ||</p>
+<p>pāpināmahamēvāgryō dayālūnāṁ tvamagraṇīḥ |<br>
+dayanīyō madanyō:’sti tava kō:’tra jagattrayē || 15 ||</p>
+<p>tvayāhaṁ naiva sr̥ṣṭaścēnna syāttava dayālutā |<br>
+āmayō vā na sr̥ṣṭaścēdauṣadhasya vr̥thōdayaḥ || 16 ||</p>
+<p>pāpasaṅghapariśrāntaḥ pāpātmā pāparūpadhr̥t |<br>
+tvadanyaḥ kō:’tra pāpēbhyastrātāsti jagatītalē || 17 ||</p>
+<p>tvamēva mātā ca pitā tvamēva<br>
+tvamēva bandhuśca sakhā tvamēva |<br>
+tvamēva sēvyaśca gurustvamēva<br>
+tvamēva sarvaṁ mama dēva dēva || 18 ||</p>
+<p>prārthanādaśakaṁ caiva mūlāṣṭakamataḥ param |<br>
+yaḥ paṭhēcchr̥ṇuyānnityaṁ tasya lakṣmīḥ sthirā bhavēt || 19 ||</p>
+<p>nārāyaṇasya hr̥dayaṁ sarvābhīṣṭaphalapradam |<br>
+lakṣmīhr̥dayakaṁ stōtram yadi cēttadvinākr̥tam || 20 ||</p>
+<p>tatsarvaṁ niṣphalaṁ prōktaṁ lakṣmīḥ kruddhyati sarvadā |<br>
+ētatsaṅkalitaṁ stōtram sarvakāmaphalapradam || 21 ||</p>
+<p>lakṣmīhr̥dayakaṁ caiva tathā nārāyaṇātmakam |<br>
+japēdyaḥ saṅkalīkr̥tya sarvābhīṣṭamavāpnuyāt || 22 ||</p>
+<p>nārāyaṇasya hr̥dayamādau japtvā tataḥ param |<br>
+lakṣmīhr̥dayakaṁ stōtram japēnnārāyaṇaṁ punaḥ || 23 ||</p>
+<p>punarnārāyaṇaṁ japtvā punarlakṣmīnutiṁ japēt |<br>
+punarnārāyaṇaṁ jāpyaṁ saṅkalīkaraṇaṁ bhavēt || 24 ||</p>
+<p>ēvaṁ madhyē dvivārēṇa japētsaṅkalitaṁ tu tat |<br>
+lakṣmīhr̥dayakaṁ stōtram sarvakāmaprakāśitam || 25 ||</p>
+<p>tadvajjapādikaṁ kuryādētatsaṅkalitaṁ śubham |<br>
+sarvānkāmānavāpnōti ādhivyādhibhayaṁ harēt || 26 ||</p>
+<p>gōpyamētatsadā kuryānna sarvatra prakāśayēt |<br>
+iti guhyatamaṁ śāstraṁ prāptaṁ brahmādikaiḥ purā || 27 ||</p>
+<p>tasmātsarvaprayatnēna gōpayētsādhayēsudhīḥ |<br>
+yatraitatpustakaṁ tiṣṭhēllakṣmīnārāyaṇātmakam || 28 ||</p>
+<p>bhūtapaiśācavētāla bhayaṁ naiva tu sarvadā |<br>
+lakṣmīhr̥dayakaṁ prōktaṁ vidhinā sādhayētsudhīḥ || 29 ||</p>
+<p>bhr̥guvārē ca rātrau ca pūjayētpustakadvayam |<br>
+sarvathā sarvadā satyaṁ gōpayētsādhayētsudhīḥ |<br>
+gōpanātsādhanāllōkē dhanyō bhavati tattvataḥ || 30 ||</p>
+<p>ityatharvarahasyē uttarabhāgē nārāyaṇahr̥dayaṁ sampūrṇam |</p>
+
+</body>
+</html>
+

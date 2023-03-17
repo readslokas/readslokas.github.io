@@ -1,0 +1,178 @@
+<HTML>
+<meta charset="UTF-8">
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=1
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",50)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 270%;
+    text-align: center;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body>
+<BR>
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<P>
+|| sri ganapati talam ||<BR><BR>
+vikatotkatasundaradantimukham<BR>
+bhujagendrasusarpagadabharanam |<BR>
+gajanilagajendra ganadhipatim<BR>
+pranatosmi vinayaka hastimukham || 1 ||<BR>
+sura sura ganapati <BR>
+sundarakesam<BR>
+rsi rsi ganapati yajnasamanam |<BR>
+bhava bhava ganapati <BR>
+padmasariram<BR>
+jaya jaya ganapati divyanamaste || 2 ||<BR>
+<BR>
+gajamukhavaktram girijaputram<BR>
+ganagunamitram ganapatimisapriyam || 3 ||<BR>
+<BR>
+karadhrtaparasum kankanapanim<BR>
+kabalitapadmarucim |<BR>
+surapativandyam sundaranrttam <BR>
+[** sundaravaktram **] <BR>
+suracitamanimakutam || 4 ||<BR>
+<BR>
+pranamatadeham prakatitatalam<BR>
+sadgiri talamidam |<BR>
+tattat sadgiri talamidam<BR>
+tattat sadgiri talamidam || 5 ||<BR>
+<BR>
+lambodaravara-kunjasurakrta<BR>
+kunkumavarnadharam |<BR>
+svetasasrngam-modakahastam<BR>
+pritisapanasaphalam || 6 ||<BR>
+<BR>
+nayanatrayavara-nagavibhusita<BR>
+nanaganapati tam tattak<BR>
+nayanatrayavara-nagavibhusita<BR>
+nanaganapati tam tattak<BR>
+nanaganapati tam tattak<BR>
+nanaganapati tam || 7 ||<BR>
+<BR>
+dhavalitajaladharadhavalitacandram<BR>
+phanimanikiranavibhusitakhadgam |<BR>
+tanutanuvisaharasulakapalam<BR>
+haraharasivasivaganapatimabhayam || 8 ||<BR>
+<BR>
+katatatavigalitamadajalajaladhita-<BR>
+ganapativadyamidam<BR>
+katatatavigalitamadajalajaladhita-<BR>
+ganapativadyamidam<BR>
+tattak ganapativadyamidam<BR>
+tattak ganapativadyamidam || 9 ||<BR>
+<BR>
+takka dhim nam tariku<BR>
+ tarijanaku kukutaddi<BR>
+kukutakita dindingu <BR>
+diguna kukutaddi<BR>
+tatta jham jham tarita<BR>
+ta jham jham tarita<BR>
+takata jham jham tarita<BR>
+ta jham jham tarita<BR>
+tari tanata tanajhanuta <BR>
+jhanudhimita<BR>
+kitataka tarikitatom<BR>
+takita kitataka tarikitatom<BR>
+takita kitataka tarikitatom tam || 10 ||<BR>
+<BR>
+takatakita-takatakita<BR>
+takatakita-tattom<BR>
+sasikalita-sasikalita<BR>
+maulinam sulinam |<BR>
+takatakita-takatakita<BR>
+takatakita-tattom<BR>
+vimalasubhakamalajalapadukam paninam |<BR>
+<BR>
+dhittakita-dhittakita<BR>
+dhittakita-tattom<BR>
+pramathaganagunakhacitasobhanam <BR>
+sobhitam |<BR>
+dhittakita-dhittakita<BR>
+dhittakita-tattom<BR>
+mrthulabhuja-sarasijavisanakam <BR>
+posanam | [** bhipanakam **]<BR>
+<BR>
+takatakita-takatakita<BR>
+takatakita-tattom<BR>
+panasaphala-kadaliphala<BR>
+modanam modakam |<BR>
+dhittakita-dhittakita<BR>
+dhittakita-tattom<BR>
+pramathagurusivatanaya<BR>
+ganapati talanam |<BR>
+ganapati talanam<BR>
+ganapati talanam || 11 ||<BR>
+
+</body>
+</html>
+

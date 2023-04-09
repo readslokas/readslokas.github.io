@@ -1,0 +1,106 @@
+<HTML>
+<meta charset="UTF-8">
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=1
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",50)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 270%;
+    text-align: center;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body>
+<BR>
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<P>
+<p>nārada uvāca |<br />
+praṇamya śirasā dēvaṁ gaurī putraṁ vināyakam |<br />
+bhaktāvāsaṁ smarēnnityam āyuh kāmārtha siddhayē || 1 ||</p>
+<p>prathamaṁ vakratuṇḍaṁ ca ēkadantaṁ dvitīyakam |<br />
+tr̥tīyaṁ kr̥ṣṇapiṅgākṣaṁ gajavaktraṁ caturthakam || 2 ||</p>
+<p>lambōdaraṁ pañcamaṁ ca ṣaṣṭhaṁ vikaṭamēva ca |<br />
+saptamaṁ vighnarājaṁ ca dhūmravarṇaṁ tathāṣṭamam || 3 ||</p>
+<p>navamaṁ bhālacandraṁ ca daśamaṁ tu vināyakam |<br />
+ēkādaśaṁ gaṇapatiṁ dvādaśaṁ tu gajānanam || 4 ||</p>
+<p>dvādaśaitāni nāmāni trisandhyaṁ yaḥ paṭhēnnaraḥ |<br />
+na ca vighnabhayaṁ tasya sarvasiddhikaraṁ param || 5 ||</p>
+<p>vidyārthī labhatē vidyāṁ dhanārthī labhatē dhanam |<br />
+putrārthī labhatē putrānmōkṣārthī labhatē gatim || 6 ||</p>
+<p>japēdgaṇapatistōtraṁ ṣaḍbhirmāsaiḥ phalaṁ labhēt |<br />
+saṁvatsarēṇa siddhiṁ ca labhatē nātra saṁśayaḥ || 7 ||</p>
+<p>aṣṭabhyō brāhmaṇēbhyaśca likhitvā yaḥ samarpayēt |<br />
+tasya vidyā bhavētsarvā gaṇēśasya prasādataḥ || 8 ||</p>
+<p>iti śrīnāradapurāṇē saṅkaṣṭanāśanaṁ nāma gaṇēśa stōtram |</p>
+
+
+</body>
+</html>
+

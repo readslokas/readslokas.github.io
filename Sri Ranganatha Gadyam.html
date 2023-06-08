@@ -1,163 +1,165 @@
 <HTML>
 
-<SCRIPT language=JavaScript1.2>
-//change 1 to another integer to alter the scroll speed. Greater is faster
-var speed=1
-
-var currentpos=0,alt=1,curpos1=0,curpos2=-1
-function initialize(){
-startit()
-}
-function scrollwindow(){
-if (document.all && !document.getElementById)
-temp=document.body.scrollTop
-else
-temp=window.pageYOffset
-if (alt==0)  alt=2
-else alt=1
-
-if (alt==0)
-curpos1=temp
-else
-curpos2=temp
-
-if (curpos1!=curpos2){
-if (document.all)
-currentpos=document.body.scrollTop+speed
-else
-currentpos=window.pageYOffset+speed
-window.scroll(0,currentpos)
-}
-else{
-currentpos=0
-window.scroll(0,currentpos)
-}
-}
-
-function startit(){
-setInterval("scrollwindow()",25)
-}
-window.onload=initialize
-
-var elem = document.documentElement;
-
-function openFullscreen() {
-  if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-  } else if (elem.mozRequestFullScreen) { /* Firefox */
-    elem.mozRequestFullScreen();
-  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-    elem.webkitRequestFullscreen();
-  } else if (elem.msRequestFullscreen) { /* IE/Edge */
-    elem.msRequestFullscreen();
+  <SCRIPT language=JavaScript1.2>
+  //change 1 to another integer to alter the scroll speed. Greater is faster
+  var speed=1
+  
+  var currentpos=0,alt=1,curpos1=0,curpos2=-1
+  function initialize(){
+  startit()
   }
-}
-
-</SCRIPT>
-
-<head>
-<style>
-body {background-color: black;}
-p  {
-    color: white;
-    font-family: calibri;
+  function scrollwindow(){
+  if (document.all && !document.getElementById)
+  temp=document.body.scrollTop
+  else
+  temp=window.pageYOffset
+  if (alt==0)  alt=2
+  else alt=1
+  
+  if (alt==0)
+  curpos1=temp
+  else
+  curpos2=temp
+  
+  if (curpos1!=curpos2){
+  if (document.all)
+  currentpos=document.body.scrollTop+speed
+  else
+  currentpos=window.pageYOffset+speed
+  window.scroll(0,currentpos)
+  }
+  else{
+  currentpos=0
+  window.scroll(0,currentpos)
+  }
+  }
+  
+  function startit(){
+  setInterval("scrollwindow()",25)
+  }
+  window.onload=initialize
+  
+  var elem = document.documentElement;
+  
+  function openFullscreen() {
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+      elem.msRequestFullscreen();
+    }
+  }
+  
+  </SCRIPT>
+  
+  <head>
+  <style>
+  body {background-color: black;}
+  p  {
+      color: white;
+      font-family: calibri;
+      font-size: 160%;
+    word-wrap: break-word;
+  }
+  
+  .block {
+      display: block;
+      width: 100%;
     font-size: 160%;
-	word-wrap: break-word;
-}
-
-.block {
-    display: block;
-    width: 100%;
-	font-size: 160%;
-	max-width: 100%;
-    overflow-x: hidden;
-}
-
-</style>
-</head>
-
-<body class="block">
-<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
-<p>
-svādhīnatrividhacētanācētana<br>
-svarūpasthiti pravr̥ttibhēdaṁ<br>
-klēśakarmādyaśēṣadōṣāsaṁspr̥ṣṭaṁ<br> 
-svābhāvikānavadhikātiśaya<br>
-jñānabalaiśvarya vīryaśaktitējassauśīlya<br>
-vātsalya mārdavārjava sauhārda<br>
-sāmya kāruṇya mādhurya<br>
-gāmbhīrya audārya cāturya<br>
-sthairya dhairya<br>
-śaurya parākrama satyakāma<br>
-satyasaṅkalpa kr̥titva<br>
-kr̥tajñatādyasaṅkhyēya kalyāṇaguṇa<br>
-gaṇaugha mahārṇavaṁ<br>
-parabrahmabhūtaṁ<br>
-puruṣōttamaṁ<br>
-śrīraṅgaśāyinaṁ<br>
-asmatsvāminaṁ<br>
-prabuddhanityaniyāmya<br>
-nityadāsyaikarasātmasvabhāvōhaṁ<br>
-tadēkānubhavaḥ tadēkapriyaḥ<br>
-paripūrṇaṁ bhagavantaṁ<br>
-viśadatamānubhavēna nirantaramanubhūya<br>
-tadanubhavajanitānavadhikātiśaya<br>
-prītikāritāśēṣāvasthōcita<br>
-aśēṣaśēṣataikaratirūpa<br>
-nityakiṅkarō bhavāni |<br><br>
-
-svātmanitya niyāmya<br>
-nityadāsyaikarasātma<br>
-svabhāvānusandhānapūrvaka<br>
-bhagavadanavadhikātiśaya<br>
-svāmyādyakhila guṇagaṇānubhava<br>
-janitānavadhikātiśaya<br>
-prītikāritāśēṣāvasthōcitāśēṣa<br>
-śēṣataikaratirūpa nityakaiṅkarya<br>
-prāptyupāyabhūtabhakti tadupāya <br>
-samyag jñānatadupāya samīcīnakriyā <br>
-tadanuguṇasāttvikatā stikyādi <br>
-samastātmaguṇavihīnaḥ, duruttarānanta <br>
-tadviparyaya jñānakriyānuguṇānādi <br>
-pāpavāsanā mahārṇavāntarnimagnaḥ<br>
-tilatailavaddāruvahnivaddurvivēca triguṇa <br>
-kṣaṇakṣaraṇa svabhāvācētana prakr̥tivyāptirūpa<br>
-duratyaya bhagavanmāyā tirōhita svaprakāśaḥ<br>
-anādyavidyāsañcitānantāśakya visraṁsana<br>
-karmapāśa pragrathitaḥ<br>
-anāgatānantakāla samīkṣayā pyadrstasantārōpāyaḥ<br>
-nikhilajantujātaśaraṇya<br>
-śrīmannārāyaṇa<br>
-tava caraṇāravindayugalaṁ<br>
-śaraṇamahaṁ prapadyē ||<br><br>
-
-ēvamavasthitasyāpyarthitvamātrēṇa<br>
-paramakāruṇikō bhagavān<br>
-svānubhava prītyōpanītaikāntikātyantika<br>
-nityakaiṅkaryaikaratirūpa nityadāsyaṁ<br>
-dāsyatīti viśvāsapūrvakaṁ<br>
-bhagavantaṁ nityakiṅkaratāṁ prārthayē ||<br><br>
-
-tavānubhūtisambhūtaprītikārita dāsatām |<br>
-dēhi mē kr̥payā nātha na jānē gatimanyathā ||<br><br>
-
-sarvāvasthōcitāśēṣa śēṣataikaratistava |<br>
-bhavēyaṁ puṇḍarīkākṣa tvamēvaivaṁ kuruṣva mām ||<br><br>
-
-ēvambhūta tattva yāthātmyavabōdha tadicchārahitasyāpi<br>
-ētaduccāraṇamātrāvalambanēna<br>
-ucyamānārtha paramārthaniṣṭhaṁ mē<br>
-manastvamēvādyaiva kāraya ||<br><br>
-
-apāra karuṇāmbudhē<br>
-anālōcita viśēṣāśēṣa lōkaśaraṇya<br>
-praṇatārtihara<br>
-āśritavātsalyaika mahōdadhē<br>
-anavaratavidita nikhilabhūtajāta yāthātmya<br>
-satyakāma satyasaṅkalpa<br>
-āpatsakha kākutstha<br>
-śrīman narayaṇa puruṣōttama<br>
-śrīraṅganātha mama nātha namōstu tē |<br><br>
-</p>
-</body>
-</html>
+    max-width: 100%;
+      overflow-x: hidden;
+  }
+  
+  </style>
+  </head>
+  
+  <body class="block">
+  <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+  <p>
+  svādhīna trividha cētanā cētana<br>
+  svarūpa sthiti pra vr̥ttibhēdaṁ<br>
+  klēśa karmādya śēṣa dōṣā saṁspr̥ṣṭaṁ<br> 
+  svābhā vikānavadhikā tiśaya<br>
+  jñāna balaiśvarya vīrya śaktitējas sauśīlya<br>
+  vātsalya mārda vārjava <br>
+  samhārda<br>
+  sāmya kāruṇya mādhurya<br>
+  gāmbhīrya audārya cāturya<br>
+  sthairya dhairya<br>
+  śaurya parākrama satyakāma<br>
+  satya saṅkalpa kr̥titva<br>
+  kr̥ta jñatādya saṅkhyēya kalyāṇaguṇa<br>
+  gaṇaungha mahārṇavaṁ<br>
+  parabrahmabhūtaṁ<br>
+  puruṣōttamaṁ<br>
+  śrī raṅgaśāyinaṁ<br>
+  asmat svāminaṁ<br>
+  prabuddha nityaniyāmya<br>
+  nitya dāsyai karasātma svabhāvōhaṁ<br>
+  tadēkānu bhavaḥ tadēka priyaḥ<br>
+  paripūrṇaṁ bhagavantaṁ<br>
+  viśadata mānubhavēna nirantaram anubhūya<br>
+  tadanubhava janitāna vadhikātiśaya<br>
+  prītikāritā śēṣāvas thōcita<br>
+  aśēṣa śēṣataika ratirūpa<br>
+  nityakiṅkarō bhavāni |<br><br>
+  
+  svātmanitya niyāmya<br>
+  nityadāsyai karasātma<br>
+  svabhāvānusandhānapūrvaka<br>
+  bhagavadanavadhikātiśaya<br>
+  svāmyādyakhila guṇagaṇānubhava<br>
+  janitānavadhikātiśaya<br>
+  prītikāritā śēṣāvasthō citāśēṣa<br>
+  śēṣataika ratirūpa nityakaiṅkarya<br>
+  prāptyupāya bhūtabhakti tadupāya <br>
+  samyag jñāna tadupāya samīcīnakriyā <br>
+  tadanuguṇa sāttvikatā stikyādi <br>
+  samastātma guṇavihīnaḥ, duruttarānanta <br>
+  tadviparyaya jñānakriyānuguṇānādi <br>
+  pāpavāsanā mahārṇavāntar nimagnaḥ<br>
+  tilatailavadu dāruvahnivad durvivēca triguṇa <br>
+  kṣaṇakṣaraṇa svabhāvācētana prakr̥tivyāptirūpa<br>
+  duratyaya bhagavanmāyā tirōhita svaprakāśaḥ<br>
+  anādyavidyā sañcitānantā śakya visraṁsana<br>
+  karmapāśa pragrathitaḥ<br>
+  anāgatānantakāla samīkṣayāpy adrsta santārō pāyaḥ<br>
+  nikhila jantujāta śaraṇya<br>
+  śrīmannārāyaṇa<br>
+  tava caraṇāravinda yugalaṁ<br>
+  śaraṇamahaṁ prapadyē ||<br><br>
+  
+  ēvam avasthitasyāpy arthitvamātrēṇa<br>
+  paramakāruṇikō bhagavān<br>
+  svānubhava prītya upanītaikānti kāt yantika<br>
+  nityakaiṅkaryaikaratirūpa nityadāsyaṁ<br>
+  dāsyatīti viśvāasa pūrvakaṁ<br>
+  bhagavantaṁ nityakiṅkaratāṁ prārthayē ||<br><br>
+  
+  tavānubhūti sambhūta prītikārita dāsatām |<br>
+  dēhi mē kr̥payā nātha na jānē gatim anyathā ||<br><br>
+  
+  sarvā vasthōcitāśēṣa śēṣataikaratistava |<br>
+  bhavēyaṁ puṇḍarīkākṣa tvamēva evaṁ kuruṣva mām ||<br><br>
+  
+  ēvam bhūta tattva yāthātmya vabōdha tadicchārahitasyāpi<br>
+  ēta duccāraṇamā trāvalambanēna<br>
+  ucya mānārtha paramārtha niṣṭhaṁ<br>
+  mē manahe tvamēvādyaiva kāraya ||<br><br>
+  
+  apāra karuṇāmbudhē<br>
+  anālōcita viśēṣāśēṣa lōkaśaraṇya<br>
+  praṇatārtihara<br>
+  āśrita vātsalyaika mahōdadhē<br>
+  anavarata vidita nikhilabhūtajāta yāthātmya<br>
+  satyakāma satya saṅkalpa<br>
+  āpatsakha kākuttha<br>
+  śrīman narayaṇa puruṣōttama<br>
+  śrīraṅganātha mama nātha namōstu tē |<br><br>
+  </p>
+  </body>
+  </html>
+  

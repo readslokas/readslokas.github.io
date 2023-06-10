@@ -1,0 +1,118 @@
+<HTML>
+
+  <SCRIPT language=JavaScript1.2>
+  //change 1 to another integer to alter the scroll speed. Greater is faster
+  var speed=0
+  
+  var currentpos=0,alt=1,curpos1=0,curpos2=-1
+  function initialize(){
+  startit()
+  }
+  function scrollwindow(){
+  if (document.all && !document.getElementById)
+  temp=document.body.scrollTop
+  else
+  temp=window.pageYOffset
+  if (alt==0)  alt=2
+  else alt=1
+  
+  if (alt==0)
+  curpos1=temp
+  else
+  curpos2=temp
+  
+  if (curpos1!=curpos2){
+  if (document.all)
+  currentpos=document.body.scrollTop+speed
+  else
+  currentpos=window.pageYOffset+speed
+  window.scroll(0,currentpos)
+  }
+  else{
+  currentpos=0
+  window.scroll(0,currentpos)
+  }
+  }
+  
+  function startit(){
+  setInterval("scrollwindow()",25)
+  }
+  window.onload=initialize
+  
+  var elem = document.documentElement;
+  
+  function openFullscreen() {
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+      elem.msRequestFullscreen();
+    }
+  }
+  
+  </SCRIPT>
+  
+  <head>
+  <style>
+  body {background-color: black;}
+  p  {
+      color: white;
+      font-family: calibri;
+      font-size: 160%;
+    word-wrap: break-word;
+  }
+  
+  .block {
+      display: block;
+      width: 100%;
+    font-size: 160%;
+    max-width: 100%;
+      overflow-x: hidden;
+  }
+  
+  </style>
+  </head>
+  
+  <body class="block">
+  <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+  <p>
+கைத்தல நிறைகனி அப்பமொடவல்பொரி<br>
+கப்பிய கரிமுகன்<br>
+அடிபேணிக்<br>
+<br>
+கற்றிடு மடியவர் புத்தியி லுறைபவ<br>
+கற்பக மெனவினை<br>
+கடிதேகும்<br>
+<br>
+மத்தமு மதியமும் வைத்திடு மரன்மகன்<br>
+மற்பொரு திரள்புய<br>
+மதயானை<br>
+<br>
+மத்தள வயிறனை உத்தமி புதல்வனை<br>
+மட்டவிழ் மலர்கொடு<br>
+பணிவேனே<br>
+<br>
+முத்தமி ழடைவினை முற்படு கிரிதனில்<br>
+முற்பட எழுதிய<br>
+முதல்வோனே<br>
+<br>
+முப்புர மெரிசெய்த அச்சிவ னுறைரதம்<br>
+அச்சது பொடிசெய்த<br>
+அதிதீரா<br>
+<br>
+அத்துய ரதுகொடு சுப்பிர மணிபடும்<br>
+அப்புன மதனிடை
+<br>
+இபமாகி<br>
+<br>
+அக்குற மகளுட னச்சிறு முருகனை<br>
+அக்கண மணமருள்<br>
+பெருமாளே<br>
+<br>
+</p>
+</body>
+</html>
+  

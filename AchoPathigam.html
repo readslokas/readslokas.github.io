@@ -1,0 +1,148 @@
+<HTML>
+<meta charset="UTF-8">
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=0
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",50)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 270%;
+    text-align: center;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body>
+<BR>
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<P>
+அச்சோ பதிகம்<br><br>
+முத்திநெறி அறியாத மூர்க்கரொடு முயல்வேனைப்<br>
+பத்திநெறி அறிவித்துப் பழவினைகள் பாறும்வண்ணம்<br>
+சித்தமலம் அறுவித்துச் சிவமாக்கி எனைஆண்ட<br>
+அத்தனெனக் கருளியவா றார்பெறுவார் அச்சோவே.<br>
+<br>
+நெறியல்லா நெறிதன்னை நெறியாக நினைவேனைச்<br>
+சிறுநெறிகள் சேராமே திருவருளே சேரும்வண்ணம்<br>
+குறியொன்றும் இல்லாத கூத்தன்தன் கூத்தையெனக்கு<br>
+அறியும்வண்ணம் அருளியவா றார்பெறுவார் அச்சோவே.<br>
+<br>
+பொய்யெல்லாம் மெய்யென்று புணர்முலையார் போகத்தே<br>
+மையலுறக் கடவேனை மாளாமே காத்தருளித்<br>
+தையலிடங் கொண்டபிரான் தன்கழலே சேரும்வண்ணம்<br>
+ஐயன்எனக் கருளியவா றார்பெறுவார் அச்சோவே.<br>
+<br>
+மண்ணதனிற் பிறந்தெய்த்து மாண்டுவிழக் கடவேனை<br>
+எண்ணமிலா அன்பருளி எனையாண்டிட் டென்னையுந்தன்<br>
+சுண்ணவெண்ணீ றணிவித்துத் தூய்நெறியே சேரும்வண்ணம்<br>
+அண்ணல்எனக் கருளியவா றார்வபெறுவார் அச்சோவே.<br>
+<br>
+பஞ்சாய அடிமடவார் கடைக்கண்ணால் இடர்ப்பட்டு<br>
+நெஞ்சாய துயர்கூர நிற்பேன்உன் அருள்பெற்றேன்<br>
+உய்ஞ்சேன்நான் உடையானே அடியேனை வருகஎன்று<br>
+அஞ்சேல்என் றருளியவா றார்பெறுவார் அச்சோவே.<br>
+<br>
+வெந்துவிழும் உடற்பிறவி மெய்யென்று வினைபெருக்கிக்<br>
+கொந்துகுழல் கோல்வளையார் குவிமுலைமேல் வீழ்வேனைப்<br>
+பந்தமறுத் தெனையாண்டு பரிசறஎன் துரிசுமறுத்து<br>
+அந்தமெனக் கருளியவா றார்பெறுவார் அச்சோவே.<br>
+<br>
+தையலார் மையலிலே தாழ்ந்துவிழக் கடவேனைப்<br>
+பையவே கொடுபோந்து பாசமெனுந் தாழுருவி<br>
+உய்யும்நெறி காட்டுவித்திட் டோ ங்காரத் துட்பொருளை<br>
+ஐயன்எனக் கருளியவா றார்பெறுவார் அச்சோவே.<br>
+<br>
+சாதல்பிறப் பென்னுந் தடஞ்சுழியில் தடுமாறிக்<br>
+காதலின்மிக் கணியிழையார் கலவியிலே விழுவேனை<br>
+மாதொருகூ றுடையபிரான் தன்கழலே சேரும்வண்ணம்<br>
+ஆதியெனக் கருளியவா றார்பெறுவார் அச்சோவே.<br>
+<br>
+செம்மைநலம் அறியாத சிதடரொடுந் திரிவேனை<br>
+மும்மைமலம் அறுவித்து முதலாய முதல்வன்தான்<br>
+நம்மையும்ஓர் பொருளாக்கி நாய்சிவிகை ஏற்றுவித்த<br>
+அம்மையெனக் கருளியவா றார்பெறுவார் அச்சோவே.<br>
+<br>
+செத்திடமும் பிறந்திடமு மினிச்சாவா திருந்திடமும்<br>
+அத்தனையு மறியாதார் அறியுமறி வெவ்வறிவோ<br>
+ஒத்தநில மொத்தபொருள் ஒருபொருளாய் பெரும்பயனை<br>
+அத்ததெனக் கருளியவா றார்பெறுவா ரச்சோவே.<br>
+<br>
+படியதினிற் கிடந்திந்தப் பசு பாசந் தவிர்ந்துவிடும்<br>
+குடிமையிலே திறிந் தடியேன் கும்பியிலே விழாவண்ணம்<br>
+நெடியவனும் நான்முகனும் நீர்கான்றுங் காணவொண்ணா<br>
+அடிகளெனக் கருளியவா றார்பெறுவா ரச்சோவே.<br>
+<br>
+பாதியெனு மிரவுதங்கிப் பகலெமக்கெ யிரைதேடி<br>
+வேதனையி லகப்பட்டு வெந்துவிழக் கடவேனை<br>
+சாதிகுலம் பிறப்பறுத்துச் சகமறிய வெனையாண்ட<br>
+ஆதியெனுக் கருளியவா றார்பெறுவா ரச்சோவே.<br>
+<br>
+திருச்சிற்றம்பலம்<br>
+</P>
+</body>
+</html>

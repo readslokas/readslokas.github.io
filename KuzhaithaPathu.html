@@ -1,0 +1,144 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=1.45
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",25)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 160%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 160%;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body class="block">
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+
+<p>
+குழைத்தப பத்து - ஆத்தும நிவேதனம்<br>
+(திருப்பெருந்துறையில் அருளியது - அறு சீர்க்கழி நெடிலடி ஆசிரிய விருத்தம்)<br>
+<br>
+குழைத்தால் பண்டைக் கொடுவினைநோய்<br>
+காவாய் உடையாய் கொடுவினையேன்<br>
+உழைத்தா லுறுதியுண்டோ தான்<br>
+உமையாள் கணவா எனை ஆள்வாய்<br>
+பிழைத்தாற் பொறுக்க வேண்டாவோ<br>
+பிறைசேர் சடையாய் முறையோவென்<br>
+றழைத்தால் அருளா தொழிவதே<br>
+அம்மானே உன்னடியேற்கே. ⁠496<br>
+<br>
+அடியேன் அல்லல் எல்லாம்முன அகலஆண்டாய் என்றிருந்தேன்<br>
+கொடியே ரிடையாள் கூறாஎங்கோவே ஆவா என்றருளிச்<br>
+செடிசேர் உடலைச் சிதையாத தெத்துக் கெங்கள் சிவலோகா<br>
+உடையாய் கூவிப் பணிகொள்ளா தொறுத்தால் ஒன்றும் போதுமே. ⁠497<br>
+<br>
+ஒன்றும் போதா நாயேனை உய்யக் கொண்ட நின்கருணை<br>
+இன்றே இன்றிப் போய்த்தோதான் ஏழை பங்கா எங்கோவே<br>
+குன்றே அனைய குற்றங்கள் குணமா மென்றே நீகொண்டால்<br>
+என்றான் கெட்ட திரங்கிடாய் எண்தோள் முக்கண் எம்மானே. ⁠498<br>
+<br>
+மானேர் நோக்கி மணவாளா மன்னே நின்சீர் மறப்பித்திவ்<br>
+வூனே புகஎன்தனைநூக்கி உழலப் பண்ணு வித்திட்டாய்<br>
+ஆனால் அடியேன் அறியாமை அறிந்துநீயே அருள்செய்து<br>
+கோனே கூவிக் கொள்ளுநாள் என்றென் றுன்னைக் கூறுவதே. ⁠499<br>
+<br>
+கூறும் நாவே முதலாக் கூறுங் கரணம் எல்லாம்நீ<br>
+தேறும் வகைநீ திகைப்புநீ தீமைநன்மை முழுதும்நீ<br>
+வேறோர் பரிசிங் கொன்றில்லை மெய்ம்மை உன்னை விரித்துரைக்கில்<br>
+தேறும் வகைஎன் சிவலோகா திகைத்தால் தேற்ற வேண்டாவோ. ⁠500<br>
+<br>
+வேண்டத்தக்க தறிவோய்நீ வேண்டமுழுதுந் தருவோய்நீ<br>
+வேண்டும் அயன்மாற் கரியோய்நீ வேண்டி என்னைப் பணிகொண்டாய்<br>
+வேண்டி நீயா தருள்செய்தாய் யானும் அதுவே வேண்டின் அல்லால்<br>
+வேண்டும் பரிசொன் றுண்டென்னில் அதுவும் உன்றன் விருப்பன்றே. ⁠501<br>
+<br>
+அன்றே என்றன் ஆவியும் உடலும் எல்லாமுங்<br>
+குன்றே அனையாய் என்னைஆட் கொண்டபோதே கொண்டிலையோ<br>
+இன்றோர் இடையூ றெனக்குண்டோ எண்தோள் முக்கண் எம்மானே<br>
+நன்றே செய்வாய் பிழை செய்வாய் நானோ இதற்கு நாயகமே. ⁠502<br>
+<br>
+நாயிற் கடையாம் நாயேனை நயந்துநீயே ஆட்கொண்டாய்<br>
+மாயப் பிறவி உன்வசமே வைத்திட்டிருக்கும் அதுவன்றி<br>
+ஆயக்கடவேன் நானோதான் என்ன தோஇங் கதிகாரங்<br>
+காயத் திடுவாய் உன்னுடைய கழற்கீழ் வைப்பாய் கண்ணுதலே. ⁠503<br>
+<br>
+கண்ணார் நுதலோய் கழலிணைகள் கண்டேன் கண்கள் களிகூர<br>
+எண்ணா திரவும் பகலும்நான் அவைவே எண்ணும் அதுவல்லால்<br>
+மண்மேல் யாக்கை விடுமாறும் வந்துன் கழற்கே புகுமாறும்<br>
+அண்ணா எண்ணக் கடவேனோ அடிமைசால அழகுடைத்தே. ⁠504<br>
+<br>
+அழகே புரிந்திட் டடிநாயேன் அரற்று கின்றேன் உடையானே<br>
+திகழா நின்ற திருமேனி காட்டி என்னைப் பணிகொண்டாய்<br>
+புகழே பெரிய பதம்எனக்குப் புராண நீதத் தருளாயே<br>
+குழகா கோல் மறையோனே கோனே என்னைக் குழைத்தாயே. ⁠505<br>
+<br>
+திருச்சிற்றம்பலம்<br>
+</p>
+
+</body>
+</html>

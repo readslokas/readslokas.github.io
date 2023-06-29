@@ -1,0 +1,142 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=0
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",25)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+if (elem.requestFullscreen) {
+elem.requestFullscreen();
+} else if (elem.mozRequestFullScreen) { /* Firefox */
+elem.mozRequestFullScreen();
+} else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+elem.webkitRequestFullscreen();
+} else if (elem.msRequestFullscreen) { /* IE/Edge */
+elem.msRequestFullscreen();
+}
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p{
+color: white;
+font-family: calibri;
+font-size: 160%;
+word-wrap: break-word;
+}
+
+.block {
+display: block;
+width: 100%;
+font-size: 160%;
+max-width: 100%;
+overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body class="block">
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<p>
+திருநெடுங்களம் <br>
+<br>
+ மறையுடையாய் தோலுடையாய் வார்சடைமேல் வளரும் <br>
+ பிறையுடையாய் பிஞ்ஞகனே யென்றுனைப்பே சினல்லால் <br>
+ குறையுடையார் குற்றம்ஓராய் கொள்கையினால் உயர்ந்த <br>
+ நிறையுடையார் இடர்களையாய் நெடுங்களம்மே யவனே 1<br>
+<br>
+ கனைத்தெழுந்த வெண்டிரைசூழ் கடலிடைநஞ் சுதன்னைத் <br>
+ தினைத்தனையா மிடற்றில்வைத்த திருந்தியதே வநின்னை <br>
+ மனத்தகத்தோர் பாடல் ஆடல் பேணியிராப் பகலும் <br>
+ நினைத்தெழுவார் இடர்களையாய் நெடுங்களம்மே யவனே 2<br>
+<br>
+ நின்னடியே வழிபடுவான் நிமலாநினைக் கருத <br>
+ என்னடியான் உயிரைவவ்வேல் என்றடற்கூற் றுதைத்த <br>
+ பொன்னடியே பரவிநாளும் பூவொடுநீர் சுமக்கும் <br>
+ நின்னடியார் இடர்களையாய் நெடுங்களம்மே யவனே 3<br>
+<br>
+ மலைபுரிந்த மன்னவன்றன் மகளையோர்பால் மகிழ்ந்தாய் <br>
+ அலைபுரிந்த கங்கைதங்கும் அவிர்சடையா ரூரா <br>
+ தலைபுரிந்த பலிமகிழ்வாய் தலைவநின்றாள் நிழற்கீழ் <br>
+ நிலைபுரிந்தார் இடர்களையாய் நெடுங்களம்மே யவனே 4<br>
+<br>
+ பாங்கினல்லார்1 படிமஞ்செய்வார் பாரிடமும் பலிசேர் <br>
+ தூங்கிநல்லார் பாடலோடு தொழுகழலே வணங்கித் <br>
+ தாங்கிநில்லா2 அன்பினோடுந் தலைவநின்தாள் நிழற்கீழ் <br>
+ நீங்கிநில்லார் இடர்களையாய் நெடுங்களம்மே யவனே 5<br>
+<br>
+ விருத்தனாகிப் பாலனாகி வேதமோர்நான் குணர்ந்து <br>
+ கருத்தனாகிக் கங்கையாளைக் கமழ்சடைமேற் கரந்தாய் <br>
+ அருத்தனாய ஆதிதேவன் அடியிணையே பரவும் <br>
+ நிருத்தகீதர் இடர்களையாய் நெடுங்களம்மே யவனே 6<br>
+<br>
+ கூறுகொண்டாய் மூன்றுமொன்றாக் கூட்டியோர்வெங் கணையால் <br>
+ மாறுகொண்டார் புரமெரித்த மன்னவனே கொடிமேல் <br>
+ ஏறுகொண்டாய் சாந்தமீதென் றெம்பெருமா னணிந்த <br>
+ நீறுகொண்டார் இடர்களையாய் நெடுங்களம்மே யவனே 7<br>
+<br>
+ குன்றின்உச்சி மேல்விளங்குங் கொடிமதில்சூழ் இலங்கை <br>
+ அன்றிநின்ற அரக்கர்கோனை யருவரைக்கீழ் அடர்த்தாய் <br>
+ என்றுநல்ல வாய்மொழியா லேத்தியிராப் பகலும் <br>
+ நின்றுநைவார் இடர்களையாய் நெடுங்களம்மே யவனே 8<br>
+<br>
+ வேழவெண்கொம் பொசித்தமாலும் விளங்கியநான் முகனும் <br>
+ சூழவெங்கும் நேடஆங்கோர் சோதியுளா கிநின்றாய் <br>
+ கேழல்வெண்கொம் பணிந்தபெம்மான் கேடிலாப்பொன் னடியின் <br>
+ நீழல்வாழ்வார் இடர்களையாய் நெடுங்களம்மே யவனே 9<br>
+<br>
+ வெஞ்சொல்தஞ்சொல் லாக்கிநின்ற வேடமிலாச் சமணும் <br>
+ தஞ்சமில்லாச் சாக்கியருந் தத்துவமொன் றறியார் <br>
+ துஞ்சலில்லா வாய்மொழியால் தோத்திரநின் னடியே <br>
+ நெஞ்சில்வைப்பார் இடர்களையாய் நெடுங்களம்மே யவனே 10<br>
+<br>
+ நீடவல்ல வார்சடையான் மேயநெடுங் களத்தைச் <br>
+ சேடர்வாழும் மாமறுகிற் சிரபுரக்கோன் நலத்தால் <br>
+ நாடவல்ல பனுவன்மாலை ஞானசம் பந்தன்சொன்ன 11<br>
+ பாடல்பத்தும் பாடவல்லார் பாவம் பறையுமே <br>
+<br>
+ திருச்சிற்றம்பலம் <br>
+</p>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=0
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",25)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+if (elem.requestFullscreen) {
+elem.requestFullscreen();
+} else if (elem.mozRequestFullScreen) { /* Firefox */
+elem.mozRequestFullScreen();
+} else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+elem.webkitRequestFullscreen();
+} else if (elem.msRequestFullscreen) { /* IE/Edge */
+elem.msRequestFullscreen();
+}
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p{
+color: white;
+font-family: calibri;
+font-size: 160%;
+word-wrap: break-word;
+}
+
+.block {
+display: block;
+width: 100%;
+font-size: 160%;
+max-width: 100%;
+overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body class="block">
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<p>
+ஆனந்த மாலை<br>
+<br>
+(தில்லையில் அருளியது - சிவானுபவ விருத்தம் - அறுசீர்க் கழிநெடிலடி ஆசிரிய விருத்தம்)<br>
+<br>
+மின்னே ரனைய பூங்கழல்கள் அடைந்தார் கடந்தார் வியனுலகம்<br>
+பொன்னே ரனைய மலர்கொண்டு போற்றா நின்றார் அமரரெல்லாம்<br>
+கல் நேரனைய மனக்கடையாய்க் கழிப்புண் டவலக் கடல்வீழ்ந்த<br>
+என்னே ரனையேன் இனியுன்னைக் கூடும் வண்ணம் இயம்பாயே.<br>
+<br>
+என்னால் அறியாப் பதம்தந்தாய் யான தறியா தேகெட்டேன்<br>
+உன்னால் ஒன்றுங் குறைவில்லை உடையாய் அடிமைக் காரென்பேன்<br>
+பன்னாள் உன்னைப் பணிந்தேத்தும் பழைய அடியா ரொடுங்கூடா<br>
+தென்நா யகமே பிற்பட்டிங் கிருந்தென் நோய்க்கு விருந்தாயே.<br>
+<br>
+சீல மின்றி நோன்பின்றிச் செறிவே யின்றி அறிவின்றித்<br>
+தோலின் பாவைக் கூத்தாட்டாய்ச் சுழன்று விழுந்து கிடப்பேனை<br>
+மாலுங் காட்டி வழிகாட்டி வாரா உலக நெறியேறக்<br>
+கோலங் காட்டி ஆண்டானைக் கொடியேன் என்றோ கூடுவதே.<br>
+<br>
+கெடுவென் கெடுமா கெடுகின்றேன் கேடி லாதாய் பழிகொண்டாய்<br>
+படுவேன் படுவ தெல்லாம்நான் பட்டாற் பின்னைப் பயனென்னே<br>
+கொடுமா நரகத் தழுந்தாமே காத்தாட் கொள்ளுங் குருமணியே<br>
+நடுவாய் நில்லா தொழிந்தக்கால் நன்றோ எங்கள் நாயகமே.<br>
+<br>
+தாயாய் முலையைத் தருவானே தாரா தொழிந்தாற் சவலையாய்<br>
+நாயேன் கழிந்து போவேனோ நம்பி யினித்தான் நல்குதியே<br>
+தாயே யென்றுன் தாளடைந்தேன் தயாநீ என்பால் இல்லையே<br>
+நாயேன் அடிமை உடனாக ஆண்டாய் நான்தான் வேண்டாவோ.<br>
+<br>
+கோவே யருள வேண்டாவோ கொடியேன் கெடவே அமையுமே<br>
+ஆவா வென்னா விடிலென்னை அஞ்சேல் என்பார் ஆரோதான்<br>
+சாவா ரெல்லாம் என்னளவோ தக்க வாறன் றென்னாரோ<br>
+தேவே தில்லை நடமாடீ திகைத்தேன் இனித்தான் தேற்றாயே.<br>
+<br>
+நரியைக் குதிரைப் பரியாக்கி ஞால மெல்லாம் நிகழ்வித்துப்<br>
+பெரிய தென்னன் மதுரையெல்லாம் பிச்ச தேற்றும் பெருந்துறையாய்<br>
+அரிய பொருளே அவிநாசி அப்பா பாண்டி வெள்ளமே<br>
+தெரிய அரிய பரஞ்சோதி செய்வ தொன்றும் அறியேனே.<br>
+<br>
+திருச்சிற்றம்பலம்<br>
+</p>
+</body>
+</html>

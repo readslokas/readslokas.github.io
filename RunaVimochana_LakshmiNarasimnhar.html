@@ -1,111 +1,123 @@
 <HTML>
-<meta charset="UTF-8">
-<SCRIPT language=JavaScript1.2>
-//change 1 to another integer to alter the scroll speed. Greater is faster
-var speed=1
-
-var currentpos=0,alt=1,curpos1=0,curpos2=-1
-function initialize(){
-startit()
-}
-function scrollwindow(){
-if (document.all && !document.getElementById)
-temp=document.body.scrollTop
-else
-temp=window.pageYOffset
-if (alt==0)  alt=2
-else alt=1
-
-if (alt==0)
-curpos1=temp
-else
-curpos2=temp
-
-if (curpos1!=curpos2){
-if (document.all)
-currentpos=document.body.scrollTop+speed
-else
-currentpos=window.pageYOffset+speed
-window.scroll(0,currentpos)
-}
-else{
-currentpos=0
-window.scroll(0,currentpos)
-}
-}
-
-function startit(){
-setInterval("scrollwindow()",50)
-}
-window.onload=initialize
-
-var elem = document.documentElement;
-
-function openFullscreen() {
-  if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-  } else if (elem.mozRequestFullScreen) { /* Firefox */
-    elem.mozRequestFullScreen();
-  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-    elem.webkitRequestFullscreen();
-  } else if (elem.msRequestFullscreen) { /* IE/Edge */
-    elem.msRequestFullscreen();
+  <meta charset="UTF-8">
+  <SCRIPT language=JavaScript1.2>
+  //change 1 to another integer to alter the scroll speed. Greater is faster
+  var speed=1
+  
+  var currentpos=0,alt=1,curpos1=0,curpos2=-1
+  function initialize(){
+  startit()
   }
-}
-
-</SCRIPT>
-
-<head>
-<style>
-body {background-color: black;}
-p  {
-    color: white;
-    font-family: calibri;
+  function scrollwindow(){
+  if (document.all && !document.getElementById)
+  temp=document.body.scrollTop
+  else
+  temp=window.pageYOffset
+  if (alt==0)alt=2
+  else alt=1
+  
+  if (alt==0)
+  curpos1=temp
+  else
+  curpos2=temp
+  
+  if (curpos1!=curpos2){
+  if (document.all)
+  currentpos=document.body.scrollTop+speed
+  else
+  currentpos=window.pageYOffset+speed
+  window.scroll(0,currentpos)
+  }
+  else{
+  currentpos=0
+  window.scroll(0,currentpos)
+  }
+  }
+  
+  function startit(){
+  setInterval("scrollwindow()",50)
+  }
+  window.onload=initialize
+  
+  var elem = document.documentElement;
+  
+  function openFullscreen() {
+  if (elem.requestFullscreen) {
+  elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+  elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+  elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+  elem.msRequestFullscreen();
+  }
+  }
+  
+  </SCRIPT>
+  
+  <head>
+  <style>
+  body {background-color: black;}
+  p{
+  color: white;
+  font-family: calibri;
+  font-size: 270%;
+    word-wrap: break-word;
+  }
+  
+  .block {
+  display: block;
+  width: 100%;
     font-size: 270%;
-	word-wrap: break-word;
-}
-
-.block {
-    display: block;
-    width: 100%;
-	font-size: 270%;
-    text-align: center;
-	max-width: 100%;
-    overflow-x: hidden;
-}
-
-</style>
-</head>
-
-<body>
-<BR>
-<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
-<p>
-Runa Vimochana Narasimha Stotram - Stotra Nidhi</p>
-<p>dhyānam<br>
-vāgīśā yasya vadanē lakṣmīryasya ca vakṣasi |<br>
-yasyāstē hr̥dayē saṁvittaṁ nr̥siṁhamahaṁ bhajē ||</p>
-<p>atha stōtram<br>
-dēvatākāryasiddhyarthaṁ sabhāstambhasamudbhavam |<br>
-śrīnr̥siṁhaṁ mahāvīraṁ namāmi r̥ṇamuktayē || 1 ||</p>
-<p>lakṣmyāliṅgita vāmāṅkaṁ bhaktānāṁ varadāyakam |<br>
-śrīnr̥siṁhaṁ mahāvīraṁ namāmi r̥ṇamuktayē || 2 ||</p>
-<p>āntramālādharaṁ śaṅkhacakrābjāyudhadhāriṇam |<br>
-śrīnr̥siṁhaṁ mahāvīraṁ namāmi r̥ṇamuktayē || 3 ||</p>
-<p>smaraṇāt sarvapāpaghnaṁ kadrūjaviṣanāśanam |<br>
-śrīnr̥siṁhaṁ mahāvīraṁ namāmi r̥ṇamuktayē || 4 ||</p>
-<p>siṁhanādēna mahatā digvidigbhayanāśanam | [digdanti]<br>
-śrīnr̥siṁhaṁ mahāvīraṁ namāmi r̥ṇamuktayē || 5 ||</p>
-<p>prahlādavarada śrīśaṁ daityēśvaravidāraṇam |<br>
-śrīnr̥siṁhaṁ mahāvīraṁ namāmi r̥ṇamuktayē || 6 ||</p>
-<p>krūragrahaiḥ pīḍitānāṁ bhaktānāmabhayapradam |<br>
-śrīnr̥siṁhaṁ mahāvīraṁ namāmi r̥ṇamuktayē || 7 ||</p>
-<p>vēdavēdāntayajñēśaṁ brahmarudrādivanditam |<br>
-śrīnr̥siṁhaṁ mahāvīraṁ namāmi r̥ṇamuktayē || 8 ||</p>
-<p>itthaṁ yaḥ paṭhatē nityaṁ r̥ṇamōcana siddhayē | [sañjñitam]<br>
-anr̥ṇō jāyatē śīghraṁ dhanaṁ vipulamāpnuyāt || 9 ||</p>
-<p>sarvasiddhipradaṁ nr̥ṇāṁ sarvaiśvaryapradāyakam |<br>
-tasmāt sarvaprayatnēna paṭhēt stōtramidaṁ sadā || 10 ||</p>
-<p>iti śrīnr̥siṁhapurāṇē r̥ṇamōcana śrī nr̥siṁha stōtram |</p>
-</body>
-</html>
+  text-align: center;
+    max-width: 100%;
+  overflow-x: hidden;
+  }
+  
+  </style>
+  </head>
+  
+  <body>
+  <BR>
+  <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+  <p>
+  Runa Vimochana Narasimha Stotram - Stotra Nidhi</p>
+  <p>
+  Runa Vimochana Narasimha Stotram<br>
+  <br>
+  Dhyanam<br>
+  <br>
+  Vagisa Yasya vadane lakshmiryasya cha vakshasi<br>
+  Yasyasthe hrudaye samvith tam nrusimhamaham bhaje ||<br>
+  <br>
+  Devatha kaarya sidhyartham sabha sthambha samudbhavam<br>
+  Sri nrusimham mahaaveeram namaami runa mukthaye || 1 ||<br>
+  <br>
+  Lakshmya alingtha vamaangam Bhakthaanaam vara daayakam<br>
+  Sri nrusimham mahaaveeram namaami runa mukthaye || 2 ||<br>
+  <br>
+  Aantramaalaadaram shankha chakraabja Yudha dharinam<br>
+  Sri nrusimham mahaaveeram namaami runa mukthaye || 3 ||<br>
+  <br>
+  Smaranaath sarva paapagnam Khadraja visha naasanam<br>
+  Sri nrusimham mahaaveeram namaami runa mukthaye || 4 ||<br>
+  <br>
+  Simhanaadena mahatha Digdanthi bhayanaasanam<br>
+  Sri nrusimham mahaaveeram namaami runa mukthaye || 5 ||<br>
+  <br>
+  Prahlaada varadam sreesam Daithyeshwara vidaarinam<br>
+  Sri nrusimham mahaaveeram namaami runa mukthaye || 6 ||<br>
+  <br>
+  Krooragrahai peedithaanaam Bhakthaanaam abhaya pradham<br>
+  Sri nrusimham mahaaveeram namaami runa mukthaye || 7 ||<br>
+  <br>
+  Veda vedaantha yagnesam brahma rudraadhi vanditham<br>
+  Sri nrusimham mahaaveeram namaami runa mukthaye || 8 ||<br>
+  <br>
+  Ya idam patathe nithyam runa vimochana samhitham<br>
+  Anrunee jaayaathe sadhyo dhanam seegramavaapnuyaath || 9 ||<br>
+  <br>
+  Iti runa vimochana narasimha stotram sampoornam ||<br>
+  </p>
+  </body>
+  </html>

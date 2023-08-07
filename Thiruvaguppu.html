@@ -1,0 +1,134 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=0
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",25)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 160%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 160%;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body class="block">
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<p>
+
+தரணியில் அரணிய முரண் இரணியன் உடல், தனைநக நுதிகொடு<BR>
+சாடோங்கு நெடுங்கிரி, யோடேந்து பயங்கரி 1<BR>
+<BR>
+தமருக பரிபுர, ஒலி கொடு நட நவில், சரணிய சதுர் மறை<BR>
+தாதாம்புய மந்திர, வேதாந்த பரம்பரை 2<BR>
+<BR>
+சரிவளை விரிசடை, எரிபுரை வடிவினள், சததள முகுளித<BR>
+தாமாங்குச மென்றிரு, தாளாந்தர அம்பிகை 3<BR>
+<BR>
+தருபதி சுரரோடு, சருவிய அசுரர்கள், தடமணி முடிபொடி<BR>
+தானாம்படி செங்கையில், வாள் வாங்கிய சங்கரி 4<BR>
+<BR>
+இரண கிரண மடமயில் ம்ருகமதம் புளகித இளமுலை இள,<BR>
+நீர்தாங்கி நுடங்கிய, நூல் போன்ற மருங்கினள் 5<BR>
+<BR>
+இறுகிய சிறுபிறை யெயிறுடை எமபடர் எனது உயிர் கொளவரின்,<BR>
+யான் ஏங்குதல் கண்டு எதிர், தான் ஏன்றுகொளும் குயில் 6<BR>
+<BR>
+இடு பலி கொடு திரி இரவலர் இடர் கெட விடும் மன கர தல<BR>
+ஏகாம்பரை இந்திரை, மோகாங்க சுமங்கலை 7<BR>
+<BR>
+எழுதிய படமென இருள் அறு சுடர் அடி இணை தொழும் மவுனிகள்,<BR>
+ஏகாந்த சுகந்தரு, பாசாங்குச சுந்தரி 8<BR>
+<BR>
+கரணமும் மரணமும் மலமொடு உடல் படு கடு வினைகெட நினை,<BR>
+காலாந்தரி கந்தரி, நீலாஞ்சனி நஞ்சுமிழ்  9<BR>
+<BR>
+கனலெரி கணபண குணமணி யணிபணி கனவளை மரகத<BR>
+காசாம்பர கஞ்சுளி தூசாம்படி கொண்டவள் 10<BR>
+<BR>
+கனை கழல் நினையலர் உயிர் அவி பயிரவி கவுரி கமலை குழை<BR>
+காதார்ந்த செழும்கழு, நீர் தோய்ந்த பெரும் திரு 11<BR>
+<BR>
+கரை பொழி திருமுக கருணையில் உலகு எழு கடல் நிலை பெற வளர்<BR>
+காவேந்திய பைங்கிளி, மா, சாம்பவி தந்தவன் 12<BR>
+<BR>
+அரண் நெடு வட வரை அடியொடு பொடி பட அலை கடல் கெட அயில்<BR>
+வேல் வாங்கிய செந்தமிழ் நூலோன் குமரன் குகன் 13<BR>
+<BR>
+அறுமுகன் ஒருபதோடு இரு புயன் அபினவன் அழகிய குறமகள்<BR>
+தார் வேய்ந்த புயன் பகை ஆம் மாந்தர்கள் அந்தகன் 14<BR>
+<BR>
+அடல் மிகு கட தட விகடித மத களிறு அனவரதமும் அகலா<BR>
+ஆமாந்தர்கள் சிந்தையில் வாழ்வாம் படி செந்திலில் 15<BR>
+<BR>
+அதிபதி என வரு பொரு திறல் முருகனை அருள் பட மொழிபவர்<BR>
+ஆராய்ந்து வணங்குவர் தேவேந்தர சங்கமே 16<BR>
+<BR>
+
+</p>
+</body>
+</html>

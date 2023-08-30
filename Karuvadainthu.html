@@ -1,0 +1,118 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=0
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",25)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+if (elem.requestFullscreen) {
+elem.requestFullscreen();
+} else if (elem.mozRequestFullScreen) { /* Firefox */
+elem.mozRequestFullScreen();
+} else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+elem.webkitRequestFullscreen();
+} else if (elem.msRequestFullscreen) { /* IE/Edge */
+elem.msRequestFullscreen();
+}
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p{
+color: white;
+font-family: calibri;
+font-size: 160%;
+word-wrap: break-word;
+}
+
+.block {
+display: block;
+width: 100%;
+font-size: 160%;
+max-width: 100%;
+overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body class="block">
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<p>
+
+கருவடைந்து பத்துற்ற திங்கள்<br>
+வயிறிருந்து முற்றிப் பயின்று<br>
+கடையில் வந்து தித்துக் குழந்தை ...... வடிவாகிக்<br>
+<br>
+கழுவியங் கெடுத்துச் சுரந்த<br>
+முலையருந்து விக்கக் கிடந்து<br>
+கதறியங்கை கொட்டித் தவழ்ந்து ...... நடமாடி<br>
+<br>
+அரைவடங்கள் கட்டிச் சதங்கை<br>
+இடுகுதம்பை பொற்சுட்டி தண்டை<br>
+அவையணிந்து முற்றிக் கிளர்ந்து ...... வயதேறி<br>
+<br>
+அரியபெண்கள் நட்பைப்பு ணர்ந்து<br>
+பிணியுழன்று சுற்றித்தி ரிந்த<br>
+தமையுமுன் க்ருபைச் சித்தம் என்று ...... பெறுவேனோ<br>
+<br>
+இரவிஇந்த்ரன் வெற்றிக் குரங்கி<br>
+னரசரென்றும் ஒப்பற்ற உந்தி<br>
+யிறைவன் எண்கினக்கர்த்த னென்றும் ...... நெடுநீலன்<br>
+<br>
+எரியதென்றும் ருத்ரற்சி றந்த<br>
+அநுமனென்றும் ஒப்பற்ற அண்டர்<br>
+எவரும்இந்த வர்க்கத்தில் வந்து ...... புனமேவ<br>
+<br>
+அரியதன் படைக் கர்த்தரென்று<br>
+அசுரர்தங் கிளைக்கட்டை வென்ற<br>
+அரிமுகுந்தன் மெச்சுற்ற பண்பின் ...... மருகோனே<br>
+<br>
+அயனையும் புடைத்துச் சினந்து<br>
+உலகமும் படைத்துப் பரிந்து<br>
+அருள்பரங் கிரிக்குட் சிறந்த ...... பெருமாளே<br>
+<br>
+
+</p>
+</body>
+</html>

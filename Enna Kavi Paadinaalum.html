@@ -1,0 +1,114 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=0
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",25)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 160%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 160%;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body class="block">
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<p>
+என்ன கவி பாடினாலும்<BR>
+உந்தன் மனம் இறங்கவில்லை<BR>
+<BR>
+இன்னும் என்ன சோதனையா, முருகா<BR>
+உந்தன் மனம் இறங்கவில்லை<BR>
+<BR>
+அன்னையும் அறியவில்லை<BR>
+தந்தையோ நினைப்பதில்லை<BR>
+<BR>
+மாமியோ பார்ப்பதில்லை<BR>
+மாமனோ கேட்பதில்லை<BR>
+<BR>
+அட்சரலட்சம் தந்த <BR>
+அண்ணல் போஜராஜன் இல்லை<BR>
+பட்சமுட்னே அழைத்து <BR>
+பறிசளிக்க யாருமில்லை<BR>
+<BR>
+இக்கணத்தில் நீ நினைத்தால் <BR>
+எனக்கு ஓர் குறைவும் இல்லை<BR>
+<BR>
+இக்ஷ்சணத்தில் நீ அன்றி <BR>
+எமக்கோர் துணைவும் இல்லை<BR>
+<BR>
+லட்சியமோ உனக்கு <BR>
+உன்னை நான் விடுவதில்லை<BR>
+<BR>
+என்ன கவி பாடினாலும்<BR>
+உந்தன் மனம் இறங்கவில்லை<BR>
+இன்னும் என்ன சோதனையா... முருகா...<BR>
+<BR>
+</p>
+</body>
+</html>

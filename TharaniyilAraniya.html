@@ -1,0 +1,133 @@
+<HTML>
+<meta charset="UTF-8">
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=0
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",50)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 270%;
+    text-align: center;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body>
+<BR>
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<P>
+தரணியி லரணிய முரணிர ணியனுடல் தனைநக நுதிகொடு<BR>
+சாடோங்குநெ டுங்கிரி யோடேந்துப யங்கரி<BR>
+<BR>
+தமருக பரிபுர ஒலிகொடு நடநவில் சரணிய சதுர்மறை<BR>
+தாதாம்புய மந்திர வேதாந்தப ரம்பரை<BR>
+<BR>
+சரிவளை விரிசடை யெரிபுரை வடிவினள் சததள முகுளித<BR>
+தாமாங்குச மென்றிரு தாளாந்தர அம்பிகை<BR>
+<BR>
+தருபதி சுரரோடு சருவிய அசுரர்கள் தடமணி முடிபொடி<BR>
+தானாம்படி செங்கையில் வாள்வாங்கிய சங்கரி<BR>
+<BR>
+இரணகி ரணமட மயின்ம்ருக மதபுள கிதவிள முலையிள<BR>
+நீர்தாங்கிநு டங்கிய நூல்போன்றம ருங்கினள்<BR>
+<BR>
+இறுகிய சிறுபிறை யெயிறுடை யமபடர் எனதுயிர் கொளவரின்<BR>
+யானேங்குதல் கண்டெதிர் தானேன்றுகொ ளுங்குயில்<BR>
+<BR>
+இடுபலி கொடுதிரி யிரவலர் இடர்கெட விடுமன கரதல<BR>
+ஏகாம்பரை யிந்திரை மோகாங்கசு மங்கலை<BR>
+<BR>
+எழுதிய படமென இருளறு சுடரடி யிணைதொழு மவுனிகள்<BR>
+ஏகாந்தசு லந்தரு பாசாங்குச சுந்தரி<BR>
+<BR>
+கரணமு மரணமு மலமொடு முடல்படு கடுவினை கெடநினை<BR>
+காலாந்தரி கந்தரி நீலாஞ்சனி நஞ்சுமிழ்<BR>
+<BR>
+கனலெரி கணபண குணமணி யணிபணி கனவளை மரகத<BR>
+காசாம்பர கஞ்சுளி தூசாம்படி கொண்டவள்<BR>
+<BR>
+கனைகழல் நினையலர் உயிரவி பயிரவி கவுரிக மலைகுழை<BR>
+காதார்ந்தசெ ழுங்கழு நீர்தோய்ந்த பெருந்திரு<BR>
+<BR>
+கரைபொழி திருமுக கருணையி லுலகெழு கடனிலை பெறவளர்<BR>
+காவேந்திய பைங்கிளி மாசாம்பவி தந்தவன்<BR>
+<BR>
+அரண் நெடு வட வரை அடியொடு பொடி பட அலை கடல் கெட அயில்<BR>
+வேல் வாங்கிய செந்தமிழ் நூலோன் குமரன் குகன்<BR>
+<BR>
+அறுமுகன் ஒருபதோடு இரு புயன் அபினவன் அழகிய குறமகள்<BR>
+தார் வேய்ந்த புயன் பகை ஆம் மாந்தர்கள் அந்தகன்<BR>
+<BR>
+அடன்மிகு கடதட விகடித மதகளி றனவர தமுமக<BR>
+லாமாந்தர்கள் சிந்தையில் வாழ்வாம்படி செந்திலில்<BR>
+<BR>
+அதிபதி யெனவரு பெருதிறல் முருகனை அருள்பட மொழிபவர்<BR>
+ஆராய்ந்து வணங்குவர் தேவேந்திர சங்கமே<BR>
+</P>
+</body>
+</html>

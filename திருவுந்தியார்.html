@@ -1,0 +1,169 @@
+<HTML>
+
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=0
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)  alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",25)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+      }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p  {
+    color: white;
+    font-family: calibri;
+    font-size: 160%;
+    word-wrap: break-word;
+    }
+    
+    .block {
+    display: block;
+    width: 100%;
+    font-size: 160%;
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body class="block">
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <p>
+        திருஉந்தியார் - ஞான வெற்றி<BR>
+            (தில்லையில் அருளியது)<BR>
+            <BR>
+            வளைந்தது வில்லு விளைந்தது பூசல்<BR>
+            உளைந்தன முப்புரம் உந்தீபற<BR>
+            ஒருங்குடன் வெந்தவா றுந்தீபற 295<BR>
+            <BR>
+            ஈரம்பு கண்டிலம் ஏகம்பர் தங்கையில்<BR>
+            ஓரம்பே முப்புரம் உந்தீபற<BR>
+            ஒன்றும் பெருமிகை உந்தீபற 296<BR>
+            <BR>
+            தச்சு விடுத்தலும் தாமடி யிட்டலும்<BR>
+            அச்சு முறிந்ததென் றுந்தீபற<BR>
+            அழந்தன முப்புரம் உந்தீபற 297<BR>
+            <BR>
+            உய்யவல் லாரெரு மூவரைக் காவல்கொண்<BR>
+            டெய்யவல் லானுக்கே உந்தீபற<BR>
+            இளமுலை பங்கனென் றுந்தீபற 298<BR>
+            <BR>
+            சாடிய வேள்வி சரிந்திடத் தேவர்கள்<BR>
+            ஓடிய வாபாடி உந்தீபற<BR>
+            உருந்திர நாதனுக் குந்தீபற 299<BR>
+            <BR>
+            ஆவா திருமால் அவிப்பாகங் கொண்டன்று<BR>
+            சாவா திருந்தானென் று தீபற<BR>
+            சதுர்முகன் தாதையென் றுந்தீபற 300<BR>
+            <BR>
+            வெய்யவன் அங்கி விழுங்கத்திரட்டிய<BR>
+            கையைத் தறித்தானென் றுந்தீபற<BR>
+            கலங்கிற்று வேள்வியென் றுந்தீபற 301<BR>
+            <BR>
+            பார்ப்பதி யைப்பகை சாற்றிய தக்கனைப்<BR>
+            பார்ப்பதென் னேயேடி யந்தீபற<BR>
+            பணைமுலை பாகனுக் குந்தீபற 302<BR>
+            <BR>
+            புரந்தர னாரொரு பூங்குயி லாகி<BR>
+            மரந்தனி லேறினார் உந்தீபற<BR>
+            வானவர் கோனென்றே உந்தீபற 303<BR>
+            <BR>
+            வெஞ்சின வேள்வி வியாத்திர னார்தலை<BR>
+            துஞ்சிய வாபாடி உந்தீபற<BR>
+            தொடர்ந்த பிறப்பற உந்தீபற 304<BR>
+            <BR>
+            ஆட்டின் தலையை விதிக்குத் தலையாகக்<BR>
+            கூட்டிய வாபாடி உந்தீபற<BR>
+            கொங்கை குலுங்கிநின் றுந்தீபற 305<BR>
+            <BR>
+            உண்ணப் புகுந்த பகனொளிந் தோடாமே<BR>
+            கண்ணைப் பறித்தவா றுந்தீபற<BR>
+            கருக்கெட நாமெல்லாம் உந்தீபற 306<BR>
+            <BR>
+            நாமகள் நாசி சிரம்மி மன்படச்<BR>
+            சோமன் முகன் நெரித் துந்தீபற<BR>
+            தொல்லை வினைகெட உந்தீபற 307<BR>
+            <BR>
+            நான்மறை யோனும் அகத்திய மான்படப்<BR>
+            போம்வழி தேடுமா றுந்தீபற<BR>
+            புரந்தரன் வேள்வியி லுந்தீபற 308<BR>
+            <BR>
+            சூரிய னார்தொண்டை வாயினிற் பற்களை<BR>
+            வாரி நெரித்தவா றுந்தீபற<BR>
+            மயங்கிற்று வேள்வியென் றுந்தீபற 309<BR>
+            <BR>
+            தக்கனா ரன்றே தலையிழந் தார்தக்கன்<BR>
+            மக்களைச் சூழநின் றுந்தீபற<BR>
+            மடிந்தது வேள்வியென் றுந்தீபற 310<BR>
+            <BR>
+            பாலக னார்க்கன்று பாற்கடல் ஈந்திட்ட<BR>
+            கோலச் சடையற்கே யந்தீபற<BR>
+            குமரன்தன் தாதைக்கே உந்தீபற 311<BR>
+            <BR>
+            நல்ல மலரின்மேல் நான்முக னார்தலை<BR>
+            ஒல்லை யரிந்ததென் றுந்தீபற<BR>
+            உகிரால் அரிந்ததென் றுந்தீபற 312<BR>
+            <BR>
+            தேரை நிறுத்தி மலையெடுத் தான்சிரம்<BR>
+            ஈரைந்தும் இற்றவா றுந்தீபற<BR>
+            இறுபதும் இற்றதென் றுந்தீபற 313<BR>
+            <BR>
+            ஏகாசமிட்ட இருடிகள் போகாமல்<BR>
+            ஆகாசங்காவலென் றுந்தீபற<BR>
+            அதற்கப்பாலுங் காவலென் றுந்தீபற 314<BR>
+            <BR>
+            திருச்சிற்றம்பலம்<BR>
+    </p>
+    </body>
+    </html>
+    

@@ -1,224 +1,139 @@
 <HTML>
 
-    <SCRIPT language=JavaScript1.2>
-    //change 1 to another integer to alter the scroll speed. Greater is faster
-    var speed=0
-    
-    var currentpos=0,alt=1,curpos1=0,curpos2=-1
-    function initialize(){
-    startit()
+  <SCRIPT language=JavaScript1.2>
+  //change 1 to another integer to alter the scroll speed. Greater is faster
+  var speed=0
+  
+  var currentpos=0,alt=1,curpos1=0,curpos2=-1
+  function initialize(){
+  startit()
+  }
+  function scrollwindow(){
+  if (document.all && !document.getElementById)
+  temp=document.body.scrollTop
+  else
+  temp=window.pageYOffset
+  if (alt==0)  alt=2
+  else alt=1
+  
+  if (alt==0)
+  curpos1=temp
+  else
+  curpos2=temp
+  
+  if (curpos1!=curpos2){
+  if (document.all)
+  currentpos=document.body.scrollTop+speed
+  else
+  currentpos=window.pageYOffset+speed
+  window.scroll(0,currentpos)
+  }
+  else{
+  currentpos=0
+  window.scroll(0,currentpos)
+  }
+  }
+  
+  function startit(){
+  setInterval("scrollwindow()",25)
+  }
+  window.onload=initialize
+  
+  var elem = document.documentElement;
+  
+  function openFullscreen() {
+    if (elem.requestFullscreen) {
+  elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+  elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+  elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+  elem.msRequestFullscreen();
     }
-    function scrollwindow(){
-    if (document.all && !document.getElementById)
-    temp=document.body.scrollTop
-    else
-    temp=window.pageYOffset
-    if (alt==0)  alt=2
-    else alt=1
-    
-    if (alt==0)
-    curpos1=temp
-    else
-    curpos2=temp
-    
-    if (curpos1!=curpos2){
-    if (document.all)
-    currentpos=document.body.scrollTop+speed
-    else
-    currentpos=window.pageYOffset+speed
-    window.scroll(0,currentpos)
-    }
-    else{
-    currentpos=0
-    window.scroll(0,currentpos)
-    }
-    }
-    
-    function startit(){
-    setInterval("scrollwindow()",25)
-    }
-    window.onload=initialize
-    
-    var elem = document.documentElement;
-    
-    function openFullscreen() {
-      if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-      } else if (elem.mozRequestFullScreen) { /* Firefox */
-    elem.mozRequestFullScreen();
-      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-    elem.webkitRequestFullscreen();
-      } else if (elem.msRequestFullscreen) { /* IE/Edge */
-    elem.msRequestFullscreen();
-      }
-    }
-    
-    </SCRIPT>
-    
-    <head>
-    <style>
-    body {background-color: black;}
-    p  {
-    color: white;
-    font-family: calibri;
-    font-size: 160%;
-    word-wrap: break-word;
-    }
-    
-    .block {
-    display: block;
-    width: 100%;
-    font-size: 160%;
-    max-width: 100%;
-    overflow-x: hidden;
-    }
-    
-    </style>
-    </head>
-    
-    <body class="block">
-    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
-    <p>
-    
-    </p>
-    </body>
-    </html>
-    <HTML>
-
-        <SCRIPT language=JavaScript1.2>
-        //change 1 to another integer to alter the scroll speed. Greater is faster
-        var speed=0
-        
-        var currentpos=0,alt=1,curpos1=0,curpos2=-1
-        function initialize(){
-        startit()
-        }
-        function scrollwindow(){
-        if (document.all && !document.getElementById)
-        temp=document.body.scrollTop
-        else
-        temp=window.pageYOffset
-        if (alt==0)  alt=2
-        else alt=1
-        
-        if (alt==0)
-        curpos1=temp
-        else
-        curpos2=temp
-        
-        if (curpos1!=curpos2){
-        if (document.all)
-        currentpos=document.body.scrollTop+speed
-        else
-        currentpos=window.pageYOffset+speed
-        window.scroll(0,currentpos)
-        }
-        else{
-        currentpos=0
-        window.scroll(0,currentpos)
-        }
-        }
-        
-        function startit(){
-        setInterval("scrollwindow()",25)
-        }
-        window.onload=initialize
-        
-        var elem = document.documentElement;
-        
-        function openFullscreen() {
-          if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-          } else if (elem.mozRequestFullScreen) { /* Firefox */
-        elem.mozRequestFullScreen();
-          } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-        elem.webkitRequestFullscreen();
-          } else if (elem.msRequestFullscreen) { /* IE/Edge */
-        elem.msRequestFullscreen();
-          }
-        }
-        
-        </SCRIPT>
-        
-        <head>
-        <style>
-        body {background-color: black;}
-        p  {
-        color: white;
-        font-family: calibri;
-        font-size: 160%;
-        word-wrap: break-word;
-        }
-        
-        .block {
-        display: block;
-        width: 100%;
-        font-size: 160%;
-        max-width: 100%;
-        overflow-x: hidden;
-        }
-        
-        </style>
-        </head>
-        
-        <body class="block">
-        <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
-        <p>
-          திருப்பள்ளியெழுச்சி - திரோதான சுத்தி<BR>
-            திருப்பெருந்துறையில் அருளியது<BR>
-            <BR>
-            போற்றி ! என்வாழ் முதல் ஆகிய பொருளே! புலர்ந்தது ; பூங்கழற் கிணைதுணை மலர்கொண்டு<BR>
-            ஏற்றிநின் திருமுகத்து எமக்கருள் மலரும் எழில்நகை கொண்டுநின் திருவடி தொழுகோம்!<BR>
-            சேற்றிதழ்க் கமலங்கண் மலரும்தண் வயல்சூழ் திருப்பெருந் துறையுறை சிவபெருமானே!<BR>
-            ஏற்றுயர் கொடியுடையாய்! எனை உடையாய்! எம்பெருமான் பள்ளி எழுந்தருளாயே !<BR>
-            <BR>
-            அருணன் இந்திரன் திசை அணுகினன்! இருள்போய் அகன்றது; உதயம் நின் மலர்த் திரு முகத்தின்<BR>
-            கருணையின் சூரியன் எழ எழ, நயனக் கடிமலர் மலர மற்றண்ணல் அங்கண்ணாம்<BR>
-            திரள் நிரை அறுபதம் முரல்வன ;இவையோர் திருப்பெருந் துறையுறை சிவபெருமானே!<BR>
-            அருள் நிதி தரவரும் ஆனந்த மலையே! அலைகடலே பள்ளி எழுந்தருளாயே!<BR>
-            <BR>
-            கூவின பூங்குயில்;கூவின கோழி; குருகுகள் இயம்பின; இயம்பின சங்கம்;<BR>
-            ஓவின தாரகை ஒளி; ஒளி உதயத்து ஒருப்படுகின்றது; விருப்பொடு நமக்குத்<BR>
-            தேவ! நற் செறிகழற் றாளிணை காட்டாய்; திருப்பெருந் துறையுறை சிவபெருமானே!<BR>
-            யாவரும் அறிவரியாய்; எமக்கெளியாய் எம்பெருமான் பள்ளி எழுந்தருளாயே !<BR>
-            <BR>
-            இன்னிசை வீணையர் யாழினர் ஒருபால்! இருக்கொடு தோத்திரம் இயம்பினர் ஒருபால்;<BR>
-            துன்னிய பிணைமலர்க் கையினர் ஒருபால்; தொழுகையர் அழுகையர் துவள்கையர் ஒருபால்;<BR>
-            சென்னியில் அஞ்சலி கூப்பினர் ஒருபால்; திருப்பெருந் துறையுறை சிவபெரு மானே!<BR>
-            என்னையும் ஆண்டுகொண்டு இன்னருள் புரியும் எம்பெருமான் பள்ளி எழுந்தரு ளாயே !<BR>
-            <BR>
-            "பூதங்கள் தோறும் நின்றாய்! "எனின் அல்லால் "போக்கிலன் வரவிலன்" என நினைப் புலவோர்<BR>
-            கீதங்கள் பாடுதல் ஆடுதல் அல்லால் கேட்டறியோம் உனைக் கண்டறிவாரைச்<BR>
-            சீத்ங்கொள் வயல்திருப் பெருந்துறை மன்னா! சிந்தனைக் கும் அரியாய்!எங்கண் முன்வந்து<BR>
-            ஏதங்கள் அறுத்தெம்மை ஆண்டருள் புரியும் எம்பெருமான் பள்ளி எழுந்தருளாயே !<BR>
-            <BR>
-            பப்பற வீட்டிருந் துணரும் நின் அடியார் பந்தனை வந்தறுத்தார் அவர் பலரும்<BR>
-            மைப்புறு கண்ணியர் மானுடத்தியல்பின் வணங்குகின்றார் அணங்கின் மணவாளா!<BR>
-            செப்புறு கமலம் கண் மலருந்தண்வயல் சூழ் திருப்பெருந் துறையுறை சிவபெருமானே!<BR>
-            இப்பிறப் பறுத்தெமை ஆண்டருள் புரியும் எம்பெருமான் பள்ளி எழுந்தருளாயே !<BR>
-            <BR>
-            அதுபழச் சுவையென அமுதென அறிதற்கு அரிதென எளிதென அமரரும் அறியார் ;<BR>
-            இதுஅவன் திருவுரு,இவன் அவன் எனவே எங்களை ஆண்டுகொண்டு இங்கெழுந்தருளும்<BR>
-            மதுவளர் பொழில்திரு உத்தரகோச மங்கையுள்ளாய்! திருப்பெருந்துறை மன்னா!<BR>
-            எது எமைப் பணிகொள்ளும் ஆறு?அது கேட்போம்; எம்பெருமான் பள்ளி எழுந்தருளாயே !<BR>
-            <BR>
-            முந்திய முதல் நடு இறுதியும் ஆனாய்! மூவரும் அறிகிலர் யாவர் மற்று அறிவார்?<BR>
-            பந்தணை விரலியும் நீயும் நின் அடியார் பழங்குடில் தொறும் எழுந்தருளிய பரனே!<BR>
-            செந்தழல் புரைதிரு மேனியும் காட்டித் திருப்பெருந்துறை யுறை கோயிலும் காட்டி<BR>
-            அந்தணன் ஆவதும் காட்டிவந்து ஆண்டாய்! ஆரமுதே! பள்ளி எழுந்தருளாயே!<BR>
-            <BR>
-            விண்ணகத் தேவரும் நண்ணவும் மாட்டா விழுப் பொருளே! உனதொழுப் படியோங்கள்<BR>
-            மண்ணகத்தே வந்து வாழச் செய்தானே வண்திருப் பெருந்துறையாய் வழி அடியோம்<BR>
-            கண்ணகதே நின்று களிதரு தேனே! கடலமுதே!கரும்பே!விரும்படியார்<BR>
-            எண்ணகத்தாய்! உலகுக்கு உயிரானாய்! எம்பெருமான் பள்ளி எழுந்தருளாயே !<BR>
-            <BR>
-            "புவனியிற் போய் பிறவாமையின் நாள் நாம் போக்குகின்றோம் அவமே இந்தப் பூமி<BR>
-            சிவன் உய்யக் கொள்கின்ற வாறென்று" நோக்கித் திருப்பெருந் துறையுறைவாய்!திருமாலாம்<BR>
-            அவன் விருப்பெய்தவும் மலரவன் ஆசைப் படவும் நின் அலர்ந்த மெய்க் கருணையும் நீயும்<BR>
-            அவனியிற் புகுந்தெமை ஆட்கொள்ள வல்லாய்! ஆரமுதே பள்ளி எழுந்தருளாயே!<BR>
-            <BR>
-            திருச்சிற்றம்பலம்<BR>
-        </p>
-        </body>
-        </html>
-            
+  }
+  
+  </SCRIPT>
+  
+  <head>
+  <style>
+  body {background-color: black;}
+  p  {
+  color: white;
+  font-family: calibri;
+  font-size: 160%;
+  word-wrap: break-word;
+  }
+  
+  .block {
+  display: block;
+  width: 100%;
+  font-size: 160%;
+  max-width: 100%;
+  overflow-x: hidden;
+  }
+  
+  </style>
+  </head>
+  
+  <body class="block">
+  <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+  <p>
+  திருப்பள்ளியெழுச்சி - திரோதான சுத்தி<BR>
+  திருப்பெருந்துறையில் அருளியது<BR>
+  <BR>
+  போற்றி ! என்வாழ் முதல் ஆகிய பொருளே! புலர்ந்தது ; பூங்கழற் கிணைதுணை மலர்கொண்டு<BR>
+  ஏற்றிநின் திருமுகத்து எமக்கருள் மலரும் எழில்நகை கொண்டுநின் திருவடி தொழுகோம்!<BR>
+  சேற்றிதழ்க் கமலங்கண் மலரும்தண் வயல்சூழ் திருப்பெருந் துறையுறை சிவபெருமானே!<BR>
+  ஏற்றுயர் கொடியுடையாய்! எனை உடையாய்! எம்பெருமான் பள்ளி எழுந்தருளாயே !<BR>
+  <BR>
+  அருணன் இந்திரன் திசை அணுகினன்! இருள்போய் அகன்றது; உதயம் நின் மலர்த் திரு முகத்தின்<BR>
+  கருணையின் சூரியன் எழ எழ, நயனக் கடிமலர் மலர மற்றண்ணல் அங்கண்ணாம்<BR>
+  திரள் நிரை அறுபதம் முரல்வன ;இவையோர் திருப்பெருந் துறையுறை சிவபெருமானே!<BR>
+  அருள் நிதி தரவரும் ஆனந்த மலையே! அலைகடலே பள்ளி எழுந்தருளாயே!<BR>
+  <BR>
+  கூவின பூங்குயில்;கூவின கோழி; குருகுகள் இயம்பின; இயம்பின சங்கம்;<BR>
+  ஓவின தாரகை ஒளி; ஒளி உதயத்து ஒருப்படுகின்றது; விருப்பொடு நமக்குத்<BR>
+  தேவ! நற் செறிகழற் றாளிணை காட்டாய்; திருப்பெருந் துறையுறை சிவபெருமானே!<BR>
+  யாவரும் அறிவரியாய்; எமக்கெளியாய் எம்பெருமான் பள்ளி எழுந்தருளாயே !<BR>
+  <BR>
+  இன்னிசை வீணையர் யாழினர் ஒருபால்! இருக்கொடு தோத்திரம் இயம்பினர் ஒருபால்;<BR>
+  துன்னிய பிணைமலர்க் கையினர் ஒருபால்; தொழுகையர் அழுகையர் துவள்கையர் ஒருபால்;<BR>
+  சென்னியில் அஞ்சலி கூப்பினர் ஒருபால்; திருப்பெருந் துறையுறை சிவபெரு மானே!<BR>
+  என்னையும் ஆண்டுகொண்டு இன்னருள் புரியும் எம்பெருமான் பள்ளி எழுந்தரு ளாயே !<BR>
+  <BR>
+  "பூதங்கள் தோறும் நின்றாய்! "எனின் அல்லால் "போக்கிலன் வரவிலன்" என நினைப் புலவோர்<BR>
+  கீதங்கள் பாடுதல் ஆடுதல் அல்லால் கேட்டறியோம் உனைக் கண்டறிவாரைச்<BR>
+  சீத்ங்கொள் வயல்திருப் பெருந்துறை மன்னா! சிந்தனைக் கும் அரியாய்!எங்கண் முன்வந்து<BR>
+  ஏதங்கள் அறுத்தெம்மை ஆண்டருள் புரியும் எம்பெருமான் பள்ளி எழுந்தருளாயே !<BR>
+  <BR>
+  பப்பற வீட்டிருந் துணரும் நின் அடியார் பந்தனை வந்தறுத்தார் அவர் பலரும்<BR>
+  மைப்புறு கண்ணியர் மானுடத்தியல்பின் வணங்குகின்றார் அணங்கின் மணவாளா!<BR>
+  செப்புறு கமலம் கண் மலருந்தண்வயல் சூழ் திருப்பெருந் துறையுறை சிவபெருமானே!<BR>
+  இப்பிறப் பறுத்தெமை ஆண்டருள் புரியும் எம்பெருமான் பள்ளி எழுந்தருளாயே !<BR>
+  <BR>
+  அதுபழச் சுவையென அமுதென அறிதற்கு அரிதென எளிதென அமரரும் அறியார் ;<BR>
+  இதுஅவன் திருவுரு,இவன் அவன் எனவே எங்களை ஆண்டுகொண்டு இங்கெழுந்தருளும்<BR>
+  மதுவளர் பொழில்திரு உத்தரகோச மங்கையுள்ளாய்! திருப்பெருந்துறை மன்னா!<BR>
+  எது எமைப் பணிகொள்ளும் ஆறு?அது கேட்போம்; எம்பெருமான் பள்ளி எழுந்தருளாயே !<BR>
+  <BR>
+  முந்திய முதல் நடு இறுதியும் ஆனாய்! மூவரும் அறிகிலர் யாவர் மற்று அறிவார்?<BR>
+  பந்தணை விரலியும் நீயும் நின் அடியார் பழங்குடில் தொறும் எழுந்தருளிய பரனே!<BR>
+  செந்தழல் புரைதிரு மேனியும் காட்டித் திருப்பெருந்துறை யுறை கோயிலும் காட்டி<BR>
+  அந்தணன் ஆவதும் காட்டிவந்து ஆண்டாய்! ஆரமுதே! பள்ளி எழுந்தருளாயே!<BR>
+  <BR>
+  விண்ணகத் தேவரும் நண்ணவும் மாட்டா விழுப் பொருளே! உனதொழுப் படியோங்கள்<BR>
+  மண்ணகத்தே வந்து வாழச் செய்தானே வண்திருப் பெருந்துறையாய் வழி அடியோம்<BR>
+  கண்ணகதே நின்று களிதரு தேனே! கடலமுதே!கரும்பே!விரும்படியார்<BR>
+  எண்ணகத்தாய்! உலகுக்கு உயிரானாய்! எம்பெருமான் பள்ளி எழுந்தருளாயே !<BR>
+  <BR>
+  "புவனியிற் போய் பிறவாமையின் நாள் நாம் போக்குகின்றோம் அவமே இந்தப் பூமி<BR>
+  சிவன் உய்யக் கொள்கின்ற வாறென்று" நோக்கித் திருப்பெருந் துறையுறைவாய்!திருமாலாம்<BR>
+  அவன் விருப்பெய்தவும் மலரவன் ஆசைப் படவும் நின் அலர்ந்த மெய்க் கருணையும் நீயும்<BR>
+  அவனியிற் புகுந்தெமை ஆட்கொள்ள வல்லாய்! ஆரமுதே பள்ளி எழுந்தருளாயே!<BR>
+  <BR>
+  திருச்சிற்றம்பலம்<BR>
+  </p>
+  </body>
+  </html>
+  

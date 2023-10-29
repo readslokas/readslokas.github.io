@@ -1,159 +1,159 @@
 <HTML>
 
-    <SCRIPT language=JavaScript1.2>
-    //change 1 to another integer to alter the scroll speed. Greater is faster
-    var speed=0
-    
-    var currentpos=0,alt=1,curpos1=0,curpos2=-1
-    function initialize(){
-    startit()
+  <SCRIPT language=JavaScript1.2>
+  //change 1 to another integer to alter the scroll speed. Greater is faster
+  var speed=0
+  
+  var currentpos=0,alt=1,curpos1=0,curpos2=-1
+  function initialize(){
+  startit()
+  }
+  function scrollwindow(){
+  if (document.all && !document.getElementById)
+  temp=document.body.scrollTop
+  else
+  temp=window.pageYOffset
+  if (alt==0)  alt=2
+  else alt=1
+  
+  if (alt==0)
+  curpos1=temp
+  else
+  curpos2=temp
+  
+  if (curpos1!=curpos2){
+  if (document.all)
+  currentpos=document.body.scrollTop+speed
+  else
+  currentpos=window.pageYOffset+speed
+  window.scroll(0,currentpos)
+  }
+  else{
+  currentpos=0
+  window.scroll(0,currentpos)
+  }
+  }
+  
+  function startit(){
+  setInterval("scrollwindow()",25)
+  }
+  window.onload=initialize
+  
+  var elem = document.documentElement;
+  
+  function openFullscreen() {
+    if (elem.requestFullscreen) {
+  elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+  elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+  elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+  elem.msRequestFullscreen();
     }
-    function scrollwindow(){
-    if (document.all && !document.getElementById)
-    temp=document.body.scrollTop
-    else
-    temp=window.pageYOffset
-    if (alt==0)  alt=2
-    else alt=1
-    
-    if (alt==0)
-    curpos1=temp
-    else
-    curpos2=temp
-    
-    if (curpos1!=curpos2){
-    if (document.all)
-    currentpos=document.body.scrollTop+speed
-    else
-    currentpos=window.pageYOffset+speed
-    window.scroll(0,currentpos)
-    }
-    else{
-    currentpos=0
-    window.scroll(0,currentpos)
-    }
-    }
-    
-    function startit(){
-    setInterval("scrollwindow()",25)
-    }
-    window.onload=initialize
-    
-    var elem = document.documentElement;
-    
-    function openFullscreen() {
-      if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-      } else if (elem.mozRequestFullScreen) { /* Firefox */
-    elem.mozRequestFullScreen();
-      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-    elem.webkitRequestFullscreen();
-      } else if (elem.msRequestFullscreen) { /* IE/Edge */
-    elem.msRequestFullscreen();
-      }
-    }
-    
-    </SCRIPT>
-    
-    <head>
-    <style>
-    body {background-color: black;}
-    p  {
-    color: white;
-    font-family: calibri;
-    font-size: 160%;
-    word-wrap: break-word;
-    }
-    
-    .block {
-    display: block;
-    width: 100%;
-    font-size: 160%;
-    max-width: 100%;
-    overflow-x: hidden;
-    }
-    
-    </style>
-    </head>
-    
-    <body class="block">
-    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
-    <p>
-      திருத்தோள் நோக்கம் - பிரபஞ்ச சுத்தி<BR>
-        (தில்லையில் அருளியது)<BR>
-        <BR>
-        பூத்தாரும் பொய்கைப் புனலிதுவே எனக்கருதிப்<BR>
-        பேய்த்தேர் முகக்குறும் பேதைகுண மாகாமே<BR>
-        தீர்த்தாய் திகழ்தில்லை அம்பலத்தை திருநடஞ்செய்<BR>
-        கூத்தா உன் சேவடி கூடும்வண்ணந் தோணோக்கம் ⁠315<BR>
-        <BR>
-        என்றும் பிறந்திறந் தாழாமே ஆண்டுகொண்டான்<BR>
-        கன்றால் விளவெறிந் தான்பிரமன் காண்பரிய<BR>
-        குன்றாத சீர்த்தில்லை அம்பலவன்குணம்பரவித்<BR>
-        துன்றார் குழலினீர் தோணோக்கம் ஆடாமோ ⁠316<BR>
-        <BR>
-        பொருட்பற்றிச் செய்கின்ற பூசனைகள் போல்விளங்கிச்<BR>
-        செருப்புற்ற சீரடி வாய்க்கலசம் ஊனமுதம்<BR>
-        விருப்புற்று வேடனார் சேடெறிய மெய்குளிர்த்தங்கு<BR>
-        அருட்பெற்று நின்றவா தோணோக்கம் ஆடாமோ ⁠317<BR>
-        <BR>
-        கற்போலும் நெஞ்சங் கசிந்துருகிக் கருணையினால்<BR>
-        நிற்பானைப் போலஎன் நெஞ்சினுள்ளே புகுந்தருளி<BR>
-        நற்பாற் படுத்தென்னை நாடறியத் தானிங்ஙன்<BR>
-        சொற்பால தானவா தோணோக்கம் ஆடாமோ ⁠318<BR>
-        <BR>
-        நிலம்நீர் நெருப்புயிர் நீள்விசும்பு நிலாப்பகலோன்<BR>
-        புலனாய மைந்தனோ டெண்வகையாய்ப் புணர்ந்துநின்றான்<BR>
-        உலகே ழெனத்திசை பத்தெனத்தா னொருவனுமே<BR>
-        பலவாகி நின்றவா தோணோக்கம் ஆடாமோ ⁠319<BR>
-        <BR>
-        புத்தன் முதலாய புல்லறிவிற் பல்சமயம்<BR>
-        தத்தம் மதங்களில் தட்டுளுப்புப் பட்டுநிற்கச்<BR>
-        சித்தஞ் சிவமாக்கிச் செய்தனவே தவமாக்கும்<BR>
-        அத்தன் கருணையினால் தோணோக்கம் ஆடாமோ ⁠320<BR>
-        <BR>
-        தீதில்லை மாணி சிவகருமஞ் சிதைத்தானைச்<BR>
-        சாதியும் வேதியன் தாதைதனை தாளிரண்டுஞ்<BR>
-        சேதிப்ப ஈசன் திருவருளால் தேவர்தொழப்<BR>
-        பாதகமே சோறு பற்றினவா தோணோக்கம் ⁠321<BR>
-        <BR>
-        மானம் அழிந்தோம் மதிமறந்தோம் மங்கைநல்லீர்<BR>
-        வானந் தொழுந்தென்னன் வார்கழலே நினைத்தடியோம்<BR>
-        ஆனந்தக் கூத்தன் அருள்பெறில் நாம் அவ்வணமே<BR>
-        ஆனந்த மாகிநின் றாடாமோ தோணோக்கம் ⁠322<BR>
-        <BR>
-        எண்ணுடை மூவர் இராக்கதர்கள் எரிபிழைத்துக்<BR>
-        கண்ணுதல் எந்தை கடைத்தலைமுன் நின்றதற்பின்<BR>
-        எண்ணிலி இந்திரர் எத்தனையோ பிரமர்களும்<BR>
-        மன்மிசை மால்பலர் மாண்டனர்காண் தோணோக்கம்⁠323<BR>
-        <BR>
-        பங்கயம் ஆயிரம் பூவினிலோர் பூக்குறையத்<BR>
-        தங்கண் இடந்தரன் சேவடிமேல் சாத்தலுமே<BR>
-        சங்கரன் எம்பிரான் சக்கரமாற் கருளியவாறு<BR>
-        எங்கும் பரவிநாம் தோணோக்கம் ஆடாமோ ⁠324<BR>
-        <BR>
-        காமனு டலுயிர் காலன்பற் காய்கதிரோன்<BR>
-        நாமகள் நாசிசிரம் பிரமன் கரம்எரியைச்<BR>
-        சோமன் கலைதலை தக்கனையும் எச்சனையுந்<BR>
-        தூய்மைகள் செய்தவா தோணோக்கம் ஆடாமோ ⁠325<BR>
-        <BR>
-        பிரமன் அரியென் றிருவருந்தம் பேதைமையால்<BR>
-        பரமம் யாம்பரமம் என்றவர்கள் பதைப்பொடுங்க<BR>
-        அரனார் அழலுருவாய் அங்கே அளவிறந்து<BR>
-        பரமாகி நின்றவா தோணோக்கம் ஆடாமோ ⁠326<BR>
-        <BR>
-        ஏழைத் தொழும்பனேன் எத்தனையோ காலமெல்லாம்<BR>
-        பாழுக் கிறைத்தேன் பரம்பரனைப் பணியாதே<BR>
-        ஊழிமுதற் சிந்தாத நன்மணிவந் தென்பிறவித்<BR>
-        தாழைப் பறித்தவா தோணோக்கம் ஆடாமோ ⁠327<BR>
-        <BR>
-        உரைமாண்ட உள்ளொளி உத்தமன்வந் துளம்புகலும்<BR>
-        கரைமாண்ட காமப்பெருங்கடலைக் கடத்தலுமே<BR>
-        இரைமாண்ட இந்திரியப் பறவை இரிந்தோடத்<BR>
-        துரைமாண்ட வாபாடித் தோணோக்கம் ஆடாமோ ⁠328<BR>
-        <BR>
-        திருச்சிற்றம்பலம்<BR>
-    </p>
-    </body>
-    </html>
-    
+  }
+  
+  </SCRIPT>
+  
+  <head>
+  <style>
+  body {background-color: black;}
+  p  {
+  color: white;
+  font-family: calibri;
+  font-size: 160%;
+  word-wrap: break-word;
+  }
+  
+  .block {
+  display: block;
+  width: 100%;
+  font-size: 160%;
+  max-width: 100%;
+  overflow-x: hidden;
+  }
+  
+  </style>
+  </head>
+  
+  <body class="block">
+  <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+  <p>
+  திருத்தோள் நோக்கம் - பிரபஞ்ச சுத்தி<BR>
+  (தில்லையில் அருளியது)<BR>
+  <BR>
+  பூத்தாரும் பொய்கைப் புனலிதுவே எனக்கருதிப்<BR>
+  பேய்த்தேர் முகக்குறும் பேதைகுண மாகாமே<BR>
+  தீர்த்தாய் திகழ்தில்லை அம்பலத்தை திருநடஞ்செய்<BR>
+  கூத்தா உன் சேவடி கூடும்வண்ணந் தோணோக்கம் ⁠315<BR>
+  <BR>
+  என்றும் பிறந்திறந் தாழாமே ஆண்டுகொண்டான்<BR>
+  கன்றால் விளவெறிந் தான்பிரமன் காண்பரிய<BR>
+  குன்றாத சீர்த்தில்லை அம்பலவன்குணம்பரவித்<BR>
+  துன்றார் குழலினீர் தோணோக்கம் ஆடாமோ ⁠316<BR>
+  <BR>
+  பொருட்பற்றிச் செய்கின்ற பூசனைகள் போல்விளங்கிச்<BR>
+  செருப்புற்ற சீரடி வாய்க்கலசம் ஊனமுதம்<BR>
+  விருப்புற்று வேடனார் சேடெறிய மெய்குளிர்த்தங்கு<BR>
+  அருட்பெற்று நின்றவா தோணோக்கம் ஆடாமோ ⁠317<BR>
+  <BR>
+  கற்போலும் நெஞ்சங் கசிந்துருகிக் கருணையினால்<BR>
+  நிற்பானைப் போலஎன் நெஞ்சினுள்ளே புகுந்தருளி<BR>
+  நற்பாற் படுத்தென்னை நாடறியத் தானிங்ஙன்<BR>
+  சொற்பால தானவா தோணோக்கம் ஆடாமோ ⁠318<BR>
+  <BR>
+  நிலம்நீர் நெருப்புயிர் நீள்விசும்பு நிலாப்பகலோன்<BR>
+  புலனாய மைந்தனோ டெண்வகையாய்ப் புணர்ந்துநின்றான்<BR>
+  உலகே ழெனத்திசை பத்தெனத்தா னொருவனுமே<BR>
+  பலவாகி நின்றவா தோணோக்கம் ஆடாமோ ⁠319<BR>
+  <BR>
+  புத்தன் முதலாய புல்லறிவிற் பல்சமயம்<BR>
+  தத்தம் மதங்களில் தட்டுளுப்புப் பட்டுநிற்கச்<BR>
+  சித்தஞ் சிவமாக்கிச் செய்தனவே தவமாக்கும்<BR>
+  அத்தன் கருணையினால் தோணோக்கம் ஆடாமோ ⁠320<BR>
+  <BR>
+  தீதில்லை மாணி சிவகருமஞ் சிதைத்தானைச்<BR>
+  சாதியும் வேதியன் தாதைதனை தாளிரண்டுஞ்<BR>
+  சேதிப்ப ஈசன் திருவருளால் தேவர்தொழப்<BR>
+  பாதகமே சோறு பற்றினவா தோணோக்கம் ⁠321<BR>
+  <BR>
+  மானம் அழிந்தோம் மதிமறந்தோம் மங்கைநல்லீர்<BR>
+  வானந் தொழுந்தென்னன் வார்கழலே நினைத்தடியோம்<BR>
+  ஆனந்தக் கூத்தன் அருள்பெறில் நாம் அவ்வணமே<BR>
+  ஆனந்த மாகிநின் றாடாமோ தோணோக்கம் ⁠322<BR>
+  <BR>
+  எண்ணுடை மூவர் இராக்கதர்கள் எரிபிழைத்துக்<BR>
+  கண்ணுதல் எந்தை கடைத்தலைமுன் நின்றதற்பின்<BR>
+  எண்ணிலி இந்திரர் எத்தனையோ பிரமர்களும்<BR>
+  மன்மிசை மால்பலர் மாண்டனர்காண் தோணோக்கம்⁠323<BR>
+  <BR>
+  பங்கயம் ஆயிரம் பூவினிலோர் பூக்குறையத்<BR>
+  தங்கண் இடந்தரன் சேவடிமேல் சாத்தலுமே<BR>
+  சங்கரன் எம்பிரான் சக்கரமாற் கருளியவாறு<BR>
+  எங்கும் பரவிநாம் தோணோக்கம் ஆடாமோ ⁠324<BR>
+  <BR>
+  காமனு டலுயிர் காலன்பற் காய்கதிரோன்<BR>
+  நாமகள் நாசிசிரம் பிரமன் கரம்எரியைச்<BR>
+  சோமன் கலைதலை தக்கனையும் எச்சனையுந்<BR>
+  தூய்மைகள் செய்தவா தோணோக்கம் ஆடாமோ ⁠325<BR>
+  <BR>
+  பிரமன் அரியென் றிருவருந்தம் பேதைமையால்<BR>
+  பரமம் யாம்பரமம் என்றவர்கள் பதைப்பொடுங்க<BR>
+  அரனார் அழலுருவாய் அங்கே அளவிறந்து<BR>
+  பரமாகி நின்றவா தோணோக்கம் ஆடாமோ ⁠326<BR>
+  <BR>
+  ஏழைத் தொழும்பனேன் எத்தனையோ காலமெல்லாம்<BR>
+  பாழுக் கிறைத்தேன் பரம்பரனைப் பணியாதே<BR>
+  ஊழிமுதற் சிந்தாத நன்மணிவந் தென்பிறவித்<BR>
+  தாழைப் பறித்தவா தோணோக்கம் ஆடாமோ ⁠327<BR>
+  <BR>
+  உரைமாண்ட உள்ளொளி உத்தமன்வந் துளம்புகலும்<BR>
+  கரைமாண்ட காமப்பெருங்கடலைக் கடத்தலுமே<BR>
+  இரைமாண்ட இந்திரியப் பறவை இரிந்தோடத்<BR>
+  துரைமாண்ட வாபாடித் தோணோக்கம் ஆடாமோ ⁠328<BR>
+  <BR>
+  திருச்சிற்றம்பலம்<BR>
+  </p>
+  </body>
+  </html>
+  

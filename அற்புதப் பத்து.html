@@ -1,0 +1,142 @@
+<HTML>
+    <meta charset="UTF-8">
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=0
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",50)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+    if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+    }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p{
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+    word-wrap: break-word;
+    }
+    
+    .block {
+    display: block;
+    width: 100%;
+    font-size: 270%;
+    text-align: center;
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body>
+    <BR>
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <P>
+        அற்புதப்பத்து - அனுபவமாற்றாமை<BR>
+            (திருப்பெருந்துறையில் அருளியது - அறுசீர்க் கழி நெடிலடி ஆசிரிய விருத்தம்)<BR>
+            <BR>
+            மைய லாய்இந்த மண்ணிடை வாழ்வெனும் ஆழியு ளகப்பட்டுத்<BR>
+            தைய லாரெனுஞ் சுழித்தலைப் பட்டுநான் தலைதடு மாறாமே<BR>
+            பொய்யெ லாம்விடத் திருவருள் தந்துதன் பொன்னடி யினைகாட்டி<BR>
+            மெய்ய னாய்வெளி காட்டிமுன் நின்றதோர் அற்புதம் விளம்பேனே. ⁠569<BR>
+            <BR>
+            ஏய்ந்த மாமல ரிட்டுமுட் டாததோர் இயல்பொடும் வணங்காதே<BR>
+            சாந்த மார்முலைத் தையல்நல் லாரொடுந் தலைதடு மாறாகிப்<BR>
+            போந்து யான்துயர் புகாவணம் அருள்செய்து பொற்கழலி னைகாட்டி<BR>
+            வேந்த னாம்வெளியே என்முன் நின்றதோர் அற்புதம் விளம்பேனே. ⁠570<BR>
+            <BR>
+            நடித்து மண்ணிடைப் பொய்யினைப் பலசெய்து நானென தெனும்மாயக்<BR>
+            கடித்த வாயிலே நின்றுமுன் வினைமிகக் கழறியே திரிவேனைப்<BR>
+            பிடித்து முன்னின்றப் பெருமறை தேடிய அரும்பொருள் அடியேனை<BR>
+            அடித்த டித்துஅக் காரமுன் தீற்றிய அற்புதம் அறியேனே. ⁠571<BR>
+            <BR>
+            பொருந்தும் இப்பிறப் இறப்பிவை நினையாது பொய்களே புகன்றுபோய்க்<BR>
+            கருங் குழலினார் கண்களால் ஏறுண்டு கலங்கியே கிடப்பேனைத்<BR>
+            திருந்து சேவடிச் சிலம்பவை சிலம்பிடத் திருவொடும் அகலாதே<BR>
+            அருந்து ணைவனாய் ஆண்டுகொண் டருளிய அற்புதம் அறியேனே. ⁠572<BR>
+            <BR>
+            மாடுஞ் சுற்றமும் மற்றுள போகமும் மங்கையர் தம்மோடுங்<BR>
+            கூடி அங்குள குணங்களால் ஏறுண்டு குலாவியே திரிவேனை<BR>
+            வீடு தந்தென்றன் வெந்தொழில் விட்டிட மென்மலர்க் கழல்காட்டி<BR>
+            ஆடு வித்தென தகம்புகுந் தாண்டதோர் அற்புதம் அறியேனே. ⁠573<BR>
+            <BR>
+            வணங்கும் இப்பிறப் இறப்பிவை நினையாது மங்கையர் தம்மோடும்<BR>
+            பிணைந்து வாயிதழ்ப் பெருவெள்ளத் தழுந்திநான் பித்தனாய்த் திரிவேனைக்<BR>
+            குணங்க ளுங்குறி களுமிலாக் குணக்கடல் கோமளத் தொடுங்கூடி<BR>
+            அணைந்து வந்தெனை ஆண்டுகொண் டருளிய அற்புதம் அறியேனே. ⁠574<BR>
+            <BR>
+            இப்பி றப்பினில் இணைமலர் கொய்துநான் இயல்பொடஞ் செழுத்தோதித்<BR>
+            தப்பி லாதுபொற் கழல்களுக் கிடாதுநான் தடமுலை யார்தங்கள்<BR>
+            மைப்பு லாங்கண்ணால் ஏறுண்டு கிடப்பேனை மலரடி யிணைகாட்டி<BR>
+            அப்பன் என்னைவந் தாண்டுகொண் டருளிய அற்புதம் அறியேனே. ⁠575<BR>
+            <BR>
+            ஊச லாட்டுமிவ் வுடலுயி ராயின இருவினை அறுத்தென்னை<BR>
+            ஓசையா லுணர் வார்க்குணர் வரியவன் உணர்வுதந் தொளியாக்கிப்<BR>
+            பாச மானவை பற்றறுத் துயர்ந்ததன் பரம்பெருங் கருணையால்<BR>
+            ஆசை தீர்த்தடி யாரடிக் கூட்டிய அற்புதம் அறியேனே. ⁠576<BR>
+            <BR>
+            பொச்சை யானஇப் பிறவியிற் கிடந்துநான் புழுத்தலை நாய்போல<BR>
+            இச்சை யாயின ஏழையர்க் கேசெய்தங் கிணங்கியே திரிவேனை<BR>
+            இச்சகது அரி அயனுமெட் டாததன் விரைமலர்க் கழல்காட்டி<BR>
+            அச்சன் என்னையும் ஆண்டுகொண் டருளிய அற்புதம் அறியேனே. ⁠577<BR>
+            <BR>
+            செறியும் இப்பிறப் இறப்பிவை நினையாது செறிகுழலார் செய்யுங்<BR>
+            கிறியுங் கீழ்மையுங் கெண்டையங் கண்களும் உன்னியே கிடப்பேனை<BR>
+            இறைவன் எம்பிரான் எல்லையில் லாததன் இணைமலர்க் கழல்காட்டி<BR>
+            அறிவு தந்தெனை ஆண்டுகொண் டருளிய அற்புதம் அறியேனே. ⁠578<BR>
+            <BR>
+            திருச்சிற்றம்பலம்<BR>
+    </P>
+    </body>
+    </html>
+    
+    

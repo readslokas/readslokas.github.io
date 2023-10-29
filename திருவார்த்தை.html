@@ -1,0 +1,142 @@
+<HTML>
+    <meta charset="UTF-8">
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=0
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",50)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+    if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+    }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p{
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+    word-wrap: break-word;
+    }
+    
+    .block {
+    display: block;
+    width: 100%;
+    font-size: 270%;
+    text-align: center;
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body>
+    <BR>
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <P>
+        திருவார்த்தை – அறிவித்து அன்புறுத்தல்<BR>
+            (திருப்பெருந்துறையில் அருளியது -அறுசீர்க் கழிநெடிலடி ஆசிரிய விருத்தம்)<BR>
+            <BR>
+            மாதிவர் பாகன் மறைபயின்ற வாசகன் மாமலர் மேயசோதி<BR>
+            கோதில் பரங்கருணையடியார் குலாவுநீதி குண மாகநல்கும்<BR>
+            போதலர் சோலைப் பெருந்துறையெம் புண்ணியன் மண்ணிடை வந்திழிந்து<BR>
+            ஆதிப் பிரமம் வெளிப்படுத்த அருளறிவார் எம்பிரானாவாரே. ⁠589<BR>
+            <BR>
+            மாலயன் வானவர் கோனும்வந்து வணங்க அவர்க்கருள் செய்தஈசன்<BR>
+            ஞாலம் அதனிடை வந்திழிந்து நன்னெறி காட்டி நலம்திகழும்<BR>
+            கோல மணியணி மாடநீடு குலாவுமிடை வைமடநல்லாட்குச்<BR>
+            சீல மிகக்கரு ணையளிக்குந் திறமறி வார்எம் பிரானாவாரே. ⁠590<BR>
+            <BR>
+            அணிமுடி ஆதி அமரர்கோமான் ஆனந்தக் கூத்தன் அறுசமயம்<BR>
+            பணிவகை செய்து படவதேறிப் பாரொடு விண்ணும் பரவியேத்தப்<BR>
+            பிணிகெடநல்கும் பெருந்துறையெம் பேரரு ளாளன்பெண் பாலுகந்து<BR>
+            மணிவலை கொண்டுவான் மீன்விசிறும் வகையறிவார் எம்பிரானாவாரே. ⁠591<BR>
+            <BR>
+            வேடுரு வாகி மகேந்திரத்து மிகுகுறை வானவர் வந்துதன்னைத்<BR>
+            தேட இருந்த சிவபெருமான் சிந்தனை செய்தடி யோங்களுய்ய<BR>
+            ஆடல் அமர்ந்த பரிமாஏறி ஐயன் பெருந்துறை ஆதிஅந்நாள்<BR>
+            ஏடர் களையெங்கும் ஆண்டுகொண்ட இயல்பறி வார்எம் பிரானாவாரே. ⁠592<BR>
+            <BR>
+            வந்திமை யோர்கள் வணங்கியேத்த மாக்கரு ணைக்கட லாய்அடியார்<BR>
+            பந்தணை விண்டற நல்கும்எங்கள் பரமன் பெருந்துறை ஆதி அந்நாள்<BR>
+            உந்து திரைக்கட லைக்கடந்தன் றோங்கு மதிலிலங்கை அதினிற்<BR>
+            பந்தணை மெல்விர லாட்கருளும் பரிசறி வார்எம் பிரானாவாரே. ⁠593<BR>
+            <BR>
+            வேவத் திரிபுரஞ் செற்றவில்லி வேடுவனாய்க்கடி நாய்கள்சூழ<BR>
+            ஏவற் செயல்செய்யுந் தேவர்முன்னே எம்பெருமான்தான் இயங்கு காட்டில்<BR>
+            ஏவுண்ட பன்றிக் கிரங்கியீசன் எந்தை பெருந்துறை ஆதியன்று<BR>
+            கேவலங் கேழலாய்ப் பால்கொடுத்த கிடப்பறி வார்எம் பிரானாவாரே. ⁠594<BR>
+            <BR>
+            நாதம் உடையதோர் நற்கமலப் போதினில் நண்ணிய நன்னுதலார்<BR>
+            ஓதிப் பணிந்தலர் தூவியேத்த ஒளிவளர் சோதியெம் ஈசன் மன்னும்<BR>
+            போதலர் சோலைப் பெருந்துறையெம் புண்ணியன் மண்ணிடை வந்து தோன்றிப்<BR>
+            பேதங் கெடுத்தருள் செய்பெருமை அறியவல் லார்எம் பிரானாவாரே. ⁠595<BR>
+            <BR>
+            பூவலர் கொன்றைய மாலைமார்பன் போருகிர் வன்புலி கொன்றவீரன்<BR>
+            மாதுநல் லாளுமை மங்கைபங்கன் வன்பொழில் சூழ்தென் பெருந்துறைக்கோன்<BR>
+            ஏதில் பெரும்புகழ் எங்கள்ஈசன் இருங்கடல் வாணர்ற்குத் தீயில்தோன்றும்<BR>
+            ஓவிய மங்கையர் தோள்புணரும் உருவறி வார்எம் பிரானாவாரே. ⁠596<BR>
+            <BR>
+            தூவெள்ளை நீறணி எம்பெருமான் சோதி மகேந்திர நாதன்வந்து<BR>
+            தேவர் தொழும்பதம் வைத்தஈசன் தென்னன் பெருந்துறை ஆளிஅன்று<BR>
+            காதல் பெருகக் கருணைகாட்டித் தன்கழல் காட்டிக் கசிந்துருகக்<BR>
+            கேதங் கெடுத்தென்னை ஆண்டருளும் கிடப்பறி வார்எம் பிரானாவாரே. ⁠597<BR>
+            <BR>
+            அங்கணன் எங்கள் அமரர்பெம்மான் அடியார்க் கமுதன் அவனிவந்த<BR>
+            எங்கள் பிரான்இரும் பாசந்தீர இகபரம் ஆயதோர் இன்பமெய்தச்<BR>
+            சங்கங் கவர்ந்துவண் சாத்தினோடுஞ் சதுரன் பெருந்துறை ஆளிஅன்று<BR>
+            மங்கையர் மல்கும் மதுரைசேர்ந்த வகையறி வார்எம் பிரானாவாரே. ⁠598<BR>
+            <BR>
+            திருச்சிற்றம்பலம்<BR>
+    </P>
+    </body>
+    </html>
+    
+    

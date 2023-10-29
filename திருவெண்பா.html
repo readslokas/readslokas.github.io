@@ -1,0 +1,147 @@
+<HTML>
+    <meta charset="UTF-8">
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=0
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",50)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+    if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+    }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p{
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+    word-wrap: break-word;
+    }
+    
+    .block {
+    display: block;
+    width: 100%;
+    font-size: 270%;
+    text-align: center;
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body>
+    <BR>
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <P>
+        திருவெண்பா - அணைந்தோர் தன்மை<BR>
+            (திருப்பெருந்துறையில் அருளியது - நேரிசை வெண்பா)<BR>
+            <BR>
+            வெய்ய வினையிரண்டும் வெந்தகல மெய்யுருகிப்<BR>
+            பொய்யும் பொடியாகா தென்செய்கேன் - செய்ய<BR>
+            திருவார் பெருந்துறையான் தேனுந்து செந்தீ<BR>
+            மருவா திருந்தேன் மனத்து. ⁠617<BR>
+            <BR>
+            ஆர்க்கோ அரற்றுகோ ஆடுகோ பாடுகோ<BR>
+            பார்க்கோ பரம்பரனே என்செய்கேன் தீர்ப்பரிய<BR>
+            ஆனந்த மாலேற்றும் அத்தன் பெருந்துறையான்<BR>
+            தானன்பார் ஆரொருவர் தாழ்ந்து. ⁠618<BR>
+            <BR>
+            செய்த பிழையறியேன் சேவடியே கைதொழுதே<BR>
+            உய்யும் வகையின் உயிர்ப்பறியேன் - வையத்<BR>
+            திருந்துறையுள் வேல்மடுத்தென் சிந்தனைக்கே கோத்தான்<BR>
+            பெருந்துறையில் மேய பிரான். ⁠619<BR>
+            <BR>
+            முன்னை வினையிரண்டும் வேரறுத்து முன்னின்றான்<BR>
+            பின்னைப் பிறப்பறுக்கும் பேராளன் தென்னன்<BR>
+            பெருந்துறையின் மேய பெருங்கருணை யாளன்<BR>
+            வருந்துயரந் தீர்க்கும் மருந்து. ⁠620<BR>
+            <BR>
+            அறையோ அறிவார்க் கனைத்துலகும் ஈன்ற<BR>
+            மறையோனும் மாலுமால் கொள்ளும் இறையோன்<BR>
+            பெருந்துறையும் மேய பெருமான் பிரியா<BR>
+            திருந்துறையும் என்னெஞ்சத் தின்று. ⁠621<BR>
+            <BR>
+            பித்தென்னை ஏற்றும் பிறப்பறுக்கும் பேச்சரிதாம்<BR>
+            மத்தமே யாக்கும் வந்தென்மனத்தை அத்தன்<BR>
+            பெருந்துறையான் ஆட்கொண்டு பேரருளால் நோக்கும்<BR>
+            மருந்திறவாப் பேரின்பம் வந்து. ⁠622<BR>
+            <BR>
+            வாரா வழியருளி வந்தெனக்கு மாறின்றி<BR>
+            ஆரா அமுதாய் அமைந்தன்றே சீரார்<BR>
+            திருத்தென் பெருந்துறையான் என்சிந்தை மேய<BR>
+            ஒருத்தன் பெருக்கும் ஒளி. ⁠623<BR>
+            <BR>
+            யாவார்க்கும் மேலாம் அளவிலாச் சீருடையான்<BR>
+            யாவர்க்கும் கீழாம் அடியேனை யாவரும்<BR>
+            பெற்றறியா இன்பத்துள் வைத்தாய்க்கென் எம்பெருமான்<BR>
+            மற்றறியேன் செய்யும் வகை. ⁠624<BR>
+            <BR>
+            மூவரும் முப்பத்து மூவரும் மற்றொழிந்த<BR>
+            தேவரும் காணாச் சிவபெருமான் மாவேறி<BR>
+            வையகத்தே வந்திழிந்த வார்கழல்கள் வந்திக்க<BR>
+            மெய்யகத்தே இன்பம் மிகும். ⁠625<BR>
+            <BR>
+            இருந்தென்னை ஆண்டான் இணையடியே சிந்தித்<BR>
+            திருந்திரந்து கொள்நெஞ்சே எல்லாம் தருங்காண்<BR>
+            பெருந்துறையின் மேய பெருங்கருணை யாளன்<BR>
+            மருந்துருவாய் என்மனத்தே வந்து. ⁠626<BR>
+            <BR>
+            இன்பம் பெருக்கி இருளகற்றி எஞ்ஞான்றும்<BR>
+            துன்பந் தொடர்வறுத்துச் சோதியாய் அன்பமைத்துச்<BR>
+            சீரார் பெருந்துறையான் என்னுடைய சிந்தையே<BR>
+            ஊராகக் கொண்டான் உவந்து. ⁠627<BR>
+            <BR>
+            திருச்சிற்றம்பலம்<BR>
+    </P>
+    </body>
+    </html>
+    
+    

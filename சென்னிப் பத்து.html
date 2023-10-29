@@ -1,0 +1,142 @@
+<HTML>
+    <meta charset="UTF-8">
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=0
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",50)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+    if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+    }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p{
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+    word-wrap: break-word;
+    }
+    
+    .block {
+    display: block;
+    width: 100%;
+    font-size: 270%;
+    text-align: center;
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body>
+    <BR>
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <P>
+        சென்னிப்பத்து - சிவவிளைவு<BR>
+            (திருப்பெருந்துறையில் அருளியது - ஆசிரிய விருத்தம்)<BR>
+            <BR>
+            தேவ தேவன்மெய்ச் சேவகன் தென்பெ ருந்துறை நாயகன்<BR>
+            மூவ ராலும் அறியொணாமுத லாய ஆனந்த மூர்த்தியான்<BR>
+            யாவ ராயினும் அன்பரன்றி அறியொ ணாமலர்ச் சோதியான்<BR>
+            தூயமாமலர்ச் சேவடிக்கண்நம் சென்னி மன்னிச் சுடருமே. ⁠579<BR>
+            <BR>
+            அட்டமூர்த்தி அழகன்இன்னமு தாய ஆனந்த வெள்ளத்தான்<BR>
+            சிட்டன் மெய்ச்சிவ லோகநாயகன் தென்பெ ருந்துறைச் சேவகன்<BR>
+            மட்டு வார்குழல் மங்கை யாளையோர் பாகம் வைத்த அழகன்தன்<BR>
+            வட்ட மாமலர்ச் சேவடிக் கண்நம் சென்னி மன்னி மலருமே. ⁠580<BR>
+            <BR>
+            நங்கை மீரெனை நோக்குமின் நங்கள் நாதன் நம்பணி கொண்டவன்<BR>
+            தெங்கு சோலைகள் சூழ்பெருந் துறை மேய சேவகன் நாயகன்<BR>
+            மங்கை மார்கையில் வளையுங்கொண்டெம் உயிருங் கொண்டெம் பணிகொள்வான்<BR>
+            பொங்கு மாமலர்ச் சேவடிக்கண்நம் சென்னி மன்னிப் பொலியுமே. ⁠581<BR>
+            <BR>
+            பத்தர் சூழப் பராபரன் பாரில் வந்துபார்ப் பானெனச்<BR>
+            சித்தர் சூழச் சிவபிரான் தில்லை மூதூர் நடஞ்செய்வான்<BR>
+            எத்தனாகிவந் தில்புகுந்தெமை ஆளுங் கொண்டெம் பணிகொள்வான்<BR>
+            வைத்த மாமலர்ச் சேவடிக்கண்நம் சென்னி மன்னி மலருமே. ⁠582<BR>
+            <BR>
+            மாய வாழ்க்கையை மெய்யென் றெண்ணி மதித்திடா வகை நல்கினான்<BR>
+            வேய தோளுமை பங்கன் எங்கள் திருப்பெ ருந்துறை மேவினான்<BR>
+            காயத் துள்ளமு தூறஊறநீ கண்டு கொள்ளென்று காட்டிய<BR>
+            சேய மாமலர்ச் சேவடிக்கண்நம் சென்னி மன்னி திகழுமே. ⁠583<BR>
+            <BR>
+            சித்தமே புகுந் தெம்மையாட் கொண்டு தீவினை கெடுத் துய்யலாம்<BR>
+            பத்தி தந்துதன் பொற்கழற்கணே பன்மலர் கொய்து சேர்த்தலும்<BR>
+            முத்தி தந்திந்த மூவுலகுக்கும் அப்பு றத்தெமை வைத்திடும்<BR>
+            அத்தன் மாமலர்ச் சேவடிக்கண்நம் சென்னி மன்னி மலருமே. ⁠584<BR>
+            <BR>
+            பிறவி யென்னுமிக் கடலைநீந் தத்தன் பேரருள்தந் தருளினான்<BR>
+            அறவை யென்றடி யார்கள் தங்கள் அருட்கு ழாம்புக விட்டுநல்<BR>
+            உறவு செய்தெனை உய்யக்கொண்ட பிரான்தன் உண்மைப் பெருக்கமாம்<BR>
+            திறமை காட்டிய சேவடிக்கண்நம் சென்னி மன்னி திகழுமே. ⁠585<BR>
+            <BR>
+            புழுவி னாற்பொதிந் திடுகுரம்பையிற் பொய் தனையொழி வித்திடும்<BR>
+            எழில்கொள் சோதியெம் ஈசன்எம்பிரான் என்னு டையப்பன் என்றென்று<BR>
+            தொழுத கையின ராகித் தூய்மலர்க் கண்கள் நீர்மல்குந் தொண்டர்க்கு<BR>
+            வழுவி லாமலர்ச் சேவடிக்கண்நம் சென்னி மன்னி மலருமே. ⁠586<BR>
+            <BR>
+            வம்ப னாய்த்திரி வேனைவாவென்று வல்வி னைப்பகை மாய்த்திடும்<BR>
+            உம்ப ரான்உல கூடறுத்தப் புறத்தனாய் நின்ற எம்பிரான்<BR>
+            அன்பரானவர்க்கருளி மெய்யடி யார்கட் கின்பந் தழைந்திடுஞ்<BR>
+            செம்பொன் மாமலர்ச் சேவடிக்கண்நம் சென்னி மன்னி திகழுமே. ⁠587<BR>
+            <BR>
+            முத்தனைமுதற் சோதியைமுக்கண் அப்பனை முதல் வித்தினைச்<BR>
+            சித்தனைச்சிவ லோகனைத்திரு நாமம்பாடித் திரிதரும்<BR>
+            பத்தர்காள்இங்கே வம்மின்நீர் உங்கள் பாசந்தீரப் பணிமினோ<BR>
+            சித்தமார்தருஞ் சேவடிக்கண்நம் சென்னி மன்னி திகழுமே. ⁠588<BR>
+            <BR>
+            திருச்சிற்றம்பலம்<BR>
+    </P>
+    </body>
+    </html>
+    
+    

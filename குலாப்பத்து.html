@@ -1,0 +1,142 @@
+<HTML>
+    <meta charset="UTF-8">
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=0
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",50)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+    if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+    }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p{
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+    word-wrap: break-word;
+    }
+    
+    .block {
+    display: block;
+    width: 100%;
+    font-size: 270%;
+    text-align: center;
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body>
+    <BR>
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <P>
+        குலாப் பத்து - அனுபவம் இடையீடுபடாமை<BR>
+            (தில்லையில் அருளியது - கொச்சகக் கலிப்பா)<BR>
+            <BR>
+            ஓடுங் கவந்தியுமே உறவென்றிட் டுள்கசிந்து<BR>
+            தேடும் பொருளுஞ் சிவன்கழலே எனத்தெளிந்து<BR>
+            கூடும் உயிரும் குமண்டையிடக் குனித்தடியேன்<BR>
+            ஆடுங் குலாத்தில்லை ஆண்டானைக் கொண்டன்றே. ⁠559<BR>
+            <BR>
+            துடியேர் இடுகிடைத் தூய்மொழியார் தோள்நசையால்<BR>
+            செடியேறு தீமைகள் எத்தனையுஞ் செய்திடினும்<BR>
+            முடியேன் பிறவேன் எனைத்தன்தாள் முயங்குவித்த<BR>
+            அடியேன் குலாத்தில்லை ஆண்டானைக் கொண்டன்றே. ⁠560<BR>
+            <BR>
+            என்புள் ளுருக்கி இருவினையை ஈடழித்துத்<BR>
+            துன்பங் களைந்து துவந்துவங்கள் தூய்மைசெய்து<BR>
+            முன்புள்ள வற்றை முழுதழிய உள்புகுத்த<BR>
+            அன்பின் குலாத்தில்லை ஆண்டானைக் கொண்டன்றே. ⁠561<BR>
+            <BR>
+            குறியும் நெறியும் குணமுமிலார் குழாங்கள்தமைப்<BR>
+            பிரியும் மனத்தார் பிரிவரிய பெற்றியனைச்<BR>
+            செறியுங் கருத்தில் உருத்தமுதாஞ் சிவபதத்தை<BR>
+            அறியுங் குலாத்தில்லை ஆண்டானைக் கொண்டன்றே. ⁠562<BR>
+            <BR>
+            பேருங் குணமும் பிணிப்புறும்இப் பிறவிதனைத்<BR>
+            தூரும் பரிசு துரிசறுத்துத் தொண்ட ரெல்லாஞ்<BR>
+            சேரும் வகையாற் சிவன்கருணைத் தேன்பருகி<BR>
+            ஆருங் குலாத்தில்லை ஆண்டானைக் கொண்டன்றே. ⁠563<BR>
+            <BR>
+            கொம்பில் அரும்பாய்க் குவிமலராய்க் காயாகி<BR>
+            வம்பு பழுத்துடலம் மாண்டிங்ஙன் போகாமே<BR>
+            நம்புமென் சிந்தை நணுகும்வண்ணம் நானணுகும்<BR>
+            அம்பொன் குலாத்தில்லை ஆண்டானைக் கொண்டன்றே. ⁠564<BR>
+            <BR>
+            மதிக்குந் திறலுடைய வல்லரக்கன் தோள்நெரிய<BR>
+            மிதிக்குந் திருவடி என் தலைமேல் வீற்றிருப்பக்<BR>
+            கதிக்கும் பசுபாசம் ஒன்றுமிலோம் எனக்களித்திங்<BR>
+            கதிர்க்குங் குலாத்தில்லை ஆண்டானைக் கொண்டன்றே. ⁠565<BR>
+            <BR>
+            இடக்குங் கருமுருட் டேனப்பின் கானகத்தே<BR>
+            நடக்குந் திருவடி என்தலைமேல் நட்டமையால்<BR>
+            கடக்குந் திறல்ஐவர் கண்டகர்தம் வல்லாட்டை<BR>
+            அடக்குங் குலாத்தில்லை ஆண்டானைக் கொண்டன்றே. ⁠566<BR>
+            <BR>
+            பாழ்ச்செய் விளாவிப் பயனிலியாய்க் கிடப்பேற்குக்<BR>
+            கீழ்ச்செய் தவத்தாற் கிழியீடு நேர்பட்டுத்<BR>
+            தாட்செய்ய தாமரைச் சைவனுக்கென் புன்தலையால்<BR>
+            ஆட்செய் குலாத்தில்லை ஆண்டானைக் கொண்டன்றே. ⁠567<BR>
+            <BR>
+            கொம்மை வரிமுலைக் கொம்பனையாள் கூறனுக்குச்<BR>
+            செம்மை மனத்தால் திருப்பணிகள் செய்வேனுக்கு<BR>
+            இம்பை தரும்பயன் இத்தனையும் ஈங்கொழிக்கும்<BR>
+            அம்மை குலாத்தில்லை ஆண்டானைக் கொண்டன்றே. ⁠568<BR>
+            <BR>
+            திருச்சிற்றம்பலம்<BR>
+    </P>
+    </body>
+    </html>
+    
+    

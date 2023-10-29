@@ -1,0 +1,102 @@
+<HTML>
+    <meta charset="UTF-8">
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=0
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",50)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+    if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+    }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p{
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+    word-wrap: break-word;
+    }
+    
+    .block {
+    display: block;
+    width: 100%;
+    font-size: 270%;
+    text-align: center;
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body>
+    <BR>
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <P>
+        திருப்படை எழுச்சி - பிரபஞ்சப் போர்<BR>
+            (தில்லையில் அருளியது - கலிவிருத்தம்)<BR>
+            <BR>
+            ஞானவாள் ஏந்தும்ஐயர் நாதப் பறையறைமின்<BR>
+            மானமா ஏறும்ஐயர் பதிவெண் குடைகவிமின்<BR>
+            ஆனநீற் றுக்கவசம் அடையப் புகுமின்கள்<BR>
+            வானவூர் கொள்வோம்நாம் மாயப்படை வாராமே. ⁠615<BR>
+            <BR>
+            தொண்டர்காள் தூசிசெல்லீர் பக்தர்காள் சூழப்போகீர்<BR>
+            ஒண்திறல் யோகிகளே பேரணி உந்தீர்கள்<BR>
+            திண்திறல் சித்தர்களே கடைக்கூழை செல்மின்கள்<BR>
+            அண்டர்நா டாள்வோம் நாம் அல்லற்படை வாராமே. ⁠616<BR>
+            <BR>
+            திருச்சிற்றம்பலம்<BR>
+    </P>
+    </body>
+    </html>
+    
+    

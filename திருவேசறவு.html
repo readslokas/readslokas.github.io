@@ -1,0 +1,142 @@
+<HTML>
+    <meta charset="UTF-8">
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=0
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",50)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+    if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+    }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p{
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+    word-wrap: break-word;
+    }
+    
+    .block {
+    display: block;
+    width: 100%;
+    font-size: 270%;
+    text-align: center;
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body>
+    <BR>
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <P>
+        திருவேசறவு<BR>
+            (திருப்பெருந்துறையில் அருளியது - கொச்சகக் கலிப்பா)<BR>
+            <BR>
+            இரும்புதரு மனத்தேனை ஈர்த்தீர்த்தென் என்புருக்கிக்<BR>
+            கரும்புதரு சுவைஎனக்குக் காட்டினைஉன் கழலினைகள்<BR>
+            ஒருங்குதிரை உலவுசடை உடையானே நரிகளெல்லாம்<BR>
+            பெருங்குதிரை ஆக்கியவா றன்றேஉன் பேரருளே. ⁠546<BR>
+            <BR>
+            பண்ணார்ந்த மொழிமங்கை பங்காநின் ஆளானார்க்கு<BR>
+            உண்ணார்ந்த ஆரமுதே உடையானே அடியேனை<BR>
+            மண்ணார்ந்த பிறப்பறுத்திட் டாள்வாய்நீ வாஎன்னக்<BR>
+            கண்ணார உய்ந்தவா றன்றேஉன் கழல்கண்டே. ⁠547<BR>
+            <BR>
+            ஆதமிலி யான்பிறப் பிறப்பென்னும் அருநரகில்<BR>
+            ஆர்தமரும் இன்றியே அழுந்துவேற் காவாவென்று<BR>
+            ஓதமிலி நஞ்சுண்ட உடையானே அடியேற்குன்<BR>
+            பாதமலர் காட்டியவா றன்றேஎம் பரம்பரனே. ⁠548<BR>
+            <BR>
+            பச்சைத்தா ளரவாட்டீ படர்சடையாய் பாதமலர்<BR>
+            உச்சத்தார் பெருமானே அடியேனை உய்யக்கொண்டு<BR>
+            எச்சத்தார் சிறுதெய்வம் ஏத்தாதே அச்சோஎன்<BR>
+            சித்தத்தா றுய்ந்தவா றன்றேஉன் திறம் நினைந்தே. ⁠549<BR>
+            <BR>
+            கற்றறியேன் கலைஞானம் கசிந்துருகேன் ஆயிடினும்<BR>
+            மற்றறியேன் பிறதெய்வம் வாக்கியலால் வார்கழல்வந்<BR>
+            துற்றிறுமாந் திருந்தேன்எம் பெருமானே அடியேற்குப்<BR>
+            பொற்றவிசு நாய்க்கிடுமா றன்றேநின் பொன்னருளே. ⁠550<BR>
+            <BR>
+            பஞ்சாய அடிமடவார் கடைக்கண்ணால் இடர்ப்பட்டு<BR>
+            நஞ்சாய துயர்கூர நடுங்குவேன் நின்னருளால்<BR>
+            உய்ஞ்சேன் எம் பெருமானே உடையானே அடியேனை<BR>
+            அஞ்சேலென் றாண்டவா றன்றேஅம் பலத்தமுதே. ⁠551<BR>
+            <BR>
+            என்பாலைப் பிறப்பறுத்திங் கிமையவர்க் கும் அறியவொண்ணா<BR>
+            தென்பாலைத் திருப்பெருந் துறையுறையுஞ் சிவபெருமான்<BR>
+            அன்பால்நீ அகம்நெகவே புகுந்தருளி ஆட்கொண்ட<BR>
+            தென்பாலே நோக்கியவா றன்றேஎம் பெருமானே. ⁠552<BR>
+            <BR>
+            மூத்தானே மூவாத முதலானே முடிவில்லா<BR>
+            வோத்தானே பொருளானே உண்மையுமாய் இன்மையுமாய்ப்<BR>
+            பூத்தானே புகுந்திங்குப் புரள்வேனைக் கருணையினால்<BR>
+            பேர்த்தேநீ ஆண்டவா றன்றேஎம் பெருமானே. ⁠553<BR>
+            <BR>
+            மருவினிய மலர்ப்பாதம் மனத்தில்வளர்ந் துள்ளுருகத்<BR>
+            தெருவுதொறும் மிக அலறிச் சிவபெருமா னென்றேத்திப்<BR>
+            பருகியநின் பரங்கருணைத் தடங்கலிற் படிவாமாறு<BR>
+            அருளெனக்கிங் கிடைமருதே இடங்கொண்ட அம்மானே. ⁠554<BR>
+            <BR>
+            நானேயோ தவஞ் செய்தேன் சிவாயநம எனப்பெற்றேன்<BR>
+            தேனாய்இன் அமுதமுமாய்த் தித்திக்குஞ் சிவபெருமான்<BR>
+            தானேவந் தெனதுள்ளம் புகுந்தடியேற் கருள்செய்தான்<BR>
+            ஊனாரும் உயிர்வாழ்க்கை ஒறுத்தன்றே வெறுத்திடவே. ⁠555<BR>
+            <BR>
+            திருச்சிற்றம்பலம்<BR>
+    </P>
+    </body>
+    </html>
+    
+    

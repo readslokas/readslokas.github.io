@@ -1,0 +1,142 @@
+<HTML>
+    <meta charset="UTF-8">
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=0
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",50)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+    if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+    }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p{
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+    word-wrap: break-word;
+    }
+    
+    .block {
+    display: block;
+    width: 100%;
+    font-size: 270%;
+    text-align: center;
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body>
+    <BR>
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <P>
+        யாத்திரைப் பத்து - அனுபவ அதீதம் உரைத்தல்<BR>
+            (தில்லையில் அருளியது - அறுசீர் கழிநெடிலடி ஆசிரிய விருத்தம்)<BR>
+            <BR>
+            பூவார் சென்னி மன்னனெம் புயங்கப் பெருமான் சிறியோமை<BR>
+            ஓவா துள்ளம் கலந்துணர்வாய் உருக்கும் வெள்ளக் கருணையினால்<BR>
+            ஆவா என்னப் பட்டன் பாய் ஆட்பட் டீர்வந் தொருப்படுமின்<BR>
+            போவோங் காலம் வந்ததுகாண் பொய்விட் டுடையான் கழல்புகவே. ⁠605<BR>
+            <BR>
+            புகவே வேண்டா புலன்களில்நீர் புயங்கப் பெருமான் பூங்கழல்கள்<BR>
+            மிகவே நினைமின் மிக்கவெல்லாம் வேண்டா போக விடுமின்கள்<BR>
+            நகவே ஞாலத் துள்புகுந்து நாயே அனைய நமையாண்ட<BR>
+            தகவே யுடையான் தனைச்சாரத் தளரா திருப்பார் தாந்தாமே. ⁠606<BR>
+            <BR>
+            தாமே தமக்குச் சுற்றமும் தாமே தமக்கு விதிவகையும்<BR>
+            யாமார் எமதார் பாசமார் என்னமாயம் இவைபோகக்<BR>
+            கோமான் பண்டைத் தொண்டரோடும் அவன்தன் குறிப்பே குறிக்கொண்டு<BR>
+            போமா றமைமின் பொய்நீக்கிப் புயங்கன் ஆள்வான் பொன்னடிக்கே. ⁠607<BR>
+            <BR>
+            அடியார் ஆனீர் எல்லீரும் அகல விடுமின் விளையாட்டைக்<BR>
+            கடிசே ரடியே வந்தடைந்து கடைக்கொண் டிருமின் திருக்குறிப்பைச்<BR>
+            செடிசே ருடைலச் செலநீக்கிச் சிவலோகத்தே நமைவைப்பான்<BR>
+            பொடிசேர் மேனிப் புயங்கன்தன் பூவார் கழற்கே புகவிடுமே. ⁠608<BR>
+            <BR>
+            விடுமின் வெகுளி வேட்கைநோய் மிகவோர் காலம் இனியில்லை<BR>
+            உடையான் அடிக்கீழ்ப் பெருஞ்சாத்தோடு உடன்போ வதற்கே ஒருப் படுமின்<BR>
+            அடைவோம் நாம்போய்ச் சிவபுரத்துள் அணியார் கதவ தடையாமே<BR>
+            புடைபட்டுருகிப் போற்றுவோம் புயங்கன் ஆள்வான் புகழ்களையே. ⁠609<BR>
+            <BR>
+            புகழ்மின் தொழுமின் பூப்புனைமின் புயங்கன் தாளே புந்திவைத்திட்டு<BR>
+            இகழ்மின் எல்லா அல்லலையும் இனியோர் இடையூ றடையாமே<BR>
+            திகழுஞ் சீரார் சிவபுரத்துச் சென்று சிவன்தாள் வணங்கிநாம்<BR>
+            நிகழும் அடியார் முன்சென்று நெஞ்சம் உருகி நிற்போமே. ⁠610<BR>
+            <BR>
+            நிற்பார் நிற்கநில் லாவுலகில் நில்லோம் இனிநாம் செல்வோமே<BR>
+            பொற்பால் ஒப்பாந் திருமேனிப் புயங்கன் ஆவான் பொன்னடிக்கே<BR>
+            நிற்பீர் எல்லாந் தாழாதே நிற்கும் பரிசே ஒருப்படுமின்<BR>
+            பிற்பால் நின்று பேழ்கணித்தாற் பெறுதற் கரியன் பெருமானே. ⁠611<BR>
+            <BR>
+            பெருமான் பேரானந்தத்துப் பிரியா திருக்கப் பெற்றீர்காள்<BR>
+            அருமா லுற்றுப் பின்னைநீர் அம்மா அழுங்கி அரற்றாதே<BR>
+            திருமா மணிசேர் திருக்கதவங் திறந்தபோதே சிவபுரத்துச்<BR>
+            திருமா லறியாத் திருப்புயங்கன் திருத்தாள் சென்று சேர்வோமே. ⁠612<BR>
+            <BR>
+            சேரக் கருகதிச் சிந்தனையைத் திருந்த வைத்துச் சிந்திமின்<BR>
+            போரிற் பொலியும் வேற்கண்ணாள் பங்கன் புயங்கன் அருளமுதம்<BR>
+            ஆரப் பருகி ஆராத ஆர்வங்கூர அழுந்துவீர்<BR>
+            போரப் புரிமின் சிவன்கழற்கே பொய்யிற் கிடந்து புரளாதே. ⁠613<BR>
+            <BR>
+            புரள்வார் தொழுவார் புகழ்வாராய் இன்றே வந்தாள் ஆகாதீர்<BR>
+            மருள்வீர் பின்னை மதிப்பாரார் மதியுட் கலங்கி மயங்குவீர்<BR>
+            தெருள்வீராகில் இதுசெய்ம்மின் சிவலோ கக்கோன் திருப்புயங்கன்<BR>
+            அருளார் பெறுவார் அகலிடத்தே அந்தோ அந்தோ அந்தோவே. ⁠614<BR>
+            <BR>
+            திருச்சிற்றம்பலம்<BR>
+    </P>
+    </body>
+    </html>
+    
+    

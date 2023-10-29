@@ -1,0 +1,127 @@
+<HTML>
+    <meta charset="UTF-8">
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=0
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",50)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+    if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+    }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p{
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+    word-wrap: break-word;
+    }
+    
+    .block {
+    display: block;
+    width: 100%;
+    font-size: 270%;
+    text-align: center;
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body>
+    <BR>
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <P>
+        பண்டாய நான்மறை<BR>
+            (திருப்பெருந்துறையில் அருளியது - நேரிசை வெண்பா )<BR>
+            <BR>
+            பண்டாய நான்மறையும் பாலணுகா மாலயனுங்<BR>
+            கண்டாரு மில்லை கடையேனைத் தொண்டாகக்<BR>
+            கொண்டருளுங் கோகழிஎங் கோமாற்கு நெஞ்சமே<BR>
+            உண்டாமோ கைம்மா றுரை.<BR>
+            <BR>
+            உள்ள மலமூன்றும்மாய உகுபெருந்தேன்<BR>
+            வெள்ளந் தரும்பரியின் மேல்வந்து வள்ளல்<BR>
+            மருவும் பெருந்துறையை வாழ்த்துமின்காள் வாழ்த்தக்<BR>
+            கருவுங் கெடும்பிறவிக் காடு.<BR>
+            <BR>
+            காட்டகத்து வேடன் கடலில் வலைவாணன்<BR>
+            நாட்டிற் பரிப்பாகன் நம்வினையை வீட்டி<BR>
+            அருளும் பெருந்துறையான் அங்கமல பாதம்<BR>
+            மருளுங் கெடநெஞ்சே வாழ்த்து.<BR>
+            <BR>
+            வாழ்ந்தார்கள் ஆவாரும் வல்வினையை மாய்ப்பாருந்<BR>
+            தாழ்ந்துலகம் ஏத்தத் தகுவாருஞ் சூழ்ந்தமரர்<BR>
+            சென்றிறைஞ்சி ஏத்தும் திருவார் பெருந்துறையை<BR>
+            நன்றிறைஞ்சி ஏத்தும் நமர்.<BR>
+            <BR>
+            நண்ணிப் பெருந்துறையை நம்மிடர்கள் போயகல<BR>
+            எண்ணி எழுகோ கழிக்கரசைப்-பண்ணின்<BR>
+            மொழியாளோ டுத்தர கோசமங்கை மன்னிக்<BR>
+            கழியா திருந்தவனைக் காண்.<BR>
+            <BR>
+            காணுங் கரணங்கள் எல்லாம்பே ரின்பமெனப்<BR>
+            பேணும் அடியார் பிறப்பகலக் காணும்<BR>
+            பெரியானை நெஞ்சே பெருந்துறையில் என்றும்<BR>
+            பிரியானை வாயாரப் பேசு.<BR>
+            <BR>
+            பேசும் மொருளுக் கிலக்கிதமாய்ப் பேச்சிறந்த<BR>
+            மாசில் மணியின் மணிவார்த்தை பேசிப்<BR>
+            பெருந்துறையே என்று பிறப்பறுத்தேன் நல்ல<BR>
+            மருந்தினடி என்மனத்தே வைத்து.<BR>
+            <BR>
+            திருச்சிற்றம்பலம்<BR>
+    </P>
+    </body>
+    </html>
+    
+    

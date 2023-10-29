@@ -1,0 +1,124 @@
+<HTML>
+
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=0
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)  alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",25)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+      }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p  {
+    color: white;
+    font-family: calibri;
+    font-size: 160%;
+    word-wrap: break-word;
+    }
+    
+    .block {
+    display: block;
+    width: 100%;
+    font-size: 160%;
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body class="block">
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <p>
+        திருக்கழுக்குன்றப் பதிகம் - குரு தரிசனம்<BR>
+            (திருக்கழுக்குன்றத்தில் அருளியது - ஏழுசீர்க் கழிநெடிலடி ஆசிரிய விருத்தம்)<BR>
+            <BR>
+            பிணக்கிலாத பெருந்துறைப்பெரு மான் உன்நாமங்கள் பேசுவார்க்<BR>
+            கிணக்கிலாததோர் இன்ப மேவருந் துன்ப மேதுடைத் தெம்பிரான்<BR>
+            உணக்கிலாததோர் வித்துமேல்விளை யாமல் என்வினை ஒத்தபின்<BR>
+            கணக்கி லாத்திருக்கோலம் நீவந்து காட்டினாய் கழுக்குன்றிலே ⁠468<BR>
+            <BR>
+            பிட்டுநேர்பட மண்சுமந்த பெருந் துறைப்பெரும் பித்தனே<BR>
+            சட்டநேர்பட வந்திலா சழக்கனேன் உனைச் சார்ந்திலேன்<BR>
+            சிட்டனே சிவலோகனேசிறு நாயினுங்கடையாய வெங்<BR>
+            கட்டனேனையும் ஆட்கொள்வான்வந்து காட்டினாய் கழுக்குன்றிலே ⁠469<BR>
+            <BR>
+            மலங்கினேன் கண்ணின்நீரை மாற்றி மலங்கெடுத்த பெருந்துறை<BR>
+            விலங்கினேன் வினைக்கேடனேன் இனி மேல் விளைவதறிந்திலேன்<BR>
+            இலங்குகின்றநின்சேவடிகள் இரண்டும் வைப்பிடமின்றியே<BR>
+            கலங்கினேன் கலங்காமலேவந்து காட்டினாய் கழுக்குன்றிலே ⁠470<BR>
+            <BR>
+            பூணொணாததொரன்பு பூண்டு பொருந்திநாள்தொறும் போற்றவும்<BR>
+            நாணொணாததொர்நாணம் எய்தி நடுக்கடலுள் அழுந்திநான்<BR>
+            பேணொணாதபெருந்துறைப்பெருந் தோணிபற்றியுகைத்தலுங்<BR>
+            காணொணாத்திருக்கோலம் நீவந்து காட்டினாய் கழுக்குன்றிலே ⁠471<BR>
+            <BR>
+            கோலமேனிவராக மேகுணமாம் பெருந்துறைக்கொண்டலே<BR>
+            சீலமேதும் அறிந்திலாத என் சிந்தை வைத்த சிகாமணி<BR>
+            ஞாலமேகரியாக நானுனை நச்சி நச்சிட வந்திடுங்<BR>
+            காலமேஉனை ஓதநீ வந்து காட்டினாய் கழுக்குன்றிலே ⁠472<BR>
+            <BR>
+            பேதம் இலாததொர் கற்பளித்த பெருந்துறைப் பெருவெள்ளமே<BR>
+            ஏதமேபல பேசநீஎனை ஏதிலார் முனம் என்செய்தாய்<BR>
+            சாதல் சாதல்பொல் லாமையற்ற தனிச்சரண் சரணாமெனக்<BR>
+            காதலால் உனைஓதநீ வந்து காட்டினாய் கழுக்குன்றிலே ⁠473<BR>
+            <BR>
+            இயக்கி மாரறு பத்து நால்வரை எண்குணம்செய்த ஈசனே<BR>
+            மயக்க மாயதொர் மும்மலப்பழ வல்வினைக்குள் அழுந்தவும்<BR>
+            துயக்கறுத்தெனை ஆண்டுகொண்டு நின் தூய்மலர்க்கழல் தந்தெனக்<BR>
+            கயக்க வைத்தடி யார்முனேவந்து காட்டினாய் கழுக்குன்றிலே ⁠474<BR>
+            <BR>
+            திருச்சிற்றம்பலம்<BR>
+    </p>
+    </body>
+    </html>
+    

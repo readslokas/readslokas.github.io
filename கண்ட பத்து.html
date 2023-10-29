@@ -1,0 +1,139 @@
+<HTML>
+
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=0
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)  alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",25)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+      }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p  {
+    color: white;
+    font-family: calibri;
+    font-size: 160%;
+    word-wrap: break-word;
+    }
+    
+    .block {
+    display: block;
+    width: 100%;
+    font-size: 160%;
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body class="block">
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <p>
+        கண்டபத்து - நிருத்த தரிசனம்<BR>
+            (தில்லையில் அருளியது - தரவு கொச்சகக் கலிப்பா)<BR>
+            <BR>
+            இந்திரிய வயமயங்கி இறப்பதற்கே காரணமாய்<BR>
+            அந்தரமே திரிந்துபோய் அருநகரில் வீழ்வேற்குச்<BR>
+            சிந்தைதனைத் தெளிவித்துச் சிவமாக்கி எனையாண்ட<BR>
+            அந்தமிலா ஆனந்தம் அணிகொள் தில்லை கண்டேனே ⁠475<BR>
+            <BR>
+            வினைப்பிறவி என்கின்ற வேதனையில் அகப்பட்டுத்<BR>
+            தனைச்சிறிதும் நினையாதே தளர்வெய்திக் கிடப்பேனை<BR>
+            எனைப்பெரிதும் ஆட்கொண்டென் பிறப்பறுத்த இணையிலியை<BR>
+            அனைத்துலகுந் தொழுந்தில்லை அம்பலத்தே கண்டேனே ⁠476<BR>
+            <BR>
+            உருத்தெரியாக் காலத்தே உள்புகுந்தென் உளம்மன்னிக்<BR>
+            கருத்திருத்தி ஊன்புக்குக் கருணையினால் ஆண்டுகொண்ட<BR>
+            திருத்துருத்தி மேயானைத் தித்திக்குஞ் சிவபதத்தை<BR>
+            அருத்தியினால் நாயடியேன் அணிகொள்தில்லை கண்டேனே ⁠477<BR>
+            <BR>
+            கல்லாத புல்லறிவிற் கடைப்பட்ட நாயேனை<BR>
+            வல்லாள னாய்வந்து வனப்பெய்தி யிருக்கும் வண்ணம்<BR>
+            பல்லோருங் காண என்றன் பசுபாசம் அறுத்தானை<BR>
+            எல்லோரும் இறைஞ்சுதில்லை அம்பலத்தே கண்டேனே ⁠478<BR>
+            <BR>
+            சாதிகுலம் பிறப்பென்னுஞ் சுழிப்பட்டுத் தடுமாறும்<BR>
+            ஆதமிலி நாயேனை அல்லலறுத் தாட்கொண்டு<BR>
+            பேதைகுணம் பிறருருவம் யானெனதென் னுரைமாய்த்துக்<BR>
+            கோதிலமு தானானைக் குலாவுதில்லை கண்டேனே ⁠479<BR>
+            <BR>
+            பிறவிதனை அறமாற்றிப் பிணிமூப்பென் றிவையிரண்டும்<BR>
+            உறவினொடும் ஒழியச்சென் றுலகுடைய ஒருமுதலைச்<BR>
+            செறிபொழில்சூழ் தில்லைநகர்த் திருச்சிற்றம்பலம் மன்னி<BR>
+            மறையவரும் வானவரும் வணங்கிடநான் கண்டேனே ⁠480<BR>
+            <BR>
+            பத்திமையும் பரிசுமிலாப் பசுபாசம் அறுத்தருளிப்<BR>
+            பித்தனிவன் எனஎன்னை ஆக்குவித்துப் பேராமே<BR>
+            சித்தமெனுந் திண்கயிற்றால் திருப்பாதங் கட்டுவித்த<BR>
+            வித்தகனார் விளையாடல் விளங்குதில்லை கண்டேனே ⁠481<BR>
+            <BR>
+            அளவிலாப் பாவகத்தால் அமுக்குண்டிங் கறிவின்றி<BR>
+            விளைவொன்றும் அறியாதே வெறுவியனாய்க் கிடப்பேனுக்கு<BR>
+            அளவிலா ஆனந்தம் அளித்தென்னை ஆண்டானைக்<BR>
+            களவிலா வானவருக் தொழுதில்லை கண்டேனே ⁠482<BR>
+            <BR>
+            பாங்கினொடு பரிசொன்றும் அறியாத நாயேனை<BR>
+            ஓங்கியுளத் தொளிவளர உலப்பிலா அன்பருளி<BR>
+            வாங்கிவினை மலம்அறுத்து வான்கருணை தந்தானை<BR>
+            நான்குமறை பயில்தில்லை அம்பலத்தே கண்டேனே ⁠483<BR>
+            <BR>
+            பூதங்கள் ஐந்தாகிப் புலனாகிப் பொருளாகிப்<BR>
+            பேதங்கள் அனைத்துமாய்ப் பேதமில்லாப் பெருமையனைக்<BR>
+            கேதங்கள் கெடுத்தாண்ட கிளரொளியை மரகதத்தை<BR>
+            வேதங்கள் தொழுதேத்தும் விளங்குதில்லை கண்டேனே ⁠484<BR>
+            <BR>
+            திருச்சிற்றம்பலம்<BR>
+    </p>
+    </body>
+    </html>
+    

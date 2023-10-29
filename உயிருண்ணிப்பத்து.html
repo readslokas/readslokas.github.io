@@ -1,0 +1,140 @@
+<HTML>
+
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=0
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)  alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",25)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+      }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p  {
+    color: white;
+    font-family: calibri;
+    font-size: 160%;
+    word-wrap: break-word;
+    }
+    
+    .block {
+    display: block;
+    width: 100%;
+    font-size: 160%;
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body class="block">
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <p>
+        உயிருண்ணிப்பத்து - சிவனந்தம் மேலிடுதல்<BR>
+            (திருப்பெருந்துறையில் அருளியது - கலிவிருத்தம்)<BR>
+            <BR>
+            பைந்நாப் பட அரவேரல்குல் உமைபாகம் தாய் என்<BR>
+            மெய்ந்நாள்தொறும் பிரியா வினைக்கேடா விடைப்பாகா<BR>
+            செந்நாவலர் பசும்புகழ்த் திருப்பெருந்துறை உறைவாய்<BR>
+            எந்நாட்களித் தெந்நாள் இறுமாக்கேன் இனியானே ⁠506<BR>
+            <BR>
+            நானாரடி அணைவானொரு நாய்க்குத் தவிசிட்டிங்கு<BR>
+            ஊனாருடல் புகுந்தான்உயிர் கலந்தான் உளம்பிரியான்<BR>
+            தேனார்சடை முடியான் மன்னு திருப்பெருந்துறை உறைவான்<BR>
+            வானோர்களும் அறியாததோர் வளமீந்தனன் எமக்கே ⁠507<BR>
+            <BR>
+            எனைநானென்ப தறியேன்பகல் இரவாவதும் அறியேன்<BR>
+            மனவாசகங் கடந்தான் எனை மத்தோன்மத்தனாக்கிச்<BR>
+            சினமால்விடை உடையான் மன்னு திருப்பெருந்துறை உறையும்<BR>
+            பனவன் னெனைச் செய்தபடி றறியேன் பரஞ் சுடரே ⁠508<BR>
+            <BR>
+            வினைக்கேடரும் உளரோபிறர் சொல்லீர் வியனுலகில்<BR>
+            எனைத்தான்புகுந் தாண்டான்என தென்பின்புரை யுருக்கிப்<BR>
+            பினைத்தான்புகுந் தெல்லே பெருந்துறையில் உறைபெம்மான்<BR>
+            மனத்தான் கண்ணின் அகத்தான் மறு மாற்றத்திடை யானே ⁠509<BR>
+            <BR>
+            பற்றாங்கவை அற்றீர்பற்றும் பற்றாங்கது பற்றி<BR>
+            நற்றாங்கதி அடைவோமெனிற் கெடுவீரோடி வம்மின்<BR>
+            தெற்றார்சடை முடியான் மன்னு திருப்பெருந்துறை இறைசீர்<BR>
+            கற்றாங்கவன் கழல்பேணின ரோடுகூடுமின் கலந்தே ⁠510<BR>
+            <BR>
+            கடலின்திரையதுபோல் வருகலக்க மலம் அறுத்தென்<BR>
+            உடலும்என துயிரும்புகுந் தொழியாவண்ணம் நிறைந்தான்<BR>
+            சுடருஞ்சுடர் மதிசூடிய திருப்பெருந்துறை உறையும்<BR>
+            படருஞ்சடை மகுடத்தெங்கள் பரன்தான் செய்த படிறே ⁠511<BR>
+            <BR>
+            வேண்டேன்புகழ் வேண்டேன் செல்வம்<BR>
+            வேண்டேன் மண்ணும் விண்ணும்<BR>
+            வேண்டேன் பிறப் பிறப்புச்சிவம் வேண்டார் தமைநாளும்<BR>
+            தீண்டேன்சென்று சேர்ந்தேன்மன்னு திருப்பெருந்துறை இறைதாள்<BR>
+            பூண்டேன்புறம் போகேன் இனிப் புறம்போகலொட் டேனே ⁠512<BR>
+            <BR>
+            கோற்றேன்எனக் கென்கோகுரை கடல்வாய் அமுதென்கோ<BR>
+            ஆற்றேன்எங்கள் அரனே அருமருந்தே என தரசே<BR>
+            சேற்றார்வயல் புடைசூழ் தரு திருப்பெருந்துறை உறையும்<BR>
+            நீற்றார்தரு திருமேனிநின் மலனே உனையானே ⁠513<BR>
+            <BR>
+            எச்சம் அறிவேன்நான்எனக் கிருக்கின்றதை அறியேன்<BR>
+            அச்சோ எங்கள் அரனே அரு மருந்தே எனதமுதே<BR>
+            செச்சைமலர் புரைமேனியன் திருப்பெருந்துறை உறைவான்<BR>
+            நிச்சம்என நெஞ்சில்மன்னி யானாகிநின் றானே ⁠514<BR>
+            <BR>
+            வான்பாவிய உலகத்தவர் தவமே செய அவமே<BR>
+            ஊன்பாவிய உடலைச் சுமந்தடவிமர மானேன்<BR>
+            தேன்பாய்மலர்க் கொன்றைமன்னு திருப்பெருந்துறை உறைவாய்<BR>
+            நான்பாவியன் ஆனால் உனை நல்காயென லாமே ⁠515<BR>
+            <BR>
+            திருச்சிற்றம்பலம்<BR>
+    </p>
+    </body>
+    </html>
+    

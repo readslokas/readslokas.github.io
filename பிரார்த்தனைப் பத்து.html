@@ -1,0 +1,145 @@
+<HTML>
+
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=0
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)  alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",25)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+      }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p  {
+    color: white;
+    font-family: calibri;
+    font-size: 160%;
+    word-wrap: break-word;
+    }
+    
+    .block {
+    display: block;
+    width: 100%;
+    font-size: 160%;
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body class="block">
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <p>
+        பிரார்த்தனைப் பத்து<BR>
+            (திருப்பெருந்துறையில் அருளியது - அறுசீர்க் கழி நெடிலடி ஆசிரிய விருத்தம்)<BR>
+            <BR>
+            <BR>
+            கலந்து நின்னடி யாரோ டன்று வாளா களித்திருந்தேன்<BR>
+            புலர்ந்து போன காலங்கள் புகுந்துநின்ற திடர்பின்னாள்<BR>
+            உலர்ந்து போனேன் உடையானே உலவா இன்பச் சுடர்காண்பான்<BR>
+            அலர்ந்து போனேன் அருள்செய்யாய் ஆர்வங் கூர அடியேற்கே ⁠485<BR>
+            <BR>
+            அடியார் சிலருன் அருள்பெற்றார் ஆர்வங் கூர யான் அவமே<BR>
+            முடையார் பிணத்தின் முடிவின்றி முனிவால் அடியேன் மூக்கின்றேன்<BR>
+            கடியேனுடைய கடுவினையைக் களைந்துன் கருணைக் கடல்பொங்க<BR>
+            உடையாய் அடியேன் உள்ளத்தே ஓவா துருக அருளாயே ⁠486<BR>
+            <BR>
+            அருளா ரமுதப் பெருங்கடல்வாய் அடியா ரெல்லாம் புக்கழுந்த<BR>
+            இருளா ராக்கை யிதுபொறுத்தே எய்த்தேன் கண்டாய் எம்மானே<BR>
+            மருளார் மனத்தோர் உன்மத்தன் வருமா லென்றிங் கெனைக்கண்டார்<BR>
+            வெருளா வண்ணம் மெய்யன்பை உடையாய் பெறநான் வேண்டுமே ⁠487<BR>
+            <BR>
+            வேண்டும் வேண்டும் மெய்யடியா ருள்ளே விரும்பி எனை அருளால்<BR>
+            ஆண்டாய் அடியேன் இடர்களைந்த அமுதே அருமா மணிமுத்தே<BR>
+            தூண்டா விளக்கின் சுடரனையாய் தொண்டனேற்கும் உண்டாங்கொல்<BR>
+            வேண்டா தொன்றும் வேண்டாதுமிக்க அன்பே மேவுதலே ⁠488<BR>
+            <BR>
+            மேவும் உன்றன் அடியாருள் விரும்பி யானும் மெய்ம்மையே<BR>
+            காவி சேருங் கயற்கண்ணாள் பங்கா உன்றன் கருணையினால்<BR>
+            பாவியேற்கும் உண்டாமோ பரமா னந்தப் பழங்கடல்சேர்ந்<BR>
+            தாவி யாக்கை யானெனதென்று யாதுமின்றி அறுதலே ⁠489<BR>
+            <BR>
+            அறவே பெற்றார் நின்னன்பர் அந்தமின்றி அகநெகவும்<BR>
+            புறமே கிடந்து புலைநாயேன் புலம்பு கின்றேன் உடையானே<BR>
+            பெறவே வேண்டும் மெய்யன்பு பேரா ஒழியாய் பிரிவில்லா<BR>
+            மறவா நினையா அளவில்லா மாளா இன்ப மாகடலே ⁠490<BR>
+            <BR>
+            கடலே அனைய ஆனந்தங் கண்டா ரெல்லாங் கவர்ந்துண்ண<BR>
+            இடரே பெருக்கி ஏசற்றிங் கிருத்த லழகோ அடிநாயேன்<BR>
+            உடையாய் நீயே அருளிதியென் றுணர்த்தா தொழிந்தே கழிந்தொழிந்தேன்<BR>
+            சுடரார் அருளால் இருள்நீங்கச் சோதி இனித்தான் துணியாயே ⁠491<BR>
+            <BR>
+            துணியா உருகா அருள்பெருகத் தோன்றும் தொண்டரிடைப்புகுந்து<BR>
+            திணியார் மூங்கிற் சிந்தையேன் சிவனே நின்று தேய்கின்றேன்<BR>
+            அணியா ரடியா ருனக்குள்ள அன்புந் தாராய் அருளளியத்<BR>
+            தணியா தொல்லை வந்தருளித் தளிர்ப்பொற் பாதந் தாராயே ⁠492<BR>
+            <BR>
+            தாரா அருளொன் றின்றியே தந்தாய் என்றுன் தமரெல்லாம்<BR>
+            ஆரா நின்றார் அடியேனும் அயலார் போல அயர்வேனோ<BR>
+            சீரார் அருளாற் சிந்தனையைத் திருத்தி ஆண்ட சிவலோகா<BR>
+            பேரா னந்தம் பேராமை வைக்க வேண்டும் பெருமானே ⁠493<BR>
+            <BR>
+            மானோர் பங்கா வந்திப்பார் மதுரக் கனியே மனநெகா<BR>
+            நானோர் தோளாச் சுரையொத்தால் நம்பி இத்தால் வாழ்ந்தாயே<BR>
+            ஊனே புகுந்த உனையுணர்ந்தே உருகிப் பெருகும் உள்ளத்தைக்<BR>
+            கோனே அருளுங் காலந்தான் கொடியேற் கென்றோ கூடிவதே ⁠494<BR>
+            <BR>
+            கூடிக்கூடி உன்னடியார் குளிப்பார் சிரிப்பார் களிப்பாரா<BR>
+            வாடிவாடி வழியற்றேன் வற்றல் மரம்போல் நிற்பேனோ<BR>
+            ஊடிஊடி உடையாயொடு கலந்துள் ளுருகிப் பெருகிநெக்கு<BR>
+            ஆடிஆடி ஆனந்தம் அதுவே யாக அருள்கலந்தே ⁠495<BR>
+            <BR>
+            திருச்சிற்றம்பலம்<BR>
+    </p>
+    </body>
+    </html>
+    

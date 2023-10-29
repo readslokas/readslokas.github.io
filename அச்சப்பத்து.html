@@ -1,0 +1,139 @@
+<HTML>
+
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=0
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)  alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",25)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+      }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p  {
+    color: white;
+    font-family: calibri;
+    font-size: 160%;
+    word-wrap: break-word;
+    }
+    
+    .block {
+    display: block;
+    width: 100%;
+    font-size: 160%;
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body class="block">
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <p>
+        அச்சப் பத்து<BR>
+            <BR>
+            புற்றில் வாள் அரவும் அஞ்சேன்; பொய்யர் தம் மெய்யும் அஞ்சேன்;<BR>
+            கற்றை வார் சடை எம் அண்ணல், கண் நுதல், பாதம் நண்ணி,<BR>
+            மற்றும் ஓர் தெய்வம் தன்னை உண்டு என நினைந்து, எம் பெம்மாற்கு<BR>
+            அற்றிலாதவரைக் கண்டால், அம்ம! நாம் அஞ்சுமாறே!<BR>
+            <BR>
+            வெருவரேன், வேட்கை வந்தால்; வினைக் கடல் கொளினும், அஞ்சேன்;<BR>
+            இருவரால் மாறு காணா எம்பிரான், தம்பிரான், ஆம்<BR>
+            திரு உரு அன்றி, மற்று ஓர் தேவர், எத் தேவர்? என்ன<BR>
+            அருவராதவரைக் கண்டால், அம்ம! நாம் அஞ்சுமாறே!<BR>
+            <BR>
+            வன் புலால் வேலும் அஞ்சேன்; வளைக் கையார் கடைக் கண் அஞ்சேன்;<BR>
+            என்பு எலாம் உருக நோக்கி, அம்பலத்து ஆடுகின்ற<BR>
+            என் பொலா மணியை ஏத்தி, இனிது அருள் பருக மாட்டா<BR>
+            அன்பு இலாதவரைக் கண்டால், அம்ம! நாம் அஞ்சுமாறே!<BR>
+            <BR>
+            கிளி அனார் கிளவி அஞ்சேன்; அவர் கிறி முறுவல் அஞ்சேன்;<BR>
+            வெளிய நீறு ஆடும் மேனி வேதியன் பாதம் நண்ணி,<BR>
+            துளி உலாம் கண்ணர் ஆகி, தொழுது, அழுது, உள்ளம் நெக்கு, இங்கு,<BR>
+            அளி இலாதவரைக் கண்டால், அம்ம! நாம் அஞ்சுமாறே!<BR>
+            <BR>
+            பிணி எலாம் வரினும், அஞ்சேன்; பிறப்பினோடு இறப்பும் அஞ்சேன்;<BR>
+            துணி நிலா அணியினான் தன் தொழும்பரோடு அழுந்தி, அம் மால்,<BR>
+            திணி நிலம் பிளந்தும், காணாச் சேவடி பரவி, வெண் நீறு<BR>
+            அணிகிலாதவரைக் கண்டால், அம்ம! நாம் அஞ்சுமாறே!<BR>
+            <BR>
+            <BR>
+            வாள் உலாம் எரியும் அஞ்சேன்; வரை புரண்டிடினும், அஞ்சேன்;<BR>
+            தோள் உலாம் நீற்றன், ஏற்றன், சொல் பதம் கடந்த அப்பன்,<BR>
+            தாள் தாமரைகள் ஏத்தி, தட மலர் புனைந்து, நையும்<BR>
+            ஆள் அலாதவரைக் கண்டால், அம்ம! நாம் அஞ்சுமாறே!<BR>
+            <BR>
+            தகைவு இலாப் பழியும் அஞ்சேன்; சாதலை முன்னம் அஞ்சேன்;<BR>
+            புகை முகந்து எரி கை வீசி, பொலிந்த அம்பலத்துள் ஆடும்,<BR>
+            முகை நகைக் கொன்றை மாலை, முன்னவன் பாதம் ஏத்தி,<BR>
+            அகம் நெகாதவரைக் கண்டால், அம்ம! நாம் அஞ்சுமாறே!<BR>
+            <BR>
+            தறி செறி களிறும் அஞ்சேன்; தழல் விழி உழுவை அஞ்சேன்;<BR>
+            வெறி கமழ் சடையன், அப்பன், விண்ணவர் நண்ண மாட்டாச்<BR>
+            செறிதரு கழல்கள் ஏத்தி, சிறந்து, இனிது இருக்க மாட்டா<BR>
+            அறிவு இலாதவரைக் கண்டால், அம்ம! நாம் அஞ்சுமாறே!<BR>
+            <BR>
+            மஞ்சு உலாம் உருமும் அஞ்சேன்; மன்னரோடு உறவும் அஞ்சேன்;<BR>
+            நஞ்சமே அமுதம் ஆக்கும் நம் பிரான் எம்பிரான் ஆய்,<BR>
+            செஞ்செவே ஆண்டு கொண்டான் திருமுண்டம் தீண்ட மாட்டாது,<BR>
+            அஞ்சுவார் அவரைக் கண்டால், அம்ம! நாம் அஞ்சுமாறே!<BR>
+            <BR>
+            கோண் இலா வாழி அஞ்சேன்; கூற்றுவன் சீற்றம் அஞ்சேன்;<BR>
+            நீள் நிலா அணியினானை நினைந்து, நைந்து, உருகி, நெக்கு,<BR>
+            வாழ்<BR>
+            <BR>
+            நிலாம் கண்கள் சோர, வாழ்த்திநின்று, ஏத்தமாட்டா<BR>
+            ஆண் அலாதவரைக் கண்டால், அம்ம! நாம் அஞ்சுமாறே!<BR>
+    </p>
+    </body>
+    </html>
+    

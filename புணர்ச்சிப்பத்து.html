@@ -1,0 +1,140 @@
+<HTML>
+
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=0
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)  alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",25)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+      }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p  {
+    color: white;
+    font-family: calibri;
+    font-size: 160%;
+    word-wrap: break-word;
+    }
+    
+    .block {
+    display: block;
+    width: 100%;
+    font-size: 160%;
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body class="block">
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <p>
+        புணர்ச்சிப் பத்து<BR>
+            புணர்ச்சிப்பத்து - அத்துவித இலக்கணம்<BR>
+            (திருப்பெருந்துறையில் அருளியது)<BR>
+            <BR>
+            சுடர்பொற்குன்றைத் தோளாமுத்தை வாளா தொழும்பு கந்து<BR>
+            கடைபட்டேனை ஆண்டுகொண்ட கருணாலயனைக் கருமால் பிரமன்<BR>
+            தடைபட் டின்னுஞ் சார மாட்டாத் தன்னைத் தந்த என்னா ரமுதைப்<BR>
+            புடைபட் டிருப்ப தென்றுகொல்லோஎன் பொல்லா மணியைப் புணர்ந்தே ⁠438<BR>
+            <BR>
+            ஆற்ற கில்லேன் அடியேன் அரசே அவனி தலத்ததைப் புலனாய<BR>
+            சேற்றி லழுந்தாச் சிந்தைசெய்து சிவனெம் பெருமானென்றேத்தி<BR>
+            ஊற்று மணல்போல் நெக்குநெக் குள்ளே உருகி ஓலமிட்டுப்<BR>
+            போற்றிநிற்ப தென்றுகொல்லோஎன் பொல்லா மணியைப் புணர்ந்தே ⁠439<BR>
+            <BR>
+            நீண்டமாலும் அயனும் வெருவ நீண்ட நெருப்பை விருப்பிலேனை<BR>
+            ஆண்டுகொண்ட என் ஆரமுதை அள்ளூறுள்ளத் தடியார்முன்<BR>
+            வேண்டுந் தனையும் வாய்விட்டலறி விரையார் மலர் தூவிப்<BR>
+            பூண்டு கிடப்ப தென்று கொல்லோ என் பொல்லா மணியைப் புணர்ந்தே ⁠440<BR>
+            <BR>
+            அல்லிக் கமலத் தயனும் மாலும் அல்லா தவரும் அமரர்கோனுஞ்<BR>
+            சொல்லிப் பரவும் நாமத் தானைச் சொல்லும் பொருளும் இறந்த சுடரை<BR>
+            நெல்லிக் கனியைத் தேனைப் பாலை நிறையின் அமுதை அமுதின் சுவையைப்<BR>
+            புல்லிப் புணர்வ தென்றுகொல்லோ என் பொல்லா மணியைப் புணர்ந்தே ⁠441<BR>
+            <BR>
+            திகழத் திகழும் அடியும் முடியுங் காண்பான் கீழ்மேல் அயனும் மாலும்<BR>
+            அகழப் பறந்துங் காண மாட்டா அம்மான் இம்மா நிலமுழுதும்<BR>
+            நிகழப் பணிகொண்டென்னை ஆட்கொண்டு ஆ ஆ என்ற நீர்மையெலாம்<BR>
+            புகழப் பெறுவ தென்று கொல்லோ என் பொல்லா மணியைப் புணர்ந்தே ⁠442<BR>
+            <BR>
+            பரிந்து வந்து பரமானந்தம் பண்டே அடியேற் கருள் செய்யப்<BR>
+            பிரிந்து போந்து பெருமா நிலத்தில் அருமா லுற்றேன் என்றென்று<BR>
+            சொரிந்த கண்ணீர் சொரிய உள்நீர் உரோமஞ் சிலிர்ப்ப உகந்தன்பாய்ப்<BR>
+            புரிந்து நிற்பதென்று கோல்லோ என் பொல்லா மணியைப் புணர்ந்தே ⁠443<BR>
+            <BR>
+            நினையப்பிறருக் கரிய நெருப்பை நீரைக் காலை நிலனை விசும்பைத்<BR>
+            தனையொப் பாரை யில்லாத தனியை நோக்கித் தழைத்துத் தழு த்தகண்டம்<BR>
+            கனையப் கண்ணீர் அருவி பாயக் கையுங் கூப்பிக் கடிமலராற்<BR>
+            புனையப் பெறுவதென்று கொல்லோ என் பொல்லா மணியைப் புணர்ந்தே ⁠444<BR>
+            <BR>
+            நெக்குநெக்குள் உருகி உருகி நின்றும் இருந்தும் கிடந்தும் எழுந்தும்<BR>
+            நக்கும் அழுதும் தொழுதும் வாழ்த்தி நானாவிதத்தாற் கூத்தும் நவிற்றிச்<BR>
+            செக்கர்போலும் திருமேனிதிகழ நோக்கிச் சிலிர்சி லிர்த்துப்<BR>
+            புக்கு நிற்ப தென்றுகொல்லோ என் பொல்லா மணியைப் புணர்ந்தே ⁠445<BR>
+            <BR>
+            தாதாய் மூவே ழுலகுக்குங் தாயே நாயேன் தனையாண்ட<BR>
+            பேதாய் பிறவிப் பிணிக்கோர் மருந்தே பெருந்தேன் பில்க எப்போதும்<BR>
+            ஏதா மணியே என்றென்றேத்தி இரவும் பகலும் எழிலார்பாதப்<BR>
+            போதாய்ந் தணைவதென்று கொல்லோ என் பொல்லா மணியைப் புணர்ந்தே ⁠446<BR>
+            <BR>
+            காப்பாய் படைப்பாய் கரப்பாய் முழுதுங் கண்ணார் விசும்பின் விண்ணோர்க்கெல்லாம்<BR>
+            முப்பாய மூவா முதலாய் நின்ற முதல்வா முன்னே எனையாண்ட<BR>
+            பார்ப்பானே எம்பரமா என்று பாடிப் பாடிப் பணிந்து பாதப்<BR>
+            பூப்போதணைவ தென்று கொல்லோ என் பொல்லா மணியைப் புணர்ந்தே ⁠447<BR>
+            <BR>
+            திருச்சிற்றம்பலம்<BR>
+    </p>
+    </body>
+    </html>
+    

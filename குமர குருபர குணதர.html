@@ -1,0 +1,118 @@
+<HTML>
+
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=0
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",25)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+    if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+    }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p{
+    color: white;
+    font-family: calibri;
+    font-size: 160%;
+    word-wrap: break-word;
+    }
+    
+    .block {
+    display: block;
+    width: 100%;
+    font-size: 160%;
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body class="block">
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <p>
+    
+    குமர குருபர குணதர நிசிசர<BR>
+    திமிர தினகர சரவண பவகிரி<BR>
+    குமரி சுதபகி ரதிசுத சுரபதி குலமானுங்<BR>
+    <BR>
+    குறவர் சிறுமியு மருவிய திரள்புய<BR>
+    முருக சரணென வுருகுதல் சிறிதுமில்<BR>
+    கொடிய வினையனை யவலனை யசடனை யதிமோகக்<BR>
+    <BR>
+    கமரில் விழவிடு மழகுடை யரிவையர்<BR>
+    களவி னொடுபொரு ளளவள வருளிய<BR>
+    கலவி யளறிடை துவளுறும் வெளிறனை யினிதாளக்<BR>
+    <BR>
+    கருணை யடியரொ டருணையி லொருவிசை<BR>
+    சுருதி புடைதர வருமிரு பரிபுர<BR>
+    கமல மலரடி கனவிலு நனவிலு மறவேனே<BR>
+    <BR>
+    தமர மிகுதிரை யெறிவளை கடல்குடல்<BR>
+    மறுகி யலைபட விடநதி யுமிழ்வன<BR>
+    சமுக முககண பணபணி பதிநெடு வடமாகச்<BR>
+    <BR>
+    சகல வுலகமு நிலைபெற நிறுவிய<BR>
+    கனக கிரிதிரி தரவெகு கரமலர்<BR>
+    தளர வினியதொ ரமுதினை யொருதனி கடையாநின்<BR>
+    <BR>
+    றமரர் பசிகெட வுதவிய க்ருபைமுகில்<BR>
+    அகில புவனமு மளவிடு குறியவன்<BR>
+    அளவு நெடியவ னளவிட அரியவன் மருகோனே<BR>
+    <BR>
+    அரவு புனைதரு புநிதரும் வழிபட<BR>
+    மழலை மொழிகொடு தெளிதர வொளிதிகழ்<BR>
+    அறிவை யறிவது பொருளென அருளிய பெருமாளே<BR>
+    
+    </P>
+    
+    </body>
+    </html>

@@ -1,18 +1,18 @@
 <HTML>
-  <meta charset="UTF-8">
-  <SCRIPT language=JavaScript12>
-  //change 1 to another integer to alter the scroll speed Greater is faster
-  var speed=1
+
+  <SCRIPT language=JavaScript1.2>
+  //change 1 to another integer to alter the scroll speed. Greater is faster
+  var speed=0
   
-  var currentpos=0alt=1curpos1=0curpos2=-1
+  var currentpos=0,alt=1,curpos1=0,curpos2=-1
   function initialize(){
   startit()
   }
   function scrollwindow(){
-  if (documentall && !documentgetElementById)
-  temp=documentbodyscrollTop
+  if (document.all && !document.getElementById)
+  temp=document.body.scrollTop
   else
-  temp=windowpageYOffset
+  temp=window.pageYOffset
   if (alt==0)alt=2
   else alt=1
   
@@ -22,34 +22,34 @@
   curpos2=temp
   
   if (curpos1!=curpos2){
-  if (documentall)
-  currentpos=documentbodyscrollTop+speed
+  if (document.all)
+  currentpos=document.body.scrollTop+speed
   else
-  currentpos=windowpageYOffset+speed
-  windowscroll(0currentpos)
+  currentpos=window.pageYOffset+speed
+  window.scroll(0,currentpos)
   }
   else{
   currentpos=0
-  windowscroll(0currentpos)
+  window.scroll(0,currentpos)
   }
   }
   
   function startit(){
-  setInterval("scrollwindow()"50)
+  setInterval("scrollwindow()",25)
   }
-  windowonload=initialize
+  window.onload=initialize
   
-  var elem = documentdocumentElement;
+  var elem = document.documentElement;
   
   function openFullscreen() {
-  if (elemrequestFullscreen) {
-  elemrequestFullscreen();
-  } else if (elemmozRequestFullScreen) { /* Firefox */
-  elemmozRequestFullScreen();
-  } else if (elemwebkitRequestFullscreen) { /* Chrome Safari & Opera */
-  elemwebkitRequestFullscreen();
-  } else if (elemmsRequestFullscreen) { /* IE/Edge */
-  elemmsRequestFullscreen();
+  if (elem.requestFullscreen) {
+  elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+  elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+  elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+  elem.msRequestFullscreen();
   }
   }
   
@@ -61,15 +61,14 @@
   p{
   color: white;
   font-family: calibri;
-  font-size: 270%;
+  font-size: 160%;
   word-wrap: break-word;
   }
   
-  block {
+  .block {
   display: block;
   width: 100%;
-  font-size: 270%;
-  text-align: center;
+  font-size: 160%;
   max-width: 100%;
   overflow-x: hidden;
   }
@@ -77,11 +76,9 @@
   </style>
   </head>
   
-  <body>
-  <BR>
+  <body class="block">
   <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
-  
-  <P>
+  <p>
   
   ஆடும் பரி வேல் அணிசேவல் எனப்<BR>
   பாடும் பணியே பணியா அருள்வாய்<BR>

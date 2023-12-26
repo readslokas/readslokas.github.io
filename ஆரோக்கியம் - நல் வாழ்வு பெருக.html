@@ -1,0 +1,140 @@
+<HTML>
+<meta charset="UTF-8">
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=0
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",50)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 270%;
+    text-align: center;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body>
+<BR>
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<P>
+ஆரோக்கியம் - நல் வாழ்வு பெருக<BR>
+------------------------<BR>
+<BR>
+வணங்கினேன் வைதியநாதா வானவர் போற்றிடும்<BR>
+பிறைஅழகா மேனிதனில் நீர்புசி நீக்கமற காட்சிதரும்<BR>
+வானுயர் தேவனே போற்றியே பாடுகின்றேன்<BR>
+மனக் கவலைகள் தீர நின்னருள் வேண்டுகின்றேன் 71<BR>
+<BR>
+வேண்டினேன் ஐயனே நின் அருளை- என்<BR>
+உடல் கொண்ட பிணிகள் மாய்ந்திடவே<BR>
+ஒன்பது துவாரத்தால் யான் செய்வித்த<BR>
+வன்செயல்களெல்லாம் பிணியாகி வாட்டிடுதே 72<BR>
+<BR>
+வாட்டிடும் மூப்பும் சூலையும் எலும்புரி நோயும்<BR>
+நரம்புத் தளர்வும் சுவாசக் கழிவும் இருதயப் பிணியும்<BR>
+வாதம் பித்தம் கண் செவி குறைவும் நீரழிவு நோயும்<BR>
+பால் சேர் பிணியும் எல்லாம் மாய்ந்திடும் நின்னருள்ளாலே 73<BR>
+<BR>
+நின்னருளே மருந்தென நின் அடிமலர் பணிந்தேன்<BR>
+தாயாய் அணைத்தெனை அன்பு சேர்ப்பாயே<BR>
+பித்தனாய் யான் செய்த பிழைகள் பொறுத்தே<BR>
+அற்பன் எனக்கு அருமருந்து அளிப்பாயே 74<BR>
+<BR>
+அளிப்பாய் என என் இரு கை நீட்டுகின்றேன்<BR>
+அபலைக்கு அருளிட இன்னமும் மனமில்லையோ<BR>
+அப்பர்துதிக்கு சூலை தீர்த்த சுந்தரனே<BR>
+இந்த ஏழை பாடலுக்கும் மனம் இறங்காயோ 75<BR>
+<BR>
+இறக்கம் காட்டுவாய் இந்த எளியேனுக்கும்<BR>
+நின் கருணை காட்டுவாய் கருணா சாகரனே<BR>
+சாகரமாம் வாழ்வுதனை சலிப்புடன் கழிக்கின்றேன்<BR>
+துடுப்பாய் இருந்தென்னை கரை சேர்ப்பாய் தூயவனே 76<BR>
+<BR>
+தூய்மை உள்ளத்தினிலே சுடர்விடும் ஜோதியே<BR>
+ஓடியே வந்தெனை காத்தருள்வாய் தவசீலனே<BR>
+நின் திருநீரே நல் மருந்தாகும் என அறிவேன்<BR>
+வேளூர் நாயகனே நின் அருள் நாடினேனே 77<BR>
+<BR>
+நாடினேன் சீலனே நின் அருள் வேண்டியே<BR>
+ஓடிடும் பிணியும் நின் கண்ணொளி பட்டாலே<BR>
+கூடிடும் திடமும் நலமும் நல்வாழ்வுமே<BR>
+கூட்டுவாய் எந்தனை நின் ஒளிக் கூட்டிலே 78<BR>
+<BR>
+கூடும் கொண்ட ஆசைக்கெல்லாம் மனம்<BR>
+ஆடி ஓடி அலைந்தாடுதே பேதை எந்தனை<BR>
+தடுத்து ஆட்கொள்வாய் காமகோடி வேந்தனே<BR>
+கச்சியம்பதி கண்ட காமாக்ஷி அம்மை பாலனே 79<BR>
+<BR>
+பாலகனாய் பீடத்தில் குருவான செந்தணலே<BR>
+நினை என் சிந்தனையில் நிறுத்தி பாடுகின்றேன்<BR>
+நாடும் அடியார்கள் நலம் காக்கும் அன்புருவே<BR>
+கண் மலர்ந்து பாராய் காம கோடி மாமணியே 80<BR>
+<BR>
+
+</P>
+</body>
+</html>

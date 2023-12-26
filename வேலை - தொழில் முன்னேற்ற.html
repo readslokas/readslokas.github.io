@@ -1,0 +1,140 @@
+<HTML>
+<meta charset="UTF-8">
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=0
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",50)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 270%;
+    text-align: center;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body>
+<BR>
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<P>
+வேலை - தொழில் முன்னேற்ற<BR>
+----------------------<BR>
+<BR>
+கோடி மலர் பூஜிப்பேன் சங்கரனே நின் மலர் பாதத்தில்<BR>
+தினம் பாடி துதிக்கின்றேன் நற்றுணையாய் நினை வேண்டி<BR>
+செய்யும் பணிதனிலே சீருடன் சிறந்தோங்க<BR>
+சிறப்புடனே வரமருள்வாய் தீஞ்சுவை மொழியோனே 21<BR>
+<BR>
+மொழிகின்றேன் நின் திருநாமம் மூலமந்திரமெனவே<BR>
+செய்திடுவேன் நற்செயலும் நின் அருள் பெற்றிடவே<BR>
+கற்ற கல்வியும் நல்அறிவும் நல்வழியில் செயல்படவே<BR>
+நற்பணியும் கிடைத்திடவே நற்பொருளே துணையாவாய் 22<BR>
+<BR>
+துணையாய் நீயிருக்க எதிர் கொள்ளும் பணிகளையே<BR>
+பதமாய் செய்திடுவேன் பரம் பொருளே துதிக்கின்றேன்<BR>
+ஜெய ஜெய என நின் புகழை தினம் பாடி<BR>
+ஜெயமது கொள்வேனே ஜகத்தின் செயல்களிலே 23<BR>
+<BR>
+செயல்களின் சாரமும் நின்செயல் என அறிவேனே<BR>
+செங்கமல பதத்தோனே செங்கதிரே அருள்தருவாய்<BR>
+தர்மத்தின் துணை கொண்டு நற்பணிகள் நான் செய்ய<BR>
+தர்மத்தின் காவலனே தந்தையாய் பணித்திடுவாய் 24<BR>
+<BR>
+பணித்திடும் கட்டளைகள் பதமாய் முடித்திடவும்<BR>
+அறநெறி வழியினிலே நடந்து ஆணவம் தவிர்க்க<BR>
+ஆனந்த ஜோதியனே அருங்குருவே நின் கரம்காட்டி<BR>
+வழியதுவும் காட்டிடுவாய் உலகத்தில் உயர்ந்திடவே 25<BR>
+<BR>
+உயர்ந்திட வழிகேட்டு உன்னிடத்தில் ஓடிவந்தேன்<BR>
+ஓம்ங்கார நாதனே பொன்னொளியும் காட்டாயோ<BR>
+வழியது தெரியாமல் வருந்திடும் என் நிலை கண்டு<BR>
+கரம்தனை பிடித்தாங்கே காவலாய் நிற்பாயே 26<BR>
+<BR>
+நிற்பதுவும் நடப்பதுவும் நீக்கமற நிறைவதுவும்<BR>
+அறிவதுவும் பெறுவதுவும் ஆனந்த நிலையதுவும்<BR>
+கனிவதுவும் சுவைப்பதுவும் காலமெல்லாம் நிலைப்பதுவும்<BR>
+நின் விழைவே எனஅறிவேன் நேசர்க் கினியோனே 27<BR>
+<BR>
+இனியனே நிந்தன் இடக்கரம் தூக்கி - நல்<BR>
+அருள்மழையும் பொழிந்திடுவாய் அடியேன் நலம்காண<BR>
+தொழில்தனில் நேர்மையும் உண்மையும் நிலைகொண்டு<BR>
+நன்னெறியில் வாழ்ந்திடவே தவசீலனே அருள்தருவாய் 28<BR>
+<BR>
+அருள்தரும் நின் பொற்கரங்கள் அன்புடன் நான் பற்றி<BR>
+வழித்தடங்கள் தாண்டிடுவேன் வானுயற உயர்ந்திடுவேன்<BR>
+வானவரும் ஞானியரும் போற்றிடும் மாமுனியே<BR>
+வணங்கியே பணிகின்றேன் காமகோடி நாதனே 29<BR>
+<BR>
+நாதனே நால்வேத ரூபனே நல்மொழி நவின்றிடுவாய்<BR>
+நாயேன் நானுமே நானிலத்தில் நலம் பெறவும்<BR>
+காலமெல்லாம் நின்நிழலில் களிப்புடன் வாழ்ந்திடவும்<BR>
+ஸ்ரீ சங்கரனே சத்குருவே வரமருள்வாய் காருண்யனே 30<BR>
+<BR>
+
+</P>
+</body>
+</html>

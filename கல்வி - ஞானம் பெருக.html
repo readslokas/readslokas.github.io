@@ -1,0 +1,138 @@
+<HTML>
+<meta charset="UTF-8">
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=0
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",50)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 270%;
+    text-align: center;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body>
+<BR>
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<P>
+கல்வி - ஞானம் பெருக<BR>
+-----------------<BR>
+<BR>
+போற்றிப் பணிகின்றேன் பொன்னம்பல நாதனே<BR>
+ஞான ரூபனே சத்குருவே சரஸ்வதியே<BR>
+குருவாய் வந்தமர்ந்து நல்லறிவும் தந்து<BR>
+குறைதீர்த்து அருள்வாயே ஸ்ரீ தட்க்ஷிணாமூர்த்தியே 11<BR>
+<BR>
+மும்மூர்த்தியே ஞானத்தின் வடிவமான நல்வேதமே<BR>
+ஞமலியில் வலம் வந்த ஞான சாகரனே<BR>
+பாலகுருவென அமர்ந்து பல்வித்தைகள் பயின்ற<BR>
+சுவாமிநாதனே சங்கரனே பணிகின்றேன் நின் பொன்னடியே 12<BR>
+<BR>
+அடிமுடி இல்லா ஆனந்தக் கூத்தனே அற்புதனே<BR>
+அத்வைத சாரத்தை அழகாய் உரைத்திட்ட ஆதிசங்கரனே<BR>
+அறிவுச்சுடர் தன்னை அன்புடன் ஏற்றி -என்னை<BR>
+அணைத்து ஆளவும் வேண்டுகின்றேன் ஜோதியனே 13<BR>
+<BR>
+ஜோதிஸ்வரூபனாய் திருவண்ணாமலைதனில் சுடர்விட்டு<BR>
+காட்சி தந்தருளும் மெய்ஞானச் சுடரே - நான்<BR>
+கற்ற கல்வியும் கனிவாய் மதி நிற்க - நல்<BR>
+உற்றதுணை எனவே உடன் வந்து காப்பாயே 14<BR>
+<BR>
+காப்பாயே என் சிறுமதியில் சேர்ப்பாயே மெய்ஞானம்<BR>
+அருள்வாயே ஊறிட நல்லறிவும்ஊற்றாய் - சீர்காழியில்<BR>
+அழுதிட்ட பிள்ளைக்கு ஞானப்பால் தந்த தாயுருவே - உன்னை<BR>
+பாடிடும் இப்பிள்ளைக்கும் நல்ஞானம் அருளிடுவாயே 15<BR>
+<BR>
+அருளிறிடுவாய் மெய்ஞானம் மேதினியில் சிறப்பெய்தி<BR>
+ஏற்றமுடன் வாழ்ந்திடவே எத்திக்கும் சீர் பெறவே<BR>
+சபைதனில் முன்னின்று சாரத்தை உரைத்திடவும்<BR>
+அவையோர் புகழ்கூறும் ஆனந்தம் நிறைந்திடவே 16<BR>
+<BR>
+நிறைந்த முழுமதிபோல் நிறை அறிவும் ஞானமும்<BR>
+எளியேன் எனக்களித்து ஏற்றமுற செய்திடுவாய்<BR>
+கொண்ட நல்லறிவில் குவலயத்தில் நல்லோருடன் கூடி<BR>
+நற்செயல்கள் புரிந்திடவும் அருள்வாய் திருவருளே 17<BR>
+<BR>
+திருவருளும் வேண்டினேன் நின் வலக்கரம் தூக்கி<BR>
+வாழ்த்திடவும் வேண்டினேன் வள்ளலாய் அருள்தந்து<BR>
+கல்வியும் கலைகளும் வேதமும் பயின்று<BR>
+நற்சீலனாய் நான் வாழ நின் மொழி உரைப்பாயே 18<BR>
+<BR>
+உரைத்திடும் வாய்மொழிகள் ஒவ்வொன்றும் வேதமாய்<BR>
+உலகத்தில் வலம் வந்து உய்விக்கும் உத்தமனே<BR>
+சீடனாய் நின்னிடத்தில் சிரம் தாழ்த்தி பணிகின்றேன்<BR>
+சிறியேனை ஏற்று சிறுமதி மாற்றிடுவாய் குருநாதா 19<BR>
+<BR>
+குருவாய் அருள்வாய் குகனே குணசீலனே<BR>
+காமகோடி பீடமேற்ற காமாட்சி பாலனே<BR>
+கல்விக்கு அதிபதியே கலைவாணியே கலையமுதே<BR>
+ஸ்ரீ சந்திர சேகரேந்திர குருவே சரணங்கள் கோடியே 20<BR>
+</P>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<HTML>
+<meta charset="UTF-8">
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=0
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",50)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 270%;
+    text-align: center;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body>
+<BR>
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<P>
+மழை - சுபிக்க்ஷம் பெருக<BR>
+------------------<BR>
+<BR>
+கற்பாகமான சுந்தரனே சுவாமிநாதனே நிந்தன்<BR>
+எழில்மிகு ரூபம் கண்டு இன்பம் கொண்டேன்<BR>
+மண்ணின் உயிர்க்கு ஜீவனாய் இருக்கும்<BR>
+மழைத்துளி வேண்டி என் கைத்தலம் ஏந்தினேனே 61<BR>
+<BR>
+ஏந்திய கைகளுக்கு வான் போல் வளம் தரும்<BR>
+காஞ்சிமா வள்ளலே மழை வேண்டி பாடுகின்றேன்<BR>
+விதைத்த விதைகளும் விண் நோக்கி வளர்ந்து<BR>
+முதிர்ந்த பயிராகி பயன் கொள்ள அருள்வாயே 62<BR>
+<BR>
+அருள்பார்வையால் அகிலத்தின் துயர் நீக்கி<BR>
+ஆனந்த அலை வீசி அற்புதம் கொள்வோனே<BR>
+அன்னம் வேண்டி நினை அண்டியோர்க்கு<BR>
+அமுதாய் நின்று அவர் பசி தீர்க்கும் அன்னபூரணியே 63<BR>
+<BR>
+அன்னபூரணியாய் அனைவர்க்கும் ஈன்று<BR>
+தமக்கு பிட்க்ஷை ஏற்க்கும் ஈஸ்வரனே<BR>
+மண்ணும் குளிரநல் வரமும் தந்து<BR>
+வானமும் பெய்ய நல்லருள் மொழிவாயே 64<BR>
+<BR>
+மொழிந்த சொற்கள் அறம் தழைக்க செய்திடுமே<BR>
+பணித்த செயல்கள் பார்புகழ் வளம் கொண்டிடுமே<BR>
+பனித்த சடையனாய் பாற்கடல் வண்ணனாய்<BR>
+பஞ்சபூதமாய் பவனி வரும் மாமுனியே 65<BR>
+<BR>
+மாமுனியே நிந்தன் மாதவத்தால் இந்த<BR>
+மாநிலத்தில் நல்ல மேன்மைகள் பெருகிடுமே<BR>
+மண்ணாய் உருகொண்டு மாநகர் காஞ்சி வளர்<BR>
+ஏகாம்பரநாதனே எந்தன் ஏக்கம் தீர்த்திடுவாய் 66<BR>
+<BR>
+தீர்ந்திடும் பசியும் பிணியும் மூப்பும் - ஈசனே<BR>
+நிந்தன் பொன்னொளி பார்வை பட்டாலே<BR>
+நீராய் நெருப்பாய் காற்றாய் விண்ணாய் - இம்<BR>
+மண் ஓங்க வந்த மாபெருங்கருணையே சரணம் 67<BR>
+<BR>
+சரணங்கள் செய்தோம் கலி கண்ட கண்ணணே<BR>
+வேதத்தின் சாரத்தை கீதைபோல் உரைத்த குருவே<BR>
+கார்முகிலும் கூடி குளிர் மழையாகி - இந்த<BR>
+குவலயம் காக்க வருணனாய் கருணைபுரிவாயே 68<BR>
+<BR>
+கருணையால் எங்கள் கலியும் தீர்ந்திடுமே<BR>
+உந்தன் கிருபையால் எம் உள்ளம் மேன்மையுருமே<BR>
+உனையன்றி வேறொருபால் சரணடையோமே<BR>
+உள்ளத்து உறைவோனே ஆருயிரே பாராயோ 69<BR>
+<BR>
+பார்வையால் எங்கள் குறை தீர்த்திடும் நாயகா<BR>
+காவி உடை உடுத்தி காவியம் கண்ட நான்முகா<BR>
+மாரியே வேண்டி நின் மலர்பதம் நாடுகின்றோம்<BR>
+நல்லருள் புரிவாயே நர்த்தனனே வணங்கினேனே 70<BR>
+<BR>
+
+</P>
+</body>
+</html>

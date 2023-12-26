@@ -1,0 +1,140 @@
+<HTML>
+<meta charset="UTF-8">
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=0
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",50)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 270%;
+    text-align: center;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body>
+<BR>
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<P>
+பக்தி பெருக - மோட்ஷம் கிடைக்க<BR>
+-------------------------<BR>
+<BR>
+மாமணியே மன்னவனே மாகயிலை வள்ளலே<BR>
+சேர்ந்திடும் அடியார்கள் சீருடன் நலம் வாழ<BR>
+அறநெறி தந்த நல்லறமே - என்றும் உரைப்பேன்<BR>
+நிந்தன் நற்துணை காட்டும் திருவருளே 81<BR>
+<BR>
+திருவருளுக்காக தினம் ஏங்கித் தவிக்கின்றேன்<BR>
+ஏகாந்த ரூபனே இன்முகம் காட்டாயோ<BR>
+தாயும் சேயிடம் கோபம் கொண்டால் -எளியேன்<BR>
+யான் என்ன செய்வேன் தாயுமானவனே 82<BR>
+<BR>
+தாயன்பு வேண்டியே தவித்திடும் அடியார்க்கு<BR>
+காலமெல்லாம் நடந்து கனி அமுதம் தந்து<BR>
+தர்மமும் சீலமும் தழைத்திட தவம் செய்து<BR>
+தரணியை ஒளிவிக்க வந்த அன்புருவே 83<BR>
+<BR>
+அன்பின் உருவான சங்கரனே - உந்தன்<BR>
+அன்பிற்கும் ஓர் அளவும் உண்டோ<BR>
+எல்லை இல்லா பரம்பொருளே - நல்<BR>
+ஏகாந்தந்தின் திருவருளே எம்மை காத்திடுவாய் 84<BR>
+<BR>
+காத்திடுவாய் கண்மணியே கவிமணியே என<BR>
+போற்றிடும் அடியார்கள் புவியில் நலம்காண<BR>
+துறவும் பூண்ட மாசிலா மாமணியே<BR>
+மரவுரியும் தரித்து மண்ணாண்ட சிவநேசனே 85<BR>
+<BR>
+நேசனே நீக்கமற நிறைவோனே நிறைமதி ரூபனே<BR>
+காந்தமாய் கவர்ந்தெனை ஆண்டிடும் அண்ணலே<BR>
+கனிவாய் ஆறுதலும் உரைத்திடும் ஈசா<BR>
+மழைபோல் பாசமும் பொழிந்திடும் ஸர்வேசா 86<BR>
+<BR>
+ஸர்வமும் நிந்தன் வடிவென உணர்ந்தேன் சங்கரா<BR>
+பஞ்சபூதமும் நின் உருவென அறிந்தேன் பரமேஸ்வரா<BR>
+ஆதியும் அந்தமும் இல்லா அருட் பெரும் ஜோதியே<BR>
+அகிலத்தை காத்திடும் அம்பலக் கூத்தனே 87<BR>
+<BR>
+கூத்தனே உந்தன்  குளிர் முகம் கண்டு<BR>
+நானும் குவலயத்தின் இன்னல்கள் மறந்திடுவேனே<BR>
+பக்தியும் பெருகி நின்னை பாடிடும் அறிவும்<BR>
+மெய் பரவச நிலையும் நின்னிடம் யாசித்தேனே 88<BR>
+<BR>
+யாசிக்கும் அடியார்க்கு தன் மெய் உருகாட்டி<BR>
+ஞானமும் நல்கிடும் ஞான ஒளியே - எந்தன்<BR>
+அஞ்ஞானமும் அகற்றி மெய் வழிகாட்டி<BR>
+முக்தியும் அளிப்பாய் மூவுலக இரட்சகனே 89<BR>
+<BR>
+இரட்சகனாய் துணைவந்து கடும்வினைகள் அகற்றி<BR>
+மீண்டிடும் வழிகாட்டி மோட்சமும் அருள்வாயே<BR>
+அறியாமல் யான் செய்த பிழைகளையும் - தாயாக<BR>
+மன்னித்து நிந்தன் பொன்கழல் சேர்ப்பாய் பரம்பொருளே 90<BR>
+<BR>
+
+</P>
+</body>
+</html>

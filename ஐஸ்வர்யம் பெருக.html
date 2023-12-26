@@ -1,0 +1,141 @@
+<HTML>
+<meta charset="UTF-8">
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=0
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",50)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 270%;
+    text-align: center;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body>
+<BR>
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<P>
+ஐஸ்வர்யம் பெருக<BR>
+--------------<BR>
+<BR>
+அருட்கடலே அமுதனே அன்புருவான நாயகனே<BR>
+ஆதி அந்தமில்லா அற்புதனே நினை காண<BR>
+ஆனந்தம் கொண்டேனே அடி மலர் பணிந்தேனே<BR>
+அடியேனை ஏற்பாய் ஆதி நாராயணனே 51<BR>
+<BR>
+ஆதி நாராயணன் நெஞ்சில் அமர்ந்திட்ட<BR>
+ஆதிலக்ஷ்மியை போற்றிப் பணிகின்றேன்<BR>
+வெண்கொடி கரம் கொண்டு அகிலம் காத்திடும்<BR>
+ஆதிலக்ஷ்மியாய் நினை நாளும் பாடுகின்றேன் 52<BR>
+<BR>
+பாடிய பாடலால் கனக கனிதனையே<BR>
+தாரையாய் பொழிந்திட்ட ஆதி சங்கரனே<BR>
+எந்தன் ஏழ்மையும் மாய ஏற்றமும் காண<BR>
+தனலக்ஷ்மியும் என் அகம் வாழ அருள்மழை பொழிவாயே 53<BR>
+<BR>
+பொழிந்த மழைதனில் மண்ணுயிரும் தானியமும்<BR>
+நல்வாழ்வும் பொங்கி நாளும் வளர்ந்திடுமே<BR>
+இந்த மண்ணின் துயர்நீங்கி மகிமை பெருகவே<BR>
+தான்யலக்ஷ்மி என தரணி காக்கும் தர்ம சாகரனே 54<BR>
+<BR>
+சாகரத்தில் தோன்றி தனிப்பெரும் ஒளியாகி<BR>
+இழந்த செல்வத்தை இந்திரனுக்கு அளித்து<BR>
+தும்பிக்கைதுதி பாடும் கஜலக்ஷ்மி நாயகியாய்<BR>
+நினை நாளும் வணங்குகின்றேன் மஹாலக்ஷ்மி மழலையே 55<BR>
+<BR>
+மழலை செல்வத்தை அன்னையாய் மடி அமர்த்தி<BR>
+மாதரின் குறை தீர மழலை அமுதும் தந்து<BR>
+மாதரசியாய் என்றும் இன்ப காட்சி தரும்<BR>
+சந்தான லக்ஷ்மியாய் நின்னை கண்டேன் தீரனே 56<BR>
+<BR>
+தீரமும் வீரமும் மேன்மையும் பொங்கியே<BR>
+வீரனாய் வாழ்ந்தே வாழ்வினில் வென்றிடவே<BR>
+பகைதனை முறித்தே நற்புகழ் கொண்டிடவே<BR>
+வீரலக்ஷ்மியாய் எனக்கு நல்வரம் அளிப்பாயே 57<BR>
+<BR>
+அளிப்பாயே பல் வித்தைகள் அறியும் திறனும்<BR>
+பணிவாய் நற் கல்வி கற்கும் அறிவும் - கவியாகி<BR>
+நின் புகழை காலமெல்லாம் பாடி மகிழ்ந்தாட<BR>
+நல்வழி செய்திடுவாய் வித்யாலக்ஷ்மியான வேந்தனே 58<BR>
+<BR>
+வேந்தனாய் என்றும் விஜயங்கள் கொண்டு<BR>
+வேள்விகள் பல காத்த வேதத்தின் நாயகனே<BR>
+எடுத்த காரியத்தில் ஏற்றமுடன் வென்றிடவே<BR>
+விஜயல்ஷ்மியாய் என்றும் துணையாவாய் புண்ணியனே 59<BR>
+<BR>
+புண்ணியனே நின் பெருமைகள் சொல்லியும் தீர்ந்திடுமோ<BR>
+பூமகனே என்னை வாழ்வினில் பொலிவுறச் செய்திடுவாய்<BR>
+அஷ்டலக்ஷ்மிகளை தன் வசம் அன்பில் கொண்டோனே<BR>
+அருட்கரம் காட்டி அருள்வாய் கற்பகவிருட்ஷமே 60<BR>
+<BR>
+
+
+</P>
+</body>
+</html>

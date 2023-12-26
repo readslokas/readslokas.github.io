@@ -1,0 +1,140 @@
+<HTML>
+<meta charset="UTF-8">
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=0
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",50)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 270%;
+    text-align: center;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body>
+<BR>
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<P>
+தாய்மை/ பிள்ளைவரம் கிடைக்க<BR>
+------------------------<BR>
+<BR>
+மலர்பதம் பூஜிக்கின்றேன் சந்திர பிறையோனே<BR>
+குகனோடு விளையாடும் ஸ்ரீ சோமஸ்கந்தர் வடிவோனே<BR>
+பிள்ளை வரம் கேட்டு பேதையும் பாடுகின்றேன்<BR>
+பித்தனே பிறைசூடனே போற்றிடுவேன் நின் காலடியே 41<BR>
+<BR>
+காலடியில் தோன்றிய அற்புத பாலகனே<BR>
+அன்னை ஆர்யாம்பாளின் மடிதவழ்ந்த மாதவமே<BR>
+மஹாலக்ஷ்மி அம்மைக்கு மகவாய் மலர்ந்த<BR>
+மாமலை சங்கரனே தவமணியே அற்புதனே 42<BR>
+<BR>
+அற்புதனே நின்னருளை எங்ஙனம் உரைத்திடுவேன்<BR>
+ஆனந்தம் கொள்வோனே அடியார் நலம்கண்டு<BR>
+தாயாய் உருக்கொண்டு பேறுகாத்த நாயகனே<BR>
+தாயுமானவனே சங்கரனே பிள்ளை வரமருள்வாய் 43<BR>
+<BR>
+வரமது வேண்டினேனே தாய்மையும் கொண்டிடவே<BR>
+மடியினில் தவழ்ந்தாடும் மகவும் கண்டிடவே<BR>
+பிழையேதும் செய்தேனோ பேதையாய் அறியாமல்<BR>
+அனைத்தும் பொறுத்தருள்வாய் அன்புமொழி உரைப்போனே 44<BR>
+<BR>
+உரைப்பேன் நின்திருநாமம் அற்புத வேதமென<BR>
+அல்லும் பகலும் பாடிடுவேன் ஆனந்த களிப்பினிலே<BR>
+குலம்தழைக்க அருள்வாயே குமரகுருபரனே<BR>
+குறையதும் நீக்கிடுவாய் குல வைத்தியநாதனே 45<BR>
+<BR>
+வைத்தியமும் பத்தியமும் வான சாஸ்திரமும்<BR>
+வேதனையை தீர்த்திடுமோ நின் அருளில்லாமல்<BR>
+அருமருந்தாக நின் திருநீறும் மாயங்கள் புரிந்திடுமே<BR>
+மங்களங்கள் சேர்த்திடுவாய் மனக்கவலை அகற்றிடுவாய் 46<BR>
+<BR>
+அகன்றிடும் குறைகள் என திடமாய் நினைநாடி<BR>
+பாடியே போற்றுகின்றேன் பொன்மலர் சூட்டுகின்றேன்<BR>
+பரமனே அமுதனே நின்கருணையும் காட்டி<BR>
+குழலை மொழிகேட்க அருள்வாய் திருஞானமே 47<BR>
+<BR>
+ஞானசம்பந்தர் மொழிகேட்க சடுதியில் ஓடிவந்த<BR>
+செம்மொழி நாதனே சிற்றம்பலத்தானே வருவாய்<BR>
+கொண்ட குலம் தழைக்க குழலை மொழிபாட<BR>
+அருளிடுவாய் குழலமுத நாதனே மாதவனே 48<BR>
+<BR>
+மாதவனாய் யசோதையின் மழலையான மாயவனே<BR>
+அடியேன் என்னையும் ஆண்டிட வாராயோ<BR>
+மடியேந்தி நிந்தன் நல்வரம் யாசித்தேன்<BR>
+அடிகொண்டார் குறைதீர்க்கும் கோமகனே நலமருள்வாய் 49<BR>
+<BR>
+நலமதை நாடும் அடியார்கள் இடர்களையே<BR>
+தவிடாகச் செய்யும் தர்மத்தின் காவலனே<BR>
+அடிமலர் தொழுகின்றேன் ஆறுதலும் வேண்டுகின்றேன்<BR>
+ஆனந்த சாகரனே ஸ்ரீ சத்குருவே அருள்வாய் அருட்கடலே 50<BR>
+<BR>
+
+</P>
+</body>
+</html>

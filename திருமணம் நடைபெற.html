@@ -1,0 +1,140 @@
+<HTML>
+<meta charset="UTF-8">
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=0
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",50)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 270%;
+    text-align: center;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body>
+<BR>
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<P>
+திருமணம் நடைபெற<BR>
+----------------<BR>
+<BR>
+காருண்யனே காத்திடுவாய் வான்புகழ் கொண்டோனே<BR>
+கனகாபிஷேகம் கண்ட காஞ்சி மாமுனியே<BR>
+ஏகாம்பர நாதனையே கனிவுடன் பூஜித்து<BR>
+கல்யாண கோலம் கண்ட காமாட்சி அருட்செல்வனே 31<BR>
+<BR>
+அருட்செல்வனாய் பீடத்தை பணிவுடனே ஏற்று<BR>
+மூலமதை உரைத்திட்ட மும்மூர்த்தி வடிவோனே<BR>
+மானிடரின் வாழ்வினிலே மங்கலங்கள் பொங்கிடவே<BR>
+மாதவம் புரிந்திட்ட மாமறை நல்லறமே 32<BR>
+<BR>
+நல்லறமாம் இல்லறத்தை ஏற்று மாந்தருமே<BR>
+நல்வழியில் வாழ்ந்திடவே நலமதை உரைத்து<BR>
+தர்மத்தின் நெறிதனையே தரணியிலே நிறுத்தி<BR>
+அன்பினையே போதித்த ஆனந்த அருளமுதே 33<BR>
+<BR>
+அருளமுதம் தந்து அடியார் மனம்குளிரவே<BR>
+திருமண வாழ்வளித்து தீரனே அருளிடுவாய்<BR>
+துணையும் வேண்டுவோர்க்கு நல்துணையும் தந்து<BR>
+மனத்துயரது துடைத்திடும் தூயவனே சங்கரனே 34<BR>
+<BR>
+சங்கரனே நின்னடியில் சங்கடங்கள் வைக்கின்றேன்<BR>
+தடுத்திடும் கோள்களை நல்வழியில் மாற்றி<BR>
+தடையதும் நீங்கி திருமணமும் காண<BR>
+குருவாய் தயைபுரிவாய் தாய்மை மனத்தோனே 35<BR>
+<BR>
+மனமது கோணாமல் நலமுடன் இணைந்திருந்து<BR>
+நின் புகழ்தனையே போற்றிப்பாடும் நல்துணையும்<BR>
+வேண்டுகின்றேன் அன்பு தூயவனே - நின்<BR>
+கருணையும் காட்டாயோ கருணா மூர்த்தியே 36<BR>
+<BR>
+மூர்த்தியே நினை முன்வைத்து பாடுகின்றேன்<BR>
+பாசத்தால் வாடும் இப்பிள்ளையின் கலி தீர்ப்பாயே<BR>
+காலம் கடந்தபின் கனியும் சுவைத்திடுமோ<BR>
+கரம் காட்டி அருள்வாயே கண்கவர் சுந்தரனே 37<BR>
+<BR>
+சுந்தரனாய் உருக்கொண்டு கயிலை நாதனும்<BR>
+கயல்விழி கொண்டாளின் கரம்பற்றும் அழகை<BR>
+போற்றி புகழ்பாடும் காஞ்சிமா நகரோனே<BR>
+கரம் கூப்பி வேண்டுகின்றேன் நின்கிருபையும் சேர்த்திடுவாய் 38<BR>
+<BR>
+சேர்ந்திடும் அடியார்கள் மனத்துயரம் நீக்க<BR>
+மாதவனாய் வந்து வழியது உரைப்போனே<BR>
+கதிரவன் கண்பட்ட பனித்துளி போலவே<BR>
+மறைந்திடும் துயரமும் மாமன்னன் நின் கண்ணொளியலே 39<BR>
+<BR>
+ஒளிபோல் உலகினையே ரட்சிக்க வந்தவனே<BR>
+சுந்தரர் மணம்கொள்ள துணைசெய்த தூதுவனே<BR>
+அடியேனின் வேண்டுதலும் ஏற்று அருளிடுவாய்<BR>
+ஸ்ரீ சந்திரசேகரரே பணிகின்றேன் நின் மலர்பதமே 40<BR>
+<BR>
+
+</P>
+</body>
+</html>

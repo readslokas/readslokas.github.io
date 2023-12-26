@@ -1,0 +1,107 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=0
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",25)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 160%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 160%;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body class="block">
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<p>
+அதல சேட னாராட அகில மேரு மீதாட<BR>
+அபின காளி தானாட ...... அவளோடன்<BR>
+<BR>
+றதிர வீசி வாதாடும் விடையி லேறு வாராட<BR>
+அருகு பூத வேதாள ...... மவையாட<BR>
+<BR>
+மதுர வாணி தானாட மலரில் வேத னாராட<BR>
+மருவு வானு ளோராட ...... மதியாட<BR>
+<BR>
+வனச மாமி யாராட நெடிய மாம னாராட<BR>
+மயிலு மாடி நீயாடி ...... வரவேணும்<BR>
+<BR>
+கதைவி டாத தோள்வீம னெதிர்கொள் வாளி யால்நீடு<BR>
+கருத லார்கள் மாசேனை ...... பொடியாகக்<BR>
+<BR>
+கதறு காலி போய்மீள விஜய னேறு தேர்மீது<BR>
+கனக வேத கோடூதி ...... அலைமோதும்<BR>
+<BR>
+உததி மீதி லேசாயு முலக மூடு சீர்பாத<BR>
+உவண மூர்தி மாமாயன் ...... மருகோனே<BR>
+<BR>
+உதய தாம மார்பான ப்ரபுட தேவ மாராஜ<BR>
+னுளமு மாட வாழ்தேவர் ...... பெருமாளே<BR>    
+</p>
+</body>
+</html>

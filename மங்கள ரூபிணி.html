@@ -1,0 +1,165 @@
+<HTML>
+<meta charset="UTF-8">
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=0
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",50)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 270%;
+    text-align: center;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body>
+<BR>
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<P>
+ஸ்ரீ துக்க நிவாரண அஷ்டகம்<BR>
+<BR>
+ஜெய ஜெய தேவி ஜெய ஜெய தேவி<BR>
+துர்கா தேவி சரணம்<BR>
+ஜெய ஜெய தேவி ஜெய ஜெய தேவி துர்க்கா தேவி சரணம்<BR>
+கனக துர்கா தேவி சரணம்<BR>
+<BR>
+மங்கள ரூபிணி மதியணி சூலினி<BR>
+மன்மத பாணியளே<BR>
+சங்கடம் நீக்கிடச் சடுதியில் வந்திடும்<BR>
+சங்கரி சௌந்தரியே<BR>
+கங்கண பாணியன் கனிமுகங் கண்டநல்<BR>
+கற்பக காமினியே<BR>
+ஜெயஜெய சங்கரி கௌரி க்ருபாகரி<BR>
+துக்க நிவாரணி காமாக்ஷி (ஜெய ஜெய தேவி)<BR>
+<BR>
+கானுறு மலரெனக் கதிர்ஒளி காட்டிக்<BR>
+காத்திட வந்திடுவாள்<BR>
+தானுறு தவஒளி தாரொளி மதியொளி<BR>
+தாங்கியே வீசிடுவாள்<BR>
+மானுறு விழியால் மாதவர் மொழியாள்<BR>
+மாலைகள் சூடிடுவாள்<BR>
+ஜெயஜெய சங்கரி கௌரி க்ருபாகரி<BR>
+துக்க நிவாரணி காமாக்ஷி! (ஜெய ஜெய தேவி)<BR>
+<BR>
+சங்கரி சௌந்தரி சதுர்முகன் போற்றிடச்<BR>
+சபையினில் வந்தவளே<BR>
+பொங்கரி மாவினில் பொன்னடி வைத்துப்<BR>
+பொருந்திட வந்தவளே<BR>
+எங்குலத் தழைத்திட எழில்வடி வுடனே<BR>
+எழுந்தநல் துர்க்கையளே<BR>
+ஜெயஜெய சங்கரி கௌரி க்ருபாகரி<BR>
+துக்க நிவாரணி காமாக்ஷி! (ஜெய ஜெய தேவி)<BR>
+<BR>
+தணதண தந்தண தவிலொளி முழங்கிடத்<BR>
+தண்மணி நீ வருவாய்<BR>
+கணகண கங்கண கதிர்ஒளி வீசிடக்<BR>
+கண்மணி நீ வருவாய்<BR>
+பணபண பம்பண பறையொலி கூவிடப்<BR>
+பண்மணி நீ வருவாய்<BR>
+ஜெயஜெய சங்கரி கௌரி க்ருபாகரி<BR>
+துக்க நிவாரணி காமாக்ஷி! (ஜெய ஜெய தேவி)<BR>
+<BR>
+பஞ்சமி பைரவி பர்வத புத்திரி<BR>
+பஞ்சநல் பாணியளே<BR>
+கொஞ்சிடும் குமரனைக் குணமிகு வேழனைக்<BR>
+கொடுத்தநல் குமரியளே<BR>
+சங்கடம் தீர்த்திடச் சமரது செய்தநற்<BR>
+சக்தியெனும் மாயே<BR>
+ஜெயஜெய சங்கரி கௌரி க்ருபாகரி<BR>
+துக்க நிவாரணி காமாக்ஷி! (ஜெய ஜெய தேவி)<BR>
+<BR>
+எண்ணிய படிநீ யருளிட வருவாய்<BR>
+எங்குல தேவியளே<BR>
+பண்ணிய செயலின் பலனது நலமாய்ப்<BR>
+பல்கிட அருளிடுவாய்<BR>
+கண்ணொளி யதனால் கருணையே காட்டிக்<BR>
+கவலைகள் தீர்ப்பவளே<BR>
+ஜெயஜெய சங்கரி கௌரி க்ருபாகரி<BR>
+துக்க நிவாரணி காமாக்ஷி! (ஜெய ஜெய தேவி)<BR>
+<BR>
+இடர்தரு தொல்லை இனிமேல் இல்லை<BR>
+யென்றுநீ சொல்லிடுவாய்<BR>
+சுடர்தரு அமுதே சுருதிகள் கூறிச்<BR>
+சுகமது தந்திடுவாய்<BR>
+படர்தரு இருளில் பரிதியாய் வந்து<BR>
+பழவினை ஓட்டிடுவாய்<BR>
+ஜெயஜெய சங்கரி கௌரி க்ருபாகரி<BR>
+துக்க நிவாரணி காமாக்ஷி! (ஜெய ஜெய தேவி)<BR>
+<BR>
+ஜெயஜெய பாலா சாமுண் டீஸ்வரி<BR>
+ஜெயஜெய ஸ்ரீதேவி<BR>
+ஜெயஜெய துர்க்கா ஸ்ரீபர மேஸ்வரி<BR>
+ஜெயஜெய ஸ்ரீதேவி<BR>
+ஜெயஜெய ஜெயந்தி மங்கள காளி<BR>
+ஜெயஜெய ஸ்ரீதேவி<BR>
+ஜெயஜெய சங்கரி கௌரி க்ருபாகரி<BR>
+துக்க நிவாரணி காமாக்ஷி! (ஜெய ஜெய தேவி)<BR>
+
+</P>
+</body>
+</html>

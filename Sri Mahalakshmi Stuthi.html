@@ -1,141 +1,140 @@
 <HTML>
-<meta charset="UTF-8">
-<SCRIPT language=JavaScript1.2>
-//change 1 to another integer to alter the scroll speed. Greater is faster
-var speed=1
 
-var currentpos=0,alt=1,curpos1=0,curpos2=-1
-function initialize(){
-startit()
-}
-function scrollwindow(){
-if (document.all && !document.getElementById)
-temp=document.body.scrollTop
-else
-temp=window.pageYOffset
-if (alt==0)  alt=2
-else alt=1
-
-if (alt==0)
-curpos1=temp
-else
-curpos2=temp
-
-if (curpos1!=curpos2){
-if (document.all)
-currentpos=document.body.scrollTop+speed
-else
-currentpos=window.pageYOffset+speed
-window.scroll(0,currentpos)
-}
-else{
-currentpos=0
-window.scroll(0,currentpos)
-}
-}
-
-function startit(){
-setInterval("scrollwindow()",50)
-}
-window.onload=initialize
-
-var elem = document.documentElement;
-
-function openFullscreen() {
-  if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-  } else if (elem.mozRequestFullScreen) { /* Firefox */
-    elem.mozRequestFullScreen();
-  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-    elem.webkitRequestFullscreen();
-  } else if (elem.msRequestFullscreen) { /* IE/Edge */
-    elem.msRequestFullscreen();
+  <SCRIPT language=JavaScript1.2>
+  //change 1 to another integer to alter the scroll speed. Greater is faster
+  var speed=2
+  
+  var currentpos=0,alt=1,curpos1=0,curpos2=-1
+  function initialize(){
+  startit()
   }
-}
-
-</SCRIPT>
-
-<head>
-<style>
-body {background-color: black;}
-p  {
-    color: white;
-    font-family: calibri;
-    font-size: 270%;
-	word-wrap: break-word;
-}
-
-.block {
-    display: block;
-    width: 100%;
-	font-size: 270%;
-    text-align: center;
-	max-width: 100%;
-    overflow-x: hidden;
-}
-
-</style>
-</head>
-
-<body>
-<BR>
-<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
-<P>
-Sri Mahalakshmi Stuthi<br><br>
-Aadhi Lakshmi Namasthestu Para Brahma Swaroopini<br>
-Yaso Dehi Danam Dehi  Sarva Kamamscha Dehi May<br>
-<br>
-Santhana Lakshmi Namasthesthu Puthra Pouthra Pradhayini<br>
-Puthran Dehi Danam Dehi Sarva Kamamscha Dehi May<br>
-<br>
-Vidhya Lakshmi Namasthesthu Brahma Vidhya Swaroopini<br>
-Vidhyam Dehi Kalam Dehi Sarva Kamamscha Dehi May<br>
-<br>
-Dhana Lakshmi Namasthesthu Sarva Daridriya Nasini<br>
-Dhanam Dehi Sriyam Dehi Sarva Kamamscha Dehi May<br>
-<br>
-Dhanya Lakshmi Namasthesthu Sarvaabharana Bhooshithe<br>
-Danyam Dehi Danam Dehi Sarva Kamamscha Dehi May<br>
-<br>
-Medha Lakshmi Namasthesthu Kali Kalmasha Nasinine<br>
-Pragnam Dehi Sriyam Dehi Sarva Kamamscha Dehi May<br>
-<br>
-Gaja Lakshmi Namasthesthu Sarva Deva Swaroopini<br>
-Aswamscha Gokulam Dehi   Sarva Kamamscha Dehi May<br>
-<br>
-Veera Lakshmi Namasthesthu Parashakthi Roopini<br>
-Veeryam Dehi Balam Dehi Sarva Kamamscha Dehi May<br>
-<br>
-Jaya Lakshmi Namasthesthu Sarva Karya Jaya Pradhe<br>
-Jayam Dehi Shubham Dehi Sarva Kamamscha Dehi May<br>
-<br>
-Bhagya Lakshmi Namasthesthu Soumanglya Vivardhani<br>
-Bhagyam Dehi Sriyam Dehi Sarva Kamamscha Dehi May<br>
-<br>
-Keerthi Lakshmi Namasthesthu Vishnu Vaksha Sthala Sthithe<br>
-Keerthim Dehi Sriyam Dehi Dehi Sarva Kamamscha Dehi May<br>
-<br>
-Arogya Lakshmi Namasthesthu Sarva Roga Nivarini<br>
-Ayur Dehi Sriyam Dehi Dehi Sarva Kamamscha Dehi May<br>
-<br>
-Sidha Lakshmi Namasthesthu Sarva Sidhi Pradhayini<br>
-Sidhim Dehi Sriyam Dehi Sarva Kamamscha Dehi May<br>
-<br>
-Soundarya Lakshmi Namasthesthu Sarva Alangara Shobhithe<br>
-Roopam Dehi Sriyam Dehi Sarva Kamamscha Dehi May<br>
-<br>
-Samrajya Lakshmi Namasthestu Bhukthi Mukthi Pradayini<br>
-Moksham Dehi Sriyam Dehi Sarva Kamamscha Dehi May<br>
-<br>
-Mangale Mangala Dhare Mangalye Mangala Pradhe<br>
-Mangalartham Mangalesi Mangalyam Dehi May Sada<br>
-<br>
-Sarva Mangala Mangalye Shive Sarvartha Sadhake<br>
-Saranye Triambike Devi Narayani Namosthuthe<br>
-<br>
-Shubham Bhavathu Kalyani Ayur Arogya Sampadham<br>
-Mama Shathru Vinasaya Deepa Jyothi Namosthuthe<br>
-
-</body>
-</html>
-
+  function scrollwindow(){
+  if (document.all && !document.getElementById)
+  temp=document.body.scrollTop
+  else
+  temp=window.pageYOffset
+  if (alt==0)alt=2
+  else alt=1
+  
+  if (alt==0)
+  curpos1=temp
+  else
+  curpos2=temp
+  
+  if (curpos1!=curpos2){
+  if (document.all)
+  currentpos=document.body.scrollTop+speed
+  else
+  currentpos=window.pageYOffset+speed
+  window.scroll(0,currentpos)
+  }
+  else{
+  currentpos=0
+  window.scroll(0,currentpos)
+  }
+  }
+  
+  function startit(){
+  setInterval("scrollwindow()",25)
+  }
+  window.onload=initialize
+  
+  var elem = document.documentElement;
+  
+  function openFullscreen() {
+  if (elem.requestFullscreen) {
+  elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+  elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+  elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+  elem.msRequestFullscreen();
+  }
+  }
+  
+  </SCRIPT>
+  
+  <head>
+  <style>
+  body {background-color: black;}
+  p{
+  color: white;
+  font-family: calibri;
+  font-size: 250%;
+  word-wrap: break-word;
+  }
+  
+  .block {
+  display: block;
+  width: 100%;
+  font-size: 230%;
+  max-width: 100%;
+  overflow-x: hidden;
+  }
+  
+  </style>
+  </head>
+  
+  <body class="block">
+  <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+  <p>
+  Sri Mahalakshmi Stuthi<br><br>
+  Aadhi Lakshmi Namasthestu Para Brahma Swaroopini<br>
+  Yaso Dehi Danam Dehi Sarva Kamamscha Dehi May<br>
+  <br>
+  Santhana Lakshmi Namasthesthu Puthra Pouthra Pradhayini<br>
+  Puthran Dehi Danam Dehi Sarva Kamamscha Dehi May<br>
+  <br>
+  Vidhya Lakshmi Namasthesthu Brahma Vidhya Swaroopini<br>
+  Vidhyam Dehi KalAm Dehi Sarva Kamamscha Dehi May<br>
+  <br>
+  Dhana Lakshmi Namasthesthu Sarva Daridriya Nasini<br>
+  Dhanam Dehi Sriyam Dehi Sarva Kamamscha Dehi May<br>
+  <br>
+  Dhanya Lakshmi Namasthesthu Sarvaabharana Bhooshithe<br>
+  DAnyam Dehi Danam Dehi Sarva Kamamscha Dehi May<br>
+  <br>
+  Medha Lakshmi Namasthesthu Kali Kalmasha Nasinine<br>
+  Pragynam Dehi Sriyam Dehi Sarva Kamamscha Dehi May<br>
+  <br>
+  Gaja Lakshmi Namasthesthu Sarva Deva Swaroopini<br>
+  Aswamscha Gokulam Dehi Sarva Kamamscha Dehi May<br>
+  <br>
+  Dheera Lakshmi Namasthesthu Parashakthi SwaRoopini<br>
+  Veeryam Dehi Balam Dehi Sarva Kamamscha Dehi May<br>
+  <br>
+  Jaya Lakshmi Namasthesthu Sarva Karya Jaya Pradhe<br>
+  Jayam Dehi Shubham Dehi Sarva Kamamscha Dehi May<br>
+  <br>
+  Bhagya Lakshmi Namasthesthu Soumanglya Vivardhani<br>
+  Bhagyam Dehi Sriyam Dehi Sarva Kamamscha Dehi May<br>
+  <br>
+  Keerthi Lakshmi Namasthesthu Vishnu Vaksha Sthala Sthithe<br>
+  Keerthim Dehi Sriyam Dehi Sarva Kamamscha Dehi May<br>
+  <br>
+  Arogya Lakshmi Namasthesthu Sarva Roga Nivarini<br>
+  Ayur Dehi Sriyam Dehi Sarva Kamamscha Dehi May<br>
+  <br>
+  Sidha Lakshmi Namasthesthu Sarva Sidhi Pradhayini<br>
+  Sidhim Dehi Sriyam Dehi Sarva Kamamscha Dehi May<br>
+  <br>
+  Soundarya Lakshmi Namasthesthu Sarva Alangara Shobhithe<br>
+  Roopam Dehi Sriyam Dehi Sarva Kamamscha Dehi May<br>
+  <br>
+  Samrajya Lakshmi Namasthestu Bhukthi Mukthi Pradayini<br>
+  Moksham Dehi Sriyam Dehi Sarva Kamamscha Dehi May<br>
+  <br>
+  Mangale Mangala Dhare Mangalye Mangala Pradhe<br>
+  Mangalartham Mangalesi Mangalyam Dehi May Sada<br>
+  <br>
+  Sarva Mangala Mangalye Shive Sarvartha Sadhake<br>
+  Saranye Triambike Devi Narayani Namosthuthe<br>
+  <br>
+  Shubham Bhavathu Kalyani Ayur Arogya Sampadham<br>
+  Mama Shathru Vinasaya Deepa Jyothi Namosthuthe<br>
+  Deepa Jyothi Namosthuthe<br>
+  Deepa Jyothi Namosthuthe<br>
+  <P>
+  </body>
+  </html>  

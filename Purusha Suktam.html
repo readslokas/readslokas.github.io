@@ -1,8 +1,8 @@
 <HTML>
-  <meta charset="UTF-8">
+
   <SCRIPT language=JavaScript1.2>
   //change 1 to another integer to alter the scroll speed. Greater is faster
-  var speed=1
+  var speed=2
   
   var currentpos=0,alt=1,curpos1=0,curpos2=-1
   function initialize(){
@@ -35,7 +35,7 @@
   }
   
   function startit(){
-  setInterval("scrollwindow()",50)
+  setInterval("scrollwindow()",25)
   }
   window.onload=initialize
   
@@ -43,13 +43,13 @@
   
   function openFullscreen() {
     if (elem.requestFullscreen) {
-      elem.requestFullscreen();
+  elem.requestFullscreen();
     } else if (elem.mozRequestFullScreen) { /* Firefox */
-      elem.mozRequestFullScreen();
+  elem.mozRequestFullScreen();
     } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-      elem.webkitRequestFullscreen();
+  elem.webkitRequestFullscreen();
     } else if (elem.msRequestFullscreen) { /* IE/Edge */
-      elem.msRequestFullscreen();
+  elem.msRequestFullscreen();
     }
   }
   
@@ -59,30 +59,28 @@
   <style>
   body {background-color: black;}
   p  {
-      color: white;
-      font-family: calibri;
-      font-size: 270%;
+  color: white;
+  font-family: calibri;
+  font-size: 250%;
     word-wrap: break-word;
   }
   
   .block {
-      display: block;
-      width: 100%;
-    font-size: 270%;
-      text-align: center;
+  display: block;
+  width: 100%;
+    font-size: 230%;
     max-width: 100%;
-      overflow-x: hidden;
+  overflow-x: hidden;
   }
   
   </style>
   </head>
   
-  <body>
-  <BR>
+  <body class="block">
   <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
-  <P>
-
-  om taccham yoravr nimahe |<BR>
+  <p>
+  
+om taccham yoravr nimahe |<BR>
 gatum yajnaya |<BR>
 gatum yajnapa taye |<BR>
 daivi svastira stu nah |<BR>
@@ -110,7 +108,7 @@ tripadurdhva udaitpuru sah |<BR>
 padosyehabha vatpuna |<BR>
 tato visvanvya kramat |<BR>
 sasananasane abhi | <BR>
-tasmadviraḍa jayata |<BR>
+tasmadvira?a jayata |<BR>
 virajo adhi puru sah | <BR>
 sa jato atya ricyata |<BR>
 pascadbhumimatho purah || 2 ||<BR>
@@ -214,7 +212,5 @@ sam catus pade |<BR>
 om santi santi santi ||<BR>
   
   </p>
-  
   </body>
   </html>
-  

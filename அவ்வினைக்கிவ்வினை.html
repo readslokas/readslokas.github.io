@@ -1,0 +1,180 @@
+<HTML>
+<meta charset="UTF-8">
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=0
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",50)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 270%;
+    text-align: center;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body>
+<BR>
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<P>
+
+அவ்வினைக் கிவ்வினை யாமென்று <BR>
+சொல்லு மஃதறிவீர்<BR>
+உய்வினை நாடா திருப்பதும் <BR>
+உந்தமக் கூனமன்றே<BR>
+கைவினை செய்தெம் பிரான்கழற் <BR>
+போற்றுதும் நாமடியோஞ்<BR>
+செய்வினை வந்தெமைத் தீண்டப்பெ<BR>
+றாதிரு நீலகண்டம்  1<BR>
+<BR>
+காவினை யிட்டுங் குளம்பல <BR>
+தொட்டுங் கனிமனத்தால்<BR>
+ஏவினை யாலெயில் மூன்றெரித் <BR>
+தீரென் றிருபொழுதும்<BR>
+பூவினைக் கொய்து மலரடி <BR>
+போற்றுதும் நாமடியோம்<BR>
+தீவினை வந்தெமைத் தீண்டப்பெ<BR>
+றாதிரு நீலகண்டம்  2<BR>
+<BR>
+முலைத்தடம் மூழ்கிய போகங்களும்மற் <BR>
+றெவையு மெல்லாம்<BR>
+விலைத்தலை யாவணங் கொண்டெமை <BR>
+யாண்ட விரிசடையீர்<BR>
+இலைத்தலைச் சூலமுந் தண்டும் <BR>
+மழுவும் இவையுடையீர்<BR>
+சிலைத்தெமைத் தீவினை தீண்டப்பெ<BR>
+றாதிரு நீலகண்டம்  3<BR>
+<BR>
+விண்ணுல காள்கின்ற விச்சா <BR>
+தரர்களும் வேதியரும்<BR>
+புண்ணிய ரென்றிரு போதுந் <BR>
+தொழப்படும் புண்ணியரே<BR>
+கண்ணிமை யாதன மூன்றுடை <BR>
+யீருங் கழலடைந்தோம்<BR>
+திண்ணிய தீவினை தீண்டப்பெ <BR>
+றாதிரு நீலகண்டம்  4<BR>
+<BR>
+மற்றிணை யில்லா மலைதிரண் <BR>
+டன்னதிண் டோ ளுடையீர்<BR>
+கிற்றெமை யாட்கொண்டு கேளா <BR>
+தொழிவதுந் தன்மைகொல்லோ<BR>
+சொற்றுணை வாழ்க்கை துறந்துந் <BR>
+திருவடி யேயடைந்தோம்<BR>
+செற்றெமைத் தீவினை தீண்டப்பெ <BR>
+றாதிரு நீலகண்டம்  5<BR>
+<BR>
+மறக்கு மனத்தினை மாற்றியெம் <BR>
+மாவியை வற்புருத்திப்<BR>
+பிறப்பில் பெருமான் திருந்தடிக் <BR>
+கீழ்ப்பிழை யாதவண்ணம்<BR>
+பறித்த மலர்கொடு வந்துமை <BR>
+யேத்தும் பணியடியோம்<BR>
+சிறப்பிலித் தீவினை தீண்டப்பெ <BR>
+றாதிரு நீலகண்டம்  6<BR>
+<BR>
+இப்பதிகத்தில் 7-ம் செய்யுள் சிதைந்து போயிற்று  7<BR>
+<BR>
+கருவைக் கழித்திட்டு வாழ்க்கை <BR>
+கடிந்துங் கழலடிக்கே<BR>
+உருகி மலர்கொடு வந்துமை <BR>
+யேத்துதும் நாமடியோம்<BR>
+செருவி லரக்கனைச் சீரி <BR>
+லடர்த்தருள் செய்தவரே<BR>
+திருவிலித் தீவினை தீண்டப்பெ <BR>
+றாதிரு நீலகண்டம்  8<BR>
+<BR>
+நாற்ற மலர்மிசை நான்முகன் <BR>
+நாரணன் வாதுசெய்து<BR>
+தோற்ற முடைய அடியும் <BR>
+முடியுந் தொடர்வரியீர்<BR>
+தோற்றினுந் தோற்றுந் தொழுது <BR>
+வணங்குதும் நாமடியோம்<BR>
+சீற்றம தாம்வினை தீண்டப்பெ <BR>
+றாதிரு நீலகண்டம்  9<BR>
+<BR>
+சாக்கியப் பட்டுஞ் சமணுரு <BR>
+வாகி யுடையொழிந்தும்<BR>
+பாக்கிய மின்றி இருதலைப் <BR>
+போகமும் பற்றும்விட்டார்<BR>
+பூக்கமழ் கொன்றைப் புரிசடை <BR>
+யீரடி போற்றுகின்றோம்<BR>
+தீக்குழித் தீவினை தீண்டப்பெ <BR>
+றாதிரு நீலகண்டம்  10<BR>
+<BR>
+பிறந்த பிறவியிற் பேணியெஞ் <BR>
+செல்வன் கழலடைவான்<BR>
+இறந்த பிறவியுண் டாகில் <BR>
+இமையவர் கோனடிக்கண்<BR>
+திறம்பயில் ஞானசம் பந்தன <BR>
+செந்தமிழ் பத்தும்வல்லார்<BR>
+நிறைந்த உலகினில் வானவர் <BR>
+கோனொடுங் கூடுவரே<BR>
+
+</P>
+
+</body>
+</html>

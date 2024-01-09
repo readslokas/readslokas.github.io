@@ -1,0 +1,112 @@
+<HTML>
+<meta charset="UTF-8">
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=0
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",50)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 270%;
+    text-align: center;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body>
+<BR>
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<P>
+
+சினத்தவர் முடிக்கும் பகைத்தவர் குடிக்குஞ்<BR>
+செகுத்தவர் ருயிர்க்குஞ் ...... சினமாகச்<BR>
+<BR>
+சிரிப்பவர் தமக்கும் பழிப்பவர் தமக்கும்<BR>
+திருப்புகழ் நெருப்பென் ...... றறிவோம்யாம்<BR>
+<BR>
+நினைத்தது மளிக்கும் மனத்தையு முருக்கும்<BR>
+நிசிக்கரு வறுக்கும் ...... பிறவாமல்<BR>
+<BR>
+நெருப்பையு மெரிக்கும் பொருப்பையு மிடிக்கும்<BR>
+நிறைப்புக ழுரைக்குஞ் ...... செயல்தாராய்<BR>
+<BR>
+தனத்தன தனத்தந் திமித்திமி திமித்திந்<BR>
+தகுத்தகு தகுத்தந் ...... தனபேரி<BR>
+<BR>
+தடுட்டுடு டுடுட்டுண் டெனத்துடி முழக்குந்<BR>
+தளத்துட னடக்குங் ...... கொடுசூரர்<BR>
+<BR>
+சினத்தையு முடற்சங் கரித்தம லைமுற்றுஞ்<BR>
+சிரித்தெரி கொளுத்துங் ...... கதிர்வேலா<BR>
+<BR>
+தினைக்கிரி குறப்பெண் தனத்தினில் சுகித்தெண்<BR>
+திருத்தணி யிருக்கும் ...... பெருமாளே<BR>
+
+</P>
+
+</body>
+</html>

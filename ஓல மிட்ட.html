@@ -1,0 +1,120 @@
+<HTML>
+<meta charset="UTF-8">
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=0
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",50)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 270%;
+    text-align: center;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body>
+<BR>
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<P>
+
+ஓல மிட்ட சுரும்பு தனா தனாவென<BR>
+வேசி ரத்தில் விழுங்கை பளீர் பளீரென<BR>
+வோசை பெற்ற சிலம்பு கலீர் கலீரென ...... விரகலீலை<BR>
+<BR>
+ஓர்மி டற்றி லெழும்புள் குகூ குகூவென<BR>
+வேர்வை மெத்த வெழுந்து சலா சலாவென<BR>
+ரோம குச்சு நிறைந்து சிலீர் சிலீரென ...... அமுதமாரன்<BR>
+<BR>
+ஆல யத்து ளிருந்து குபீர் குபீரென<BR>
+வேகு திக்க வுடம்பு விரீர் விரீரென<BR>
+ஆர முத்த மணிந்து அளா வளாவென ...... மருவுமாதர்<BR>
+<BR>
+ஆசை யிற்கை கலந்து சுமா சுமாபவ<BR>
+சாக ரத்தி லழுந்தி எழா எழாதுளம்<BR>
+ஆறெ ழுத்தை நினைந்து குகா குகாவென ...... வகைவராதோ<BR>
+<BR>
+மாலை யிட்ட சிரங்கள் செவேல் செவேலென<BR>
+மேலெ ழுச்சி தரும்பல் வெளேல் வெளேலென<BR>
+வாகை பெற்ற புயங்கள் கறேல் கறேலென ...... எதிர்கொள்சூரன்<BR>
+<BR>
+மார்பு மொக்க நெரிந்து கரீல் கரீலென<BR>
+பேய்கு திக்க நிணங்கள் குழூ குழூவென<BR>
+வாய்பு தைத்து விழுந்து ஐயோ ஐயோவென ...... உதிரமாறாய்<BR>
+<BR>
+வேலை வற்றி வறண்டு சுறீல் சுறீலென<BR>
+மாலை வெற்பு மிடிந்து திடீல் திடீலென<BR>
+மேன்மை பெற்ற ஜனங்கள் ஐயா ஐயாவென ...... விசைகள்கூற<BR>
+<BR>
+வேலெ டுத்து நடந்த திவா கராசல<BR>
+வேடு வப்பெண் மணந்த புயா சலாதமிழ்<BR>
+வேத வெற்பி லமர்ந்த க்ருபா கராசிவ ...... குமரவேளே<BR>
+
+</P>
+
+</body>
+</html>

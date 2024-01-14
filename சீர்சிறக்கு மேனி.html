@@ -1,0 +1,117 @@
+<HTML>
+
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=0
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",25)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 160%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 160%;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body class="block">
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<p>
+
+சீர்சிறக்கு மேனி பசேல் பசே லென<BR>
+நூபுரத்தி னோசை கலீர் கலீ ரென<BR>
+சேரவிட்ட தாள்கள் சிவேல் சிவே லென ...... வருமானார்<BR>
+<BR>
+சேகரத்தின் வாலை சிலோர் சிலோர் களு<BR>
+நூறுலக்ஷ கோடி மயால் மயால் கொடு<BR>
+தேடியொக்க வாடி யையோ வையோ வென ...... மடமாதர்<BR>
+<BR>
+மார்படைத்த கோடு பளீர் பளீ ரென<BR>
+ஏமலித்தெ னாவி பகீர் பகீ ரென<BR>
+மாமசக்கி லாசை யுளோ முளோ மென ...... நினைவோடி<BR>
+<BR>
+வாடைபற்று வேளை யடா வடா வென<BR>
+நீமயக்க மேது சொலாய் சொலா யென<BR>
+வாரம்வைத்த பாத மிதோ இதோ என ...... அருள்வாயே<BR>
+<BR>
+பாரதத்தை மேரு வெளீ வெளீ திகழ்<BR>
+கோடொடித்த நாளில் வரைஇ வரைஇ பவர்<BR>
+பானிறக்க ணேசர் குவா குவா கனர் ...... இளையோனே<BR>
+<BR>
+பாடல்முக்ய மாது தமீழ் தமீ ழிறை<BR>
+மாமுநிக்கு காதி லுணார் வுணார் விடு<BR>
+பாசமற்ற வேத குரூ குரூ பர ...... குமரேசா<BR>
+<BR>
+போர்மிகுத்த சூரன் விடோம் விடோ மென<BR>
+நேரெதிர்க்க வேலை படீர் படீ ரென<BR>
+போயறுத்த போது குபீர் குபீ ரென ...... வெகுசோரி<BR>
+<BR>
+பூமியுக்க வீசு குகா குகா திகழ்<BR>
+சோலைவெற்பின் மேவு தெய்வா தெய்வா னைதொள்<BR>
+பூணியிச்சை யாறு புயா புயா றுள ...... பெருமாளே<BR>
+
+</p>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<HTML>
+<meta charset="UTF-8">
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=1
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",50)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 270%;
+    text-align: center;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body>
+<BR>
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<P>
+  
+அதல விதலமுத லந்தத்த லங்களென<BR>
+அவனி யெனஅமரர் அண்டத்த கண்டமென<BR>
+அகில சலதியென எண்டிக்குள் விண்டுவென ...... அங்கிபாநு<BR>
+<BR>
+அமுத கதிர்களென அந்தித்த மந்த்ரமென<BR>
+அறையு மறையெனஅ ருந்தத்து வங்களென<BR>
+அணுவி லணுவெனநி றைந்திட்டு நின்றதொரு ...... சம்ப்ரதாயம்<BR>
+<BR>
+உதய மெழஇருள்வி டிந்தக்க ணந்தனிலி<BR>
+ருதய கமலமுகி ழங்கட்ட விழ்ந்துணர்வி<BR>
+லுணரு மநுபவம னம்பெற்றி டும்படியை ...... வந்துநீமுன்<BR>
+<BR>
+உதவ இயலினியல் செஞ்சொற்ப்ர பந்தமென<BR>
+மதுர கவிகளில்ம னம்பற்றி ருந்துபுகழ்<BR>
+உரிய அடிமையுனை யன்றிப்ப்ர பஞ்சமதை ...... நம்புவேனோ<BR>
+<BR>
+ததத ததததத தந்தத்த தந்ததத<BR>
+திதிதி திதிதிதிதி திந்தித்தி திந்திதிதி<BR>
+தகுகு தகுதகுகு தந்தத்த தந்தகுகு ...... திந்திதோதி<BR>
+<BR>
+சகக சககெணக தந்தத்த குங்கெணக<BR>
+டிடிடி டிடிடிடிடி டிண்டிட்டி டிண்டிடிடி<BR>
+தகக தகதகக தந்தத்த தந்தகக ...... என்றுதாளம்<BR>
+<BR>
+பதலை திமிலைதுடி தம்பட்ட மும்பெருக<BR>
+அகில நிசிசரர்ந டுங்கக்கொ டுங்கழுகு<BR>
+பரிய குடர்பழுவெ லும்பைப்பி டுங்கரண ...... துங்ககாளி<BR>
+<BR>
+பவுரி யிடநரிபு லம்பப்ப ருந்திறகு<BR>
+கவரி யிடஇகலை வென்றுச்சி கண்டிதனில்<BR>
+பழநி மலையின்மிசை வந்துற்ற இந்திரர்கள் ...... தம்பிரானே<BR>
+
+  </P>
+
+</body>
+</html>

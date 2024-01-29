@@ -1,0 +1,111 @@
+<HTML>
+<meta charset="UTF-8">
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=1
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",50)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 270%;
+    text-align: center;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body>
+<BR>
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<P>
+  
+பக்கரைவி சித்ரமணி பொற்கலணை யிட்டநடை<BR>
+பட்சியெனு முக்ரதுர ...... கமுநீபப்<BR>
+<BR>
+பக்குவம லர்த்தொடையும் அக்குவடு பட்டொழிய<BR>
+பட்டுருவ விட்டருள்கை ...... வடிவேலும்<BR>
+<BR>
+திக்கதும திக்கவரு குக்குடமும் ரட்சைதரு<BR>
+சிற்றடியு முற்றியப ...... னிருதோளும்<BR>
+<BR>
+செய்ப்பதியும் வைத்துயர்தி ருப்புகழ்வி ருப்பமொடு<BR>
+செப்பெனஎ னக்கருள்கை ...... மறவேனே<BR>
+<BR>
+இக்கவரை நற்கனிகள் சர்க்கரைப ருப்புடனெய்<BR>
+எட்பொரிய வற்றுவரை ...... இளநீர்வண்<BR>
+<BR>
+டெச்சில்பய றப்பவகை பச்சரிசி பிட்டுவெள<BR>
+ரிப்பழமி டிப்பல்வகை ...... தனிமூலம்<BR>
+<BR>
+மிக்கஅடி சிற்கடலை பட்சணமெ னக்கொளொரு<BR>
+விக்கிநச மர்த்தனெனும் ...... அருளாழி<BR>
+<BR>
+வெற்பகுடி லச்சடில விற்பரம ரப்பரருள்<BR>
+வித்தகம ருப்புடைய ...... பெருமாளே<BR>
+
+</P>
+</body>
+</html>

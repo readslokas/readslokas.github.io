@@ -1,0 +1,112 @@
+<HTML>
+<meta charset="UTF-8">
+<SCRIPT language=JavaScript1.2>
+//change 1 to another integer to alter the scroll speed. Greater is faster
+var speed=1
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all && !document.getElementById)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)  alt=2
+else alt=1
+
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+speed
+else
+currentpos=window.pageYOffset+speed
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+
+function startit(){
+setInterval("scrollwindow()",50)
+}
+window.onload=initialize
+
+var elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+</SCRIPT>
+
+<head>
+<style>
+body {background-color: black;}
+p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+	word-wrap: break-word;
+}
+
+.block {
+    display: block;
+    width: 100%;
+	font-size: 270%;
+    text-align: center;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
+</head>
+
+<body>
+<BR>
+<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+<P>
+  
+பத்தர்க ணப்ரிய நிர்த்தந டித்திடு<BR>
+பட்சிந டத்திய ...... குகபூர்வ<BR>
+<BR>
+பச்சிம தட்சிண வுத்தர திக்குள<BR>
+பத்தர்க ளற்புத ...... மெனவோதுஞ்<BR>
+<BR>
+சித்ரக வித்துவ சத்தமி குத்ததி<BR>
+ருப்புக ழைச்சிறி ...... தடியேனுஞ்<BR>
+<BR>
+செப்பென வைத்துல கிற்பர வத்தெரி<BR>
+சித்தவ நுக்ரக ...... மறவேனே<BR>
+<BR>
+கத்திய தத்தைக ளைத்துவி ழத்திரி<BR>
+கற்கவ ணிட்டெறி ...... தினைகாவல்<BR>
+<BR>
+கற்றகு றத்திநி றத்தக ழுத்தடி<BR>
+கட்டிய ணைத்தப ...... னிருதோளா<BR>
+<BR>
+சத்தியை யொக்கஇ டத்தினில் வைத்தத<BR>
+கப்பனு மெச்சிட ...... மறைநூலின்<BR>
+<BR>
+தத்துவ தற்பர முற்றுமு ணர்த்திய<BR>
+சர்ப்பகி ரிச்சுரர் ...... பெருமாளே<BR>
+
+</P>
+
+</body>
+</html>

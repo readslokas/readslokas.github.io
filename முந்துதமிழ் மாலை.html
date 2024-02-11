@@ -1,0 +1,121 @@
+<HTML>
+    <meta charset="UTF-8">
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=1
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)  alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",50)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) { /* Firefox */
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE/Edge */
+        elem.msRequestFullscreen();
+      }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p  {
+        color: white;
+        font-family: calibri;
+        font-size: 270%;
+        word-wrap: break-word;
+    }
+    
+    .block {
+        display: block;
+        width: 100%;
+        font-size: 270%;
+        text-align: center;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body>
+    <BR>
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <P>
+    
+    முந்துதமிழ் மாலை கோடிக் கோடி<BR>
+    சந்தமொடு நீடு பாடிப் பாடி<BR>
+    முஞ்சர்மனை வாசல் தேடித் தேடி ...... யுழலாதே<BR>
+    <BR>
+    முந்தைவினை யேவ ராமற் போக<BR>
+    மங்கையர்கள் காதல் தூரத் தேக<BR>
+    முந்தடிமை யேனை யாளத் தானு ...... முனைமீதே<BR>
+    <BR>
+    திந்திதிமி தோதி தீதித் தீதி<BR>
+    தந்ததன தான தானத் தான<BR>
+    செஞ்செணகு சேகு தாளத் தோடு ...... நடமாடுஞ்<BR>
+    <BR>
+    செஞ்சிறிய கால்வி சாலத் தோகை<BR>
+    துங்கஅநு கூல பார்வைத் தீர<BR>
+    செம்பொன்மயில் மீதி லேயெப் போது ...... வருவாயே<BR>
+    <BR>
+    அந்தண்மறை வேள்வி காவற் கார<BR>
+    செந்தமிழ்சொல் பாவின் மாலைக் கார<BR>
+    அண்டருப கார சேவற் கார ...... முடிமேலே<BR>
+    <BR>
+    அஞ்சலிசெய் வோர்கள் நேயக் கார<BR>
+    குன்றுருவ ஏவும் வேலைக் கார<BR>
+    அந்தம்வெகு வான ரூபக் கார ...... எழிலான<BR>
+    <BR>
+    சிந்துரமின் மேவு போகக் கார<BR>
+    விந்தைகுற மாது வேளைக் கார<BR>
+    செஞ்சொலடி யார்கள் வாரக் கார ...... எதிரான<BR>
+    <BR>
+    செஞ்சமரை மாயு மாயக் கார<BR>
+    துங்கரண சூர சூறைக் கார<BR>
+    செந்தினகர் வாழு மாண்மைக் கார ...... பெருமாளே<BR><BR>
+    
+    <P>
+    
+    </body>
+    </html>
+    

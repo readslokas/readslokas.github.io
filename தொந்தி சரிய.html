@@ -1,0 +1,121 @@
+<HTML>
+    <meta charset="UTF-8">
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=1
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)  alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",50)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) { /* Firefox */
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE/Edge */
+        elem.msRequestFullscreen();
+      }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p  {
+        color: white;
+        font-family: calibri;
+        font-size: 270%;
+        word-wrap: break-word;
+    }
+    
+    .block {
+        display: block;
+        width: 100%;
+        font-size: 270%;
+        text-align: center;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body>
+    <BR>
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <P>
+    
+    தொந்தி சரிய மயிரே வெளிறநிரை<BR>
+    தந்த மசைய முதுகே வளையஇதழ்<BR>
+    தொங்க வொருகை தடிமேல் வரமகளிர் ...... நகையாடி<BR>
+    <BR>
+    தொண்டு கிழவ னிவனா ரெனஇருமல்<BR>
+    கிண்கி ணெனமு னுரையே குழறவிழி<BR>
+    துஞ்சு குருடு படவே செவிடுபடு ...... செவியாகி<BR>
+    <BR>
+    வந்த பிணியு மதிலே மிடையுமொரு<BR>
+    பண்டி தனுமெ யுறுவே தனையுமிள<BR>
+    மைந்த ருடைமை கடனே தெனமுடுக ...... துயர்மேவி<BR>
+    <BR>
+    மங்கை யழுது விழவே யமபடர்கள்<BR>
+    நின்று சருவ மலமே யொழுகவுயிர்<BR>
+    மங்கு பொழுது கடிதே மயிலின்மிசை ...... வரவேணும்<BR>
+    <BR>
+    எந்தை வருக ரகுநா யகவருக<BR>
+    மைந்த வருக மகனே யினிவருக<BR>
+    என்கண் வருக எனதா ருயிர்வருக ...... அபிராம<BR>
+    <BR>
+    இங்கு வருக அரசே வருகமுலை<BR>
+    யுண்க வருக மலர்சூ டிடவருக<BR>
+    என்று பரிவி னொடுகோ சலைபுகல ...... வருமாயன்<BR>
+    <BR>
+    சிந்தை மகிழு மருகா குறவரிள<BR>
+    வஞ்சி மருவு மழகா அமரர்சிறை<BR>
+    சிந்த அசுரர் கிளைவே ரொடுமடிய ...... அடுதீரா<BR>
+    <BR>
+    திங்க ளரவு நதிசூ டியபரமர்<BR>
+    தந்த குமர அலையே கரைபொருத<BR>
+    செந்தி னகரி லினிதே மருவிவளர் ...... பெருமாளே<BR>
+    
+    <P>
+    
+    </body>
+    </html>
+    

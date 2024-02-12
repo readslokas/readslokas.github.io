@@ -1,0 +1,121 @@
+<HTML>
+    <meta charset="UTF-8">
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=1
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)  alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",50)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) { /* Firefox */
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE/Edge */
+        elem.msRequestFullscreen();
+      }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p  {
+        color: white;
+        font-family: calibri;
+        font-size: 270%;
+        word-wrap: break-word;
+    }
+    
+    .block {
+        display: block;
+        width: 100%;
+        font-size: 270%;
+        text-align: center;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body>
+    <BR>
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <P>
+    
+    அமுத மூறுசொ லாகிய தோகையர்<BR>
+    பொருளு ளாரையெ னாணையு னாணையெ<BR>
+    னருகு வீடிது தானதில் வாருமெ ...... னுரைகூறும்<BR>
+    <BR>
+    அசடு மாதர்கு வாதுசொல் கேடிகள்<BR>
+    தெருவின் மீதுகு லாவியு லாவிகள்<BR>
+    அவர்கள் மாயைப டாமல்கெ டாமல்நி ...... னருள்தாராய்<BR>
+    <BR>
+    குமரி காளிவ ராகிம கேசுரி<BR>
+    கவுரி மோடிசு ராரிநி ராபரி<BR>
+    கொடிய சூலிசு டாரணி யாமளி ...... மகமாயி<BR>
+    <BR>
+    குறளு ரூபமு ராரிச கோதரி<BR>
+    யுலக தாரிஉதாரிப ராபரி<BR>
+    குருப ராரிவி காரிந மோகரி ...... அபிராமி<BR>
+    <BR>
+    சமர நீலிபு ராரித னாயகி<BR>
+    மலைகு மாரிக பாலிந னாரணி<BR>
+    சலில மாரிசி வாயம னோகரி ...... பரையோகி<BR>
+    <BR>
+    சவுரி வீரிமு நீர்விட போஜனி<BR>
+    திகிரி மேவுகை யாளிசெ யாளொரு<BR>
+    சகல வேதமு மாயின தாயுமை ...... யருள்பாலா<BR>
+    <BR>
+    திமித மாடுசு ராரிநி சாசரர்<BR>
+    முடிக டோறுக டாவியி டேயொரு<BR>
+    சிலப சாசுகு ணாலிநி ணாமுண ...... விடும்வேலா<BR>
+    <BR>
+    திருவு லாவுசொ ணேசர ணாமலை<BR>
+    முகிலு லாவுவி மானந வோநிலை<BR>
+    சிகர மீதுகு லாவியு லாவிய ...... பெருமாளே<BR>
+    
+    <P>
+    
+    </body>
+    </html>
+    

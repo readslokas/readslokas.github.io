@@ -1,0 +1,120 @@
+<HTML>
+    <meta charset="UTF-8">
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=1
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)  alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",50)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) { /* Firefox */
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE/Edge */
+        elem.msRequestFullscreen();
+      }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p  {
+        color: white;
+        font-family: calibri;
+        font-size: 270%;
+        word-wrap: break-word;
+    }
+    
+    .block {
+        display: block;
+        width: 100%;
+        font-size: 270%;
+        text-align: center;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body>
+    <BR>
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <p>
+    
+    சருவும்படி வந்தனன் இங்கித<BR>
+    மதனின்றிட அம்புலி யுஞ்சுடு<BR>
+    தழல்கொண்டிட மங்கையர் கண்களின் ...... வசமாகிச்<BR>
+    <BR>
+    சயிலங்கொளு மன்றல்பொ ருந்திய<BR>
+    பொழிலின்பயில் தென்றலும் ஒன்றிய<BR>
+    தடவஞ்சுனை துன்றியெ ழுந்திட ...... திறமாவே<BR>
+    <BR>
+    இரவும்பகல் அந்தியு நின்றிடு<BR>
+    குயில்வந்திசை தெந்தன என்றிட<BR>
+    இருகண்கள்து யின்றிட லின்றியும் ...... அயர்வாகி<BR>
+    <BR>
+    இவணெஞ்சுப தன்பதன் என்றிட<BR>
+    மயல்கொண்டுவ ருந்திய வஞ்சகன்<BR>
+    இனியுன்றன்ம லர்ந்தில கும்பதம் ...... அடைவேனோ<BR>
+    <BR>
+    திருவொன்றிவி ளங்கிய அண்டர்கள்<BR>
+    மனையின்தயிர் உண்டவன் எண்டிசை<BR>
+    திகழும்புகழ் கொண்டவன் வண்டமிழ் ...... பயில்வோர்பின்<BR>
+    <BR>
+    திரிகின்றவன் மஞ்சுநி றம்புனை<BR>
+    பவன்மிஞ்சுதி றங்கொள வென்றடல்<BR>
+    செயதுங்கமு குந்தன்ம கிழ்ந்தருள் ...... மருகோனே<BR>
+    <BR>
+    மருவுங்கடல் துந்திமி யுங்குட<BR>
+    முழவங்கள்கு மின்குமி னென்றிட<BR>
+    வளமொன்றிய செந்திலில் வந்தருள் ...... முருகோனே<BR>
+    <BR>
+    மதியுங்கதி ரும்புய லுந்தின<BR>
+    மறுகும்படி அண்டம்இ லங்கிட<BR>
+    வளர்கின்றப ரங்கிரி வந்தருள் ...... பெருமாளே | <BR><BR>
+    
+    </p>
+    
+    </body>
+    </html>

@@ -1,0 +1,227 @@
+<HTML>
+
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=5
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",25)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+    if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+    }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p{
+    color: white;
+    font-family: calibri;
+    font-size: 250%;
+    word-wrap: break-word;
+    }
+    
+    .block {
+    display: block;
+    width: 100%;
+    font-size: 230%;
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body class="block">
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <p>
+    
+    asya srinarayanahrdayastotramantrasya <BR>
+    bhargava rsih<BR>
+    anustupchandah<BR>
+    srilaksminarayano devata<BR>
+    om bijam<BR>
+    namassaktih<BR>
+    narayanayeti kilakam<BR>
+    srilaksminarayana prityarthe<BR>
+    jape viniyogah |<BR>
+    <BR>
+    karanyasah |<BR>
+    <BR>
+    om narayanah param jyotiriti angusthabhyam namah |<BR>
+    narayanah param brahmeti tarjanibhyam namah |<BR>
+    narayanah paro deva iti madhyamabhyam namah |<BR>
+    narayanah param dhameti anamikabhyam namah |<BR>
+    narayanah paro dharma iti kanisthikabhyam namah |<BR>
+    visvam narayana iti karatalakaraprsthabhyam namah |<BR>
+    anganyasah |<BR>
+    narayanah param jyotiriti hrdayaya namah |<BR>
+    narayanah param brahmeti sirase svaha |<BR>
+    narayanah paro deva iti sikhayai vausat |<BR>
+    narayanah param dhameti kavacaya hum |<BR>
+    narayanah paro dharma iti netrabhyam vausat |<BR>
+    visvam narayana iti astraya phat |<BR>
+    digbandhah |<BR>
+    om aindryadidasadisam <BR>
+    om namah sudarsanaya <BR>
+    sahasraraya hum phat <BR>
+    badhnami namascakraya svaha | <BR>
+    iti pratidisam yojyam |<BR>
+    atha dhyanam |<BR>
+    udyadadityasankasam pitavasam caturbhujam |<BR>
+    sankhacakragadapanim dhyayellaksmipatim harim || 1 ||<BR>
+    <BR>
+    trailokyadharacakram tadupari kamatham tatra canantabhogi<BR>
+    tanmadhye bhumipadmankusasikharadalam karnikabhutamerum |<BR>
+    tatrastham santamurtim manimayamakutam kunḍalodbhasitangam<BR>
+    laksminarayanakhyam sarasijanayanam santatam cintayami || 2 ||<BR>
+    <BR>
+    atha mulastakam |<BR>
+    <BR>
+    om || <BR>
+    <BR>
+    narayanah param jyotiratma narayanah parah |<BR>
+    narayanah param brahma narayana namostu te || 1 ||<BR>
+    <BR>
+    narayanah paro devo dhata narayanah parah |<BR>
+    narayanah paro dhata narayana namostu te || 2 ||<BR>
+    <BR>
+    narayanah param dhama dhyanam narayanah parah |<BR>
+    narayana paro dharmo narayana namostu te || 3 ||<BR>
+    <BR>
+    narayanah parovedyah vidya narayanah parah |<BR>
+    visvam narayanah saksannarayana namostu te || 4 ||<BR>
+    <BR>
+    narayanadvidhirjato jato narayanadbhavah |<BR>
+    jato narayanadindro narayana namostu te || 5 ||<BR>
+    <BR>
+    ravirnarayanastejah candro narayano mahah |<BR>
+    vahnirnarayanah saksannarayana namostu te || 6 ||<BR>
+    <BR>
+    narayana upasyah syadgururnarayanah parah |<BR>
+    narayanah paro bodho narayana namostu te || 7 ||<BR>
+    <BR>
+    narayanah phalam mukhyam siddhirnarayanah sukham |<BR>
+    sevyonarayanah suddho narayana namostu te || 8 || [hari]<BR>
+    <BR>
+    atha prarthanadasakam |<BR>
+    narayana tvamevasi daharakhye hrdi sthitah |<BR>
+    prerakah preryamananam tvaya preritamanasah || 9 ||<BR>
+    <BR>
+    tvadajñam sirasa dhrtva japami janapavanam |<BR>
+    nanopasanamarganam bhavakrdbhavabodhakah || 10 ||<BR>
+    <BR>
+    bhavarthakrdbhavatito bhava saukhyaprado mama |<BR>
+    tvanmayamohitam visvam tvayaiva parikalpitam || 11 ||<BR>
+    <BR>
+    tvadadhisthanamatrena sa vai sarvarthakarini |<BR>
+    tvametam ca puraskrtya sarvakamanpradarsaya || 12 ||<BR>
+    <BR>
+    na me tvadanyastratasti tvadanyanna hi daivatam |<BR>
+    tvadanyam na hi janami palakam punyavardhanam || 13 ||<BR>
+    <BR>
+    yavatsamsariko bhavo manasstho bhavanatmakah |<BR>
+    tavatsiddhirbhavetsadhya sarvatha sarvada vibho || 14 ||<BR>
+    <BR>
+    papinamahamevagryo dayalunam tvamagranih |<BR>
+    dayaniyo madanyosti tava kotra jagattraye || 15 ||<BR>
+    <BR>
+    tvayaham naiva srstascenna syattava dayaluta |<BR>
+    amayo va na srstascedausadhasya vrthodayah || 16 ||<BR>
+    <BR>
+    papasanghaparisrantah papatma paparupadhrt |<BR>
+    tvadanyah kotra papebhyastratasti jagatitale || 17 ||<BR>
+    <BR>
+    tvameva mata ca pita tvameva<BR>
+    tvameva bandhusca sakha tvameva |<BR>
+    tvameva sevyasca gurustvameva<BR>
+    tvameva sarvam mama deva deva || 18 ||<BR>
+    <BR>
+    prarthanadasakam caiva mulastakamatah param |<BR>
+    yah pathecchrnuyannityam tasya laksmih sthira bhavet || 19 ||<BR>
+    <BR>
+    narayanasya hrdayam sarvabhistaphalapradam |<BR>
+    laksmihrdayakam stotram yadi cettadvinakrtam || 20 ||<BR>
+    <BR>
+    tatsarvam nisphalam proktam laksmih kruddhyati sarvada |<BR>
+    etatsankalitam stotram sarvakamaphalapradam || 21 ||<BR>
+    <BR>
+    laksmihrdayakam caiva tatha narayanatmakam |<BR>
+    japedyah sankalikrtya sarvabhistamavapnuyat || 22 ||<BR>
+    <BR>
+    narayanasya hrdayamadau japtva tatah param |<BR>
+    laksmihrdayakam stotram japennarayanam punah || 23 ||<BR>
+    <BR>
+    punarnarayanam japtva punarlaksminutim japet |<BR>
+    punarnarayanam japyam sankalikaranam bhavet || 24 ||<BR>
+    <BR>
+    evam madhye dvivarena japetsankalitam tu tat |<BR>
+    laksmihrdayakam stotram sarvakamaprakasitam || 25 ||<BR>
+    <BR>
+    tadvajjapadikam kuryadetatsankalitam subham |<BR>
+    sarvankamanavapnoti adhivyadhibhayam haret || 26 ||<BR>
+    <BR>
+    gopyametatsada kuryanna sarvatra prakasayet |<BR>
+    iti guhyatamam sastram praptam brahmadikaih pura || 27 ||<BR>
+    <BR>
+    tasmatsarvaprayatnena gopayetsadhayesudhih |<BR>
+    yatraitatpustakam tisthellaksminarayanatmakam || 28 ||<BR>
+    <BR>
+    bhutapaisacavetala bhayam naiva tu sarvada |<BR>
+    laksmihrdayakam proktam vidhina sadhayetsudhih || 29 ||<BR>
+    <BR>
+    bhrguvare ca ratrau ca pujayetpustakadvayam |<BR>
+    sarvatha sarvada satyam gopayetsadhayetsudhih |<BR>
+    gopanatsadhanalloke dhanyo bhavati tattvatah || 30 ||<BR>
+    <BR>
+    ityatharvarahasye uttarabhage narayanahrdayam sampurnam |<BR>
+    
+    </p>
+    </body>
+    </html>
+    
+    

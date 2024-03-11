@@ -1,0 +1,559 @@
+<HTML>
+
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=5
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",25)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+    if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+    }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p{
+    color: white;
+    font-family: calibri;
+    font-size: 250%;
+    word-wrap: break-word;
+    }
+    
+    .block {
+    display: block;
+    width: 100%;
+    font-size: 230%;
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body class="block">
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <p>
+    
+    asya sri mahalaksmihrdayastotra mahamantrasya<BR>
+    bhargava rsih<BR>
+    anustupadini nanachandamsi<BR>
+    adyadi srimahalaksmirdevata<BR>
+    srim bijam<BR>
+    hrim saktih<BR>
+    aim kilakam<BR>
+    adyadimahalaksmi prasadasiddhyartham<BR>
+    jape viniyogah ||<BR>
+    <BR>
+    rsyadinyasah –<BR>
+    om bhargavarsaye namah sirasi |<BR>
+    om anustupadinanachandobhyo namo mukhe |<BR>
+    om adyadisrimahalaksmi devatayai namo hrdaye |<BR>
+    om srim bijaya namo guhye |<BR>
+    om hrim saktaye namah padayoh |<BR>
+    om aim kilakaya namo nabhau |<BR>
+    om viniyogaya namah sarvange |<BR>
+    karanyasah –<BR>
+    om srim angusthabhyam namah |<BR>
+    om hrim tarjanibhyam namah |<BR>
+    om aim madhyamabhyam namah |<BR>
+    om srim anamikabhyam namah |<BR>
+    om hrim kanisthikabhyam namah |<BR>
+    om aim karatala karaprsthabhyam namah |<BR>
+    anganyasah –<BR>
+    om srim hrdayaya namah |<BR>
+    om hrim sirase svaha |<BR>
+    om aim sikhayai vasat |<BR>
+    om srim kavacaya hum |<BR>
+    om hrim netratrayaya vausat |<BR>
+    om aim astraya phat |<BR>
+    om srim hrim aim iti digbandhah |<BR>
+    atha dhyanam |<BR>
+    hastadvayena kamale dharayantim svalilaya |<BR>
+    haranupurasamyuktam laksmim devim vicintaye ||<BR>
+    kauseyapitavasanamaravindanetram<BR>
+    padmadvayabhayavarodyatapadmahastam |<BR>
+    udyacchatarkasadrsim paramankasamstham<BR>
+    dhyayedvidhisanatapadayugam janitrim ||<BR>
+    pitavastram suvarnangim padmahastadvayanvitam |<BR>
+    laksmim dhyatveti mantrena sa bhavetprthivipatih ||<BR>
+    matulungam gadam khetam panau patram ca bibhrati |<BR>
+    nagam lingam ca yonim ca bibhratim caiva murdhani ||<BR>
+    <BR>
+    iti dhyatva manasopacaraih sampujya |<BR>
+    sankhacakragadahaste subhravarne suvasini |<BR>
+    mama dehi varam laksmih sarvasiddhipradayini |<BR>
+    iti samprarthya <BR>
+    om srim hrim aim <BR>
+    mahalaksmyai kamaladharinyai <BR>
+    simhavahinyai svaha <BR>
+    iti mantram japtva punah <BR>
+    purvavaddhrdayadi sadanganyasam <BR>
+    krtva stotram pathet | ]<BR>
+    stotram |<BR>
+    <BR>
+    vande laksmim paramasivamayim suddhajambunadabham<BR>
+    tejorupam kanakavasanam sarvabhusojjvalangim |<BR>
+    bijapuram kanakakalasam hemapadmam dadhana-<BR>
+    -madyam saktim sakalajananim visnuvamankasamstham || 1 ||<BR>
+    <BR>
+    srimatsaubhagyajananim staumi laksmim sanatanim |<BR>
+    sarvakamaphalavaptisadhanaikasukhavaham || 2 ||<BR>
+    <BR>
+    smarami nityam devesi tvaya preritamanasah |<BR>
+    tvadajnam sirasa dhrtva bhajami paramesvarim || 3 ||<BR>
+    <BR>
+    samastasampatsukhadam mahasriyam<BR>
+    samastasaubhagyakarim mahasriyam |<BR>
+    samastakalyanakarim mahasriyam<BR>
+    bhajamyaham jnanakarim mahasriyam || 4 ||<BR>
+    <BR>
+    vijnanasampatsukhadam sanatanim<BR>
+    vicitravagbhutikarim manoharam |<BR>
+    anantasammodasukhapradayinim<BR>
+    namamyaham bhutikarim haripriyam || 5 ||<BR>
+    <BR>
+    samastabhutantarasamsthita tvam<BR>
+    samastabhoktrisvari visvarupe |<BR>
+    tannasti yattvadvyatiriktavastu<BR>
+    tvatpadapadmam pranamamyaham srih || 6 ||<BR>
+    <BR>
+    daridrya duhkhaughatamopahantri<BR>
+    tvatpadapadmam mayi sannidhatsva |<BR>
+    dinartivicchedanahetubhutaih<BR>
+    krpakataksairabhisinca mam srih || 7 ||<BR>
+    <BR>
+    amba prasida karunasudhayardradrstya<BR>
+    mam tvatkrpadravinagehamimam kurusva |<BR>
+    alokaya pranatahrdgatasokahantri<BR>
+    tvatpadapadmayugalam pranamamyaham srih || 8 ||<BR>
+    <BR>
+    santyai namostu saranagataraksanayai<BR>
+    kantyai namostu kamaniyagunasrayayai |<BR>
+    ksantyai namostu duritaksayakaranayai<BR>
+    datryai namostu dhanadhanyasamrddhidayai || 9 ||<BR>
+    <BR>
+    saktyai namostu sasisekharasamstutayai<BR>
+    ratyai namostu rajanikarasodarayai |<BR>
+    bhaktyai namostu bhavasagaratarakayai<BR>
+    matyai namostu madhusudanavallabhayai || 10 ||<BR>
+    <BR>
+    laksmyai namostu subhalaksanalaksitayai<BR>
+    siddhyai namostu sivasiddhasupujitayai |<BR>
+    dhrtyai namostvamitadurgatibhanjanayai<BR>
+    gatyai namostu varasadgatidayikayai || 11 ||<BR>
+    <BR>
+    devyai namostu divi devaganarcitayai<BR>
+    bhutyai namostu bhuvanartivinasanayai |<BR>
+    dhatryai namostu dharanidharavallabhayai<BR>
+    pustyai namostu purusottamavallabhayai || 12 ||<BR>
+    <BR>
+    sutivradaridryaviduhkhahantryai<BR>
+    namostu te sarvabhayapahantryai |<BR>
+    srivisnuvaksahsthalasamsthitayai<BR>
+    namo namah sarvavibhutidayai || 13 ||<BR>
+    <BR>
+    jayatu jayatu laksmirlaksanalankrtangi<BR>
+    jayatu jayatu padma padmasadmabhivandya |<BR>
+    jayatu jayatu vidya visnuvamankasamstha<BR>
+    jayatu jayatu samyaksarvasampatkari srih || 14 ||<BR>
+    <BR>
+    jayatu jayatu devi devasanghabhipujya<BR>
+    jayatu jayatu bhadra bhargavi bhagyarupa |<BR>
+    jayatu jayatu nitya nirmalajnanavedya<BR>
+    jayatu jayatu satya sarvabhutantarastha || 15 ||<BR>
+    <BR>
+    jayatu jayatu ramya ratnagarbhantarastha<BR>
+    jayatu jayatu suddha suddhajambunadabha |<BR>
+    jayatu jayatu kanta kantimadbhasitangi<BR>
+    jayatu jayatu santa sighramagaccha saumye || 16 ||<BR>
+    <BR>
+    yasyah kalayah kamalodbhavadya<BR>
+    rudrasca sakra pramukhasca devah |<BR>
+    jivanti sarvepi sasaktayaste<BR>
+    prabhutvamaptah paramayusaste || 17 ||<BR>
+    <BR>
+    lilekha nitile vidhirmama lipim visrjyantaram<BR>
+    tvaya vilikhitavyametaditi tatphalapraptaye |<BR>
+    tadantaraphalesphutam kamalavasini sririmam<BR>
+    samarpaya samudrikam sakalabhagyasamsucikam || 18 ||<BR>
+    <BR>
+    kalaya te yatha devi jivanti sacaracarah |<BR>
+    tatha sampatkare laksmi sarvada samprasida me || 19 ||<BR>
+    <BR>
+    yatha visnurdhruve nityam svakalam samnyavesayat |<BR>
+    tathaiva svakalam laksmi mayi samyak samarpaya || 20 ||<BR>
+    <BR>
+    sarvasaukhyaprade devi bhaktanamabhayaprade |<BR>
+    acalam kuru yatnena kalam mayi nivesitam || 21 ||<BR>
+    <BR>
+    mudastam matphale paramapadalaksmih sphutakala<BR>
+    sada vaikunthasrirnivasatu kala me nayanayoh |<BR>
+    vasetsatye loke mama vacasi laksmirvarakala<BR>
+    sriyah svetadvipe nivasatu kala me svakarayoh || 22 ||<BR>
+    <BR>
+    tavannityam mamangesu ksirabdhau srikala vaset |<BR>
+    suryacandramasau yavadyavallaksmipatih sriyah || 23 ||<BR>
+    <BR>
+    sarvamangalasampurna sarvaisvaryasamanvita |<BR>
+    adyadi srirmahalaksmi tvatkala mayi tisthatu || 24 ||<BR>
+    <BR>
+    ajnanatimiram hantum suddhajnanaprakasika |<BR>
+    sarvaisvaryaprada mestu tvatkala mayi samsthita || 25 ||<BR>
+    <BR>
+    alaksmim haratu ksipram tamah suryaprabha yatha |<BR>
+    vitanotu mama sreyastvatkala mayi samsthita || 26 ||<BR>
+    <BR>
+    aisvaryamangalotpattistvatkalayam nidhiyate |<BR>
+    mayi tasmatkrtarthosmi patramasmi sthitestava || 27 ||<BR>
+    <BR>
+    bhavadavesabhagyarho bhagyavanasmi bhargavi |<BR>
+    tvatprasadatpavitroham lokamatarnamostu te || 28 ||<BR>
+    <BR>
+    punasi mam tvatkalayaiva yasma-<BR>
+    -datah samagaccha mamagratastvam |<BR>
+    param padam srirbhava suprasanna<BR>
+    mayyacyutena pravisadilaksmih || 29 ||<BR>
+    <BR>
+    srivaikunthasthite laksmi samagaccha mamagratah |<BR>
+    narayanena saha mam krpadrstyavalokaya || 30 ||<BR>
+    <BR>
+    satyalokasthite laksmi tvam mamagaccha sannidhim |<BR>
+    vasudevena sahita prasida varada bhava || 31 ||<BR>
+    <BR>
+    svetadvipasthite laksmi sighramagaccha suvrate |<BR>
+    visnuna sahite devi jaganmatah prasida me || 32 ||<BR>
+    <BR>
+    ksirambudhisthite laksmi samagaccha samadhava |<BR>
+    tvatkrpadrstisudhaya satatam mam vilokaya || 33 ||<BR>
+    <BR>
+    ratnagarbhasthite laksmi paripurne hiranmaye |<BR>
+    samagaccha samagaccha sthitvasu purato mama || 34 ||<BR>
+    <BR>
+    sthira bhava mahalaksmi niscala bhava nirmale |<BR>
+    prasanne kamale devi prasannahrdaya bhava || 35 ||<BR>
+    <BR>
+    sridhare srimahabhute tvadantahstham mahanidhim |<BR>
+    sighramuddhrtya puratah pradarsaya samarpaya || 36 ||<BR>
+    <BR>
+    vasundhare srivasudhe vasudogdhri krpamaye |<BR>
+    tvatkuksigatasarvasvam sighram me sampradarsaya || 37 ||<BR>
+    <BR>
+    visnupriye ratnagarbhe samastaphalade sive |<BR>
+    tvadgarbhagatahemadin sampradarsaya darsaya || 38 ||<BR>
+    <BR>
+    rasatalagate laksmi sighramagaccha me purah |<BR>
+    na jane paramam rupam matarme sampradarsaya || 39 ||<BR>
+    <BR>
+    avirbhava manovegacchighramagaccha me purah |<BR>
+    ma vatsa bhairihetyuktva kamam gauriva raksa mam || 40 ||<BR>
+    <BR>
+    devi sighram samagaccha dharanigarbhasamsthite |<BR>
+    matastvadbhrtyabhrtyoham mrgaye tvam kutuhalat || 41 ||<BR>
+    <BR>
+    uttistha jagrhi tvam me samuttistha sujagrhi |<BR>
+    aksayan hemakalasan suvarnena supuritan || 42 ||<BR>
+    <BR>
+    niksepanme samakrsya samuddhrtya mamagratah |<BR>
+    samunnatanana bhutva samadhehi dharantarat || 43 ||<BR>
+    <BR>
+    matsannidhim samagaccha madahitakrparasat |<BR>
+    prasida sreyasam dogdhri laksmirme nayanagratah || 44 ||<BR>
+    <BR>
+    atropavisa laksmi tvam sthira bhava hiranmaye |<BR>
+    susthira bhava sampritya prasida varada bhava || 45 ||<BR>
+    <BR>
+    anitamstu tatha devi nidhinme sampradarsaya |<BR>
+    adya ksanena sahasa dattva samraksa mam sada || 46 ||<BR>
+    <BR>
+    mayi tistha tatha nityam yathendradisu tisthasi |<BR>
+    abhayam kuru me devi mahalaksmirnamostu te || 47 ||<BR>
+    <BR>
+    samagaccha mahalaksmi suddhajambunadaprabhe |<BR>
+    prasida puratah sthitva pranatam mam vilokaya || 48 ||<BR>
+    <BR>
+    laksmirbhuvam gata bhasi yatra yatra hiranmayi |<BR>
+    tatra tatra sthita tvam me tava rupam pradarsaya || 49 ||<BR>
+    <BR>
+    kridanti bahudha bhumau paripurnakrpamayi |<BR>
+    mama murdhani te hastamavilambitamarpaya || 50 ||<BR>
+    <BR>
+    phaladbhagyodaye laksmi samastapuravasini |<BR>
+    prasida me mahalaksmi paripurnamanorathe || 51 ||<BR>
+    <BR>
+    ayodhyadisu sarvesu nagaresu samasthite |<BR>
+    vaibhavairvividhairyuktaih samagaccha mudanvite || 52 ||<BR>
+    <BR>
+    samagaccha samagaccha mamagre bhava susthira |<BR>
+    karunarasanisyandanetradvaya vilasini || 53 || [nispanna]<BR>
+    <BR>
+    sannidhatsva mahalaksmi tvatpanim mama mastake |<BR>
+    karunasudhaya mam tvamabhisincya sthiram kuru || 54 ||<BR>
+    <BR>
+    sarvarajagrhe laksmi samagaccha balanvite | [mudanvite]<BR>
+    sthitvasu purato medya prasadenabhayam kuru || 55 ||<BR>
+    <BR>
+    sadaram mastake hastam mama tvam krpayarpaya |<BR>
+    sarvarajagrhe laksmi tvatkala mayi tisthatu || 56 ||<BR>
+    <BR>
+    adyadi srimahalaksmi visnuvamankasamsthite |<BR>
+    pratyaksam kuru me rupam raksa mam saranagatam || 57 ||<BR>
+    <BR>
+    prasida me mahalaksmi suprasida mahasive |<BR>
+    acala bhava sampritya susthira bhava madgrhe || 58 ||<BR>
+    <BR>
+    yavattisthanti vedasca yavaccandradivakarau |<BR>
+    yavadvisnusca yavattvam tavatkuru krpam mayi || 59 ||<BR>
+    <BR>
+    candrikala yatha sukle vardhate sa dine dine |<BR>
+    tatha daya te mayyeva vardhatamabhivardhatam || 60 ||<BR>
+    <BR>
+    yatha vaikunthanagare yatha vai ksirasagare |<BR>
+    tatha madbhavane tistha sthiram srivisnuna saha || 61 ||<BR>
+    <BR>
+    yoginam hrdaye nityam yatha tisthasi visnuna |<BR>
+    tatha madbhavane tistha sthiram srivisnuna saha || 62 ||<BR>
+    <BR>
+    narayanasya hrdaye bhavati yathaste<BR>
+    narayanopi tava hrtkamale yathaste |<BR>
+    narayanastvamapi nityamubhau tathaiva<BR>
+    tau tisthatam hrdi mamapi dayanvitau srih || 63 ||<BR>
+    <BR>
+    vijnanavrddhim hrdaye kuru srih<BR>
+    saubhagyavrddhim kuru me grhe srih |<BR>
+    dayasuvrddhim kurutam mayi srih<BR>
+    suvarnavrddhim kuru me grhe srih || 64 ||<BR>
+    <BR>
+    na mam tyajethah sritakalpavalli<BR>
+    sadbhaktacintamanikamadheno |<BR>
+    visvasya matarbhava suprasanna<BR>
+    grhe kalatresu ca putravarge || 65 ||<BR>
+    <BR>
+    adyadimaye tvamajandabijam<BR>
+    tvameva sakaranirakrtistvam |<BR>
+    tvaya dhrtascabjabhavandasangha-<BR>
+    -scitram caritram tava devi visnoh || 66 ||<BR>
+    <BR>
+    brahmarudradayo deva vedascapi na saknuyuh |<BR>
+    mahimanam tava stotum mandoham saknuyam katham || 67 ||<BR>
+    <BR>
+    amba tvadvatsavakyani suktasuktani yani ca |<BR>
+    tani svikuru sarvajne dayalutvena sadaram || 68 ||<BR>
+    <BR>
+    bhavatim saranam gatva krtarthah syuh puratanah |<BR>
+    iti sancintya manasa tvamaham saranam vraje || 69 ||<BR>
+    <BR>
+    ananta nityasukhinastvadbhaktastvatparayanah |<BR>
+    iti vedapramanaddhi devi tvam saranam vraje || 70 ||<BR>
+    <BR>
+    tava pratijna madbhakta na nasyantityapi kvacit |<BR>
+    iti sancintya sancintya pranan sandharayamyaham || 71 ||<BR>
+    <BR>
+    tvadadhinastvaham matastvatkrpa mayi vidyate |<BR>
+    yavatsampurnakamah syattavaddehi dayanidhe || 72 ||<BR>
+    <BR>
+    ksanamatram na saknomi jivitum tvatkrpam vina |<BR>
+    na jivantiha jalaja jalam tyaktva jalagrahah || 73 ||<BR>
+    <BR>
+    yatha hi putravatsalyajjanani prasnutastani |<BR>
+    vatsam tvaritamagatya samprinayati vatsala || 74 ||<BR>
+    <BR>
+    yadi syam tava putroham mata tvam yadi mamaki |<BR>
+    dayapayodharastanyasudhabhirabhisinca mam || 75 ||<BR>
+    <BR>
+    mrgyo na gunalesopi mayi dosaikamandire |<BR>
+    pamsunam vrstibindunam dosanam ca na me matih || 76 ||<BR>
+    <BR>
+    papinamahamevagryo dayalunam tvamagranih |<BR>
+    dayaniyo madanyosti tava kotra jagattraye || 77 ||<BR>
+    <BR>
+    vidhinaham na srstascenna syattava dayaluta |<BR>
+    amayo va na srstascedausadhasya vrthodayah || 78 ||<BR>
+    <BR>
+    krpa madagraja kim te aham kim va tadagrajah |<BR>
+    vicarya dehi me vittam tava devi dayanidhe || 79 ||<BR>
+    <BR>
+    mata pita tvam gurusadgatih sri-<BR>
+    -stvameva sanjivanahetubhuta |<BR>
+    anyam na manye jagadekanathe<BR>
+    tvameva sarvam mama devi satye || 80 ||<BR>
+    <BR>
+    adyadilaksmirbhava suprasanna<BR>
+    visuddhavijnanasukhaikadogdhri |<BR>
+    ajnanahantri trigunatirikta<BR>
+    prajnananetri bhava suprasanna || 81 ||<BR>
+    <BR>
+    asesavagjadyamalapahantri<BR>
+    navam navam spastasuvakpradayini |<BR>
+    mameha jihvagra suranganartaki [nartini]<BR>
+    bhava prasanna vadane ca me srih || 82 ||<BR>
+    <BR>
+    samastasampatsuvirajamana<BR>
+    samastatejascayabhasamana |<BR>
+    visnupriye tvam bhava dipyamana<BR>
+    vagdevata me nayane prasanna || 83 ||<BR>
+    <BR>
+    sarvapradarse sakalarthade tvam<BR>
+    prabhasulavanyadayapradogdhri |<BR>
+    suvarnade tvam sumukhi bhava sri-<BR>
+    -rhiranmayi me nayane prasanna || 84 ||<BR>
+    <BR>
+    sarvarthada sarvajagatprasutih<BR>
+    sarvesvari sarvabhayapahantri |<BR>
+    sarvonnata tvam sumukhi bhava sri-<BR>
+    -rhiranmayi me nayane prasanna || 85 ||<BR>
+    <BR>
+    samastavighnaughavinasakarini<BR>
+    samastabhaktoddharane vicaksana |<BR>
+    anantasaubhagyasukhapradayini<BR>
+    hiranmayi me nayane prasanna || 86 ||<BR>
+    <BR>
+    devi prasida dayaniyatamaya mahyam<BR>
+    devadhinathabhavadevaganabhivandye |<BR>
+    matastathaiva bhava sannihita drsorme<BR>
+    patya samam mama mukhe bhava suprasanna || 87 ||<BR>
+    <BR>
+    ma vatsa bhairabhayadanakarorpitaste<BR>
+    maulau mameti mayi dinadayanukampe |<BR>
+    matah samarpaya muda karunakataksam<BR>
+    mangalyabijamiha nah srja janma matah || 88 ||<BR>
+    <BR>
+    kataksa iha kamadhuktava manastu cintamanih<BR>
+    karah surataruh sada navanidhistvamevendire |<BR>
+    bhave tava dayaraso mama rasayanam canvaham<BR>
+    mukham tava kalanidhirvividhavanchitarthapradam || 89 ||<BR>
+    <BR>
+    yatha rasasparsanatoyasopi<BR>
+    suvarnata syatkamale tatha te |<BR>
+    kataksasamsparsanato janana-<BR>
+    -mamangalanamapi mangalatvam || 90 ||<BR>
+    <BR>
+    dehiti nastiti vacah pravesa-<BR>
+    -dbhito rame tvam saranam prapadye |<BR>
+    atah sadasminnabhayaprada tvam<BR>
+    sahaiva patya mayi sannidhehi || 91 ||<BR>
+    <BR>
+    kalpadrumena manina sahita suramya<BR>
+    sriste kala mayi rasena rasayanena |<BR>
+    astam yato mama sirahkaradrstipada-<BR>
+    -sprstah suvarnavapusah sthirajangamah syuh || 92 ||<BR>
+    <BR>
+    adyadivisnoh sthiradharmapatni<BR>
+    tvameva patya mayi sannidhehi |<BR>
+    adyadilaksmi tvadanugrahena<BR>
+    pade pade me nidhidarsanam syat || 93 ||<BR>
+    <BR>
+    adyadilaksmihrdayam pathedyah<BR>
+    sa rajyalaksmimacalam tanoti |<BR>
+    mahadaridropi bhaveddhanadhya-<BR>
+    -stadanvaye srih sthiratam prayati || 94 ||<BR>
+    <BR>
+    yasya smaranamatrena tusta syadvisnuvallabha |<BR>
+    tasyabhistam dadatyasu tam palayati putravat || 95 ||<BR>
+    <BR>
+    idam rahasyam hrdayam sarvakamaphalapradam |<BR>
+    japah pancasahasram tu purascaranamucyate || 96 ||<BR>
+    <BR>
+    trikalamekakalam va naro bhaktisamanvitah |<BR>
+    yah pathecchrnuyadvapi sa yati paramam sriyam || 97 ||<BR>
+    <BR>
+    mahalaksmim samuddisya nisi bhargavavasare |<BR>
+    idam srihrdayam japtva pancavaram dhani bhavet || 98 ||<BR>
+    <BR>
+    anena hrdayenannam garbhinya abhimantritam |<BR>
+    dadati tatkule putro jayate sripatih svayam || 99 ||<BR>
+    <BR>
+    narena vathava narya laksmihrdayamantrite |<BR>
+    jale pite ca tadvamse mandabhagyo na jayate || 100 ||<BR>
+    <BR>
+    ya asvine masi ca suklapakse<BR>
+    ramotsave sannihite subhaktya |<BR>
+    pathettathaikottaravaravrddhya<BR>
+    labhetsa sauvarnamayim suvrstim || 101 ||<BR>
+    <BR>
+    ya ekabhaktonvahamekavarsam<BR>
+    visuddhadhih saptativarajapi |<BR>
+    sa mandabhagyopi ramakataksa-<BR>
+    -dbhavetsahasraksasatadhikasrih || 102 ||<BR>
+    <BR>
+    srisanghribhaktim haridasadasyam<BR>
+    prasannamantrarthadrdhaikanistham |<BR>
+    guroh smrtim nirmalabodhabuddhim<BR>
+    pradehi matah paramam padam srih || 103 ||<BR>
+    <BR>
+    prthvipatitvam purusottamatvam<BR>
+    vibhutivasam vividharthasiddhim |<BR>
+    sampurnakirtim bahuvarsabhogam<BR>
+    pradehi me laksmi punah punastvam || 104 ||<BR>
+    <BR>
+    vadarthasiddhim bahulokavasyam<BR>
+    vayah sthiratvam lalanasubhogam |<BR>
+    pautradilabdhim sakalarthasiddhim<BR>
+    pradehi me bhargavi janmajanmani || 105 ||<BR>
+    <BR>
+    suvarnavrddhim kuru me grhe srih<BR>
+    sudhanyavrddhim kuru me grhe srih |<BR>
+    kalyanavrddhim kuru me grhe srih<BR>
+    vibhutivrddhim kuru me grhe srih || 106 ||<BR>
+    <BR>
+    dhyayellaksmim prahasitamukhim kotibalarkabhasam<BR>
+    vidyudvarnambaravaradharam bhusanadhyam susobham |<BR>
+    bijapuram sarasijayugam bibhratim svarnapatram<BR>
+    bhartrayuktam muhurabhayadam mahyamapyacyutasrih || 107 ||<BR>
+    <BR>
+    guhyatiguhyagoptri tvam grhanasmatkrtam japam |<BR>
+    siddhirbhavatu me devi tvatprasadanmayi sthita || 108 ||<BR>
+    <BR>
+    iti sriatharvanarahasye srilaksmihrdayastotram sampurnam ||<BR>
+    <BR>
+    
+    </p>
+    </body>
+    </html>
+    
+    

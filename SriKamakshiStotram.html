@@ -1,0 +1,138 @@
+<HTML>
+
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=5
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)  alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",25)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+      }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p  {
+    color: white;
+    font-family: calibri;
+    font-size: 250%;
+      word-wrap: break-word;
+    }
+    
+    .block {
+    display: block;
+    width: 100%;
+      font-size: 230%;
+      max-width: 100%;
+    overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body class="block">
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <p>
+    
+    kalpanokahapuspajalavilasannilalakam matrkam<BR>
+  kantam kanjadaleksanam kalimalapradhvamsinim kalikam |<BR>
+  kancinupuraharadamasubhagam kancipurinayikam<BR>
+  kamaksim karikumbhasannibhakucam vande mahesapriyam || 1 ||<BR>
+  <BR>
+  kasabham sukabhasuram pravilasatkosataki sannibham<BR>
+  candrarkanalalocanam suruciralankarabhusojjvalam |<BR>
+  brahmasripativasavadimunibhih samsevitanghridvayam<BR>
+  kamaksim gajarajamandagamanam vande mahesapriyam || 2 ||<BR>
+  <BR>
+  aim klim sauriti yam vadanti munayastattvartharupam param<BR>
+  vacamadimakaranam hrdi sada dhyayanti yam yoginah |<BR>
+  balam phalavilocanam navajapavarnam susumnasritam<BR>
+  kamaksim kalitavatamsasubhagam vande mahesapriyam || 3 ||<BR>
+  <BR>
+  yatpadambujarenulesamanisam labdhva vidhatte vidhi <BR>
+  rvisvam tatparipati visnurakhilam yasyah prasadacciram |<BR>
+  rudrah samharati ksanattadakhilam yanmayaya mohitah<BR>
+  kamaksimaticitracarucaritam vande mahesapriyam || 4 ||<BR>
+  <BR>
+  suksmatsuksmataram sulaksitatanum ksantaksarairlaksitam<BR>
+  viksasiksitaraksasam tribhuvanaksemankarimaksayam |<BR>
+  saksallaksanalaksitaksaramayim daksayanim saksinim<BR>
+  kamaksim subhalaksanaih sulalitam vande mahesapriyam || 5 ||<BR>
+  <BR>
+  onkaranganadipikamupanisatprasadaparavatim<BR>
+  amnayambudhicandrikamaghatamahpradhvamsahamsaprabham |<BR>
+  kancipat tanapanjarantarasukim karunyakallolinim<BR>
+  kamaksim sivakamarajamahisim vande mahesapriyam || 6 ||<BR>
+  <BR>
+  hrinkaratmakavarnamatrapathanadaindrim sriyam tanvatim<BR>
+  cinmatram bhuvanesvarimanudinam bhiksapradanaksamam |<BR>
+  visvaghaughanivarinim vimalinim visvambharam matrkam<BR>
+  kamaksim paripurnacandravadanam vande mahesapriyam || 7 ||<BR>
+  <BR>
+  vagdeviti ca yam vadanti munayah ksirabdhikanyeti ca<BR>
+  ksonibhrttanayeti ca srutigiro yam amananti sphutam |<BR>
+  ekanekaphalapradam bahuvidha karastanustanvatim<BR>
+  kamaksim sakalartibhanjanaparam vande mahesapriyam || 8 ||<BR>
+  <BR>
+  mayamadimakaranam trijagatamaradhitanghridvayam<BR>
+  anandamrtavarirasinilayam vidyam vipasciddhiyam |<BR>
+  mayamanusarupinim manilasanmadhyam mahamatrkam<BR>
+  kamaksim karirajamandagamanam vande mahesapriyam || 9 ||<BR>
+  <BR>
+  kanta kamadugha karindragamana kamarivamankaga<BR>
+  kalyani kalitavatarasubhaga kasturikacarcita<BR>
+  kampatirarasalamulanilaya karunyakallolini<BR>
+  kalyanani karotu me bhagavati kancipuridevata || 10 ||<BR>
+  <BR>
+  iti sri kamaksi stotram |<BR>
+    
+    </p>
+    </body>
+    </html>
+  

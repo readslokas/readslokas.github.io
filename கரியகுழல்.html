@@ -1,0 +1,121 @@
+<HTML>
+    <meta charset="UTF-8">
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=1
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)  alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",50)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+      }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+    word-wrap: break-word;
+    }
+    
+    .block {
+    display: block;
+    width: 100%;
+    font-size: 270%;
+    text-align: center;
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body>
+    <BR>
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <P>
+    
+    கரியகுழல் சரியமுகம் வேர்வாட வாசமுறு<BR>
+    களபமுலை புளகமெழ நேரான வேல்விழிகள்<BR>
+    கயல்பொருது செயலதென நீள்பூச லாடநல ...... கனிவாயின்<BR>
+    <BR>
+    கமழ்குமுத அதரவிதழ் தேனூறல் பாயமிகு<BR>
+    கடலமுத முதவியிரு தோள்மாலை தாழவளை<BR>
+    கலகலென மொழிபதற மாமோக காதலது ...... கரைகாணா<BR>
+    <BR>
+    தெரியணுகு மெழுகுபத மாய்மேவி மேவியிணை<BR>
+    யிருவருட லொருவரென நாணாது பாயல்மிசை<BR>
+    யிளமகளிர் கலவிதனி லேமூழ்கி யாழுகினு ...... மிமையாதே<BR>
+    <BR>
+    இரவினிடை துயிலுகினும் யாரோடு பேசுகினும்<BR>
+    இளமையுமு னழகுபுனை யீராறு தோள்நிரையும்<BR>
+    இருபதமு மறுமுகமும் யானோத ஞானமதை ...... யருள்வாயே<BR>
+    <BR>
+    உரியதவ நெறியில்நம நாராய ணாயவென<BR>
+    ஒருமதலை மொழியளவி லோராத கோபமுட<BR>
+    னுனதிறைவ னெதனிலுள னோதாய டாவெனுமு ...... னுறுதூணில்<BR>
+    <BR>
+    உரமுடைய அரிவடிவ தாய்மோதி வீழவிரல்<BR>
+    உகிர்புதைய இரணியனை மார்பீறி வாகைபுனை<BR>
+    உவணபதி நெடியவனும் வேதாவும் நான்மறையு ...... முயர்வாக<BR>
+    <BR>
+    வரியளிக ளிசைமுரல வாகான தோகையிள<BR>
+    மயிலிடையில் நடனமிட ஆகாச மூடுருவ<BR>
+    வளர்கமுகின் விரிகுலைகள் பூணார மாகியிட ...... மதில்சூழும்<BR>
+    <BR>
+    மருதரசர் படைவிடுதி வீடாக நாடிமிக<BR>
+    மழவிடையின் மிசையிவரு சோமீசர் கோயில்தனில்<BR>
+    மகிழ்வுபெற வுறைமுருக னேபேணு வானவர்கள் ...... பெருமாளே<BR>
+    
+    <P>
+    
+    </body>
+    </html>
+    

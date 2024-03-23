@@ -1,0 +1,122 @@
+<HTML>
+    <meta charset="UTF-8">
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=0
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)  alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",50)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) { /* Firefox */
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE/Edge */
+        elem.msRequestFullscreen();
+      }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p  {
+        color: white;
+        font-family: calibri;
+        font-size: 270%;
+        word-wrap: break-word;
+    }
+    
+    .block {
+        display: block;
+        width: 100%;
+        font-size: 270%;
+        text-align: center;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body>
+    <BR>
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <P>
+    
+    அந்தகன் வருந்தினம் பிறகிடச்<BR>
+    சந்தத மும்வந்துகண் டரிவையர்க்<BR>
+    கன்புரு குசங்கதந் தவிரமுக் ...... குணமாள<BR>
+    <BR>
+    அந்திப கலென்றிரண் டையுமொழித்<BR>
+    திந்திரி யசஞ்சலங் களையறுத்<BR>
+    தம்புய பதங்களின் பெருமையைக் ...... கவிபாடிச்<BR>
+    <BR>
+    செந்திலை யுணர்ந்துணர்ந் துணர்வுறக்<BR>
+    கந்தனை யறிந்தறிந் தறிவினிற்<BR>
+    சென்றுசெ ருகுந்தடந் தெளிதரத் ...... தணியாத<BR>
+    <BR>
+    சிந்தையு மவிழ்ந்தவிழ்ந் துரையொழித்<BR>
+    தென்செய லழிந்தழிந் தழியமெய்ச்<BR>
+    சிந்தைவ ரஎன்றுநின் தெரிசனைப் ...... படுவேனோ<BR>
+    <BR>
+    கொந்தவிழ் சரண்சரண் சரணெனக்<BR>
+    கும்பிடு புரந்தரன் பதிபெறக்<BR>
+    குஞ்சரி குயம்புயம் பெறஅரக் ...... கருமாளக்<BR>
+    <BR>
+    குன்றிடி யஅம்பொனின் திருவரைக்<BR>
+    கிண்கிணி கிணின்கிணின் கிணினெனக்<BR>
+    குண்டல மசைந்திளங் குழைகளிற் ...... ப்ரபைவீசத்<BR>
+    <BR>
+    தந்தன தனந்தனந் தனவெனச்<BR>
+    செஞ்சிறு சதங்கைகொஞ் சிடமணித்<BR>
+    தண்டைகள் கலின்கலின் கலினெனத் ...... திருவான<BR>
+    <BR>
+    சங்கரி மனங்குழைந் துருகமுத்<BR>
+    தந்தர வருஞ்செழுந் தளர்நடைச்<BR>
+    சந்ததி சகந்தொழுஞ் சரவணப் ...... பெருமாளே 1 <BR><BR>
+    
+    <P>
+    
+    </body>
+    </html>
+    
+    

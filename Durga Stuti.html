@@ -1,0 +1,207 @@
+<HTML>
+    <meta charset="UTF-8">
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=3
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)  alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",50)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+      }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p  {
+    color: white;
+    font-family: calibri;
+    font-size: 270%;
+    word-wrap: break-word;
+    }
+    
+    .block {
+    display: block;
+    width: 100%;
+    font-size: 270%;
+    text-align: center;
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body>
+    <BR>
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <P>
+    
+    VaishampAyana UvAcha<BR>
+    <BR>
+    virATanagaram ramyam gacchamano yudhiShTiraH<BR>
+    astuvanmanasA dEvlm durgAm triBuvaneshvarlm 1<BR>
+    <BR>
+    yasoda garbha sambhUtAm NArAyaNa vara priyAm<BR>
+    nanda gopa kule jAtAm mangalya kula vardhanlm 2<BR>
+    <BR>
+    kamsa vidrAvaNakarlm asurAnAm kshayamkarim<BR>
+    ShilAtata vinikshiptam AkAsAm prati gaminim 3<BR>
+    <BR>
+    vasudevasya bhaginlm divya mala vibhooshitAm<BR>
+    divyambara dharam devim khadga ketaka dharinim 4<BR>
+    <BR>
+    bharavatarane punye ye smaranti sadashivAm<BR>
+    tAn vai tarayase pApAt pankhe gamiva durbhalAm 5<BR>
+    <BR>
+    stOtum parackrame buyo vividhaih stOtra sambavaih<BR>
+    Amantrya darsanakamkshi raja devim sahanuja 6<BR>
+    <BR>
+    namostu varade Krishne Kumari brahmacharini<BR>
+    balakarsadhrusakare poorna chandra nibhanane 7<BR>
+    <BR>
+    caturbhuje chatur vaktre plna sroni payodhare<BR>
+    mayura picha valaye keyurangadha dharini 8<BR>
+    <BR>
+    bhasi devi yadha Padma narayana parigraha<BR>
+    swaroopam Brahmacharye cha visadham Gaganeswari 9<BR>
+    <BR>
+    krishnacha visamA krishnA sankarshana samanana<BR>
+    vibhrati vipulou bAhu sAkra dwaja samuchrayou 10<BR>
+    <BR>
+    patri cha panlaji ghnti strl vishuddhacha yA bhuvi<BR>
+    pasam dhanr maha chakram vividha anya Ayudhani cha 11<BR>
+    <BR>
+    kundalabhyam suprnabhyAmm karnabhyam cha vibhooshitA<BR>
+    candra vispardhlna devi mukhena twam virajase 12<BR>
+    <BR>
+    mukutena vichitrena kesa bhandhena shobhinA<BR>
+    bhujanga bhoga vAsena sreni sutrena rAjatA 13<BR>
+    <BR>
+    vibhrajase chabaddhenabhogenevehamandhara<BR>
+    dwajena shiki picchana muchrutena virajase 14<BR>
+    <BR>
+    kaumaram vrutamastaya tridivam pavitam twaya<BR>
+    tena twam stooyase devi tridasai poojyase api cha 15<BR>
+    <BR>
+    tri lokya rakshanartam Mahishasura nasini<BR>
+    prasanna may sura sreshte dayAm kuru shivA bhava 16<BR>
+    <BR>
+    <BR>
+    jayA twam vijayA chaiva sangrame cha jayapradha<BR>
+    mamApi vijayam dehi varada twam cha sampratam 17<BR>
+    <BR>
+    vindhye chaiva naga sreshte tava stanam hi saswatam<BR>
+    kali Kali Maha kali Gadga gadwanga dharini 18<BR>
+    <BR>
+    krutanuyatrA bhootaistvam varada kamacharini<BR>
+    bhravatare ye cha twAm samsmarishyanti mAnavA 19<BR>
+    <BR>
+    pranamanti cha ye twAm hi prabhate tu narA bhuvi<BR>
+    na tesham durlabham kinchitputrato dhanato api vA 20<BR>
+    <BR>
+    durgAt tarayase durge tat twam DurgA smrutA janai<BR>
+    kantreshwa vasannAnam magnanAm cha Maharnave<BR>
+    dasyubhirva niruddhhanam twam gati paramA nrunAm 21<BR>
+    <BR>
+    jala pratarane chaiva kantare ashvatavlshu cha<BR>
+    ye smaranti maha devi na cha sldhanti tey narA 22<BR>
+    <BR>
+    twam klrti srlr dhruti sidhrlrhwlr vidhyA santatar mati<BR>
+    sandhyA Ratri prabhA nidhrA jyotsnA kanti kshama dhaya 23<BR>
+    <BR>
+    nUnamca bandanam moham putranasam dhanakshayam<BR>
+    vyadhim mrutyum bhayam chaiva poojitA nasayishyati 24<BR>
+    <BR>
+    soham rajyat pari brushta saranam twam prapannavan<BR>
+    pranatascha yadhA moordhnA tava devi sureswari 25<BR>
+    <BR>
+    trahi mam Padma patrakshi satye satya bhavakha na<BR>
+    saranam bhava durge saranye bhakta vatsale 26<BR>
+    <BR>
+    yetam stutA hi sA devi darsayamasa pandavam<BR>
+    upagamyatu rajAnam idam vacanambravit 27<BR>
+    <BR>
+    DevyuvAcha<BR>
+    <BR>
+    shrunu raja mahabaho madyam vacanam prabo<BR>
+    bhavishya ciradeva samgrame vijayastava 28<BR>
+    <BR>
+    mama prasidanarjitya hatva kaurava vahinim<BR>
+    rajyam nishkamtakam krutva bokshyase medinim punah 29<BR>
+    <BR>
+    bhratrubih sahito rajam pritim prapsyasi pushkalam<BR>
+    matprasadacca te saukyamrogyam ca bavishyati 30<BR>
+    <BR>
+    ye cha sanmklrtayishyanti loke vigata kalmashA<BR>
+    teshAm tushtA pradhAsyAmi rajya mayur vapu 31<BR>
+    <BR>
+    pravasenagare chapi sangrame Shatru sankate<BR>
+    aTavyAm durga kAntAre sagare gahane girou  32<BR>
+    <BR>
+    ye smarishyanti mam rajan yadhaham bhavata smruta<BR>
+    na tesham kinchid asmim loke bhavishyati 33<BR>
+    <BR>
+    Idham stotra varam bhaktyA srunyad vA padet vA<BR>
+    tasya sarvAni karyAni sidhim yasyanti pandava  34<BR>
+    <BR>
+    mat prasadachha ya sarvAn virata nagare stitAn<BR>
+    na pragyAsyanthi kuravo narA vA thannvAsinah 35<BR>
+    <BR>
+    ityukta varada evi yudhistir marintamam<BR>
+    rakSham krutva ca pandunam tatraivantradhiyata 36<BR>
+    <BR>
+    Ithi srimanmahabharathe Viratparvani pandavpraveshparvani<BR>
+    ashtamhodhyaayaha<BR>
+    
+    <P>
+    
+    </body>
+    </html>
+    
+    

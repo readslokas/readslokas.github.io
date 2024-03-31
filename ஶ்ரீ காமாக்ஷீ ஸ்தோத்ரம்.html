@@ -1,0 +1,145 @@
+<HTML>
+    <meta charset="UTF-8">
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=0
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)  alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",50)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) { /* Firefox */
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE/Edge */
+        elem.msRequestFullscreen();
+      }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p  {
+        color: white;
+        font-family: calibri;
+        font-size: 270%;
+        word-wrap: break-word;
+    }
+    
+    .block {
+        display: block;
+        width: 100%;
+        font-size: 270%;
+        text-align: center;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body>
+    <BR>
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <P>
+    
+        ஶ்ரீ காமாக்ஷீ ஸ்தோத்ரம்<BR>
+            <BR>
+            கல்பாநோகஹபுஷ்பஜாலவிளஸந்நீலாலகாம் மாத்ருகாம்<BR>
+            காந்தாம் கஞ்ஜதளேக்ஷணாம் கலிமலப்ரத்வம்ஸிநீம் காளிகாம் ।<BR>
+            காஞ்சீநூபுரஹாரதாமஸுபகாம் காஞ்சீபுரீநாயிகாம்<BR>
+            காமாக்ஷீம் கரிகும்பஸந்நிபகுசாம் வந்தே மஹேஶப்ரியாம் ॥ 1 ॥<BR>
+            <BR>
+            காஶாபாம் ஶுகபாஸுராம் ப்ரவிளஸத்கோஶாதகீ ஸந்நிபாம்<BR>
+            சந்த்ரார்காநலலோசநாம் ஸுருசிராளங்காரபூஷோஜ்ஜ்வலாம் ।<BR>
+            ப்ரஹ்மஶ்ரீபதிவாஸவாதிமுநிபி꞉ ஸம்ஸேவிதாங்க்ரித்வயாம்<BR>
+            காமாக்ஷீம் கஜராஜமந்தகமநாம் வந்தே மஹேஶப்ரியாம் ॥ 2 ॥<BR>
+            <BR>
+            ஐம் க்லீம் ஸௌரிதி யாம் வதந்தி முநயஸ்தத்த்வார்தரூபாம் பராம்<BR>
+            வாசாமாதிமகாரணம் ஹ்ருதி ஸதா த்யாயந்தி யாம் யோகிந꞉ ।<BR>
+            பாலாம் பாலவிளோசநாம் நவஜபாவர்ணாம் ஸுஷும்நாஶ்ரிதாம்<BR>
+            காமாக்ஷீம் கலிதாவதம்ஸஸுபகாம் வந்தே மஹேஶப்ரியாம் ॥ 3 ॥<BR>
+            <BR>
+            யத்பாதாம்புஜரேணுலேஶமநிஶம் லப்த்வா விதத்தே விதி-<BR>
+            -ர்விஶ்வம் தத்பரிபாதி விஷ்ணுரகிலம் யஸ்யா꞉ ப்ரஸாதாச்சிரம் ।<BR>
+            ருத்ர꞉ ஸம்ஹரதி க்ஷணாத்ததகிலம் யந்மாயயா மோஹித꞉<BR>
+            காமாக்ஷீமதிசித்ரசாருசரிதாம் வந்தே மஹேஶப்ரியாம் ॥ 4 ॥<BR>
+            <BR>
+            ஸூக்ஷ்மாத்ஸூக்ஷ்மதராம் ஸுலக்ஷிததநும் க்ஷாந்தாக்ஷரைர்லக்ஷிதாம்<BR>
+            வீக்ஷாஶிக்ஷிதராக்ஷஸாம் த்ரிபுவநக்ஷேமங்கரீமக்ஷயாம் ।<BR>
+            ஸாக்ஷால்லக்ஷணலக்ஷிதாக்ஷரமயீம் தாக்ஷாயணீம் ஸாக்ஷிணீம்<BR>
+            காமாக்ஷீம் ஶுபலக்ஷணை꞉ ஸுலலிதாம் வந்தே மஹேஶப்ரியாம் ॥ 5 ॥<BR>
+            <BR>
+            ஓங்காராங்கணதீபிகாமுபநிஷத்ப்ராஸாதபாராவதீம்<BR>
+            ஆம்நாயாம்புதிசந்த்ரிகாமகதம꞉ப்ரத்வம்ஸஹம்ஸப்ரபாம் ।<BR>
+            காஞ்சீபட்டணபஞ்ஜராந்தரஶுகீம் காருண்யகல்லோலிநீம்<BR>
+            காமாக்ஷீம் ஶிவகாமராஜமஹிஷீம் வந்தே மஹேஶப்ரியாம் ॥ 6 ॥<BR>
+            <BR>
+            ஹ்ரீங்காராத்மகவர்ணமாத்ரபடநாதைந்த்ரீம் ஶ்ரியம் தந்வதீம்<BR>
+            சிந்மாத்ராம் புவநேஶ்வரீமநுதிநம் பிக்ஷாப்ரதாநக்ஷமாம் ।<BR>
+            விஶ்வாகௌகநிவாரிணீம் விமலிநீம் விஶ்வம்பராம் மாத்ருகாம்<BR>
+            காமாக்ஷீம் பரிபூர்ணசந்த்ரவதநாம் வந்தே மஹேஶப்ரியாம் ॥ 7 ॥<BR>
+            <BR>
+            வாக்தேவீதி ச யாம் வதந்தி முநய꞉ க்ஷீராப்திகந்யேதி ச<BR>
+            க்ஷோணீப்ருத்தநயேதி ச ஶ்ருதிகிரோ யாம் ஆமநந்தி ஸ்புடம் ।<BR>
+            ஏகாநேகபலப்ரதாம் பஹுவிதா(ஆ)காராஸ்தநூஸ்தந்வதீம்<BR>
+            காமாக்ஷீம் ஸகலார்திபஞ்ஜநபராம் வந்தே மஹேஶப்ரியாம் ॥ 8 ॥<BR>
+            <BR>
+            மாயாமாதிமகாரணம் த்ரிஜகதாமாராதிதாங்க்ரித்வயாம்<BR>
+            ஆநந்தாம்ருதவாரிராஶிநிலயாம் வித்யாம் விபஶ்சித்தியாம் ।<BR>
+            மாயாமாநுஷரூபிணீம் மணிலஸந்மத்யாம் மஹாமாத்ருகாம்<BR>
+            காமாக்ஷீம் கரிராஜமந்தகமநாம் வந்தே மஹேஶப்ரியாம் ॥ 9 ॥<BR>
+            <BR>
+            காந்தா காமதுகா கரீந்த்ரகமநா காமாரிவாமாங்ககா<BR>
+            கல்யாணீ கலிதாவதாரஸுபகா கஸ்தூரிகாசர்சிதா<BR>
+            கம்பாதீரரஸாலமூலநிலயா காருண்யகல்லோலிநீ<BR>
+            கல்யாணாநி கரோது மே பகவதீ காஞ்சீபுரீதேவதா ॥ 10 ॥<BR>
+            <BR>
+            இதி ஶ்ரீ காமாக்ஷீ ஸ்தோத்ரம் ।<BR>
+            <BR>
+    
+    <P>
+    
+    </body>
+    </html>
+    
+    

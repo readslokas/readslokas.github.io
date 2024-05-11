@@ -1,8 +1,8 @@
 <HTML>
-  <meta charset="UTF-8">
+
   <SCRIPT language=JavaScript1.2>
   //change 1 to another integer to alter the scroll speed. Greater is faster
-  var speed=3
+  var speed=4
   
   var currentpos=0,alt=1,curpos1=0,curpos2=-1
   function initialize(){
@@ -13,7 +13,7 @@
   temp=document.body.scrollTop
   else
   temp=window.pageYOffset
-  if (alt==0)  alt=2
+  if (alt==0)alt=2
   else alt=1
   
   if (alt==0)
@@ -35,22 +35,22 @@
   }
   
   function startit(){
-  setInterval("scrollwindow()",50)
+  setInterval("scrollwindow()",25)
   }
   window.onload=initialize
   
   var elem = document.documentElement;
   
   function openFullscreen() {
-    if (elem.requestFullscreen) {
+  if (elem.requestFullscreen) {
   elem.requestFullscreen();
-    } else if (elem.mozRequestFullScreen) { /* Firefox */
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
   elem.mozRequestFullScreen();
-    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
   elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
   elem.msRequestFullscreen();
-    }
+  }
   }
   
   </SCRIPT>
@@ -58,18 +58,17 @@
   <head>
   <style>
   body {background-color: black;}
-  p  {
+  p{
   color: white;
   font-family: calibri;
-  font-size: 270%;
+  font-size: 250%;
   word-wrap: break-word;
   }
   
   .block {
   display: block;
   width: 100%;
-  font-size: 270%;
-  text-align: center;
+  font-size: 230%;
   max-width: 100%;
   overflow-x: hidden;
   }
@@ -77,39 +76,41 @@
   </style>
   </head>
   
-  <body>
-  <BR>
+  <body class="block">
   <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
-  <P>
-  Om<br>
-  <br>
-  Devatha kaarya sidhyartham sabha sthambha samudbhavam<br>
-  Sri nrusimham mahaaveeram namaami runa mukthaye || 1 ||<br>
-  <br>
-  Lakshmya lingtha vamaangam Bhakthaanaam vara daayakam<br>
-  Sri nrusimham mahaaveeram namaami runa mukthaye || 2 ||<br>
-  <br>
-  Aanthramaalaadaram shankha chakraab jaYudha dharinam<br>
-  Sri nrusimham mahaaveeram namaami runa mukthaye || 3 ||<br>
-  <br>
-  Smaranaath sarva paapagnam Khagruja visha naasanam<br>
-  Sri nrusimham mahaaveeram namaami runa mukthaye || 4 ||<br>
-  <br>
-  Simham naadena mahatha Digdanthi bhayanaasanam<br>
-  Sri nrusimham mahaaveeram namaami runa mukthaye || 5 ||<br>
-  <br>
-  Prahlaada varadam sreesam Daithyeshwara vidaaranam<br>
-  Sri nrusimham mahaaveeram namaami runa mukthaye || 6 ||<br>
-  <br>
-  Krooragrahai hi peedithaanaam Bhakthaanaam abhaya pradham<br>
-  Sri nrusimham mahaaveeram namaami runa mukthaye || 7 ||<br>
-  <br>
-  Veda vedaantha yagnesam brahma rudraadhi vanditham<br>
-  Sri nrusimham mahaaveeram namaami runa mukthaye || 8 ||<br>
-  <br>
-  Ya idam patathe nithyam runa vimochana samhitham<br>
-  Anrunee jaayaathe sadhyo dhanam seegram avaapnuyaath || 9 ||<br>
-  <br>
+  <p>
+  
+  
+  Om<BR>
+  <BR>
+  Devatha kaarya sidhyartham sabha sthambha samudbhavam<BR>
+  Sri nrusimham mahaaveeram namaami runa mukthaye 1<BR>
+  <BR>
+  Lakshmya lingtha vamaangam Bhakthaanaam vara daayakam<BR>
+  Sri nrusimham mahaaveeram namaami runa mukthaye 2<BR>
+  <BR>
+  Aanthramaalaadaram shankha chakraab jaYudha dharinam<BR>
+  Sri nrusimham mahaaveeram namaami runa mukthaye 3<BR>
+  <BR>
+  Smaranaath sarva paapagnam Khagruja visha naasanam<BR>
+  Sri nrusimham mahaaveeram namaami runa mukthaye 4<BR>
+  <BR>
+  Simham naadena mahatha Digdanthi bhayanaasanam<BR>
+  Sri nrusimham mahaaveeram namaami runa mukthaye 5<BR>
+  <BR>
+  Prahlaada varadam sreesam Daithyeshwara vidaaranam<BR>
+  Sri nrusimham mahaaveeram namaami runa mukthaye 6<BR>
+  <BR>
+  Krooragrahai hi peedithaanaam Bhakthaanaam abhaya pradham<BR>
+  Sri nrusimham mahaaveeram namaami runa mukthaye 7<BR>
+  <BR>
+  Veda vedaantha yagnesam brahma rudraadhi vanditham<BR>
+  Sri nrusimham mahaaveeram namaami runa mukthaye 8<BR>
+  <BR>
+  Ya idam patathe nithyam runa vimochana samhitham<BR>
+  Anrunee jaayaathe sadhyo dhanam seegram avaapnuyaath 9<BR>
+  
   </p>
   </body>
   </html>
+  

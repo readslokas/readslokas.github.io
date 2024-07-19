@@ -1,0 +1,219 @@
+<HTML>
+
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=1
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",25)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+    if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+    }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p{
+    color: white;
+    font-family: calibri;
+    font-size: 250%;
+    word-wrap: break-word;
+    }
+    
+    .block {
+    display: block;
+    width: 100%;
+    font-size: 230%;
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body class="block">
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <p>
+    
+  atha shrl lakShmI nRsimha karAvalamba stotram<BR>
+  <BR>
+  shrImat payonidhini ketana chakrapANe<BR>
+  bhogIndra bhogamaNi rAjita puNyamUrte<BR>
+  yogIsha shAshvata sharaNya bhavAbdhi pota<BR>
+  lakShmI nRsimha mamadehi karAvalambam<BR>
+  <BR>
+  brahmendra rudramarudarka kirITakoTi<BR>
+  sanghaT'TitAnghri kamalAmalakAnti kAnta<BR>
+  lakShmI lasat kucha saroruha rAjahamsa<BR>
+  lakShmInRsimhamamadehikarAvalambam<BR>
+  <BR>
+  samsAraghoragahanecharatomurAre<BR>
+  mArograbhIkaramRgaprachurArditasya<BR>
+  ArtasyamatsaranidAghasuduHkhitasya<BR>
+  lakShmInRsimhamamadehikarAvalambam<BR>
+  <BR>
+  samsArakUpamatighoramagAdhamUlaM<BR>
+  samprApyaduHkhashatasarpasamAkulasya<BR>
+  dInasyadevakRpayApadamAgatasyavarsharaNAgatasya<BR>
+  lakShmInRsimhamamadehikarAvalambam<BR>
+  <BR>
+  samsArasAgaravishAlakarAlakAla-<BR>
+  nakragrahagrasitanigrahavigrahasya<BR>
+  vyagrasyarAganichayorminipIDitasya<BR>
+  lakShmInRsimhamamadehikarAvalambam<BR>
+  <BR>
+  samsAravRkShamaghabIjamanantakarma-<BR>
+  shAkhAyutaMkaraNapatramanangapuShpam<BR>
+  AruhyaduHkhaphalitaMchakitaMdayAlo<BR>
+  lakShmInRsimhamamadehikarAvalambam<BR>
+  <BR>
+  samsArasarpaviShadigdhamahogratIvra-<BR>
+  damSh TrAgrako TiparidaSh TavinaSh Tam UrteH<BR>
+  nAgArivAhanasudhAbdhinivAsashaure<BR>
+  lakShmInRsimhamamadehikarAvalambam<BR>
+  <BR>
+  samsAradAvadahanAkarabhIkarogra<BR>
+  jvAlAvalIbhiratidagdhatanUruhasya<BR>
+  tvatpAdapadmasarasIruhamAgatasya<BR>
+  lakShmInRsimhamamadehikarAvalambam<BR>
+  <BR>
+  samsArajAlapatitasyajagannivAsa<BR>
+  sarvendriyArthabaDishAgrajhaShopamasya<BR>
+  protkampitaprachuratAlukamastakasya<BR>
+  lakShmInRsimhamamadehikarAvalambam<BR>
+  <BR>
+  samsArabhIkarakarIndrakarAbhighAta<BR>
+  niShpIDyamAnavapuShaHsakalArtinAsha<BR>
+  prANaprayANabhavabhItisamAkulasya<BR>
+  lakShmInRsimhamamadehikarAvalambam<BR>
+  <BR>
+  andhasyamehRtavivekamahAdhanasya<BR>
+  chorairmahAbalibhirindriyanAmadheyaiH<BR>
+  mohAndhakArakuharevinipAtitasya<BR>
+  lakShmInRsimhamamadehikarAvalambam<BR>
+  <BR>
+  lakShmIpatekamalanAbhasureshaviShNo<BR>
+  vaikuNThakRShNamadhusUdanapuShkarAkSha<BR>
+  brahmaNyakeshavajanArdanavAsudeva<BR>
+  deveshadehikRpaNasyakarAvalambam<BR>
+  <BR>
+  yanmAyayArjitavapuHprachurapravAha<BR>
+  magnArthamatranivahorukarAvalambam<BR>
+  lakShmInRsimhacharaNAbjamadhuvratena<BR>
+  stotraMkRtaMsukhakaraMbhuvishankareNa<BR>
+  <BR>
+  samsArasAgaranimajjanamuhyamAnaM<BR>
+  dInaMvilokayavibhokaruNAnidhemAm<BR>
+  prahlAdakhedaparihAraparAvatAra<BR>
+  lakShmInRsimhamamadehikarAvalambam<BR>
+  <BR>
+  baddhvAgaleyamabhaTAbahutarjayantaH<BR>
+  karShantiyatrabhavapAshashatairyutaMmAm<BR>
+  ekAkinaMparavashaMchakitaMdayAlo<BR>
+  lakShmInRsimhamamadehikarAvalambam<BR>
+  <BR>
+  ekenachakramapareNakareNashankha-<BR>
+  manyenasindhutanayAmavalambyatiSh Than<BR>
+  vAmetareNavaradAbhayapadmachihnaM<BR>
+  lakShmInRsimhamamadehikarAvalambam<BR>
+  <BR>
+  prahlAdanAradaparAsharapuNDarIka-<BR>
+  vyAsAdibhAgavatapungavahRnnivAsa<BR>
+  bhaktAnuruktaparipAlanapArijAta<BR>
+  lakShmInRsimhamamadehikarAvalambam<BR>
+  <BR>
+  saMsArayUthagajasaMhatisiMhadaMSh TrA<BR>
+  bhItasyaduSh TamatidaityabhayankareNa<BR>
+  prANaprayANabhavabhItinivAraNena<BR>
+  lakShmInRsimhamamadehikarAvalambam<BR>
+  <BR>
+  lakShmInRsiMhacharaNAbjamadhuvratena<BR>
+  stotraMkRtaMshubhakaraMbhuvishankareNa<BR>
+  yetatpa ThantimanujAharibhaktiyuktA<BR>
+  steyAntitatpadasarojamakhaNDarUpam<BR>
+  <BR>
+  Adyantash Unyamajamavyayamaprameya-<BR>
+  mAdityarudranigamAdinutaprabhAvam<BR>
+  tvAmbhodhijAsyamadhulolupamattabhRngIM<BR>
+  lakShmInRsiMhamamadehikarAvalambam<BR>
+  <BR>
+  vArAha-rAma-narasiMha-ramAdikAntA<BR>
+  krIDAvilolavidhish UlisUrapravandya<BR>
+  haMsAtmakaMparamahaMsavihAralIlaM<BR>
+  lakShmInRsiMhamamadehikarAvalambam<BR>
+  <BR>
+  prahlAdamAnasasarojanivAsabhRnga<BR>
+  gangAtarangadhavaLAngaramAsthitAnka<BR>
+  shRngArasundarakirITalasadvarAnga<BR>
+  lakShmInRsiMhamamadehikarAvalambam<BR>
+  <BR>
+  shrIshankarAryarachitaMsatataMmanuShyaH<BR>
+  stotraMpa ThedihatusarvaguNaprapannam<BR>
+  sadyovimuktakaluShomunivaryagaNyo<BR>
+  lakShmInRsiMhamamadehikarAvalambam<BR>
+  <BR>
+  shrImannŘsiMhavibhavegaruDadhvajAya<BR>
+  tApatrayopashamanAyabhavauShadhAya<BR>
+  tRShNAdivRshchika-jalAgni-bhujanga-roga<BR>
+  kleshavyay Amaharayeguravenamaste<BR>
+  <BR>
+  svAmInRsiMhaHsakalaMnRsiMhaH<BR>
+  mAtAnRsiMhashchapitAnRsiMhaH<BR>
+  bhrAtAnRsiMhashchasakhAnRsiMhaH<BR>
+  lakShmInRsiMhamamadehikarAvalambam<BR>
+  <BR>
+  itishrImatparamahamsaparivrAjakAchAryasya<BR>
+  shrIgovindabhagavatpUjyapAdashiShyasya<BR>
+  shrImachChankarabhagavataH kRtau<BR>
+  lakShmInRsimhakarAvalambastotram sampUrNam<BR>
+  <BR>
+    
+    </p>
+    </body>
+    </html>
+    

@@ -1,0 +1,197 @@
+<HTML>
+
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=5
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)  alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",25)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) { /* Firefox */
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE/Edge */
+        elem.msRequestFullscreen();
+      }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p  {
+        color: white;
+        font-family: calibri;
+        font-size: 250%;
+        word-wrap: break-word;
+    }
+    
+    .block {
+        display: block;
+        width: 100%;
+        font-size: 230%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body class="block">
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <P>
+    
+    Ganapati Atharvashirsha<BR>
+    <BR>
+    Om Bhadram Karnnebhih Shrnnuyaama Devaah |<BR>
+    Bhadram Pashyema-Akssabhir-Yajatraah |<BR>
+    Sthirair-Anggais-Tussttuvaamsas-Tanuubhih |<BR>
+    Vyashema Devahitam Yad-Aayuh |<BR>
+    <BR>
+    Svasti Na Indro Vrddha-Shravaaha |<BR>
+    Svasti Nah Puussaa Vishva-Vedaah |<BR>
+    Svasti Nas-Taarkssyo Arisstta-Nemih |<BR>
+    Svasti No Brhaspatir-Dadhaatu ||<BR>
+    Om Shaantih Shaantih Shaantih ||<BR>
+    <BR>
+    Tvam-Eva Pratyakssam Tattvam-Asi |<BR>
+    Tvam-Eva Kevalam Kartaa-[A]si |<BR>
+    Tvam-Eva Kevalam Dhartaa-[A]si |<BR>
+    Tvam-Eva Kevalam Hartaa-[A]si |<BR>
+    Tvam-Eva Sarvam Khalv[u]-Idam Brahma-Asi |<BR>
+    Tvam Saakssaad-Aatmaa-[A]si Nityam ||2||<BR>
+    <BR>
+    Rtam Vacmi | <BR>
+    Satyam Vacmi ||3||<BR>
+    <BR>
+    Ava Tvam Maam |<BR>
+    Ava Vaktaaram |<BR>
+    Ava Shrotaaram |<BR>
+    Ava Daataaram |<BR>
+    Ava Dhaataaram |<BR>
+    Ava-Anuucaanam-Ava Shissyam |<BR>
+    <BR>
+    Ava Pashcaattaat<BR>
+    Ava Purastaat |<BR>
+    <BR>
+    Ava Co[a-U]rdhvaattaat |<BR>
+    Ava Dakssinnaattaat |<BR>
+    <BR>
+    Avo[a-U]ttaraattaat |<BR>
+    Ava-Adharaattaat |<BR>
+    <BR>
+    Sarvato Maam Paahi Paahi Samantaat ||4||<BR>
+    <BR>
+    Tvam Vaangmayas-Tvam Cinmayah |<BR>
+    Tvam-Aanandamayas-Tvam Brahmamayah |<BR>
+    Tvam Saccidaanandaa-[A]dvitiiyo-[A]si |<BR>
+    Tvam Pratyakssam Brahma-Asi |<BR>
+    Tvam Jnyaanamayo Vijnyaanamayo-[A]si ||5||<BR>
+    <BR>
+    Sarvam Jagad-Idam Tvatto Jaayate |<BR>
+    Sarvam Jagad-Idam Tvattas-Tisstthati |<BR>
+    Sarvam Jagad-Idam Tvayi Layamessyati |<BR>
+    Sarvam Jagad-Idam Tvayi Pratyeti |<BR>
+    <BR>
+    Tvam Bhuumir-Aapo-[A]nalo-[A]nilo Nabhah |<BR>
+    Tvam Catvaari Vaak Padaani |<BR>
+    <BR>
+    Tvam Gunna-Traya-Atiitah |<BR>
+    Tvam Avasthaa-Traya-Atiitah |<BR>
+    Tvam Deha-Traya-Atiitah |<BR>
+    Tvam Kaala-Traya-Atiitah |<BR>
+    <BR>
+    Tvam Muulaadhaara-Sthito-[A]si Nityam |<BR>
+    Tvam Shakti-Traya-[A]atmakah |<BR>
+    Tvaam Yogino Dhyaayanti Nityam |<BR>
+    <BR>
+    Tvam Brahmaa Tvam Vissnnus-Tvam<BR>
+    Rudras-Tvam-Indras-Tvam-Agnis-Tvam<BR>
+    Vaayus-Tvam Suuryas-Tvam Candramaas-Tvam<BR>
+    Brahma Bhuur-Bhuvas-Suvar-Om ||6||<BR>
+    <BR>
+    Ganna-[A]adim Puurvam-Uccaarya Varnna-[A]adiims-Tad-Anantaram |<BR>
+    Anusvaarah Paratarah |<BR>
+    Ardhendu-Lasitam |<BR>
+    Taarenna Rddham |<BR>
+    Etat-Tava Manu-Svaruupam ||7||<BR>
+    <BR>
+    Ga-kaarah Puurva-Ruupam |<BR>
+    A-kaaro Madhyama-Ruupam |<BR>
+    Anusvaarash-Ca-Antya-Ruupam |<BR>
+    Bindur-Uttara-Ruupam |<BR>
+    Naadas-Samdhaanam |<BR>
+    Samhitaa Samdhih ||8||<BR>
+    <BR>
+    Sai[a-E]ssaa Gannesha-Vidyaa |<BR>
+    Gannaka Rssih |<BR>
+    Nicrdgaayatriic-Chandah |<BR>
+    Shri MahaGannapatir-Devataa |<BR>
+    Om Gam Gannapataye Namah ||9||<BR>
+    <BR>
+    Eka-Dantaaya Vidmahe Vakra-Tunnddaaya Dhiimahi |<BR>
+    Tan-No Dantih Pracodayaat ||10||<BR>
+    <BR>
+    Eka-Dantam Catur-Hastam Paasham-Angkusha-Dhaarinnam |<BR>
+    Radam Ca Vara-Dam Hastair-Bibhraannam Muussaka-Dhvajam ||<BR>
+    Raktam Lambo[a-U]daram Shuurpa-Karnnakam Rakta-Vaasasam |<BR>
+    Rakta-Gandha-Anulipta-Anggam Rakta-Pusspais-Supuujitam ||<BR>
+    <BR>
+    Bhakta-Anukampinam Devam Jagat-Kaarannam-Acyutam |<BR>
+    Aavirbhuutam Ca Srssttya[i-A]adau Prakrteh Purussaat-Param |<BR>
+    Evam Dhyaayati Yo Nityam Sa Yogii Yoginaam Varah ||11||<BR>
+    <BR>
+    Namo Vraata-Pataye |<BR>
+    Namo Ganna-Pataye |<BR>
+    Namah Pramatha-Pataye |<BR>
+    Namas-Te-[A]stu Lambo[a-U]daraayai[a-E]ka-Dantaaya<BR>
+    Vighna-Naashine Shiva-Sutaaya <BR>
+    Shri Varada-Muurtaye Namo Namah ||12||<BR>
+    <BR>
+    Om Shaantish-Shaantish-Shaantih ||<BR>
+    
+    <p>
+    
+    </body>
+    </html>
+    
+    

@@ -1,0 +1,121 @@
+<HTML>
+
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=2
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)  alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",25)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+      }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p  {
+    color: white;
+    font-family: calibri;
+    font-size: 250%;
+    word-wrap: break-word;
+    }
+    
+    .block {
+    display: block;
+    width: 100%;
+    font-size: 230%;
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body class="block">
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <P>
+    
+    சரவண பவநிதி யறுமுக குருபர<BR>
+    சரவண பவநிதி யறுமுக குருபர<BR>
+    சரவண பவநிதி யறுமுக குருபர ...... எனவோதித்<BR>
+    <BR>
+    தமிழினி லுருகிய வடியவ ரிடமுறு<BR>
+    சனனம ரணமதை யொழிவுற சிவமுற<BR>
+    தருபிணி துளவர மெமதுயிர் சுகமுற ...... வருள்வாயே<BR>
+    <BR>
+    கருணைய விழிபொழி யொருதனி முதலென<BR>
+    வருகரி திருமுகர் துணைகொளு மிளையவ<BR>
+    கவிதைய முதமொழி தருபவ ருயிர்பெற ...... வருள்நேயா<BR>
+    <BR>
+    கடலுல கினில்வரு முயிர்படு மவதிகள்<BR>
+    கலகமி னையதுள கழியவும் நிலைபெற<BR>
+    கதியுமு னதுதிரு வடிநிழல் தருவது ...... மொருநாளே<BR>
+    <BR>
+    திரிபுர மெரிசெயு மிறையவ ரருளிய<BR>
+    குமரச மரபுரி தணிகையு மிகுமுயர்<BR>
+    சிவகிரி யிலும்வட மலையிலு முலவிய ...... வடிவேலா<BR>
+    <BR>
+    தினமுமு னதுதுதி பரவிய அடியவர்<BR>
+    மனதுகு டியுமிரு பொருளிலு மிலகுவ<BR>
+    திமிரம லமொழிய தினகர னெனவரு ...... பெருவாழ்வே<BR>
+    <BR>
+    அரவணை மிசைதுயில் நரகரி நெடியவர்<BR>
+    மருகனெ னவெவரு மதிசய முடையவ<BR>
+    அமலிவி மலிபரை உமையவ ளருளிய ...... முருகோனே<BR>
+    <BR>
+    அதலவி தலமுதல் கிடுகிடு கிடுவென<BR>
+    வருமயி லினிதொளிர் ஷடுமையில் நடுவுற<BR>
+    அழகினு டனமரு மரகர சிவசிவ ...... பெருமாளே<BR>
+    <BR>
+    
+    <p>
+    
+    </body>
+    </html>
+    
+    

@@ -1,0 +1,106 @@
+<HTML>
+
+    <SCRIPT language=JavaScript1.2>
+    //change 1 to another integer to alter the scroll speed. Greater is faster
+    var speed=2
+    
+    var currentpos=0,alt=1,curpos1=0,curpos2=-1
+    function initialize(){
+    startit()
+    }
+    function scrollwindow(){
+    if (document.all && !document.getElementById)
+    temp=document.body.scrollTop
+    else
+    temp=window.pageYOffset
+    if (alt==0)  alt=2
+    else alt=1
+    
+    if (alt==0)
+    curpos1=temp
+    else
+    curpos2=temp
+    
+    if (curpos1!=curpos2){
+    if (document.all)
+    currentpos=document.body.scrollTop+speed
+    else
+    currentpos=window.pageYOffset+speed
+    window.scroll(0,currentpos)
+    }
+    else{
+    currentpos=0
+    window.scroll(0,currentpos)
+    }
+    }
+    
+    function startit(){
+    setInterval("scrollwindow()",25)
+    }
+    window.onload=initialize
+    
+    var elem = document.documentElement;
+    
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+      }
+    }
+    
+    </SCRIPT>
+    
+    <head>
+    <style>
+    body {background-color: black;}
+    p  {
+    color: white;
+    font-family: calibri;
+    font-size: 250%;
+    word-wrap: break-word;
+    }
+    
+    .block {
+    display: block;
+    width: 100%;
+    font-size: 230%;
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+    
+    </style>
+    </head>
+    
+    <body class="block">
+    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+    <P>
+    
+    குருபர சரவண பவசண் முககுக<BR>
+    ஒருபர வயமியல் எயினர் மகள்சுக<BR>
+    மண்டத் தனங்கள்புணர் சண்டத் திரண்டபுஜ<BR>
+    உழுவைகள் கரடிகள் கிடிகள் பகடுகள்<BR>
+    இளைகளை நெறுநெறு நெறென உலவுவி<BR>
+    லங்கற்குறிஞ்சியுறைதொங்கற்கடம்ப ...... அருள் தருவாயே<BR>
+    <BR>
+    ... அடிபடு முரசு தவில்பட<BR>
+    கந்தக்கை துந்துமித டந்தப்பு டன் சலிகை<BR>
+    ... கரடிகை யறைபறை திமிலை .. அபிநவ<BR>
+    சங்கொற்றை கொம்புகுழல் வங்கக் கருங்கடல் கொள்<BR>
+    பிரளய மிதுவென அதிர உலகர்கள்<BR>
+    அரகர சிவசிவ அபய மபயமெ<BR>
+    னுஞ்சத்த மெங்குமெழ வெஞ்சத்தி கொண்டுபடை ...... புகவானோர்<BR>
+    <BR>
+    ... வனச மலர்நிகர், செம்பொற் சதங்கையடி யன்பர்க்கு வந்துதவு ...... பெருமாளே<BR>
+    <BR>
+    
+    <p>
+    
+    </body>
+    </html>
+    
+    

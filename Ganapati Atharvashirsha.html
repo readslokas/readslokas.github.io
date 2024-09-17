@@ -1,200 +1,190 @@
 <HTML>
 
-    <SCRIPT language=JavaScript1.2>
-    //change 1 to another integer to alter the scroll speed. Greater is faster
-    var speed=2
-    
-    var currentpos=0,alt=1,curpos1=0,curpos2=-1
-    function initialize(){
-    startit()
+  <SCRIPT language=JavaScript1.2>
+  //change 1 to another integer to alter the scroll speed. Greater is faster
+  var speed=2
+  
+  var currentpos=0,alt=1,curpos1=0,curpos2=-1
+  function initialize(){
+  startit()
+  }
+  function scrollwindow(){
+  if (document.all && !document.getElementById)
+  temp=document.body.scrollTop
+  else
+  temp=window.pageYOffset
+  if (alt==0)  alt=2
+  else alt=1
+  
+  if (alt==0)
+  curpos1=temp
+  else
+  curpos2=temp
+  
+  if (curpos1!=curpos2){
+  if (document.all)
+  currentpos=document.body.scrollTop+speed
+  else
+  currentpos=window.pageYOffset+speed
+  window.scroll(0,currentpos)
+  }
+  else{
+  currentpos=0
+  window.scroll(0,currentpos)
+  }
+  }
+  
+  function startit(){
+  setInterval("scrollwindow()",25)
+  }
+  window.onload=initialize
+  
+  var elem = document.documentElement;
+  
+  function openFullscreen() {
+    if (elem.requestFullscreen) {
+  elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+  elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+  elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+  elem.msRequestFullscreen();
     }
-    function scrollwindow(){
-    if (document.all && !document.getElementById)
-    temp=document.body.scrollTop
-    else
-    temp=window.pageYOffset
-    if (alt==0)  alt=2
-    else alt=1
-    
-    if (alt==0)
-    curpos1=temp
-    else
-    curpos2=temp
-    
-    if (curpos1!=curpos2){
-    if (document.all)
-    currentpos=document.body.scrollTop+speed
-    else
-    currentpos=window.pageYOffset+speed
-    window.scroll(0,currentpos)
-    }
-    else{
-    currentpos=0
-    window.scroll(0,currentpos)
-    }
-    }
-    
-    function startit(){
-    setInterval("scrollwindow()",25)
-    }
-    window.onload=initialize
-    
-    var elem = document.documentElement;
-    
-    function openFullscreen() {
-      if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-      } else if (elem.mozRequestFullScreen) { /* Firefox */
-        elem.mozRequestFullScreen();
-      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-        elem.webkitRequestFullscreen();
-      } else if (elem.msRequestFullscreen) { /* IE/Edge */
-        elem.msRequestFullscreen();
-      }
-    }
-    
-    </SCRIPT>
-    
-    <head>
-    <style>
-    body {background-color: black;}
-    p  {
-        color: white;
-        font-family: calibri;
-        font-size: 250%;
-        word-wrap: break-word;
-    }
-    
-    .block {
-        display: block;
-        width: 100%;
-        font-size: 230%;
-        max-width: 100%;
-        overflow-x: hidden;
-    }
-    
-    </style>
-    </head>
-    
-    <body class="block">
-    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
-    <P>
-    
-    Ganapati Atharvashirsha<BR>
-    <BR>
-    Om Bhadram Karnnebhih Shrnnuyaama Devaah |<BR>
-    Bhadram Pashyema-Akssabhir-Yajatraah |<BR>
-    Sthirair-Anggais-Tussttuvaamsas-Tanuubhih |<BR>
-    Vyashema Devahitam Yad-Aayuh |<BR>
-    <BR>
-    Svasti Na Indro Vrddha-Shravaaha |<BR>
-    Svasti Nah Puussaa Vishva-Vedaah |<BR>
-    Svasti Nas-Taarkssyo Arisstta-Nemih |<BR>
-    Svasti No Brhaspatir-Dadhaatu ||<BR>
-    Om Shaantih Shaantih Shaantih ||<BR>
-    <BR>
-
-Om lam namaste Ganapathaye | <BR><BR>
-
-    Tvam-Eva Pratyakssam Tattvam-Asi |<BR>
-    Tvam-Eva Kevalam Kartaa si |<BR>
-    Tvam-Eva Kevalam Dhartaa si |<BR>
-    Tvam-Eva Kevalam Hartaa si |<BR>
-    Tvam-Eva Sarvam KhalvIdam Brahma-Asi |<BR>
-    Tvam Saakssaad-Aatmaa si Nityam ||2||<BR>
-    <BR>
-    Rtam Vasmi | <BR>
-    Satyam Vasmi ||3||<BR>
-    <BR>
-    Ava Tvam Maam |<BR>
-    Ava Vaktaaram |<BR>
-    Ava Shrotaaram |<BR>
-    Ava Daataaram |<BR>
-    Ava Dhaataaram |<BR>
-    Ava-AnuucaanamAva Shissyam |<BR>
-    <BR>
-    Ava Pashcaattaat<BR>
-    Ava Purastaat |<BR>
-    <BR>
-    Avottaraattaat |<BR>
-    Ava Dakssinnaattaat |<BR>
-    <BR>
-    Ava Cordhvaattaat |<BR>
-    Ava-Adharaattaat |<BR>
-    <BR>
-    Sarvato Maam Paahi Paahi Samantaat ||4||<BR>
-    <BR>
-    Tvam Vaangmayas-Tvam Cinmayah |<BR>
-    Tvam-Aanandamayas-Tvam Brahmamayah |<BR>
-    Tvam Saccidaanandaa-dvitiiyo-si |<BR>
-    Tvam Pratyakssam Brahma-Asi |<BR>
-    Tvam Jnyaanamayo Vijnyaanamayo si ||5||<BR>
-    <BR>
-    Sarvam Jagad-Idam Tvatto Jaayate |<BR>
-    Sarvam Jagad-Idam Tvattas-Tisstthati |<BR>
-    Sarvam Jagad-Idam Tvayi Layamessyati |<BR>
-    Sarvam Jagad-Idam Tvayi Pratyeti |<BR>
-    <BR>
-    Tvam Bhuumir-Aapo-nalo-nilo Nabhah |<BR>
-    Tvam Catvaari Vaak Padaani |<BR>
-    <BR>
-    Tvam Gunna-Traya-Atiitah |<BR>
-    Tvam Avasthaa-Traya-Atiitah |<BR>
-    Tvam Deha-Traya-Atiitah |<BR>
-    Tvam Kaala-Traya-Atiitah |<BR>
-    <BR>
-    Tvam Muulaadhaare-Sthito-si Nityam |<BR>
-    Tvam Shakti-Traya atmakah |<BR>
-    Tvaam Yogino Dhyaayanti Nityam |<BR>
-    <BR>
-    Tvam Brahmaa Tvam Vissnnus-Tvam<BR>
-    Rudras-Tvam-Indras-Tvam-Agnis-Tvam<BR>
-    Vaayus-Tvam Suuryas-Tvam Candramaas-Tvam<BR>
-    Brahma Bhuur-Bhuvas-Suvar-Om ||6||<BR>
-    <BR>
-    Ganna-adim Puurvam-Uccaarya Varnna-adiims-Tad-Anantaram |<BR>
-    Anusvaarah Paratarah |<BR>
-    Ardhendu-Lasitam |<BR>
-    Taarenna Rddham |<BR>
-    Etat-Tava Manu-Svaruupam ||7||<BR>
-    <BR>
-    Ga-kaarah Puurva-Ruupam |<BR>
-    A-kaaro Madhyama-Ruupam |<BR>
-    Anusvaarash-Ca-Antya-Ruupam |<BR>
-    Bindur-Uttara-Ruupam |<BR>
-    Naadas-Samdhaanam |<BR>
-    Samhitaa Samdhih ||8||<BR>
-    <BR>
-    Sai ssaa Gannesha-Vidyaa |<BR>
-    Gannaka Rssih |<BR>
-    Nicrdgaayatrii-Chandah |<BR>
-    Shri MahaGannapatir-Devataa |<BR>
-    Om Gam Gannapataye Namah ||9||<BR>
-    <BR>
-    Eka-Dantaaya Vidmahe Vakra-Tunnddaaya Dhiimahi |<BR>
-    Tan-No Dantih Pracodayaat ||10||<BR>
-    <BR>
-    Eka-Dantam Catur-Hastam Paasham-Angkusha-Dhaarinnam |<BR>
-    Radam Ca Vara-Dam Hastair-Bibhraannam Muussaka-Dhvajam ||<BR>
-    Raktam Lambodaram Shuurpa-Karnnakam Rakta-Vaasasam |<BR>
-    Rakta-Gandha-Anulipta-Anggam Rakta-Pusspais-Supuujitam ||<BR>
-    <BR>
-    Bhakta-Anukampinam Devam Jagat-Kaarannam-Acyutam |<BR>
-    Aavirbhuutam Ca Srssttyaadau Prakrteh Purussaat-Param |<BR>
-    Evam Dhyaayati Yo Nityam Sa Yogii Yoginaam Varah ||11||<BR>
-    <BR>
-    Namo Vraata-Pataye |<BR>
-    Namo Ganna-Pataye |<BR>
-    Namah Pramatha-Pataye |<BR>
-    Namas-Te-stu Lambo daraayai eka-Dantaaya<BR>
-    Vighna-viNaashine Shiva-Sutaaya <BR>
-    Shri Varada-Muurtaye Namo Namah ||12||<BR>
-    <BR>
-    Om Shaantish-Shaantish-Shaantih ||<BR>
-    
-    <p>
-    
-    </body>
-    </html>
-    
-    
+  }
+  
+  </SCRIPT>
+  
+  <head>
+  <style>
+  body {background-color: black;}
+  p  {
+  color: white;
+  font-family: calibri;
+  font-size: 250%;
+  word-wrap: break-word;
+  }
+  
+  .block {
+  display: block;
+  width: 100%;
+  font-size: 230%;
+  max-width: 100%;
+  overflow-x: hidden;
+  }
+  
+  </style>
+  </head>
+  
+  <body class="block">
+  <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
+  <P>
+  
+  ஓம் பத்ரம் கர்ணேபி꞉ ஶ்ருணுயாம தேவா꞉ ।<BR>
+  பத்ரம் பஶ்யேமாக்ஷபிர்யஜத்ரா꞉ ।<BR>
+  ஸ்திரைரங்கைஸ் துஷ்டுவாக்ம் ஸஸ்தநூபி: ।<BR>
+  வ்யஶேம தேவஹிதம் யதாயு: ।<BR>
+  <BR>
+  ஸ்வஸ்தி ந இந்த்ரோ வ்ருத்தஶ்ரவா꞉ ।<BR>
+  ஸ்வஸ்தி ந: பூஷா விஶ்வவேதா꞉ ।<BR>
+  ஸ்வஸ்தி நஸ்தார்க்ஷ்யோ அரிஷ்டநேமி꞉ ।<BR>
+  ஸ்வஸ்தி நோ ப்ருஹஸ்பதிர்ததாது ॥<BR>
+  <BR>
+  ஓம் ஶாந்தி: ஶாந்தி: ஶாந்தி: ॥<BR>
+  <BR>
+  ஓம் நமஸ்தே கணபதயே ।<BR>
+  <BR>
+  த்வமேவ ப்ரத்யக்ஷம் தத்த்வமஸி ।<BR>
+  த்வமேவ கேவலம் கர்தா(அ)ஸி ।<BR>
+  த்வமேவ கேவலம் தர்தா(அ)ஸி ।<BR>
+  த்வமேவ கேவலம் ஹர்தா(அ)ஸி ।<BR>
+  த்வமேவ ஸர்வம் கல்விதம் ப்ரஹ்மாஸி ।<BR>
+  த்வம் ஸாக்ஷாதாத்மா(அ)ஸி நித்யம் ॥ 1 ॥<BR>
+  <BR>
+  ருதம் வச்மி । <BR>
+  ஸத்யம் வச்மி ॥ 2 ॥<BR>
+  <BR>
+  அவ த்வம் மாம் । <BR>
+  அவ வக்தாரம் ।<BR>
+  அவ ஶ்ரோதாரம் । <BR>
+  அவ தாதாரம் ।<BR>
+  அவ தாதாரம் । <BR>
+  அவாநூசாநம வஶிஷ்யம் ।<BR>
+  அவ பஶ்சாத்தாத் । <BR>
+  அவ புரஸ்தாத் ।<BR>
+  அவோத்தராத்தாத் । <BR>
+  அவ தக்ஷிணாத்தாத் ।<BR>
+  அவ சோர்த்வாத்தாத் । <BR>
+  அவாதராத்தாத் ।<BR>
+  <BR>
+  ஸர்வதோ மாம் பாஹி பாஹி ஸமந்தாத் ॥ 3 ॥<BR>
+  <BR>
+  த்வம் வாங்மயஸ்த்வம் சிந்மய꞉ ।<BR>
+  த்வமாநந்தமயஸ்த்வம் ப்ரஹ்மமய꞉ ।<BR>
+  த்வம் ஸச்சிதாநந்தாத்விதீயோ(அ)ஸி ।<BR>
+  த்வம் ப்ரத்யக்ஷம் ப்ரஹ்மாஸி ।<BR>
+  த்வம் ஜ்ஞாநமயோ விஜ்ஞாநமயோ(அ)ஸி ॥ 4 ॥<BR>
+  <BR>
+  ஸர்வம் ஜகதிதம் த்வத்தோ ஜாயதே ।<BR>
+  ஸர்வம் ஜகதிதம் த்வத்தஸ்திஷ்டதி ।<BR>
+  ஸர்வம் ஜகதிதம் த்வயி லயமேஷ்யதி ।<BR>
+  ஸர்வம் ஜகதிதம் த்வயி ப்ரத்யேதி ।<BR>
+  <BR>
+  த்வம் பூமிராபோநலோ நிலோ நப꞉ ।<BR>
+  த்வம் சத்வாரி வாக்பதாநி ॥ 5 ॥<BR>
+  த்வம் குணத்ரயாதீத꞉ ।<BR>
+  த்வமவஸ்தாத்ரயாதீத꞉ ।<BR>
+  த்வம் தேஹத்ரயாதீத꞉ ।<BR>
+  த்வம் காலத்ரயாதீத꞉ ।<BR>
+  த்வம் மூலாதாரஸ்திதோ(அ)ஸி நித்யம் ।<BR>
+  த்வம் ஶக்தித்ரயாத்மக꞉ ।<BR>
+  த்வாம் யோகிநோ த்யாயந்தி நித்யம் ।<BR>
+  <BR>
+  த்வம் ப்ரஹ்மா த்வம் விஷ்ணுஸ்த்வம் ருத்ரஸ்த்வமிந்த்ரஸ்த்வமக்நிஸ்த்வம்<BR>
+  வாயுஸ்த்வம் ஸூர்யஸ்த்வம் சந்த்ரமாஸ்த்வம் ப்ரஹ்ம பூர்புவ: ஸ்வரோம் ॥ 6 ॥<BR>
+  <BR>
+  கணாதிம் பூர்வமுச்சார்ய வர்ணாதீம்ஸ்ததநந்தரம் ।<BR>
+  அநுஸ்வார꞉ பரதர꞉ । <BR>
+  <BR>
+  அர்தேந்துலஸிதம் ।<BR>
+  தாரேண ருத்தம் । <BR>
+  ஏதத்தவ மநுஸ்வரூபம் ।<BR>
+  ககார꞉ பூர்வரூபம் । <BR>
+  அகாரோ மத்யமரூபம் ।<BR>
+  அநுஸ்வாரஶ்சாந்த்யரூபம் । <BR>
+  பிந்துருத்தரரூபம் ।<BR>
+  நாத: ஸந்தாநம் । <BR>
+  ஸக்ம்ஹிதா ஸந்தி꞉ ।<BR>
+  ஸைஷா கணேஶவித்யா । <BR>
+  கணக ருஷி꞉ ।<BR>
+  நிச்ருத்காயத்ரீச்சந்த꞉ ।<BR>
+  ஶ்ரீ மஹா கணபதிர்தேவதா । <BR>
+  ஓம் கம் கணபதயே நம꞉ ॥ 7 ॥<BR>
+  <BR>
+  ஏகதந்தாய வித்மஹே வக்ரதுண்டாய தீமஹி ।<BR>
+  தந்நோ தந்தி꞉ ப்ரசோதயாத் ॥ 8 ॥<BR>
+  <BR>
+  ஏகதந்தம் சதுர்ஹஸ்தம் பாஶமங்குஶ தாரிணம் ।<BR>
+  ரதம் ச வரதம் ஹஸ்தைர்பிப்ராணம் மூஷகத்வஜம் ।<BR>
+  <BR>
+  ரக்தம் லம்போதரம் ஶூர்பகர்ணகம் ரக்தவாஸஸம் ।<BR>
+  ரக்தகந்தாநு லிப்தாங்கம் ரக்தபுஷ்பை꞉ ஸுபூஜிதம் ।<BR>
+  <BR>
+  பக்தாநுகம்பிநம் தேவம் ஜகத்காரணமச்யுதம் ।<BR>
+  ஆவிர்பூதம் ச ஸ்ருஷ்ட்யாதௌ ப்ரக்ருதே: புருஷாத்பரம் ।<BR>
+  <BR>
+  ஏவம் த்யாயதி யோ நித்யம் ஸ யோகீ யோகிநாம் வர꞉ ॥ 9 ॥<BR>
+  <BR>
+  நமோ வ்ராதபதயே । <BR>
+  நமோ கணபதயே । <BR>
+  நம꞉ ப்ரமதபதயே । <BR>
+  நமஸ்தேஸ்து லம்போதராயைகதந்தாய விக்நநாஶிநே ஶிவஸுதாய ஶ்ரீ வரதமூர்தயே நம: ॥ 10 ॥<BR>
+  <BR>
+  ஓம் ஶாந்தி: ஶாந்தி: ஶாந்தி: ॥<BR>
+  
+  <p>
+  
+  </body>
+  </html>
+  
+  

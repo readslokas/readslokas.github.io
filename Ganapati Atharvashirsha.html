@@ -1,72 +1,106 @@
-<HTML>
-  <meta charset="UTF-8">
-  <SCRIPT language=JavaScript1.2>
-  //change 1 to another integer to alter the scroll speed. Greater is faster
-  var speed=1
-  
-  var currentpos=0,alt=1,curpos1=0,curpos2=-1
-  function initialize(){
-  startit()
-  }
-  function scrollwindow(){
-  if (document.all && !document.getElementById)
-  temp=document.body.scrollTop
-  else
-  temp=window.pageYOffset
-  if (alt==0)  alt=2
-  else alt=1
-  
-  if (alt==0)
-  curpos1=temp
-  else
-  curpos2=temp
-  
-  if (curpos1!=curpos2){
-  if (document.all)
-  currentpos=document.body.scrollTop+speed
-  else
-  currentpos=window.pageYOffset+speed
-  window.scroll(0,currentpos)
-  }
-  else{
-  currentpos=0
-  window.scroll(0,currentpos)
-  }
-  }
-  
-  function startit(){
-  setInterval("scrollwindow()",50)
-  }
-  window.onload=initialize
-  
-  </SCRIPT>
-  
-  <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scroll and Wake Lock</title>
     <style>
-      body {
-        background-color: black;
-      }
-      p {
-        color: white;
-        font-family: Calibri;
-        font-size: calc(2vw + 2em); /* Responsive font size */
-        word-wrap: break-word;
-      }
-      
-      .block {
-        display: block;
-        width: 100%;
-        font-size: calc(2vw + 2em); /* Responsive font size */
-        text-align: center;
-        max-width: 100%;
-        overflow-x: hidden;
-      }
+        body {
+            background-color: black;
+            overflow: hidden; /* Prevent scrollbars */
+        }
+        p {
+            color: white;
+            font-family: Calibri;
+            font-size: calc(2vw + 2em); /* Responsive font size */
+            word-wrap: break-word;
+        }
+        .block {
+            display: block;
+            width: 100%;
+            font-size: calc(2vw + 2em); /* Responsive font size */
+            text-align: center;
+            max-width: 100%;
+        }
     </style>
-  </head>  
-  
-  <body>
-  <P>
-  
+    <script>
+        // Change 1 to another integer to alter the scroll speed. Greater is faster.
+        var speed = 1;
+        var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+        let wakeLock = null;
+
+        async function requestWakeLock() {
+            try {
+                wakeLock = await navigator.wakeLock.request('screen');
+                console.log('Wake Lock is active');
+            } catch (err) {
+                console.error(`${err.name}, ${err.message}`);
+            }
+        }
+
+        function releaseWakeLock() {
+            if (wakeLock !== null) {
+                wakeLock.release().then(() => {
+                    wakeLock = null;
+                    console.log('Wake Lock has been released');
+                });
+            }
+        }
+
+        function initialize() {
+            startIt();
+            requestWakeLock(); // Request wake lock on initialization
+        }
+
+        function scrollWindow() {
+            if (document.all && !document.getElementById) {
+                temp = document.body.scrollTop;
+            } else {
+                temp = window.pageYOffset;
+            }
+
+            if (alt == 0) alt = 2;
+            else alt = 1;
+
+            if (alt == 0) {
+                curpos1 = temp;
+            } else {
+                curpos2 = temp;
+            }
+
+            if (curpos1 != curpos2) {
+                if (document.all) {
+                    currentpos = document.body.scrollTop + speed;
+                } else {
+                    currentpos = window.pageYOffset + speed;
+                }
+                window.scroll(0, currentpos);
+            } else {
+                currentpos = 0;
+                window.scroll(0, currentpos);
+            }
+        }
+
+        function startIt() {
+            setInterval(scrollWindow, 50);
+        }
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'hidden') {
+                releaseWakeLock();
+            } else {
+                requestWakeLock();
+            }
+        });
+
+        window.onload = initialize;
+    </script>
+</head>
+<body>
+    <div class="block">
+        <p>
+  Ganesha Atharvashidha mantram <BR>
+  <BR>
   ஓம் பத்ரம் கர்ணேபி꞉ ஶ்ருணுயாம தேவா꞉ ।<BR>
   பத்ரம் பஶ்யேமாக்ஷபிர்யஜத்ரா꞉ ।<BR>
   ஸ்திரைரங்கைஸ் துஷ்டுவாக்ம் ஸஸ்தநூபி: ।<BR>
@@ -169,8 +203,8 @@
   <BR>
   ஓம் ஶாந்தி: ஶாந்தி: ஶாந்தி: ॥<BR>
   
-  <p>
-  
+  </p>
+  </div>
   </body>
   </html>
   

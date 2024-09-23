@@ -39,47 +39,32 @@
   }
   window.onload=initialize
   
-  var elem = document.documentElement;
-  
-  function openFullscreen() {
-    if (elem.requestFullscreen) {
-      elem.requestFullscreen();
-    } else if (elem.mozRequestFullScreen) { /* Firefox */
-      elem.mozRequestFullScreen();
-    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-      elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) { /* IE/Edge */
-      elem.msRequestFullscreen();
-    }
-  }
-  
   </SCRIPT>
   
   <head>
-  <style>
-  body {background-color: black;}
-  p  {
-      color: white;
-      font-family: calibri;
-      font-size: 270%;
-    word-wrap: break-word;
-  }
-  
-  .block {
-      display: block;
-      width: 100%;
-    font-size: 270%;
-      text-align: center;
-    max-width: 100%;
-      overflow-x: hidden;
-  }
-  
-  </style>
-  </head>
+    <style>
+      body {
+        background-color: black;
+      }
+      p {
+        color: white;
+        font-family: Calibri;
+        font-size: calc(2vw + 2em); /* Responsive font size */
+        word-wrap: break-word;
+      }
+      
+      .block {
+        display: block;
+        width: 100%;
+        font-size: calc(2vw + 2em); /* Responsive font size */
+        text-align: center;
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+    </style>
+  </head>  
   
   <body>
-  <BR>
-  <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
   <P>
   
   ஓம் பத்ரம் கர்ணேபி꞉ ஶ்ருணுயாம தேவா꞉ ।<BR>

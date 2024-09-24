@@ -1,86 +1,98 @@
-<HTML>
-    <meta charset="UTF-8">
-    <SCRIPT language=JavaScript1.2>
-    //change 1 to another integer to alter the scroll speed. Greater is faster
-    var speed=1
-    
-    var currentpos=0,alt=1,curpos1=0,curpos2=-1
-    function initialize(){
-    startit()
-    }
-    function scrollwindow(){
-    if (document.all && !document.getElementById)
-    temp=document.body.scrollTop
-    else
-    temp=window.pageYOffset
-    if (alt==0)  alt=2
-    else alt=1
-    
-    if (alt==0)
-    curpos1=temp
-    else
-    curpos2=temp
-    
-    if (curpos1!=curpos2){
-    if (document.all)
-    currentpos=document.body.scrollTop+speed
-    else
-    currentpos=window.pageYOffset+speed
-    window.scroll(0,currentpos)
-    }
-    else{
-    currentpos=0
-    window.scroll(0,currentpos)
-    }
-    }
-    
-    function startit(){
-    setInterval("scrollwindow()",50)
-    }
-    window.onload=initialize
-    
-    var elem = document.documentElement;
-    
-    function openFullscreen() {
-      if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-      } else if (elem.mozRequestFullScreen) { /* Firefox */
-        elem.mozRequestFullScreen();
-      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-        elem.webkitRequestFullscreen();
-      } else if (elem.msRequestFullscreen) { /* IE/Edge */
-        elem.msRequestFullscreen();
-      }
-    }
-    
-    </SCRIPT>
-    
-    <head>
-    <style>
-    body {background-color: black;}
-    p  {
-        color: white;
-        font-family: calibri;
-        font-size: 270%;
-        word-wrap: break-word;
-    }
-    
-    .block {
-        display: block;
-        width: 100%;
-        font-size: 270%;
-        text-align: center;
-        max-width: 100%;
-        overflow-x: hidden;
-    }
-    
-    </style>
-    </head>
-    
-    <body>
-    <BR>
-    <button class="block" onclick="openFullscreen();">Open Fullscreen</button>
-    <P>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+</style>
+<script>
+// Change 1 to another integer to alter the scroll speed. Greater is faster.
+var speed = 1;
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div>
+<p>
     
     வந்து வந்து முன்த வழ்ந்து<BR>
     வெஞ்சு கந்த யங்க நின்று<BR>
@@ -115,8 +127,8 @@
     ரம்ப லும்பர் கும்பர் நம்பு ...... தம்பிரானே<BR>
     <BR>
     
-    <P>
-    
-    </body>
-    </html>
-    
+
+    </p>
+  </div>
+  </body>
+  </html>

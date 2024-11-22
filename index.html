@@ -1,209 +1,384 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<style>
+<style type="text/css">
 body {
-background-color: black;
-color: white;
-font-family: Calibri;
-margin: 0; /* Remove default margin */
-overflow-y: auto; /* Enable vertical scrolling */
+opacity: 1;
+background-image: radial-gradient( ellipse farthest-corner at 4px 4px , #D1AA49, #D1AA49 50%, #dbbf79 50%);
+background-size: 4px 4px;
 }
-p {
-font-size: calc(2vw + 2em); /* Responsive font size */
-word-wrap: break-word;
-padding: 10px; /* Add some padding */
+
+.zoom {
+display: inline-block;
+transition: transform 0.3s; /* Smooth zoom effect */
+font-family: monospace; /* Fixed-width font */
+color: #8B0000; /* Red color for the link */
+text-decoration: none; /* Remove underline */
+font-size: 1.2em; /* Increase font size */
+transform-origin: left center; /* Zoom from the left */
 }
+.zoom:hover {
+transform: scale(1.3); /* Zoom in effect */
+margin-left: 10px; /* Push text to the right */
+z-index: 10; /* Ensure it appears above other elements */
+}
+.color-strip {
+background-color: #8B0000; /* Change to your desired color */
+height: 40px; /* Adjust height as needed */
+width: 99%;
+display: flex;
+align-items: center; /* Center vertically */
+justify-content: left; /* Center horizontally */
+color: #dbbf79; /* Text color */
+font-family: 'Montserrat', sans-serif;
+font-weight: normal; /* Make the text bold */
+font-size: 32px;
+padding-left: 10px; /* Space before the text */
+border-radius: 10px; /* Rounded corners */
+}
+.text {
+display: inline-block;
+font-family: monospace; /* Fixed-width font */
+color: #dbbf79; /* Text color */
+text-decoration: none; /* Remove underline */
+font-size: 1.2em; /* Increase font size */
+margin-left: 20px; /* Space before the text */
+}
+ul {
+list-style-type: none; /* Remove default bullets */
+padding: 0; /* Remove default padding */
+}
+li {
+position: relative; /* Required for positioning the custom bullet */
+padding-left: 20px; /* Space for custom bullet */
+line-height: 1.3; /* Adjust line height for better alignment */
+}
+li::before {
+content: '';
+width: 6px; /* Smaller bullet width */
+height: 6px; /* Smaller bullet height */
+background-color: #8B0000; /* Bullet color */
+border-radius: 50%; /* Makes it a circle */
+position: absolute;
+left: 0; /* Position it to the left */
+top: 50%; /* Align vertically */
+transform: translateY(-50%); /* Center it vertically */
+}
+
 </style>
-<script>
-// Change 1 to another integer to alter the scroll speed. Greater is faster.
-var speed = 1;
-var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
 
-let wakeLock = null;
-
-async function requestWakeLock() {
-try {
-wakeLock = await navigator.wakeLock.request('screen');
-console.log('Wake Lock is active');
-} catch (err) {
-console.error(`${err.name}, ${err.message}`);
-}
-}
-
-function releaseWakeLock() {
-if (wakeLock !== null) {
-wakeLock.release().then(() => {
-wakeLock = null;
-console.log('Wake Lock has been released');
-});
-}
-}
-
-function initialize() {
-startIt();
-requestWakeLock(); // Request wake lock on initialization
-}
-
-function scrollWindow() {
-if (document.all && !document.getElementById) {
-temp = document.body.scrollTop;
-} else {
-temp = window.pageYOffset;
-}
-
-if (alt == 0) alt = 2;
-else alt = 1;
-
-if (alt == 0) {
-curpos1 = temp;
-} else {
-curpos2 = temp;
-}
-
-if (curpos1 != curpos2) {
-if (document.all) {
-currentpos = document.body.scrollTop + speed;
-} else {
-currentpos = window.pageYOffset + speed;
-}
-window.scroll(0, currentpos);
-} else {
-currentpos = 0;
-window.scroll(0, currentpos);
-}
-}
-
-function startIt() {
-setInterval(scrollWindow, 50);
-}
-
-document.addEventListener('visibilitychange', () => {
-if (document.visibilityState === 'hidden') {
-releaseWakeLock();
-} else {
-requestWakeLock();
-}
-});
-
-window.onload = initialize;
-</script>
-</head>
-<body>
-<div>
-<p>
-
-வக்ரதுண்ட மஹாகாய<BR>
-சுர்யகோடி சமப்ரபா<BR>
-நிர்விக்னம் குருமேதேவா<BR>
-சர்வ கார்யஷு சர்வதா<BR><BR>
-
-<a style="color:#ffffff;" href="https://readslokas.github.io/Ganapati Atharvashirsha.html" target="_blank">Ganapati Atharvashirsha Mantram</a><BR><BR>
-
-<a style="color:#ffffff;" href="https://readslokas.github.io/SankataNasanaStotram.html" target="_blank">Sankata Nasana Stotram</a><BR><BR>
-
-<a style="color:#ffffff;" href="https://readslokas.github.io/RunaVimochanaStotra.html" target="_blank">Runa Vimochana Stotram</a><BR><BR>
-
-<a style="color:#ffffff;" href="https://readslokas.github.io/விநாயகர் அகவல்.html" target="_blank">விநாயகர் அகவல்</a><BR><BR>
-
-<a style="color:#ffffff;" href="https://readslokas.github.io/Daily_திருப்புகழ்.html" target="_blank">திருப்புகழ்</a><BR><BR>
-
-நாளென் செயும்வினை தானென் செயுமெனை நாடிவந்த<BR>
-கோளென் செயுங்கொடுங் கூற்றென் செயுங் குமரேசரிரு<BR>
-தாளுஞ் சிலம்புஞ் சதங்கையும் தண்டையுஞ் சண்முகமுந்<BR>
-தோளுங் கடம்பு மெனக்குமுன் னேவந்து தோன்றிடினே<BR><BR>
-
-<a style="color:#ffffff;" href="https://readslokas.github.io/வேல் மாறல்.html" target="_blank">வேல் மாறல்</a><BR><BR>
-<a style="color:#ffffff;" href="https://readslokas.github.io/ஸ்ரீ ஸுப்ரம்மண்ய ப்ரஸன்ன மாலா மந்த்ரம்.html" target="_blank">ஸ்ரீ ஸுப்ரம்மண்ய ப்ரஸன்ன மாலா மந்த்ரம்</a><BR><BR>
+<div class="color-strip">Daily slokas for easy reading</div>
+<table style="width: 93%; margin-right: calc(7%);" cellspacing="0">
+<tbody>
+<tr>
+<td style="border-color: #dbbf79; width: 21.5577%; text-align: center; vertical-align: top;"><img src="./images/Vigneshwaran.png" alt="" width="343" height="326" /></td>
+<td style="border-color: #dbbf79; width: 70.4423%; vertical-align: top;">
+<div style="color: #8B0000; font-size: 30px; margin-bottom: 10px;"><strong>Lord Ganesha</strong></div>
+<div style="color: #8B0000; font-size: 20px; margin-bottom: 10px;"><strong>General</strong></div>
+<ul>
+<li><a href="https://readslokas.github.io/தினமும்.html" target="_blank" class="zoom">தினமும்</a></li>
+<li><a href="https://readslokas.github.io/SriVighnaRajamBhaje.html" target="_blank" class="zoom">SriVighnaRajamBhaje</a></li>
+<li><a href="https://readslokas.github.io/Ganesa%20Pancharatnam.html" target="_blank" class="zoom">Ganesa Pancharatnam</a></li>
+<li><a href="https://readslokas.github.io/Ganpati%20Arti.html" target="_blank" class="zoom">Ganapati Arti</a></li>
+<li><a href="https://readslokas.github.io/RunaVimochanaStotra.html" target="_blank" class="zoom">Runa Vimochana Stotra</a></li>
+<li><a href="https://readslokas.github.io/விநாயகர் அகவல்.html" target="_blank" class="zoom">விநாயகர் அகவல்</a></li>
+<li><a href="https://readslokas.github.io/ஶ்ரீ கணபதி தாளம்.html" target="_blank" class="zoom">ஶ்ரீ கணபதி தாளம்</a></li>
+<li><a href="https://readslokas.github.io/SankataNasanaStotram.html" target="_blank" class="zoom">Sankata Nasana Stotram</a></li>
+<li><a href="https://readslokas.github.io/Ganapati Atharvashirsha.html" target="_blank" class="zoom">Ganapati Atharvashirsha Mantram</a></li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr></tr>
+<tr>
+<td style="border-color: #dbbf79; width: 21.5577%; text-align: center; vertical-align: top;"> <img style="height: 337.615px; width: 250px;" src="./images/Murugar.jpg" alt="" width="343" height="326" /></td>
+<td style="border-color: #dbbf79; width: 70.4423%; text-align: left; vertical-align: top;">
+<div style="color: #8B0000; font-size: 30px; margin-bottom: 10px;"><strong>Lord Murugan</strong></div>
+<div style="color: #8B0000; font-size: 20px;"><strong></strong></div>
+<div style="color: #8B0000; font-size: 20px;"><strong>General</strong></div>
+<ul>
+<li><a href="https://readslokas.github.io/கந்தர் ஷஷ்டி கவசம்.html" target="_blank" class="zoom">கந்தர் ஷஷ்டி கவசம்</a></li>
+<li><a href="https://readslokas.github.io/கந்த குரு கவசம்.html" target="_blank" class="zoom">கந்த குரு கவசம்</a></li>
+<li><a href="https://readslokas.github.io/கந்தர் அலங்காரம்.html" target="_blank" class="zoom">கந்தர் அலங்காரம்</a></li>
+<li><a href="https://readslokas.github.io/கந்தர் அநுபூதி.html" target="_blank" class="zoom">கந்தர் அநுபூதி</a></li>
+<li><a href="https://readslokas.github.io/வேல் விருத்தம்.html" target="_blank" class="zoom">வேல் விருத்தம்</a></li>
+<li><a href="https://readslokas.github.io/மயில் விருத்தம்.html" target="_blank" class="zoom">மயில் விருத்தம்</a></li>
+<li><a href="https://readslokas.github.io/சேவல் விருத்தம்.html" target="_blank" class="zoom">சேவல் விருத்தம்</a></li>
+<li><a href="https://readslokas.github.io/வேல் மாறல்.html" target="_blank" class="zoom">வேல் மாறல்</a></li>
+<li><a href="https://readslokas.github.io/என்ன கவி பாடினாலும்.html" target="_blank" class="zoom">என்ன கவி பாடினாலும்</a></li>
+<li><a href="https://readslokas.github.io/ஸ்ரீ ஸுப்ரம்மண்ய ப்ரஸன்ன மாலா மந்த்ரம்.html" target="_blank" class="zoom">ஸ்ரீ ஸுப்ரம்மண்ய ப்ரஸன்ன மாலா மந்த்ரம்</a></li>
+<li><a href="https://readslokas.github.io/SubramanyaBhujangam.html" target="_blank" class="zoom">Subramanya Bhujangam</a></li>
+<li><a href="https://readslokas.github.io/ஷண்முக நாயகன்.html" target="_blank" class="zoom">ஷண்முக நாயகன்</a></li>
 <li><a href="https://readslokas.github.io/அன்னை சொற்கு.html" target="_blank" class="zoom">அன்னை சொற்கு</a></li>
-
-சீதலேத்வம் ஜகன் மாதா<BR>
-சீதலேத்வம் ஜகன் பிதா<BR>
-சீதலேத்வம் ஜகதாத்தரி<BR>
-சீதலாயை நமோ நமஹ<BR><BR>
-
-<a style="color:#ffffff;" href="https://readslokas.github.io/ஶ்ரீ துர்கா ஸ்தோத்ரம்.html" target="_blank">ஶ்ரீ துர்கா ஸ்தோத்ரம்</a><BR><BR>
-
-<a style="color:#ffffff;" href="https://readslokas.github.io/எண்ணப் பதிகம்.html" target="_blank">எண்ணப் பதிகம்</a><BR><BR>
-<a style="color:#ffffff;" href="https://readslokas.github.io/குழைத்த பத்து.html" target="_blank">குழைத்த பத்து</a><BR><BR>
-<a style="color:#ffffff;" href="https://readslokas.github.io/கோயில் மூத்த திருப்பதிகம்.html" target="_blank">கோயில் மூத்த திருப்பதிகம்</a><BR><BR>
-<a style="color:#ffffff;" href="https://readslokas.github.io/இடர் களையும் பதிகம்.html" target="_blank">இடர் களையும் பதிகம்</a><BR><BR>
-<a style="color:#ffffff;" href="https://readslokas.github.io/இடரினுந் தளரினும்.html" target="_blank">இடரினுந் தளரினும்</a><BR><BR>
-<a style="color:#ffffff;" href="https://readslokas.github.io/கோளறு பதிகம்.html" target="_blank">கோளறு பதிகம்</a><BR><BR>
-
-<a style="color:#ffffff;" href="https://readslokas.github.io/Purusha%20Suktam.html" target="_blank">Purusha Suktam</a><BR><BR>
-<a style="color:#ffffff;" href="https://readslokas.github.io/RunaVimochana_LakshmiNarasimnhar.html" target="_blank">RunaVimochana_LakshmiNarasimnhar</a><BR><BR>
-<a style="color:#ffffff;" href="https://readslokas.github.io/Vishnu%20Sahasranamam.html" target="_blank">Vishnu Sahasranamam</a><BR><BR>
-<a style="color:#ffffff;" href="https://readslokas.github.io/KanakadharaStotram.html" target="_blank">Kanakadhara Stotram</a><BR><BR>
-<a style="color:#ffffff;" href="https://readslokas.github.io/Mahalakshmi%20Ashtakam.html" target="_blank">Mahalakshmi Ashtakam</a><BR><BR>
-<a style="color:#ffffff;" href="https://readslokas.github.io/Sri Mahalakshmi Stuthi.html" target="_blank">Sri Mahalakshmi Stuthi</a><BR><BR>
-
-<a style="color:#ffffff;" href="https://readslokas.github.io/Medha%20Suktam.html" target="_blank">Medha Suktam</a><BR><BR>
-
-<a style="color:#ffffff;" href="https://readslokas.github.io/ஶ்ரீ கணபதி தாளம்.html" target="_blank">ஶ்ரீ கணபதி தாளம்</a><BR><BR>
-<a style="color:#ffffff;" href="https://readslokas.github.io/நாத விந்து.html" target="_blank">நாத விந்து</a><BR><BR>
-<a style="color:#ffffff;" href="https://readslokas.github.io/ஸ்ரீ ஸுப்ரம்மண்ய ப்ரஸன்ன மாலா மந்த்ரம்.html" target="_blank">ஸ்ரீ ஸுப்ரம்மண்ய ப்ரஸன்ன மாலா மந்த்ரம்</a><BR><BR>
-
-நாடகத்தால் உன் அடியார் போல் நடித்து நான் நடுவே<br>
-வீடு அகத்தே புகுந்திடுவான் மிகப்பெரிதும் விரைகின்றேன்<br>
-ஆடகச்சீர் மணிக்குன்றே இடை அறா அன்பு உனக்கு என்<br>
-ஊடு அகத் தேநின்று உருகத் தந்தருள் எம் உடையானே<br><br>
-
-யான் ஏதும் பிறப்பு அஞ்சேன் இறப்பு அதனுக்கு என கடவேன்<br>
-வான் ஏயும் பெறல் வேண்டேன் மண் ஆள்வான் மதித்தும் இரேன்<br>
-தேன்ஏயும் மலர்க்கொன்றைச் சிவனே எம்பெருமான்<br>
-எம்மானே உன் அருள் பெறும் நாள் என்று என்றே வருந்துவனே<br><br>
-
-தவமே புரிந்திலன் தண்மலர் இட்டுமுட்டாது இறைஞ்சேன்<br>
-அவமே பிறந்த அருவினையேன் உனக்கு அன்பர் உள்ளாம்<br>
-சிவமே பெறும் திரு எய்திற்றிலேன் நின் திருவடிக்கு ஆம்<br>
-பவமே அருளு கண்டாய் அடியேற்கு எம்பரம்பரனே<br><br>
-
-கான்சாயும் வெள்ளி மலைக்கரசே! - நின் கழல் நம்பினேன்<BR>
-ஊன்சாயும் சென்மம் ஒழித்திடு வாய்! கர வூரனுக்காய்<BR>
-மான்சாய செங்கை மழுவலஞ் சாய வனைந்த கொன்றைத்<BR>
-தேன்சாய நல்ல திருமேனி சாய்த்த சிவக் கொழுந்தே!<BR><BR>
-
-யாவரேயிருந்தும் யாவரேவாழ்ந்தும் யாவரேயெமக்குறவாயும்,<BR>
-தேவரீரல்லாற் றிசைமுகமெனக்குத் திருவுளமறிய வேறுளதோ,<BR>
-பாவலானொருவன் செந்தமிழ்க்கிரங்கிப் பரவையாருடலைமாற்ற,<BR>
-ஏவலாளாகியிர வெலாமுழன்ற விறைவனே யேகநாயகனே<BR><BR>
-
-மாதா உடல் சலித்தாள் வல்வினையேன் கால்சலித்தேன்<BR>
-வேதாவும் கைசலித்து விட்டானே - நாதா<BR>
-இருப்பையூர் வாழ் சிவனே இன்னம்ஓர் அன்னை<BR>
-கருப்பையூர் வாராமற் கா<BR><BR>
- 
-மண்ணும் தணல் ஆற வானும் புகை ஆற<BR>
-எண்ணரிய தாயும் இளைப்பாறப் - பண்ணுமயன்<BR>
-கையாறவும் காலன் கால் ஆறவும் கண் பார்<BR>
-ஐயா திருவை யா<BR><BR>
- 
-கோடியல் மனத்தால் வாக்கினுற் செயலால் கொடியஐம்<BR>
-புலன்களால் அடியேன் தேடிய பாவம் நரகமும் கொள்ள செய்தவம்<BR>
-புரியினும் தீரா, வீடிய பிரமர் சிரமெலாம் கவர்ந்த விழவரு<BR>
-விதிவெண் காடா ஆடிய பாதா! அம்பலத்து ஆடும் ஜயனே!<BR><BR>
-
-உய்யு மாறு அருளே!<BR><BR>
-
-சொல்லால் வருங்குற்றஞ் சிந்தையால் வருந்தோடஞ்செய்த<BR>
-பொல்லாத தீவினை பார்வையிற் பாவங்கள் புண்ணியநூல்<BR>
-அல்லாத கேள்வியைக் கேட்டிடுஞ் தீங்குகள் ஆயவுமற்று<BR>
-எல்லாப்பிழையும் பொறுத்தருள் வாய்கச்சி ஏகம்பனே<BR><BR>
- 
-கல்லாப்பிழையுங் கருதாப்பிழையுங் கசிந்துருகி<BR>
-நல்லாப்பிழையும் நினையாப்பிழையும் நின்அஞ்செழுத்தைச்<BR>
-சொல்லாப்பிழையுந் துதியாப்பிழையுந் தொழாப்பிழையும்<BR>
-எல்லாப்பிழையும் பொறுத்தருள் வாய்கச்சி ஏகம்பனே<BR><BR>
- 
-நோயுற்று அடராமல் நொந்து மனம் வாடாமல் <BR>
-பாயிற் கிடவாமல் <BR>
-பாவியேன் காயத்தை ஓர் நொடிக்குள் நீக்கி <BR>
-ஒண் போரூர் அய்யா!<BR>
-நின் சீரடிக்கீழ் வைப்பாய் "தெரிந்து"<BR>
-  
-</p>
-</div>
-</body>
-</html>
+</ul>
+</li>
+<div style="color: #8B0000; font-size: 20px;"><strong>திருப்புகழ்</strong></div>
+<ul>
+<li><a href="https://readslokas.github.io/அகரமுதலென.html" target="_blank" class="zoom">அகரமுதலென</a></li>
+<li><a href="https://readslokas.github.io/அகரமும் ஆகி.html" target="_blank" class="zoom">அகரமும் ஆகி</a></li>
+<li><a href="https://readslokas.github.io/அகல நீளம்.html" target="_blank" class="zoom">அகல நீளம்</a></li>
+<li><a href="https://readslokas.github.io/அதல சேடனார்.html" target="_blank" class="zoom">அதல சேடனார்</a></li>
+<li><a href="https://readslokas.github.io/அதல விதலமுத.html" target="_blank" class="zoom">அதல விதலமுத</a></li>
+<li><a href="https://readslokas.github.io/அந்தகன் வருந்தினம்.html" target="_blank" class="zoom">அந்தகன் வருந்தினம்</a></li>
+<li><a href="https://readslokas.github.io/அபகார நிந்தை.html" target="_blank" class="zoom">அபகார நிந்தை</a></li>
+<li><a href="https://readslokas.github.io/அமுத மூறு.html" target="_blank" class="zoom">அமுத மூறு</a></li>
+<li><a href="https://readslokas.github.io/அவனிதனிலே.html" target="_blank" class="zoom">அவனிதனிலே</a></li>
+<li><a href="https://readslokas.github.io/ஆறுமுகம் ஆறுமுகம்.html" target="_blank" class="zoom">ஆறுமுகம் ஆறுமுகம்</a></li>
+<li><a href="https://readslokas.github.io/இத்தாரணிக்குள்.html" target="_blank" class="zoom">இத்தாரணிக்குள்</a></li>
+<li><a href="https://readslokas.github.io/இரவுபகற் பலகாலும்.html" target="_blank" class="zoom">இரவுபகற் பலகாலும்</a></li>
+<li><a href="https://readslokas.github.io/இருவர் மயலோ.html" target="_blank" class="zoom">இருவர் மயலோ</a></li>
+<li><a href="https://readslokas.github.io/இருவினை யஞ்ச.html" target="_blank" class="zoom">இருவினை யஞ்ச</a></li>
+<li><a href="https://readslokas.github.io/உம்பர்தருத் தேநுமணி.html" target="_blank" class="zoom">உம்பர்தருத் தேநுமணி</a></li>
+<li><a href="https://readslokas.github.io/உனைத்தினம்.html" target="_blank" class="zoom">உனைத்தினம்</a></li>
+<li><a href="https://readslokas.github.io/எத்தனை கோடி.html" target="_blank" class="zoom">எத்தனை கோடி</a></li>
+<li><a href="https://readslokas.github.io/எருவாய் கருவாய்.html" target="_blank" class="zoom">எருவாய் கருவாய்</a></li>
+<li><a href="https://readslokas.github.io/எழுகடல் மணலை.html" target="_blank" class="zoom">எழுகடல் மணலை</a></li>
+<li><a href="https://readslokas.github.io/என்னால் பிறக்கவும்.html" target="_blank" class="zoom">என்னால் பிறக்கவும்</a></li>
+<li><a href="https://readslokas.github.io/ஏவினை நேர்விழி.html" target="_blank" class="zoom">ஏவினை நேர்விழி</a></li>
+<li><a href="https://readslokas.github.io/ஏறுமயிலேறி.html" target="_blank" class="zoom">ஏறுமயிலேறி</a></li>
+<li><a href="https://readslokas.github.io/ஐங்கரனை யொத்தமன.html" target="_blank" class="zoom">ஐங்கரனை யொத்தமன</a></li>
+<li><a href="https://readslokas.github.io/ஓருருவாகிய.html" target="_blank" class="zoom">ஓருருவாகிய</a></li>
+<li><a href="https://readslokas.github.io/ஓல மிட்ட.html" target="_blank" class="zoom">ஓல மிட்ட</a></li>
+<li><a href="https://readslokas.github.io/கடிய வேக.html" target="_blank" class="zoom">கடிய வேக</a></li>
+<li><a href="https://readslokas.github.io/கரியகுழல்.html" target="_blank" class="zoom">கரியகுழல்</a></li>
+<li><a href="https://readslokas.github.io/கருவடைந்து.html" target="_blank" class="zoom">கருவடைந்து</a></li>
+<li><a href="https://readslokas.github.io/கனகந்திரள்.html" target="_blank" class="zoom">கனகந்திரள்</a></li>
+<li><a href="https://readslokas.github.io/குமர குருபர.html" target="_blank" class="zoom">குமர குருபர</a></li>
+<li><a href="https://readslokas.github.io/குமர குருபர குணதர.html" target="_blank" class="zoom">குமர குருபர குணதர</a></li>
+<li><a href="https://readslokas.github.io/குருபர சரவண.html" target="_blank" class="zoom">குருபர சரவண</a></li>
+<li><a href="https://readslokas.github.io/கைத்தல நிறைகனி.html" target="_blank" class="zoom">கைத்தல நிறைகனி</a></li>
+<li><a href="https://readslokas.github.io/சந்ததம் பந்த.html" target="_blank" class="zoom">சந்ததம் பந்த</a></li>
+<li><a href="https://readslokas.github.io/சரணகமலாலயத்தை.html" target="_blank" class="zoom">சரணகமலாலயத்தை</a></li>
+<li><a href="https://readslokas.github.io/சரவண பவநிதி.html" target="_blank" class="zoom">சரவண பவநிதி</a></li>
+<li><a href="https://readslokas.github.io/சருவும்படி.html" target="_blank" class="zoom">சருவும்படி</a></li>
+<li><a href="https://readslokas.github.io/சிந்திக்கிலேன்.html" target="_blank" class="zoom">சிந்திக்கிலேன்</a></li>
+<li><a href="https://readslokas.github.io/சிவனார் மனங்குளிர.html" target="_blank" class="zoom">சிவனார் மனங்குளிர</a></li>
+<li><a href="https://readslokas.github.io/சினத்தவர்.html" target="_blank" class="zoom">சினத்தவர்</a></li>
+<li><a href="https://readslokas.github.io/சீத மதிய.html" target="_blank" class="zoom">சீத மதிய</a></li>
+<li><a href="https://readslokas.github.io/சீதள வாரிஜ.html" target="_blank" class="zoom">சீதள வாரிஜ</a></li>
+<li><a href="https://readslokas.github.io/சீரான கோல.html" target="_blank" class="zoom">சீரான கோல</a></li>
+<li><a href="https://readslokas.github.io/சீர்சிறக்கு மேனி.html" target="_blank" class="zoom">சீர்சிறக்கு மேனி</a></li>
+<li><a href="https://readslokas.github.io/தடக்கைப் பங்கயம்.html" target="_blank" class="zoom">தடக்கைப் பங்கயம்</a></li>
+<li><a href="https://readslokas.github.io/தண்டையணி.html" target="_blank" class="zoom">தண்டையணி</a></li>
+<li><a href="https://readslokas.github.io/தமரும் அமரு.html" target="_blank" class="zoom">தமரும் அமரு</a></li>
+<li><a href="https://readslokas.github.io/தரணியிலரணிய.html" target="_blank" class="zoom">தரணியிலரணிய</a></li>
+<li><a href="https://readslokas.github.io/திமிர வுததி.html" target="_blank" class="zoom">திமிர வுததி</a></li>
+<li><a href="https://readslokas.github.io/திருமகள் உலாவும்.html" target="_blank" class="zoom">திருமகள் உலாவும்</a></li>
+<li><a href="https://readslokas.github.io/துள்ளுமத வேள்கை.html" target="_blank" class="zoom">துள்ளுமத வேள்கை</a></li>
+<li><a href="https://readslokas.github.io/தொந்தி சரிய.html" target="_blank" class="zoom">தொந்தி சரிய</a></li>
+<li><a href="https://readslokas.github.io/நாடித் தேடித்.html" target="_blank" class="zoom">நாடித் தேடித்</a></li>
+<li><a href="https://readslokas.github.io/நாத விந்து.html" target="_blank" class="zoom">நாத விந்து</a></li>
+<li><a href="https://readslokas.github.io/நாலும் ஐந்து.html" target="_blank" class="zoom">நாலும் ஐந்து</a></li>
+<li><a href="https://readslokas.github.io/நினது திருவடி.html" target="_blank" class="zoom">நினது திருவடி</a></li>
+<li><a href="https://readslokas.github.io/பக்கரைவி சித்ரமணி.html" target="_blank" class="zoom">பக்கரை விசித்ரமணி</a></li>
+<li><a href="https://readslokas.github.io/பத்தர்க ணப்ரிய.html" target="_blank" class="zoom">பத்தர்கணப்ரிய</a></li>
+<li><a href="https://readslokas.github.io/பத்தியால் யானுனை.html" target="_blank" class="zoom">பத்தியால் யானுனை</a></li>
+<li><a href="https://readslokas.github.io/பாதி மதிநதி.html" target="_blank" class="zoom">பாதி மதிநதி</a></li>
+<li><a href="https://readslokas.github.io/பெருக்கச் சஞ்சலித்து.html" target="_blank" class="zoom">பெருக்கச்சஞ்சலித்து</a></li>
+<li><a href="https://readslokas.github.io/மனக்கவலை.html" target="_blank" class="zoom">மனக்கவலை</a></li>
+<li><a href="https://readslokas.github.io/முட்டுப்பட்டு.html" target="_blank" class="zoom">முட்டுப்பட்டு</a></li>
+<li><a href="https://readslokas.github.io/முத்தைத்தரு.html" target="_blank" class="zoom">முத்தைத்தரு</a></li>
+<li><a href="https://readslokas.github.io/வந்து வந்து.html" target="_blank" class="zoom">வந்து வந்து</a></li>
+<li><a href="https://readslokas.github.io/வாதினையடர்ந்த.html" target="_blank" class="zoom">வாதினையடர்ந்த</a></li>
+<li><a href="https://readslokas.github.io/விடமடைசு வேலை.html" target="_blank" class="zoom">விடமடைசு வேலை</a></li>
+<li><a href="https://readslokas.github.io/வேத வெற்பி.html" target="_blank" class="zoom">வேத வெற்பி</a></li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td style="border-color: #dbbf79; width: 21.5577%; text-align: center; vertical-align: top;"><img style="height: 337.615px; width: 300px;" src="./images/Sivan.jpg" alt="" width="343" height="326" /></td>
+<td style="border-color: #dbbf79; width: 70.4423%; text-align: left; vertical-align: top;">
+<div style="color: #8B0000; font-size: 30px;"><strong>Lord Shiva</strong></div>
+<ul>
+<li><a href="https://readslokas.github.io/Sri%20Rudram.html" target="_blank" class="zoom">Sri Rudram</a></li>
+</ul>
+</li>
+<div style="color: #8B0000; font-size: 20px;margin-bottom: 10px;"><strong>திருவாசகம்</strong></div>
+<ul>
+<li><a href="https://readslokas.github.io/சிவபுராணம்.html" target="_blank" class="zoom">சிவபுராணம்</a></li>
+<li><a href="https://readslokas.github.io/கீர்த்தித் திரு அகவல்.html" target="_blank" class="zoom">கீர்த்தித் திரு அகவல்</a></li>
+<li><a href="https://readslokas.github.io/திருவண்டப்பகுதி.html" target="_blank" class="zoom">திருவண்டப்பகுதி</a></li>
+<li><a href="https://readslokas.github.io/போற்றித்திருவகவல்.html" target="_blank" class="zoom">போற்றித்திருவகவல்</a></li>
+<li><a href="https://readslokas.github.io/திருச்சதகம்" target="_blank" class="zoom">திருச்சதகம்</a></li>
+<li><a href="https://readslokas.github.io/நீத்தல் விண்ணப்பம்.html" target="_blank" class="zoom">நீத்தல் விண்ணப்பம்</a></li>
+<li><a href="https://readslokas.github.io/திருவெம்பாவை.html" target="_blank" class="zoom">திருவெம்பாவை</a></li>
+<li><a href="https://readslokas.github.io/திருவம்மானை.html" target="_blank" class="zoom">திருவம்மானை</a></li>
+<li><a href="https://readslokas.github.io/திருப்பொற் சுண்ணம்.html" target="_blank" class="zoom">திருப்பொற் சுண்ணம்</a></li>
+<li><a href="https://readslokas.github.io/திருக்கோத்தும்பி.html" target="_blank" class="zoom">திருக்கோத்தும்பி</a></li>
+<li><a href="https://readslokas.github.io/திருத்தெள்ளேணம்.html" target="_blank" class="zoom">திருத்தெள்ளேணம்</a></li>
+<li><a href="https://readslokas.github.io/திருச்சாழல்.html" target="_blank" class="zoom">திருச்சாழல்</a></li>
+<li><a href="https://readslokas.github.io/திருப்பூவல்லி.html" target="_blank" class="zoom">திருப்பூவல்லி</a></li>
+<li><a href="https://readslokas.github.io/திருவுந்தியார்.html" target="_blank" class="zoom">திருவுந்தியார்</a></li>
+<li><a href="https://readslokas.github.io/திருத்தோள் நோக்கம்.html" target="_blank" class="zoom">திருத்தோள் நோக்கம்</a></li>
+<li><a href="https://readslokas.github.io/திருப்பொன்னூசல்.html" target="_blank" class="zoom">திருப்பொன்னூசல்</a></li>
+<li><a href="https://readslokas.github.io/அன்னைப்பத்து.html" target="_blank" class="zoom">அன்னைப்பத்து</a></li>
+<li><a href="https://readslokas.github.io/குயிற்பத்து.html" target="_blank" class="zoom">குயிற்பத்து</a></li>
+<li><a href="https://readslokas.github.io/திருத்தசாங்கம்.html" target="_blank" class="zoom">திருத்தசாங்கம்</a></li>
+<li><a href="https://readslokas.github.io/திருப்பள்ளியெழுச்சி.html" target="_blank" class="zoom">திருப்பள்ளியெழுச்சி</a></li>
+<li><a href="https://readslokas.github.io/கோயில் மூத்த திருப்பதிகம்.html" target="_blank" class="zoom">கோயில் மூத்த திருப்பதிகம்</a></li>
+<li><a href="https://readslokas.github.io/கோயில் திருப்பதிகம்.html" target="_blank" class="zoom">கோயில் திருப்பதிகம்</a></li>
+<li><a href="https://readslokas.github.io/செத்திலாப் பத்து.html" target="_blank" class="zoom">செத்திலாப் பத்து</a></li>
+<li><a href="https://readslokas.github.io/அடைக்கலப் பத்து.html" target="_blank" class="zoom">அடைக்கலப் பத்து</a></li>
+<li><a href="https://readslokas.github.io/ஆசைப்பத்து.html" target="_blank" class="zoom">ஆசைப்பத்து</a></li>
+<li><a href="https://readslokas.github.io/அதிசயப் பத்து.html" target="_blank" class="zoom">அதிசயப் பத்து</a></li>
+<li><a href="https://readslokas.github.io/புணர்ச்சிப்பத்து.html" target="_blank" class="zoom">புணர்ச்சிப்பத்து</a></li>
+<li><a href="https://readslokas.github.io/வாழாப்பத்து.html" target="_blank" class="zoom">வாழாப்பத்து</a></li>
+<li><a href="https://readslokas.github.io/அருட்பத்து.html" target="_blank" class="zoom">அருட்பத்து</a></li>
+<li><a href="https://readslokas.github.io/திருக்கழுக்குன்றப்பதிகம்.html" target="_blank" class="zoom">திருக்கழுக்குன்றப்பதிகம்</a></li>
+<li><a href="https://readslokas.github.io/கண்ட பத்து.html" target="_blank" class="zoom">கண்ட பத்து</a></li>
+<li><a href="https://readslokas.github.io/பிரார்த்தனைப் பத்து.html" target="_blank" class="zoom">பிரார்த்தனைப் பத்து</a></li>
+<li><a href="https://readslokas.github.io/குழைத்த பத்து.html" target="_blank" class="zoom">குழைத்த பத்து</a></li>
+<li><a href="https://readslokas.github.io/உயிருண்ணிப்பத்து.html" target="_blank" class="zoom">உயிருண்ணிப்பத்து</a></li>
+<li><a href="https://readslokas.github.io/அச்சப்பத்து.html" target="_blank" class="zoom">அச்சப்பத்து</a></li>
+<li><a href="https://readslokas.github.io/திருப்பாண்டிப்பதிகம்.html" target="_blank" class="zoom">திருப்பாண்டிப்பதிகம்</a></li>
+<li><a href="https://readslokas.github.io/பிடித்த பத்து.html" target="_blank" class="zoom">பிடித்த பத்து</a></li>
+<li><a href="https://readslokas.github.io/திருவேசறவு.html" target="_blank" class="zoom">திருவேசறவு</a></li>
+<li><a href="https://readslokas.github.io/திருப்புலம்பல்.html" target="_blank" class="zoom">திருப்புலம்பல்</a></li>
+<li><a href="https://readslokas.github.io/குலாப்பத்து.html" target="_blank" class="zoom">குலாப்பத்து</a></li>
+<li><a href="https://readslokas.github.io/அற்புதப் பத்து.html" target="_blank" class="zoom">அற்புதப் பத்து</a></li>
+<li><a href="https://readslokas.github.io/சென்னிப் பத்து.html" target="_blank" class="zoom">சென்னிப் பத்து</a></li>
+<li><a href="https://readslokas.github.io/திருவார்த்தை.html" target="_blank" class="zoom">திருவார்த்தை</a></li>
+<li><a href="https://readslokas.github.io/எண்ணப் பதிகம்.html" target="_blank" class="zoom">எண்ணப் பதிகம்</a></li>
+<li><a href="https://readslokas.github.io/யாத்திரைப் பத்து.html" target="_blank" class="zoom">யாத்திரைப் பத்து</a></li>
+<li><a href="https://readslokas.github.io/திருப்படை எழுச்சி.html" target="_blank" class="zoom">திருப்படை எழுச்சி</a></li>
+<li><a href="https://readslokas.github.io/திருவெண்பா.html" target="_blank" class="zoom">திருவெண்பா</a></li>
+<li><a href="https://readslokas.github.io/பண்டாய நான்மறை.html" target="_blank" class="zoom">பண்டாய நான்மறை</a></li>
+<li><a href="https://readslokas.github.io/திருப்படையாட்சி.html" target="_blank" class="zoom">திருப்படையாட்சி</a></li>
+<li><a href="https://readslokas.github.io/ஆனந்த மாலை.html" target="_blank" class="zoom">ஆனந்த மாலை</a></li>
+<li><a href="https://readslokas.github.io/அச்சோ பதிகம்.html" target="_blank" class="zoom">அச்சோ பதிகம்</a></li>
+</ul>
+</li>
+<div style="color: #8B0000; font-size: 20px;margin-bottom: 10px;"><strong>தேவாரம்</strong></div>
+<ul>
+<li><a href="https://readslokas.github.io/இடரினுந் தளரினும்.html" target="_blank" class="zoom">இடரினுந் தளரினும்</a></li>
+<li><a href="https://readslokas.github.io/இடர் களையும் பதிகம்.html" target="_blank" class="zoom">இடர் களையும் பதிகம்</a></li>
+<li><a href="https://readslokas.github.io/சொற்றுணை வேதியன்.html" target="_blank" class="zoom">சொற்றுணை வேதியன்</a></li>
+<li><a href="https://readslokas.github.io/கோளறு பதிகம்.html" target="_blank" class="zoom">கோளறு பதிகம்</a></li>
+<li><a href="https://readslokas.github.io/தில்லைவாழ் அந்தணர்.html" target="_blank" class="zoom">தில்லைவாழ் அந்தணர்</a></li>
+<li><a href="https://readslokas.github.io/பொன்னார் மேனியனே.html" target="_blank" class="zoom">பொன்னார் மேனியனே</a></li>
+<li><a href="https://readslokas.github.io/அவ்வினைக்கிவ்வினை.html" target="_blank" class="zoom">அவ்வினைக்கிவ்வினை</a></li>
+</ul>
+</li>
+<div style="color: #8B0000; font-size: 20px;margin-bottom: 10px;"><strong>General</strong></div>
+<ul>
+<li><a href="https://readslokas.github.io/Bilvashtakam.html" target="_blank" class="zoom">Bilvashtakam</a></li>
+<li><a href="https://readslokas.github.io/DaridrayaDahanaStotram.html" target="_blank" class="zoom">DaridrayaDahanaStotram</a></li>
+<li><a href="https://readslokas.github.io/Kalabhairava%20Ashtakam.html" target="_blank" class="zoom">Kalabhairava Ashtakam</a></li>
+<li><a href="https://readslokas.github.io/Margabandhu%20Stotram.html" target="_blank" class="zoom">Margabandhu Stotram</a></li>
+<li><a href="https://readslokas.github.io/Tottakashtakam.html" target="_blank" class="zoom">Tottakashtakam</a></li>
+</ul>
+</li>
+<div style="color: #8B0000; font-size: 20px;margin-bottom: 10px;"><strong>பட்டினத்தார்</strong></div>
+<ul>
+<li><a href="https://readslokas.github.io/திருஏகம்ப மாலை.html" target="_blank" class="zoom">திருஏகம்ப மாலை</a></li>
+<li><a href="https://readslokas.github.io/பட்டினத்தார் பாடல்கள்.html" target="_blank" class="zoom">பட்டினத்தார் பாடல்கள்</a></li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td style="border-color: #dbbf79; width: 21.5577%; text-align: center; vertical-align: top;"><img style="height: 337.615px; width: 300px;" src="./images/Ambal.jpg"  alt="" width="343" height="326" /></td>
+<td style="border-color: #dbbf79; width: 70.4423%; text-align: left; vertical-align: top;">
+<div style="color: #8B0000; font-size: 30px;"><strong>Goddess Parvati</strong></div>
+<ul>
+<li><a href="https://readslokas.github.io/அபிராமி அந்தாதி.html" target="_blank" class="zoom">அபிராமி அந்தாதி</a></li>
+<li><a href="https://readslokas.github.io/Lalitha%20Sahasranama.html" target="_blank" class="zoom">ஶ்ரீலலிதா சஹஸ்ரநாமம்</a></li>
+<li><a href="https://readslokas.github.io/ஸௌந்தர்ய லஹரீ.html" target="_blank" class="zoom">சௌந்தர்ய லஹரி</a></li>
+<li><a href="https://readslokas.github.io/திருவகுப்பு.html" target="_blank" class="zoom">திருவகுப்பு</a></li>
+<li><a href="https://readslokas.github.io/கற்பூர நாயகியே கனகவல்லி.html" target="_blank" class="zoom">கற்பூர நாயகியே கனகவல்லி</a></li>
+<li><a href="https://readslokas.github.io/மங்கள ரூபிணி.html" target="_blank" class="zoom">மங்கள ரூபிணி</a></li>
+<li><a href="https://readslokas.github.io/ஶ்ரீ காமாக்ஷீ ஸ்தோத்ரம்.html" target="_blank" class="zoom">ஶ்ரீ காமாக்ஷீ ஸ்தோத்ரம்</a></li>
+<li><a href="https://readslokas.github.io/ஶ்ரீ துர்கா ஸ்தோத்ரம்.html" target="_blank" class="zoom">ஶ்ரீ துர்கா ஸ்தோத்ரம்</a></li>
+</ul>
+</td>
+</tr>
+<tr></tr>
+<tr>
+<td style="border-color: #dbbf79; width: 21.5577%; text-align: center; vertical-align: top;"><img style="height: 337.615px; width: 300px;" src="./images/Venkatachalapathy.png" alt="" width="343" height="326" /></td>
+<td style="border-color: #dbbf79; width: 70.4423%; text-align: left; vertical-align: top;">
+<div style="color: #8B0000; font-size: 30px;"><strong>Lord Mahavishnu</strong></div>
+<ul>
+<li><a href="https://readslokas.github.io/Vishnu%20Sahasranamam.html" target="_blank" class="zoom">Vishnu Sahasranamam</a></li>
+<li><a href="https://readslokas.github.io/Purusha%20Suktam.html" target="_blank" class="zoom">Purusha Suktam</a></li>
+<li><a href="https://readslokas.github.io/Nama%20Ramayana.html" target="_blank" class="zoom">Nama Ramayana</a></li>
+<li><a href="https://readslokas.github.io/Sri%20Narayana%20Hrudayam.html" target="_blank" class="zoom">Sri Narayana Hrudayam</a></li>
+<li><a href="https://readslokas.github.io/Sri%20Ranganatha%20Gadyam.html" target="_blank" class="zoom">Sri Ranganatha Gadyam</a></li>
+<li><a href="https://readslokas.github.io/Sri Lakshmi Narasimha Karavalambam_Tamil.html" target="_blank" class="zoom">Sri Lakshmi Narasimha Karavalambam_Tamil</a></li>
+<li><a href="https://readslokas.github.io/Sri Lakshmi Narasimha Karavalambam_Sanskrit.html" target="_blank" class="zoom">Sri Lakshmi Narasimha Karavalambam_Sanskrit</a></li>
+<li><a href="https://readslokas.github.io/Sri Lakshmi Narasimha Karavalambam_English.html" target="_blank" class="zoom">Sri Lakshmi Narasimha Karavalambam_English</a></li>
+<li><a href="https://readslokas.github.io/SriNarayanaHrudayam.html" target="_blank" class="zoom">SriNarayanaHrudayam</a></li>
+<li><a href="https://readslokas.github.io/Hari%20Bhajana%20Sukha%20Shanti%20Nahin.html" target="_blank" class="zoom">Hari Bhajan</a></li>
+<li><a href="https://readslokas.github.io/RunaVimochana_LakshmiNarasimnhar.html" target="_blank" class="zoom">RunaVimochana_LakshmiNarasimnhar</a></li>
+</ul>
+</td>
+</tr>
+<tr>
+<td style="border-color: #dbbf79; width: 21.5577%; text-align: center; vertical-align: top;"><img style="height: 337.615px; width: 300px;" src="./images/Mahalakshmi.jpg" alt="" width="343" height="326" /></td>
+<td style="border-color: #dbbf79; width: 70.4423%; text-align: left; vertical-align: top;">
+<div style="color: #8B0000; font-size: 30px;"><strong>Goddess Mahalakshmi</strong></div>
+<ul>
+<li><a href="https://readslokas.github.io/KanakadharaStotram.html" target="_blank" class="zoom">Kanakadhara Stotram</a></li>
+<li><a href="https://readslokas.github.io/Mahalakshmi%20Ashtakam.html" target="_blank" class="zoom">Mahalakshmi Ashtakam</a></li>
+<li><a href="https://readslokas.github.io/Sri%20Suktam.html" target="_blank" class="zoom">Sri Suktam</a></li>
+<li><a href="https://readslokas.github.io/Sri Mahalakshmi Stuthi.html" target="_blank" class="zoom">Sri Mahalakshmi Stuthi</a></li>
+<li><a href="https://readslokas.github.io/SriLakshmiHrudayam.html" target="_blank" class="zoom">SriLakshmiHrudayam</a></li>
+</ul>
+</td>
+</tr>
+<tr>
+<td style="border-color: #dbbf79; width: 21.5577%; text-align: center; vertical-align: top;"><img style="height: 337.615px; width: 300px;" src="./images/Saraswathi.jpg" alt="" width="343" height="326" /></td>
+<td style="border-color: #dbbf79; width: 70.4423%; text-align: left; vertical-align: top;">
+<div style="color: #8B0000; font-size: 30px;"><strong>Goddess Saraswathi</strong></div>
+<ul>
+<li><a href="https://readslokas.github.io/NeelaSaraswathiMantra.html" target="_blank" class="zoom">NeelaSaraswathiMantra</a></li>
+<li><a href="https://readslokas.github.io/Medha%20Suktam.html" target="_blank" class="zoom">Medha Suktam</a></li>
+</ul>
+</td>
+</tr>
+<tr>
+<td style="border-color: #dbbf79; width: 21.5577%; text-align: center; vertical-align: top;"><img style="height: 337.615px; width: 300px;" src="./images/Kanchi-Maha-Periyava.jpg" alt="" width="343" height="326" /></td>
+<td style="border-color: #dbbf79; width: 70.4423%; text-align: left; vertical-align: top;">
+<div style="color: #8B0000; font-size: 30px;"><strong>Sri Kanchi Maha Periyava</strong></div>
+<ul>
+<li><a href="https://readslokas.github.io/அட்க்ஷரப்பாமாலை.html" target="_blank" class="zoom">அட்க்ஷரப்பாமாலை</a></li>
+<li><a href="https://readslokas.github.io/சத்குரு ஸ்ரீ சந்திரசேகரேந்திர சரஸ்வதி சுவாமிகள் அந்தாதி.html" target="_blank" class="zoom">சத்குரு ஸ்ரீ சந்திரசேகரேந்திர சரஸ்வதி சுவாமிகள் அந்தாதி</a></li>
+<li><a href="https://readslokas.github.io/ஆரோக்கியம் - நல் வாழ்வு பெருக.html" target="_blank" class="zoom">ஆரோக்கியம் - நல் வாழ்வு பெருக</a></li>
+<li><a href="https://readslokas.github.io/ஐஸ்வர்யம் பெருக.html" target="_blank" class="zoom">ஐஸ்வர்யம் பெருக</a></li>
+<li><a href="https://readslokas.github.io/கல்வி - ஞானம் பெருக.html" target="_blank" class="zoom">கல்வி - ஞானம் பெருக</a></li>
+<li><a href="https://readslokas.github.io/வேலை - தொழில் முன்னேற்ற.html" target="_blank" class="zoom">வேலை - தொழில் முன்னேற்ற</a></li>
+<li><a href="https://readslokas.github.io/திருமணம் நடைபெற.html" target="_blank" class="zoom">திருமணம் நடைபெற</a></li>
+<li><a href="https://readslokas.github.io/தாய்மை - பிள்ளைவரம் கிடைக்க.html" target="_blank" class="zoom">தாய்மை - பிள்ளைவரம் கிடைக்க</a></li>
+<li><a href="https://readslokas.github.io/மழை - சுபிக்க்ஷம் பெருக.html" target="_blank" class="zoom">மழை - சுபிக்க்ஷம் பெருக</a></li>  
+<li><a href="https://readslokas.github.io/பக்தி பெருக - மோட்ஷம் கிடைக்க.html" target="_blank" class="zoom">பக்தி பெருக - மோட்ஷம் கிடைக்க</a></li>
+</ul>
+</td>
+</tr>
+<tr>
+<td style="border-color: #dbbf79; width: 21.5577%; text-align: center; vertical-align: top;"><img style="height: 337.615px; width: 300px;" src="./images/Sai.jpg" alt="" width="343" height="326" /></td>
+<td style="border-color: #dbbf79; width: 70.4423%; text-align: left; vertical-align: top;">
+<div style="color: #8B0000; font-size: 30px;"><strong>Sri Shirdi Sai</strong></div>
+<ul>
+<li><a href="https://readslokas.github.io/Kakad%20Aarti.html" target="_blank" class="zoom">Kakad Aarti</a></li>
+<li><a href="https://readslokas.github.io/Madhyan%20Aarti.html" target="_blank" class="zoom">Madhyan Aarti</a></li>
+<li><a href="https://readslokas.github.io/Dhoop%20Aarti.html" target="_blank" class="zoom">Dhoop Aarti</a></li>
+<li><a href="https://readslokas.github.io/Shej%20Aarti.html" target="_blank" class="zoom">Shej Aarti</a></li>
+</ul>
+</td>
+</tr>
+<tr>
+<td style="border-color: #dbbf79; width: 21.5577%; text-align: center; vertical-align: top;"> </td>
+<td style="border-color: #dbbf79; width: 70.4423%; text-align: left; vertical-align: top;">
+<div style="color: #8B0000; font-size: 30px;"><strong>Common Slokas</strong></div>
+<ul>
+<li><a href="https://readslokas.github.io/Sandhyaa%20Vandhanam.html" target="_blank" class="zoom">Sandhyaa Vandhanam</a></li>
+<li><a href="https://readslokas.github.io/AdityaHrudayam.html" target="_blank" class="zoom">AdityaHrudayam</a></li>
+<li><a href="https://readslokas.github.io/Hanuman%20Chalisa.html" target="_blank" class="zoom">Hanuman Chalisa</a></li>
+<li><a href="https://readslokas.github.io/Harivarasanam.html" target="_blank" class="zoom">Harivarasanam</a></li>
+<li><a href="https://readslokas.github.io/Mantra%20Pushpam.html" target="_blank" class="zoom">Mantra Pushpam</a></li>
+<li><a href="https://readslokas.github.io/SundaraKandamVerse.html" target="_blank" class="zoom">SundaraKandam Verse</a></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+</style>
+<script>
+// Change 1 to another integer to alter the scroll speed. Greater is faster.
+var speed = 1;
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div>
+<p>
+
+
+பொம்ம பொம்மதா <BR>
+தைய தையனக்கு<BR>
+தின்னாக்கு னக்குதின் பஜன்கரே<BR>
+<BR>
+உத்தமித்த நாக்குதிமி <BR>
+தித்தாம் தித்தாம் தோம் <BR>
+தை தை கணபதி நாம் ஸதா (x2)<BR>
+<BR>
+திம்மிக்கிடுகிட திம்மிகிடுகிட <BR>
+திக்குத்தாள திம்மிக்கிட <BR>
+தாகிடுத தாகிடுத தள தவோடுதாம் (x2)<BR>
+<BR>
+உத்தமித்த நாக்குதிமி <BR>
+தித்தாம் தித்தாம் தோம் <BR>
+தை தை கணபதி நாம் ஸதா<BR>
+<BR>
+அவருவாசுவே கரம்பாஜிதி அகேநாம்சதுர் கணராஜா<BR>
+தாள மந்திர பஹுத் தாம்ஸத் ஸுரமண்டலகீ ஸுரபாஜா<BR>
+<BR>
+பொம்ம பொம்மதா <BR>
+தைய தையனக்கு<BR>
+தின்னாக்கு னக்குதின் பஜன்கரே<BR>
+<BR>
+உத்தமித்த நாக்குதிமி <BR>
+தித்தாம் தித்தாம் தோம் <BR>
+தை தை கணபதி நாம் ஸதா<BR>
+<BR>
+வேணுவாஸரே அம்ருத குண்டலகீ <BR>
+தாரிக்கிரிகிட தாரிக்கிரிகிட தவால்கஜா (x2)<BR>
+<BR>
+நாரத தும்புரு வைணவ ஜாகே நாரத கணமே உவஸர்கா (x2)<BR>
+<BR>
+திம்மிக்கிடுகிட திம்மிகிடுகிட<BR>
+ திக்குத்தாள திம்மிக்கிட <BR>
+ தாகிடுத தாகிடுத தள தவோடுதாம்<BR>
+உத்தமித்த நாக்குதிமி தித்தாம் தித்தாம் தோம் தை தை கணபதி நாம் ஸதா<BR>
+<BR>
+அவரு வாசுவே கரம்பாஜிதி<BR>
+த்ரிமி த்ரிமி த்ரிமி த்ரிமி மிருதங்கா  (x2)<BR>
+<BR>
+நவாபு ஸாரங்கி சித்தாரி கினரி அவரு வாசுகை முகர்சிங்கா  (x2)<BR>
+<BR>
+பொம்ம பொம்மதா <BR>
+தைய தையனக்கு<BR>
+தின்னாக்கு னக்குதின் பஜன்கரே<BR>
+<BR>
+உத்தமித்த நாக்குதிமி <BR>
+தித்தாம் தித்தாம் தோம் <BR>
+தை தை கணபதி நாம் ஸதா (x2)<BR>
+
+
+</p>
+</div>
+</body>
+</html>

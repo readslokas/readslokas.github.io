@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+</style>
+<script>
+// Change 1 to another integer to alter the scroll speed. Greater is faster.
+var speed = 1;
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div>
+<p>
+
+சூலமென வோடு சர்ப்ப வாயுவைவி டாத டக்கி<BR>
+தூயவொளி காண முத்தி ...... விதமாகச்<BR>
+<BR>
+சூழுமிருள் பாவ கத்தை வீழ அழ லூடெ ரித்து<BR>
+சோதிமணி பீட மிட்ட ...... மடமேவி<BR>
+<BR>
+மேலைவெளி யாயி ரத்து நாலிருப ராப ரத்தின்<BR>
+மேவியரு ணாச லத்தி ...... னுடன்மூழ்கி<BR>
+<BR>
+வேலுமயில் வாக னப்ர காசமதி லேத ரித்து<BR>
+வீடுமது வேசி றக்க ...... அருள்தாராய்<BR>
+<BR>
+ஓலசுர ராழி யெட்டு வாளகிரி மாய வெற்பு<BR>
+மூடுருவ வேல்தொ டுத்த ...... மயில்வீரா<BR>
+<BR>
+ஓதுகுற மான்வ னத்தில் மேவியவள் கால்பி டித்து<BR>
+ளோமெனுப தேச வித்தொ ...... டணைவோனே<BR>
+<BR>
+காலனொடு மேதி மட்க வூழிபுவி மேல்கி டத்து<BR>
+காலனிட மேவு சத்தி ...... யருள்பாலா<BR>
+<BR>
+காலமுதல் வாழ்பு விக்க தாரநகர் கோபு ரத்துள்<BR>
+கானமயில் மேல்த ரித்த ...... பெருமாளே<BR>
+
+</p>
+</div>
+</body>
+</html>

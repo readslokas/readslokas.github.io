@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+</style>
+<script>
+// Change 1 to another integer to alter the scroll speed. Greater is faster.
+var speed = 1;
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div>
+<p>
+
+பித்தாபிறைசூடீ பெருமானே அருளாளா<BR>
+எத்தான்மற வாதேநினைக்கின்றேன்மனத் துன்னை<BR>
+<BR>
+வைத்தாய்பெண்ணைத் தென்பால்<BR>
+வெண்ணெய் நல்லூர் அருட்டுறையுள்<BR>
+அத்தாஉனக் காளாயினி அல்லேன்எனல் ஆமே 1<BR>
+<BR>
+நாயேன்பல நாளும்நினைப்பின்றிமனத் துன்னைப்<BR>
+பேயாய்த்திரிந் தெய்த்தேன்பெறலாகாவருள் பெற்றேன்<BR>
+வேயார்பெண்ணைத் தென்பால்வெண்ணெய்நல்லூர் அருட்டுறையுள்<BR>
+ஆயாஉனக் காளாயினி அல்லேன்எனல் ஆமே 2<BR>
+<BR>
+மன்னேமறவாதேநினைக்கின்றேன்மனத் துன்னைப்<BR>
+பொன்னேமணி தானேவயிரம்மே பொருதுந்தி<BR>
+மின்னார் பெண்ணைத் தென்பால்வெண்ணெய்நல்லூர் அருட்டுறையுள்<BR>
+அன்னே உனக்காளாயினி அல்லேன்எனல் ஆமே 3<BR>
+<BR>
+முடியேன் இனிப்பிறவேன் பெறின் மூவேன்பெற்றம் ஊர்தீ<BR>
+கொடியேன்பல பொய்யேஉரைப் பேனைக்குறிக் கொள்நீ<BR>
+செடியார்பெண்ணைத் தென்பால்வெண்ணெய்நல்லூர் அருட்டுறையுள்<BR>
+அடிகேளுனக் காளாயினி அல்லேன்எனல் ஆமே 4<BR>
+<BR>
+பாதம்பணி வார்கள்பெறும் பண்டம்மது பணியாய்<BR>
+ஆதன்பொருள் ஆனேன்அறிவில்லேன் அருளாளா<BR>
+தாதார்பெண்ணைத் தென்பால்வெண்ணெய்நல்லூர் அருட்டுறையுள்<BR>
+ஆதீஉனக் காளாயினி அல்லேன்எனல் ஆமே 5<BR>
+<BR>
+தண்ணார்மதி சூடீதழல் போலும்திரு மேனீ<BR>
+எண்ணார்புரம் மூன்றும்எரி உண்ணநகை செய்தாய்<BR>
+மண்ணார்பெண்ணைத் தென்பால்வெண்ணெய்நல்லூர் அருட்டுறையுள்<BR>
+அண்ணாஉனக் காளாயினி அல்லேன்எனல் ஆமே  6<BR>
+<BR>
+ஊனாய்உயிர் ஆனாய்உடல் ஆனாய்உல கானாய்<BR>
+வானாய்நிலன் ஆனாய்கடல் ஆனாய்மலை ஆனாய்<BR>
+தேனார்பெண்ணைத் தென்பால்வெண்ணெய்நல்லூர் அருட்டுறையுள்<BR>
+ஆனாய்உனக் காளாயினி அல்லேன்எனல் ஆமே 7<BR>
+<BR>
+ஏற்றார்புரம் மூன்றும்எரி உண்ணச்சிலை தொட்டாய்<BR>
+தேற்றாதன சொல்லித்திரிவேனோசெக்கர் வானீர்<BR>
+ஏற்றாய்பெண்ணைத் தென்பால்வெண்ணெய்நல்லூர் அருட்டுறையுள்<BR>
+ஆற்றாயுனக் காளாயினி அல்லேன்எனல் ஆமே 8<BR>
+<BR>
+மழுவாள்வலன் ஏந்தீமறைஓதீமங்கை பங்கா<BR>
+தொழுவார்அவர் துயர்ஆயின தீர்த்தல்உன தொழிலே<BR>
+செழுவார்பெண்ணைத் தென்பால்வெண்ணெய்நல்லூர் அருட்டுறையுள்<BR>
+அழகாஉனக் காளாயினி அல்லேன்எனல் ஆமே 9<BR>
+<BR>
+காரூர்புனல் எய்திக்கரைகல்லித்திரைக் கையால்<BR>
+பாரூர்புகழ் எய்தித்திகழ்பன்மாமணி உந்திச்<BR>
+சீரூர்பெண்ணைத் தென்பால்வெண்ணெய்நல்லூர் அருட்டுறையுள்<BR>
+ஆரூரன்எம் பெருமாற்காள் அல்லேன்எனல் ஆமே 10<BR>
+ 
+</p>
+</div>
+</body>
+</html>

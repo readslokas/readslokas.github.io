@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+</style>
+<script>
+// Change 1 to another integer to alter the scroll speed. Greater is faster.
+var speed = 1;
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div>
+<p>
+
+குடிவாழ்க்கை யன்னை மனையாட்டி பிள்ளை<BR>
+குயில்போற்ப்ர சன்ன ...... மொழியார்கள்<BR>
+<BR>
+குலம்வாய்த்த நல்ல தனம்வாய்த்த தென்ன<BR>
+குருவார்த்தை தன்னை ...... யுணராதே<BR>
+<BR>
+இடநாட்கள் வெய்ய நமனீட்டி தொய்ய<BR>
+இடர்கூட்ட இன்னல் ...... கொடுபோகி<BR>
+<BR>
+இடுகாட்டி லென்னை எரியூட்டு முன்னு<BR>
+னிருதாட்கள் தம்மை ...... யுணர்வேனோ<BR>
+<BR>
+வடநாட்டில் வெள்ளி மலைகாத்து புள்ளி<BR>
+மயில்மேற்றி கழ்ந்த ...... குமரேசா<BR>
+<BR>
+வடிவாட்டி வள்ளி அடிபோற்றி வள்ளி<BR>
+மலைகாத்த நல்ல ...... மணவாளா<BR>
+<BR>
+அடிநாட்கள் செய்த பிழைநீக்கி யென்னை<BR>
+யருள்போற்றும் வண்மை ...... தரும்வாழ்வே<BR>
+<BR>
+அடிபோற்றி யல்லி முடிசூட்ட வல்ல<BR>
+அடியார்க்கு நல்ல ...... பெருமாளே<BR>
+ 
+</p>
+</div>
+</body>
+</html>

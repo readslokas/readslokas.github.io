@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+</style>
+<script>
+// Change 1 to another integer to alter the scroll speed. Greater is faster.
+var speed = 1;
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div>
+<p>
+
+விந்ததி னூறி வந்தது காயம்<BR>
+வெந்தது கோடி ...... யினிமேலோ<BR>
+<BR>
+விண்டுவி டாம லுன்பத மேவு<BR>
+விஞ்சையர் போல ...... அடியேனும்<BR>
+<BR>
+வந்துவி நாச முன்கலி தீர<BR>
+வண்சிவ ஞான ...... வடிவாகி<BR>
+<BR>
+வன்பத மேறி யென்களை யாற<BR>
+வந்தருள் பாத ...... மலர்தாராய்<BR>
+<BR>
+எந்தனு ளேக செஞ்சுட ராகி<BR>
+யென்கணி லாடு ...... தழல்வேணி<BR>
+<BR>
+எந்தையர் தேடு மன்பர்ச காய<BR>
+ரெங்கள்சு வாமி ...... யருள்பாலா<BR>
+<BR>
+சுந்தர ஞான மென்குற மாது<BR>
+தன்றிரு மார்பி ...... லணைவோனே<BR>
+<BR>
+சுந்தர மான செந்திலில் மேவு<BR>
+கந்தசு ரேசர் ...... பெருமாளே<BR>
+ 
+</p>
+</div>
+</body>
+</html>

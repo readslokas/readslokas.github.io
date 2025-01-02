@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+</style>
+<script>
+// Change 1 to another integer to alter the scroll speed. Greater is faster.
+var speed = 1;
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div>
+<p>
+
+ஶ்ரீ துர்கா ஸப்தஶ்லோகீ<BR>
+<BR>
+ஶிவ உவாச ।<BR>
+தேவீ த்வம் பக்தஸுலபே ஸர்வகார்யவிதாயிநி ।<BR>
+கலௌ ஹி கார்யஸித்த்யர்தமுபாயம் ப்ரூஹி யத்நத꞉ ॥<BR>
+<BR>
+தேவ்யுவாச ।<BR>
+ஶ்ருணு தேவ ப்ரவக்ஷ்யாமி கலௌ ஸர்வேஷ்டஸாதநம் ।<BR>
+மயா தவைவ ஸ்நேஹேநாப்யம்பாஸ்துதி꞉ ப்ரகாஶ்யதே ॥<BR>
+<BR>
+அஸ்ய ஶ்ரீ துர்கா ஸப்தஶ்லோகீ ஸ்தோத்ரமந்த்ரஸ்ய நாராயண ருஷி꞉<BR>
+அநுஷ்டுப் சந்த꞉<BR>
+ஶ்ரீ மஹாகாளீ மஹாலக்ஷ்மீ மஹாஸரஸ்வத்யோ தேவதா꞉<BR>
+ஶ்ரீ துர்கா ப்ரீத்யர்தம் ஸப்தஶ்லோகீ துர்காபாடே விநியோக꞉ ।<BR>
+<BR>
+ஜ்ஞாநிநாமபி சேதாம்ஸி தேவீ பகவதீ ஹி ஸா ।<BR>
+பலாதாக்ருஷ்ய மோஹாய மஹாமாயா ப்ரயச்சதி ॥ 1 ॥<BR>
+<BR>
+துர்கே ஸ்ம்ருதா ஹரஸி பீதிமஶேஷஜந்தோ꞉<BR>
+ஸ்வஸ்தை꞉ ஸ்ம்ருதா மதிமதீவ ஶுபாம் ததாஸி ।<BR>
+தாரித்ர்யது꞉க பயஹாரிணி கா த்வதந்யா<BR>
+ஸர்வோபகாரகரணாய ஸதார்த்ர சித்தா ॥ 2 ॥<BR>
+<BR>
+ஸர்வமங்களமாங்கல்யே ஶிவே ஸர்வார்தஸாதிகே ।<BR>
+ஶரண்யே த்ர்யம்பகே கௌரீ நாராயணி நமோ(அ)ஸ்து தே ॥ 3 ॥<BR>
+<BR>
+ஶரணாகததீநார்தபரித்ராணபராயணே ।<BR>
+ஸர்வஸ்யார்திஹரே தேவி நாராயணி நமோ(அ)ஸ்து தே ॥ 4 ॥<BR>
+<BR>
+ஸர்வஸ்வரூபே ஸர்வேஶே ஸர்வஶக்திஸமந்விதே ।<BR>
+பயேப்யஸ்த்ராஹி நோ தேவி துர்கே தேவி நமோ(அ)ஸ்து தே ॥ 5 ॥<BR>
+<BR>
+ரோகாநஶேஷாநபஹம்ஸி துஷ்டா-<BR>
+ருஷ்டா து காமான் ஸகலாநபீஷ்டான் ।<BR>
+த்வாமாஶ்ரிதாநாம் ந விபந்நராணாம்<BR>
+த்வாமாஶ்ரிதா ஹ்யாஶ்ரயதாம் ப்ரயாந்தி ॥ 6 ॥<BR>
+<BR>
+ஸர்வபாதாப்ரஶமநம் த்ரைலோக்யஸ்யாகிலேஶ்வரி ।<BR>
+ஏவமேவ த்வயா கார்யமஸ்மத்வைரி விநாஶநம் ॥ 7 ॥<BR>
+<BR>
+இதி ஶ்ரீ துர்கா ஸப்தஶ்லோகீ  ஸம்பூர்ணம்।<BR>
+<BR>
+ 
+</p>
+</div>
+</body>
+</html>

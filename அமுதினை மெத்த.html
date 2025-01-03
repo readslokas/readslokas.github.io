@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+</style>
+<script>
+// Change 1 to another integer to alter the scroll speed. Greater is faster.
+var speed = 1;
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div>
+<p>
+
+அமுதினை மெத்தச் சொரிந்து மாவின<BR>
+தினியப ழத்தைப் பிழிந்து பானற<BR>
+வதனொடு தித்தித் தகண்ட ளாவிய ...... விதழாராய்<BR>
+<BR>
+அழகிய பொற்றட் டினொண்டு வேடையின்<BR>
+வருபசி யர்க்குற் றவன்பி னாலுண<BR>
+வருள்பவ ரொத்துத் தளர்ந்த காமுகர் ...... மயல்தீரக்<BR>
+<BR>
+குமுதம் விளர்க்கத் தடங்கு லாவிய<BR>
+நிலவெழு முத்தைப் புனைந்த பாரிய<BR>
+குலவிய சித்ரப் ப்ரசண்ட பூரண ...... தனபாரக்<BR>
+<BR>
+குவடிள கக்கட் டியுந்தி மேல்விழு<BR>
+மவர்மய லிற்புக் கழிந்த பாவியை<BR>
+குரைகழல் பற்றிப் புகழ்ந்து வாழ்வுற ...... அருள்வாயே<BR>
+<BR>
+வமிசமி குத்துப் ப்ரபஞ்சம் யாவையு<BR>
+மறுகிட வுக்ரக் கொடும்பை யானபுன்<BR>
+மதிகொட ழித்திட் டிடும்பை ராவணன் ...... மதியாமே<BR>
+<BR>
+மறுவறு கற்பிற் சிறந்த சீதையை<BR>
+விதனம்வி ளைக்கக் குரங்கி னாலவன்<BR>
+வமிச மறுத்திட் டிலங்கு மாயவன் ...... மருகோனே<BR>
+<BR>
+எமதும லத்தைக் களைந்து பாடென<BR>
+அருளஅ தற்குப் புகழ்ந்து பாடிய<BR>
+இயல்கவி மெச்சிட் டுயர்ந்த பேறருள் ...... முருகோனே<BR>
+<BR>
+எழில்வளை மிக்கத் தவழ்ந்து லாவிய<BR>
+பொனிநதி தெற்கிற் றிகழ்ந்து மேவிய<BR>
+இணையிலி ரத்னச் சிகண்டி யூருறை ...... பெருமாளே<BR>
+ 
+</p>
+</div>
+</body>
+</html>

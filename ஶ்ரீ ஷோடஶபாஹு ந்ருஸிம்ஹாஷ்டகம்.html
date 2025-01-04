@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+</style>
+<script>
+// Change 1 to another integer to alter the scroll speed. Greater is faster.
+var speed = 1;
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div>
+<p>
+
+ஶ்ரீ ஷோடஶபாஹு ந்ருஸிம்ஹாஷ்டகம்<BR>
+<BR>
+பூகண்டம் வாரணாண்டம் பரவரவிரடம் டம்படம்போருடம்பம்<BR>
+டிம் டிம் டிம் டிம் டிடிம்பம் தஹமபி தஹமை꞉ ஜம்பஜம்பைஶ்சஜம்பை꞉ ।<BR>
+<BR>
+துல்யாஸ்துல்யாஸ்து துல்யா꞉ துமதுமதுமகை꞉ குங்குமாங்கை꞉ குமாங்கை꞉<BR>
+ஏதத்தே பூர்ணயுக்தமஹரஹகரஹ꞉ பாது மாம் நாரஸிம்ஹ꞉ ॥ 1 ॥<BR>
+<BR>
+பூப்ருத்பூப்ருத்புஜங்கம் ப்ரளயரவவரம் ப்ரஜ்வலஜ்ஜ்வாலமாலம்<BR>
+கர்ஜர்ஜம் கர்ஜதுர்ஜம் கிகசகசகசித்கர்ஜதுர்ஜர்ஜயந்தம் ।<BR>
+<BR>
+பூபாகம் போகபாகம் ககககககநம் கர்தமர்த்யுக்ரகண்டம்<BR>
+ஸ்வச்சம் புச்சம் ஸ்வகச்சம் ஸ்வஜநஜநநுத꞉ பாது மாம் நாரஸிம்ஹ꞉ ॥ 2 ॥<BR>
+<BR>
+ஏநாப்ரம் கர்ஜமாநம் லகுளகுமகரோ பாலசந்த்ரார்கதம்ஷ்ட்ரோ<BR>
+ஹேமாம்போஜம் ஸரோஜம் ஜடஜடஜடிலோ ஜாட்யமாநஸ்துபீதி꞉ ।<BR>
+<BR>
+தந்தாநாம் பாதமாநாம் ககடககடவோ போஜஜாநுஸ்ஸுரேந்த்ரோ<BR>
+நிஷ்ப்ரத்யூஹம் ஸராஜா கஹகஹகஹத꞉ பாது மாம் நாரஸிம்ஹ꞉ ॥ 3 ॥<BR>
+<BR>
+ஶங்கம் சக்ரம் ச சாபம் பரஶுமஶமிஷும் ஶூலபாஶாங்குஶாஸ்த்ரம்<BR>
+பிப்ரந்தம் வஜ்ரகேடம் ஹலமுஸலகதாகுந்தமத்யுக்ரதம்ஷ்ட்ரம் ।<BR>
+<BR>
+ஜ்வாலாகேஶம் த்ரிநேத்ரம் ஜ்வலதநலநிபம் ஹாரகேயூரபூஷம்<BR>
+வந்தே ப்ரத்யேகரூபம் பரபதநிவஸ꞉ பாது மாம் நாரஸிம்ஹ꞉ ॥ 4 ॥<BR>
+<BR>
+பாதத்வந்த்வம் தரித்ரீகடிவிபுலதரோ மேருமத்யூட்வமூரும்<BR>
+நாபிம் ப்ரஹ்மாண்டஸிந்து꞉ ஹ்ருதயமபி பவோ பூதவித்வத்ஸமேத꞉ ।<BR>
+<BR>
+துஶ்சக்ராங்கம் ஸ்வபாஹும் குலிஶநகமுகம் சந்த்ரஸூர்யாக்நிநேத்ரம்<BR>
+வக்த்ரம் வஹ்நிஸ்ஸுவித்யுத்ஸுரகணவிஜய꞉ பாது மாம் நாரஸிம்ஹ꞉ ॥ 5 ॥<BR>
+<BR>
+நாஸாக்ரம் பீநகண்டம் பரபலமதநம் பத்தகேயூரஹாரம்<BR>
+ரௌத்ரம் தம்ஷ்ட்ராகராளம் அமிதகுணகணம் கோடிஸூர்யாக்நிநேத்ரம் ।<BR>
+<BR>
+காம்பீர்யம் பிங்களாக்ஷம் ப்ருகுடிதவிமுகம் ஷோடஶாதார்தபாஹும்<BR>
+வந்தே பீமாட்டஹாஸம் த்ரிபுவநவிஜய꞉ பாது மாம் நாரஸிம்ஹ꞉ ॥ 6 ॥<BR>
+<BR>
+கே கே ந்ருஸிம்ஹாஷ்டகே நரவரஸத்ருஶம் தேவபீத்வம் க்ருஹீத்வா<BR>
+தேவந்த்யோ விப்ரதண்டம் ப்ரதிவசந பயாயாம்யநப்ரத்யநைஷீ꞉ ।<BR>
+<BR>
+ஶாபம் சாபம் ச கட்கம் ப்ரஹஸிதவதநம் சக்ரசக்ரீசகேந<BR>
+ஓமித்யே தைத்யநாதம் ப்ரகசவிவிதுஷா பாது மாம் நாரஸிம்ஹ꞉ ॥ 7 ॥<BR>
+<BR>
+ஜம் ஜம் ஜம் ஜம் ஜகாரம் ஜஷஜஷஜஷிதம் ஜாநுதேஶம் ஜகாரம்<BR>
+ஹும் ஹும் ஹும் ஹும் ஹகாரம் ஹரித கஹஹஸா யம் திஶே வம் வகாரம் ।<BR>
+<BR>
+வம் வம் வம் வம் வகாரம் வதநதளிததம் வாமபக்ஷம் ஸுபக்ஷம்<BR>
+லம் லம் லம் லம் லகாரம் லகுவணவிஜய꞉ பாது மாம் நாரஸிம்ஹ꞉ ॥ 8 ॥<BR>
+<BR>
+பூதப்ரேதபிஶாசயக்ஷகணஶ꞉ தேஶாந்தரோச்சாடநா<BR>
+சோரவ்யாதிமஹஜ்ஜ்வரம் பயஹரம் ஶத்ருக்ஷயம் நிஶ்சயம் ।<BR>
+<BR>
+ஸந்த்யாகாலே ஜபதமஷ்டகமிதம் ஸத்பக்திபூர்வாதிபி꞉<BR>
+ப்ரஹ்லாதேவ வரோ வரஸ்து ஜயிதா ஸத்பூஜிதாம் பூதயே ॥ 9 ॥ ।<BR>
+<BR>
+இதி ஶ்ரீவிஜயீந்த்ரதீர்த க்ருதம் ஶ்ரீ ஷோடஶபாஹு ந்ருஸிம்ஹாஷ்டகம் ।<BR>
+ 
+</p>
+</div>
+</body>
+</html>

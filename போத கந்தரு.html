@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+</style>
+<script>
+// Change 1 to another integer to alter the scroll speed. Greater is faster.
+var speed = 1;
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div>
+<p>
+
+போத கந்தரு கோவே நமோநம<BR>
+நீதி தங்கிய தேவா நமோநம<BR>
+பூத லந்தனை யாள்வாய் நமோநம ...... பணியாவும்<BR>
+<BR>
+பூணு கின்றபி ரானே நமோநம<BR>
+வேடர் தங்கொடி மாலா நமோநம<BR>
+போத வன்புகழ் ாமீ நமோநம ...... அரிதான<BR>
+<BR>
+வேத மந்திர ரூபா நமோநம<BR>
+ஞான பண்டித நாதா நமோநம<BR>
+வீர கண்டைகொள் தாளா நமோநம ...... அழகான<BR>
+<BR>
+மேனி தங்கிய வேளே நமோநம<BR>
+வான பைந்தொடி வாழ்வே நமோநம<BR>
+வீறு கொண்டவி சாகா நமோநம ...... அருள்தாராய்<BR>
+<BR>
+பாத கஞ்செறி சூரா திமாளவெ<BR>
+கூர்மை கொண்டயி லாலே பொராடியெ<BR>
+பார அண்டர்கள் வானா டுசேர்தர ...... அருள்வோனே<BR>
+<BR>
+பாதி சந்திர னேசூ டும்வேணியர்<BR>
+சூல சங்கர னார்கீ தநாயகர்<BR>
+பார திண்புய மேசே ருசோதியர் ...... கயிலாயர்<BR>
+<BR>
+ஆதி சங்கர னார்பா கமாதுமை<BR>
+கோல அம்பிகை மாதா மநோமணி<BR>
+ஆயி சுந்தரி தாயா னநாரணி ...... அபிராமி<BR>
+<BR>
+ஆவல் கொண்டுவி றாலே சிராடவெ<BR>
+கோம ளம்பல சூழ்கோ யில்மீறிய<BR>
+ஆவி னன்குடி வாழ்வா னதேவர்கள் ...... பெருமாளே<BR>
+ 
+</p>
+</div>
+</body>
+</html>

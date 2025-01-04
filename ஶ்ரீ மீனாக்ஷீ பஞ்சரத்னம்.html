@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+</style>
+<script>
+// Change 1 to another integer to alter the scroll speed. Greater is faster.
+var speed = 1;
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div>
+<p>
+
+ஶ்ரீ மீனாக்ஷீ பஞ்சரத்னம்<BR>
+<BR>
+உத்யத்பாநுஸஹஸ்ரகோடிஸத்ருஶாம் கேயூரஹாரோஜ்ஜ்வலாம்<BR>
+பிம்போஷ்டீம் ஸ்மிததந்தபங்க்திருசிராம் பீதாம்பராளங்க்ருதாம் ।<BR>
+<BR>
+விஷ்ணுப்ரஹ்மஸுரேந்த்ரஸேவிதபதாம் தத்த்வஸ்வரூபாம் ஶிவாம்<BR>
+மீநாக்ஷீம் ப்ரணதோ(அ)ஸ்மி ஸந்ததமஹம் காருண்யவாராம்நிதிம் ॥ 1 ॥<BR>
+<BR>
+முக்தாஹாரளஸத்கிரீடருசிராம் பூர்ணேந்துவக்த்ரப்ரபாம்<BR>
+ஶிஞ்ஜந்நூபுரகிங்கிணீமணிதராம் பத்மப்ரபாபாஸுராம் ।<BR>
+<BR>
+ஸர்வாபீஷ்டபலப்ரதாம் கிரிஸுதாம் வாணீரமாஸேவிதாம்<BR>
+மீநாக்ஷீம் ப்ரணதோ(அ)ஸ்மி ஸந்ததமஹம் காருண்யவாராம்நிதிம் ॥ 2 ॥<BR>
+<BR>
+ஶ்ரீவித்யாம் ஶிவவாமபாகநிலயாம் ஹ்ரீங்காரமந்த்ரோஜ்ஜ்வலாம்<BR>
+ஶ்ரீசக்ராங்கிதபிந்துமத்யவஸதிம் ஶ்ரீமத்ஸபாநாயகீம் ।<BR>
+<BR>
+ஶ்ரீமத்ஷண்முகவிக்நராஜஜநநீம் ஶ்ரீமஜ்ஜகந்மோஹிநீம்<BR>
+மீநாக்ஷீம் ப்ரணதோ(அ)ஸ்மி ஸந்ததமஹம் காருண்யவாராம்நிதிம் ॥ 3 ॥<BR>
+<BR>
+ஶ்ரீமத்ஸுந்தரநாயகீம் பயஹராம் ஜ்ஞாநப்ரதாம் நிர்மலாம்<BR>
+ஶ்யாமாபாம் கமலாஸநார்சிதபதாம் நாராயணஸ்யாநுஜாம் ।<BR>
+<BR>
+வீணாவேணும்ருதங்கவாத்யரஸிகாம் நாநாவிதாடம்பிகாம்<BR>
+மீநாக்ஷீம் ப்ரணதோ(அ)ஸ்மி ஸந்ததமஹம் காருண்யவாராம்நிதிம் ॥ 4 ॥<BR>
+<BR>
+நாநாயோகிமுநீந்த்ரஹ்ருந்நிவஸதீம் நாநார்தஸித்திப்ரதாம்<BR>
+நாநாபுஷ்பவிராஜிதாங்க்ரியுகளாம் நாராயணேநார்சிதாம் ।<BR>
+<BR>
+நாதப்ரஹ்மமயீம் பராத்பரதராம் நாநார்ததத்த்வாத்மிகாம்<BR>
+மீநாக்ஷீம் ப்ரணதோ(அ)ஸ்மி ஸந்ததமஹம் காருண்யவாராம்நிதிம் ॥ 5 ॥<BR>
+<BR>
+இதி ஶ்ரீமத்பரமஹம்ஸபரிவ்ராஜகாசார்யஸ்ய <BR>
+ஶ்ரீகோவிந்தபகவத்பூஜ்யபாதஶிஷ்யஸ்ய ஶ்ரீமச்சங்கரபகவத꞉<BR>
+க்ருதௌ மீநாக்ஷீ பஞ்சரத்நம் ।<BR>
+<BR>
+ 
+</p>
+</div>
+</body>
+</html>

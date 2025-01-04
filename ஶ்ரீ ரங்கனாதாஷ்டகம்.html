@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+</style>
+<script>
+// Change 1 to another integer to alter the scroll speed. Greater is faster.
+var speed = 1;
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div>
+<p>
+
+ஶ்ரீ ரங்கனாதாஷ்டகம்<BR>
+<BR>
+ஆநந்தரூபே நிஜபோதரூபே<BR>
+ப்ரஹ்மஸ்வரூபே ஶ்ருதிமூர்திரூபே ।<BR>
+<BR>
+ஶஶாங்கரூபே ரமணீயரூபே<BR>
+ஶ்ரீரங்கரூபே ரமதாம் மநோ மே ॥ 1 ॥<BR>
+<BR>
+காவேரிதீரே கருணாவிலோலே<BR>
+மந்தாரமூலே த்ருதசாருகேலே ।<BR>
+<BR>
+தைத்யாந்தகாலே(அ)கிலலோகலீலே<BR>
+ஶ்ரீரங்கலீலே ரமதாம் மநோ மே ॥ 2 ॥<BR>
+<BR>
+லக்ஷ்மீநிவாஸே ஜகதாம் நிவாஸே<BR>
+ஹ்ருத்பத்மவாஸே ரவிபிம்பவாஸே ।<BR>
+<BR>
+க்ருபாநிவாஸே குணப்ருந்தவாஸே<BR>
+ஶ்ரீரங்கவாஸே ரமதாம் மநோ மே ॥ 3 ॥<BR>
+<BR>
+ப்ரஹ்மாதிவந்த்யே ஜகதேகவந்த்யே<BR>
+முகுந்தவந்த்யே ஸுரநாதவந்த்யே ।<BR>
+<BR>
+வ்யாஸாதிவந்த்யே ஸநகாதிவந்த்யே<BR>
+ஶ்ரீரங்கவந்த்யே ரமதாம் மநோ மே ॥ 4 ॥<BR>
+<BR>
+ப்ரஹ்மாதிராஜே கருடாதிராஜே<BR>
+வைகுண்டராஜே ஸுரராஜராஜே ।<BR>
+<BR>
+த்ரைலோக்யராஜே(அ)கிலலோகராஜே<BR>
+ஶ்ரீரங்கராஜே ரமதாம் மநோ மே ॥ 5 ॥<BR>
+<BR>
+அமோகமுத்ரே பரிபூர்ணநித்ரே<BR>
+ஶ்ரீயோகநித்ரே ஸஸமுத்ரநித்ரே ।<BR>
+<BR>
+ஶ்ரிதைகபத்ரே ஜகதேகநித்ரே<BR>
+ஶ்ரீரங்கபத்ரே ரமதாம் மநோ மே ॥ 6 ॥<BR>
+<BR>
+ஸசித்ரஶாயீ புஜகேந்த்ரஶாயீ<BR>
+நந்தாங்கஶாயீ கமலாங்கஶாயீ ।<BR>
+<BR>
+க்ஷீராப்திஶாயீ வடபத்ரஶாயீ<BR>
+ஶ்ரீரங்கஶாயீ ரமதாம் மநோ மே ॥ 7 ॥<BR>
+<BR>
+இதம் ஹி ரங்கம் த்யஜதாமிஹாங்கம்<BR>
+புநர்ந சாங்கம் யதி சாங்கமேதி ।<BR>
+<BR>
+பாணௌ ரதாங்கம் சரணே(அ)ம்பு காங்கம்<BR>
+யாநே விஹங்கம் ஶயநே புஜங்கம் ॥ 8 ॥<BR>
+<BR>
+ரங்கநாதாஷ்டகம் புண்யம் ப்ராதருத்தாய ய꞉ படேத் ।<BR>
+ஸர்வாந்காமாநவாப்நோதி ரங்கிஸாயுஜ்யமாப்நுயாத் ॥ 9 ॥<BR>
+<BR>
+இதி ஶ்ரீ ரங்கநாதாஷ்டகம் ।<BR>
+ 
+</p>
+</div>
+</body>
+</html>

@@ -63,24 +63,31 @@
     }
     
     .photo-container {
-        overflow: hidden;
+        position: relative;
+        width: 300px;
         height: 337px; /* Match the height of your image */
     }
-    .photo-container img {
-        animation: scrollImage 5s linear infinite; /* This will make the image move up */
-    }
 
-    /* Animation for scrolling the image vertically */
-    @keyframes scrollImage {
-        from {
-            transform: translateY(0);
-        }
-        to {
-            transform: translateY(-100%); /* Move the image upwards */
-        }
+    /* Initially, the image is at the top of the page */
+    #scrollImage {
+        position: absolute;
+        top: 0; 
+        left: 0;
+        transition: top 0.2s ease-out; /* Smooth transition for moving the image */
     }
     </style>
-    
+    <script>
+        window.addEventListener('scroll', function() {
+            // Get the image element
+            var image = document.getElementById("scrollImage");
+            
+            // Get the scroll position
+            var scrollPosition = window.scrollY;
+            
+            // Move the image down as the user scrolls
+            image.style.top = scrollPosition + "px";
+        });
+    </script>
     <div class="color-strip">Daily slokas for easy reading</div>
     <table style="width: 93%; margin-right: calc(7%);" cellspacing="0">
     <tbody>

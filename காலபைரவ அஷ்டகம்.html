@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+</style>
+<script>
+// Change 1 to another integer to alter the scroll speed. Greater is faster.
+var speed = 1;
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div>
+<p>
+
+காலபைரவ அஷ்டகம்<BR>
+<BR>
+தேவராஜ ஸேவ்யமான பாவனாங்க்ரி பங்கஜம்<BR>
+வ்யாலயஜ்ஞ ஸூத்ரமிந்து ஶேகரம் க்ருபாகரம்<BR>
+நாரதாதி யோகிவ்ருந்த வந்திதம் திகம்பரம்<BR>
+காஶிகா புராதிநாத காலபைரவம் பஜே॥ 1॥<BR>
+<BR>
+பானுகோடி பாஸ்வரம் பவாப்திதாரகம் பரம்<BR>
+நீலகண்டம் ஈப்ஸிதார்த தாயகம் த்ரிலோசனம் ।<BR>
+காலகாலம் அம்புஜாக்ஷம் அக்ஷஶூலம் அக்ஷரம்<BR>
+காஶிகா புராதிநாத காலபைரவம் பஜே॥2॥<BR>
+<BR>
+ஶூலடங்க பாஶதண்ட பாணிமாதி காரணம்<BR>
+ஶ்யாமகாயம் ஆதிதேவம் அக்ஷரம் நிராமயம் ।<BR>
+பீமவிக்ரமம் ப்ரபும் விசித்ரதாண்டவப்ரியம்<BR>
+காஶிகா புராதிநாத காலபைரவம் பஜே ॥3॥<BR>
+<BR>
+புக்திமுக்திதாயகம் ப்ரஶஸ்தசாருவிக்ரஹம்<BR>
+பக்தவத்ஸலம் ஸ்திதம் ஸமஸ்தலோகவிக்ரஹம் ।<BR>
+வினிக்வணன் மனோஜ்ஞஹேமகிங்கிணீ லஸத்கடிம்<BR>
+காஶிகா புராதிநாத காலபைரவம் பஜே ॥4॥<BR>
+<BR>
+தர்மஸேதுபாலகம் த்வதர்மமார்கநாஶகம்<BR>
+கர்மபாஶ மோசகம் ஸுஶர்மதாயகம் விபும் ।<BR>
+ஸ்வர்ணவர்ணஶேஷபாஶ ஶோபிதாங்கமண்டலம்<BR>
+காஶிகா புராதிநாத காலபைரவம் பஜே ॥ 5॥<BR>
+<BR>
+ரத்னபாதுகா ப்ரபாபிராம பாதயுக்மகம்<BR>
+நித்யம் அத்விதீயம் இஷ்டதைவதம் நிரஞ்ஜனம் ।<BR>
+ம்ருத்யுதர்பநாஶனம் கராளதம்ஷ்ட்ரமோக்ஷணம்<BR>
+காஶிகா புராதிநாத காலபைரவம் பஜே ॥6॥<BR>
+<BR>
+அட்டஹாஸ பின்னபத்மஜாண்டகோஶ ஸந்ததிம்<BR>
+த்ருஷ்டிபாதநஷ்டபாப ஜாலமுக்ரஶாஸனம் ।<BR>
+அஷ்டஸித்திதாயகம் கபால மாலிகந்தரம்<BR>
+காஶிகா புராதிநாத காலபைரவம் பஜே ॥7॥<BR>
+<BR>
+பூதஸங்கநாயகம் விஶாலகீர்திதாயகம்<BR>
+காஶிவாஸலோக புண்யபாபஶோதகம் விபும் ।<BR>
+நீதிமார்ககோவிதம் புராதனம் ஜகத்பதிம்<BR>
+காஶிகா புராதிநாத காலபைரவம் பஜே ॥8॥<BR>
+<BR>
+காலபைரவாஷ்டகம் படந்தி யே மனோஹரம்<BR>
+ஜ்ஞானமுக்திஸாதனம் விசித்ரபுண்யவர்தனம் ।<BR>
+ஶோக மோஹ தைன்ய லோப கோப தாப நாஶனம்<BR>
+தே ப்ரயாந்தி காலபைரவாங்க்ரி ஸந்நிதிம் த்ருவம் ॥9॥<BR>
+<BR>
+இதி ஶ்ரீமச்சங்கராசார்யவிரசிதம் காலபைரவாஷ்டகம் ஸம்பூர்ணம்<BR>
+ 
+</p>
+</div>
+</body>
+</html>

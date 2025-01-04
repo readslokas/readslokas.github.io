@@ -62,6 +62,23 @@
     transform: translateY(-50%); /* Center it vertically */
     }
     
+    .photo-container {
+        overflow: hidden;
+        height: 337px; /* Match the height of your image */
+    }
+    .photo-container img {
+        animation: scrollImage 5s linear infinite; /* This will make the image move up */
+    }
+
+    /* Animation for scrolling the image vertically */
+    @keyframes scrollImage {
+        from {
+            transform: translateY(0);
+        }
+        to {
+            transform: translateY(-100%); /* Move the image upwards */
+        }
+    }
     </style>
     
     <div class="color-strip">Daily slokas for easy reading</div>
@@ -90,7 +107,7 @@
     </td>
     </tr>
     <tr>
-    <td style="border-color: #dbbf79; width: 21.5577%; text-align: center; vertical-align: top;"> <img style="height: 337.615px; width: 250px;" src="./images/Murugar.jpg" alt="" width="343" height="326" /></td>
+    <td style="border-color: #dbbf79; width: 21.5577%; text-align: center; vertical-align: top;"><div class="photo-container"><img style="height: 337.615px; width: 250px;" src="./images/Murugar.jpg" alt="" width="343" height="326" /></div></td>
     <td style="border-color: #dbbf79; width: 70.4423%; text-align: left; vertical-align: top;">
     <div style="color: #8B0000; font-size: 30px; margin-bottom: 10px;"><strong>Lord Murugan</strong></div>
     <div style="color: #8B0000; font-size: 20px;"><strong></strong></div>

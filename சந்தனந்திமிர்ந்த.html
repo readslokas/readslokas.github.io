@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+</style>
+<script>
+// Change 1 to another integer to alter the scroll speed. Greater is faster.
+var speed = 1;
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div>
+<p>
+
+சந்த னந்தி மிர்ந்த ணைந்து குங்கு மங்க டம்பி லங்கு<BR>
+சண்ப கஞ்செ றிந்தி லங்கு ...... திரடோளுந்<BR>
+<BR>
+தண்டை யஞ்சி லம்ப லம்ப வெண்டை யஞ்ச லன்ச லென்று<BR>
+சஞ்சி தஞ்ச தங்கை கொஞ்ச ...... மயிலேறித்<BR>
+<BR>
+திந்தி மிந்தி மிந்தி மிந்தி தந்த னந்த னந்த னென்று<BR>
+சென்ற சைந்து கந்து வந்து ...... க்ருபையோடே<BR>
+<BR>
+சிந்தை யங்கு லம்பு குந்து சந்த தம்பு கழ்ந்து ணர்ந்து<BR>
+செம்ப தம்ப ணிந்தி ரென்று ...... மொழிவாயே<BR>
+<BR>
+அந்த மந்தி கொண்டி லங்கை வெந்த ழிந்தி டும்ப கண்டன்<BR>
+அங்க முங்கு லைந்த ரங்கொள் ...... பொடியாக<BR>
+<BR>
+அம்ப கும்ப னுங்க லங்க வெஞ்சி னம்பு ரிந்து நின்று<BR>
+அம்பு கொண்டு வென்ற கொண்டல் ...... மருகோனே<BR>
+<BR>
+இந்து வுங்க ரந்தை தும்பை கொன்றை யுஞ்ச லம்பு னைந்தி<BR>
+டும்ப ரன்ற னன்பில் வந்த ...... குமரேசா<BR>
+<BR>
+இந்தி ரன்ப தம்பெ றண்டர் தம்ப யங்க டிந்த பின்பு<BR>
+எண்க ணங்க மர்ந்தி ருந்த ...... பெருமாளே<BR>
+ 
+</p>
+</div>
+</body>
+</html>

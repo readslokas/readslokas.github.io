@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+</style>
+<script>
+// Change 1 to another integer to alter the scroll speed. Greater is faster.
+var speed = 1;
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div>
+<p>
+
+1.வெற்றிவேல் முருகனுக்கு அரோகரா<BR>
+2.கந்தனுக்கு அரோகரா<BR>
+3.கஜமுக சோதரனுக்கு அரோகரா<BR>
+4.மயூரநாத குமாரனுக்கு அரோகரா<BR>
+5.அபயாம்பிகை பாலகனுக்கு அரோகரா<BR>
+6.மாயோன் மருகனுக்கு அரோகரா<BR>
+7.வள்ளி மணாளனுக்கு அரோகரா<BR>
+8.குஞ்சரி நாதனுக்கு அரோகரா<BR>
+9.சஷ்டிப் பிரியருக்கு அரோகரா<BR>
+10.கார்த்திகை மைந்தனுக்கு அரோகரா<BR>
+11.அறுபடை வேலனுக்கு அரோகரா<BR>
+12.பன்னிரு கை வேலனுக்கு அரோகரா<BR>
+13.அழகனுக்கு அரோகரா<BR>
+14.பேரழகனுக்கு அரோகரா<BR>
+15.அமுதனுக்கு அரோகரா<BR>
+16.ஞானவேல் கந்தனுக்கு அரோகரா<BR>
+17.எங்கள் குலதெய்வத்துக்கு அரோகரா<BR>
+18.குமரக் கட்டளை ஸ்ரீ சுப்ரமணிய சுவாமிக்கு அரோகரா<BR>
+ 
+</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+</style>
+<script>
+// Change 1 to another integer to alter the scroll speed. Greater is faster.
+var speed = 1;
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div>
+<p>
+
+ஶ்ரீ ஸுதர்ஶன அஷ்டகம்<BR>
+<BR>
+ப்ரதிப டஶ்ரேணிபீ ஷண வரகு ணஸ்தோமபூ ஷண <BR>
+ஜநிப யஸ்தா நதாரண ஜக த வஸ்தா நகாரண । <BR>
+<BR>
+நிகி லது ஷ்கர்மகர்ஶந நிக மஸத் த ர்மத ர்ஶந <BR>
+ஜய ஜய ஶ்ரீஸுத ர்ஶந ஜய ஜய ஶ்ரீஸுத ர்ஶந ॥ 1 ॥ <BR>
+<BR>
+ஶுப ஜக த் ரூபமண்ட ந ஸுரஜநத்ராஸக ண்ட ந <BR>
+ஶதமக ப் ரஹ்மவந்தி த ஶதபத ப் ரஹ்மநந்தி த । <BR>
+<BR>
+ப்ரதி தவித் வத்ஸபக்ஷித ப ஜத ஹிர்பு த் ந்யலக்ஷித <BR>
+ஜய ஜய ஶ்ரீஸுத ர்ஶந ஜய ஜய ஶ்ரீஸுத ர்ஶந ॥ 2 ॥ <BR>
+<BR>
+ஸ்பு டதடிஜ்ஜாலபிஞ்ஜர ப்ருது தரஜ்வாலபஞ்ஜர <BR>
+பரிக தப்ரத்நவிக் ரஹ படுதரப்ரஜ்ஞது ர்க் ரஹ । [பரிமித] <BR>
+<BR>
+ப்ரஹரணக் ராமமண்டி த பரிஜநத்ராணபண்டி த <BR>
+ஜய ஜய ஶ்ரீஸுத ர்ஶந ஜய ஜய ஶ்ரீஸுத ர்ஶந ॥ 3 ॥ <BR>
+<BR>
+நிஜபத ப்ரீதஸத் க ண நிருபதி ஸ்பீ தஷட் கு ண <BR>
+நிக மநிர்வ்யூட வைப வ நிஜபரவ்யூஹவைப வ । <BR>
+<BR>
+ஹரிஹயத் வேஷிதா ரண ஹரபுரப்லோஷகாரண <BR>
+ஜய ஜய ஶ்ரீஸுத ர்ஶந ஜய ஜய ஶ்ரீஸுத ர்ஶந ॥ 4 ॥ <BR>
+<BR>
+த நுஜவிஸ்தாரகர்தந ஜநிதமிஸ்ராவிகர்தந <BR>
+த நுஜவித் யாநிகர்தந ப ஜத வித் யாநிவர்தந । <BR>
+<BR>
+அமரத் ருஷ்டஸ்வவிக்ரம ஸமரஜுஷ்டப் ரமிக்ரம <BR>
+ஜய ஜய ஶ்ரீஸுத ர்ஶந ஜய ஜய ஶ்ரீஸுத ர்ஶந ॥ 5 ॥ <BR>
+<BR>
+ப்ரதிமுகா லீட ப ந்து ர ப்ருது மஹாஹேதித ந்துர <BR>
+விகடமாயாப ஹிஷ்க்ருத விவித மாலாபரிஷ்க்ருத । <BR>
+<BR>
+ஸ்தி ரமஹாயந்த்ரதந்த்ரித த் ருட த யாதந்த்ரயந்த்ரித <BR>
+ஜய ஜய ஶ்ரீஸுத ர்ஶந ஜய ஜய ஶ்ரீஸுத ர்ஶந ॥ 6 ॥ <BR>
+<BR>
+மஹிதஸம்பத்ஸத க்ஷர விஹிதஸம்பத்ஷட க்ஷர <BR>
+ஷட ரசக்ரப்ரதிஷ்டி த ஸகலதத்த்வப்ரதிஷ்டி த । <BR>
+<BR>
+விவித ஸங்கல்பகல்பக விபு த ஸங்கல்பகல்பக <BR>
+ஜய ஜய ஶ்ரீஸுத ர்ஶந ஜய ஜய ஶ்ரீஸுத ர்ஶந ॥ 7 ॥ <BR>
+<BR>
+பு வநநேதஸ்த்ரயீமய ஸவநதேஜஸ்த்ரயீமய <BR>
+நிரவதி ஸ்வாது சிந்மய நிகி லஶக்தே ஜக ந்மய । <BR>
+<BR>
+அமிதவிஶ்வக்ரியாமய ஶமிதவிஷ்வக் ப யாமய <BR>
+ஜய ஜய ஶ்ரீஸுத ர்ஶந ஜய ஜய ஶ்ரீஸுத ர்ஶந ॥ 8 ॥ <BR>
+<BR>
+த் விசதுஷ்கமித ம் ப்ரபூ தஸாரம் <BR>
+பட தாம் வேங்கடநாயகப்ரணீதம் । <BR>
+<BR>
+விஷமே(அ)பி மநோரத ꞉ ப்ரதா வந் <BR>
+ந விஹந்யேத ரதா ங்க து ர்யகு ப்த꞉ ॥ 9 ॥ <BR>
+<BR>
+இதி ஶ்ரீ வேதா ந்தாசார்யஸ்ய க்ருதிஷு ஶ்ரீ ஸுத ர்ஶநாஷ்டகம் ।<BR>
+ 
+</p>
+</div>
+</body>
+</html>

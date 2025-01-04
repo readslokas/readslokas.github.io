@@ -62,32 +62,8 @@
     transform: translateY(-50%); /* Center it vertically */
     }
     
-    .photo-container {
-        position: relative;
-        width: 300px;
-        height: 337px; /* Match the height of your image */
-    }
-
-    /* Initially, the image is at the top of the page */
-    #scrollImage {
-        position: absolute;
-        top: 0; 
-        left: 0;
-        transition: top 0.2s ease-out; /* Smooth transition for moving the image */
-    }
     </style>
-    <script>
-        window.addEventListener('scroll', function() {
-            // Get the image element
-            var image = document.getElementById("scrollImage");
-            
-            // Get the scroll position
-            var scrollPosition = window.scrollY;
-            
-            // Move the image down as the user scrolls
-            image.style.top = scrollPosition + "px";
-        });
-    </script>
+    
     <div class="color-strip">Daily slokas for easy reading</div>
     <table style="width: 93%; margin-right: calc(7%);" cellspacing="0">
     <tbody>
@@ -114,7 +90,7 @@
     </td>
     </tr>
     <tr>
-    <td style="border-color: #dbbf79; width: 21.5577%; text-align: center; vertical-align: top;"><div class="photo-container"><img style="height: 337.615px; width: 250px;" src="./images/Murugar.jpg" alt="" width="343" height="326" /></div></td>
+    <td style="border-color: #dbbf79; width: 21.5577%; text-align: center; vertical-align: top;"> <img style="height: 337.615px; width: 250px;" src="./images/Murugar.jpg" alt="" width="343" height="326" /></td>
     <td style="border-color: #dbbf79; width: 70.4423%; text-align: left; vertical-align: top;">
     <div style="color: #8B0000; font-size: 30px; margin-bottom: 10px;"><strong>Lord Murugan</strong></div>
     <div style="color: #8B0000; font-size: 20px;"><strong></strong></div>

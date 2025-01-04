@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+</style>
+<script>
+// Change 1 to another integer to alter the scroll speed. Greater is faster.
+var speed = 1;
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div>
+<p>
+
+மஹாம்ருத்யுஞ்ஜய ஸ்தோத்ரம்<BR>
+<BR>
+ருத்ரம் பஶுபதிம் ஸ்தாணும் நீலகண்டமுமாபதிம் ।<BR>
+நமாமி ஶிரஸா தேவம் கிம் நோ ம்ருத்யு꞉ கரிஷ்யதி ॥ 1 ॥<BR>
+<BR>
+நீலகண்டம் காலமூர்திம் காலஜ்ஞம் காலனாஶனம் ।<BR>
+நமாமி ஶிரஸா தேவம் கிம் நோ ம்ருத்யு꞉ கரிஷ்யதி ॥  2 ॥<BR>
+<BR>
+நீலகண்டம் விரூபாக்ஷம் நிர்மலம் நிலயப்ரதம் ।<BR>
+நமாமி ஶிரஸா தேவம் கிம் நோ ம்ருத்யு꞉ கரிஷ்யதி ॥  3 ॥<BR>
+<BR>
+வாமதேவம் மஹாதேவம் லோகனாதம் ஜகத்குரும் ।<BR>
+நமாமி ஶிரஸா தேவம் கிம் நோ ம்ருத்யு꞉ கரிஷ்யதி ॥ 4 ॥<BR>
+<BR>
+தேவதேவம் ஜகன்னாதம் தேவேஶம் வ்ருஷபத்வஜம் ।<BR>
+நமாமி ஶிரஸா தேவம் கிம் நோ ம்ருத்யு꞉ கரிஷ்யதி ॥ 5 ॥<BR>
+<BR>
+கங்காதரம் மஹாதேவம் ஸர்வாபரணபூஷிதம் ।<BR>
+நமாமி ஶிரஸா தேவம் கிம் நோ ம்ருத்யு꞉ கரிஷ்யதி ॥ 6 ॥<BR>
+<BR>
+த்ர்யக்ஷம் சதுர்புஜம் ஶாந்தம் ஜடாமகுடதாரிணம் ।<BR>
+நமாமி ஶிரஸா தேவம் கிம் நோ ம்ருத்யு꞉ கரிஷ்யதி ॥ 7 ॥<BR>
+<BR>
+பஸ்மோத்தூலிதஸர்வாங்கம் நாகாபரணபூஷிதம் ।<BR>
+நமாமி ஶிரஸா தேவம் கிம் நோ ம்ருத்யு꞉ கரிஷ்யதி ॥ 8 ॥<BR>
+<BR>
+அனந்தமவ்யயம் ஶாந்தம் அக்ஷமாலாதரம் ஹரம் ।<BR>
+நமாமி ஶிரஸா தேவம் கிம் நோ ம்ருத்யு꞉ கரிஷ்யதி ॥ 9 ॥<BR>
+<BR>
+ஆனந்தம் பரமம் நித்யம் கைவல்யபததாயினம் ।<BR>
+நமாமி ஶிரஸா தேவம் கிம் நோ ம்ருத்யு꞉ கரிஷ்யதி ॥ 10 ॥<BR>
+<BR>
+அர்தனாரீஶ்வரம் தேவம் பார்வதீப்ராணனாயகம் ।<BR>
+நமாமி ஶிரஸா தேவம் கிம் நோ ம்ருத்யு꞉ கரிஷ்யதி ॥ 11 ॥<BR>
+<BR>
+ப்ரலயஸ்திதிகர்தாரமாதிகர்தாரமீஶ்வரம் ।<BR>
+நமாமி ஶிரஸா தேவம் கிம் நோ ம்ருத்யு꞉ கரிஷ்யதி ॥ 12॥<BR>
+<BR>
+வ்யோமகேஶம் விரூபாக்ஷம் சந்த்ரார்தக்ருதஶேகரம் ।<BR>
+நமாமி ஶிரஸா தேவம் கிம் நோ ம்ருத்யு꞉ கரிஷ்யதி ॥ 13 ॥<BR>
+<BR>
+கங்காதரம் ஶஶிதரம் ஶங்கரம் ஶூலபாணினம் ।<BR>
+நமாமி ஶிரஸா தேவம் கிம் நோ ம்ருத்யு꞉ கரிஷ்யதி ॥ 14 ॥<BR>
+<BR>
+அனாத꞉ பரமானந்தம் கைவல்ய꞉பதகாமினம் ।<BR>
+நமாமி ஶிரஸா தேவம் கிம் நோ ம்ருத்யு꞉ கரிஷ்யதி ॥ 15 ॥<BR>
+<BR>
+ஸ்வர்காபவர்கதாதாரம் ஸ்ருஷ்டிஸ்தித்யந்தகாரணம் ।<BR>
+நமாமி ஶிரஸா தேவம் கிம் நோ ம்ருத்யு꞉ கரிஷ்யதி ॥ 16 ॥<BR>
+<BR>
+கல்பாயுர்தேஹி மே புண்யம் யாவதாயுரரோகதாம் ।<BR>
+நமாமி ஶிரஸா தேவம் கிம் நோ ம்ருத்யு꞉ கரிஷ்யதி ॥ 17 ॥<BR>
+<BR>
+ஶிவேஶானாம் மஹாதேவம் வாமதேவம் ஸதாஶிவம் ।<BR>
+நமாமி ஶிரஸா தேவம் கிம் நோ ம்ருத்யு꞉ கரிஷ்யதி ॥ 18 ॥<BR>
+<BR>
+உத்பத்திஸ்திதிஸம்ஹாரகர்தாரமீஶ்வரம் குரும் ।<BR>
+நமாமி ஶிரஸா தேவம் கிம் நோ ம்ருத்யு꞉ கரிஷ்யதி ॥ 19 ॥<BR>
+<BR>
+மார்கண்டேயக்ருதம் ஸ்தோத்ரம் ய꞉ படேச்சிவஸன்னிதௌ ।<BR>
+தஸ்ய ம்ருத்யுபயம் நாஸ்தி நாக்னிசௌரபயம் க்வசித் ॥ 20 ॥<BR>
+<BR>
+ஶதாவர்தம் ப்ரகர்தவ்யம் ஸங்கடே கஷ்டனாஶனம் ।<BR>
+ஶுசிர்பூத்வா படேத் ஸ்தோத்ரம் ஸர்வஸித்திப்ரதாயகம் ॥ 21 ॥<BR>
+<BR>
+ம்ருத்யுஞ்ஜய மஹாதேவ த்ராஹி மாம் ஶரணாகதம் ।<BR>
+ஜன்மம்ருத்யுஜராரோகை꞉ பீடிதம் கர்மபந்தனை꞉ ॥  22 ॥<BR>
+<BR>
+தாவகஸ்த்வத்கத꞉ ப்ராணஸ்த்வச்சித்தோ(அ)ஹம் ஸதா ம்ருட ।<BR>
+இதி விஜ்ஞாப்ய தேவேஶம் த்ர்யம்பகாக்யமனம் ஜபேத் ॥ 23 ॥<BR>
+<BR>
+நம꞉ ஶிவாய ஸாம்பாய ஹரயே பரமாத்மனே ।<BR>
+ப்ரணதக்லேஶனாஶாய யோகினாம் பதயே நம꞉ ॥ 24 ॥<BR>
+ 
+</p>
+</div>
+</body>
+</html>

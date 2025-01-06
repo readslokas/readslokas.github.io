@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+</style>
+<script>
+// Change 1 to another integer to alter the scroll speed. Greater is faster.
+var speed = 1;
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div>
+<p>
+முத்தைத்தரு பத்தித் திருநகை<BR>
+
+ஜகஜ்ஜாலபாலம்<BR>
+<BR>
+ஜகஜ்ஜாலபாலம் கசத்கண்டமாலம்<BR>
+ஶரச்சந்த்ரபாலம் மஹாதைத்யகாலம் ।<BR>
+<BR>
+நபோ நீலகாயம் துராவாரமாயம்<BR>
+ஸுபத்மாஸஹாயம் பஜே(அ)ஹம் பஜே(அ)ஹம் ॥ 1 ॥<BR>
+<BR>
+ஸதாம்போதிவாஸம் களத்புஷ்பஹாஸம்<BR>
+ஜகத்ஸந்நிவாஸம் ஶதாதித்யபாஸம் ।<BR>
+<BR>
+கதாசக்ரஶஸ்த்ரம் லஸத்பீதவஸ்த்ரம்<BR>
+ஹஸச்சாருவக்த்ரம் பஜே(அ)ஹம் பஜே(அ)ஹம் ॥ 2 ॥<BR>
+<BR>
+ரமாகண்டஹாரம் ஶ்ருதிவ்ராதஸாரம்<BR>
+ஜலாந்தர்விஹாரம் தராபாரஹாரம் ।<BR>
+<BR>
+சிதாநந்தரூபம் மநோஹாரிரூபம்<BR>
+த்ருதாநேகரூபம் பஜே(அ)ஹம் பஜே(அ)ஹம் ॥ 3 ॥<BR>
+<BR>
+ஜராஜந்மஹீநம் பராநந்தபீநம்<BR>
+ஸமாதாநலீநம் ஸதைவாநவீநம் ।<BR>
+<BR>
+ஜகஜ்ஜந்மஹேதும் ஸுராநீககேதும்<BR>
+த்ருடம் விஶ்வஸேதும் பஜே(அ)ஹம் பஜே(அ)ஹம் ॥ 4 ॥<BR>
+<BR>
+க்ருதாம்நாயகாநம் ககாதீஶயாநம்<BR>
+விமுக்தேர்நிதாநம் ஹராராதிமாநம் ।<BR>
+<BR>
+ஸ்வபக்தாநுகூலம் ஜகத்வ்ருக்ஷமூலம்<BR>
+நிரஸ்தார்தஶூலம் பஜே(அ)ஹம் பஜே(அ)ஹம் ॥ 5 ॥<BR>
+<BR>
+ஸமஸ்தாமரேஶம் த்விரேபாபகேஶம்<BR>
+ஜகத்பிம்பலேஶம் ஹ்ருதாகாஶதேஶம் ।<BR>
+<BR>
+ஸதா திவ்யதேஹம் விமுக்தாகிலேஹம்<BR>
+ஸுவைகுண்டகேஹம் பஜே(அ)ஹம் பஜே(அ)ஹம் ॥ 6 ॥<BR>
+<BR>
+ஸுராளீபலிஷ்டம் த்ரிலோகீவரிஷ்டம்<BR>
+குரூணாம் கரிஷ்டம் ஸ்வரூபைகநிஷ்டம் ।<BR>
+<BR>
+ஸதா யுத்ததீரம் மஹாவீரவீரம்<BR>
+பவாம்போதிதீரம் பஜே(அ)ஹம் பஜே(அ)ஹம் ॥ 7 ॥<BR>
+<BR>
+ரமாவாமபாகம் தலாவிஷ்டநாகம்<BR>
+க்ருதாதீநயாகம் கதாராகராகம் ।<BR>
+<BR>
+முநீந்த்ரை꞉ ஸுகீதம் ஸுரை꞉ ஸம்பரீதம்<BR>
+குணௌகைரதீதம் பஜே(அ)ஹம் பஜே(அ)ஹம் ॥ 8 ॥<BR>
+<BR>
+இதம் யஸ்து நித்யம் ஸமாதாய சித்தம்<BR>
+படேதஷ்டகம் கண்டஹாரம் முராரே꞉ ।<BR>
+<BR>
+ஸ விஷ்ணோர்விஶோகம் த்ருவம் யாதி லோகம்<BR>
+ஜராஜந்மஶோகம் புநர்விந்ததே நோ ॥ 9 ॥<BR>
+<BR>
+இதி ஶ்ரீமத்பரமஹம்ஸ ஸ்வாமி ப்ரஹ்மாநந்த விரசிதம் ஶ்ரீ ஹரி ஸ்தோத்ரம் ॥<BR>
+<BR>
+
+</p>
+</div>
+</body>
+</html>

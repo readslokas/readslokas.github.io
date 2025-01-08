@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+</style>
+<script>
+// Change 1 to another integer to alter the scroll speed. Greater is faster.
+var speed = 1;
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div>
+<p>
+
+வஞ்சக லோப மூடர் தம்பொரு ளூர்கள் தேடி<BR>
+மஞ்சரி கோவை தூது ...... பலபாவின்<BR>
+<BR>
+வண்புகழ் பாரி காரி யென்றிசை வாது கூறி<BR>
+வந்தியர் போல வீணி ...... லழியாதே<BR>
+<BR>
+செஞ்சர ணாத கீத கிண்கிணி நீப மாலை<BR>
+திண்டிறல் வேல்ம யூர ...... முகமாறும்<BR>
+<BR>
+செந்தமிழ் நாளு மோதி உய்ந்திட ஞான மூறு<BR>
+செங்கனி வாயி லோர்சொ ...... லருள்வாயே<BR>
+<BR>
+பஞ்சவ னீடு கூனு மொன்றிடு தாப மோடு<BR>
+பஞ்சற வாது கூறு ...... சமண்மூகர்<BR>
+<BR>
+பண்பறு பீலி யோடு வெங்கழு வேற வோது<BR>
+பண்டித ஞான நீறு ...... தருவோனே<BR>
+<BR>
+குஞ்சரம் யாளி மேவு பைம்புன மீது லாவு<BR>
+குன்றவர் சாதி கூடி ...... வெறியாடிக்<BR>
+<BR>
+கும்பிட நாடி வாழ்வு தந்தவ ரோடு வீறு<BR>
+குன்றுதோ றாடல் மேவு ...... பெருமாளே<BR>
+ 
+</p>
+</div>
+</body>
+</html>

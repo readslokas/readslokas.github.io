@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+</style>
+<script>
+// Change 1 to another integer to alter the scroll speed. Greater is faster.
+var speed = 1;
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div>
+<p>
+    
+2 - திருச்சீரலைவாய் [திருச்செந்தூர்]   <BR>
+<BR>
+வைந்நுதி பொருத வடுஆழ் வரிநுதல்  78<BR>
+வாடா மாலை ஓடையொடு துயல்வர<BR>
+படுமணி இரட்டும் மருங்கின் கடுநடை  80<BR>
+கூற்றத் தன்ன மாற்றஅரு மொய்ம்பின்<BR>
+கால் கிளர்ந்தன்ன வேழம் மேல்கொண்டு<BR>
+ஐவேறு உருவின் செய்வினை முற்றிய<BR>
+முடியொடு விளங்கிய முரண்மிகு திருமணி<BR>
+மின்உறழ் இமைப்பின் சென்னிப் பொற்ப  85<BR>
+நகைதாழ்பு துயல்வரூஉம் வகைஅமை பொலங்குழை<BR>
+சேண்விளங்கு இயற்கை வாள்மதி கவைஇ<BR>
+அகலா மீனின் அவிர்வன இமைப்ப<BR>
+தாஇல் கொள்கைத் தம்தொழில் முடிமார்<BR>
+மனன்நேர்பு எழுதரு வாள் நிறமுகனே ...  90 <BR>
+<BR>
+மாஇருள் ஞாலம் மறுஇன்றி விளங்க  91<BR>
+பல்கதிர் விரிந்தன்று ஒருமுகம்;<BR>
+ஒருமுகம் - ஆர்வலர் ஏத்த அமர்ந்து இனிது ஒழுகி<BR>
+காதலின் உவந்து வரம் கொடுத்தன்றே;<BR>
+ஒருமுகம் - மந்திர விதியின் மரபுளி வழாஅ  95<BR>
+அந்தணர் வேள்வி ஓர்க்கும்மே;<BR>
+ஒருமுகம் - எஞ்சிய பொருள்களை ஏமுற நாடித்<BR>
+திங்கள்போலத் திசை விளக்கும்மே;<BR>
+ஒருமுகம் - செறுநர்த் தேய்த்துச் செல்சமம் முருக்கி<BR>
+கறுவுகொள் நெஞ்சமொடு களம்வேட்டன்றே;  100<BR>
+ஒருமுகம் - குறவர் மடமகள் கொடிபோல் நுசுப்பின்<BR>
+மடவரல் வள்ளியொடு நகை அமர்ந்தன்றே<BR>
+ஆங்கு அம்மூஇருமுகனும் முறைநவின்று ஒழுகலின் ...  103 <BR>
+<BR>
+ஆரம் தாழ்ந்த அம்பகட்டு மார்பின்  104<BR>
+செம்பொறி வாங்கிய மொய்ம்பின் சுடர்விடுபு<BR>
+வண்புகழ் நிறைந்து வசிந்துவாங்கு நிமிர்தோள்<BR>
+விண்செலல் மரபின் ஐயர்க்கு ஏந்தியது ஒருகை;<BR>
+உக்கம் சேர்த்தியது ஒருகை;<BR>
+நலம்பெறு கலிங்கத்துக் குறங்கின்மிசை அசைஇயது ஒருகை;<BR>
+அங்குசம் கடாவ ஒருகை;  110<BR>
+இருகை - ஐஇரு வட்டமொடு எஃகுவலம் திரிப்ப;<BR>
+ஒருகை - மார்பொடு விளங்க;<BR>
+ஒருகை - தாரொடு பொலிய;<BR>
+ஒருகை - கீழ்வீழ் தொடியொடு மீமிசைக் கொட்ப;<BR>
+ஒருகை - பாடுஇன் படுமணி இரட்ட;  115<BR>
+ஒருகை - நீல்நிற விசும்பின் மலிதுளி பொழிய;<BR>
+ஒருகை - வான்அர மகளிர்க்கு வதுவை சூட்ட<BR>
+ஆங்கு அப்பன்னிருகையும் பாற்பட இயற்றி ...  118 <BR>
+<BR>
+அந்தரப்பல்லியம் கறங்கத் திண்காழ்  119<BR>
+வயிர்எழுந்து இசைப்ப வால்வளை ஞரல<BR>
+உரம் தலைக்கொண்ட உரும்இடி முரசமொடு<BR>
+பல்பொறி மஞ்ஞை வெல்கொடி அகவ<BR>
+விசும்பு ஆறுஆக விரைசெலல் முன்னி<BR>
+உலகம் புகழ்ந்த ஒங்குஉயர் விழுச்சீர்<BR>
+அலைவாய்ச் சேறலும் நிலைஇயபண்பே, அதான்று ...  125 <BR>
+<BR>
+ 
+</p>
+</div>
+</body>
+</html>

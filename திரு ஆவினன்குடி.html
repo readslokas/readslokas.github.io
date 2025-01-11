@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+</style>
+<script>
+// Change 1 to another integer to alter the scroll speed. Greater is faster.
+var speed = 1;
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div>
+<p>
+    
+3 - திரு ஆவினன்குடி [பழநி]   <BR>
+<BR>
+சீரை தைஇய உடுக்கையர் சீரொடு  126<BR>
+வலம்புரி புரையும் வால்நரை முடியினர்<BR>
+மாசுஅற இமைக்கும் உருவினர் மானின்<BR>
+உரிவை தைஇய ஊன்கெடு மார்பின்<BR>
+என்புஎழுந்து இயங்கும் யாக்கையர் நன்பகல்  130<BR>
+பலஉடன் கழிந்த உண்டியர் இகலொடு<BR>
+செற்றம் நீக்கிய மனத்தினர் யாவதும்<BR>
+கற்றோர் அறியா அறிவினர் கற்றோர்க்குத்<BR>
+தாம்வரம்பு ஆகிய தலைமையர் காமமொடு<BR>
+கடும்சினம் கடிந்த காட்சியர் இடும்பை  135<BR>
+யாவதும் அறியா இயல்பினர் மேவரத்<BR>
+துனிஇல் காட்சி முனிவர் முன்புக ...  137 <BR>
+<BR>
+புகை முகந்தன்ன மாசுஇல் தூஉடை  138<BR>
+முகைவாய் அவிழ்ந்த தகைசூழ் ஆகத்து<BR>
+செவிநேர்பு வைத்த செய்வுறு திவவின்<BR>
+நல்யாழ் நவின்ற நயனுடை நெஞ்சின்<BR>
+மென்மொழி மேவலர், இன்நரம்பு உளர  142<BR>
+நோய்இன்று இயன்ற யாக்கையர் மாவின்<BR>
+அவிர்தளிர் புரையும் மேனியர் அவிர்தொறும்<BR>
+பொன்னுரை கடுக்கும் திதலையர் இன்நகைப்  145<BR>
+பருமம் தாங்கிய பணிந்துஏந்து அல்குல்<BR>
+மாசுஇல் மகளிரொடு மறுஇன்றி விளங்க ...  147 <BR>
+<BR>
+கடுவொடு ஒடுங்கிய தூம்புடை வால்எயிற்று  148<BR>
+அழல்என உயிர்க்கும் அஞ்சுவரு கடுந்திறல்<BR>
+பாம்புபடப் புடைக்கும் பல்வரிக் கொடுஞ்சிறைப்  150<BR>
+புள்அணி நீள்கொடிச் செல்வனும் வெள் ஏறு<BR>
+வலம்வயின் உயரிய பலர்புகழ் திணிதோள்<BR>
+உமைஅமர்ந்து விளங்கும் இமையா முக்கண்<BR>
+மூஎயில் முருக்கிய முரண்மிகு செல்வனும்<BR>
+நூற்றுப்பத்து அடுக்கிய நாட்டத்து நூறுபல்  155<BR>
+வேள்வி முற்றிய வென்றுஅடு கொற்றத்து<BR>
+ஈர்இரண்டு ஏந்திய மருப்பின் எழில்நடை<BR>
+தாழ்பெருந் தடக்கை உயர்த்த யானை<BR>
+எருத்தம் ஏறிய திருக்கிளர் செல்வனும் ...  159 <BR>
+<BR>
+நாற்பெருந் தெய்வத்து நல்நகர் நிலைஇய  160<BR>
+உலகம் காக்கும் ஒன்றுபுரி கொள்கைப்<BR>
+பலர்புகழ் மூவரும் தலைவர் ஆக<BR>
+ஏமுறு ஞாலம் தன்னில் தோன்றி<BR>
+தாமரைப் பயந்த தாஇல் ஊழி<BR>
+நான்முக ஒருவற் சுட்டி காண்வர  165<BR>
+பகலில் தோன்றும் இகல்இல் காட்சி<BR>
+நால்வேறு இயற்கைப் பதினொரு மூவரொடு<BR>
+ஒன்பதிற்று இரட்டி உயர்நிலை பெறீஇயர்<BR>
+மீன்பூத்தன்ன தோன்றலர் மீன்சேர்பு<BR>
+வளிகிளர்ந்தன்ன செலவினர் வளியிடைத்  170<BR>
+தீஎழுந்தன்ன திறலினர் தீப்பட<BR>
+உரும்இடித் தன்ன குரலினர் விழுமிய<BR>
+உறுகுறை மருங்கில் தம்பெறு முறைகொண்மார்<BR>
+அந்தரக் கொட்பினர் வந்து உடன்காண<BR>
+தாஇல் கொள்கை மடந்தையொடு சில்நால்<BR>
+ஆவினன்குடி அசைதலும் உரியன், அதான்று ...  176 <BR>
+<BR>
+ 
+</p>
+</div>
+</body>
+</html>

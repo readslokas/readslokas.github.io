@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+</style>
+<script>
+// Change 1 to another integer to alter the scroll speed. Greater is faster.
+var speed = 1;
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div>
+<p>
+    
+4 - திரு ஏரகம் [சுவாமிமலை]   <BR>
+<BR>
+இரு மூன்று எய்திய இயல்பினின் வழாஅது  177<BR>
+இருவர்ச் சுட்டிய பல்வேறு தொல்குடி<BR>
+அறு நான்கு இரட்டி இளைமைநல் யாண்டு<BR>
+ஆறினில் கழிப்பிய அறன்நவில் கொள்கை  180<BR>
+மூன்றுவகைக் குறித்த முத்தீச் செல்வத்து<BR>
+இருபிறப்பாளர் பொழுது அறிந்து நுவல<BR>
+ஒன்பது கொண்ட மூன்றுபுரி நுண்ஞாண்<BR>
+புலராக் காழகம் புலர் உடீஇ<BR>
+உச்சிக்கூப்பிய கையினர் தற்புகழ்ந்து  185<BR>
+ஆறுஎழுத்து அடக்கிய அருமறைக் கேள்வி<BR>
+நாஇயல் மருங்கில் நவிலப் பாடி<BR>
+விரைஉறு நறுமலர் ஏந்தி பெரிதுஉவந்து<BR>
+ஏரகத்து உறைதலும் உரியன், அதான்று ...  189 <BR>
+<BR>
+ 
+</p>
+</div>
+</body>
+</html>

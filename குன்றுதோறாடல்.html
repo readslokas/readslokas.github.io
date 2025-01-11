@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+</style>
+<script>
+// Change 1 to another integer to alter the scroll speed. Greater is faster.
+var speed = 1;
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div>
+<p>
+    
+5 - குன்றுதோறாடல்   <BR>
+<BR>
+பைங்கொடி நறைக்காய் இடைஇடுபு வேலன்  190<BR>
+அம்பொதிப் புட்டில் விரைஇ குளவியொடு<BR>
+வெண்கூ தாளம் தொடுத்த கண்ணியன்<BR>
+நறுஞ்சாந்து அணிந்த கேழ்கிளர் மார்பின்<BR>
+கொடுந்தொழில் வல்வில் கொலைஇய கானவர்<BR>
+நீடுஅமை விளைந்த தேக்கள் தேறல்  195<BR>
+குன்றகச் சிறுகுடிக் கிளையுடன் மகிழ்ந்து<BR>
+தொண்டகச் சிறுபறைக் குரவை அயர ... 197 <BR>
+<BR>
+விரல்உளர்ப்பு அவிழ்ந்த வேறுபடு நறுங்கான்  198<BR>
+குண்டுசுனை பூத்த வண்டுபடு கண்ணி<BR>
+இணைத்த கோதை அணைத்த கூந்தல்  200<BR>
+முடித்த குல்லை இலையுடை நறும்பூ<BR>
+செங்கால் மராஅத்த வால்இணர் இடைஇடுபு<BR>
+சுரும்புஉணத் தொடுத்த பெருந்தண் மாத்தழை<BR>
+திருந்துகாழ் அல்குல் திளைப்ப உடீஇ<BR>
+மயில்கண் டன்ன மடநடை மகளிரொடு ...  205 <BR>
+<BR>
+செய்யன் சிவந்த ஆடையன் செவ்வரைச்  206<BR>
+செயலைத் தண்தளிர் துயல்வரும் காதினன்<BR>
+கச்சினன் கழலினன் செச்சைக் கண்ணியன்<BR>
+குழலன் கோட்டன் குறும்பல் லியத்தன்<BR>
+தகரன் மஞ்ஞையன் புகர்இல் சேவல்அம்  210<BR>
+கொடியன் நெடியன் தொடிஅணி தோளன்<BR>
+நரம்பு ஆர்த்தன்ன இன்குரல் தொகுதியொடு<BR>
+குறும்பொறிக் கொண்ட நறுந்தண் சாயல்<BR>
+மருங்கில் கட்டிய நிலன்நேர்பு துகிலினன்<BR>
+முழவுஉறழ் தடக்கையின் இயல ஏந்தி  215<BR>
+மென்தோள் பல்பிணை தழீஇ தலைத்தந்து<BR>
+குன்றுதொறு ஆடலும்நின்ற தன்பண்பே, அதான்று ...  217 <BR>
+<BR>
+ 
+</p>
+</div>
+</body>
+</html>

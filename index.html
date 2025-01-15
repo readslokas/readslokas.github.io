@@ -42,12 +42,22 @@
     margin-left: 20px; /* Space before the text */
     }
     ol {
-    list-style-type: decimal; /* Remove default bullets */
+    list-style-type: decimal; /* Default numbering style */
     padding: 0; /* Remove default padding */
-    color: #8B0000; 
-    padding-left: 20px; 
-    margin: 0;
-    }
+    margin: 0; /* Remove default margin */
+    padding-left: 20px; /* Adjust left spacing for numbers */
+}
+
+ol li {
+    position: relative; /* To allow for custom positioning */
+    line-height: 1.6; /* Adjust spacing between lines */
+    padding-left: 2em; /* Space between the number and the text */
+}
+
+ol li::marker {
+    font-size: 1.2em; /* Adjust number size */
+    color: #8B0000; /* Match number color to your theme */
+}
     ul {
     list-style-type: none; /* Remove default bullets */
     padding: 0; /* Remove default padding */

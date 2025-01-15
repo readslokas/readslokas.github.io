@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+</style>
+<script>
+// Change 1 to another integer to alter the scroll speed. Greater is faster.
+var speed = 1;
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div>
+<p>
+  
+(வேலுண்டு வினையில்லை மயிலுண்டு பயமில்லை<BR>
+குகனுண்டு குறையில்லை மனமே<BR>
+கந்தனுண்டு கவலையில்லை மனமே) ...... (வேலுண்டு)<BR>
+<BR>
+நீலகண்டன் நெற்றிக் கண்ணில்<BR>
+நெருப்பு வடிவாகத் தோன்றி<BR>
+நிருதர் குலத்தை அழித்த நிர்மலன் ... முருகன் ...... (வேலுண்டு)<BR>
+<BR>
+விழிகளொரு பன்னிரண்டு<BR>
+உடையவனே என்று சொல்லி<BR>
+விழிகளிலே நீர் பெருக்கி நின்றேன் ... முருகா ...... (வேலுண்டு)<BR>
+<BR>
+உலகமென்னும் கடல் தனிலே<BR>
+உடல் என்னும் ஓடமது<BR>
+உன்னடிக் கரை அடைய அருளுவாய் ... முருகா ...... (வேலுண்டு)<BR>
+<BR>
+ஓயாது ஒழியாது<BR>
+உன் நாமம் சொல்பவர்க்கு<BR>
+உயர் கதிதான் தந்திடுவாய் ... முருகா ...... (வேலுண்டு)<BR>
+<BR>
+கருணையே வடிவமான<BR>
+கந்தசாமித் தெய்வமே உன்<BR>
+கழலடியைக் காட்டி என்னை ஆளுவாய் ... கந்தனே ...... (வேலுண்டு)<BR>
+<BR>
+நெற்றியிலே நீறணிந்து<BR>
+நெறியாக உனை நினைந்து<BR>
+பற்றினேன் உள்ளமதில் உன்னடி ... முருகா ...... (வேலுண்டு)<BR>
+<BR>
+நெஞ்ச மதில் வஞ்சமின்றி<BR>
+நிர் மலனே நின்னடியைத்<BR>
+தஞ்சமென நெஞ்சமதில் எண்ணினேன் ... முருகா ...... (வேலுண்டு)<BR>
+<BR>
+ஆறுபடை வீட்டினிலே<BR>
+ஆறுமுக வேலவனே<BR>
+ஆதரித்து எனை ஆளும் ஐயனே ... முருகா ...... (வேலுண்டு)<BR>
+<BR>
+திருப்புகழைப் பாடி உந்தன்<BR>
+திருவடியைக் கைதொழுது<BR>
+திருவருளைப் பெற்றிட நான் வந்தேன் ... முருகா ...... (வேலுண்டு)<BR>
+<BR>
+கந்தர நுபூதி பாடி<BR>
+கந்தனே உன் கழலடியைக்<BR>
+கைதொழுது கரைசேர வந்தேன் ... முருகா ...... (வேலுண்டு)<BR>
+<BR>
+வேலவனே என்றுபாடி<BR>
+வேண்டிடும் அடியவர்க்கு<BR>
+வேண்டும் வரம் தந்திடுவான் பாருமே ... முருகா ...... (வேலுண்டு)<BR>
+<BR>
+மந்திரமும் தந்திரமும்<BR>
+மருந்துமாக நின்ற உந்தன்<BR>
+மலரடியைக் காணவேதான் வந்தேன் ... முருகா ...... (வேலுண்டு)<BR>
+<BR>
+தெள்ளு தினை மாவும்<BR>
+தேனும் பரிந்தளித்த<BR>
+வள்ளிக்கு வாய்த்தவனே ... முருகா ...... (வேலுண்டு)<BR>
+<BR>
+வடிவேலா என்று தினம்<BR>
+வாழ்த்துகின்ற அடியவர்க்கு<BR>
+கொடிய வினை தீர்த்திடுவான் பாருமே ... முருகா ...... (வேலுண்டு)<BR>
+<BR>
+பரங்குன்று செந்திலும்<BR>
+பழனி மலை ஏரகம்<BR>
+பலகுன்று பழமுதிரும் சோலையாம் ... முருகா ...... (வேலுண்டு)<BR>
+
+</p>
+</div>
+</body>
+</html>

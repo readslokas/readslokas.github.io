@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+</style>
+<script>
+// Change 1 to another integer to alter the scroll speed. Greater is faster.
+var speed = 1;
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div>
+<p>
+  
+வேலவா வேலவா வேல் முருகா வா வா<BR>
+வேலவா வேலவா வேல் முருகா வா வா<BR>
+வேல் முருகா வா வா  – வடி<BR>
+வேல் முருகா வா வா  <BR>
+வேலவா ஷண்முகா முருகா முருகா – வடி<BR>
+வேலவா ஷண்முக முருகா முருகா<BR>
+<BR>
+வள்ளி மணவாளா குஞ்சரி மணாளா<BR>
+வள்ளி மணவாளா குஞ்சரி மணாளா<BR>
+குஞ்சரி மணாளா - தேவ<BR>
+குஞ்சரி மணாளா<BR>
+வண்ண மயில் வாகனா முருகா முருகா  <BR>
+- வேலவா வேலவா வேல் முருகா வா வா<BR>
+<BR>
+சூராதி சூரா சுப்ரமணிய தேவா – சிவ<BR>
+சுப்ரமணிய தேவா<BR>
+ஷண்முக சரவணா முருகா முருகா<BR>
+ஷண்முக ஷண்முக ஷண்முக ஷண்முக<BR>
+ஷண்முக ஷண்முக ஷண்முக ஷண்முக<BR>
+ஷண்முக சரவணா முருகா முருகா<BR>
+<BR>
+பச்சை மலை பவழ மலை பாசி  படர்ந்த மலை<BR>
+பங்குனி தேர் ஓடும் மலை பழனி மலை யோ....<BR>
+வேலனுக்கு அரோஹரா முருகனுக்கு அரோஹரா<BR>
+கந்தனுக்கு அரோஹரா கடம்பனுக்கு அரோஹரா<BR>
+குமரனுக்கு அரோஹரா பாலனுக்கு அரோஹரா<BR>
+ஷண்முகனுக்கு சரவணா முருகனுக்கு அரோஹரா<BR>
+அரோஹரா அரோஹரா அரோஹரா அரோஹரா<BR>
+அரோஹரா அரோஹரா சத்தம் கேட்குதே<BR>
+அடியார்கள் கூட்டம் எல்லாம் அவனை பாடுதே<BR>
+<BR>
+வீதிதோறும் தோரணமாம் விதவிதமாய் காவடியாம்<BR>
+பால் காவடி பன்னீர் காவடி புஷ்ப காவடியாம்<BR>
+சந்தனக்காவடி சர்ப்பக்காவடி மயிலுக் காவடியாம்<BR>
+<BR>
+வேல் வேல் முருகா வெற்றி வேல் முருகா<BR>
+வேல் வேல் முருகா முருகா முருகா    <BR>
+வேல் வேல் முருகா வடி வேல் முருகா<BR>
+
+</p>
+</div>
+</body>
+</html>

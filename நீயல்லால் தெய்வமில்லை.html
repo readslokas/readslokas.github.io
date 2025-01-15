@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+</style>
+<script>
+// Change 1 to another integer to alter the scroll speed. Greater is faster.
+var speed = 1;
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div>
+<p>
+  
+நீயல்லால் தெய்வமில்லை எனது<BR>
+நெஞ்சே நீ வாழும் எல்லை முருகா<BR>
+<BR>
+நீயல்லால் தெய்வமில்லை எனது<BR>
+நெஞ்சே நீ வாழும் எல்லை முருகா<BR>
+<BR>
+நீயல்லால் தெய்வமில்லை எனது<BR>
+நெஞ்சே நீ வாழும் எல்லை முருகா<BR>
+<BR>
+நீயல்லால் தெய்வமில்லை.....<BR>
+<BR>
+முருகா....<BR>
+<BR>
+முருகா....<BR>
+<BR>
+முருகா....<BR>
+<BR>
+தாயாகி அன்பு பாலூட்டி வளர்த்தாய்<BR>
+தந்தையாய் நின்றே சிந்தை கவர்ந்தாய்<BR>
+<BR>
+தாயாகி அன்பு பாலூட்டி வளர்த்தாய்<BR>
+தந்தையாய் நின்றே சிந்தை கவர்ந்தாய்<BR>
+<BR>
+குருவாகி எனக்கு நல்லிசை தந்தாய்<BR>
+<BR>
+ஞான குருவாகி எனக்கு நல்லிசை தந்தாய்<BR>
+<BR>
+திருமேனி என்றும் என் உள்ளம் நிறைந்தாய்<BR>
+<BR>
+திருமேனி என்றும் என் உள்ளம் நிறைந்தாய்<BR>
+<BR>
+நாயேனை நாளும் நல்லவனாக்க<BR>
+<BR>
+நாயேனை நாளும் நல்லவனாக்க<BR>
+<BR>
+ஓயாமல் ஒழியாமல் உன்னருள் தந்தாய்<BR>
+<BR>
+ஓயாமல் ஒழியாமல் உன்னருள் தந்தாய்<BR>
+<BR>
+நீயல்லால் தெய்வமில்லை எனது<BR>
+நெஞ்சே நீ வாழும் எல்லை முருகா<BR>
+<BR>
+நீயல்லால் தெய்வமில்லை.....<BR>
+<BR>
+வாயார பாடி மனமார நினைந்து<BR>
+வணங்கிடலே எந்தன் வாழ்நாள் இன்பம்<BR>
+<BR>
+வாயார பாடி மனமார நினைந்து<BR>
+வணங்கிடலே எந்தன் வாழ்நாள் இன்பம்<BR>
+<BR>
+தூயா முருகா மாயோன் மருகா<BR>
+<BR>
+தூயா முருகா மாயோன் மருகா<BR>
+<BR>
+தொழுவதொன்றே இங்கு யான்<BR>
+பெற்ற இன்பம்<BR>
+<BR>
+உன்னை தொழுவதொன்றே இங்கு யான்<BR>
+பெற்ற இன்பம்<BR>
+<BR>
+நீயல்லால் தெய்வமில்லை எனது<BR>
+நெஞ்சே நீ வாழும் எல்லை முருகா<BR>
+<BR>
+நீயல்லால் தெய்வமில்லை.....<BR>
+<BR>
+முருகா....<BR>
+<BR>
+முருகா....<BR>
+<BR>
+முருகா....<BR>
+
+</p>
+</div>
+</body>
+</html>

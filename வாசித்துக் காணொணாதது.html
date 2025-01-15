@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+</style>
+<script>
+// Change 1 to another integer to alter the scroll speed. Greater is faster.
+var speed = 1;
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div>
+<p>
+  
+வாசித்துக் காணொணாதது பூசித்துக் கூடொ ணாதது<BR>
+வாய்விட்டுப் பேசொ ணாதது ...... நெஞ்சினாலே<BR>
+<BR>
+மாசர்க்குத் தோணொ ணாதது நேசர்க்குப் பேரொ ணாதது<BR>
+மாயைக்குச் சூழொ ணாதது ...... விந்துநாத<BR>
+<BR>
+ஓசைக்குத் தூர மானது மாகத்துக் கீற தானது<BR>
+லோகத்துக் காதி யானது ...... கண்டுநாயேன்<BR>
+<BR>
+யோகத்தைச் சேரு மாறுமெய்ஞ் ஞானத்தைப் போதி யாயினி<BR>
+யூனத்தைப் போடி டாதும ...... யங்கலாமோ<BR>
+<BR>
+ஆசைப்பட் டேனல் காவல்செய் வேடிச்சிக் காக மாமய<BR>
+லாகிப்பொற் பாத மேபணி ...... கந்தவேளே<BR>
+<BR>
+ஆலித்துச் சேல்கள் பாய்வய லூரத்திற் காள மோடட<BR>
+ராரத்தைப் பூண்ம யூரது ...... ரங்கவீரா<BR>
+<BR>
+நாசிக்குட் ப்ராண வாயுவை ரேசித்தெட் டாத யோகிகள்<BR>
+நாடிற்றுக் காணொ ணாதென ...... நின்றநாதா<BR>
+<BR>
+நாகத்துச் சாகை போயுயர் மேகத்தைச் சேர்சி ராமலை<BR>
+நாதர்க்குச் சாமி யேசுரர் ...... தம்பிரானே<BR>
+
+</p>
+</div>
+</body>
+</html>

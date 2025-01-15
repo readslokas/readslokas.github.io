@@ -41,22 +41,25 @@
     font-size: 1.2em; /* Increase font size */
     margin-left: 20px; /* Space before the text */
     }
+
     ol {
     list-style-type: decimal; /* Default numbering style */
     padding: 0; /* Remove default padding */
     margin: 0; /* Remove default margin */
+    padding-left: 20px; /* Match the spacing of <ul> */
 }
 
 ol li {
-    position: relative; /* To allow for custom positioning */
+    position: relative; /* To allow custom positioning */
     line-height: 1.6; /* Adjust spacing between lines */
-    padding-left: 1em; /* Space between the number and the text */
+    padding-left: 1.5em; /* Match spacing of <ul> bullets */
 }
 
 ol li::marker {
-    font-size: 1.2em; /* Adjust number size */
-    color: #8B0000; /* Match number color to your theme */
+    font-size: 1.2em; /* Adjust the number size */
+    color: #8B0000; /* Match color to the theme */
 }
+
     ul {
     list-style-type: none; /* Remove default bullets */
     padding: 0; /* Remove default padding */

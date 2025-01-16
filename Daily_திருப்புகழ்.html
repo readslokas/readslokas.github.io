@@ -94,7 +94,7 @@ function startIt() {
 function openDropdown() {
   const dropdown = document.getElementById('speedSelector');
   dropdown.focus(); // Focus on the dropdown
-  const event = new MouseEvent('mousedown', { bubbles: true, cancelable: true, view: window });
+  const event = new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true });
   dropdown.dispatchEvent(event); // Simulate pressing "Arrow Down"
 }
 
@@ -117,7 +117,7 @@ window.onload = initialize;
 </head>
 <body>
 <div id="controls">
-  <label for="speedSelector" style="font-size: 1.8em; cursor: pointer;" onclick="openDropdown().focus();">Speed:</label>
+  <label for="speedSelector" style="font-size: 1.8em; cursor: pointer;" onclick="openDropdown();">Speed:</label>
   <select id="speedSelector" onchange="changeSpeed(this.value)">
     <option value="1">1x</option>
     <option value="2">2x</option>

@@ -91,6 +91,14 @@ function startIt() {
   setInterval(scrollWindow, 50);
 }
 
+function openDropdown() {
+  const dropdown = document.getElementById('speedSelector');
+  dropdown.focus(); // Focus on the dropdown
+  const event = new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true });
+  dropdown.dispatchEvent(event); // Simulate pressing "Arrow Down"
+}
+
+
 // Function to dynamically change the speed
 function changeSpeed(newSpeed) {
   speed = parseInt(newSpeed, 10);

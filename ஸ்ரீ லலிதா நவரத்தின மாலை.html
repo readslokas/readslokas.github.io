@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+
+p {
+font-size: calc(2.2vw + 2.2em);/* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+
+#controls {
+position: fixed;
+top: 10px;
+right: 30px; /* Adjusted position: moved 20px to the left */
+z-index: 1000;
+}
+
+select {
+font-size: 1.4em;
+padding: 5px;
+}
+</style>
+<script>
+var speed = 1; // Default speed
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+// Function to dynamically change the speed
+function changeSpeed(newSpeed) {
+speed = parseInt(newSpeed, 10);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div id="controls">
+<label for="speedSelector" style="font-size: 1.8em; cursor: pointer;" onclick="document.getElementById('speedSelector').focus();">Speed:</label>
+<select id="speedSelector" onchange="changeSpeed(this.value)">
+<option value="1">1x</option>
+<option value="2">2x</option>
+<option value="3">3x</option>
+<option value="4">4x</option>
+<option value="5">5x</option>
+<option value="6">6x</option>
+<option value="7">7x</option>
+</select>
+</div>
+<div>
+<p>
+
+ஸ்ரீ அகத்திய முனிவர் அருளிய <BR>
+ஸ்ரீ லலிதா நவரத்தின மாலை<BR>
+<BR>
+காப்பு  <BR>
+ஞான கணேசா சரணம் சரணம்<BR>
+ஞான ஸ்கந்தா சரணம் சரணம்<BR>
+ஞான சத்குரு சரணம் சரணம்<BR>
+ஞானானந்தா சரணம் சரணம்<BR>
+<BR>
+ஆக்கும் தொழில்ஐந் தரனாற்றநலம்<BR>
+பூக்கும் நகையாள் புவனேஷ்வரிபால்<BR>
+சேர்க்கும் நவரத்தின மாலையினைக்<BR>
+காக்கும் கணநாயகவாரணமே<BR>
+<BR>
+1   வைரம்  <BR>
+<BR>
+கற்றும் தெளியார் காடே கதியாய்<BR>
+கண்மூடி நெடுங்கன வானதவம்<BR>
+பெற்றும் தெரியார் நினையென்னில் அவம்<BR>
+பெருகும் பிழையேன் பேசத் தகுமோ<BR>
+<BR>
+பற்றும் பயிரப் படைவாள் வயிரப்<BR>
+பகைவர்க்கெமனாக எடுத்தவளே<BR>
+வற்றாத அருட் சுனையே வருவாய்<BR>
+மாதா ஜெய ஓம் லலிதாம்பிகையே<BR>
+<BR>
+2   நீலம்  <BR>
+<BR>
+மூலக் கனலே சரணம் சரணம்<BR>
+முடியா முதலே சரணம் சரணம்<BR>
+கோலக் கிளியே சரணம் சரணம்<BR>
+குன்றாத ஒளிக் குவையே சரணம்<BR>
+<BR>
+நீலத் திருமேனியிலே நினைவாய்<BR>
+நினைவற்றெளியேன் நின்றேன் அருள்வாய்<BR>
+வாலைக் குமரி வருவாய் வருவாய்<BR>
+மாதா ஜெய ஓம் லலிதாம்பிகையே<BR>
+<BR>
+3   முத்து  <BR>
+<BR>
+முத்தே வரும்முத் தொழிலாற் றிடவே<BR>
+முன்னின்று அருளும் முதல்வி சரணம்<BR>
+வித்தே விளைவே சரணம் சரணம்<BR>
+வேதாந்த நிவாசினியே சரணம்<BR>
+<BR>
+தத்தேறியநான் தனயன் தாய் நீ<BR>
+சாகாத வரம் தரவே வருவாய்<BR>
+மத்தேரு ததிக் கிணைவாழ்வடையேன்<BR>
+மாதா ஜெய ஓம் லலிதாம்பிகையே<BR>
+<BR>
+4   பவளம்  <BR>
+<BR>
+அந்தி மயங்கிய வான விதானம்<BR>
+அன்னை நடம் செய்யும் ஆனந்த மேடை<BR>
+சிந்தை நிறம்பவளம் பொழி பாரோ<BR>
+தேம் பொழிலாமிது செய்தவள் யாரோ<BR>
+<BR>
+எந்தயிடத்தும் மனத்தும் இருப்பாள்<BR>
+எண்ணு பவர்க்கருள் எண்ண மிகுந்தாள்<BR>
+மந்திர வேத மயப்பொருளானாள்<BR>
+மாதா ஜெய ஓம் லலிதாம்பிகையே<BR>
+<BR>
+5   மாணிக்கம்  <BR>
+<BR>
+காணக் கிடையாக் கதியானவளே<BR>
+கருதக் கிடையாப் கலையானவளே<BR>
+பூணக் கிடையாப் பொலிவானவளே<BR>
+புதுமைக் கிடையாப் புதுமைத்தவளே<BR>
+<BR>
+நாணித் திருநாமமும்நின் துதியும்<BR>
+நவிலாதவரை நாடா தவளே<BR>
+மாணிக்க ஒளிக் கதிரே வருவாய்<BR>
+மாதா ஜெய ஓம் லலிதாம்பிகையே<BR>
+<BR>
+6   மரகதம்  <BR>
+<BR>
+மரகத வடிவே சரணம் சரணம்<BR>
+மதுரித பதமே சரணம் சரணம்<BR>
+சுரபதி பணியத் திகழ்வாய் சரணம்<BR>
+ச்ருதி ஜதிலயமே இசையே சரணம்<BR>
+<BR>
+அரஹர சிவஎன்றடியவர் குழும<BR>
+அவரருள் பெறஅருளமுதே சரணம்<BR>
+வரநவ நிதியே சரணம் சரணம்<BR>
+மாதா ஜெய ஓம் லலிதாம்பிகையே<BR>
+<BR>
+7   கோமேதகம்  <BR>
+<BR>
+பூமேவியநான் புரியும் செயல்கள்<BR>
+பொன்றாது பயன் குன்றா வரமும்<BR>
+தீமேல் இடினும் ஜெயசக்தி எனத்<BR>
+திடமாய் அடியேன் மொழியும் திறமும்<BR>
+<BR>
+கோமேதகமே குளிர்வான் நிலவே<BR>
+குழல்வாய் மொழியே வருவாய் தருவாய்<BR>
+மாமேருவிலே வளர்கோ கிலமே<BR>
+மாதா ஜெய ஓம் லலிதாம்பிகையே<BR>
+<BR>
+8   பதுமராகம்  <BR>
+<BR>
+ரஞ்சனி நந்தினி அங்கணி பதும<BR>
+ராக விலாஸ வியாபினி அம்ப<BR>
+சஞ்சல ரோக நிவாரணி வாணி<BR>
+சாம்பவி சந்த்ர கலாதரி ராணி<BR>
+<BR>
+அஞ்சன மேனி அலங்க்ருத பூரணி<BR>
+அம்ருத ஸ்வரூபிணி நித்ய கல்யாணி<BR>
+மஞ்சுள மேரு சிருங்க நிவாஸினி<BR>
+மாதா ஜெயஓம் லலிதாம்பிகையே<BR>
+<BR>
+9   வைடூரியம்  <BR>
+<BR>
+வலையொத்தவினை கலையொத் தமனம்<BR>
+மருளப் பறையாறொலியொத் தவிதால்<BR>
+நிலையற் றெளியேன் முடியத் தகுமோ<BR>
+நிகளம் துகளாக வரம் தருவாய்<BR>
+<BR>
+அலைவற் றசைவாற்றனுபூதி பெரும்<BR>
+அடியார் முடிவாழ் வைடூரியமே<BR>
+மலையத் துவசன் மகளே வருவாய்<BR>
+மாதா ஜெய ஓம் லலிதாம்பிகையே<BR>
+<BR>
+பலஸ்துதி  <BR>
+<BR>
+எவர்எத் தினமும் இசைவாய் லலிதா<BR>
+நவரத்தின மாலை நவின்றிடுவார்<BR>
+அவர்அற்புதசக்தி எல்லாம் அடைவார்<BR>
+சிவரத்தினமாய் திகழ்வாரவரே<BR>
+
+</p>
+</div>
+</body>
+</html>

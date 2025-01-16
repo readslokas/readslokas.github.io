@@ -1,88 +1,126 @@
-<HTML>
-
-<SCRIPT language=JavaScript1.2>
-//change 1 to another integer to alter the scroll speed. Greater is faster
-var speed=1
-
-var currentpos=0,alt=1,curpos1=0,curpos2=-1
-function initialize(){
-startit()
-}
-function scrollwindow(){
-if (document.all && !document.getElementById)
-temp=document.body.scrollTop
-else
-temp=window.pageYOffset
-if (alt==0)  alt=2
-else alt=1
-
-if (alt==0)
-curpos1=temp
-else
-curpos2=temp
-
-if (curpos1!=curpos2){
-if (document.all)
-currentpos=document.body.scrollTop+speed
-else
-currentpos=window.pageYOffset+speed
-window.scroll(0,currentpos)
-}
-else{
-currentpos=0
-window.scroll(0,currentpos)
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+  background-color: black;
+  color: white;
+  font-family: Calibri;
+  margin: 0; /* Remove default margin */
+  overflow-y: auto; /* Enable vertical scrolling */
 }
 
-function startit(){
-setInterval("scrollwindow()",50)
+p {
+  font-size: calc(2vw + 2em); /* Responsive font size */
+  word-wrap: break-word;
+  padding: 10px; /* Add some padding */
 }
-window.onload=initialize
 
-var elem = document.documentElement;
+#controls {
+  position: fixed;
+  top: 10px;
+  right: 30px; /* Adjusted position: moved 20px to the left */
+  z-index: 1000;
+}
 
-function openFullscreen() {
-  if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-  } else if (elem.mozRequestFullScreen) { /* Firefox */
-    elem.mozRequestFullScreen();
-  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-    elem.webkitRequestFullscreen();
-  } else if (elem.msRequestFullscreen) { /* IE/Edge */
-    elem.msRequestFullscreen();
+select {
+  font-size: 1em;
+  padding: 5px;
+}
+</style>
+<script>
+var speed = 1; // Default speed
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+  try {
+    wakeLock = await navigator.wakeLock.request('screen');
+    console.log('Wake Lock is active');
+  } catch (err) {
+    console.error(`${err.name}, ${err.message}`);
   }
 }
 
-</SCRIPT>
-
-<head>
-<style>
-body {background-color: black;}
-p  {
-    color: white;
-    font-family: calibri;
-    font-size: 270%;
-	word-wrap: break-word;
+function releaseWakeLock() {
+  if (wakeLock !== null) {
+    wakeLock.release().then(() => {
+      wakeLock = null;
+      console.log('Wake Lock has been released');
+    });
+  }
 }
 
-.block {
-    display: block;
-    width: 100%;
-	font-size: 270%;
-    text-align: center;
-	max-width: 100%;
-    overflow-x: hidden;
+function initialize() {
+  startIt();
+  requestWakeLock(); // Request wake lock on initialization
 }
 
-</style>
+function scrollWindow() {
+  if (document.all && !document.getElementById) {
+    temp = document.body.scrollTop;
+  } else {
+    temp = window.pageYOffset;
+  }
+
+  if (alt == 0) alt = 2;
+  else alt = 1;
+
+  if (alt == 0) {
+    curpos1 = temp;
+  } else {
+    curpos2 = temp;
+  }
+
+  if (curpos1 != curpos2) {
+    if (document.all) {
+      currentpos = document.body.scrollTop + speed;
+    } else {
+      currentpos = window.pageYOffset + speed;
+    }
+    window.scroll(0, currentpos);
+  } else {
+    currentpos = 0;
+    window.scroll(0, currentpos);
+  }
+}
+
+function startIt() {
+  setInterval(scrollWindow, 50);
+}
+
+// Function to dynamically change the speed
+function changeSpeed(newSpeed) {
+  speed = parseInt(newSpeed, 10);
+}
+
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'hidden') {
+    releaseWakeLock();
+  } else {
+    requestWakeLock();
+  }
+});
+
+window.onload = initialize;
+</script>
 </head>
-
 <body>
-<BR>
-<button class="block" onclick="openFullscreen();">Open Fullscreen</button>
-<BR>
-Kakada Aarthi<BR>
-Composed by :: Sant Tukaram Maharaj<BR>
+<div id="controls">
+  <label for="speedSelector">Speed:</label>
+  <select id="speedSelector" onchange="changeSpeed(this.value)">
+    <option value="1">1x</option>
+    <option value="2">2x</option>
+    <option value="3">3x</option>
+    <option value="4">4x</option>
+    <option value="5">5x</option>
+    <option value="6">6x</option>
+    <option value="7">7x</option>
+  </select>
+</div>
+<div>
 <p>
 
 Joduniyaa kara charanee ttevilaa mathaa<BR>
@@ -118,7 +156,7 @@ Tumheecha teete saaruni daavaa mukha jana taaraayaa<BR>
 Bho Sainaatha Maharaaja bhava timiranaasaka ravee<BR>
 Agnanee aamhee kitee tumhicha varnaava thoravee<BR>
 Thee varnitaa bhaagale bahuvadani sesvidhi kavee<BR>
-Sakripa howuni mahimaa tumachaa tumheecha vadavaava Adhi….. Utha…..<BR>
+Sakripa howuni mahimaa tumachaa tumheecha vadavaava Adhi.. Utha..<BR>
 Bhakta manee sadbhaava dharooni je tumha anusarale,<BR>
 Dhyaanyasthawa te darsana tumache dwwari ubhe ttele<BR>
 Dhyaanasthaa tumha asa paahunee mana amuche ghaale,<BR>
@@ -128,7 +166,7 @@ Paahi baa kripadrishtee baalakaa jashee maaataa<BR>
 Ranjavee madhuravaanee haree taapa Sainaatha<BR>
 Aamhceecha aapule karyaasthava tuja kashtavito Deva<BR>
 Sahana karisil te aikuni dyaavee bhett Krishna daava<BR>
-Utha…… adhivyadhi<BR>
+Utha adhivyadhi<BR>
 <p>
 
 4. BHUPALI<BR>
@@ -166,19 +204,19 @@ Vairagyache toop ghaaluni mee to bhijaveela<BR>
 Sainath Guru bakti jwalane to mee petawila<BR>
 Tad vryitti jaluni guroo ne prakash paadila<BR>
 Dwaita tama naasooni milavi tatswaroopi jeewa<BR>
-Chinmaya …. Kaakad…. Aarati….<BR>
+Chinmaya . Kaakad. Aarati.<BR>
 Bhoochar khechar vyaapooni awaghe hritkamali raahasee<BR>
 Tochi dattaadev tu shridi raahuni paawasee<BR>
 Rahooni yethe anayatrahitoo baktaastava dhavasee<BR>
 Nirasooniyaa sankata daasaa anubhawa daavisee<BR>
 Na kale twalleelahee konyaa devaa waaa maanavaa<BR>
-Chinmaya …. Kaakad…. Aarati….<BR>
+Chinmaya . Kaakad. Aarati.<BR>
 Twat yasha dundubheene saare ambar he kondale<BR>
 Sagun murti paahanyaa aatur jan Shirdee aale<BR>
 Proshuni twadvachanaamrita aamuche dehabhaan haarpale<BR>
 Sodooniyaa durabhimaan maanas twaccharanee waahile<BR>
 Kripa karooniya Sai maawle daas padari ghyaawaa<BR>
-Chinmaya …. Kaakad…. Aarati….<BR>
+Chinmaya . Kaakad. Aarati.<BR>
 <p>
 
 7. KAKADA AARTHI<BR>
@@ -193,7 +231,7 @@ Rahee rakhmaabaayee ubhya doghee do baahee<BR>
 Mayur pincha chaamara dhaaliti thaayee che thaayee<BR>
 Tuka mhane deep ghewuni unmaneet shobhaa<BR>
 Vittevaree ubha dise laawanya gaabhaa.<BR>
-Owaaloo aaratee …<BR>
+Owaaloo aaratee <BR>
 <p>
 
 8. PADH<BR>
@@ -268,11 +306,11 @@ Composed by :: Sri Dasganu Maharaj<BR>
 Sai raham nazar karnaa Bachonkaa paalan karnaa<BR>
 Sai raham nazar karnaa Bachonkaa paalan karnaa<BR>
 Jaanaatumneh jagat pasaaraa Sabahee jzhoott jamaanaa<BR>
-Jaanaatumneh jagat pasaaraa Sabahee jzhoott jamaanaa Sai raham…<BR>
+Jaanaatumneh jagat pasaaraa Sabahee jzhoott jamaanaa Sai raham<BR>
 Mein andhaa hoon bandaa aabkaa Mujhse prabhu dikhlaanaa<BR>
-Mein andhaa hoon bandaa aabkaa Mujhse prabhu dikhlaanaa Sai raham…<BR>
+Mein andhaa hoon bandaa aabkaa Mujhse prabhu dikhlaanaa Sai raham<BR>
 Daas ganu kahe ab kyaa boloo Thak gayi meree rasnaa.<BR>
-Daas Ganu kahe ab kyaa boloo Thak gayi meree rasnaa. Sai raham…<BR>
+Daas Ganu kahe ab kyaa boloo Thak gayi meree rasnaa. Sai raham<BR>
 <p>
 
 XII. PADH<BR>

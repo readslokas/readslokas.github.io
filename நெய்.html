@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+
+#controls {
+position: fixed;
+top: 10px;
+right: 30px; /* Adjusted position: moved 20px to the left */
+z-index: 1000;
+}
+
+select {
+font-size: 1em;
+padding: 5px;
+}
+</style>
+<script>
+var speed = 1; // Default speed
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+// Function to dynamically change the speed
+function changeSpeed(newSpeed) {
+speed = parseInt(newSpeed, 10);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div id="controls">
+<label for="speedSelector">Speed:</label>
+<select id="speedSelector" onchange="changeSpeed(this.value)">
+<option value="1">1x</option>
+<option value="2">2x</option>
+<option value="3">3x</option>
+<option value="4">4x</option>
+<option value="5">5x</option>
+<option value="6">6x</option>
+<option value="7">7x</option>
+</select>
+</div>
+<div>
+<p>
+
+வஞ்சஞ்சூ தொன்றும்பேர் துன்பஞ் சங்கட மண்டும்பேர்<BR>
+மங்கும்பேய் நம்பும்பேர் துஞ்சும் புன்சொல்வ ழங்கும்பேர்<BR>
+மான் கணார் பெணார் தமா லினான்<BR>
+மதியது கெட்டுத் திரிபவர் தித்திப்<BR>
+பெனமது துய்த்துச் சுழல்பவ ரிச்சித்தே<BR>
+<BR>
+மனமுயி ருட்கச் சிதைத்துமே<BR>
+நுகர்தின துக்கக் குணத்தினோர்<BR>
+வசையுறு துட்டச் சினத்தினோர்<BR>
+மடிசொல மெத்தச் சுறுக்குளோர்<BR>
+<BR>
+வலியே றியகூ ரமுளோ ருதவார்<BR>
+நடுவே துமிலா ரிழிவார் களவோர்<BR>
+மணமல ரடியிணை விடுபவர், தமையினு<BR>
+நணுகிட வெனைவிடு வதுசரி யிலையே தொண்டர்கள் பதிசேராய்<BR>
+<BR>
+விஞ்சுங்கார் நஞ்சந்தா னுண்டுந் திங்கள ணிந்துங்கால்<BR>
+வெம்பும்போ தொண்செந்தாள் கொண்டஞ் சஞ்சவுதைந் தும்பூ<BR>
+மீன் பதா கையோன் மெய்வீ யுமா<BR>
+<BR>
+விழியை விழித்துக் கடுக வெரித்துக்<BR>
+கரியை யுரித்துத் தனுமிசை சுற்றிக்கோள்<BR>
+விழைவறு சுத்தச் சிறப்பினார்<BR>
+பிணைமழு சத்திக் கரத்தினார்<BR>
+விஜய வுடுக்கைப் பிடித்துளார்<BR>
+புரமதெ ரிக்கச் சிரித்துளார்<BR>
+<BR>
+விதிமா தவனா ரறியா வடிவோ<BR>
+ரொருபா திபெணா யொளிர்வோர் சுசிநீள்<BR>
+விடைதனி லிவர்பவர் பணபண மணிபவர்<BR>
+கனைகழ லொலிதர நடமிடு பவர்சேய் என்றுளகுருநாதா<BR>
+<BR>
+நஞ்சஞ்சேர் சொந்தஞ்சா லஞ்செம் பங்கய மஞ்சுங்கா<BR>
+றந்தந்தா தந்தந்தா தந்தந் தந்தன தந்தந்தா<BR>
+தாந் ததீ ததீ ததீ ததீ<BR>
+ததிமிதி தத்தித் தரிகிட தத்தத்<BR>
+திரிகிட தத்தத் தெயெனந டிக்கச்சூழ்<BR>
+<BR>
+தனி நடனக்ருத் தியத்தினாண்<BR>
+மகிடனை வெட்டிச் சிதைத்துளான்<BR>
+தடமிகு முக்கட் கயத்தினாள்<BR>
+சுரதனு வக்கப் பகுத்துளாள்<BR>
+<BR>
+சமிகூ விளமோ டறுகா ரணிவா<BR>
+ளொருகோ டுடையோ னனைவாய் வருவாள்<BR>
+சதுமறை களும்வழி படவளர் பவண்மலை<BR>
+மகளென வொருபெய ருடையவள் சுதனே அண்டர்கடொழுதேவா<BR>
+<BR>
+பிஞ்சஞ்சூழ் மஞ்சொண்சே யுஞ்சந் தங்கொள்ப தங்கங்கூர்<BR>
+பிம்பம்போ லங்கஞ்சா ருங்கண் கண்களி லங்குஞ்சீ<BR>
+ரோங் கவே யுலா வுகால் விணோர்<BR>
+பிரமனொ டெட்டுக் குலகிரி திக்குக்<BR>
+கரியொடு துத்திப் படவர வுட்கப்பார்<BR>
+<BR>
+பிளிற நடத்திக் களித்தவா<BR>
+கிரிகெட வெக்கித் துளைத்தவா<BR>
+பிரியக மெத்தத் தரித்தவா<BR>
+தமியனை நச்சிச் சுளித்தவா<BR>
+<BR>
+பிணமா முனமே யருள்வா யருள்வாய்<BR>
+துனியா வையுநீ கடியாய் கடியாய்<BR>
+பிசியொடு பலபிழை பொறுபொறு பொறுபொறு<BR>
+சததமு மறைவறு திருவடி தரவா என்களிமுருகோனே<BR>
+
+
+</p>
+</div>
+</body>
+</html>

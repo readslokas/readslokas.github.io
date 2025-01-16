@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+
+#controls {
+position: fixed;
+top: 10px;
+right: 30px; /* Adjusted position: moved 20px to the left */
+z-index: 1000;
+}
+
+select {
+font-size: 1em;
+padding: 5px;
+}
+</style>
+<script>
+var speed = 1; // Default speed
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+// Function to dynamically change the speed
+function changeSpeed(newSpeed) {
+speed = parseInt(newSpeed, 10);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div id="controls">
+<label for="speedSelector">Speed:</label>
+<select id="speedSelector" onchange="changeSpeed(this.value)">
+<option value="1">1x</option>
+<option value="2">2x</option>
+<option value="3">3x</option>
+<option value="4">4x</option>
+<option value="5">5x</option>
+<option value="6">6x</option>
+<option value="7">7x</option>
+</select>
+</div>
+<div>
+<p>
+
+கடித்துண ரொன்றிய முகிற்குழ லுங்குளிர்<BR>
+கலைப்பிறை யென்றிடு நுதற்றில கந்திகழ்<BR>
+கா சுமையா ளிளமா மகனே<BR>
+களங்க விந்துவை முனிந்து நன்கது<BR>
+கடந்து விஞ்சிய முகஞ்சி றந்தொளி<BR>
+கா லயிலார் விழிமா மருகா விரைசெறி யணி மார்பா.<BR>
+<BR>
+கனத்துயர் குன்றையு மினைத்துள கும்பக<BR>
+லசத்தையும் விஞ்சிய தனத்திசை மங்கைகொள்<BR>
+கா தலனான் முகனா டமுதே<BR>
+கமழ்ந்த குங்கும நாத்த முந்திமிர்<BR>
+கரும்பெ னுஞ்சொலை யியம்பு குஞ்சரி<BR>
+கா வலனே குகனே பரனே அமரர்கடொழுபாதா<BR>
+<BR>
+<BR>
+உடுக்கிடை யின்பணி யடுக்குடை யுங்கன<BR>
+யுரைப்புயர் மஞ்சுறு பதக்கமொ டம்பத<BR>
+வோ வியநூ புரமோ திரமே<BR>
+ருயர்ந்த தண்டொடை களுங்க ரங்களி<BR>
+லுறும்ப சுந்தொடி களுங்கு யங்களி<BR>
+லூ ரெழில்வா ரொடுநா சியிலே மினுமணி நகையோடே.<BR>
+<BR>
+உலப்பறி லம்பக மினுக்கிய செந்திரு<BR>
+வுருப்பணி யும்பல தரித்தடர் பைந்தினை<BR>
+யோ வலிலா வரணே செயுமா<BR>
+றொழுங்கு றும்புன மிருந்து மஞ்சுல<BR>
+முறைந்த கிஞ்சுக நறுஞ்சொ லென்றிட<BR>
+வோ லமத யிடுகா னவர்மா மகளெனுமொருமானாம்<BR>
+<BR>
+மடக்கொடி முன்றலை விருப்புடன் வந்ததி<BR>
+வனத்துறை குன்றவ ருறுப்பொடு நின்றிள<BR>
+மா னினியே கனியே யினிநீ<BR>
+வருந்து மென்றனை யணைந்து சந்தத<BR>
+மனங்கு ளிர்ந்திட விணங்கி வந்தரு<BR>
+ளாய் மயிலே குயிலே யெழிலே மடவனநினதேரார்<BR>
+<BR>
+மடிக்கொரு வந்தன மடிக்கொரு வந்தனம்<BR>
+வளைக்கொரு வந்தனம் விழிக்கொரு வந்தனம்<BR>
+வா வெனுமோர் மொழியே சொலுநீ<BR>
+மணங்கி ளர்ந்தந லுடம்பி லங்கிடு<BR>
+மதங்கி யின்றள மகிழ்ந்தி டும்படி<BR>
+மான் மகளே யெனையா ணிதியே எனுமொழிபலநூறே.<BR>
+<BR>
+படித்தவ டன்கைகள் பிடித்துமு னஞ்சொன<BR>
+படிக்கும ணந்தரு ளளித்தவ னந்தகிர்<BR>
+பா கரனே வரனே யரனே<BR>
+படர்ந்த செந்தமிழ் தினஞ்சொ லின்பொடு<BR>
+பதங்கு ரங்குந ருளந்தெ ளிந்தருள்<BR>
+பா வகியே சிகியூ ரிறையே திருமலிசமரூரா<BR>
+<BR>
+பவக்கட லென்பது கடக்கவு நின்றுணை<BR>
+பலித்திட வும்ழை செறுத்திட வுங்கவி<BR>
+பா டவுநீ நடமா டவுமே<BR>
+படர்ந்து தண்டயை நிதஞ்செ யும்படி<BR>
+பணிந்த வென்றனை நினைத்து வந்தருள்<BR>
+பா லனனே யெனையாள் சிவனே வளரயின் முருகோனே<BR>
+
+
+</p>
+</div>
+</body>
+</html>

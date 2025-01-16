@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+
+#controls {
+position: fixed;
+top: 10px;
+right: 30px; /* Adjusted position: moved 20px to the left */
+z-index: 1000;
+}
+
+select {
+font-size: 1em;
+padding: 5px;
+}
+</style>
+<script>
+var speed = 1; // Default speed
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+// Function to dynamically change the speed
+function changeSpeed(newSpeed) {
+speed = parseInt(newSpeed, 10);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div id="controls">
+<label for="speedSelector">Speed:</label>
+<select id="speedSelector" onchange="changeSpeed(this.value)">
+<option value="1">1x</option>
+<option value="2">2x</option>
+<option value="3">3x</option>
+<option value="4">4x</option>
+<option value="5">5x</option>
+<option value="6">6x</option>
+<option value="7">7x</option>
+</select>
+</div>
+<div>
+<p>
+
+இலங்கு நன்கலை விரிஞ்சனோ<BR>
+டனந்த னுஞ்சத மகன்சதா<BR>
+வியன்கொ டம்பியர் களும்பொனா<BR>
+டுறைந்த புங்கவர் களுங்கெடா<BR>
+<BR>
+தென்றுங் கொன்றைய ணிந்தோனார்<BR>
+தந்தண் டின்றிர ளுஞ்சேயா<BR>
+மென்றன் சொந்தமி னுந்தீதே<BR>
+தென்றங் கங்கணி கண்டோயா<BR>
+<BR>
+<BR>
+தேந்து வன்படைவேல் வலிசேர்ந்த திண்புயமே<BR>
+யேய்ந்த கண்டர்கா றொடை மூஞ்சி கந்தரமோ<BR>
+டெலும்பு றுந்தலை களுந்து ணிந்திட<BR>
+வடர்ந்த சண்டைக டொடர்ந்துபே<BR>
+<BR>
+யெனுங்கு ணுங்குக ணிணங்க ளுண்டரன்<BR>
+மகன்பு றஞ்சய மெனுஞ்சொலே களமிசையெழுமாறே<BR>
+<BR>
+துலங்கு மஞ்சிறை யலங்கவே<BR>
+விளங்க வந்தவொர் சிகண்டியே<BR>
+துணிந்தி ருந்துயர் கரங்கண்மா<BR>
+வரங்கண் மிஞ்சிய விரும்புகூர்<BR>
+<BR>
+துன்றுந் தண்டமொ டம்பீர்வாள்<BR>
+கொண்டண் டங்களி னின்றூடே<BR>
+சுண்டும் புங்கம ழிந்தேலா<BR>
+தஞ்சும் பண்டசு ரன்சூதே<BR>
+<BR>
+சூழ்ந்தெ ழும்பொழுதே கரம்வாங்கி யொண்டிணிவே<BR>
+றூண்டி நின்றவனே கிளை யோங்க நின்றுளமா<BR>
+<BR>
+துவந்து வம்பட வகிர்ந்து வென்றதி<BR>
+பலம்பொ ருந்திய நிரஞ்சனா<BR>
+சுகங்கொ ளுந்தவர் வணங்கு மிங்கித<BR>
+முகந்த சுந்தர வல்ங்க்ருதா அரிபிரமருமேயோ.<BR>
+<BR>
+அலைந்து சந்தத மறிந்திடா<BR>
+தெழுந்த செந்தழ லுடம்பினா<BR>
+ரடங்கி யங்கமு மிறைஞ்சியே<BR>
+புகழ்ந்த வன்றுமெய் மொழிந்தவா<BR>
+<BR>
+அங்கிங் கென்பத றுந்தேவா<BR>
+யெங்குந் துன்றிநி றைந்தோனே<BR>
+யண்டுந் தொண்டர்வ ருந்தாமே<BR>
+யின்பந் தந்தரு ளுந்தாளா<BR>
+<BR>
+ஆம்பி தந்திடுமா மணி பூண்ட வந்தளையா<BR>
+வாண்ட வன்குமரா வெனை யாண்ட செஞ்சரணா<BR>
+<BR>
+அலர்ந்த விந்துள வலங்க லுங்கடி<BR>
+செறிந்த சந்தன சுகந்தமே<BR>
+யணிந்து குன்றவர் நலம்பொ ருந்திட<BR>
+வளர்ந்த பந்தனை யெனும் பெணாள் தனையணை மணவாளா<BR>
+<BR>
+குலுங்கி ரண்டுமு கையுங்களா<BR>
+ரிருண்ட கொந்தள வொழுங்கும்வேல்<BR>
+குரங்கு மம்பக மதுஞ்செவா<BR>
+யதுஞ்ச மைந்துள மடந்தைமார்<BR>
+<BR>
+கொஞ்சும் புன்றொழி லுங்காலோ<BR>
+ருஞ்சண் டன்செய லுஞ்சூடே<BR>
+கொண்டங் கம்பட ருஞ்சீழ்நோ<BR>
+யண்டந் தந்தம்வி ழும்பாழ்நோய்<BR>
+<BR>
+கூன்செ யும்பிணிகால் கரம் வீங்க ழுங்கலும்வாய்<BR>
+கூம்ப ணங்குகணோய் துயர் சார்ந்த புன்கணுமே<BR>
+<BR>
+குயின்கொ ளுங்கடல் வளைந்த விங்கெனை<BR>
+யடைந்தி டும்படி யினுஞ்செயேல்<BR>
+குவிந்து நெஞ்சமு ளணைந்து நின்பத<BR>
+நினைந்து யும்படி மனஞ்செயே திருவருண் முருகோனே<BR>
+
+
+</p>
+</div>
+</body>
+</html>

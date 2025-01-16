@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+background-color: black;
+color: white;
+font-family: Calibri;
+margin: 0; /* Remove default margin */
+overflow-y: auto; /* Enable vertical scrolling */
+}
+
+p {
+font-size: calc(2vw + 2em); /* Responsive font size */
+word-wrap: break-word;
+padding: 10px; /* Add some padding */
+}
+
+#controls {
+position: fixed;
+top: 10px;
+right: 30px; /* Adjusted position: moved 20px to the left */
+z-index: 1000;
+}
+
+select {
+font-size: 1em;
+padding: 5px;
+}
+</style>
+<script>
+var speed = 1; // Default speed
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+try {
+wakeLock = await navigator.wakeLock.request('screen');
+console.log('Wake Lock is active');
+} catch (err) {
+console.error(`${err.name}, ${err.message}`);
+}
+}
+
+function releaseWakeLock() {
+if (wakeLock !== null) {
+wakeLock.release().then(() => {
+wakeLock = null;
+console.log('Wake Lock has been released');
+});
+}
+}
+
+function initialize() {
+startIt();
+requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+if (document.all && !document.getElementById) {
+temp = document.body.scrollTop;
+} else {
+temp = window.pageYOffset;
+}
+
+if (alt == 0) alt = 2;
+else alt = 1;
+
+if (alt == 0) {
+curpos1 = temp;
+} else {
+curpos2 = temp;
+}
+
+if (curpos1 != curpos2) {
+if (document.all) {
+currentpos = document.body.scrollTop + speed;
+} else {
+currentpos = window.pageYOffset + speed;
+}
+window.scroll(0, currentpos);
+} else {
+currentpos = 0;
+window.scroll(0, currentpos);
+}
+}
+
+function startIt() {
+setInterval(scrollWindow, 50);
+}
+
+// Function to dynamically change the speed
+function changeSpeed(newSpeed) {
+speed = parseInt(newSpeed, 10);
+}
+
+document.addEventListener('visibilitychange', () => {
+if (document.visibilityState === 'hidden') {
+releaseWakeLock();
+} else {
+requestWakeLock();
+}
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div id="controls">
+<label for="speedSelector">Speed:</label>
+<select id="speedSelector" onchange="changeSpeed(this.value)">
+<option value="1">1x</option>
+<option value="2">2x</option>
+<option value="3">3x</option>
+<option value="4">4x</option>
+<option value="5">5x</option>
+<option value="6">6x</option>
+<option value="7">7x</option>
+</select>
+</div>
+<div>
+<p>
+
+மாத முந்தினம் வார முந்திதி<BR>
+யோக மும்பல நாள்களும் படர்<BR>
+மாதி ரந்திரி கோள்க ளுங்கழல்<BR>
+பேணு மன்பர்கள் பான லந்தர<BR>
+<BR>
+வற்சல மது செயு மருட்குணா<BR>
+சிறந்த விற்பன ரகக்கணா<BR>
+மற்புய வசுரரை யொழித்தவா<BR>
+வனந்த சித்துரு வெடுத்தவா<BR>
+<BR>
+<BR>
+மால யன்சுரர் கோனு மும்பரெ<BR>
+லாரும் வந்தன மேபு ரிந்திடு<BR>
+வான வன்சுடர் வேல வன்குரு<BR>
+ஞான கந்தபி ரானெ னும்படி<BR>
+<BR>
+மத்தக மிசைமுடி தரித்தவா<BR>
+குளிர்ந்த கத்திகை பரித்தவா<BR>
+மட்டறு மிகலயில் பிடித்தவா<BR>
+சிவந்த வக்கினி நுதற்கணா சிவகுருவெனுநாதா<BR>
+<BR>
+நாத விங்கித வேத மும்பல்பு<BR>
+ராண முங்கலை யாக மங்களு<BR>
+நாத னுன்றனி வாயில் வந்தன<BR>
+வேயெ னுந்துணி பேய றிந்தபி<BR>
+<BR>
+னச்சுவ திவணெது கணித்தையோ<BR>
+செறிந்த ஷட்பகை கெடுத்துமே<BR>
+னட்புடை யருளமிழ் துணிற்சதா<BR>
+சிறந்த துத்தியை யளிக்குமே<BR>
+<BR>
+நாளு மின்புயர் தேனி னுஞ்சுவை<BR>
+யீயும் விண்டல மேவ ருஞ்சுரர்<BR>
+நாடி யுண்டிடு போஜ னந்தினி<BR>
+லேயும் விஞ்சிடு மேக ரும்பொடு<BR>
+<BR>
+நட்டமின் முப்பழ முவர்க்குமே<BR>
+விளைந்த சர்க்கரை கசக்குமே<BR>
+நற்சுசி முற்றிய பயத்தொடே<BR>
+கலந்த புத்தமு தினிக்குமோ அதையினியருளாயோ<BR>
+<BR>
+பூத லந்தனி லேயு நன்குடை<BR>
+மீத லந்தனி லேயும் வண்டறு<BR>
+பூம லர்ந்தவு னாத வம்பத<BR>
+நேய மென்பது வேதி னந்திகழ்<BR>
+<BR>
+பொற்புறு மழகது கொடுக்குமே<BR>
+யுயர்ந்த மெய்ப்பெயர் புணர்த்துமே<BR>
+பொய்த்திட வினைகளை யறுக்குமே<BR>
+மிகுந்த சித்திகள் பெருக்குமே<BR>
+<BR>
+பூர ணந்தரு மேநி ரம்பெழி<BR>
+லாத னந்தரு மேய ணிந்திடு<BR>
+பூட ணந்தரு மேயி கந்தனில்<BR>
+வாழ்வ துந்தரு மேயு டம்பொடு<BR>
+<BR>
+பொக்கறு புகழினை யளிக்குமே<BR>
+பிறந்து செத்திட றொலைக்குமே<BR>
+புத்தியி லறிவினை விளக்குமே<BR>
+நிறைந்த முத்தியு மிசைக்குமே இதைநிதமுதவாயோ<BR>
+<BR>
+சீத ளஞ்சொரி கோதில் பங்கய<BR>
+மேம லர்ந்திடு வாவி தங்கிய<BR>
+சீர டர்ந்தவி ராவி னன்குடி<BR>
+யேர கம்பர பூத ரஞ்சிவ<BR>
+<BR>
+சித்தரு முனிவரும் வசித்தசோ<BR>
+லையுந்தி ரைக்கட லடிக்கும்வாய்<BR>
+செற்கண முலவிடு பொருப்பெலா<BR>
+மிருந்த ளித்தரு ளயிற்கையா<BR>
+<BR>
+தேனு றைந்திடு கான கந்தனின்<BR>
+மானி ளஞ்சுதை யாலி ருஞ்சரை<BR>
+சேரு டம்புத ளாட வந்தசன்<BR>
+யாச சுந்தர ரூப வம்பர<BR>
+<BR>
+சிற்பர வெளிதனி னடிக்குமா<BR>
+வகண்ட தத்துவ பரத்துவா<BR>
+செப்பரும் ரகசிய நிலைக்குளே<BR>
+விளங்கு தற்பர திரித்துவா திருவளர் முருகோனே<BR>
+
+
+</p>
+</div>
+</body>
+</html>

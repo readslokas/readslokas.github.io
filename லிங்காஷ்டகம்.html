@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+  background-color: black;
+  color: white;
+  font-family: Calibri;
+  margin: 0; /* Remove default margin */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+p {
+  font-size: calc(2.2vw + 2.2em);/* Responsive font size */
+  word-wrap: break-word;
+  padding: 10px; /* Add some padding */
+}
+
+#controls {
+  position: fixed;
+  top: 10px;
+  right: 30px; /* Adjusted position: moved 20px to the left */
+  z-index: 1000;
+}
+
+select {
+  font-size: 1.4em;
+  padding: 5px;
+}
+</style>
+<script>
+var speed = 1; // Default speed
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+  try {
+    wakeLock = await navigator.wakeLock.request('screen');
+    console.log('Wake Lock is active');
+  } catch (err) {
+    console.error(`${err.name}, ${err.message}`);
+  }
+}
+
+function releaseWakeLock() {
+  if (wakeLock !== null) {
+    wakeLock.release().then(() => {
+      wakeLock = null;
+      console.log('Wake Lock has been released');
+    });
+  }
+}
+
+function initialize() {
+  startIt();
+  requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+  if (document.all && !document.getElementById) {
+    temp = document.body.scrollTop;
+  } else {
+    temp = window.pageYOffset;
+  }
+
+  if (alt == 0) alt = 2;
+  else alt = 1;
+
+  if (alt == 0) {
+    curpos1 = temp;
+  } else {
+    curpos2 = temp;
+  }
+
+  if (curpos1 != curpos2) {
+    if (document.all) {
+      currentpos = document.body.scrollTop + speed;
+    } else {
+      currentpos = window.pageYOffset + speed;
+    }
+    window.scroll(0, currentpos);
+  } else {
+    currentpos = 0;
+    window.scroll(0, currentpos);
+  }
+}
+
+function startIt() {
+  setInterval(scrollWindow, 50);
+}
+
+function openDropdown() {
+  const dropdown = document.getElementById('speedSelector');
+  dropdown.focus(); // Focus on the dropdown
+  const event = new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true });
+  dropdown.dispatchEvent(event); // Simulate pressing "Arrow Down"
+}
+
+
+// Function to dynamically change the speed
+function changeSpeed(newSpeed) {
+  speed = parseInt(newSpeed, 10);
+}
+
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'hidden') {
+    releaseWakeLock();
+  } else {
+    requestWakeLock();
+  }
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div id="controls">
+  <select id="speedSelector" onchange="changeSpeed(this.value)">
+    <option value="1">1x</option>
+    <option value="2">2x</option>
+    <option value="3">3x</option>
+    <option value="4">4x</option>
+    <option value="5">5x</option>
+    <option value="6">6x</option>
+    <option value="7">7x</option>
+  </select>
+  <label for="speedSelector" style="font-size: 1.8em; cursor: pointer;" onclick="openDropdown();"> Speed</label>
+</div>
+<div>
+<p>
+
+லிங்காஷ்டகம்<BR>
+<BR>
+ப்ரஹ்மமுராரி ஸுரார்ச்சித லிங்கம்<BR>
+நிர்மல பாஷித சோபித லிங்கம்<BR>
+ஜன்மஜ துக்க விநாசக லிங்கம்<BR>
+தத் ப்ரணமாமி ஸதாசிவ லிங்கம் 1<BR>
+<BR>
+தேவமுனி ப்ரவார்ச்சித லிங்கம்<BR>
+காம தஹன கருணாகர லிங்கம்<BR>
+ராவண தர்ப்ப விநாசக லிங்கம்<BR>
+தத் ப்ரணமாமி ஸதாசிவ லிங்கம் 2<BR>
+<BR>
+ஸர்வஸுகந்த ஸுலேபித லிங்கம்<BR>
+புத்தி விவர்த்தன காரண லிங்கம்<BR>
+ஸித்த ஸுராஸுர வந்தித லிங்கம்<BR>
+தத் ப்ரணமாமி ஸதாசிவ லிங்கம் 3<BR>
+<BR>
+<BR>
+கனக மஹாமணி பூஷித லிங்கம்<BR>
+பணிபதி வேஷ்டித சோபித லிங்கம்<BR>
+தக்ஷ ஸுயஜ்ஞ விநாசன லிங்கம்<BR>
+தத் ப்ரணமாமி ஸதாசிவ லிங்கம் 4<BR>
+<BR>
+குங்குமசந்தன லேபித லிங்கம்<BR>
+பங்கஜ ஹார ஸுசோபித லிங்கம்<BR>
+ஸஞ்சித பாப விநாசன லிங்கம்<BR>
+தத் ப்ரணமாமி ஸதாசிவ லிங்கம் 5<BR>
+<BR>
+தேவகணார்ச்சித ஸேவித லிங்கம்<BR>
+பாவையர் பக்தி பிரேவச லிங்கம்<BR>
+தினகர கோடி ப்ரபாகர லிங்கம்<BR>
+தத் ப்ரணமாமி ஸதாசிவ லிங்கம் 6<BR>
+<BR>
+அஷ்ட தளோபரி வேஷ்டித லிங்கம்<BR>
+ஸர்வ ஸமுத்பவ காரண லிங்கம்<BR>
+அஷ்ட தரித்ர விநாசித லிங்கம்<BR>
+தத் ப்ரணமாமி ஸதாசிவ லிங்கம் 7<BR>
+<BR>
+ஸுரகுரு ஸுரவர பூஜித லிங்கம்<BR>
+ஸுரவன புஷ்ப ஸதார்ச்சித லிங்கம்<BR>
+பரமபர பரமாத்மக லிங்கம்<BR>
+தத் ப்ரணமாமி ஸதாசிவ லிங்கம் 8<BR>
+<BR>
+லிங்காஷ்டக மிதம் புண்யம் <BR>
+யஹ் படேச் சிவ ஸந்நிதெள <BR>
+சிவலோக மவாப்நோதி <BR>
+சிவேந ஸஹ மோததே 9<BR>
+
+</p>
+</div>
+</body>
+</html>

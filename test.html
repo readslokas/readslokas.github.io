@@ -28,6 +28,10 @@
             padding: 10px;
             border-radius: 5px;
         }
+        iframe {
+            width: 100%;
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -36,21 +40,14 @@
         <span>அகரமும் ஆகி</span>
     </div>
     <div class="content" id="content-1">
-        <iframe src="https://readslokas.github.io/அகரமும் ஆகி.html" width="100%" height="400px" style="border:none;"></iframe>
+        <iframe id="iframe-1" src="https://readslokas.github.io/அகரமும் ஆகி.html"></iframe>
     </div>
     <div class="expander" onclick="toggleContent(2)">
         <span class="arrow" id="arrow-2">&#9654;</span>
         <span>முத்தைத்தரு</span>
     </div>
     <div class="content" id="content-2">
-        <iframe src="https://readslokas.github.io/முத்தைத்தரு.html" width="100%" height="400px" style="border:none;"></iframe>
-    </div>
-    <div class="expander" onclick="toggleContent(3)">
-        <span class="arrow" id="arrow-3">&#9654;</span>
-        <span>அதல சேடனார்</span>
-    </div>
-    <div class="content" id="content-3">
-        <iframe src="https://readslokas.github.io/அதல சேடனார்.html" width="100%" height="400px" style="border:none;"></iframe>
+        <iframe id="iframe-2" src="https://readslokas.github.io/முத்தைத்தரு.html"></iframe>
     </div>
 
     <script>
@@ -64,8 +61,19 @@
             // Expand the selected section
             const content = document.getElementById(`content-${id}`);
             const arrow = document.getElementById(`arrow-${id}`);
+            const iframe = document.getElementById(`iframe-${id}`);
             content.style.display = 'block';
-            arrow.style.transform = 'rotate(90deg)';
+            arrow.style.transform = 'rotate(90deg)`;
+
+            // Dynamically adjust the iframe height (works for same-origin content)
+            iframe.onload = () => {
+                try {
+                    iframe.style.height = iframe.contentWindow.document.documentElement.scrollHeight + 'px';
+                } catch (e) {
+                    console.warn('Unable to access iframe content due to cross-origin restrictions.');
+                    iframe.style.height = '400px'; // Default height fallback
+                }
+            };
         }
     </script>
 </body>

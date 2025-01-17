@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expandable Links</title>
+    <title>Expandable Links with Content</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -28,31 +28,26 @@
             padding: 10px;
             border-radius: 5px;
         }
-        iframe {
-            width: 100%;
-            border: none;
-            height: 400px; /* Default height */
+        .loading {
+            color: #aaaaaa;
         }
     </style>
 </head>
 <body>
-    <div class="expander" onclick="toggleContent(1)">
+    <div class="expander" onclick="toggleContent(1, 'https://readslokas.github.io/அகரமும் ஆகி.html')">
         <span class="arrow" id="arrow-1">&#9654;</span>
         <span>அகரமும் ஆகி</span>
     </div>
-    <div class="content" id="content-1">
-        <iframe id="iframe-1" src="https://readslokas.github.io/அகரமும் ஆகி.html"></iframe>
-    </div>
-    <div class="expander" onclick="toggleContent(2)">
+    <div class="content" id="content-1"></div>
+
+    <div class="expander" onclick="toggleContent(2, 'https://readslokas.github.io/முத்தைத்தரு.html')">
         <span class="arrow" id="arrow-2">&#9654;</span>
         <span>முத்தைத்தரு</span>
     </div>
-    <div class="content" id="content-2">
-        <iframe id="iframe-2" src="https://readslokas.github.io/முத்தைத்தரு.html"></iframe>
-    </div>
+    <div class="content" id="content-2"></div>
 
     <script>
-        function toggleContent(id) {
+        function toggleContent(id, url) {
             // Collapse all sections
             const allContent = document.querySelectorAll('.content');
             const allArrows = document.querySelectorAll('.arrow');
@@ -64,8 +59,32 @@
             // Expand the selected section
             const content = document.getElementById(`content-${id}`);
             const arrow = document.getElementById(`arrow-${id}`);
-            content.style.display = 'block';
-            arrow.style.transform = 'rotate(90deg)';
+            
+            if (content.dataset.loaded !== "true") {
+                // If content is not loaded, fetch and display
+                content.style.display = 'block';
+                content.innerHTML = '<div class="loading">Loading...</div>';
+                arrow.style.transform = 'rotate(90deg)';
+                
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        return response.text();
+                    })
+                    .then(data => {
+                        content.innerHTML = data;
+                        content.dataset.loaded = "true"; // Mark as loaded
+                    })
+                    .catch(error => {
+                        content.innerHTML = `<div class="loading">Error loading content: ${error.message}</div>`;
+                    });
+            } else {
+                // If content is already loaded, just show it
+                content.style.display = 'block';
+                arrow.style.transform = 'rotate(90deg)';
+            }
         }
     </script>
 </body>

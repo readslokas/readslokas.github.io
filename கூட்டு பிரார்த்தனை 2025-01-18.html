@@ -1,93 +1,107 @@
 <style type="text/css">
     body {
-    opacity: 1;
-    background-image: radial-gradient( ellipse farthest-corner at 4px 4px , #D1AA49, #D1AA49 50%, #dbbf79 50%);
-    background-size: 4px 4px;
+        opacity: 1;
+        background-image: radial-gradient(ellipse farthest-corner at 4px 4px, #D1AA49, #D1AA49 50%, #dbbf79 50%);
+        background-size: 4px 4px;
     }
-    
+
     .zoom {
-    display: inline-block;
-    transition: transform 0.3s; /* Smooth zoom effect */
-    font-family: monospace; /* Fixed-width font */
-    color: #8B0000; /* Red color for the link */
-    text-decoration: none; /* Remove underline */
-    font-size: 1.2em; /* Increase font size */
-    transform-origin: left center; /* Zoom from the left */
+        display: inline-block;
+        transition: transform 0.3s; /* Smooth zoom effect */
+        font-family: monospace; /* Fixed-width font */
+        color: #8B0000; /* Red color for the link */
+        text-decoration: none; /* Remove underline */
+        font-size: 1.2em; /* Increase font size */
+        transform-origin: left center; /* Zoom from the left */
     }
+
     .zoom:hover {
-    transform: scale(1.3); /* Zoom in effect */
-    margin-left: 10px; /* Push text to the right */
-    z-index: 10; /* Ensure it appears above other elements */
+        transform: scale(1.3); /* Zoom in effect */
+        margin-left: 10px; /* Push text to the right */
+        z-index: 10; /* Ensure it appears above other elements */
     }
+
     .color-strip {
-    background-color: #8B0000; /* Change to your desired color */
-    height: 40px; /* Adjust height as needed */
-    width: 99%;
-    display: flex;
-    align-items: center; /* Center vertically */
-    justify-content: left; /* Center horizontally */
-    color: #dbbf79; /* Text color */
-    font-family: 'Montserrat', sans-serif;
-    font-weight: normal; /* Make the text bold */
-    font-size: 32px;
-    padding-left: 10px; /* Space before the text */
-    border-radius: 10px; /* Rounded corners */
-    padding-bottom: 10px;
+        background-color: #8B0000; /* Change to your desired color */
+        height: 40px; /* Adjust height as needed */
+        width: 99%;
+        display: flex;
+        align-items: center; /* Center vertically */
+        justify-content: left; /* Center horizontally */
+        color: #dbbf79; /* Text color */
+        font-family: 'Montserrat', sans-serif;
+        font-weight: normal; /* Make the text bold */
+        font-size: 32px;
+        padding-left: 10px; /* Space before the text */
+        border-radius: 10px; /* Rounded corners */
+        padding-bottom: 10px;
     }
+
     .text {
-    display: inline-block;
-    font-family: monospace; /* Fixed-width font */
-    color: #dbbf79; /* Text color */
-    text-decoration: none; /* Remove underline */
-    font-size: 1.4em; /* Increase font size */
-    margin-left: 20px; /* Space before the text */
+        display: inline-block;
+        font-family: monospace; /* Fixed-width font */
+        color: #8B0000; /* Text color */
+        text-decoration: none; /* Remove underline */
+        font-size: 1.4em; /* Increase font size */
+        margin-left: 20px; /* Space before the text */
     }
-    
+
     ol {
-    list-style-type: decimal; /* Keep default numbering */
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
-    margin-left: 20px; /* Space before the text */
-    margin-right: 20px; /* Add some space between the number and the text */
-    padding-left: 20px; /* Adjust to align with <ul> */
+        list-style-type: decimal; /* Keep default numbering */
+        padding: 0; /* Remove default padding */
+        margin: 0; /* Remove default margin */
+        margin-left: 20px; /* Space before the text */
+        margin-right: 20px; /* Add some space between the number and the text */
+        padding-left: 20px; /* Adjust to align with <ul> */
     }
-    
+
     ol li {
-    position: relative; /* Enable custom positioning */
-    padding-left: 9px; /* Ensure no extra spacing here */
-    line-height: 1.3; /* Match line height with <ul> */
+        position: relative; /* Enable custom positioning */
+        padding-left: 9px; /* Ensure no extra spacing here */
+        line-height: 1.3; /* Match line height with <ul> */
     }
-    
+
     ol li::marker {
-    font-size: 1.2em; /* Adjust font size */
-    color: #8B0000; /* Match color with <ul> */
-    
+        font-size: 1.2em; /* Adjust font size */
+        color: #8B0000; /* Match color with <ul> */
     }
-    
+
     ul {
-    list-style-type: none; /* Remove default bullets */
-    padding: 0; /* Remove default padding */
-    color: #8B0000; 
-    padding-left: 20px; 
-    margin: 0;
+        list-style-type: none; /* Remove default bullets */
+        padding: 0; /* Remove default padding */
+        color: #8B0000;
+        padding-left: 20px;
+        margin: 0;
     }
+
     ul li::before {
-    content: '●'; /* Add a circular bullet */
-    color: #8B0000; /* Match bullet color to the text */
-    font-size: 1.2em; /* Adjust bullet size */
-    display: inline-block;
-    width: 1.5em; /* Adjust spacing between bullet and text */
+        content: '●'; /* Add a circular bullet */
+        color: #8B0000; /* Match bullet color to the text */
+        font-size: 1.2em; /* Adjust bullet size */
+        display: inline-block;
+        width: 1.5em; /* Adjust spacing between bullet and text */
     }
-ul li {
-    position: relative; /* Required for positioning the custom bullet */
-    padding-left: 5px; /* Space for custom bullet */
-    line-height: 1.3; /* Adjust line height for better alignment */
+
+    ul li {
+        position: relative; /* Required for positioning the custom bullet */
+        padding-left: 5px; /* Space for custom bullet */
+        line-height: 1.3; /* Adjust line height for better alignment */
     }
-    
-    </style>
-    
-    <div class="color-strip">கூட்டு பிரார்த்தனை 2025-01-18</div>
-    <table style="width: 93%; margin-right: calc(7%);" cellspacing="0">
+
+    /* Hyperlinks styling */
+    a {
+        color: #8B0000; /* Use the specified color */
+        text-decoration: none; /* Remove underline */
+    }
+
+    a:hover {
+        color: #dbbf79; /* Highlight color on hover */
+        text-decoration: underline; /* Add underline on hover */
+    }
+</style>
+
+<div class="color-strip">கூட்டு பிரார்த்தனை 2025-01-18</div>
+<table style="width: 93%; margin-right: calc(7%);" cellspacing="0">
     <tbody>
 <p>
 

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+  background-color: black;
+  color: white;
+  font-family: Calibri;
+  margin: 0; /* Remove default margin */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+p {
+  font-size: calc(2.2vw + 2.2em);/* Responsive font size */
+  word-wrap: break-word;
+  padding: 10px; /* Add some padding */
+}
+
+#controls {
+  position: fixed;
+  top: 10px;
+  right: 30px; /* Adjusted position: moved 20px to the left */
+  z-index: 1000;
+}
+
+select {
+  font-size: 1.4em;
+  padding: 5px;
+}
+</style>
+<script>
+var speed = 1; // Default speed
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+  try {
+    wakeLock = await navigator.wakeLock.request('screen');
+    console.log('Wake Lock is active');
+  } catch (err) {
+    console.error(`${err.name}, ${err.message}`);
+  }
+}
+
+function releaseWakeLock() {
+  if (wakeLock !== null) {
+    wakeLock.release().then(() => {
+      wakeLock = null;
+      console.log('Wake Lock has been released');
+    });
+  }
+}
+
+function initialize() {
+  startIt();
+  requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+  if (document.all && !document.getElementById) {
+    temp = document.body.scrollTop;
+  } else {
+    temp = window.pageYOffset;
+  }
+
+  if (alt == 0) alt = 2;
+  else alt = 1;
+
+  if (alt == 0) {
+    curpos1 = temp;
+  } else {
+    curpos2 = temp;
+  }
+
+  if (curpos1 != curpos2) {
+    if (document.all) {
+      currentpos = document.body.scrollTop + speed;
+    } else {
+      currentpos = window.pageYOffset + speed;
+    }
+    window.scroll(0, currentpos);
+  } else {
+    currentpos = 0;
+    window.scroll(0, currentpos);
+  }
+}
+
+function startIt() {
+  setInterval(scrollWindow, 50);
+}
+
+function openDropdown() {
+  const dropdown = document.getElementById('speedSelector');
+  dropdown.focus(); // Focus on the dropdown
+  const event = new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true });
+  dropdown.dispatchEvent(event); // Simulate pressing "Arrow Down"
+}
+
+
+// Function to dynamically change the speed
+function changeSpeed(newSpeed) {
+  speed = parseInt(newSpeed, 10);
+}
+
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'hidden') {
+    releaseWakeLock();
+  } else {
+    requestWakeLock();
+  }
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div id="controls">
+  <select id="speedSelector" onchange="changeSpeed(this.value)">
+    <option value="1">1x</option>
+    <option value="2">2x</option>
+    <option value="3">3x</option>
+    <option value="4">4x</option>
+    <option value="5">5x</option>
+    <option value="6">6x</option>
+    <option value="7">7x</option>
+  </select>
+  <label for="speedSelector" style="font-size: 1.8em; cursor: pointer;" onclick="openDropdown();"> Speed</label>
+</div>
+<div>
+<p>
+
+விறல்மார னைந்து மலர்வாளி சிந்த<BR>
+மிகவானி லிந்து ...... வெயில்காய<BR>
+<BR>
+மிதவாடை வந்து தழல்போல வொன்ற<BR>
+வினைமாதர் தந்தம் ...... வசைகூற<BR>
+<BR>
+குறவாணர் குன்றி லுறைபேதை கொண்ட<BR>
+கொடிதான துன்ப ...... மயல்தீர<BR>
+<BR>
+குளிர்மாலை யின்க ணணிமாலை தந்து<BR>
+குறைதீர வந்து ...... குறுகாயோ<BR>
+<BR>
+மறிமானு கந்த இறையோன்ம கிழ்ந்து<BR>
+வழிபாடு தந்த ...... மதியாளா<BR>
+<BR>
+மலைமாவு சிந்த அலைவேலை யஞ்ச<BR>
+வடிவேலெ றிந்த ...... அதிதீரா<BR>
+<BR>
+அறிவால றிந்து னிருதாளி றைஞ்சு<BR>
+மடியாரி டைஞ்சல் ...... களைவோனே<BR>
+<BR>
+அழகான செம்பொன் மயில்மேல மர்ந்து<BR>
+அலைவாயு கந்த ...... பெருமாளே<BR>
+
+</p>
+</div>
+</body>
+</html>

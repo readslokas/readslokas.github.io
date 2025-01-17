@@ -1,132 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<style>
-body {
+<style type="text/css">
+    body {
     opacity: 1;
     background-image: radial-gradient( ellipse farthest-corner at 4px 4px , #D1AA49, #D1AA49 50%, #dbbf79 50%);
     background-size: 4px 4px;
-}
-
-p {
-  font-size: calc(2.2vw + 2.2em);/* Responsive font size */
-  word-wrap: break-word;
-  padding: 10px; /* Add some padding */
-}
-
-#controls {
-  position: fixed;
-  top: 10px;
-  right: 30px; /* Adjusted position: moved 20px to the left */
-  z-index: 1000;
-}
-
-select {
-  font-size: 1.4em;
-  padding: 5px;
-}
-</style>
-<script>
-var speed = 0; // Default speed
-var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
-
-let wakeLock = null;
-
-async function requestWakeLock() {
-  try {
-    wakeLock = await navigator.wakeLock.request('screen');
-    console.log('Wake Lock is active');
-  } catch (err) {
-    console.error(`${err.name}, ${err.message}`);
-  }
-}
-
-function releaseWakeLock() {
-  if (wakeLock !== null) {
-    wakeLock.release().then(() => {
-      wakeLock = null;
-      console.log('Wake Lock has been released');
-    });
-  }
-}
-
-function initialize() {
-  startIt();
-  requestWakeLock(); // Request wake lock on initialization
-}
-
-function scrollWindow() {
-  if (document.all && !document.getElementById) {
-    temp = document.body.scrollTop;
-  } else {
-    temp = window.pageYOffset;
-  }
-
-  if (alt == 0) alt = 2;
-  else alt = 1;
-
-  if (alt == 0) {
-    curpos1 = temp;
-  } else {
-    curpos2 = temp;
-  }
-
-  if (curpos1 != curpos2) {
-    if (document.all) {
-      currentpos = document.body.scrollTop + speed;
-    } else {
-      currentpos = window.pageYOffset + speed;
     }
-    window.scroll(0, currentpos);
-  } else {
-    currentpos = 0;
-    window.scroll(0, currentpos);
-  }
-}
-
-function startIt() {
-  setInterval(scrollWindow, 50);
-}
-
-function openDropdown() {
-  const dropdown = document.getElementById('speedSelector');
-  dropdown.focus(); // Focus on the dropdown
-  const event = new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true });
-  dropdown.dispatchEvent(event); // Simulate pressing "Arrow Down"
-}
-
-
-// Function to dynamically change the speed
-function changeSpeed(newSpeed) {
-  speed = parseInt(newSpeed, 10);
-}
-
-document.addEventListener('visibilitychange', () => {
-  if (document.visibilityState === 'hidden') {
-    releaseWakeLock();
-  } else {
-    requestWakeLock();
-  }
-});
-
-window.onload = initialize;
-</script>
-</head>
-<body>
-<div id="controls">
-  <select id="speedSelector" onchange="changeSpeed(this.value)">
-    <option value="1">1x</option>
-    <option value="2">2x</option>
-    <option value="3">3x</option>
-    <option value="4">4x</option>
-    <option value="5">5x</option>
-    <option value="6">6x</option>
-    <option value="7">7x</option>
-  </select>
-  <label for="speedSelector" style="font-size: 1.8em; cursor: pointer;" onclick="openDropdown();"> Speed</label>
-</div>
-<div>
+    
+    .zoom {
+    display: inline-block;
+    transition: transform 0.3s; /* Smooth zoom effect */
+    font-family: monospace; /* Fixed-width font */
+    color: #8B0000; /* Red color for the link */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.2em; /* Increase font size */
+    transform-origin: left center; /* Zoom from the left */
+    }
+    .zoom:hover {
+    transform: scale(1.3); /* Zoom in effect */
+    margin-left: 10px; /* Push text to the right */
+    z-index: 10; /* Ensure it appears above other elements */
+    }
+    .color-strip {
+    background-color: #8B0000; /* Change to your desired color */
+    height: 40px; /* Adjust height as needed */
+    width: 99%;
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: left; /* Center horizontally */
+    color: #dbbf79; /* Text color */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal; /* Make the text bold */
+    font-size: 32px;
+    padding-left: 10px; /* Space before the text */
+    border-radius: 10px; /* Rounded corners */
+    padding-bottom: 10px;
+    }
+    .text {
+    display: inline-block;
+    font-family: monospace; /* Fixed-width font */
+    color: #dbbf79; /* Text color */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.4em; /* Increase font size */
+    margin-left: 20px; /* Space before the text */
+    }
+    
+    ol {
+    list-style-type: decimal; /* Keep default numbering */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    margin-left: 20px; /* Space before the text */
+    margin-right: 20px; /* Add some space between the number and the text */
+    padding-left: 20px; /* Adjust to align with <ul> */
+    }
+    
+    ol li {
+    position: relative; /* Enable custom positioning */
+    padding-left: 9px; /* Ensure no extra spacing here */
+    line-height: 1.3; /* Match line height with <ul> */
+    }
+    
+    ol li::marker {
+    font-size: 1.2em; /* Adjust font size */
+    color: #8B0000; /* Match color with <ul> */
+    
+    }
+    
+    ul {
+    list-style-type: none; /* Remove default bullets */
+    padding: 0; /* Remove default padding */
+    color: #8B0000; 
+    padding-left: 20px; 
+    margin: 0;
+    }
+    ul li::before {
+    content: '●'; /* Add a circular bullet */
+    color: #8B0000; /* Match bullet color to the text */
+    font-size: 1.2em; /* Adjust bullet size */
+    display: inline-block;
+    width: 1.5em; /* Adjust spacing between bullet and text */
+    }
+ul li {
+    position: relative; /* Required for positioning the custom bullet */
+    padding-left: 5px; /* Space for custom bullet */
+    line-height: 1.3; /* Adjust line height for better alignment */
+    }
+    
+    </style>
+    
+    <div class="color-strip">தினசரி ஸ்லோகங்கள்</div>
+    <table style="width: 93%; margin-right: calc(7%);" cellspacing="0">
+    <tbody>
 <p>
 
 வக்ரதுண்ட மஹாகாய<BR>
@@ -184,3 +146,5 @@ window.onload = initialize;
 </div>
 </body>
 </html>
+</tbody>
+</table>

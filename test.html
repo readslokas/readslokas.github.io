@@ -31,6 +31,7 @@
         iframe {
             width: 100%;
             border: none;
+            height: 400px; /* Default height */
         }
     </style>
 </head>
@@ -55,25 +56,16 @@
             // Collapse all sections
             const allContent = document.querySelectorAll('.content');
             const allArrows = document.querySelectorAll('.arrow');
-            allContent.forEach(content => (content.style.display = 'none'));
-            allArrows.forEach(arrow => (arrow.style.transform = 'rotate(0deg)'));
+            allContent.forEach((content, index) => {
+                content.style.display = 'none';
+                allArrows[index].style.transform = 'rotate(0deg)';
+            });
 
             // Expand the selected section
             const content = document.getElementById(`content-${id}`);
             const arrow = document.getElementById(`arrow-${id}`);
-            const iframe = document.getElementById(`iframe-${id}`);
             content.style.display = 'block';
-            arrow.style.transform = 'rotate(90deg)`;
-
-            // Dynamically adjust the iframe height (works for same-origin content)
-            iframe.onload = () => {
-                try {
-                    iframe.style.height = iframe.contentWindow.document.documentElement.scrollHeight + 'px';
-                } catch (e) {
-                    console.warn('Unable to access iframe content due to cross-origin restrictions.');
-                    iframe.style.height = '400px'; // Default height fallback
-                }
-            };
+            arrow.style.transform = 'rotate(90deg)';
         }
     </script>
 </body>

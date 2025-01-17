@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+  background-color: black;
+  color: white;
+  font-family: Calibri;
+  margin: 0; /* Remove default margin */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+p {
+  font-size: calc(2.2vw + 2.2em);/* Responsive font size */
+  word-wrap: break-word;
+  padding: 10px; /* Add some padding */
+}
+
+#controls {
+  position: fixed;
+  top: 10px;
+  right: 30px; /* Adjusted position: moved 20px to the left */
+  z-index: 1000;
+}
+
+select {
+  font-size: 1.4em;
+  padding: 5px;
+}
+</style>
+<script>
+var speed = 1; // Default speed
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+  try {
+    wakeLock = await navigator.wakeLock.request('screen');
+    console.log('Wake Lock is active');
+  } catch (err) {
+    console.error(`${err.name}, ${err.message}`);
+  }
+}
+
+function releaseWakeLock() {
+  if (wakeLock !== null) {
+    wakeLock.release().then(() => {
+      wakeLock = null;
+      console.log('Wake Lock has been released');
+    });
+  }
+}
+
+function initialize() {
+  startIt();
+  requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+  if (document.all && !document.getElementById) {
+    temp = document.body.scrollTop;
+  } else {
+    temp = window.pageYOffset;
+  }
+
+  if (alt == 0) alt = 2;
+  else alt = 1;
+
+  if (alt == 0) {
+    curpos1 = temp;
+  } else {
+    curpos2 = temp;
+  }
+
+  if (curpos1 != curpos2) {
+    if (document.all) {
+      currentpos = document.body.scrollTop + speed;
+    } else {
+      currentpos = window.pageYOffset + speed;
+    }
+    window.scroll(0, currentpos);
+  } else {
+    currentpos = 0;
+    window.scroll(0, currentpos);
+  }
+}
+
+function startIt() {
+  setInterval(scrollWindow, 50);
+}
+
+function openDropdown() {
+  const dropdown = document.getElementById('speedSelector');
+  dropdown.focus(); // Focus on the dropdown
+  const event = new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true });
+  dropdown.dispatchEvent(event); // Simulate pressing "Arrow Down"
+}
+
+
+// Function to dynamically change the speed
+function changeSpeed(newSpeed) {
+  speed = parseInt(newSpeed, 10);
+}
+
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'hidden') {
+    releaseWakeLock();
+  } else {
+    requestWakeLock();
+  }
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div id="controls">
+  <select id="speedSelector" onchange="changeSpeed(this.value)">
+    <option value="1">1x</option>
+    <option value="2">2x</option>
+    <option value="3">3x</option>
+    <option value="4">4x</option>
+    <option value="5">5x</option>
+    <option value="6">6x</option>
+    <option value="7">7x</option>
+  </select>
+  <label for="speedSelector" style="font-size: 1.8em; cursor: pointer;" onclick="openDropdown();"> Speed</label>
+</div>
+<div>
+<p>
+
+ஓரு தரம் சரவணபவா என்று சொல்பவர்<BR>
+உளதினில் நினைத்த எல்லாம்<BR>
+உடனேகை கூடுமென வேதங்கள் மொழியுதே;<BR>
+உண்மை அறிவான பொருளே!<BR>
+<BR>
+பரிவாகவே அநந்தந் தரம் சரவண<BR>
+பவாவென்று நான் சொல்லியும்,<BR>
+பாங்குமிகு காங்கேயா! அடியனேன்<BR>
+எண்ணியது பலியாதிருப்ப(து) ஏனோ?<BR>
+<BR>
+குருபரா! முருகையா! கந்தா! கடம்பா!<BR>
+சொல் குமரா! குகா! சண்முகா!<BR>
+கோலா கலா! வெற்றி வேலா! எனக்கருள்<BR>
+கொடுத்(து)ஆள்வை முத்தையனே!<BR>
+<BR>
+மருமலர்க் குழலழக தேவகுஞ்சரி, வள்ளி<BR>
+மணவாளனே! என் துணைவனே!<BR>
+வண்ணமயில் வாகனா! பொன்னேரகப்<BR>
+பதியில் வளர் சாமிநாத குருவே.<BR>
+<BR>
+ஒருமையுடன் நினது திருமலரடி நினைக்கின்ற<BR>
+உத்தமர்தம் உறவு வேண்டும்<BR>
+உள்ளொன்று வைத்துப் புறம்மொன்று பேசுவார்<BR>
+உறவு கலவாமை வேண்டும்<BR>
+<BR>
+பெருமை பெறும் நினது புகழ் பேசவேண்டும்<BR>
+பொய்மை பேசா திருக்க வேண்டும்<BR>
+பெருநெறி பிடித்தொழுக வேண்டும்<BR>
+மதமான பேய் பிடியா திருக்க வேண்டும்<BR>
+<BR>
+மதி வேண்டும் நின்கருணை நிதி வேண்டும்<BR>
+நோயற்ற வாழ்வு நான் வாழ வேண்டும்<BR>
+தண்முகத் துய்யமணி யுண்முகச் சைவமணி<BR>
+சண்முகத் தெய்வ மணியே...<BR>
+
+</p>
+</div>
+</body>
+</html>

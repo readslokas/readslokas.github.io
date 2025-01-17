@@ -1,168 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<style>
-body {
-  background-color: black;
-  color: white;
-  font-family: Calibri;
-  margin: 0; /* Remove default margin */
-  overflow-y: auto; /* Enable vertical scrolling */
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slokas</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Calibri, sans-serif;
+            margin: 0;
+            padding: 0 10px;
+            overflow-y: auto;
+        }
 
-p {
-  font-size: calc(2.2vw + 2.2em);/* Responsive font size */
-  word-wrap: break-word;
-  padding: 10px; /* Add some padding */
-}
+        p {
+            font-size: calc(2.2vw + 2.2em);
+            word-wrap: break-word;
+            padding: 10px;
+        }
 
-#controls {
-  position: fixed;
-  top: 10px;
-  right: 30px; /* Adjusted position: moved 20px to the left */
-  z-index: 1000;
-}
+        #controls {
+            position: fixed;
+            top: 10px;
+            right: 30px;
+            z-index: 1000;
+        }
 
-select {
-  font-size: 1.4em;
-  padding: 5px;
-}
-</style>
-<script>
-var speed = 1; // Default speed
-var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+        select {
+            font-size: 1.4em;
+            padding: 5px;
+        }
 
-let wakeLock = null;
+        .link-section {
+            margin-bottom: 20px;
+        }
 
-async function requestWakeLock() {
-  try {
-    wakeLock = await navigator.wakeLock.request('screen');
-    console.log('Wake Lock is active');
-  } catch (err) {
-    console.error(`${err.name}, ${err.message}`);
-  }
-}
+        .link-section h2 {
+            font-size: 1.5em;
+            text-decoration: underline;
+            margin-bottom: 10px;
+        }
 
-function releaseWakeLock() {
-  if (wakeLock !== null) {
-    wakeLock.release().then(() => {
-      wakeLock = null;
-      console.log('Wake Lock has been released');
-    });
-  }
-}
+        .link {
+            color: #ffffff;
+            display: block;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
 
-function initialize() {
-  startIt();
-  requestWakeLock(); // Request wake lock on initialization
-}
+        .link:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        var speed = 0;
 
-function scrollWindow() {
-  if (document.all && !document.getElementById) {
-    temp = document.body.scrollTop;
-  } else {
-    temp = window.pageYOffset;
-  }
+        let wakeLock = null;
 
-  if (alt == 0) alt = 2;
-  else alt = 1;
+        async function requestWakeLock() {
+            try {
+                wakeLock = await navigator.wakeLock.request('screen');
+                console.log('Wake Lock is active');
+            } catch (err) {
+                console.error(`${err.name}, ${err.message}`);
+            }
+        }
 
-  if (alt == 0) {
-    curpos1 = temp;
-  } else {
-    curpos2 = temp;
-  }
+        function releaseWakeLock() {
+            if (wakeLock) {
+                wakeLock.release().then(() => {
+                    wakeLock = null;
+                    console.log('Wake Lock has been released');
+                });
+            }
+        }
 
-  if (curpos1 != curpos2) {
-    if (document.all) {
-      currentpos = document.body.scrollTop + speed;
-    } else {
-      currentpos = window.pageYOffset + speed;
-    }
-    window.scroll(0, currentpos);
-  } else {
-    currentpos = 0;
-    window.scroll(0, currentpos);
-  }
-}
+        function initialize() {
+            setInterval(scrollWindow, 50);
+            requestWakeLock();
+        }
 
-function startIt() {
-  setInterval(scrollWindow, 50);
-}
+        function scrollWindow() {
+            window.scrollBy(0, speed);
+        }
 
-function openDropdown() {
-  const dropdown = document.getElementById('speedSelector');
-  dropdown.focus(); // Focus on the dropdown
-  const event = new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true });
-  dropdown.dispatchEvent(event); // Simulate pressing "Arrow Down"
-}
+        function changeSpeed(newSpeed) {
+            speed = parseInt(newSpeed, 10);
+        }
 
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'hidden') {
+                releaseWakeLock();
+            } else {
+                requestWakeLock();
+            }
+        });
 
-// Function to dynamically change the speed
-function changeSpeed(newSpeed) {
-  speed = parseInt(newSpeed, 10);
-}
-
-document.addEventListener('visibilitychange', () => {
-  if (document.visibilityState === 'hidden') {
-    releaseWakeLock();
-  } else {
-    requestWakeLock();
-  }
-});
-
-window.onload = initialize;
-</script>
+        window.onload = initialize;
+    </script>
 </head>
 <body>
-<div id="controls">
-  <label for="speedSelector" style="font-size: 1.8em; cursor: pointer;" onclick="openDropdown();">Speed:</label>
-  <select id="speedSelector" onchange="changeSpeed(this.value)">
-    <option value="1">1x</option>
-    <option value="2">2x</option>
-    <option value="3">3x</option>
-    <option value="4">4x</option>
-    <option value="5">5x</option>
-    <option value="6">6x</option>
-    <option value="7">7x</option>
-    <option value="8">8x</option>
-  </select>
-</div>
-<div>
-<p>
-சீரான கோல கால நவமணி<BR>
-மாலாபி ஷேக பார வெகுவித<BR>
-தேவாதி தேவர் சேவை செயுமுக ...... மலராறும்<BR>
-<BR>
-சீராடு வீர மாது மருவிய<BR>
-ஈராறு தோளு நீளும் வரியளி<BR>
-சீராக மோது நீப பரிமள ...... இருதாளும்<BR>
-<BR>
-ஆராத காதல் வேடர் மடமகள்<BR>
-ஜீமூத மூர்வ லாரி மடமகள்<BR>
-ஆதார பூத மாக வலமிட ...... முறைவாழ்வும்<BR>
-<BR>
-ஆராயு நீதி வேலு மயிலுமெய்ஞ்<BR>
-ஞானாபி ராம தாப வடிவமும்<BR>
-ஆபாத னேனு நாளு நினைவது ...... பெறவேணும்<BR>
-<BR>
-ஏராரு மாட கூட மதுரையில்<BR>
-மீதேறி மாறி யாடு மிறையவர்<BR>
-ஏழேழு பேர்கள் கூற வருபொரு ...... ளதிகாரம்<BR>
-<BR>
-ஈடாய வூமர் போல வணிகரி<BR>
-லூடாடி யால வாயில் விதிசெய்த<BR>
-லீலாவி சார தீர வரதர ...... குருநாதா<BR>
-<BR>
-கூராழி யால்முன் வீய நினைபவ<BR>
-னீடேறு மாறு பாநு மறைவுசெய்<BR>
-கோபால ராய னேய முளதிரு ...... மருகோனே<BR>
-<BR>
-கோடாம லார வார அலையெறி<BR>
-காவேரி யாறு பாயும் வயலியில்<BR>
-கோனாடு சூழ்வி ராலி மலையுறை ...... பெருமாளே<BR>
-</p>
-</div>
+    <div id="controls">
+        <label for="speedSelector" style="font-size: 1.8em; cursor: pointer;">Speed</label>
+        <select id="speedSelector" onchange="changeSpeed(this.value)">
+            <option value="1">1x</option>
+            <option value="2">2x</option>
+            <option value="3">3x</option>
+            <option value="4">4x</option>
+            <option value="5">5x</option>
+            <option value="6">6x</option>
+            <option value="7">7x</option>
+        </select>
+    </div>
+
+    <div>
+        <p>
+            வக்ரதுண்ட மஹாகாய<br>
+            சுர்யகோடி சமப்ரபா<br>
+            நிர்விக்னம் குருமேதேவா<br>
+            சர்வ கார்யஷு சர்வதா<br>
+        </p>
+
+        <div class="link-section">
+            <h2>விநாயகர்</h2>
+            <a class="link" href="https://readslokas.github.io/ஶ்ரீ விக்னேஶ்வர ஷோடஶனாம ஸ்தோத்ரம்.html" target="_blank">ஶ்ரீ விக்னேஶ்வர ஷோடஶனாம ஸ்தோத்ரம்</a>
+            <a class="link" href="https://readslokas.github.io/கைத்தல நிறைகனி.html" target="_blank">கைத்தல நிறைகனி</a>
+            <a class="link" href="https://readslokas.github.io/நினது திருவடி.html" target="_blank">நினது திருவடி</a>
+            <a class="link" href="https://readslokas.github.io/பக்கரைவி சித்ரமணி.html" target="_blank">பக்கரை விசித்ரமணி</a>
+            <a class="link" href="https://readslokas.github.io/விநாயகர் அகவல்.html" target="_blank">விநாயகர் அகவல்</a>
+        </div>
+
+        <div class="link-section">
+            <h2>முருகர்</h2>
+            <a class="link" href="https://readslokas.github.io/பால்.html" target="_blank">பால் பஞ்சாமிர்த வண்ணம்</a>
+            <a class="link" href="https://readslokas.github.io/கந்தர் ஷஷ்டி கவசம்.html" target="_blank">கந்தர் ஷஷ்டி கவசம்</a>
+            <a class="link" href="https://readslokas.github.io/ஸ்ரீ சுப்ரமண்ய புஜங்கம்.html" target="_blank">ஸ்ரீ சுப்ரமண்ய புஜங்கம்</a>
+            <a class="link" href="https://readslokas.github.io/வேல் மாறல்.html" target="_blank">வேல் மாறல்</a>
+        </div>
+
+        <div class="link-section">
+            <h2>திருப்புகழ்</h2>
+            <a class="link" href="https://readslokas.github.io/அகரமும் ஆகி.html" target="_blank">அகரமும் ஆகி</a>
+            <a class="link" href="https://readslokas.github.io/முத்தைத்தரு.html" target="_blank">முத்தைத்தரு</a>
+            <a class="link" href="https://readslokas.github.io/அதல சேடனார்.html" target="_blank">அதல சேடனார்</a>
+            <a class="link" href="https://readslokas.github.io/அன்பாக வந்து.html" target="_blank">அன்பாக வந்து</a>
+            <a class="link" href="https://readslokas.github.io/அமுதினை மெத்த.html" target="_blank">அமுதினை மெத்த</a>
+        </div>
+    </div>
 </body>
 </html>

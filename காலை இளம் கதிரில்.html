@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+  background-color: black;
+  color: white;
+  font-family: Calibri;
+  margin: 0; /* Remove default margin */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+p {
+  font-size: calc(2.2vw + 2.2em);/* Responsive font size */
+  word-wrap: break-word;
+  padding: 10px; /* Add some padding */
+}
+
+#controls {
+  position: fixed;
+  top: 10px;
+  right: 30px; /* Adjusted position: moved 20px to the left */
+  z-index: 1000;
+}
+
+select {
+  font-size: 1.4em;
+  padding: 5px;
+}
+</style>
+<script>
+var speed = 0; // Default speed
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+  try {
+    wakeLock = await navigator.wakeLock.request('screen');
+    console.log('Wake Lock is active');
+  } catch (err) {
+    console.error(`${err.name}, ${err.message}`);
+  }
+}
+
+function releaseWakeLock() {
+  if (wakeLock !== null) {
+    wakeLock.release().then(() => {
+      wakeLock = null;
+      console.log('Wake Lock has been released');
+    });
+  }
+}
+
+function initialize() {
+  startIt();
+  requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+  if (document.all && !document.getElementById) {
+    temp = document.body.scrollTop;
+  } else {
+    temp = window.pageYOffset;
+  }
+
+  if (alt == 0) alt = 2;
+  else alt = 1;
+
+  if (alt == 0) {
+    curpos1 = temp;
+  } else {
+    curpos2 = temp;
+  }
+
+  if (curpos1 != curpos2) {
+    if (document.all) {
+      currentpos = document.body.scrollTop + speed;
+    } else {
+      currentpos = window.pageYOffset + speed;
+    }
+    window.scroll(0, currentpos);
+  } else {
+    currentpos = 0;
+    window.scroll(0, currentpos);
+  }
+}
+
+function startIt() {
+  setInterval(scrollWindow, 50);
+}
+
+function openDropdown() {
+  const dropdown = document.getElementById('speedSelector');
+  dropdown.focus(); // Focus on the dropdown
+  const event = new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true });
+  dropdown.dispatchEvent(event); // Simulate pressing "Arrow Down"
+}
+
+
+// Function to dynamically change the speed
+function changeSpeed(newSpeed) {
+  speed = parseInt(newSpeed, 10);
+}
+
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'hidden') {
+    releaseWakeLock();
+  } else {
+    requestWakeLock();
+  }
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div id="controls">
+  <select id="speedSelector" onchange="changeSpeed(this.value)">
+    <option value="1">1x</option>
+    <option value="2">2x</option>
+    <option value="3">3x</option>
+    <option value="4">4x</option>
+    <option value="5">5x</option>
+    <option value="6">6x</option>
+    <option value="7">7x</option>
+  </select>
+  <label for="speedSelector" style="font-size: 1.8em; cursor: pointer;" onclick="openDropdown();"> Speed</label>
+</div>
+<div>
+<p>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+  background-color: black;
+  color: white;
+  font-family: Calibri;
+  margin: 0; /* Remove default margin */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+p {
+  font-size: calc(2.2vw + 2.2em);/* Responsive font size */
+  word-wrap: break-word;
+  padding: 10px; /* Add some padding */
+}
+
+#controls {
+  position: fixed;
+  top: 10px;
+  right: 30px; /* Adjusted position: moved 20px to the left */
+  z-index: 1000;
+}
+
+select {
+  font-size: 1.4em;
+  padding: 5px;
+}
+</style>
+<script>
+var speed = 0; // Default speed
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+  try {
+    wakeLock = await navigator.wakeLock.request('screen');
+    console.log('Wake Lock is active');
+  } catch (err) {
+    console.error(`${err.name}, ${err.message}`);
+  }
+}
+
+function releaseWakeLock() {
+  if (wakeLock !== null) {
+    wakeLock.release().then(() => {
+      wakeLock = null;
+      console.log('Wake Lock has been released');
+    });
+  }
+}
+
+function initialize() {
+  startIt();
+  requestWakeLock(); // Request wake lock on initialization
+}
+
+function scrollWindow() {
+  if (document.all && !document.getElementById) {
+    temp = document.body.scrollTop;
+  } else {
+    temp = window.pageYOffset;
+  }
+
+  if (alt == 0) alt = 2;
+  else alt = 1;
+
+  if (alt == 0) {
+    curpos1 = temp;
+  } else {
+    curpos2 = temp;
+  }
+
+  if (curpos1 != curpos2) {
+    if (document.all) {
+      currentpos = document.body.scrollTop + speed;
+    } else {
+      currentpos = window.pageYOffset + speed;
+    }
+    window.scroll(0, currentpos);
+  } else {
+    currentpos = 0;
+    window.scroll(0, currentpos);
+  }
+}
+
+function startIt() {
+  setInterval(scrollWindow, 50);
+}
+
+function openDropdown() {
+  const dropdown = document.getElementById('speedSelector');
+  dropdown.focus(); // Focus on the dropdown
+  const event = new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true });
+  dropdown.dispatchEvent(event); // Simulate pressing "Arrow Down"
+}
+
+
+// Function to dynamically change the speed
+function changeSpeed(newSpeed) {
+  speed = parseInt(newSpeed, 10);
+}
+
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'hidden') {
+    releaseWakeLock();
+  } else {
+    requestWakeLock();
+  }
+});
+
+window.onload = initialize;
+</script>
+</head>
+<body>
+<div id="controls">
+  <select id="speedSelector" onchange="changeSpeed(this.value)">
+    <option value="1">1x</option>
+    <option value="2">2x</option>
+    <option value="3">3x</option>
+    <option value="4">4x</option>
+    <option value="5">5x</option>
+    <option value="6">6x</option>
+    <option value="7">7x</option>
+  </select>
+  <label for="speedSelector" style="font-size: 1.8em; cursor: pointer;" onclick="openDropdown();"> Speed</label>
+</div>
+<div>
+<p>
+
+காலை இளம் கதிரில் உந்தன் காட்சி தெரியுது…<BR>
+கடல் அலையில் மயில் எழுந்து நடனம் புரியுது…<BR>
+முருகா… காலை இளம் கதிரில் உந்தன் காட்சி தெரியுது…<BR>
+நீல கடல் அலையில் மயில் எழுந்து நடனம் புரியுது…<BR>
+கலையாதது நிலையாகுது கதியாகுது…<BR>
+<BR>
+காலை இளம் கதிரில் உந்தன் காட்சி தெரியுது… ஓஓ…<BR>
+<BR>
+மாலை வெயில் மஞ்சளிலே உன் மேனி மின்னுது…<BR>
+அந்த கோலம் கண்டு உள்ளம் கொள்ளை உறுதி கொள்ளுது…<BR>
+மாலை வெயில் மஞ்சளிலே உன் மேனி மின்னுது…<BR>
+அந்த கோலம் கண்டு உள்ளம் கொள்ளை உறுதி கொள்ளுது…<BR>
+<BR>
+குமரா உனை மனம் நாடுது கூத்தாடுது… முருகா…<BR>
+<BR>
+காலை இளம் கதிரில் உந்தன் காட்சி தெரியுது…<BR>
+கடல் அலையில் மயில் எழுந்து நடனம் புரியுது…<BR>
+முருகா… காலை இளம் கதிரில் உந்தன் காட்சி தெரியுது… ஓஓ…<BR>
+<BR>
+சோலை மலர் கூட்டம் உந்தன் தோற்றம் கொள்ளுது…<BR>
+சிவ சுப்ரமண்யம் சுப்ரமண்யம் என்று சொல்லுது…<BR>
+சோலை மலர் கூட்டம் உந்தன் தோற்றம் கொள்ளுது…<BR>
+சிவ சுப்ரமண்யம் சுப்ரமண்யம் என்று சொல்லுது…<BR>
+<BR>
+சுகம் ஆகுது குக நாமமே சொல் ஆகுது… முருகா…<BR>
+<BR>
+காலை இளம் கதிரில் உந்தன் காட்சி தெரியுது…<BR>
+கடல் அலையில் மயில் எழுந்து நடனம் புரியுது…<BR>
+முருகா… காலை இளம் கதிரில் உந்தன் காட்சி தெரியுது… ஓஓ…<BR>
+<BR>
+வேலை ஏந்தும் வீரம் வெற்பு சிகரம் ஆகுது…<BR>
+வெற்றிவேல் சக்திவேலா என்றே சேவல் கூவுது…<BR>
+சக்திவேல் சக்திவேல் என்றே சேவல் கூவுது…<BR>
+சக்திவேல்வேல் சக்திவேல்வேல் என்றே சேவல் கூவுது…<BR>
+<BR>
+வேலை ஏந்தும் வீரம் வெற்பு சிகரம் ஆகுது…<BR>
+வெற்றிவேல் சக்திவேலா என்றே சேவல் கூவுது…<BR>
+<BR>
+வினை ஓடுது வடிவேல் அது துணையாகுது ஆகுது…<BR>
+<BR>
+காலை இளம் கதிரில் உந்தன் காட்சி தெரியுது…<BR>
+நீல கடல் அலையில் மயில் எழுந்து நடனம் புரியுது…<BR>
+முருகா… காலை இளம் கதிரில் உந்தன் காட்சி தெரியுது… ஓஓ…<BR>
+<BR>
+பார்க்கின்ற காட்சியெல்லாம் நீயாகவே…<BR>
+நான் பாடுகின்ற பாட்டெல்லாம்…<BR>
+முருகா… முருகா…<BR>
+<BR>
+பாடுகின்ற பாட்டெல்லாம் நினக்காகவே…<BR>
+முருகா… பார்க்கின்ற காட்சியெல்லாம் நீயாகவே…<BR>
+நான் பாடுகின்ற பாட்டெல்லாம் நினக்காகவே…<BR>
+<BR>
+உருவாகுது திருவாகுது குருநாதனே முருகா…<BR>
+<BR>
+காலை இளம் கதிரில் உந்தன் காட்சி தெரியுது…<BR>
+நீல கடல் அலையில் மயில் எழுந்து நடனம் புரியுது…<BR>
+<BR>
+கலையாதது நிலையாகுது கதியாகுது…<BR>
+<BR>
+காலை இளம் கதிரில் உந்தன் காட்சி தெரியுது…<BR>
+நீல கடல் அலையில் மயில் எழுந்து நடனம் புரியுது…<BR>
+<BR>
+குருநாதனே முருகா…<BR>
+குருநாதனே முருகா…<BR>
+குருநாதனே முருகா…<BR>
+குருநாதனே முருகா…<BR>
+ 
+</p>
+</div>
+</body>
+</html>
+
+</p>
+</div>
+</body>
+</html>

@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
 <style type="text/css">
     body {
     opacity: 1;
@@ -86,7 +90,92 @@
     }
     
     </style>
-    
+    <script>
+        var speed = 0; // Default speed
+        var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+        
+        let wakeLock = null;
+        
+        async function requestWakeLock() {
+          try {
+            wakeLock = await navigator.wakeLock.request('screen');
+            console.log('Wake Lock is active');
+          } catch (err) {
+            console.error(`${err.name}, ${err.message}`);
+          }
+        }
+        
+        function releaseWakeLock() {
+          if (wakeLock !== null) {
+            wakeLock.release().then(() => {
+              wakeLock = null;
+              console.log('Wake Lock has been released');
+            });
+          }
+        }
+        
+        function initialize() {
+          startIt();
+          requestWakeLock(); // Request wake lock on initialization
+        }
+        
+        function scrollWindow() {
+          if (document.all && !document.getElementById) {
+            temp = document.body.scrollTop;
+          } else {
+            temp = window.pageYOffset;
+          }
+        
+          if (alt == 0) alt = 2;
+          else alt = 1;
+        
+          if (alt == 0) {
+            curpos1 = temp;
+          } else {
+            curpos2 = temp;
+          }
+        
+          if (curpos1 != curpos2) {
+            if (document.all) {
+              currentpos = document.body.scrollTop + speed;
+            } else {
+              currentpos = window.pageYOffset + speed;
+            }
+            window.scroll(0, currentpos);
+          } else {
+            currentpos = 0;
+            window.scroll(0, currentpos);
+          }
+        }
+        
+        function startIt() {
+          setInterval(scrollWindow, 50);
+        }
+        
+        function openDropdown() {
+          const dropdown = document.getElementById('speedSelector');
+          dropdown.focus(); // Focus on the dropdown
+          const event = new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true });
+          dropdown.dispatchEvent(event); // Simulate pressing "Arrow Down"
+        }
+        
+        
+        // Function to dynamically change the speed
+        function changeSpeed(newSpeed) {
+          speed = parseInt(newSpeed, 10);
+        }
+        
+        document.addEventListener('visibilitychange', () => {
+          if (document.visibilityState === 'hidden') {
+            releaseWakeLock();
+          } else {
+            requestWakeLock();
+          }
+        });
+        
+        window.onload = initialize;
+        </script>
+</head>   
     <div class="color-strip">தினசரி ஸ்லோகங்கள்</div>
     <table style="width: 93%; margin-right: calc(7%);" cellspacing="0">
     <tbody>

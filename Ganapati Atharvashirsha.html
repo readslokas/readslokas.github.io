@@ -31,7 +31,7 @@ select {
 </style>
 <script>
 var speed = 0.1; // Default speed (1x)
-var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+var currentpos = 0;
 
 let wakeLock = null;
 
@@ -60,34 +60,11 @@ function initialize() {
 
 function scrollWindow() {
   // Get the current scroll position
-  if (document.all && !document.getElementById) {
-    temp = document.body.scrollTop;
-  } else {
-    temp = window.pageYOffset;
-  }
-
-  if (alt == 0) alt = 2;
-  else alt = 1;
-
-  if (alt == 0) {
-    curpos1 = temp;
-  } else {
-    curpos2 = temp;
-  }
+  let temp = window.pageYOffset;
 
   // Scroll the page based on the current speed
-  if (curpos1 != curpos2) {
-    if (document.all) {
-      currentpos = document.body.scrollTop + speed;
-    } else {
-      currentpos = window.pageYOffset + speed;
-    }
-
-    window.scroll(0, currentpos);
-  } else {
-    currentpos = 0; // Reset to the top of the page
-    window.scroll(0, currentpos);
-  }
+  currentpos = temp + speed;
+  window.scroll(0, currentpos);
 
   // If speed is not 1x, reset to the top when the bottom is reached
   if (speed !== 0.1 && (window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
@@ -126,13 +103,13 @@ window.onload = initialize;
 <body>
 <div id="controls">
   <select id="speedSelector" onchange="changeSpeed(this.value)">
-    <option value="0.1">1x</option>
-    <option value="0.2">2x</option>
-    <option value="0.3">3x</option>
-    <option value="0.4">4x</option>
-    <option value="0.5">5x</option>
-    <option value="0.6">6x</option>
-    <option value="0.7">7x</option>
+    <option value="1">1x</option>
+    <option value="2">2x</option>
+    <option value="3">3x</option>
+    <option value="4">4x</option>
+    <option value="5">5x</option>
+    <option value="6">6x</option>
+    <option value="7">7x</option>
   </select>
   <label for="speedSelector" style="font-size: 1.8em; cursor: pointer;" onclick="openDropdown();"> Speed</label>
 </div>

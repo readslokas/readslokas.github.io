@@ -86,7 +86,12 @@ function scrollWindow() {
     window.scroll(0, currentpos);
   }
 }
-
+  // Check if at the bottom of the page and reset scroll position
+  if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
+    currentpos = 0;
+    window.scrollTo(0, currentpos);
+  }
+  
 function startIt() {
   setInterval(scrollWindow, 50);
 }

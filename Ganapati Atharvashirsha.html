@@ -12,7 +12,7 @@ body {
 }
 
 p {
-  font-size: calc(2.2vw + 2.2em);/* Responsive font size */
+  font-size: calc(2.2vw + 2.2em); /* Responsive font size */
   word-wrap: break-word;
   padding: 10px; /* Add some padding */
 }
@@ -80,18 +80,20 @@ function scrollWindow() {
     } else {
       currentpos = window.pageYOffset + speed;
     }
+
     window.scroll(0, currentpos);
   } else {
     currentpos = 0;
     window.scroll(0, currentpos);
   }
-}
+
   // Check if at the bottom of the page and reset scroll position
   if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
     currentpos = 0;
-    window.scrollTo(0, currentpos);
+    window.scrollTo(0, currentpos); // Reset to top once at the bottom
   }
-  
+}
+
 function startIt() {
   setInterval(scrollWindow, 50);
 }
@@ -102,7 +104,6 @@ function openDropdown() {
   const event = new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true });
   dropdown.dispatchEvent(event); // Simulate pressing "Arrow Down"
 }
-
 
 // Function to dynamically change the speed
 function changeSpeed(newSpeed) {

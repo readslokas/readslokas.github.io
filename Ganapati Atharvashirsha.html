@@ -12,7 +12,7 @@ body {
 }
 
 p {
-  font-size: calc(2.2vw + 2.2em); /* Responsive font size */
+  font-size: calc(2.2vw + 2.2em);/* Responsive font size */
   word-wrap: break-word;
   padding: 10px; /* Add some padding */
 }
@@ -30,8 +30,8 @@ select {
 }
 </style>
 <script>
-var speed = 0.1; // Default speed (1x)
-var currentpos = 0;
+var speed = 0.1; // Default speed
+var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
 
 let wakeLock = null;
 
@@ -59,22 +59,36 @@ function initialize() {
 }
 
 function scrollWindow() {
-  // Get the current scroll position
-  let temp = window.pageYOffset;
+  if (document.all && !document.getElementById) {
+    temp = document.body.scrollTop;
+  } else {
+    temp = window.pageYOffset;
+  }
 
-  // Scroll the page based on the current speed
-  currentpos = temp + speed;
-  window.scroll(0, currentpos);
+  if (alt == 0) alt = 2;
+  else alt = 1;
 
-  // If speed is not 1x, reset to the top when the bottom is reached
-  if (speed !== 0.1 && (window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
-    currentpos = 0; // Reset scroll position to top
-    window.scrollTo(0, currentpos); // Restart from the top
+  if (alt == 0) {
+    curpos1 = temp;
+  } else {
+    curpos2 = temp;
+  }
+
+  if (curpos1 != curpos2) {
+    if (document.all) {
+      currentpos = document.body.scrollTop + speed;
+    } else {
+      currentpos = window.pageYOffset + speed;
+    }
+    window.scroll(0, currentpos);
+  } else {
+    currentpos = 0;
+    window.scroll(0, currentpos);
   }
 }
 
 function startIt() {
-  setInterval(scrollWindow, 50); // Start automatic scrolling
+  setInterval(scrollWindow, 50);
 }
 
 function openDropdown() {
@@ -84,9 +98,10 @@ function openDropdown() {
   dropdown.dispatchEvent(event); // Simulate pressing "Arrow Down"
 }
 
+
 // Function to dynamically change the speed
 function changeSpeed(newSpeed) {
-  speed = parseFloat(newSpeed); // Change speed based on the selection
+  speed = parseInt(newSpeed, 10);
 }
 
 document.addEventListener('visibilitychange', () => {
@@ -115,6 +130,7 @@ window.onload = initialize;
 </div>
 <div>
 <p>
+
 ஓம்<BR>
 பத்ரம் கர்ணேபி꞉ ஶ்ருணுயாம தேவா꞉ ।<BR>
 பத்ரம் பஶ்யேமாக்ஷபிர்யஜத்ரா꞉ ।<BR>
@@ -226,7 +242,7 @@ window.onload = initialize;
   <BR>
   <BR>
   <BR>
-    
+
 </p>
 </div>
 </body>

@@ -32,6 +32,7 @@ select {
 <script>
 var speed = 0.1; // Default speed (1x)
 var currentpos = 0;
+
 let wakeLock = null;
 
 async function requestWakeLock() {
@@ -65,10 +66,10 @@ function scrollWindow() {
   currentpos = temp + speed;
   window.scroll(0, currentpos);
 
-  // Check if we are at the bottom of the page
-  if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
-    // Continue scrolling down seamlessly without reset
-    window.scrollTo(0, currentpos - window.innerHeight); // Scroll back a little to keep the seamless loop
+  // If speed is not 1x, reset to the top when the bottom is reached
+  if (speed !== 0.1 && (window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
+    currentpos = 0; // Reset scroll position to top
+    window.scrollTo(0, currentpos); // Restart from the top
   }
 }
 
@@ -217,14 +218,15 @@ window.onload = initialize;
 <BR>
 ஓம் ஶாந்தி: ஶாந்தி: ஶாந்தி: ॥<BR>
   <BR>
-    <BR>
-      <BR>
-        <BR>
-          <BR>
-            <BR>
-              <BR>
-                <BR>
-                  <BR>
+  <BR>
+  <BR>
+  <BR>
+  <BR>
+  <BR>
+  <BR>
+  <BR>
+  <BR>
+    
 </p>
 </div>
 </body>

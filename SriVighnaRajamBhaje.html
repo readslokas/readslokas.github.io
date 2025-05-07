@@ -32,6 +32,7 @@ select {
 <script>
 var speed = 0.1; // Default speed
 var lastScrollTop = 0; // To track the last scroll position
+var isScrollingUp = false; // Flag to track if the user is scrolling up
 
 let wakeLock = null;
 
@@ -64,16 +65,20 @@ function scrollWindow() {
   // If scrolling down, increase the speed
   if (currentScrollTop > lastScrollTop) {
     speed += 0.5; // Increase speed by 0.5 when scrolling down
+    isScrollingUp = false; // Reset scrolling up flag
   } 
-  // If scrolling up, decrease the speed
+  // If scrolling up, stop scrolling by setting speed to 0
   else if (currentScrollTop < lastScrollTop) {
-    speed = Math.max(0.1, speed - 1); // Decrease speed by 1, but keep it above 0.1
+    speed = 0; // Stop scrolling by setting speed to 0
+    isScrollingUp = true; // Set scrolling up flag
   }
 
   lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // Prevent negative scroll position
   
-  // Apply the scroll speed
-  window.scrollTo(0, currentScrollTop + speed);
+  // Apply the scroll speed if not scrolling up
+  if (!isScrollingUp) {
+    window.scrollTo(0, currentScrollTop + speed);
+  }
 }
 
 function startIt() {

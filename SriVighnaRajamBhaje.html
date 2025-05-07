@@ -7,20 +7,20 @@ body {
   background-color: black;
   color: white;
   font-family: Calibri;
-  margin: 0; /* Remove default margin */
-  overflow-y: auto; /* Enable vertical scrolling */
+  margin: 0;
+  overflow-y: auto;
 }
 
 p {
-  font-size: calc(2.2vw + 2.2em);/* Responsive font size */
+  font-size: calc(2.2vw + 2.2em);
   word-wrap: break-word;
-  padding: 10px; /* Add some padding */
+  padding: 10px;
 }
 
 #controls {
   position: fixed;
   top: 10px;
-  right: 30px; /* Adjusted position: moved 20px to the left */
+  right: 30px;
   z-index: 1000;
 }
 
@@ -31,10 +31,8 @@ select {
 </style>
 <script>
 var speed = 0.1; // Default speed
-var lastScrollTop = 0; // To track the last scroll position
-var isScrollingUp = false; // Flag to track if the user is scrolling up
-var scrollInterval; // To hold the interval ID
-
+var lastScrollTop = 0;
+var scrollInterval = null;
 let wakeLock = null;
 
 async function requestWakeLock() {
@@ -55,51 +53,45 @@ function releaseWakeLock() {
   }
 }
 
-function initialize() {
-  startScrolling();
-  requestWakeLock(); // Request wake lock on initialization
-}
-
 function scrollWindow() {
   let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-  // If scrolling down, increase the speed
   if (currentScrollTop > lastScrollTop) {
-    speed += 0.5; // Increase speed by 0.5 when scrolling down
-    isScrollingUp = false; // Reset scrolling up flag
-  } 
-  // If scrolling up, stop scrolling by setting speed to 0
-  else if (currentScrollTop < lastScrollTop) {
-    speed = 0; // Stop scrolling by setting speed to 0
-    clearInterval(scrollInterval); // Clear the scrolling interval
-    return; // Exit function to stop further scrolling
+    // Scrolling down
+    speed += 0.5; // Increase speed
+    startScrolling(); // Ensure interval is running
+  } else if (currentScrollTop < lastScrollTop) {
+    // Scrolling up
+    speed = 0; // Stop scrolling
+    clearInterval(scrollInterval);
+    scrollInterval = null;
   }
 
-  lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // Prevent negative scroll position
-  
-  // Apply the scroll speed if not scrolling up
-  if (!isScrollingUp) {
+  lastScrollTop = Math.max(0, currentScrollTop);
+
+  if (speed > 0) {
     window.scrollTo(0, currentScrollTop + speed);
   }
 }
 
 function startScrolling() {
-  // Start a new interval if not already running
   if (!scrollInterval) {
-    scrollInterval = setInterval(scrollWindow, 50);
+    scrollInterval = setInterval(() => {
+      let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      window.scrollTo(0, currentScrollTop + speed);
+    }, 50);
   }
 }
 
 function openDropdown() {
   const dropdown = document.getElementById('speedSelector');
-  dropdown.focus(); // Focus on the dropdown
+  dropdown.focus();
   const event = new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true });
-  dropdown.dispatchEvent(event); // Simulate pressing "Arrow Down"
+  dropdown.dispatchEvent(event);
 }
 
-// Function to dynamically change the speed
 function changeSpeed(newSpeed) {
-  speed = parseInt(newSpeed, 10);
+  speed = parseFloat(newSpeed);
 }
 
 document.addEventListener('visibilitychange', () => {
@@ -110,7 +102,13 @@ document.addEventListener('visibilitychange', () => {
   }
 });
 
-window.onload = initialize;
+window.onload = function() {
+  startScrolling();
+  requestWakeLock();
+};
+
+// Listen for manual scroll events
+window.addEventListener('scroll', scrollWindow);
 </script>
 </head>
 <body>
@@ -128,26 +126,112 @@ window.onload = initialize;
 </div>
 <div>
 <p>
-
-srI vignarAjam bhajE<BR>
-<BR>
+srI vignarAjam bhajE<BR><BR>
 santhathamaham kunjaramuham<BR>
 shankarasutham - thamiha<BR>
-srI vignarAjam bhajE<BR>
-<BR>
+srI vignarAjam bhajE<BR><BR>
 santhathamaham dhanthi<BR>
 sundhara mukham - antha<BR>
 kAnthaka sutham - thamiha<BR>
-srI vignarAjam bhajE<BR>
-<BR>
-
+srI vignarAjam bhajE<BR><BR>
 sEvitha surEndhra mahaneeya guNasheelam<BR>
 japathapa samAdhi sukha varadha - anukUlam<BR>
 bhAvitha suramaNi gana bhaktha paripAlam<BR>
 bhayankara vishanga mAthanga kulakAlam<BR>
-(srI vigna)<BR>
+(srI vigna)<BR><BR>
 
-<BR>
+srI vignarAjam bhajE<BR><BR>
+santhathamaham kunjaramuham<BR>
+shankarasutham - thamiha<BR>
+srI vignarAjam bhajE<BR><BR>
+santhathamaham dhanthi<BR>
+sundhara mukham - antha<BR>
+kAnthaka sutham - thamiha<BR>
+srI vignarAjam bhajE<BR><BR>
+sEvitha surEndhra mahaneeya guNasheelam<BR>
+japathapa samAdhi sukha varadha - anukUlam<BR>
+bhAvitha suramaNi gana bhaktha paripAlam<BR>
+bhayankara vishanga mAthanga kulakAlam<BR>
+(srI vigna)<BR><BR>
+srI vignarAjam bhajE<BR><BR>
+santhathamaham kunjaramuham<BR>
+shankarasutham - thamiha<BR>
+srI vignarAjam bhajE<BR><BR>
+santhathamaham dhanthi<BR>
+sundhara mukham - antha<BR>
+kAnthaka sutham - thamiha<BR>
+srI vignarAjam bhajE<BR><BR>
+sEvitha surEndhra mahaneeya guNasheelam<BR>
+japathapa samAdhi sukha varadha - anukUlam<BR>
+bhAvitha suramaNi gana bhaktha paripAlam<BR>
+bhayankara vishanga mAthanga kulakAlam<BR>
+(srI vigna)<BR><BR>
+srI vignarAjam bhajE<BR><BR>
+santhathamaham kunjaramuham<BR>
+shankarasutham - thamiha<BR>
+srI vignarAjam bhajE<BR><BR>
+santhathamaham dhanthi<BR>
+sundhara mukham - antha<BR>
+kAnthaka sutham - thamiha<BR>
+srI vignarAjam bhajE<BR><BR>
+sEvitha surEndhra mahaneeya guNasheelam<BR>
+japathapa samAdhi sukha varadha - anukUlam<BR>
+bhAvitha suramaNi gana bhaktha paripAlam<BR>
+bhayankara vishanga mAthanga kulakAlam<BR>
+(srI vigna)<BR><BR>
+srI vignarAjam bhajE<BR><BR>
+santhathamaham kunjaramuham<BR>
+shankarasutham - thamiha<BR>
+srI vignarAjam bhajE<BR><BR>
+santhathamaham dhanthi<BR>
+sundhara mukham - antha<BR>
+kAnthaka sutham - thamiha<BR>
+srI vignarAjam bhajE<BR><BR>
+sEvitha surEndhra mahaneeya guNasheelam<BR>
+japathapa samAdhi sukha varadha - anukUlam<BR>
+bhAvitha suramaNi gana bhaktha paripAlam<BR>
+bhayankara vishanga mAthanga kulakAlam<BR>
+(srI vigna)<BR><BR>
+srI vignarAjam bhajE<BR><BR>
+santhathamaham kunjaramuham<BR>
+shankarasutham - thamiha<BR>
+srI vignarAjam bhajE<BR><BR>
+santhathamaham dhanthi<BR>
+sundhara mukham - antha<BR>
+kAnthaka sutham - thamiha<BR>
+srI vignarAjam bhajE<BR><BR>
+sEvitha surEndhra mahaneeya guNasheelam<BR>
+japathapa samAdhi sukha varadha - anukUlam<BR>
+bhAvitha suramaNi gana bhaktha paripAlam<BR>
+bhayankara vishanga mAthanga kulakAlam<BR>
+(srI vigna)<BR><BR>
+srI vignarAjam bhajE<BR><BR>
+santhathamaham kunjaramuham<BR>
+shankarasutham - thamiha<BR>
+srI vignarAjam bhajE<BR><BR>
+santhathamaham dhanthi<BR>
+sundhara mukham - antha<BR>
+kAnthaka sutham - thamiha<BR>
+srI vignarAjam bhajE<BR><BR>
+sEvitha surEndhra mahaneeya guNasheelam<BR>
+japathapa samAdhi sukha varadha - anukUlam<BR>
+bhAvitha suramaNi gana bhaktha paripAlam<BR>
+bhayankara vishanga mAthanga kulakAlam<BR>
+(srI vigna)<BR><BR>
+srI vignarAjam bhajE<BR><BR>
+santhathamaham kunjaramuham<BR>
+shankarasutham - thamiha<BR>
+srI vignarAjam bhajE<BR><BR>
+santhathamaham dhanthi<BR>
+sundhara mukham - antha<BR>
+kAnthaka sutham - thamiha<BR>
+srI vignarAjam bhajE<BR><BR>
+sEvitha surEndhra mahaneeya guNasheelam<BR>
+japathapa samAdhi sukha varadha - anukUlam<BR>
+bhAvitha suramaNi gana bhaktha paripAlam<BR>
+bhayankara vishanga mAthanga kulakAlam<BR>
+(srI vigna)<BR><BR>
+<!-- Repeat content -->
 kanaka kEyUra hArAvali kalitha<BR>
 gambheera gowragiri shObham sushObham<BR>
 kAmAdhi bhaya bharitha <BR>
@@ -157,107 +241,21 @@ sanaka sukha nAradha padhanjali parAchara<BR>
 mathanga munisanga sallApam<BR>
 sathya para mabja naya nap pramudha mukthikara<BR>
 thathvamasi nithya nigamAdhi swarUpam<BR>
-(srI vigna)<BR>
-<BR>
-kanaka kEyUra hArAvali kalitha<BR>
-gambheera gowragiri shObham sushObham<BR>
-kAmAdhi bhaya bharitha <BR>
-mUda madha kalikalusha<BR>
-kanthitha makhanda prathApam<BR>
-sanaka sukha nAradha padhanjali parAchara<BR>
-mathanga munisanga sallApam<BR>
-sathya para mabja naya nap pramudha mukthikara<BR>
-thathvamasi nithya nigamAdhi swarUpam<BR>
-(srI vigna)<BR>
-<BR>
-kanaka kEyUra hArAvali kalitha<BR>
-gambheera gowragiri shObham sushObham<BR>
-kAmAdhi bhaya bharitha <BR>
-mUda madha kalikalusha<BR>
-kanthitha makhanda prathApam<BR>
-sanaka sukha nAradha padhanjali parAchara<BR>
-mathanga munisanga sallApam<BR>
-sathya para mabja naya nap pramudha mukthikara<BR>
-thathvamasi nithya nigamAdhi swarUpam<BR>
-(srI vigna)<BR>
-<BR>
-kanaka kEyUra hArAvali kalitha<BR>
-gambheera gowragiri shObham sushObham<BR>
-kAmAdhi bhaya bharitha <BR>
-mUda madha kalikalusha<BR>
-kanthitha makhanda prathApam<BR>
-sanaka sukha nAradha padhanjali parAchara<BR>
-mathanga munisanga sallApam<BR>
-sathya para mabja naya nap pramudha mukthikara<BR>
-thathvamasi nithya nigamAdhi swarUpam<BR>
-(srI vigna)<BR>
-<BR>
-kanaka kEyUra hArAvali kalitha<BR>
-gambheera gowragiri shObham sushObham<BR>
-kAmAdhi bhaya bharitha <BR>
-mUda madha kalikalusha<BR>
-kanthitha makhanda prathApam<BR>
-sanaka sukha nAradha padhanjali parAchara<BR>
-mathanga munisanga sallApam<BR>
-sathya para mabja naya nap pramudha mukthikara<BR>
-thathvamasi nithya nigamAdhi swarUpam<BR>
-(srI vigna)<BR>
-<BR>
-kanaka kEyUra hArAvali kalitha<BR>
-gambheera gowragiri shObham sushObham<BR>
-kAmAdhi bhaya bharitha <BR>
-mUda madha kalikalusha<BR>
-kanthitha makhanda prathApam<BR>
-sanaka sukha nAradha padhanjali parAchara<BR>
-mathanga munisanga sallApam<BR>
-sathya para mabja naya nap pramudha mukthikara<BR>
-thathvamasi nithya nigamAdhi swarUpam<BR>
-(srI vigna)<BR>
-<BR>
-kanaka kEyUra hArAvali kalitha<BR>
-gambheera gowragiri shObham sushObham<BR>
-kAmAdhi bhaya bharitha <BR>
-mUda madha kalikalusha<BR>
-kanthitha makhanda prathApam<BR>
-sanaka sukha nAradha padhanjali parAchara<BR>
-mathanga munisanga sallApam<BR>
-sathya para mabja naya nap pramudha mukthikara<BR>
-thathvamasi nithya nigamAdhi swarUpam<BR>
-(srI vigna)<BR>
-<BR>
-kanaka kEyUra hArAvali kalitha<BR>
-gambheera gowragiri shObham sushObham<BR>
-kAmAdhi bhaya bharitha <BR>
-mUda madha kalikalusha<BR>
-kanthitha makhanda prathApam<BR>
-sanaka sukha nAradha padhanjali parAchara<BR>
-mathanga munisanga sallApam<BR>
-sathya para mabja naya nap pramudha mukthikara<BR>
-thathvamasi nithya nigamAdhi swarUpam<BR>
-(srI vigna)<BR>
-<BR>
-kanaka kEyUra hArAvali kalitha<BR>
-gambheera gowragiri shObham sushObham<BR>
-kAmAdhi bhaya bharitha <BR>
-mUda madha kalikalusha<BR>
-kanthitha makhanda prathApam<BR>
-sanaka sukha nAradha padhanjali parAchara<BR>
-mathanga munisanga sallApam<BR>
-sathya para mabja naya nap pramudha mukthikara<BR>
-thathvamasi nithya nigamAdhi swarUpam<BR>
-(srI vigna)<BR>
-<BR>
-kanaka kEyUra hArAvali kalitha<BR>
-gambheera gowragiri shObham sushObham<BR>
-kAmAdhi bhaya bharitha <BR>
-mUda madha kalikalusha<BR>
-kanthitha makhanda prathApam<BR>
-sanaka sukha nAradha padhanjali parAchara<BR>
-mathanga munisanga sallApam<BR>
-sathya para mabja naya nap pramudha mukthikara<BR>
-thathvamasi nithya nigamAdhi swarUpam<BR>
-(srI vigna)<BR>
+(srI vigna)<BR><BR>
 
+<!-- Copy this block multiple times if you want longer scroll content -->
+kanaka kEyUra hArAvali kalitha<BR>
+gambheera gowragiri shObham sushObham<BR>
+kAmAdhi bhaya bharitha <BR>
+mUda madha kalikalusha<BR>
+kanthitha makhanda prathApam<BR>
+sanaka sukha nAradha padhanjali parAchara<BR>
+mathanga munisanga sallApam<BR>
+sathya para mabja naya nap pramudha mukthikara<BR>
+thathvamasi nithya nigamAdhi swarUpam<BR>
+(srI vigna)<BR><BR>
+
+<!-- Add more as needed -->
 </p>
 </div>
 </body>

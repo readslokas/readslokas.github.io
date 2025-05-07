@@ -6,129 +6,92 @@
 body {
   background-color: black;
   color: white;
-  font-family: Calibri;
-  margin: 0; /* Remove default margin */
-  overflow-y: auto; /* Enable vertical scrolling */
-}
-
-p {
-  font-size: calc(2.2vw + 2.2em);/* Responsive font size */
-  word-wrap: break-word;
-  padding: 10px; /* Add some padding */
+  font-family: Calibri, sans-serif;
+  margin: 0;
+  overflow-y: auto;
 }
 
 #controls {
   position: fixed;
-  top: 10px;
-  right: 30px; /* Adjusted position: moved 20px to the left */
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #222;
+  padding: 5px;
+  box-sizing: border-box;
   z-index: 1000;
 }
 
-select {
+#controls button {
+  flex: 1;
   font-size: 1.4em;
-  padding: 5px;
+  padding: 12px 0;
+  cursor: pointer;
+  border: none;
+  background-color: #444;
+  color: white;
+  margin: 0 5px;
+  border-radius: 5px;
+}
+
+#controls button:hover {
+  background-color: #666;
+}
+
+.content {
+  margin-top: 70px;
+  padding: 10px;
+}
+
+p {
+  font-size: calc(2.2vw + 2.2em);
+  word-wrap: break-word;
 }
 </style>
 <script>
-var speed = 0.1; // Default speed
-var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+let speed = 0;
+let scrollInterval = null;
 
-let wakeLock = null;
+function autoScroll() {
+  window.scrollBy(0, speed);
+}
 
-async function requestWakeLock() {
-  try {
-    wakeLock = await navigator.wakeLock.request('screen');
-    console.log('Wake Lock is active');
-  } catch (err) {
-    console.error(`${err.name}, ${err.message}`);
+function startAutoScroll() {
+  if (scrollInterval) {
+    clearInterval(scrollInterval);
+  }
+  if (speed > 0) {
+    scrollInterval = setInterval(autoScroll, 50);
   }
 }
 
-function releaseWakeLock() {
-  if (wakeLock !== null) {
-    wakeLock.release().then(() => {
-      wakeLock = null;
-      console.log('Wake Lock has been released');
-    });
-  }
-}
-
-function initialize() {
-  startIt();
-  requestWakeLock(); // Request wake lock on initialization
-}
-
-function scrollWindow() {
-  if (document.all && !document.getElementById) {
-    temp = document.body.scrollTop;
-  } else {
-    temp = window.pageYOffset;
-  }
-
-  if (alt == 0) alt = 2;
-  else alt = 1;
-
-  if (alt == 0) {
-    curpos1 = temp;
-  } else {
-    curpos2 = temp;
-  }
-
-  if (curpos1 != curpos2) {
-    if (document.all) {
-      currentpos = document.body.scrollTop + speed;
-    } else {
-      currentpos = window.pageYOffset + speed;
-    }
-    window.scroll(0, currentpos);
-  } else {
-    currentpos = 0;
-    window.scroll(0, currentpos);
-  }
-}
-
-function startIt() {
-  setInterval(scrollWindow, 50);
-}
-
-function openDropdown() {
-  const dropdown = document.getElementById('speedSelector');
-  dropdown.focus(); // Focus on the dropdown
-  const event = new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true });
-  dropdown.dispatchEvent(event); // Simulate pressing "Arrow Down"
-}
-
-
-// Function to dynamically change the speed
 function changeSpeed(newSpeed) {
-  speed = parseInt(newSpeed, 10);
+  speed = parseFloat(newSpeed);
+  startAutoScroll();
 }
 
-document.addEventListener('visibilitychange', () => {
-  if (document.visibilityState === 'hidden') {
-    releaseWakeLock();
-  } else {
-    requestWakeLock();
-  }
-});
-
-window.onload = initialize;
+window.onload = function() {
+  startAutoScroll();
+};
 </script>
 </head>
 <body>
+
 <div id="controls">
-  <select id="speedSelector" onchange="changeSpeed(this.value)">
-    <option value="1">1x</option>
-    <option value="2">2x</option>
-    <option value="3">3x</option>
-    <option value="4">4x</option>
-    <option value="5">5x</option>
-    <option value="6">6x</option>
-    <option value="7">7x</option>
-  </select>
-  <label for="speedSelector" style="font-size: 1.8em; cursor: pointer;" onclick="openDropdown();"> Speed</label>
+  <button onclick="changeSpeed(0)">1x</button>
+  <button onclick="changeSpeed(1)">2x</button>
+  <button onclick="changeSpeed(2)">3x</button>
+  <button onclick="changeSpeed(3)">4x</button>
+  <button onclick="changeSpeed(4)">5x</button>
+  <button onclick="changeSpeed(5)">6x</button>
+  <button onclick="changeSpeed(6)">7x</button>
+  <button onclick="changeSpeed(7)">8x</button>
+  <button onclick="changeSpeed(8)">9x</button>
 </div>
-<div>
+
+<div class="content">
 <p>
 
 முருகா நீ வரவேண்டும்!<BR>

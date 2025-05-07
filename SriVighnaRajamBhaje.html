@@ -33,6 +33,7 @@ select {
 var speed = 0.1; // Default speed
 var lastScrollTop = 0; // To track the last scroll position
 var isScrollingUp = false; // Flag to track if the user is scrolling up
+var scrollInterval; // To hold the interval ID
 
 let wakeLock = null;
 
@@ -55,7 +56,7 @@ function releaseWakeLock() {
 }
 
 function initialize() {
-  startIt();
+  startScrolling();
   requestWakeLock(); // Request wake lock on initialization
 }
 
@@ -70,7 +71,8 @@ function scrollWindow() {
   // If scrolling up, stop scrolling by setting speed to 0
   else if (currentScrollTop < lastScrollTop) {
     speed = 0; // Stop scrolling by setting speed to 0
-    isScrollingUp = true; // Set scrolling up flag
+    clearInterval(scrollInterval); // Clear the scrolling interval
+    return; // Exit function to stop further scrolling
   }
 
   lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // Prevent negative scroll position
@@ -81,8 +83,11 @@ function scrollWindow() {
   }
 }
 
-function startIt() {
-  setInterval(scrollWindow, 50);
+function startScrolling() {
+  // Start a new interval if not already running
+  if (!scrollInterval) {
+    scrollInterval = setInterval(scrollWindow, 50);
+  }
 }
 
 function openDropdown() {
@@ -142,6 +147,105 @@ bhAvitha suramaNi gana bhaktha paripAlam<BR>
 bhayankara vishanga mAthanga kulakAlam<BR>
 (srI vigna)<BR>
 
+<BR>
+kanaka kEyUra hArAvali kalitha<BR>
+gambheera gowragiri shObham sushObham<BR>
+kAmAdhi bhaya bharitha <BR>
+mUda madha kalikalusha<BR>
+kanthitha makhanda prathApam<BR>
+sanaka sukha nAradha padhanjali parAchara<BR>
+mathanga munisanga sallApam<BR>
+sathya para mabja naya nap pramudha mukthikara<BR>
+thathvamasi nithya nigamAdhi swarUpam<BR>
+(srI vigna)<BR>
+<BR>
+kanaka kEyUra hArAvali kalitha<BR>
+gambheera gowragiri shObham sushObham<BR>
+kAmAdhi bhaya bharitha <BR>
+mUda madha kalikalusha<BR>
+kanthitha makhanda prathApam<BR>
+sanaka sukha nAradha padhanjali parAchara<BR>
+mathanga munisanga sallApam<BR>
+sathya para mabja naya nap pramudha mukthikara<BR>
+thathvamasi nithya nigamAdhi swarUpam<BR>
+(srI vigna)<BR>
+<BR>
+kanaka kEyUra hArAvali kalitha<BR>
+gambheera gowragiri shObham sushObham<BR>
+kAmAdhi bhaya bharitha <BR>
+mUda madha kalikalusha<BR>
+kanthitha makhanda prathApam<BR>
+sanaka sukha nAradha padhanjali parAchara<BR>
+mathanga munisanga sallApam<BR>
+sathya para mabja naya nap pramudha mukthikara<BR>
+thathvamasi nithya nigamAdhi swarUpam<BR>
+(srI vigna)<BR>
+<BR>
+kanaka kEyUra hArAvali kalitha<BR>
+gambheera gowragiri shObham sushObham<BR>
+kAmAdhi bhaya bharitha <BR>
+mUda madha kalikalusha<BR>
+kanthitha makhanda prathApam<BR>
+sanaka sukha nAradha padhanjali parAchara<BR>
+mathanga munisanga sallApam<BR>
+sathya para mabja naya nap pramudha mukthikara<BR>
+thathvamasi nithya nigamAdhi swarUpam<BR>
+(srI vigna)<BR>
+<BR>
+kanaka kEyUra hArAvali kalitha<BR>
+gambheera gowragiri shObham sushObham<BR>
+kAmAdhi bhaya bharitha <BR>
+mUda madha kalikalusha<BR>
+kanthitha makhanda prathApam<BR>
+sanaka sukha nAradha padhanjali parAchara<BR>
+mathanga munisanga sallApam<BR>
+sathya para mabja naya nap pramudha mukthikara<BR>
+thathvamasi nithya nigamAdhi swarUpam<BR>
+(srI vigna)<BR>
+<BR>
+kanaka kEyUra hArAvali kalitha<BR>
+gambheera gowragiri shObham sushObham<BR>
+kAmAdhi bhaya bharitha <BR>
+mUda madha kalikalusha<BR>
+kanthitha makhanda prathApam<BR>
+sanaka sukha nAradha padhanjali parAchara<BR>
+mathanga munisanga sallApam<BR>
+sathya para mabja naya nap pramudha mukthikara<BR>
+thathvamasi nithya nigamAdhi swarUpam<BR>
+(srI vigna)<BR>
+<BR>
+kanaka kEyUra hArAvali kalitha<BR>
+gambheera gowragiri shObham sushObham<BR>
+kAmAdhi bhaya bharitha <BR>
+mUda madha kalikalusha<BR>
+kanthitha makhanda prathApam<BR>
+sanaka sukha nAradha padhanjali parAchara<BR>
+mathanga munisanga sallApam<BR>
+sathya para mabja naya nap pramudha mukthikara<BR>
+thathvamasi nithya nigamAdhi swarUpam<BR>
+(srI vigna)<BR>
+<BR>
+kanaka kEyUra hArAvali kalitha<BR>
+gambheera gowragiri shObham sushObham<BR>
+kAmAdhi bhaya bharitha <BR>
+mUda madha kalikalusha<BR>
+kanthitha makhanda prathApam<BR>
+sanaka sukha nAradha padhanjali parAchara<BR>
+mathanga munisanga sallApam<BR>
+sathya para mabja naya nap pramudha mukthikara<BR>
+thathvamasi nithya nigamAdhi swarUpam<BR>
+(srI vigna)<BR>
+<BR>
+kanaka kEyUra hArAvali kalitha<BR>
+gambheera gowragiri shObham sushObham<BR>
+kAmAdhi bhaya bharitha <BR>
+mUda madha kalikalusha<BR>
+kanthitha makhanda prathApam<BR>
+sanaka sukha nAradha padhanjali parAchara<BR>
+mathanga munisanga sallApam<BR>
+sathya para mabja naya nap pramudha mukthikara<BR>
+thathvamasi nithya nigamAdhi swarUpam<BR>
+(srI vigna)<BR>
 <BR>
 kanaka kEyUra hArAvali kalitha<BR>
 gambheera gowragiri shObham sushObham<BR>

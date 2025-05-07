@@ -31,7 +31,7 @@ select {
 </style>
 <script>
 var speed = 0.1; // Default speed
-var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
+var lastScrollTop = 0; // To track the last scroll position
 
 let wakeLock = null;
 
@@ -59,32 +59,21 @@ function initialize() {
 }
 
 function scrollWindow() {
-  if (document.all && !document.getElementById) {
-    temp = document.body.scrollTop;
-  } else {
-    temp = window.pageYOffset;
+  let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+  // If scrolling down, increase the speed
+  if (currentScrollTop > lastScrollTop) {
+    speed += 0.5; // Increase speed by 0.5 when scrolling down
+  } 
+  // If scrolling up, decrease the speed
+  else if (currentScrollTop < lastScrollTop) {
+    speed = Math.max(0.1, speed - 1); // Decrease speed by 1, but keep it above 0.1
   }
 
-  if (alt == 0) alt = 2;
-  else alt = 1;
-
-  if (alt == 0) {
-    curpos1 = temp;
-  } else {
-    curpos2 = temp;
-  }
-
-  if (curpos1 != curpos2) {
-    if (document.all) {
-      currentpos = document.body.scrollTop + speed;
-    } else {
-      currentpos = window.pageYOffset + speed;
-    }
-    window.scroll(0, currentpos);
-  } else {
-    currentpos = 0;
-    window.scroll(0, currentpos);
-  }
+  lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // Prevent negative scroll position
+  
+  // Apply the scroll speed
+  window.scrollTo(0, currentScrollTop + speed);
 }
 
 function startIt() {
@@ -97,7 +86,6 @@ function openDropdown() {
   const event = new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true });
   dropdown.dispatchEvent(event); // Simulate pressing "Arrow Down"
 }
-
 
 // Function to dynamically change the speed
 function changeSpeed(newSpeed) {
@@ -160,7 +148,6 @@ mathanga munisanga sallApam<BR>
 sathya para mabja naya nap pramudha mukthikara<BR>
 thathvamasi nithya nigamAdhi swarUpam<BR>
 (srI vigna)<BR>
-
 
 </p>
 </div>

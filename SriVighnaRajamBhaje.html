@@ -6,7 +6,7 @@
 body {
   background-color: black;
   color: white;
-  font-family: Calibri;
+  font-family: Calibri, sans-serif;
   margin: 0;
   overflow-y: auto;
 }
@@ -22,11 +22,26 @@ p {
   top: 10px;
   right: 30px;
   z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-select {
-  font-size: 1.4em;
-  padding: 5px;
+select, button {
+  font-size: 1.2em;
+  padding: 5px 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+}
+
+button {
+  background-color: #444;
+  color: white;
+}
+
+button:hover {
+  background-color: #666;
 }
 </style>
 <script>
@@ -34,30 +49,9 @@ let speed = 1; // Default speed
 let scrollInterval = null;
 let userScrolling = false;
 let userScrollTimeout = null;
-let wakeLock = null;
-
-async function requestWakeLock() {
-  try {
-    wakeLock = await navigator.wakeLock.request('screen');
-    console.log('Wake Lock is active');
-  } catch (err) {
-    console.error(`${err.name}, ${err.message}`);
-  }
-}
-
-function releaseWakeLock() {
-  if (wakeLock !== null) {
-    wakeLock.release().then(() => {
-      wakeLock = null;
-      console.log('Wake Lock has been released');
-    });
-  }
-}
 
 function autoScroll() {
-  if (!userScrolling) {
-    window.scrollBy(0, speed);
-  }
+  window.scrollBy(0, speed);
 }
 
 function startAutoScroll() {
@@ -71,6 +65,10 @@ function stopAutoScroll() {
   scrollInterval = null;
 }
 
+function changeSpeed(newSpeed) {
+  speed = parseFloat(newSpeed);
+}
+
 function handleUserScroll() {
   userScrolling = true;
 
@@ -80,39 +78,19 @@ function handleUserScroll() {
 
   userScrollTimeout = setTimeout(() => {
     userScrolling = false;
-  }, 3000); // Resume auto-scroll after 3 seconds of no user interaction
+  }, 3000); // Resume auto-scroll after 3 seconds of no scroll
 }
-
-function changeSpeed(newSpeed) {
-  speed = parseFloat(newSpeed);
-}
-
-document.addEventListener('visibilitychange', () => {
-  if (document.visibilityState === 'hidden') {
-    releaseWakeLock();
-  } else {
-    requestWakeLock();
-  }
-});
 
 window.onload = function() {
   startAutoScroll();
-  requestWakeLock();
 };
 
-// Detect any scroll event (manual by user)
 window.addEventListener('scroll', handleUserScroll);
-
-function openDropdown() {
-  const dropdown = document.getElementById('speedSelector');
-  dropdown.focus();
-  const event = new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true });
-  dropdown.dispatchEvent(event);
-}
 </script>
 </head>
 <body>
 <div id="controls">
+  <label style="font-size: 1.2em;">Speed:</label>
   <select id="speedSelector" onchange="changeSpeed(this.value)">
     <option value="1">1x</option>
     <option value="2">2x</option>
@@ -122,8 +100,12 @@ function openDropdown() {
     <option value="6">6x</option>
     <option value="7">7x</option>
   </select>
-  <label for="speedSelector" style="font-size: 1.8em; cursor: pointer;" onclick="openDropdown();"> Speed</label>
+  <button onclick="changeSpeed(3)">3x</button>
+  <button onclick="changeSpeed(4)">4x</button>
+  <button onclick="changeSpeed(5)">5x</button>
+  <button onclick="changeSpeed(6)">6x</button>
 </div>
+
 <div>
 <p>
 srI vignarAjam bhajE<BR><BR>
@@ -134,137 +116,11 @@ santhathamaham dhanthi<BR>
 sundhara mukham - antha<BR>
 kAnthaka sutham - thamiha<BR>
 srI vignarAjam bhajE<BR><BR>
-sEvitha surEndhra mahaneeya guNasheelam<BR>
-japathapa samAdhi sukha varadha - anukUlam<BR>
-bhAvitha suramaNi gana bhaktha paripAlam<BR>
-bhayankara vishanga mAthanga kulakAlam<BR>
-(srI vigna)<BR><BR>
 
-<!-- Repeat block -->
+
 kanaka kEyUra hArAvali kalitha<BR>
 gambheera gowragiri shObham sushObham<BR>
-kAmAdhi bhaya bharitha <BR>
-mUda madha kalikalusha<BR>
-kanthitha makhanda prathApam<BR>
-sanaka sukha nAradha padhanjali parAchara<BR>
-mathanga munisanga sallApam<BR>
-sathya para mabja naya nap pramudha mukthikara<BR>
-thathvamasi nithya nigamAdhi swarUpam<BR>
-(srI vigna)<BR><BR>
-<!-- Repeat block -->
-kanaka kEyUra hArAvali kalitha<BR>
-gambheera gowragiri shObham sushObham<BR>
-kAmAdhi bhaya bharitha <BR>
-mUda madha kalikalusha<BR>
-kanthitha makhanda prathApam<BR>
-sanaka sukha nAradha padhanjali parAchara<BR>
-mathanga munisanga sallApam<BR>
-sathya para mabja naya nap pramudha mukthikara<BR>
-thathvamasi nithya nigamAdhi swarUpam<BR>
-(srI vigna)<BR><BR>
-<!-- Repeat block -->
-kanaka kEyUra hArAvali kalitha<BR>
-gambheera gowragiri shObham sushObham<BR>
-kAmAdhi bhaya bharitha <BR>
-mUda madha kalikalusha<BR>
-kanthitha makhanda prathApam<BR>
-sanaka sukha nAradha padhanjali parAchara<BR>
-mathanga munisanga sallApam<BR>
-sathya para mabja naya nap pramudha mukthikara<BR>
-thathvamasi nithya nigamAdhi swarUpam<BR>
-(srI vigna)<BR><BR>
-<!-- Repeat block -->
-kanaka kEyUra hArAvali kalitha<BR>
-gambheera gowragiri shObham sushObham<BR>
-kAmAdhi bhaya bharitha <BR>
-mUda madha kalikalusha<BR>
-kanthitha makhanda prathApam<BR>
-sanaka sukha nAradha padhanjali parAchara<BR>
-mathanga munisanga sallApam<BR>
-sathya para mabja naya nap pramudha mukthikara<BR>
-thathvamasi nithya nigamAdhi swarUpam<BR>
-(srI vigna)<BR><BR>
-<!-- Repeat block -->
-kanaka kEyUra hArAvali kalitha<BR>
-gambheera gowragiri shObham sushObham<BR>
-kAmAdhi bhaya bharitha <BR>
-mUda madha kalikalusha<BR>
-kanthitha makhanda prathApam<BR>
-sanaka sukha nAradha padhanjali parAchara<BR>
-mathanga munisanga sallApam<BR>
-sathya para mabja naya nap pramudha mukthikara<BR>
-thathvamasi nithya nigamAdhi swarUpam<BR>
-(srI vigna)<BR><BR>
-<!-- Repeat block -->
-kanaka kEyUra hArAvali kalitha<BR>
-gambheera gowragiri shObham sushObham<BR>
-kAmAdhi bhaya bharitha <BR>
-mUda madha kalikalusha<BR>
-kanthitha makhanda prathApam<BR>
-sanaka sukha nAradha padhanjali parAchara<BR>
-mathanga munisanga sallApam<BR>
-sathya para mabja naya nap pramudha mukthikara<BR>
-thathvamasi nithya nigamAdhi swarUpam<BR>
-(srI vigna)<BR><BR>
-<!-- Repeat block -->
-kanaka kEyUra hArAvali kalitha<BR>
-gambheera gowragiri shObham sushObham<BR>
-kAmAdhi bhaya bharitha <BR>
-mUda madha kalikalusha<BR>
-kanthitha makhanda prathApam<BR>
-sanaka sukha nAradha padhanjali parAchara<BR>
-mathanga munisanga sallApam<BR>
-sathya para mabja naya nap pramudha mukthikara<BR>
-thathvamasi nithya nigamAdhi swarUpam<BR>
-(srI vigna)<BR><BR>
-<!-- Repeat block -->
-kanaka kEyUra hArAvali kalitha<BR>
-gambheera gowragiri shObham sushObham<BR>
-kAmAdhi bhaya bharitha <BR>
-mUda madha kalikalusha<BR>
-kanthitha makhanda prathApam<BR>
-sanaka sukha nAradha padhanjali parAchara<BR>
-mathanga munisanga sallApam<BR>
-sathya para mabja naya nap pramudha mukthikara<BR>
-thathvamasi nithya nigamAdhi swarUpam<BR>
-(srI vigna)<BR><BR>
-<!-- Repeat block -->
-kanaka kEyUra hArAvali kalitha<BR>
-gambheera gowragiri shObham sushObham<BR>
-kAmAdhi bhaya bharitha <BR>
-mUda madha kalikalusha<BR>
-kanthitha makhanda prathApam<BR>
-sanaka sukha nAradha padhanjali parAchara<BR>
-mathanga munisanga sallApam<BR>
-sathya para mabja naya nap pramudha mukthikara<BR>
-thathvamasi nithya nigamAdhi swarUpam<BR>
-(srI vigna)<BR><BR>
-<!-- Repeat block -->
-kanaka kEyUra hArAvali kalitha<BR>
-gambheera gowragiri shObham sushObham<BR>
-kAmAdhi bhaya bharitha <BR>
-mUda madha kalikalusha<BR>
-kanthitha makhanda prathApam<BR>
-sanaka sukha nAradha padhanjali parAchara<BR>
-mathanga munisanga sallApam<BR>
-sathya para mabja naya nap pramudha mukthikara<BR>
-thathvamasi nithya nigamAdhi swarUpam<BR>
-(srI vigna)<BR><BR>
-<!-- Repeat block -->
-kanaka kEyUra hArAvali kalitha<BR>
-gambheera gowragiri shObham sushObham<BR>
-kAmAdhi bhaya bharitha <BR>
-mUda madha kalikalusha<BR>
-kanthitha makhanda prathApam<BR>
-sanaka sukha nAradha padhanjali parAchara<BR>
-mathanga munisanga sallApam<BR>
-sathya para mabja naya nap pramudha mukthikara<BR>
-thathvamasi nithya nigamAdhi swarUpam<BR>
-(srI vigna)<BR><BR>
-<!-- Repeat block -->
-kanaka kEyUra hArAvali kalitha<BR>
-gambheera gowragiri shObham sushObham<BR>
-kAmAdhi bhaya bharitha <BR>
+kAmAdhi bhaya bharitha<BR>
 mUda madha kalikalusha<BR>
 kanthitha makhanda prathApam<BR>
 sanaka sukha nAradha padhanjali parAchara<BR>
@@ -273,7 +129,6 @@ sathya para mabja naya nap pramudha mukthikara<BR>
 thathvamasi nithya nigamAdhi swarUpam<BR>
 (srI vigna)<BR><BR>
 
-<!-- Add more copies if you want longer scroll content -->
 </p>
 </div>
 </body>

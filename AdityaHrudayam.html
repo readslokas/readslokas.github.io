@@ -80,7 +80,7 @@ function startAutoScroll() {
 
 function changeSpeed(newSpeed) {
   // Define how many pixels per second for each level
-  const speedTable = [0, 30, 60, 90, 120, 150, 180, 210, 240]; 
+  const speedTable = [0, 60, 90, 120, 150, 180, 210]; 
   speedLevel = parseInt(newSpeed);
   speedPixelsPerSecond = speedTable[speedLevel];
 }
@@ -123,8 +123,6 @@ window.onload = function() {
   <button onclick="changeSpeed(4)">5x</button>
   <button onclick="changeSpeed(5)">6x</button>
   <button onclick="changeSpeed(6)">7x</button>
-  <button onclick="changeSpeed(7)">8x</button>
-  <button onclick="changeSpeed(8)">9x</button>
 </div>
 
 <div class="content">

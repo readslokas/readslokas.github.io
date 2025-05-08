@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>Auto Scroll with Wake Lock & Smooth Scroll</title>
 <style>
 body {
   background-color: black;
@@ -9,6 +10,7 @@ body {
   font-family: Calibri, sans-serif;
   margin: 0;
   overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
 #controls {
@@ -26,7 +28,7 @@ body {
 
 #controls button {
   flex: 1;
-  font-size: 1.6em;
+  font-size: 1.8em;
   padding: 14px 0;
   cursor: pointer;
   border: none;
@@ -51,29 +53,59 @@ p {
 }
 </style>
 <script>
-let speed = 0;
+let speedLevel = 0;
 let scrollInterval = null;
+let wakeLock = null;
 
 function autoScroll() {
-  window.scrollBy(0, speed);
+  const pixelStep = speedLevel * 0.5; // smoother small step
+  window.scrollTo({
+    top: window.scrollY + pixelStep,
+    behavior: 'smooth'
+  });
 }
 
 function startAutoScroll() {
   if (scrollInterval) {
     clearInterval(scrollInterval);
   }
-  if (speed > 0) {
-    scrollInterval = setInterval(autoScroll, 50);
+
+  if (speedLevel > 0) {
+    const intervalTime = Math.max(10, 200 - speedLevel * 20);
+    scrollInterval = setInterval(autoScroll, intervalTime);
   }
 }
 
 function changeSpeed(newSpeed) {
-  speed = parseFloat(newSpeed);
+  speedLevel = parseFloat(newSpeed);
   startAutoScroll();
 }
 
+async function requestWakeLock() {
+  try {
+    if ('wakeLock' in navigator) {
+      wakeLock = await navigator.wakeLock.request('screen');
+      console.log('Wake Lock is active');
+      wakeLock.addEventListener('release', () => {
+        console.log('Wake Lock was released');
+      });
+    } else {
+      console.warn('Wake Lock API not supported on this browser.');
+    }
+  } catch (err) {
+    console.error(`${err.name}, ${err.message}`);
+  }
+}
+
+document.addEventListener('visibilitychange', () => {
+  if (wakeLock !== null && document.visibilityState === 'visible') {
+    requestWakeLock();
+  }
+});
+
 window.onload = function() {
   startAutoScroll();
+  requestWakeLock();
 };
 </script>
 </head>
@@ -98,6 +130,7 @@ window.onload = function() {
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>Auto Scroll with Wake Lock & Smooth Scroll</title>
 <style>
 body {
   background-color: black;
@@ -105,6 +138,7 @@ body {
   font-family: Calibri, sans-serif;
   margin: 0;
   overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
 #controls {
@@ -122,7 +156,7 @@ body {
 
 #controls button {
   flex: 1;
-  font-size: 1.6em;
+  font-size: 1.8em;
   padding: 14px 0;
   cursor: pointer;
   border: none;
@@ -147,29 +181,59 @@ p {
 }
 </style>
 <script>
-let speed = 0;
+let speedLevel = 0;
 let scrollInterval = null;
+let wakeLock = null;
 
 function autoScroll() {
-  window.scrollBy(0, speed);
+  const pixelStep = speedLevel * 0.5; // smoother small step
+  window.scrollTo({
+    top: window.scrollY + pixelStep,
+    behavior: 'smooth'
+  });
 }
 
 function startAutoScroll() {
   if (scrollInterval) {
     clearInterval(scrollInterval);
   }
-  if (speed > 0) {
-    scrollInterval = setInterval(autoScroll, 50);
+
+  if (speedLevel > 0) {
+    const intervalTime = Math.max(10, 200 - speedLevel * 20);
+    scrollInterval = setInterval(autoScroll, intervalTime);
   }
 }
 
 function changeSpeed(newSpeed) {
-  speed = parseFloat(newSpeed);
+  speedLevel = parseFloat(newSpeed);
   startAutoScroll();
 }
 
+async function requestWakeLock() {
+  try {
+    if ('wakeLock' in navigator) {
+      wakeLock = await navigator.wakeLock.request('screen');
+      console.log('Wake Lock is active');
+      wakeLock.addEventListener('release', () => {
+        console.log('Wake Lock was released');
+      });
+    } else {
+      console.warn('Wake Lock API not supported on this browser.');
+    }
+  } catch (err) {
+    console.error(`${err.name}, ${err.message}`);
+  }
+}
+
+document.addEventListener('visibilitychange', () => {
+  if (wakeLock !== null && document.visibilityState === 'visible') {
+    requestWakeLock();
+  }
+});
+
 window.onload = function() {
   startAutoScroll();
+  requestWakeLock();
 };
 </script>
 </head>

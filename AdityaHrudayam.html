@@ -80,7 +80,7 @@ function startAutoScroll() {
 
 function changeSpeed(newSpeed) {
   // Define how many pixels per second for each level
-  const speedTable = [1, 20, 40, 60, 80, 100, 150, 200, 250]; 
+  const speedTable = [0, 20, 40, 60, 80, 100, 150, 200, 250]; 
   speedLevel = parseInt(newSpeed);
   speedPixelsPerSecond = speedTable[speedLevel];
 }
@@ -123,6 +123,8 @@ window.onload = function() {
   <button onclick="changeSpeed(4)">5x</button>
   <button onclick="changeSpeed(5)">6x</button>
   <button onclick="changeSpeed(6)">7x</button>
+  <button onclick="changeSpeed(7)">8x</button>
+  <button onclick="changeSpeed(8)">9x</button>
 </div>
 
 <div class="content">
@@ -230,7 +232,6 @@ Atha ravi rava dan nirikshya raamam <BR>
 mudita manaah paramam prahrishya maanaha <BR>
 Nishi chara pati samkshayam viditvaa <BR>
 suragana madhyagato vachastvareti <BR>
-
 
 
 </p>

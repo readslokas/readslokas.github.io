@@ -1,224 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Auto Smooth Scroll with Wake Lock</title>
-<style>
-body {
-  background-color: black;
-  color: white;
-  font-family: Calibri, sans-serif;
-  margin: 0;
-  overflow-y: auto;
-  scroll-behavior: auto; /* we control smoothness in JS now */
-}
-
-#controls {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  background-color: #222;
-  padding: 5px;
-  box-sizing: border-box;
-  z-index: 1000;
-}
-
-#controls button {
-  flex: 1;
-  font-size: 2em;
-  padding: 14px 0;
-  cursor: pointer;
-  border: none;
-  background-color: #444;
-  color: white;
-  margin: 0 5px;
-  border-radius: 6px;
-}
-
-#controls button:hover {
-  background-color: #666;
-}
-
-.content {
-  margin-top: 70px;
-  padding: 10px;
-}
-
-p {
-  font-size: calc(2.2vw + 2.2em);
-  word-wrap: break-word;
-}
-</style>
-<script>
-let speedLevel = 0;
-let speedPixelsPerSecond = 0;
-let lastTimestamp = null;
-let wakeLock = null;
-let animationFrameId = null;
-
-function smoothScroll(timestamp) {
-  if (!lastTimestamp) lastTimestamp = timestamp;
-  const deltaTime = (timestamp - lastTimestamp) / 1000; // seconds
-  lastTimestamp = timestamp;
-
-  const distance = speedPixelsPerSecond * deltaTime;
-  window.scrollTo(0, window.scrollY + distance);
-
-  animationFrameId = requestAnimationFrame(smoothScroll);
-}
-
-function startAutoScroll() {
-  if (animationFrameId) {
-    cancelAnimationFrame(animationFrameId);
-  }
-  lastTimestamp = null;
-  animationFrameId = requestAnimationFrame(smoothScroll);
-}
-
-function changeSpeed(newSpeed) {
-  // Define how many pixels per second for each level
-  const speedTable = [1, 60, 90, 110, 130, 150, 170]; 
-  speedLevel = parseInt(newSpeed);
-  speedPixelsPerSecond = speedTable[speedLevel];
-}
-
-async function requestWakeLock() {
-  try {
-    if ('wakeLock' in navigator) {
-      wakeLock = await navigator.wakeLock.request('screen');
-      console.log('Wake Lock is active');
-      wakeLock.addEventListener('release', () => {
-        console.log('Wake Lock was released');
-      });
-    } else {
-      console.warn('Wake Lock API not supported on this browser.');
-    }
-  } catch (err) {
-    console.error(`${err.name}, ${err.message}`);
-  }
-}
-
-document.addEventListener('visibilitychange', () => {
-  if (wakeLock !== null && document.visibilityState === 'visible') {
-    requestWakeLock();
-  }
-});
-
-window.onload = function() {
-  startAutoScroll();
-  requestWakeLock();
-};
-</script>
-</head>
-<body>
-
-<div id="controls">
-  <button onclick="changeSpeed(0)">1x</button>
-  <button onclick="changeSpeed(1)">2x</button>
-  <button onclick="changeSpeed(2)">3x</button>
-  <button onclick="changeSpeed(3)">4x</button>
-  <button onclick="changeSpeed(4)">5x</button>
-  <button onclick="changeSpeed(5)">6x</button>
-  <button onclick="changeSpeed(6)">7x</button>
-</div>
-
-<div class="content">
-<p>
-பொன்னார் மேனியனே<br>
-புலித்தோலை அரைக்கசைத்து<br>
-மின்னார் செஞ்சடைமேல்<br>
-மிளிர்கொன்றை யணிந்தவனே<br>
-மன்னே மாமணியே<br>
-மழபாடியுள் மாணிக்கமே<br>
-அன்னே உன்னையல்லால்<br>
-இனியாரை நினைக்கேனே.   1 <br>
- <br>
-கீளார் கோவணமுந்<br>
-திருநீறுமெய் பூசியுன்றன்<br>
-தாளே வந்தடைந்தேன்<br>
-தலைவாயெனை ஏன்றுகொள்நீ<br>
-வாளார் கண்ணிபங்கா<br>
-மழபாடியுள் மாணிக்கமே<br>
-*கேளா நின்னையல்லால்<br>
-இனியாரை நினைக்கேனே.<br>
-(* ஆளாய் என்றும் பாடம்)   2 <br>
- <br>
-எம்மான் எம்மனையென்<br>
-றெனக்கெட்டனைச் சார்வாகார்<br>
-இம்மா யப்பிறவி<br>
-பிறந்தேயிறந் தெய்த்தொழிந்தேன்<br>
-மைம்மாம் பூம்பொழில்சூழ்<br>
-மழபாடியுள் மாணிக்கமே<br>
-அம்மான் நின்னையல்லால்<br>
-இனியாரை நினைக்கேனே.   3 <br>
- <br>
-பண்டே நின்னடியேன்<br>
-அடியாரடி யார்கட்கெல்லாந்<br>
-தொண்டே பூண்டொழிந்தேன்<br>
-தொடராமைத் துரிசறுத்தேன்<br>
-வண்டார் பூம்பொழில்சூழ்<br>
-மழபாடியுள் மாணிக்கமே<br>
-அண்டா நின்னையல்லால்<br>
-இனியாரை நினைக்கேனே.   4 <br>
- <br>
-கண்ணாய் ஏழுலகுங்<br>
-கருத்தாய அருத்தமுமாய்ப்<br>
-பண்ணார் இன்றமிழாய்ப்<br>
-பரமாய பரஞ்சுடரே<br>
-மண்ணார் பூம்பொழில்சூழ்<br>
-மழபாடியுள் மாணிக்கமே<br>
-அண்ணா நின்னையல்லால்<br>
-இனியாரை நினைக்கேனே.   5 <br>
- <br>
-நாளார் வந்தணுகி<br>
-நலியாமுனம் நின்றனக்கே<br>
-ஆளா வந்தடைந்தேன்<br>
-அடியேனையும் ஏன்றுகொள்நீ<br>
-மாளா நாளருளும்<br>
-மழபாடியுள் மாணிக்கமே<br>
-ஆளா நின்னையல்லால்<br>
-இனியாரை நினைக்கேனே.   6 <br>
- <br>
-சந்தா ருங்குழையாய்<br>
-சடைமேற்பிறை தாங்கிநல்ல<br>
-வெந்தார் வெண்பொடியாய்<br>
-விடையேறிய வித்தகனே<br>
-மைந்தார் சோலைகள்சூழ்<br>
-மழபாடியுள் மாணிக்கமே<br>
-எந்தாய் நின்னையல்லால்<br>
-இனியாரை நினைக்கேனே.   7 <br>
- <br>
-வெய்ய விரிசுடரோன்<br>
-மிகுதேவர் கணங்களெல்லாஞ்<br>
-செய்ய மலர்களிட<br>
-மிகுசெம்மையுள் நின்றவனே<br>
-மையார் பூம்பொழில்சூழ்<br>
-மழபாடியுள் மாணிக்கமே<br>
-ஐயா நின்னையல்லால்<br>
-இனியாரை நினைக்கேனே.   8 <br>
- <br>
-நெறியே நின்மலனே<br>
-நெடுமாலயன் போற்றிசெய்யுங்<br>
-குறியே நீர்மையனே<br>
-கொடியேரிடை யாள்தலைவா<br>
-மறிசேர் அங்கையனே<br>
-மழபாடியுள் மாணிக்கமே<br>
-அறிவே நின்னையல்லால்<br>
-இனியாரை நினைக்கேனே.   9 <br>
- <br>
-ஏரார் முப்புரமும்<br>
-எரியச்சிலை தொட்டவனை<br>
-வாரார் கொங்கையுடன்<br>
-மழபாடியுள் மேயவனைச்<br>
-சீரார் நாவலர்கோன்<br>
-ஆரூரன் உரைத்ததமிழ்<br>
-பாரோர் ஏத்தவல்லார்<br>
-பரலோகத் திருப்பாரே.   10 <br>
+thisisthefirstline
+பொன்னார் மேனியனே<BR>
+புலித்தோலை அரைக்கசைத்து<BR>
+மின்னார் செஞ்சடைமேல்<BR>
+மிளிர்கொன்றை யணிந்தவனே<BR>
+மன்னே மாமணியே<BR>
+மழபாடியுள் மாணிக்கமே<BR>
+அன்னே உன்னையல்லால்<BR>
+இனியாரை நினைக்கேனே.   1 <BR>
+ <BR>
+கீளார் கோவணமுந்<BR>
+திருநீறுமெய் பூசியுன்றன்<BR>
+தாளே வந்தடைந்தேன்<BR>
+தலைவாயெனை ஏன்றுகொள்நீ<BR>
+வாளார் கண்ணிபங்கா<BR>
+மழபாடியுள் மாணிக்கமே<BR>
+*கேளா நின்னையல்லால்<BR>
+இனியாரை நினைக்கேனே.<BR>
+(* ஆளாய் என்றும் பாடம்)   2 <BR>
+ <BR>
+எம்மான் எம்மனையென்<BR>
+றெனக்கெட்டனைச் சார்வாகார்<BR>
+இம்மா யப்பிறவி<BR>
+பிறந்தேயிறந் தெய்த்தொழிந்தேன்<BR>
+மைம்மாம் பூம்பொழில்சூழ்<BR>
+மழபாடியுள் மாணிக்கமே<BR>
+அம்மான் நின்னையல்லால்<BR>
+இனியாரை நினைக்கேனே.   3 <BR>
+ <BR>
+பண்டே நின்னடியேன்<BR>
+அடியாரடி யார்கட்கெல்லாந்<BR>
+தொண்டே பூண்டொழிந்தேன்<BR>
+தொடராமைத் துரிசறுத்தேன்<BR>
+வண்டார் பூம்பொழில்சூழ்<BR>
+மழபாடியுள் மாணிக்கமே<BR>
+அண்டா நின்னையல்லால்<BR>
+இனியாரை நினைக்கேனே.   4 <BR>
+ <BR>
+கண்ணாய் ஏழுலகுங்<BR>
+கருத்தாய அருத்தமுமாய்ப்<BR>
+பண்ணார் இன்றமிழாய்ப்<BR>
+பரமாய பரஞ்சுடரே<BR>
+மண்ணார் பூம்பொழில்சூழ்<BR>
+மழபாடியுள் மாணிக்கமே<BR>
+அண்ணா நின்னையல்லால்<BR>
+இனியாரை நினைக்கேனே.   5 <BR>
+ <BR>
+நாளார் வந்தணுகி<BR>
+நலியாமுனம் நின்றனக்கே<BR>
+ஆளா வந்தடைந்தேன்<BR>
+அடியேனையும் ஏன்றுகொள்நீ<BR>
+மாளா நாளருளும்<BR>
+மழபாடியுள் மாணிக்கமே<BR>
+ஆளா நின்னையல்லால்<BR>
+இனியாரை நினைக்கேனே.   6 <BR>
+ <BR>
+சந்தா ருங்குழையாய்<BR>
+சடைமேற்பிறை தாங்கிநல்ல<BR>
+வெந்தார் வெண்பொடியாய்<BR>
+விடையேறிய வித்தகனே<BR>
+மைந்தார் சோலைகள்சூழ்<BR>
+மழபாடியுள் மாணிக்கமே<BR>
+எந்தாய் நின்னையல்லால்<BR>
+இனியாரை நினைக்கேனே.   7 <BR>
+ <BR>
+வெய்ய விரிசுடரோன்<BR>
+மிகுதேவர் கணங்களெல்லாஞ்<BR>
+செய்ய மலர்களிட<BR>
+மிகுசெம்மையுள் நின்றவனே<BR>
+மையார் பூம்பொழில்சூழ்<BR>
+மழபாடியுள் மாணிக்கமே<BR>
+ஐயா நின்னையல்லால்<BR>
+இனியாரை நினைக்கேனே.   8 <BR>
+ <BR>
+நெறியே நின்மலனே<BR>
+நெடுமாலயன் போற்றிசெய்யுங்<BR>
+குறியே நீர்மையனே<BR>
+கொடியேரிடை யாள்தலைவா<BR>
+மறிசேர் அங்கையனே<BR>
+மழபாடியுள் மாணிக்கமே<BR>
+அறிவே நின்னையல்லால்<BR>
+இனியாரை நினைக்கேனே.   9 <BR>
+ <BR>
+ஏரார் முப்புரமும்<BR>
+எரியச்சிலை தொட்டவனை<BR>
+வாரார் கொங்கையுடன்<BR>
+மழபாடியுள் மேயவனைச்<BR>
+சீரார் நாவலர்கோன்<BR>
+ஆரூரன் உரைத்ததமிழ்<BR>
+பாரோர் ஏத்தவல்லார்<BR>
+பரலோகத் திருப்பாரே.   10 <BR>
 
 </p>
 </div>
 </body>
 </html>
+

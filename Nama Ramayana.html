@@ -1,135 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Auto Smooth Scroll with Wake Lock</title>
-<style>
-body {
-  background-color: black;
-  color: white;
-  font-family: Calibri, sans-serif;
-  margin: 0;
-  overflow-y: auto;
-  scroll-behavior: auto; /* we control smoothness in JS now */
-}
-
-#controls {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  background-color: #222;
-  padding: 5px;
-  box-sizing: border-box;
-  z-index: 1000;
-}
-
-#controls button {
-  flex: 1;
-  font-size: 2em;
-  padding: 14px 0;
-  cursor: pointer;
-  border: none;
-  background-color: #444;
-  color: white;
-  margin: 0 5px;
-  border-radius: 6px;
-}
-
-#controls button:hover {
-  background-color: #666;
-}
-
-.content {
-  margin-top: 70px;
-  padding: 10px;
-}
-
-p {
-  font-size: calc(2.2vw + 2.2em);
-  word-wrap: break-word;
-}
-</style>
-<script>
-let speedLevel = 0;
-let speedPixelsPerSecond = 0;
-let lastTimestamp = null;
-let wakeLock = null;
-let animationFrameId = null;
-
-function smoothScroll(timestamp) {
-  if (!lastTimestamp) lastTimestamp = timestamp;
-  const deltaTime = (timestamp - lastTimestamp) / 1000; // seconds
-  lastTimestamp = timestamp;
-
-  const distance = speedPixelsPerSecond * deltaTime;
-  window.scrollTo(0, window.scrollY + distance);
-
-  animationFrameId = requestAnimationFrame(smoothScroll);
-}
-
-function startAutoScroll() {
-  if (animationFrameId) {
-    cancelAnimationFrame(animationFrameId);
-  }
-  lastTimestamp = null;
-  animationFrameId = requestAnimationFrame(smoothScroll);
-}
-
-function changeSpeed(newSpeed) {
-  // Define how many pixels per second for each level
-  const speedTable = [1, 60, 90, 110, 130, 150, 170]; 
-  speedLevel = parseInt(newSpeed);
-  speedPixelsPerSecond = speedTable[speedLevel];
-}
-
-async function requestWakeLock() {
-  try {
-    if ('wakeLock' in navigator) {
-      wakeLock = await navigator.wakeLock.request('screen');
-      console.log('Wake Lock is active');
-      wakeLock.addEventListener('release', () => {
-        console.log('Wake Lock was released');
-      });
-    } else {
-      console.warn('Wake Lock API not supported on this browser.');
-    }
-  } catch (err) {
-    console.error(`${err.name}, ${err.message}`);
-  }
-}
-
-document.addEventListener('visibilitychange', () => {
-  if (wakeLock !== null && document.visibilityState === 'visible') {
-    requestWakeLock();
-  }
-});
-
-window.onload = function() {
-  startAutoScroll();
-  requestWakeLock();
-};
-</script>
-</head>
-<body>
-
-<div id="controls">
-  <button onclick="changeSpeed(0)">1x</button>
-  <button onclick="changeSpeed(1)">2x</button>
-  <button onclick="changeSpeed(2)">3x</button>
-  <button onclick="changeSpeed(3)">4x</button>
-  <button onclick="changeSpeed(4)">5x</button>
-  <button onclick="changeSpeed(5)">6x</button>
-  <button onclick="changeSpeed(6)">7x</button>
-</div>
-
-<div class="content">
-<p>
-
+thisisthefirstline
 BalakANdam<BR>
-<p>
 1. shuddha brahma parAtpara rAm<BR>
 2: kAlAtmaka paramEshvara rAm<BR>
 3: shESa talpa sukha nidrita rAm<BR>
@@ -152,9 +22,7 @@ BalakANdam<BR>
 20: krtavaivAhika kautuka rAm<BR>
 21: bhArgava darpa vinAshaka rAm<BR>
 22: shrImad ayOdhyA pAlaka rAm<BR>
-<p>
 ayOdhyA kANDam<BR>
-<p>
 23: agaNita guNagaNa bhUSita rAm<BR>
 24: avanItanayA kAmita rAm<BR>
 25: rAkA candra samAnana rAm<BR>
@@ -167,9 +35,7 @@ ayOdhyA kANDam<BR>
 32: kaikEyI tanayArthita rAm<BR>
 33: viracita nija pitru karmaka rAm<BR>
 34: bharatArpita nija pAduka rAm<BR>
-<p>
 araNya kANDam<BR>
-<p>
 35: daNDakAvana jana pAvana rAm<BR>
 36: duSTa virAdha vinAshana rAm<BR>
 37: sharabhanga sutIkSaNa arcita rAm<BR>
@@ -184,18 +50,14 @@ araNya kANDam<BR>
 46: grdhrAdhipa gati dAyaka rAm<BR>
 47: shabarI datta phalAshana rAm<BR>
 48: kabanda bAhucchEdana rAm<BR>
-<p>
 kiSkindA kANDam<BR>
-<p>
 49: hanumat-sEvita nijapada rAm<BR>
 50: nata sugrIvAbhISTada rAm<BR>
 51: garvita vAli samhAraka rAm<BR>
 52: vAnara dUta prESaka rAm<BR>
 53: hitakara lakSmaNa samyuta rAm<BR>
-<p>
 <BR>
 sundara kANDam<BR>
-<p>
 54: kapivara santata samsmrta rAm<BR>
 55: tadgati vighna dhvamsaka rAm<BR>
 56: sItA prANA tAraka rAm<BR>
@@ -204,10 +66,8 @@ sundara kANDam<BR>
 59: sItA vEdita kAkAvana rAm<BR>
 60: krta cUDAmaNi darshana rAm<BR>
 61: kapivara vacanAshvAsita rAm<BR>
-<p>
 <BR>
 yuddha kANDam<BR>
-<p>
 62: rAvaNa nidhana prasthita rAm<BR>
 63: vAnara sainya samAvrta rAm<BR>
 64: shOSita sharidhIshArthita rAm<BR>
@@ -233,9 +93,7 @@ yuddha kANDam<BR>
 84: kIca kulAnugraha kara rAm<BR>
 85: sakala jIva sam rakSaka rAm<BR>
 86: samasta lOkAdhAraka rAm<BR>
-<p>
 uttara kANDam<BR>
-<p>
 87: Agata munigaNa samstuta rAm<BR>
 88: vishrta dasha kaNThOdbhava rAm<BR>
 89: sItA lingana nirvrta rAm<BR>
@@ -263,3 +121,4 @@ uttara kANDam<BR>
 </div>
 </body>
 </html>
+

@@ -1,210 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Auto Smooth Scroll with Wake Lock</title>
-<style>
-body {
-  background-color: black;
-  color: white;
-  font-family: Calibri, sans-serif;
-  margin: 0;
-  overflow-y: auto;
-  scroll-behavior: auto; /* we control smoothness in JS now */
-}
-
-#controls {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  background-color: #222;
-  padding: 5px;
-  box-sizing: border-box;
-  z-index: 1000;
-}
-
-#controls button {
-  flex: 1;
-  font-size: 2em;
-  padding: 14px 0;
-  cursor: pointer;
-  border: none;
-  background-color: #444;
-  color: white;
-  margin: 0 5px;
-  border-radius: 6px;
-}
-
-#controls button:hover {
-  background-color: #666;
-}
-
-.content {
-  margin-top: 70px;
-  padding: 10px;
-}
-
-p {
-  font-size: calc(2.2vw + 2.2em);
-  word-wrap: break-word;
-}
-</style>
-<script>
-let speedLevel = 0;
-let speedPixelsPerSecond = 0;
-let lastTimestamp = null;
-let wakeLock = null;
-let animationFrameId = null;
-
-function smoothScroll(timestamp) {
-  if (!lastTimestamp) lastTimestamp = timestamp;
-  const deltaTime = (timestamp - lastTimestamp) / 1000; // seconds
-  lastTimestamp = timestamp;
-
-  const distance = speedPixelsPerSecond * deltaTime;
-  window.scrollTo(0, window.scrollY + distance);
-
-  animationFrameId = requestAnimationFrame(smoothScroll);
-}
-
-function startAutoScroll() {
-  if (animationFrameId) {
-    cancelAnimationFrame(animationFrameId);
-  }
-  lastTimestamp = null;
-  animationFrameId = requestAnimationFrame(smoothScroll);
-}
-
-function changeSpeed(newSpeed) {
-  // Define how many pixels per second for each level
-  const speedTable = [1, 60, 90, 110, 130, 150, 170]; 
-  speedLevel = parseInt(newSpeed);
-  speedPixelsPerSecond = speedTable[speedLevel];
-}
-
-async function requestWakeLock() {
-  try {
-    if ('wakeLock' in navigator) {
-      wakeLock = await navigator.wakeLock.request('screen');
-      console.log('Wake Lock is active');
-      wakeLock.addEventListener('release', () => {
-        console.log('Wake Lock was released');
-      });
-    } else {
-      console.warn('Wake Lock API not supported on this browser.');
-    }
-  } catch (err) {
-    console.error(`${err.name}, ${err.message}`);
-  }
-}
-
-document.addEventListener('visibilitychange', () => {
-  if (wakeLock !== null && document.visibilityState === 'visible') {
-    requestWakeLock();
-  }
-});
-
-window.onload = function() {
-  startAutoScroll();
-  requestWakeLock();
-};
-</script>
-</head>
-<body>
-
-<div id="controls">
-  <button onclick="changeSpeed(0)">1x</button>
-  <button onclick="changeSpeed(1)">2x</button>
-  <button onclick="changeSpeed(2)">3x</button>
-  <button onclick="changeSpeed(3)">4x</button>
-  <button onclick="changeSpeed(4)">5x</button>
-  <button onclick="changeSpeed(5)">6x</button>
-  <button onclick="changeSpeed(6)">7x</button>
-</div>
-
-<div class="content">
-<p>
-
-  
-    Sri Mahalakshmi Stuthi<br><br>
-  Aadhi Lakshmi Namasthestu Para Brahma Swaroopini<br>
-  Yaso Dehi Danam Dehi <br>
-  Sarva Kamamscha Dehi May<br>
-  <br>
-  Santhana Lakshmi Namasthesthu Puthra Pouthra Pradhayini<br>
-  Puthran Dehi Danam Dehi<br>
-  Sarva Kamamscha Dehi May<br>
-  <br>
-  Vidhya Lakshmi Namasthesthu Brahma Vidhya Swaroopini<br>
-  Vidhyam Dehi KalAm Dehi <br>
-  Sarva Kamamscha Dehi May<br>
-  <br>
-  Dhana Lakshmi Namasthesthu Sarva Daridriya Nasini<br>
-  Dhanam Dehi Sriyam Dehi <br>
-  Sarva Kamamscha Dehi May<br>
-  <br>
-  Dhanya Lakshmi Namasthesthu Sarvaabharana Bhooshithe<br>
-  DAnyam Dehi Danam Dehi <br>
-  Sarva Kamamscha Dehi May<br>
-  <br>
-  Medha Lakshmi Namasthesthu Kali Kalmasha Nasinine<br>
-  Pragynam Dehi Sriyam Dehi <br>
-  Sarva Kamamscha Dehi May<br>
-  <br>
-  Gaja Lakshmi Namasthesthu Sarva Deva Swaroopini<br>
-  Aswamscha Gokulam Dehi <br>
-  Sarva Kamamscha Dehi May<br>
-  <br>
-  Dheera Lakshmi Namasthesthu Parashakthi SwaRoopini<br>
-  Veeryam Dehi Balam Dehi <br>
-  Sarva Kamamscha Dehi May<br>
-  <br>
-  Jaya Lakshmi Namasthesthu Sarva Karya Jaya Pradhe<br>
-  Jayam Dehi Shubham Dehi <br>
-  Sarva Kamamscha Dehi May<br>
-  <br>
-  Bhagya Lakshmi Namasthesthu Soumanglya Vivardhani<br>
-  Bhagyam Dehi Sriyam Dehi <br>
-  Sarva Kamamscha Dehi May<br>
-  <br>
-  Keerthi Lakshmi Namasthesthu Vishnu Vaksha Sthala Sthithe<br>
-  Keerthim Dehi Sriyam Dehi <br>
-  Sarva Kamamscha Dehi May<br>
-  <br>
-  Arogya Lakshmi Namasthesthu Sarva Roga Nivarini<br>
-  Ayur Dehi Sriyam Dehi <br>
-  Sarva Kamamscha Dehi May<br>
-  <br>
-  Sidha Lakshmi Namasthesthu Sarva Sidhi Pradhayini<br>
-  Sidhim Dehi Sriyam Dehi <br>
-  Sarva Kamamscha Dehi May<br>
-  <br>
-  Soundarya Lakshmi Namasthesthu Sarva Alangara Shobhithe<br>
-  Roopam Dehi Sriyam Dehi <br>
-  Sarva Kamamscha Dehi May<br>
-  <br>
-  Samrajya Lakshmi Namasthestu Bhukthi Mukthi Pradayini<br>
-  Moksham Dehi Sriyam Dehi <br>
-  Sarva Kamamscha Dehi May<br>
-  <br>
-  Mangale Mangala Dhare Mangalye Mangala Pradhe<br>
-  Mangalartham Mangalesi Mangalyam Dehi May Sada<br>
-  <br>
-  Sarva Mangala Mangalye Shive Sarvartha Sadhake<br>
-  Saranye Triambike Devi Narayani Namosthuthe<br>
-  <br>
-  Shubham Bhavathu Kalyani Ayur Arogya Sampadham<br>
-  Mama Shathru Vinasaya <br>
-  Deepa Jyothi Namosthuthe<br><br>
-  Deepa Jyothi Namosthuthe<br><br>
-  Deepa Jyothi Namosthuthe<br>
-  
-  
+thisisthefirstline
+    Sri Mahalakshmi Stuthi<BR><BR>
+  Aadhi Lakshmi Namasthestu Para Brahma Swaroopini<BR>
+  Yaso Dehi Danam Dehi <BR>
+  Sarva Kamamscha Dehi May<BR>
+  <BR>
+  Santhana Lakshmi Namasthesthu Puthra Pouthra Pradhayini<BR>
+  Puthran Dehi Danam Dehi<BR>
+  Sarva Kamamscha Dehi May<BR>
+  <BR>
+  Vidhya Lakshmi Namasthesthu Brahma Vidhya Swaroopini<BR>
+  Vidhyam Dehi KalAm Dehi <BR>
+  Sarva Kamamscha Dehi May<BR>
+  <BR>
+  Dhana Lakshmi Namasthesthu Sarva Daridriya Nasini<BR>
+  Dhanam Dehi Sriyam Dehi <BR>
+  Sarva Kamamscha Dehi May<BR>
+  <BR>
+  Dhanya Lakshmi Namasthesthu Sarvaabharana Bhooshithe<BR>
+  DAnyam Dehi Danam Dehi <BR>
+  Sarva Kamamscha Dehi May<BR>
+  <BR>
+  Medha Lakshmi Namasthesthu Kali Kalmasha Nasinine<BR>
+  Pragynam Dehi Sriyam Dehi <BR>
+  Sarva Kamamscha Dehi May<BR>
+  <BR>
+  Gaja Lakshmi Namasthesthu Sarva Deva Swaroopini<BR>
+  Aswamscha Gokulam Dehi <BR>
+  Sarva Kamamscha Dehi May<BR>
+  <BR>
+  Dheera Lakshmi Namasthesthu Parashakthi SwaRoopini<BR>
+  Veeryam Dehi Balam Dehi <BR>
+  Sarva Kamamscha Dehi May<BR>
+  <BR>
+  Jaya Lakshmi Namasthesthu Sarva Karya Jaya Pradhe<BR>
+  Jayam Dehi Shubham Dehi <BR>
+  Sarva Kamamscha Dehi May<BR>
+  <BR>
+  Bhagya Lakshmi Namasthesthu Soumanglya Vivardhani<BR>
+  Bhagyam Dehi Sriyam Dehi <BR>
+  Sarva Kamamscha Dehi May<BR>
+  <BR>
+  Keerthi Lakshmi Namasthesthu Vishnu Vaksha Sthala Sthithe<BR>
+  Keerthim Dehi Sriyam Dehi <BR>
+  Sarva Kamamscha Dehi May<BR>
+  <BR>
+  Arogya Lakshmi Namasthesthu Sarva Roga Nivarini<BR>
+  Ayur Dehi Sriyam Dehi <BR>
+  Sarva Kamamscha Dehi May<BR>
+  <BR>
+  Sidha Lakshmi Namasthesthu Sarva Sidhi Pradhayini<BR>
+  Sidhim Dehi Sriyam Dehi <BR>
+  Sarva Kamamscha Dehi May<BR>
+  <BR>
+  Soundarya Lakshmi Namasthesthu Sarva Alangara Shobhithe<BR>
+  Roopam Dehi Sriyam Dehi <BR>
+  Sarva Kamamscha Dehi May<BR>
+  <BR>
+  Samrajya Lakshmi Namasthestu Bhukthi Mukthi Pradayini<BR>
+  Moksham Dehi Sriyam Dehi <BR>
+  Sarva Kamamscha Dehi May<BR>
+  <BR>
+  Mangale Mangala Dhare Mangalye Mangala Pradhe<BR>
+  Mangalartham Mangalesi Mangalyam Dehi May Sada<BR>
+  <BR>
+  Sarva Mangala Mangalye Shive Sarvartha Sadhake<BR>
+  Saranye Triambike Devi Narayani Namosthuthe<BR>
+  <BR>
+  Shubham Bhavathu Kalyani Ayur Arogya Sampadham<BR>
+  Mama Shathru Vinasaya <BR>
+  Deepa Jyothi Namosthuthe<BR><BR>
+  Deepa Jyothi Namosthuthe<BR><BR>
+  Deepa Jyothi Namosthuthe<BR>
 
 </p>
 </div>
 </body>
 </html>
+

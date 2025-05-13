@@ -1,177 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Auto Smooth Scroll with Wake Lock</title>
-<style>
-body {
-  background-color: black;
-  color: white;
-  font-family: Calibri, sans-serif;
-  margin: 0;
-  overflow-y: auto;
-  scroll-behavior: auto; /* we control smoothness in JS now */
-}
-
-#controls {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  background-color: #222;
-  padding: 5px;
-  box-sizing: border-box;
-  z-index: 1000;
-}
-
-#controls button {
-  flex: 1;
-  font-size: 2em;
-  padding: 14px 0;
-  cursor: pointer;
-  border: none;
-  background-color: #444;
-  color: white;
-  margin: 0 5px;
-  border-radius: 6px;
-}
-
-#controls button:hover {
-  background-color: #666;
-}
-
-.content {
-  margin-top: 70px;
-  padding: 10px;
-}
-
-p {
-  font-size: calc(2.2vw + 2.2em);
-  word-wrap: break-word;
-}
-</style>
-<script>
-let speedLevel = 0;
-let speedPixelsPerSecond = 0;
-let lastTimestamp = null;
-let wakeLock = null;
-let animationFrameId = null;
-
-function smoothScroll(timestamp) {
-  if (!lastTimestamp) lastTimestamp = timestamp;
-  const deltaTime = (timestamp - lastTimestamp) / 1000; // seconds
-  lastTimestamp = timestamp;
-
-  const distance = speedPixelsPerSecond * deltaTime;
-  window.scrollTo(0, window.scrollY + distance);
-
-  animationFrameId = requestAnimationFrame(smoothScroll);
-}
-
-function startAutoScroll() {
-  if (animationFrameId) {
-    cancelAnimationFrame(animationFrameId);
-  }
-  lastTimestamp = null;
-  animationFrameId = requestAnimationFrame(smoothScroll);
-}
-
-function changeSpeed(newSpeed) {
-  // Define how many pixels per second for each level
-  const speedTable = [1, 60, 90, 110, 130, 150, 170]; 
-  speedLevel = parseInt(newSpeed);
-  speedPixelsPerSecond = speedTable[speedLevel];
-}
-
-async function requestWakeLock() {
-  try {
-    if ('wakeLock' in navigator) {
-      wakeLock = await navigator.wakeLock.request('screen');
-      console.log('Wake Lock is active');
-      wakeLock.addEventListener('release', () => {
-        console.log('Wake Lock was released');
-      });
-    } else {
-      console.warn('Wake Lock API not supported on this browser.');
-    }
-  } catch (err) {
-    console.error(`${err.name}, ${err.message}`);
-  }
-}
-
-document.addEventListener('visibilitychange', () => {
-  if (wakeLock !== null && document.visibilityState === 'visible') {
-    requestWakeLock();
-  }
-});
-
-window.onload = function() {
-  startAutoScroll();
-  requestWakeLock();
-};
-</script>
-</head>
-<body>
-
-<div id="controls">
-  <button onclick="changeSpeed(0)">1x</button>
-  <button onclick="changeSpeed(1)">2x</button>
-  <button onclick="changeSpeed(2)">3x</button>
-  <button onclick="changeSpeed(3)">4x</button>
-  <button onclick="changeSpeed(4)">5x</button>
-  <button onclick="changeSpeed(5)">6x</button>
-  <button onclick="changeSpeed(6)">7x</button>
-</div>
-
-<div class="content">
-<p>
+thisisthefirstline
 சொற்றுணை வேதியன் சோதி வானவன்<BR>
 பொற்றுணை திருந்தடி பொருந்தக் கைதொழக்<BR>
 கற்றுணைப் பூட்டியோர் கடலிற் பாய்ச்சினும்<BR>
 நற்றுணை யாவது நமச்சி வாயவே<BR><BR>
-
 பூவினுக்கு அருங்கலம் பொங்கு தாமரை<BR>
 ஆவினுக்கு அருங்கலம் அரனஞ் சாடுதல்<BR>
 கோவினுக்கு அருங்கலம் கோட்டமில்லது<BR>
 நாவினுக்கு அருங்கலம் நமச்சி வாயவே<BR><BR>
-
 விண்ணுற அடுக்கிய விறகின் வெவ்வழல்<BR>
 உண்ணிய புகிலவை யொன்று மில்லையாம்<BR>
 பண்ணிய வுலகினிற்பயின்ற பாவத்தை<BR>
 நண்ணிநின் றறுப்பது நமச்சி வாயவே<BR><BR>
-
 இடுக்கண்பட் டிருக்கினும் இரந்து யாரையும்<BR>
 விடுக்கிற் பிரானென்று வினவுவோ மல்லோம்<BR>
 அடுக்கற்கீழ்க் கிடக்கினும் அருளின் நாமுற்ற<BR>
 நடுக்கத்தைக் கெடுப்பது நமச்சி வாயவே<BR><BR>
-
 வெந்தநீறு அருங்கலம் விரதி கட்கெலாம்<BR>
 அந்தணர்க்கு அருங்கலம் அருமறை யாறங்கலம்<BR>
 திங்களுக்கு அருங்கலம் திகழு நீள்முடி<BR>
 நங்களுக்கு அருங்கலம் நமச்சி வாயவே<BR><BR>
-
 சலமிலன் சங்கரன் சார்ந்த வர்க்கலால்<BR>
 நலமிலன் நாடொறும் நல்குவான் நலன்<BR>
 குலமில ராகிலும் குலத்திர்க் கேற்பதோர்<BR>
 நலமிகக் கொடுப்பது நமச்சி வாயவே<BR><BR>
-
 வீடினா ருலகினில் விழுமிய தொண்டர்கள்<BR>
 கூடினா ரந்நெறி கூடிச் சென்றலும்<BR>
 ஓடினே னோடிச்சென்றுருவங் காண்டலும்<BR>
 நாடினேன் நாடிற்று நமச்சி வாயவே<BR><BR>
-
 இல்லக விளக்கதுஇருள்கெ டுப்பது<BR>
 சொல்லக விளக்கது சோதி யுள்ளது<BR>
 பல்லக விளக்கது பலருங் காண்பது<BR>
 நல்லக விளக்கது நமச்சி வாயவே<BR><BR>
-
 முன்னெறி யாகியமுதல்வன் முக்கணன்<BR>
 தன்னெறி யேசர ணாதல் திண்ணமே<BR>
 அந்நெறி யேசென்றங் அடைந்த வர்க் கெலாம்<BR>
 நன்னெறி யாவது நமச்சி வாயவே<BR><BR>
-
 மாப்பிணை தழுவிய மாதொர் பாகத்தன்<BR>
 பூப்பிணை திருந்தடி பொருந்தக் கைதொழ<BR>
 நாப்பிணை தழுவிய நமச்சி வாயப்பத்து<BR>
@@ -181,3 +44,4 @@ window.onload = function() {
 </div>
 </body>
 </html>
+

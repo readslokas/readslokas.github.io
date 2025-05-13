@@ -1,178 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Auto Smooth Scroll with Wake Lock</title>
-<style>
-body {
-  background-color: black;
-  color: white;
-  font-family: Calibri, sans-serif;
-  margin: 0;
-  overflow-y: auto;
-  scroll-behavior: auto; /* we control smoothness in JS now */
-}
-
-#controls {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  background-color: #222;
-  padding: 5px;
-  box-sizing: border-box;
-  z-index: 1000;
-}
-
-#controls button {
-  flex: 1;
-  font-size: 2em;
-  padding: 14px 0;
-  cursor: pointer;
-  border: none;
-  background-color: #444;
-  color: white;
-  margin: 0 5px;
-  border-radius: 6px;
-}
-
-#controls button:hover {
-  background-color: #666;
-}
-
-.content {
-  margin-top: 70px;
-  padding: 10px;
-}
-
-p {
-  font-size: calc(2.2vw + 2.2em);
-  word-wrap: break-word;
-}
-</style>
-<script>
-let speedLevel = 0;
-let speedPixelsPerSecond = 0;
-let lastTimestamp = null;
-let wakeLock = null;
-let animationFrameId = null;
-
-function smoothScroll(timestamp) {
-  if (!lastTimestamp) lastTimestamp = timestamp;
-  const deltaTime = (timestamp - lastTimestamp) / 1000; // seconds
-  lastTimestamp = timestamp;
-
-  const distance = speedPixelsPerSecond * deltaTime;
-  window.scrollTo(0, window.scrollY + distance);
-
-  animationFrameId = requestAnimationFrame(smoothScroll);
-}
-
-function startAutoScroll() {
-  if (animationFrameId) {
-    cancelAnimationFrame(animationFrameId);
-  }
-  lastTimestamp = null;
-  animationFrameId = requestAnimationFrame(smoothScroll);
-}
-
-function changeSpeed(newSpeed) {
-  // Define how many pixels per second for each level
-  const speedTable = [1, 60, 90, 110, 130, 150, 170]; 
-  speedLevel = parseInt(newSpeed);
-  speedPixelsPerSecond = speedTable[speedLevel];
-}
-
-async function requestWakeLock() {
-  try {
-    if ('wakeLock' in navigator) {
-      wakeLock = await navigator.wakeLock.request('screen');
-      console.log('Wake Lock is active');
-      wakeLock.addEventListener('release', () => {
-        console.log('Wake Lock was released');
-      });
-    } else {
-      console.warn('Wake Lock API not supported on this browser.');
-    }
-  } catch (err) {
-    console.error(`${err.name}, ${err.message}`);
-  }
-}
-
-document.addEventListener('visibilitychange', () => {
-  if (wakeLock !== null && document.visibilityState === 'visible') {
-    requestWakeLock();
-  }
-});
-
-window.onload = function() {
-  startAutoScroll();
-  requestWakeLock();
-};
-</script>
-</head>
-<body>
-
-<div id="controls">
-  <button onclick="changeSpeed(0)">1x</button>
-  <button onclick="changeSpeed(1)">2x</button>
-  <button onclick="changeSpeed(2)">3x</button>
-  <button onclick="changeSpeed(3)">4x</button>
-  <button onclick="changeSpeed(4)">5x</button>
-  <button onclick="changeSpeed(5)">6x</button>
-  <button onclick="changeSpeed(6)">7x</button>
-</div>
-
-<div class="content">
-<p>
+thisisthefirstline
 உனைத்தி னந்தொழு திலன்<BR>
 உனதியல்பினை உரைத்திலன்<BR>
 பல மலர்கொடுன் அடியிணை<BR>
 உறப்ப ணிந்திலன்<BR>
 ஒருதவ மிலன்<BR>
 உனதருள்மாறா<BR><BR>
-
 உளத்து ளன்பினர்<BR>
 உறைவிடம் அறிகிலன்<BR>
 விருப்பொடுன் சிகரமும்வலம் வருகிலன்<BR>
 உவப்பொடுன்புகழ் துதிசெய<BR>
 விழைகிலன் <BR>
 மலைபோலே <BR><BR>
-
 கனைத்தெ ழும்பகடது<BR>
 பிடர் மிசைவரு<BR>
 கறுத்த வெஞ்சின மறலிதன் உழையினர்<BR>
 கதித்த டர்ந்தெறி கயிறு <BR>
 அடுகதைகொடு பொருபோதே <BR><BR>
-
 கலக்கு றுஞ்செயல்<BR>
 ஒழிவற அழிவுறு <BR>
 கருத்து நைந்து அல முறுபொழுது <BR>
 அளவைகொள் கணத்தில் <BR>
 என்பய மற <BR>
 மயில் முதுகினில் வருவாயே <BR><BR>
-
 வினைத்தலந்தனில் <BR>
 அலகைகள் குதிகொள<BR>
 விழுக்கு டைந்துமெய் உகுதசை <BR>
 கழுகுண <BR>
 விரித்த குஞ்சியர் எனும்<BR>
 அவுணரை அமர்புரிவேலா <BR><BR>
-
 மிகுத்த பண்பயில் குயில்மொழி <BR>
 அழகிய கொடிச்சி <BR>
 குங்கும முலைமுகடு <BR>
 உழுநறை விரைத்த சந்தன ம்ருகமத <BR>
 புயவரை உடையோனே <BR><BR>
-
 தினத்தினஞ் சதுர்மறைமுநி முறைகொடு <BR>
 புனற்சொரிந்து அலர் பொதிய<BR>
 விணவரொடு <BR>
 சினத்தை நிந்தனை செயுமுநி வரர்தொழ <BR>
 மகிழ்வோனே <BR><BR>
-
 தெனத்தெனந்தன என <BR>
 வரி யளிநறை தெவிட்ட<BR>
 அன்பொடு பருகு <BR>
@@ -184,3 +49,4 @@ window.onload = function() {
 </div>
 </body>
 </html>
+

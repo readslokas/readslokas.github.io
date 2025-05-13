@@ -1,219 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Auto Smooth Scroll with Wake Lock</title>
-<style>
-body {
-  background-color: black;
-  color: white;
-  font-family: Calibri, sans-serif;
-  margin: 0;
-  overflow-y: auto;
-  scroll-behavior: auto; /* we control smoothness in JS now */
-}
-
-#controls {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  background-color: #222;
-  padding: 5px;
-  box-sizing: border-box;
-  z-index: 1000;
-}
-
-#controls button {
-  flex: 1;
-  font-size: 2em;
-  padding: 14px 0;
-  cursor: pointer;
-  border: none;
-  background-color: #444;
-  color: white;
-  margin: 0 5px;
-  border-radius: 6px;
-}
-
-#controls button:hover {
-  background-color: #666;
-}
-
-.content {
-  margin-top: 70px;
-  padding: 10px;
-}
-
-p {
-  font-size: calc(2.2vw + 2.2em);
-  word-wrap: break-word;
-}
-</style>
-<script>
-let speedLevel = 0;
-let speedPixelsPerSecond = 0;
-let lastTimestamp = null;
-let wakeLock = null;
-let animationFrameId = null;
-
-function smoothScroll(timestamp) {
-  if (!lastTimestamp) lastTimestamp = timestamp;
-  const deltaTime = (timestamp - lastTimestamp) / 1000; // seconds
-  lastTimestamp = timestamp;
-
-  const distance = speedPixelsPerSecond * deltaTime;
-  window.scrollTo(0, window.scrollY + distance);
-
-  animationFrameId = requestAnimationFrame(smoothScroll);
-}
-
-function startAutoScroll() {
-  if (animationFrameId) {
-    cancelAnimationFrame(animationFrameId);
-  }
-  lastTimestamp = null;
-  animationFrameId = requestAnimationFrame(smoothScroll);
-}
-
-function changeSpeed(newSpeed) {
-  // Define how many pixels per second for each level
-  const speedTable = [1, 60, 90, 110, 130, 150, 170]; 
-  speedLevel = parseInt(newSpeed);
-  speedPixelsPerSecond = speedTable[speedLevel];
-}
-
-async function requestWakeLock() {
-  try {
-    if ('wakeLock' in navigator) {
-      wakeLock = await navigator.wakeLock.request('screen');
-      console.log('Wake Lock is active');
-      wakeLock.addEventListener('release', () => {
-        console.log('Wake Lock was released');
-      });
-    } else {
-      console.warn('Wake Lock API not supported on this browser.');
-    }
-  } catch (err) {
-    console.error(`${err.name}, ${err.message}`);
-  }
-}
-
-document.addEventListener('visibilitychange', () => {
-  if (wakeLock !== null && document.visibilityState === 'visible') {
-    requestWakeLock();
-  }
-});
-
-window.onload = function() {
-  startAutoScroll();
-  requestWakeLock();
-};
-</script>
-</head>
-<body>
-
-<div id="controls">
-  <button onclick="changeSpeed(0)">1x</button>
-  <button onclick="changeSpeed(1)">2x</button>
-  <button onclick="changeSpeed(2)">3x</button>
-  <button onclick="changeSpeed(3)">4x</button>
-  <button onclick="changeSpeed(4)">5x</button>
-  <button onclick="changeSpeed(5)">6x</button>
-  <button onclick="changeSpeed(6)">7x</button>
-</div>
-
-<div class="content">
-<p>
-
+thisisthefirstline
 Mantra Pushpam <BR><BR>
-
 Om Yopaam pushpam veda <BR>
 Pushpavaan prajavaan pashumaan Bhavathi <BR>
 Chandramaa vaa apaam pushpam <BR>
 Pushpavaan prajavaan pashumaan Bhavathi <BR><BR>
-
 Ya evam veda Yopaam aayathanam veda Aayathanavaan bhavathi <BR><BR>
-
 Agnirvaa Apam aayathanam <BR>
 Aayathanavaan bhavathi <BR>
 Yogner aayathanam veda <BR>
 Aayathanavaan bhavathi <BR>
 Aapo va Agner aayathanam <BR>
 Aayathanavaan bhavathi <BR><BR>
-
 Ya evam veda, Yopaamaayathanam veda, Aayathanavaan bhavathi <BR><BR>
-
 Vaayurvaa Apam aayathanam <BR>
 Aayathanavaan bhavathi <BR>
 Yo vaayor aayathanam veda <BR>
 Aayathanavaan bhavathi <BR>
 Aapo vhy vaayo ra ayathanam <BR>
 Aayathanavaan bhavathi <BR><BR>
-
 Ya evam veda, Yopaamaayathanam veda, Aayathanavaan bhavathi <BR><BR>
-
 Asou vhy tapann apaam aayathanam <BR>
 Aayathanavaan bhavathi <BR>
 Yo mushyathapatha aayathanam veda <BR>
 Aayathanavaan bhavathi <BR>
 Aapo vaa amushyatha patha aayathanam <BR>
 Aayathanavaan bhavathi <BR><BR>
-
 Ya evam veda, Yopaamaayathanam veda, Aayathanavaan bhavathi <BR><BR>
-
 Chandramaa vaa Apam ayathanam <BR>
 Aayathanavaan bhavathi <BR>
 Yas chandramasa aayathanam veda <BR>
 Aayathanavaan bhavathi <BR>
 Aapo vhy Chandramasa aayathanam <BR>
 Aayathanavaan bhavathi <BR><BR>
-
 Ya evam veda, Yopaamaayathanam veda, Aayathanavaan bhavathi <BR><BR>
-
 Nakshatraa Nivaa Apam ayathanam <BR>
 Aayathanavaan bhavathi <BR>
 Yo Nakshatraanaam aayathanam veda <BR>
 Aayathanavaan bhavathi <BR>
 Aapo vhy Nakshatraanaama ayathanam <BR>
 Aayathanavaan bhavathi <BR><BR>
-
 Ya evam veda, Yopaamaayathanam veda, Aayathanavaan bhavathi <BR><BR>
-
 Parjanyo vaa Apam ayathanam <BR>
 Aayathanavaan bhavathi <BR>
 Yah Parjanyasya aayathanam veda <BR>
 Aayathanavaan bhavathi <BR>
 Aapo vhy Parjanyasya ayathanam <BR>
 Aayathanavaan bhavathi <BR><BR>
-
 Ya evam veda, Yopaamaayathanam veda, Aayathanavaan bhavathi <BR><BR>
-
 Samvathsaro vaa Apama ayathanam <BR>
 Aayathanavaan bhavathi <BR>
 YaS samvathsarasy aayathanam veda <BR>
 Aayathanavaan bhavathi <BR>
 Aapo vhy Samvathsarasya ayathanam <BR>
 Aayathanavaan bhavathi <BR><BR>
-
 Ya evam veda, Yopsu naavam prathishtitaam veda, pratyeva thishTathi <BR><BR>
-
 Om, Raajaadhi raajaaya Prasahya saahine <BR>
 Namo Vayam whyshravanaya kurmahe <BR>
 Sa me kaamaan kaama kaamaaya mahyam <BR>
 Kaameshwaro whyshravaNo dadhaathu <BR>
 Kuberaaya whyshravaNaaya <BR>
 Mahaarajaaya Namaha <BR><BR>
-
 Om Thath Bramha <BR>
 Om Thath Vaayuhu <BR>
 Om Thath Aatma <BR>
 Om Thath Satyam <BR>
 Om Thath Sarvam <BR>
 Om Thath Purornamaha <BR><BR>
-
 Anthas-charathi Bhuteshu Guha yaam  <BR>
 Vishwamurthishu  <BR>
 Thvam-yagnas-tvam  <BR>
@@ -223,35 +75,26 @@ Rudras-tvam  <BR>
 Vishnus-tvam  <BR>
 Bramhas-tvam  <BR>
 Prajaa Pathihi <BR><BR>
-
 Tvam Thadaapa Aapo-Jyothiraso Amritam Bramha Bhoorbhuvassuvarom <BR><BR>
-
 Na KarmaNaa na Prajayaa Dhanena Thyaage Naike <BR>
 Amritha Swamaanashuhu <BR><BR>
-
 PareNa naakam nihitam Guhaayaam <BR>
 Vibhrajade Thadyathayo Vishanthi <BR><BR>
-
 Vedantha Vigyaana Sunishchitaartha-ssanyaasa <BR>
 Yogaa-dyatha-Yashshudda-satvaaha <BR><BR>
-
 Te Bramha Loke Tu Paraantha Kaale <BR>
 Paraamritaath Parimuchyanthi sarve <BR><BR>
-
 Dahram dvipaapam Parame-shwabhutam <BR>
 Yat-pundareekam Paramadhya Sagum-stham <BR><BR>
-
 Tatraapi Dahram gaganam vishokas-tasmin <BR>
 Yadanthas-thadupaasi-tavyam <BR><BR>
-
 Yo vedaadou swarah prokta vedante <BR>
 Cha prathishtitaha <BR><BR>
-
 Thasya Prakriti Leenasya <BR>
 Yah paraswa maheshwaraha<BR>
-
 
 </p>
 </div>
 </body>
 </html>
+

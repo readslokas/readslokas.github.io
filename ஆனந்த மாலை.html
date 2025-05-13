@@ -1,174 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Auto Smooth Scroll with Wake Lock</title>
-<style>
-body {
-  background-color: black;
-  color: white;
-  font-family: Calibri, sans-serif;
-  margin: 0;
-  overflow-y: auto;
-  scroll-behavior: auto; /* we control smoothness in JS now */
-}
-
-#controls {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  background-color: #222;
-  padding: 5px;
-  box-sizing: border-box;
-  z-index: 1000;
-}
-
-#controls button {
-  flex: 1;
-  font-size: 2em;
-  padding: 14px 0;
-  cursor: pointer;
-  border: none;
-  background-color: #444;
-  color: white;
-  margin: 0 5px;
-  border-radius: 6px;
-}
-
-#controls button:hover {
-  background-color: #666;
-}
-
-.content {
-  margin-top: 70px;
-  padding: 10px;
-}
-
-p {
-  font-size: calc(2.2vw + 2.2em);
-  word-wrap: break-word;
-}
-</style>
-<script>
-let speedLevel = 0;
-let speedPixelsPerSecond = 0;
-let lastTimestamp = null;
-let wakeLock = null;
-let animationFrameId = null;
-
-function smoothScroll(timestamp) {
-  if (!lastTimestamp) lastTimestamp = timestamp;
-  const deltaTime = (timestamp - lastTimestamp) / 1000; // seconds
-  lastTimestamp = timestamp;
-
-  const distance = speedPixelsPerSecond * deltaTime;
-  window.scrollTo(0, window.scrollY + distance);
-
-  animationFrameId = requestAnimationFrame(smoothScroll);
-}
-
-function startAutoScroll() {
-  if (animationFrameId) {
-    cancelAnimationFrame(animationFrameId);
-  }
-  lastTimestamp = null;
-  animationFrameId = requestAnimationFrame(smoothScroll);
-}
-
-function changeSpeed(newSpeed) {
-  // Define how many pixels per second for each level
-  const speedTable = [1, 60, 90, 110, 130, 150, 170]; 
-  speedLevel = parseInt(newSpeed);
-  speedPixelsPerSecond = speedTable[speedLevel];
-}
-
-async function requestWakeLock() {
-  try {
-    if ('wakeLock' in navigator) {
-      wakeLock = await navigator.wakeLock.request('screen');
-      console.log('Wake Lock is active');
-      wakeLock.addEventListener('release', () => {
-        console.log('Wake Lock was released');
-      });
-    } else {
-      console.warn('Wake Lock API not supported on this browser.');
-    }
-  } catch (err) {
-    console.error(`${err.name}, ${err.message}`);
-  }
-}
-
-document.addEventListener('visibilitychange', () => {
-  if (wakeLock !== null && document.visibilityState === 'visible') {
-    requestWakeLock();
-  }
-});
-
-window.onload = function() {
-  startAutoScroll();
-  requestWakeLock();
-};
-</script>
-</head>
-<body>
-
-<div id="controls">
-  <button onclick="changeSpeed(0)">1x</button>
-  <button onclick="changeSpeed(1)">2x</button>
-  <button onclick="changeSpeed(2)">3x</button>
-  <button onclick="changeSpeed(3)">4x</button>
-  <button onclick="changeSpeed(4)">5x</button>
-  <button onclick="changeSpeed(5)">6x</button>
-  <button onclick="changeSpeed(6)">7x</button>
-</div>
-
-<div class="content">
-<p>
-ஆனந்த மாலை<br>
-<br>
-(தில்லையில் அருளியது - சிவானுபவ விருத்தம் - அறுசீர்க் கழிநெடிலடி ஆசிரிய விருத்தம்)<br>
-<br>
-மின்னே ரனைய பூங்கழல்கள் அடைந்தார் கடந்தார் வியனுலகம்<br>
-பொன்னே ரனைய மலர்கொண்டு போற்றா நின்றார் அமரரெல்லாம்<br>
-கல் நேரனைய மனக்கடையாய்க் கழிப்புண் டவலக் கடல்வீழ்ந்த<br>
-என்னே ரனையேன் இனியுன்னைக் கூடும் வண்ணம் இயம்பாயே.<br>
-<br>
-என்னால் அறியாப் பதம்தந்தாய் யான தறியா தேகெட்டேன்<br>
-உன்னால் ஒன்றுங் குறைவில்லை உடையாய் அடிமைக் காரென்பேன்<br>
-பன்னாள் உன்னைப் பணிந்தேத்தும் பழைய அடியா ரொடுங்கூடா<br>
-தென்நா யகமே பிற்பட்டிங் கிருந்தென் நோய்க்கு விருந்தாயே.<br>
-<br>
-சீல மின்றி நோன்பின்றிச் செறிவே யின்றி அறிவின்றித்<br>
-தோலின் பாவைக் கூத்தாட்டாய்ச் சுழன்று விழுந்து கிடப்பேனை<br>
-மாலுங் காட்டி வழிகாட்டி வாரா உலக நெறியேறக்<br>
-கோலங் காட்டி ஆண்டானைக் கொடியேன் என்றோ கூடுவதே.<br>
-<br>
-கெடுவென் கெடுமா கெடுகின்றேன் கேடி லாதாய் பழிகொண்டாய்<br>
-படுவேன் படுவ தெல்லாம்நான் பட்டாற் பின்னைப் பயனென்னே<br>
-கொடுமா நரகத் தழுந்தாமே காத்தாட் கொள்ளுங் குருமணியே<br>
-நடுவாய் நில்லா தொழிந்தக்கால் நன்றோ எங்கள் நாயகமே.<br>
-<br>
-தாயாய் முலையைத் தருவானே தாரா தொழிந்தாற் சவலையாய்<br>
-நாயேன் கழிந்து போவேனோ நம்பி யினித்தான் நல்குதியே<br>
-தாயே யென்றுன் தாளடைந்தேன் தயாநீ என்பால் இல்லையே<br>
-நாயேன் அடிமை உடனாக ஆண்டாய் நான்தான் வேண்டாவோ.<br>
-<br>
-கோவே யருள வேண்டாவோ கொடியேன் கெடவே அமையுமே<br>
-ஆவா வென்னா விடிலென்னை அஞ்சேல் என்பார் ஆரோதான்<br>
-சாவா ரெல்லாம் என்னளவோ தக்க வாறன் றென்னாரோ<br>
-தேவே தில்லை நடமாடீ திகைத்தேன் இனித்தான் தேற்றாயே.<br>
-<br>
-நரியைக் குதிரைப் பரியாக்கி ஞால மெல்லாம் நிகழ்வித்துப்<br>
-பெரிய தென்னன் மதுரையெல்லாம் பிச்ச தேற்றும் பெருந்துறையாய்<br>
-அரிய பொருளே அவிநாசி அப்பா பாண்டி வெள்ளமே<br>
-தெரிய அரிய பரஞ்சோதி செய்வ தொன்றும் அறியேனே.<br>
-<br>
-திருச்சிற்றம்பலம்<br>
+thisisthefirstline
+ஆனந்த மாலை<BR>
+<BR>
+(தில்லையில் அருளியது - சிவானுபவ விருத்தம் - அறுசீர்க் கழிநெடிலடி ஆசிரிய விருத்தம்)<BR>
+<BR>
+மின்னே ரனைய பூங்கழல்கள் அடைந்தார் கடந்தார் வியனுலகம்<BR>
+பொன்னே ரனைய மலர்கொண்டு போற்றா நின்றார் அமரரெல்லாம்<BR>
+கல் நேரனைய மனக்கடையாய்க் கழிப்புண் டவலக் கடல்வீழ்ந்த<BR>
+என்னே ரனையேன் இனியுன்னைக் கூடும் வண்ணம் இயம்பாயே.<BR>
+<BR>
+என்னால் அறியாப் பதம்தந்தாய் யான தறியா தேகெட்டேன்<BR>
+உன்னால் ஒன்றுங் குறைவில்லை உடையாய் அடிமைக் காரென்பேன்<BR>
+பன்னாள் உன்னைப் பணிந்தேத்தும் பழைய அடியா ரொடுங்கூடா<BR>
+தென்நா யகமே பிற்பட்டிங் கிருந்தென் நோய்க்கு விருந்தாயே.<BR>
+<BR>
+சீல மின்றி நோன்பின்றிச் செறிவே யின்றி அறிவின்றித்<BR>
+தோலின் பாவைக் கூத்தாட்டாய்ச் சுழன்று விழுந்து கிடப்பேனை<BR>
+மாலுங் காட்டி வழிகாட்டி வாரா உலக நெறியேறக்<BR>
+கோலங் காட்டி ஆண்டானைக் கொடியேன் என்றோ கூடுவதே.<BR>
+<BR>
+கெடுவென் கெடுமா கெடுகின்றேன் கேடி லாதாய் பழிகொண்டாய்<BR>
+படுவேன் படுவ தெல்லாம்நான் பட்டாற் பின்னைப் பயனென்னே<BR>
+கொடுமா நரகத் தழுந்தாமே காத்தாட் கொள்ளுங் குருமணியே<BR>
+நடுவாய் நில்லா தொழிந்தக்கால் நன்றோ எங்கள் நாயகமே.<BR>
+<BR>
+தாயாய் முலையைத் தருவானே தாரா தொழிந்தாற் சவலையாய்<BR>
+நாயேன் கழிந்து போவேனோ நம்பி யினித்தான் நல்குதியே<BR>
+தாயே யென்றுன் தாளடைந்தேன் தயாநீ என்பால் இல்லையே<BR>
+நாயேன் அடிமை உடனாக ஆண்டாய் நான்தான் வேண்டாவோ.<BR>
+<BR>
+கோவே யருள வேண்டாவோ கொடியேன் கெடவே அமையுமே<BR>
+ஆவா வென்னா விடிலென்னை அஞ்சேல் என்பார் ஆரோதான்<BR>
+சாவா ரெல்லாம் என்னளவோ தக்க வாறன் றென்னாரோ<BR>
+தேவே தில்லை நடமாடீ திகைத்தேன் இனித்தான் தேற்றாயே.<BR>
+<BR>
+நரியைக் குதிரைப் பரியாக்கி ஞால மெல்லாம் நிகழ்வித்துப்<BR>
+பெரிய தென்னன் மதுரையெல்லாம் பிச்ச தேற்றும் பெருந்துறையாய்<BR>
+அரிய பொருளே அவிநாசி அப்பா பாண்டி வெள்ளமே<BR>
+தெரிய அரிய பரஞ்சோதி செய்வ தொன்றும் அறியேனே.<BR>
+<BR>
+திருச்சிற்றம்பலம்<BR>
 
 </p>
 </div>
 </body>
 </html>
+

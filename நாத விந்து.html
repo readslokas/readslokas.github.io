@@ -1,167 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Auto Smooth Scroll with Wake Lock</title>
-<style>
-body {
-  background-color: black;
-  color: white;
-  font-family: Calibri, sans-serif;
-  margin: 0;
-  overflow-y: auto;
-  scroll-behavior: auto; /* we control smoothness in JS now */
-}
-
-#controls {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  background-color: #222;
-  padding: 5px;
-  box-sizing: border-box;
-  z-index: 1000;
-}
-
-#controls button {
-  flex: 1;
-  font-size: 2em;
-  padding: 14px 0;
-  cursor: pointer;
-  border: none;
-  background-color: #444;
-  color: white;
-  margin: 0 5px;
-  border-radius: 6px;
-}
-
-#controls button:hover {
-  background-color: #666;
-}
-
-.content {
-  margin-top: 70px;
-  padding: 10px;
-}
-
-p {
-  font-size: calc(2.2vw + 2.2em);
-  word-wrap: break-word;
-}
-</style>
-<script>
-let speedLevel = 0;
-let speedPixelsPerSecond = 0;
-let lastTimestamp = null;
-let wakeLock = null;
-let animationFrameId = null;
-
-function smoothScroll(timestamp) {
-  if (!lastTimestamp) lastTimestamp = timestamp;
-  const deltaTime = (timestamp - lastTimestamp) / 1000; // seconds
-  lastTimestamp = timestamp;
-
-  const distance = speedPixelsPerSecond * deltaTime;
-  window.scrollTo(0, window.scrollY + distance);
-
-  animationFrameId = requestAnimationFrame(smoothScroll);
-}
-
-function startAutoScroll() {
-  if (animationFrameId) {
-    cancelAnimationFrame(animationFrameId);
-  }
-  lastTimestamp = null;
-  animationFrameId = requestAnimationFrame(smoothScroll);
-}
-
-function changeSpeed(newSpeed) {
-  // Define how many pixels per second for each level
-  const speedTable = [1, 60, 90, 110, 130, 150, 170]; 
-  speedLevel = parseInt(newSpeed);
-  speedPixelsPerSecond = speedTable[speedLevel];
-}
-
-async function requestWakeLock() {
-  try {
-    if ('wakeLock' in navigator) {
-      wakeLock = await navigator.wakeLock.request('screen');
-      console.log('Wake Lock is active');
-      wakeLock.addEventListener('release', () => {
-        console.log('Wake Lock was released');
-      });
-    } else {
-      console.warn('Wake Lock API not supported on this browser.');
-    }
-  } catch (err) {
-    console.error(`${err.name}, ${err.message}`);
-  }
-}
-
-document.addEventListener('visibilitychange', () => {
-  if (wakeLock !== null && document.visibilityState === 'visible') {
-    requestWakeLock();
-  }
-});
-
-window.onload = function() {
-  startAutoScroll();
-  requestWakeLock();
-};
-</script>
-</head>
-<body>
-
-<div id="controls">
-  <button onclick="changeSpeed(0)">1x</button>
-  <button onclick="changeSpeed(1)">2x</button>
-  <button onclick="changeSpeed(2)">3x</button>
-  <button onclick="changeSpeed(3)">4x</button>
-  <button onclick="changeSpeed(4)">5x</button>
-  <button onclick="changeSpeed(5)">6x</button>
-  <button onclick="changeSpeed(6)">7x</button>
-</div>
-
-<div class="content">
-<p>
-
+thisisthefirstline
 நாத விந்து கலாதீ நமோநம<BR>
 வேத மந்த்ர ஸ்வரூபா நமோநம<BR>
 ஞான பண்டித சுவாமி நமோநம ...... வெகுகோடி<BR><BR>
-
 நாம சம்பு குமாரா நமோநம<BR>
 போக அந்தரி பாலா நமோநம<BR>
 நாக பந்த மயூரா நமோநம ...... பரசூரர்<BR><BR>
-
 சேத தண்ட விநோதா நமோநம<BR>
 கீத கிண்கிணி பாதா நமோநம<BR>
 தீர சம்ப்ரம வீரா நமோநம ...... கிரிராஜ<BR><BR>
-
 தீப மங்கள ஜோதீ நமோநம<BR>
 தூய அம்பல லீலா நமோநம<BR>
 தேவ குஞ்சரி பாகா நமோநம ...... அருள்தாராய்<BR><BR>
-
 ஈதலும் பல கோலால பூஜையும்<BR>
 ஓதலுங் குண ஆசார நீதியும்<BR>
 ஈரமுங் குரு சீர்பாதசேவையு ...... மறவாத<BR><BR>
-
 ஏழ்தலம் புகழ் காவேரியால்விளை<BR>
 சோழ மண்டல மீதே மநோகர<BR>
 ராஜ கெம்பிர நாடாளுநாயக ...... வயலூரா<BR><BR>
-
 ஆதரம்பயி லாரூரர்தோழமை<BR>
 சேர்தல் கொண்டவரோடே முனாளினில்<BR>
 ஆடல் வெம்பரி மீதேறி மாகயி ...... லையிலேகி<BR><BR>
-
 ஆதி யந்தவு லாவா சுபாடிய<BR>
 சேரர் கொங்குவை காவூர் நனாடதில்<BR>
 ஆவினன்குடி வாழ்வான தேவர்கள் ...... பெருமாளே<BR><BR>
-
 
 </p>
 </div>
 </body>
 </html>
+

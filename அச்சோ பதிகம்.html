@@ -1,196 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Auto Smooth Scroll with Wake Lock</title>
-<style>
-body {
-  background-color: black;
-  color: white;
-  font-family: Calibri, sans-serif;
-  margin: 0;
-  overflow-y: auto;
-  scroll-behavior: auto; /* we control smoothness in JS now */
-}
-
-#controls {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  background-color: #222;
-  padding: 5px;
-  box-sizing: border-box;
-  z-index: 1000;
-}
-
-#controls button {
-  flex: 1;
-  font-size: 2em;
-  padding: 14px 0;
-  cursor: pointer;
-  border: none;
-  background-color: #444;
-  color: white;
-  margin: 0 5px;
-  border-radius: 6px;
-}
-
-#controls button:hover {
-  background-color: #666;
-}
-
-.content {
-  margin-top: 70px;
-  padding: 10px;
-}
-
-p {
-  font-size: calc(2.2vw + 2.2em);
-  word-wrap: break-word;
-}
-</style>
-<script>
-let speedLevel = 0;
-let speedPixelsPerSecond = 0;
-let lastTimestamp = null;
-let wakeLock = null;
-let animationFrameId = null;
-
-function smoothScroll(timestamp) {
-  if (!lastTimestamp) lastTimestamp = timestamp;
-  const deltaTime = (timestamp - lastTimestamp) / 1000; // seconds
-  lastTimestamp = timestamp;
-
-  const distance = speedPixelsPerSecond * deltaTime;
-  window.scrollTo(0, window.scrollY + distance);
-
-  animationFrameId = requestAnimationFrame(smoothScroll);
-}
-
-function startAutoScroll() {
-  if (animationFrameId) {
-    cancelAnimationFrame(animationFrameId);
-  }
-  lastTimestamp = null;
-  animationFrameId = requestAnimationFrame(smoothScroll);
-}
-
-function changeSpeed(newSpeed) {
-  // Define how many pixels per second for each level
-  const speedTable = [1, 60, 90, 110, 130, 150, 170]; 
-  speedLevel = parseInt(newSpeed);
-  speedPixelsPerSecond = speedTable[speedLevel];
-}
-
-async function requestWakeLock() {
-  try {
-    if ('wakeLock' in navigator) {
-      wakeLock = await navigator.wakeLock.request('screen');
-      console.log('Wake Lock is active');
-      wakeLock.addEventListener('release', () => {
-        console.log('Wake Lock was released');
-      });
-    } else {
-      console.warn('Wake Lock API not supported on this browser.');
-    }
-  } catch (err) {
-    console.error(`${err.name}, ${err.message}`);
-  }
-}
-
-document.addEventListener('visibilitychange', () => {
-  if (wakeLock !== null && document.visibilityState === 'visible') {
-    requestWakeLock();
-  }
-});
-
-window.onload = function() {
-  startAutoScroll();
-  requestWakeLock();
-};
-</script>
-</head>
-<body>
-
-<div id="controls">
-  <button onclick="changeSpeed(0)">1x</button>
-  <button onclick="changeSpeed(1)">2x</button>
-  <button onclick="changeSpeed(2)">3x</button>
-  <button onclick="changeSpeed(3)">4x</button>
-  <button onclick="changeSpeed(4)">5x</button>
-  <button onclick="changeSpeed(5)">6x</button>
-  <button onclick="changeSpeed(6)">7x</button>
-</div>
-
-<div class="content">
-<p>
-அச்சோ பதிகம்<br><br>
-முத்திநெறி அறியாத மூர்க்கரொடு முயல்வேனைப்<br>
-பத்திநெறி அறிவித்துப் பழவினைகள் பாறும்வண்ணம்<br>
-சித்தமலம் அறுவித்துச் சிவமாக்கி எனைஆண்ட<br>
-அத்தனெனக் கருளியவா றார்பெறுவார் அச்சோவே.<br>
-<br>
-நெறியல்லா நெறிதன்னை நெறியாக நினைவேனைச்<br>
-சிறுநெறிகள் சேராமே திருவருளே சேரும்வண்ணம்<br>
-குறியொன்றும் இல்லாத கூத்தன்தன் கூத்தையெனக்கு<br>
-அறியும்வண்ணம் அருளியவா றார்பெறுவார் அச்சோவே.<br>
-<br>
-பொய்யெல்லாம் மெய்யென்று புணர்முலையார் போகத்தே<br>
-மையலுறக் கடவேனை மாளாமே காத்தருளித்<br>
-தையலிடங் கொண்டபிரான் தன்கழலே சேரும்வண்ணம்<br>
-ஐயன்எனக் கருளியவா றார்பெறுவார் அச்சோவே.<br>
-<br>
-மண்ணதனிற் பிறந்தெய்த்து மாண்டுவிழக் கடவேனை<br>
-எண்ணமிலா அன்பருளி எனையாண்டிட் டென்னையுந்தன்<br>
-சுண்ணவெண்ணீ றணிவித்துத் தூய்நெறியே சேரும்வண்ணம்<br>
-அண்ணல்எனக் கருளியவா றார்வபெறுவார் அச்சோவே.<br>
-<br>
-பஞ்சாய அடிமடவார் கடைக்கண்ணால் இடர்ப்பட்டு<br>
-நெஞ்சாய துயர்கூர நிற்பேன்உன் அருள்பெற்றேன்<br>
-உய்ஞ்சேன்நான் உடையானே அடியேனை வருகஎன்று<br>
-அஞ்சேல்என் றருளியவா றார்பெறுவார் அச்சோவே.<br>
-<br>
-வெந்துவிழும் உடற்பிறவி மெய்யென்று வினைபெருக்கிக்<br>
-கொந்துகுழல் கோல்வளையார் குவிமுலைமேல் வீழ்வேனைப்<br>
-பந்தமறுத் தெனையாண்டு பரிசறஎன் துரிசுமறுத்து<br>
-அந்தமெனக் கருளியவா றார்பெறுவார் அச்சோவே.<br>
-<br>
-தையலார் மையலிலே தாழ்ந்துவிழக் கடவேனைப்<br>
-பையவே கொடுபோந்து பாசமெனுந் தாழுருவி<br>
-உய்யும்நெறி காட்டுவித்திட் டோ ங்காரத் துட்பொருளை<br>
-ஐயன்எனக் கருளியவா றார்பெறுவார் அச்சோவே.<br>
-<br>
-சாதல்பிறப் பென்னுந் தடஞ்சுழியில் தடுமாறிக்<br>
-காதலின்மிக் கணியிழையார் கலவியிலே விழுவேனை<br>
-மாதொருகூ றுடையபிரான் தன்கழலே சேரும்வண்ணம்<br>
-ஆதியெனக் கருளியவா றார்பெறுவார் அச்சோவே.<br>
-<br>
-செம்மைநலம் அறியாத சிதடரொடுந் திரிவேனை<br>
-மும்மைமலம் அறுவித்து முதலாய முதல்வன்தான்<br>
-நம்மையும்ஓர் பொருளாக்கி நாய்சிவிகை ஏற்றுவித்த<br>
-அம்மையெனக் கருளியவா றார்பெறுவார் அச்சோவே.<br>
-<br>
-செத்திடமும் பிறந்திடமு மினிச்சாவா திருந்திடமும்<br>
-அத்தனையு மறியாதார் அறியுமறி வெவ்வறிவோ<br>
-ஒத்தநில மொத்தபொருள் ஒருபொருளாய் பெரும்பயனை<br>
-அத்ததெனக் கருளியவா றார்பெறுவா ரச்சோவே.<br>
-<br>
-படியதினிற் கிடந்திந்தப் பசு பாசந் தவிர்ந்துவிடும்<br>
-குடிமையிலே திறிந் தடியேன் கும்பியிலே விழாவண்ணம்<br>
-நெடியவனும் நான்முகனும் நீர்கான்றுங் காணவொண்ணா<br>
-அடிகளெனக் கருளியவா றார்பெறுவா ரச்சோவே.<br>
-<br>
-பாதியெனு மிரவுதங்கிப் பகலெமக்கெ யிரைதேடி<br>
-வேதனையி லகப்பட்டு வெந்துவிழக் கடவேனை<br>
-சாதிகுலம் பிறப்பறுத்துச் சகமறிய வெனையாண்ட<br>
-ஆதியெனுக் கருளியவா றார்பெறுவா ரச்சோவே.<br>
-<br>
-திருச்சிற்றம்பலம்<br>
+thisisthefirstline
+அச்சோ பதிகம்<BR><BR>
+முத்திநெறி அறியாத மூர்க்கரொடு முயல்வேனைப்<BR>
+பத்திநெறி அறிவித்துப் பழவினைகள் பாறும்வண்ணம்<BR>
+சித்தமலம் அறுவித்துச் சிவமாக்கி எனைஆண்ட<BR>
+அத்தனெனக் கருளியவா றார்பெறுவார் அச்சோவே.<BR>
+<BR>
+நெறியல்லா நெறிதன்னை நெறியாக நினைவேனைச்<BR>
+சிறுநெறிகள் சேராமே திருவருளே சேரும்வண்ணம்<BR>
+குறியொன்றும் இல்லாத கூத்தன்தன் கூத்தையெனக்கு<BR>
+அறியும்வண்ணம் அருளியவா றார்பெறுவார் அச்சோவே.<BR>
+<BR>
+பொய்யெல்லாம் மெய்யென்று புணர்முலையார் போகத்தே<BR>
+மையலுறக் கடவேனை மாளாமே காத்தருளித்<BR>
+தையலிடங் கொண்டபிரான் தன்கழலே சேரும்வண்ணம்<BR>
+ஐயன்எனக் கருளியவா றார்பெறுவார் அச்சோவே.<BR>
+<BR>
+மண்ணதனிற் பிறந்தெய்த்து மாண்டுவிழக் கடவேனை<BR>
+எண்ணமிலா அன்பருளி எனையாண்டிட் டென்னையுந்தன்<BR>
+சுண்ணவெண்ணீ றணிவித்துத் தூய்நெறியே சேரும்வண்ணம்<BR>
+அண்ணல்எனக் கருளியவா றார்வபெறுவார் அச்சோவே.<BR>
+<BR>
+பஞ்சாய அடிமடவார் கடைக்கண்ணால் இடர்ப்பட்டு<BR>
+நெஞ்சாய துயர்கூர நிற்பேன்உன் அருள்பெற்றேன்<BR>
+உய்ஞ்சேன்நான் உடையானே அடியேனை வருகஎன்று<BR>
+அஞ்சேல்என் றருளியவா றார்பெறுவார் அச்சோவே.<BR>
+<BR>
+வெந்துவிழும் உடற்பிறவி மெய்யென்று வினைபெருக்கிக்<BR>
+கொந்துகுழல் கோல்வளையார் குவிமுலைமேல் வீழ்வேனைப்<BR>
+பந்தமறுத் தெனையாண்டு பரிசறஎன் துரிசுமறுத்து<BR>
+அந்தமெனக் கருளியவா றார்பெறுவார் அச்சோவே.<BR>
+<BR>
+தையலார் மையலிலே தாழ்ந்துவிழக் கடவேனைப்<BR>
+பையவே கொடுபோந்து பாசமெனுந் தாழுருவி<BR>
+உய்யும்நெறி காட்டுவித்திட் டோ ங்காரத் துட்பொருளை<BR>
+ஐயன்எனக் கருளியவா றார்பெறுவார் அச்சோவே.<BR>
+<BR>
+சாதல்பிறப் பென்னுந் தடஞ்சுழியில் தடுமாறிக்<BR>
+காதலின்மிக் கணியிழையார் கலவியிலே விழுவேனை<BR>
+மாதொருகூ றுடையபிரான் தன்கழலே சேரும்வண்ணம்<BR>
+ஆதியெனக் கருளியவா றார்பெறுவார் அச்சோவே.<BR>
+<BR>
+செம்மைநலம் அறியாத சிதடரொடுந் திரிவேனை<BR>
+மும்மைமலம் அறுவித்து முதலாய முதல்வன்தான்<BR>
+நம்மையும்ஓர் பொருளாக்கி நாய்சிவிகை ஏற்றுவித்த<BR>
+அம்மையெனக் கருளியவா றார்பெறுவார் அச்சோவே.<BR>
+<BR>
+செத்திடமும் பிறந்திடமு மினிச்சாவா திருந்திடமும்<BR>
+அத்தனையு மறியாதார் அறியுமறி வெவ்வறிவோ<BR>
+ஒத்தநில மொத்தபொருள் ஒருபொருளாய் பெரும்பயனை<BR>
+அத்ததெனக் கருளியவா றார்பெறுவா ரச்சோவே.<BR>
+<BR>
+படியதினிற் கிடந்திந்தப் பசு பாசந் தவிர்ந்துவிடும்<BR>
+குடிமையிலே திறிந் தடியேன் கும்பியிலே விழாவண்ணம்<BR>
+நெடியவனும் நான்முகனும் நீர்கான்றுங் காணவொண்ணா<BR>
+அடிகளெனக் கருளியவா றார்பெறுவா ரச்சோவே.<BR>
+<BR>
+பாதியெனு மிரவுதங்கிப் பகலெமக்கெ யிரைதேடி<BR>
+வேதனையி லகப்பட்டு வெந்துவிழக் கடவேனை<BR>
+சாதிகுலம் பிறப்பறுத்துச் சகமறிய வெனையாண்ட<BR>
+ஆதியெனுக் கருளியவா றார்பெறுவா ரச்சோவே.<BR>
+<BR>
+திருச்சிற்றம்பலம்<BR>
 
 </p>
 </div>
 </body>
 </html>
+

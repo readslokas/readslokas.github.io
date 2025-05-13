@@ -1,191 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Auto Smooth Scroll with Wake Lock</title>
-<style>
-body {
-  background-color: black;
-  color: white;
-  font-family: Calibri, sans-serif;
-  margin: 0;
-  overflow-y: auto;
-  scroll-behavior: auto; /* we control smoothness in JS now */
-}
-
-#controls {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  background-color: #222;
-  padding: 5px;
-  box-sizing: border-box;
-  z-index: 1000;
-}
-
-#controls button {
-  flex: 1;
-  font-size: 2em;
-  padding: 14px 0;
-  cursor: pointer;
-  border: none;
-  background-color: #444;
-  color: white;
-  margin: 0 5px;
-  border-radius: 6px;
-}
-
-#controls button:hover {
-  background-color: #666;
-}
-
-.content {
-  margin-top: 70px;
-  padding: 10px;
-}
-
-p {
-  font-size: calc(2.2vw + 2.2em);
-  word-wrap: break-word;
-}
-</style>
-<script>
-let speedLevel = 0;
-let speedPixelsPerSecond = 0;
-let lastTimestamp = null;
-let wakeLock = null;
-let animationFrameId = null;
-
-function smoothScroll(timestamp) {
-  if (!lastTimestamp) lastTimestamp = timestamp;
-  const deltaTime = (timestamp - lastTimestamp) / 1000; // seconds
-  lastTimestamp = timestamp;
-
-  const distance = speedPixelsPerSecond * deltaTime;
-  window.scrollTo(0, window.scrollY + distance);
-
-  animationFrameId = requestAnimationFrame(smoothScroll);
-}
-
-function startAutoScroll() {
-  if (animationFrameId) {
-    cancelAnimationFrame(animationFrameId);
-  }
-  lastTimestamp = null;
-  animationFrameId = requestAnimationFrame(smoothScroll);
-}
-
-function changeSpeed(newSpeed) {
-  // Define how many pixels per second for each level
-  const speedTable = [1, 60, 90, 110, 130, 150, 170]; 
-  speedLevel = parseInt(newSpeed);
-  speedPixelsPerSecond = speedTable[speedLevel];
-}
-
-async function requestWakeLock() {
-  try {
-    if ('wakeLock' in navigator) {
-      wakeLock = await navigator.wakeLock.request('screen');
-      console.log('Wake Lock is active');
-      wakeLock.addEventListener('release', () => {
-        console.log('Wake Lock was released');
-      });
-    } else {
-      console.warn('Wake Lock API not supported on this browser.');
-    }
-  } catch (err) {
-    console.error(`${err.name}, ${err.message}`);
-  }
-}
-
-document.addEventListener('visibilitychange', () => {
-  if (wakeLock !== null && document.visibilityState === 'visible') {
-    requestWakeLock();
-  }
-});
-
-window.onload = function() {
-  startAutoScroll();
-  requestWakeLock();
-};
-</script>
-</head>
-<body>
-
-<div id="controls">
-  <button onclick="changeSpeed(0)">1x</button>
-  <button onclick="changeSpeed(1)">2x</button>
-  <button onclick="changeSpeed(2)">3x</button>
-  <button onclick="changeSpeed(3)">4x</button>
-  <button onclick="changeSpeed(4)">5x</button>
-  <button onclick="changeSpeed(5)">6x</button>
-  <button onclick="changeSpeed(6)">7x</button>
-</div>
-
-<div class="content">
-<p>
-
-எண்ணப்பதிகம் <br>
-<br>
-பாருரு வாய பிறப்பறவேண்டும்<br>
-பத்திமை யும்பெற வேண்டும்<br>
-சீருரு வாய சிவபெரு மானே<br>
-செங் கமல மலர்போல்<br>
-ஆருரு வாயஎன் னார முதேஉன்<br>
-அடியவர் தொகை நடுவே<br>
-ஓருருவாய நின் திருவருள் காட்டி<br>
-என்னையும் உய்யக்கொண் டருளே 1<br>
-<br>
-உரியேன் அல்லேன் உனக் கடிமை<br>
-உன்னைப் பிரிந்திங் கொருபொழுதும்<br>
-தரியேன் நாயேன் இன்னதென்று<br>
-அறியேன் சங்கரா கருணையினாற்<br>
-பெரியோன் ஒருவன் கண்டுகொள் என்றுன்<br>
-பெய்கழல் அடிகாட்டிப்<br>
-பிரியேன் என்றென் றருளிய அருளும்<br>
-பொய்யோ எங்கள் பெருமானே 2<br>
-<br>
-என்பே உருகநின் அருள்அளித்துன்<br>
-இணைமலர் அடி காட்டி<br>
-முன்பே என்னை ஆண்டுகொண்ட<br>
-முனிவா முனிவர் முழுமுதலே<br>
-இன்பே அருளி எனையுருக்கி<br>
-உயிருண் கின்ற எம்மானே<br>
-நண்பே யருளாய் என்னுயிர் நாதா<br>
-நின்னருள் நாணாமே 3<br>
-<br>
-பத்தில னேனும் பணிந்தில னேனும்உன்<br>
-உயர்ந்தபைங் கழல் காணப்<br>
-பித்தில னேனும் பிதற்றில னேனும்<br>
-பிறப்பறுப்பாய் எம்பெருமானே<br>
-முத்தனை யானே மணியனை யானே<br>
-முதல்வ னேமுறை யோஎன்று<br>
-எத்தனை யானும் யான்தொடர்ந் துன்னை<br>
-இனிப்பிரிந் தாற்றேனே 4<br>
-<br>
-காணும தொழிந்தேன் நின்திருப் பாதம்<br>
-கண்டு கண் களிகூரப்<br>
-பேணும தொழிந்தேன் பிதற்றும தொழிந்தேன்<br>
-பின்னைஎம் பெருமானே<br>
-தாணுவே அழிந்தேன் நின்னினைந் துருகுந்<br>
-தன்மைஎன் புன்மைகளால்<br>
-காணும தொழிந்தேன் நீயினி வரி னுங்<br>
-காணவும் நாணுவனே 5<br>
-<br>
-பாற்றிரு நீற்றெம் பரமனைப்<br>
-பரங்கரு ணையோடும் எதிர்ந்து<br>
-தோற்றிமெய் யடியார்க் கருட்டுறை<br>
-யளிக்குஞ் சோதியை நீதி யிலேன்<br>
-போற்றியென் அமுதே என நினைந்<br>
-தேத்திப் புகழ்ந்தழைத் தலறியென் னுள்ளே<br>
-ஆற்றுவனாக உடையவ னேஎனை<br>
-ஆவஎன் றருளாயே 6<br>  
-  
+thisisthefirstline
+எண்ணப்பதிகம் <BR>
+<BR>
+பாருரு வாய பிறப்பறவேண்டும்<BR>
+பத்திமை யும்பெற வேண்டும்<BR>
+சீருரு வாய சிவபெரு மானே<BR>
+செங் கமல மலர்போல்<BR>
+ஆருரு வாயஎன் னார முதேஉன்<BR>
+அடியவர் தொகை நடுவே<BR>
+ஓருருவாய நின் திருவருள் காட்டி<BR>
+என்னையும் உய்யக்கொண் டருளே 1<BR>
+<BR>
+உரியேன் அல்லேன் உனக் கடிமை<BR>
+உன்னைப் பிரிந்திங் கொருபொழுதும்<BR>
+தரியேன் நாயேன் இன்னதென்று<BR>
+அறியேன் சங்கரா கருணையினாற்<BR>
+பெரியோன் ஒருவன் கண்டுகொள் என்றுன்<BR>
+பெய்கழல் அடிகாட்டிப்<BR>
+பிரியேன் என்றென் றருளிய அருளும்<BR>
+பொய்யோ எங்கள் பெருமானே 2<BR>
+<BR>
+என்பே உருகநின் அருள்அளித்துன்<BR>
+இணைமலர் அடி காட்டி<BR>
+முன்பே என்னை ஆண்டுகொண்ட<BR>
+முனிவா முனிவர் முழுமுதலே<BR>
+இன்பே அருளி எனையுருக்கி<BR>
+உயிருண் கின்ற எம்மானே<BR>
+நண்பே யருளாய் என்னுயிர் நாதா<BR>
+நின்னருள் நாணாமே 3<BR>
+<BR>
+பத்தில னேனும் பணிந்தில னேனும்உன்<BR>
+உயர்ந்தபைங் கழல் காணப்<BR>
+பித்தில னேனும் பிதற்றில னேனும்<BR>
+பிறப்பறுப்பாய் எம்பெருமானே<BR>
+முத்தனை யானே மணியனை யானே<BR>
+முதல்வ னேமுறை யோஎன்று<BR>
+எத்தனை யானும் யான்தொடர்ந் துன்னை<BR>
+இனிப்பிரிந் தாற்றேனே 4<BR>
+<BR>
+காணும தொழிந்தேன் நின்திருப் பாதம்<BR>
+கண்டு கண் களிகூரப்<BR>
+பேணும தொழிந்தேன் பிதற்றும தொழிந்தேன்<BR>
+பின்னைஎம் பெருமானே<BR>
+தாணுவே அழிந்தேன் நின்னினைந் துருகுந்<BR>
+தன்மைஎன் புன்மைகளால்<BR>
+காணும தொழிந்தேன் நீயினி வரி னுங்<BR>
+காணவும் நாணுவனே 5<BR>
+<BR>
+பாற்றிரு நீற்றெம் பரமனைப்<BR>
+பரங்கரு ணையோடும் எதிர்ந்து<BR>
+தோற்றிமெய் யடியார்க் கருட்டுறை<BR>
+யளிக்குஞ் சோதியை நீதி யிலேன்<BR>
+போற்றியென் அமுதே என நினைந்<BR>
+தேத்திப் புகழ்ந்தழைத் தலறியென் னுள்ளே<BR>
+ஆற்றுவனாக உடையவ னேஎனை<BR>
+ஆவஎன் றருளாயே 6<BR>  
 
 </p>
 </div>
 </body>
 </html>
+

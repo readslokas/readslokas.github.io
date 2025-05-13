@@ -1,199 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Auto Smooth Scroll with Wake Lock</title>
-<style>
-body {
-  background-color: black;
-  color: white;
-  font-family: Calibri, sans-serif;
-  margin: 0;
-  overflow-y: auto;
-  scroll-behavior: auto; /* we control smoothness in JS now */
-}
-
-#controls {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  background-color: #222;
-  padding: 5px;
-  box-sizing: border-box;
-  z-index: 1000;
-}
-
-#controls button {
-  flex: 1;
-  font-size: 2em;
-  padding: 14px 0;
-  cursor: pointer;
-  border: none;
-  background-color: #444;
-  color: white;
-  margin: 0 5px;
-  border-radius: 6px;
-}
-
-#controls button:hover {
-  background-color: #666;
-}
-
-.content {
-  margin-top: 70px;
-  padding: 10px;
-}
-
-p {
-  font-size: calc(2.2vw + 2.2em);
-  word-wrap: break-word;
-}
-</style>
-<script>
-let speedLevel = 0;
-let speedPixelsPerSecond = 0;
-let lastTimestamp = null;
-let wakeLock = null;
-let animationFrameId = null;
-
-function smoothScroll(timestamp) {
-  if (!lastTimestamp) lastTimestamp = timestamp;
-  const deltaTime = (timestamp - lastTimestamp) / 1000; // seconds
-  lastTimestamp = timestamp;
-
-  const distance = speedPixelsPerSecond * deltaTime;
-  window.scrollTo(0, window.scrollY + distance);
-
-  animationFrameId = requestAnimationFrame(smoothScroll);
-}
-
-function startAutoScroll() {
-  if (animationFrameId) {
-    cancelAnimationFrame(animationFrameId);
-  }
-  lastTimestamp = null;
-  animationFrameId = requestAnimationFrame(smoothScroll);
-}
-
-function changeSpeed(newSpeed) {
-  // Define how many pixels per second for each level
-  const speedTable = [1, 60, 90, 110, 130, 150, 170]; 
-  speedLevel = parseInt(newSpeed);
-  speedPixelsPerSecond = speedTable[speedLevel];
-}
-
-async function requestWakeLock() {
-  try {
-    if ('wakeLock' in navigator) {
-      wakeLock = await navigator.wakeLock.request('screen');
-      console.log('Wake Lock is active');
-      wakeLock.addEventListener('release', () => {
-        console.log('Wake Lock was released');
-      });
-    } else {
-      console.warn('Wake Lock API not supported on this browser.');
-    }
-  } catch (err) {
-    console.error(`${err.name}, ${err.message}`);
-  }
-}
-
-document.addEventListener('visibilitychange', () => {
-  if (wakeLock !== null && document.visibilityState === 'visible') {
-    requestWakeLock();
-  }
-});
-
-window.onload = function() {
-  startAutoScroll();
-  requestWakeLock();
-};
-</script>
-</head>
-<body>
-
-<div id="controls">
-  <button onclick="changeSpeed(0)">1x</button>
-  <button onclick="changeSpeed(1)">2x</button>
-  <button onclick="changeSpeed(2)">3x</button>
-  <button onclick="changeSpeed(3)">4x</button>
-  <button onclick="changeSpeed(4)">5x</button>
-  <button onclick="changeSpeed(5)">6x</button>
-  <button onclick="changeSpeed(6)">7x</button>
-</div>
-
-<div class="content">
-<p>
-
+thisisthefirstline
   Om Shuklam Bharatharam Vishnum Sashivarnam Chathurbhujam<BR>
   Prasanna Vadanam Dhyayeth Sarva Vignopa Shanthaye<BR><BR>
-  
   Vyasam Vashita Naptharam Shakte Poutramakalmasham<BR>
   Parasharathmajam Vande Shukathathum Thaponidhim<BR>
   Vyasaya Vishnu Roopaya Vyasroopaya Vishanave<BR>
   Namovai Brahmanidhaye Vasishtaya Namonamaha<BR><BR>
-  
   Avikaraya Shuddhaya Nithyaya Paramathmane<BR>
   Sadhaika Roopa Roopaya Vishnave Sarvajishnave<BR><BR>
-  
   Yasya Smarana Mathrena Janma Samsara Bandhanath<BR>
   Vimuchyathe Namas Thasmai Vishnave Prabha Vishanve<BR><BR>
   Om Namo Vishnave Praba Vishnave 5<BR><BR>
-  
   Shree Vaisham Payana Uvacha<BR>
   Shruthva Dharmana Seshena Pavananicha Sarvashaha<BR>
   Yudhishtara Shanthanavam Punarevabya Bashatha<BR><BR>
-  
   Yudhishtira Uvacha<BR>
   Kimekam Daivatham Loke Kim Vapyekam Parayanam<BR>
   Sthuvantha Kam Kamarchanda Prapnuyur Manava Shubam<BR><BR>
-  
   Ko Dharma Sarva Dharmanam Bhavatha Paramo Mathaha<BR>
   Kim Japan Muchyathe Janthur Janma Samsara Bandhanath<BR><BR>
-  
   Shree Bheeshma Uvacha<BR>
   Jagath Prabhum Deva Devam Antham Purushothamam<BR>
   Sthuvan Nama Sahasrena Purusha Saththo Thithaha<BR><BR>
-  
   Thameva Char Chayanth Nithyam Bhakthya Purusha Mavyayam<BR>
   Dhayayan Sthuvan Namasyamsha Yajamanas Thamevacha 10<BR><BR>
-  
   Anadhinidhanam Vishnum Sarva Lokamahesvaram<BR>
   Lokadhyaksham Sthuvan Nithyam Sarva Dhukka Thigo Bhaveth<BR><BR>
-  
   Brahmanyam Sarva Dharmangyam Lokanam Keerthivardhanam<BR>
   Lokanatham Mahath Bhootham Sarva Bhootha Bhavothbhavam<BR><BR>
-  
   Esha Me Sarvadharmanam Dharmodhi Kathamo Mathaha<BR>
   Yath Bhakthya Pundari Kaksham Sthavai Rar-Chen Nara Ssatha<BR><BR>
-  
   Paramam Yo Mahath Teja Paramam Yo Mahath Thapaha<BR>
   Paramam Yo Mahath Brahma Paramam Ya Parayanam<BR><BR>
-  
   Pavithram Pavithram Yo Mangalanancha Mangalam<BR>
   Daivatham Devathanancha Bhoothanam Yovyaya Pitha 15<BR><BR>
-  
   Yatha Sarvani Bhoothani Bhavanthyadhi Yugagame<BR>
   Yasmimscha Pralayam Yanthi Punareva Yugakshaye<BR><BR>
-  
   Thasya Loka Pradhanasya Jagan-Nadhasya Bhoopathe<BR>
   Vishnor Nama Sahasrm Me Srunu Papa Bhayapaham<BR><BR>
-  
   Yani Namani Gounani Vikyathani Mahathmanaha<BR>
   Rushibhi Parigeerthani Thani Vakshayami Bhoothaye<BR><BR>
-  
   Rushirnamnam Sahasrasya Vedhavyaso Mahamunihi<BR>
   Chchando-Nushtup Thadha Dhevo Bhaghavan Dhevagee-Suthaha<BR><BR>
-  
   Amrutham Soothbhavo Bheejam Shakthir Dhevaki Nandhanaha<BR>
   Thrisama Hrudhayam Thasya Shanthyarthe Viniyujyathe 20<BR><BR>
-  
   Vishnum Jishnum Mahavishnum Prabhavishum Maheswaram<BR>
   Anaika Roopa Dhaithyantham Namami Purushoth-Thamam<BR><BR>
-  
   Asya Sree Vishnor Dhivya Sahasranama Sthothra Mahamanthrasya<BR><BR>
   Sri Vedhavyaso Bhagavan Rishihi<BR><BR>
   anushtup Ch-Chandaha<BR>
@@ -208,501 +59,339 @@ window.onload = function() {
   Aanandam Parbrahmethi Yonihi<BR>
   Rudhu Sudharsank Kaala Ithi Dhigbandhaha<BR>
   Sri Viswaroopa Ithi Dhyanam<BR><BR>
-  
   Sri Mahavishnup Preethyarthe Sahasra Nama Jape Viniyogaha<BR><BR>
-  
   Dhyanam<BR><BR>
-  
   Ksheerodhanvath Pradhese Susi Mani Vilasath Saikathe Mouthikanam<BR>
   Malak Lupthasanastha Spatikamani-Nibair Moukthikair Mandithaangaha<BR><BR>
-  
   Suprai Rbhrai Radhaprai Ruprivirasithair Muktha Bheeyuusha Varshaihi<BR>
   Anandheenap Puneeyaa Dhari Nalina Gadha Shankapaanir Mukundhaha<BR><BR>
-  
   Bhoop-Paathau Yasya Nabhir Viyadhasoora-Nilach-Chandra Sauryau Cha Nethre<BR>
   Karnavasa Siro Dhyaur-Mukamapi Dhahano Yasya Vaastheyamapdhihi<BR><BR>
-  
   Andhastham Yasya Vishvam Soor-Nara-Khaga-Gho-Bhogi-Gandharva-Dhaithyaihi<BR>
   Chitram Ramramyathe Tham Thribhuvan-Vapusham Vishnu Meesham Namaami<BR><BR>
-  
   Shaanthakaram Bhujagasayanam Padhmanabham Suresam<BR>
   Vishwadharam Gaganasadhrusham Megavarnam Subhangam<BR><BR>
-  
   Lakshmi Kantham Kamalanayanam Yogihrudhyana Gamyam<BR>
   Vandhe Vishnum Bavabayaharm Sarvalokaikanadham<BR><BR>
-  
   Megha Shyamam Peetha Kausheya Vcham<BR>
   Shree Vatsangam Kausthubho Bhasithangam<BR>
   Punyopetham Pundari Kayadaksham Vishnum Vande Sarva Lokaika Natham<BR><BR>
-  
   Namas Samastha Bhothanam Adi Bhoothaya Bhoo Bruthe<BR>
   Aneka Roopa Roopaya Vishanve Prabha Vishnave<BR><BR>
-  
   Shashanka Chakram Saka Reeta Kundalam Sappetha Vasthram Sarasi Ruheshanam<BR>
   Shara Vaksha Sthala Shobhi Kausthubam Namami Vishnum Shirasa Chathurbhujam 5<BR><BR>
-  
   Chayayam Parijathasya Hema Simhasano Parihi<BR>
   Aasina Mam-Bhutha-Shyama-Mayadaksha Malankrutham<BR><BR>
-  
   Chandrananam Chathur Bhahum Shree Vatsanghitha Vakshasam<BR>
   Rukmini Sathyabhamabhyam Sahitham Kirshnamasraye<BR><BR>
-  
   Om<BR><BR>
-  
     Vishvam Vishnur Vashatkaro Bhootha Bhavya Bhavath Prabhuhu<BR>
   Bhoothakruth Bhoothabruth Bhavo Bhoothatma Bhootha Bhavanaha 1<BR><BR>
-  
   Bhoothatma Paramathma Cha Mukthanam Parama Gathihi<BR>
   Avya Yapurusha Sakshi Kshetrgno Ksharo evacha 2<BR><BR>
-  
   Yogo Yoga Vitham Netha Prdhana Purusheshwaraha<BR>
   Narasimha Vabhu Shreeman Keshava Purushothamaha 3<BR><BR>
-  
   Sarva Sharvash Shivas Sthanur Bhoothathir Nidhira Vyahayaha<BR>
   Sambhavo Bhavono Bartha Prabava Prabhureeshwaraha 4<BR><BR>
-  
   Swambu Shambur Adithya Pushkaraksho Mahasvanaha<BR>
   Anadhi Nidhano Dhath Vidhath Dhathu Ruthmaha 5<BR><BR>
-  
   Appreyo Rishi Keshah Padmnabho Mara Prabhuhu<BR>
   Visha Karma Manusthvastha Sthavishta Shtaviro-Dhruvaha 6<BR><BR>
-  
   Agrahya Sashvatha Krishno Lokidaksh Pradhr Dhanaha<BR>
   Prabhuth Shrikuthama Pavithrm Manglam Param 7<BR><BR>
-  
   Eashana Pranadha Prano Jyeshta Shreshta Praja Pathihi<BR>
   Hiran Ya Garbho Bhoo Gahrbho Madhavo Madhu Sudhanaha 8<BR><BR>
-  
   Ishvaro Vikrami Thanvi Medavi Vikrma Kramaha<BR>
   Anuththamo Duradarsha Kruthangya Kruthi-Raathmavan 9<BR><BR>
-  
   Suresha Sharnam Sharma Vishva Retha Prajabhvaha<BR>
   Ahath Samvathsaro Wyallaha Prathyas Sarvadharshanaha 10<BR><BR>
-  
   Ajas Sarvesh Varas Sidhas Sidhi Sarva Dhiru Chithaha<BR>
   Vrusha Gabhir Meyathma Sarva Yoga Vinisruthaha 11<BR><BR>
-  
   Vasur Vasumanas Sathya Samathma Sammitha-Samaha<BR>
   Amoga Pundarikaksho Vrushkarma Vrushakruthihi 12<BR><BR>
-  
   Rudro Bahushira Babrur Viswayoni Suchichrvaha<BR>
   Amrudha Sachvadha Sthanur Vraroha Mahathapaha 13<BR><BR>
-  
   Sarvakaha Sarvavidhbaanur Vishwakseno Janardhanaha<BR>
   Vedo Veda Vidhav Yango Vedango Vedvith Kavihi 14<BR><BR>
-  
   Loka Dhyakshas Surdhyaksho Dharma Dhyaksho Krutha Kruthaha<BR>
   Chathurathma Chathur Vyuhachathur Thamshta Chathur Bhujaha 15<BR><BR>
-  
   Prajishur Bhojanam Bhoktha Sahishnur Jagatha Thijaha<BR>
   Anako Vijayo Jetha Vishva Yoni Punarvasuhu 16<BR><BR>
-  
   Upendro Vamaha Pramshur Amogash Shsirurjithaha<BR>
   Atheendras Sangrahas Sargo Dhruthatma Niyamo Yamaha 17<BR><BR>
-  
   Vedyo Vaidyas-Sada-Yogi Veeraha Madhavo Madhuhu<BR>
   Atheendriyo Mahamayo Mahothsaho Mahabalaha 18<BR><BR>
-  
   Mahabuthir Mahaveeryo Mahashakthir Mahathyuthihi<BR>
   Anir Deshya Vabhu Shreema-Nameyathma Maha-Thri-Dhruk 19<BR><BR>
-  
   Maheshvaso Maheebartha Shreenivasa Satham Gathihi<BR>
   Aniruddas Surananndo Govindo Gvindam Pathihi 20<BR><BR>
-  
   Marichir Thamano Hamsas Superno Pujagothamaha<BR>
   Hiranya Nabhas Suthapa Padmanabha Prajapthihi 21<BR><BR>
-  
   Amruthyus Sarva-Dhruk Simha-Sandhatha Sandhimam-Stiraha<BR>
   Ajo Durmarshanas-Shastha Vishruthatma Surariha 22<BR><BR>
-  
   Gurur Gurthamo Thama Sathyas Sathya Parakramaha<BR>
   Nimisho Nimishas Sragvi Vachaspathi Rutharathee 23<BR><BR>
-  
   Agraneer Gramanee Shreeman Nyayo Netha Sameeranaha<BR>
   Sahasra Murtha Vishvatma Sahas-Rakshas-Sahasrapath 24<BR><BR>
-  
   Aavarthano Nivruthathma Samvradhas Sampra Mardhanaha<BR>
   Ahas Samvarthako Vahni-Ranilo Dharani Dharaha 25<BR><BR>
-  
   Suprasada Prasanathma Vishwasruk Vishvabhuk Vibhuhu<BR>
   Sathkartha Sathkrudhas Sadhur Janhoor Naryano Naraha 26<BR><BR>
-  
   Asangeyo Prameyathma Vishista Shista Kruch-Chuchihi<BR>
   Siddhartha Siddha Sankalpa Siddhida-Siddhi Sadhanaha 27<BR><BR>
-  
   Vrushahee Vrushabho Vishnur Vrushaparva Vrusho Dharaha<BR>
   Varthano Varthamanaksha Vivikta Shruth Sagaraha 28<BR><BR>
-  
   Subhujo Dhurtharo Vakmi Mahendhro Vasudo Vasuhu<BR>
   Naikarupo Bruhathroopas Sibhivishta Praksanaha 29<BR><BR>
-  
   Ojas-Thejo Dhyuuthidhara Prakashatma Pratapanaha<BR>
   Ruddhas Spashta-Ksharo Manthra-Chandramshur Bhaskarathdhyuthihi 30<BR><BR>
-  
   Amrutham Shudh Bhavo Bhanu Shashabindu Sureshwaraha<BR>
   Aushadham Jagadha Sethu Sathya Dharma Parakramaha 31<BR><BR>
-  
   Bhoothabhavya Bhavannatha Pavana Pavano Nalaha<BR>
   Kamaha Kamakruth Kantha Kama Kamapratha Prabhuhu 32<BR><BR>
-  
   Yugadikruth Yugavartho Naika Mayo Mahasanaha<BR>
   Athrushyo Vyaktha Roopashcha Sahasrajita Nandajith 33<BR><BR>
-  
   Ishto Vishishta Thisteshta Shikandi Nahursho Vrushaha<BR>
   Krodhaha Krodhakruth Kartha Vishva Bahoor Mahitharaha 34<BR><BR>
-  
   Achyutha Prathitha Pranaha Pranatho Vasuvanujaha<BR>
   Apam-Nidi Rathishtana Mapramatha Prathishtithaha 35<BR><BR>
-  
   Skandaha Skandadaro Duryo Varado Vau Vahanaha<BR>
   Vaasudevo Bruhath Banur Adi Deva Purandaraha 36<BR><BR>
-  
   Ashokas Stharanas Thara Shura Shurir Janeswaraha<BR>
   Anukoola Shathavartha Padmi Padma Nibhekshanaha 37<BR><BR>
-  
   Padmanabho Ravindaksha Padmagarba Sharirabruth<BR>
   Maharthrir Ruthro Vruthathma Mahaksho Garudadvajaha 38<BR><BR>
-  
   Atula Sharabo Bheema Samayagno Havir Harhi<BR>
   Sarva Lakshana Lakshanyo Lakshmivan Samithanjayaha 39<BR><BR>
-  
   Viksharo Rohitho Margo Hethur Damodara Sahaha<BR>
   Maheetharo Mahabhogo Vegavanami Thashanaha 40<BR><BR>
-  
   Uthbhava Shobhano Deva Shreegarba Parmeshvaraha<BR>
   Karanam Karanam Kartha Vikartha Gahnoguhaha 41<BR><BR>
-  
   Vyavasayovyvasthanas Samasthana Sthando Druvaha<BR>
   Pararthi Parama Spastha Dushta Pushta Subhekshanaha 42<BR><BR>
-  
   Ramo Viramo Viratho Margo Neyo Nayo Nayaha<BR>
   Veera Shakthimatham Sreshto Dharmo Dharma Vithuthamaha 43<BR><BR>
-  
   Vaikunta Purusha Prana Pranadha Pranava Prathuhu<BR>
   Hiranyagharbha Shtrugno Vyapto Vayu Rthokshajaha 44<BR><BR>
-  
   Ruthu Sudarshana Kala Parameshti Parikrahaha<BR>
   Ugra Smavatsaro Daksho Vishramo Vishva Dakshinaha 45<BR><BR>
-  
   Vishthara Sthavaras-Sthanu Pramanam Beejama Vyayam<BR>
   Artho Nartho Mahakosho Mahabhogo Mahadhanaha 46<BR><BR>
-  
   Anirvinna Sthavishtobua Dharmayubo Mahamakaha<BR>
   Nakshathra Nemir Nakshthri Kshamaha Kshaamaha Smihanaha 47<BR><BR>
-  
   Yagna Ejyo Mahejyascha Krathu Sathram Sathangkadhihi<BR>
   Sarva-Darshee Vimukthathma Sarvagno Gnana-Muth-Thamam 48<BR><BR>
-  
   Suvratha Sumuga Sookshma Sukosha Sukada Suhruth<BR>
   Manoharo Jithakrodho Virabahur Vitharanaha 49<BR><BR>
-  
   Swapna Swavasho Vyapi Naikathma Naik Karmakruth<BR>
   Vatsaro Vathsalo Vatsee Rathnagarbo Dhaneswaraha 50<BR><BR>
-  
   Dharmakrup Dharmakruth Dharmi Sathakshara Maksharam<BR>
   Avignatha Sahasramshur Vidhata Krutha Lakshanaha 51<BR><BR>
-  
   Gapasthinemi Sathvastha Simho Bhootha Maheswaraha<BR>
   Aadi Devo Mahadevo Devesho Devabruthguruhu 52<BR><BR>
-  
   Uththaro Gopathir Goptha Gnankamya Purathanaha<BR>
   Sharira Bhoothabruth Bhoktha Kapindro Purdakshinaha 53<BR><BR>
-  
   Somabo Mrudhapa Soma Purjith Purshothama<BR>
   Vinayo Jaya Sathyando Darshaha Sathvatham Pathihi 54<BR><BR>
-  
   Jeevo Vinayitha-Sakshi Mukundo Mita Vikramaha<BR>
   Ambonidhi-Ranandhathmaa Maho-Dhadishayo-Ndhakaha 55<BR><BR>
-  
   Ajo Mahaarha Swabhaavyo Jidaa Mitrah Pramodhanaha<BR>
   Anando Nandano Nanda Satya Dharma Trivikramaha 56<BR><BR>
-  
   Maharshi Kapila Acharya Kritagno Metini Pathihi<BR>
   Tripada Tripaddhyaksho Maha Shrung Krutaantha Kruthu 57<BR><BR>
-  
   Maha Varaho Govinda Sushenah Kanaka-Ngadhi<BR>
   Ghuyo Gabeero Gahano Gupthash-Chakra Gadhadharaha 58<BR><BR>
-  
   Vedha Swaango Jith Krishno Druda-Sankrshano-Chuthaha<BR>
   Varuno Vaaruno Vruksha Pushkaraaksho Mahamanaha 59<BR><BR>
-  
   Bhagavan Bhagaha-Nandhi Vana Malee Halaayudhaha<BR>
   Aadhithyo Jyothir Adhitya Sahishnur Gadhisattamaha 60<BR><BR>
-  
   Sudhanwa Kanda Parashur Dhaarundo Dhravinapradhaha<BR>
   Divas-Sprug Sarva-Drug-Vyaso Vachaspathi-Rayonijaha 61<BR><BR>
-  
   Trisaama Saamagah Saamah Nirvaanam Beshajam Bhishaku<BR>
   Sanya-Sakruchama Shantho Nishta Shanthi Parayanam 62<BR><BR>
-  
   Shubaangah Shaantidha Srashta kumudhah Kuvaleshayaha<BR>
   Gohito Gopathir Goptha Vrushabaaksho Vrusha Priyaha 63<BR><BR>
-  
   Anivathee Nivruthaatma Samkshepta Kshema-Krucchivaha<BR>
   Sreevatsa-Vaksha Sreevasha Sreepati Sreemataam Varaha 64<BR><BR>
-  
   Sridha Srishah Srinivasah Srinidhi Srivibha-Vanaha<BR>
   Sridharah Srikarah Shreyah Shriman Loka-Trayashrayaha 65<BR><BR>
-  
   Swaksha Swanga Shadanando Nandir Jyothir Ganeshwaraha<BR>
   Vichitaatma Vidheyaatma Satkeertis Chinna Shamshayaha 66<BR><BR>
-  
   Udeerna Sarvata-Chakshu-Raneesha Shaswata-Sthiraha<BR>
   Bhooshayo Bhushano Bhoothir Vishoka Shoka Naashanaha 67<BR><BR>
-  
   Archishma-Narchita kumbho Vishudhaatma Vishodhanaha<BR>
   Aniruddho Pratirata Pradhyumno Mitavikramaha 68<BR><BR>
-  
   Kalaneminiha Vira Shaurir Shoora Janeshwaraha<BR>
   Trilokatma Trilokesha Keshava Keshiha Harihi 69<BR><BR>
-  
   Kama Deva Kamapala Kamee Kantha Krutaagamha<BR>
   Anirdheshyavapur-Vishur-Viro Anando Dhanan Jayaha 70<BR><BR>
-  
   Bhramanyo Brahmankrud Brahma Brahma Brahma Vivardhanaha<BR>
   Brahmavith Braahmano Brahmi Brahmagnyo Braamana Priyaha 71<BR><BR>
-  
   Mahakramo Mahakarma Mahateja Mahoragaha<BR>
   Maha-Krathur Mahayajva Mahayagno Maha Havihi 72<BR><BR>
-  
   Stavya Stavapriya Sthothram Shthuthi Sthothaarana-Priyaha<BR>
   Purna Purayitha Punya Punya Keerti Ranamayaha 73<BR><BR>
-  
   Manojavas Theerthagaro Vasuredha Vasupradhaha<BR>
   Vasupradho Vasudevo Vasur Vasumana-Havihi 74<BR><BR>
-  
   Satgati Sathkriti Satta Satbooti Satparayanaha<BR>
   Shoora Seno Yajushresta Sannivasa Suyamuhaha 75<BR><BR>
-  
   Bhootavaso Vasudevo Sarvasu Nilayo Nalaha<BR>
   Darphaha Darpadho Dhrupto Durdharo-Dhaparajitaha 76<BR><BR>
-  
   Vishwa Murtir Mahamurthir Deeptamurtir-Amoortiman<BR>
   Aneka Moorti-Ravyakta Shatamoorti Shataananaha 77<BR><BR>
-  
   Eko Naika Sava Ka Kim Yatat Pada Manutta-Mam<BR>
   Lokabhandhur Lokanatho Madhavo Bhaktha Vatsalaha 78<BR><BR>
-  
   Suvarnavarno Hemaango Varangash Santha Nangathi<BR>
   Veeraha Visham Shoonyo Drutashee Rachalas Chalaha 79<BR><BR>
-  
   Amani Mandho Manyo Lokswami Trilokdhruk<BR>
   Sumedha Medhajo Dhanya Satya Medha Dhara-Dharaha 80<BR><BR>
-  
   Tejovrusho Dhyudhidhara Sarva-Shastra-Brudam Varaha<BR>
   Pragraho Nigraho Vyagro Naika Shrungo Gadha-Grajaha 81<BR><BR>
-  
   Chaturmurti Chaturbahu Chaturvyuha Chatur Gathihi<BR>
   Chatur Aatma Chturbhava Chturveda Videkapat 82<BR><BR>
-  
   Samavarto Nivruttatma Durjayo Duradikramaha<BR>
   Dhurilabo Durgamo Durgo Duravaso Durariha 83 <BR><BR>
-  
   Shubaango Lokasaranga Sthuthantus Tantu Vardhanaha<BR>
   Indra Karma Mahakarma Krutakarma Krutagamaha 84<BR><BR>
-  
   Uthbhava Sundara Sundho Ratna Nabha Sulochanaha<BR>
   Arko Vajasana Shrungi Jayantu Sarva Vijjayee 85<BR><BR>
-  
   Suvarna Bindhurakshobya Sarva Vageshwara Shwaraha<BR>
   Mahahrudho Mahakartho Mahabhootho Mahanidhihi 86<BR><BR>
-  
   kumudha Kundhara Kundha Parjanya Pavano Nilaha<BR>
   Amrutasho Mrutavapu Sarvagnya Sarvato Mukhaha 87<BR><BR>
-  
   Sulabha Suvrata Siddha Shatrujit Shatrutapanaha<BR>
   Nyakrodho Dumbaro Chwaththas Chanuraan-Dhranishoo Dhanaha 88<BR><BR>
-  
   Shasrarchi Saptjihva Saptaida Sapta Vahanaha<BR>
   Amoorti-Ranakho Chindyo Bhaya-Krut Bhayanashanaha 89<BR><BR>
-  
   Anur Bruhat Krusha Sthoolo Guna Brun Nir-Guno-Mahan<BR>
   Adhruta Svadruta Svasya Pragvamso Vamsa-Vardhanaha 90<BR><BR>
-  
   Bharabrut Kathitho Yogi Yogeesha Sarva-Kamadhaha<BR>
   Ashrama Shramana Kshama Suparno Vayu Vahanaha 91<BR><BR>
-  
   Dhanurdharo Dhanurvedho Dando Damayita Damaha<BR>
   Aparajita Sarvashaho Niyantha Niyamo Yamaha 92<BR><BR>
-  
   Satvavaan Satvika Satya Satya Dharma Parayanaha<BR>
   Abhipr aya Priyar Horha Priyakrit Preetivardhanaha 93<BR><BR>
-  
   Vihaya Sagatir Jyoti Suruchir Huta Bug Vibhuhu<BR>
   Ravir Virochana Surya Savitha Ravi-Lochanaha 94<BR><BR>
-  
   Ananta Hutabuk Bhoktha Sugadho Naikajhograjaha<BR>
   Anirvirna Sadhamasrshi Lokhadhistana-Madhbutaha 95<BR><BR>
-  
   Sanat Sanat-Anamah Kapila Kapiravyaha<BR>
   Svastidah Svatikrut Svasti Svastibuk Svasti Dakshinaha 96<BR><BR>
-  
   Aroudhra Kundali Chakri Vikram Yurjitha Shasanaha<BR>
   Shabdhatika Shabtasaha Shishira Sarva-Reekaraha 97<BR><BR>
-  
   Akroora Peshalo Daksho Dakshinaha Kshminam Varaha<BR>
   Vidhvatthamo Veedhabhaya Punya-Shravana Keertanaha 98<BR><BR>
-  
   Uttarano Dushkruthiha Punyo Dur-Swapna Nashanaha<BR>
   Veeraha Rakshna Sandho Jivana Paryasthithaha 99<BR><BR>
-  
   Anantharoopo-Nanthasreer Jithamanyur Bayapahaha<BR>
   Chathurasro Gabheerathma Ivdhisho Vyadhsho Dhisaha 100<BR><BR>
-  
   Anathir Bhoorbhavo Lakshmi Suviro Ruchirangadhaha<BR>
   Janano Jana-Janmadir Bhimo Bhima Parakramaha 101<BR><BR>
-  
   Adara Nilayo Dhatha Pushpa Hasa Praja-Garaha<BR>
   Urdhvaga Satpata Chara Pranadha Pranava Pranaha 102<BR><BR>
-  
   Pramanam Prana Nilaya Pranabrut Prana Jivanaha<BR>
   Tatvam Tatva Videkatma Janma Mrutyu Jarathigaha 103<BR><BR>
-  
   Bhoorbhuva Svastha-Srusthara Savita Prapitamahaha<BR>
   Yogno Yagnapatir Yajva Yagnango Yagna Vahanaha 104<BR><BR>
-  
   Yagnabrudth Yagnakruth Yagnee Yagnabhug Yagna Sadhanaha<BR>
   Yagnandha-Krudh Yagna-Guhya Manna-Mannadha Evacha 105<BR><BR>
-  
   Atmayoni Svayam Jato Vaikhana Samagayanaha<BR>
   Devaki Nandhana Shruasta Kshideesha Papa Nashanaha 106<BR><BR>
-  
   Sanghabrun Nandagi Chakri Sharnga Dhanva Gadha Dharaha<BR>
   Rathanga Pani Rakshobhya Sarva Prharanayudhaha 107<BR><BR>
-  
   Sarva Prharanayudha Om Nama Ithi<BR><BR>
-  
   Vana Mali Gadhi Sharngi Shangi Chakri Chanandhagi<BR>
   Shreeman Narayano Vishnur Vasudeva Abhirakshathu <BR><BR>
-  
   Vana Mali Gadhi Sharngi Shangi Chakri Chanandhagi<BR>
   Shreeman Narayano Vishnur Vasudeva Abhirakshathu <BR><BR>
-  
   Vana Mali Gadhi Sharngi Shangi Chakri Chanandhagi<BR>
   Shreeman Narayano Vishnur Vasudeva Abhirakshathu 108<BR><BR>
-  
   Itheetham Kirtaniyasya Keshavasya Mahatmanaha<BR>
   Namnam Sahasram Divyanam Asheshena Prakeertitham 1<BR><BR>
-  
   Ya Idham Shrunuya Nityam Yaschabhi Parikeertayeth<BR>
   Nashubam Prapnuyath Kimchit Somutreha-Cha-Manavaha 2<BR><BR>
-  
   Vedhaantago Bhramana-Syat Kshatriyo Vijayee Bhavet<BR>
   Vaishyo Dhana Samruta-Syat Shoodhra Sukha-Mavapnuyat 3<BR><BR>
-  
   Dharmarthi Prapnuath Dharma Marthaarthi Charthmapnuyath<BR>
   Kama-Navapnuyat Kami Prajarti Chapnuyat Prajam 4<BR><BR>
-  
   Bhaktiman Ya Sathodhdaya Shuchi-Sthagahamanasaha<BR>
   Sahasram Vasudevasya Namna-Metath Prakeertayedh 5<BR><BR>
-  
   Yasha Prapnoti Vipulam Yadhi Pradhanya-Mevacha<BR>
   Achalam Shriya Mapnoti Shreya Praphnothya-Nuththamam 6<BR><BR>
-  
   Nabhayam Kvachitapnoti Veeryam Tejascha Vindhati<BR>
   Bhavat-Yarogo Dyutiman Bala Roopa Gunanvitaha 7<BR><BR>
-  
   Rogarto Muchyate Rogath Baddho Muchyetha Bhandhanaath<BR>
   Bhayan Muchyeta Bheethasthu Muchyetapana apataha 8<BR><BR>
-  
   Durgan-Yadhitharat-Yashu Purusha Purushotamam<BR>
   Stuvan Nama Sahasrena Nityam Bhakti Samanvitaha 9<BR><BR>
-  
   Vasudevashrayo Martyo Vasudeva Parayanaha<BR>
   Sarva Papa Vishuddhatma Yadhi Brahma Sanathanam 10<BR><BR>
-  
   Na Vasudeva Bhaktana-Mashubham Vidhyate Kvachith<BR>
   Janma Mrutyu Jara Vyadhi Bhayam Naivo Pajayathe 11<BR><BR>
-  
   Imam Sthava-Madheeyana Shraddha Bhakti Samanvitaha<BR>
   Yujyetatma Sukha Kshanti Shree-Dhriti Smruti Keertibhihi 12<BR><BR>
-  
   Nakrodho Na Cha Matsaryam Na Lobho Nashubha Pathihi<BR>
   Bhavanthi Kruta Punyanam Bhaktanam Purushottame 13<BR><BR>
-  
   Dhyausa Chandhrarka Nakshtra Kamdhisho Bhoor Mahodatihi<BR>
   Vasudevasya Veeryena Vidrutani Mahatmanaha 14<BR><BR>
-  
   Sa-Sooraasoora Gandharvam Sa-Yakshorka Raakshasam<BR>
   Jagathvase Varthathetham Krushnasya Sasarasaram 15<BR><BR>
-  
   Indhriyani Mano Buddhi Satyam Tejo Balam Dhrithihi<BR>
   Vasudevatmakan Yahoohu Kshetram Kshetrangya Evacha 16<BR><BR>
-  
   Sarvakamana Machara Prathamam Parikalphithaha<BR>
   Achara Prabhavo Dharmo Dharmasya Prabhurachyuthaha 17<BR><BR>
-  
   Rushay Pitharo Devo Mahabhootani Dhatavaha<BR>
   Jangama Jangamam Chedham Jagan Naryanodh Bhavam 18<BR><BR>
-  
   Yogo Gyanam Tada Saankhyam Vidhya Shilpadhi Karmacha<BR>
   Vedha Shaastrani Vigyana Metat Sarvam Janardhanath 19<BR><BR>
-  
   Eko Vishnur Mahat Bhootam Pruthak Bhootani Yenekashaha<BR>
   Treen Lokan Vyapata Bhootatma Bungthe Vishva Bhugavyaha 20<BR><BR>
-  
   Imam Shavam Bhaghavatho Vishnor Vyasena Keertidam<BR>
   Padethya Ichchet Purusha Shreeya Prapthum Sukhani Cha 21<BR><BR>
-  
   Vishveshra Majam Devam Jagadha Prabhu Vapuyayam<BR>
   Bhajanthiye Pushkaraksham Nadheyanti Parabhavam 22<BR><BR>
-  
   Nadheyanti Parabhava Om Nam Iti<BR><BR>
-  
   Arjuna Uvacha<BR><BR>
   Padma Patra Vishalaksha Padmanabha Surottama<BR>
   Bhaktanam Anuraktanam Trata Bhava Janardhana<BR><BR>
-  
   Shree Bhagavan Uvacha<BR><BR>
   Yo Maam Nama Shahasrena Shtotu Michathi Pandava<BR>
   Sohamekena Slokena Stuta Evana Sumshayaha<BR>
   Sthuta Evana Samshaya Om Nama Ithi<BR><BR>
-  
   Vyasa Uvacha<BR><BR>
   Vasanaadh Vasudevasya Vasitam Bhuvanatrayam<BR>
   Sarva Bhoota Nivasosi Vasudeva Namosthuthe<BR>
   Sri Vasudeva Namosthutha Om Nama Ithi 25<BR><BR>
-  
   Parvat Uvacha<BR><BR>
   Kenopayena Lakhuna Visnor Nama Sahasrakam<BR>
   Patyathe Pandithair Nityam Srothu Micchamyaham Prabho<BR><BR>
-  
   Ishwara Uvacha<BR><BR>
   Shreerama Rama Ramethi Rame Rame Manorame<BR>
   Sahasra Nama Thattulyam Rama Nama Varanane<BR><BR>
-  
   Shreerama Rama Ramethi Rame Rame Manorame<BR>
   Sahasra Nama Thattulyam Rama Nama Varanane<BR><BR>
-  
   Shreerama Rama Ramethi Rame Rame Manorame<BR>
   Sahasra Nama Thattulyam Rama Nama Varanane<BR><BR>
-  
   Shree Rama Nama Varanana Om Nama Ithi<BR><BR>
-  
   Brahmo Uvacha<BR><BR>
   Namo Swananthaya Sahasra Murthaye Shasra Padakshi Siroru Bahave<BR>
   Sahasra Namne Purushaya Saswate Sahasr Kodi Yugadarine Namaha<BR>
   Sahasra Kodi Yuga Darine Nam Om Nama Ithi<BR><BR>
-  
   Sanjaya Uvacha<BR><BR>
   Etra Yogeshwara Krishno Yatra Partho Dhanur Dharaha<BR>
   Tatra Shri Vijayo Bhutir Dhruva Neetir Mathir Mama<BR><BR>
-  
   Shree Bhagavan Uvacha<BR><BR>
   Ananya Shinttha Yantoma Yejana Paryu Pasathe<BR>
   Tesham Nityabhiyuktanam Yogakshemam Vahamyaham 30<BR><BR>
-  
   Paritranaya Sadhunam Vinashaya Cha Dhushkrutam<BR>
   Dharma Samsathapanarthaya Sambhavami Yuge Yuge<BR><BR>
-  
   Arta Vishanna sithilascha Bheetha Koreshu Cha Vyathishu Vartamanaha<BR>
   Samkeertya Narayana Shabta Matram Vimukta Dhukka Sukhino Bhavanthu<BR><BR>
-  
   Kayena Vacha Manasendriyerva Budhyatma Nava Prakrute Swabhavath<BR>
   Karomi Yadyat Sakalam Parasmai Narayanayetu Samarpayami<BR><BR>
 
-    
 </p>
 </div>
 </body>
 </html>
+

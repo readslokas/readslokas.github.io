@@ -1,132 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Auto Smooth Scroll with Wake Lock</title>
-<style>
-body {
-  background-color: black;
-  color: white;
-  font-family: Calibri, sans-serif;
-  margin: 0;
-  overflow-y: auto;
-  scroll-behavior: auto; /* we control smoothness in JS now */
-}
-
-#controls {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  background-color: #222;
-  padding: 5px;
-  box-sizing: border-box;
-  z-index: 1000;
-}
-
-#controls button {
-  flex: 1;
-  font-size: 2em;
-  padding: 14px 0;
-  cursor: pointer;
-  border: none;
-  background-color: #444;
-  color: white;
-  margin: 0 5px;
-  border-radius: 6px;
-}
-
-#controls button:hover {
-  background-color: #666;
-}
-
-.content {
-  margin-top: 70px;
-  padding: 10px;
-}
-
-p {
-  font-size: calc(2.2vw + 2.2em);
-  word-wrap: break-word;
-}
-</style>
-<script>
-let speedLevel = 0;
-let speedPixelsPerSecond = 0;
-let lastTimestamp = null;
-let wakeLock = null;
-let animationFrameId = null;
-
-function smoothScroll(timestamp) {
-  if (!lastTimestamp) lastTimestamp = timestamp;
-  const deltaTime = (timestamp - lastTimestamp) / 1000; // seconds
-  lastTimestamp = timestamp;
-
-  const distance = speedPixelsPerSecond * deltaTime;
-  window.scrollTo(0, window.scrollY + distance);
-
-  animationFrameId = requestAnimationFrame(smoothScroll);
-}
-
-function startAutoScroll() {
-  if (animationFrameId) {
-    cancelAnimationFrame(animationFrameId);
-  }
-  lastTimestamp = null;
-  animationFrameId = requestAnimationFrame(smoothScroll);
-}
-
-function changeSpeed(newSpeed) {
-  // Define how many pixels per second for each level
-  const speedTable = [1, 60, 90, 110, 130, 150, 170]; 
-  speedLevel = parseInt(newSpeed);
-  speedPixelsPerSecond = speedTable[speedLevel];
-}
-
-async function requestWakeLock() {
-  try {
-    if ('wakeLock' in navigator) {
-      wakeLock = await navigator.wakeLock.request('screen');
-      console.log('Wake Lock is active');
-      wakeLock.addEventListener('release', () => {
-        console.log('Wake Lock was released');
-      });
-    } else {
-      console.warn('Wake Lock API not supported on this browser.');
-    }
-  } catch (err) {
-    console.error(`${err.name}, ${err.message}`);
-  }
-}
-
-document.addEventListener('visibilitychange', () => {
-  if (wakeLock !== null && document.visibilityState === 'visible') {
-    requestWakeLock();
-  }
-});
-
-window.onload = function() {
-  startAutoScroll();
-  requestWakeLock();
-};
-</script>
-</head>
-<body>
-
-<div id="controls">
-  <button onclick="changeSpeed(0)">1x</button>
-  <button onclick="changeSpeed(1)">2x</button>
-  <button onclick="changeSpeed(2)">3x</button>
-  <button onclick="changeSpeed(3)">4x</button>
-  <button onclick="changeSpeed(4)">5x</button>
-  <button onclick="changeSpeed(5)">6x</button>
-  <button onclick="changeSpeed(6)">7x</button>
-</div>
-
-<div class="content">
-<p>
+thisisthefirstline
 இடரினுந் தளரினும் எனதுறுநோய்<BR>
 தொடரினும் உனகழல் தொழுதெழுவேன்<BR>
 கடல்தனில் அமுதொடு கலந்தநஞ்சை<BR>
@@ -135,7 +7,6 @@ window.onload = function() {
 றீவதொன் றெமக்கில்லையேல்<BR>
 அதுவோவுன தின்னருள்<BR>
 ஆவடு துறையரனே….1<BR><BR>
-
 வாழினுஞ் சாவினும் வருந்தினும்போய்<BR>
 வீழினும் உனகழல் விடுவேனல்லேன்<BR>
 தாழிளந் தடம்புனல் தயங்குசென்னிப்<BR>
@@ -144,7 +15,6 @@ window.onload = function() {
 றீவதொன் றெமக்கில்லையேல்<BR>
 அதுவோவுன தின்னருள்<BR>
 ஆவடு துறையரனே….2<BR><BR>
-
 நனவினுங் கனவினும் நம்பாவுன்னை<BR>
 மனவினும் வழிபடல் மறவேன்அம்மான்<BR>
 புனல்விரி நறுங்கொன்றைப் போதணிந்த<BR>
@@ -153,7 +23,6 @@ window.onload = function() {
 றீவதொன் றெமக்கில்லையேல்<BR>
 அதுவோவுன தின்னருள்<BR>
 ஆவடு துறையரனே….3<BR><BR>
-
 தும்மலோ டருந்துயர் தோன்றிடினும்<BR>
 அம்மல ரடியலால் அரற்றாதென்நாக்<BR>
 கைம்மல்கு வரிசிலைக்<BR> கணையொன்றினால்<BR>
@@ -162,7 +31,6 @@ window.onload = function() {
 றீவதொன் றெமக்கில்லையேல்<BR>
 அதுவோவுன தின்னருள்<BR>
 ஆவடு துறையரனே….4<BR><BR>
-
 கையது வீழினுங் கழிவுறினுஞ்<BR>
 செய்கழல் அடியலால் சிந்தைசெய்யேன்<BR>
 கொய்யணி நறுமலர் குலாயசென்னி<BR>
@@ -171,7 +39,6 @@ window.onload = function() {
 றீவதொன் றெமக்கில்லையேல்<BR>
 அதுவோவுன தின்னருள்<BR>
 ஆவடு துறையரனே….5<BR><BR>
-
 வெந்துயர் தோன்றியோர் வெருவுறினும்<BR>
 எந்தாயுன் அடியலால் ஏத்தாதென்நா<BR>
 ஐந்தலை யரவுகொண் டரைக்கசைத்த<BR>
@@ -180,7 +47,6 @@ window.onload = function() {
 றீவதொன் றெமக்கில்லையேல்<BR>
 அதுவோவுன தின்னருள்<BR>
 ஆவடு துறையரனே….6<BR><BR>
-
 வெப்பொடு விரவியோர் வினைவரினும்<BR>
 அப்பாவுன் னடியலால் அரற்றாதென்நா<BR>
 ஒப்புடை யொருவனை உருவழிய<BR>
@@ -189,7 +55,6 @@ window.onload = function() {
 றீவதொன் றெமக்கில்லையேல்<BR>
 அதுவோவுன தின்னருள்<BR>
 ஆவடு துறையரனே….7<BR><BR>
-
 பேரிடர் பெருகியோர் பிணிவரினுஞ்<BR>
 சீருடைக் கழலலாற் சிந்தைசெய்யேன்<BR>
 ஏருடை மணிமுடி இராவணனை<BR>
@@ -198,7 +63,6 @@ window.onload = function() {
 றீவதொன் றெமக்கில்லையேல்<BR>
 அதுவோவுன தின்னருள்<BR>
 ஆவடு துறையரனே….8<BR><BR>
-
 உண்ணினும் பசிப்பினும் உறங்கினும்நின்<BR>
 ஒண்மல ரடியலால் உரையாதென்நாக்<BR>
 கண்ணனுங் கடிகமழ் தாமரைமேல்<BR>
@@ -207,7 +71,6 @@ window.onload = function() {
 றீவதொன் றெமக்கில்லையேல்<BR>
 அதுவோவுன தின்னருள்<BR>
 ஆவடு துறையரனே….9<BR><BR>
-
 பித்தொடு மயங்கியோர் பிணிவரினும்<BR>
 அத்தாவுன் அடியலால் அரற்றாதென்நாப்<BR>
 புத்தருஞ் சமணரும் புறனுரைக்கப்<BR>
@@ -216,7 +79,6 @@ window.onload = function() {
 றீவதொன் றெமக்கில்லையேல்<BR>
 அதுவோவுன தின்னருள்<BR>
 ஆவடு துறையரனே….10<BR><BR>
-
 அலைபுனல் ஆவடு துறையமர்ந்த<BR>
 இலைநுனை வேற்படை யெம்மிறையை<BR>
 நலம்மிகு ஞானசம் பந்தன்சொன்ன<BR>
@@ -230,3 +92,4 @@ window.onload = function() {
 </div>
 </body>
 </html>
+

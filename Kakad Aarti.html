@@ -1,133 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Auto Smooth Scroll with Wake Lock</title>
-<style>
-body {
-  background-color: black;
-  color: white;
-  font-family: Calibri, sans-serif;
-  margin: 0;
-  overflow-y: auto;
-  scroll-behavior: auto; /* we control smoothness in JS now */
-}
-
-#controls {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  background-color: #222;
-  padding: 5px;
-  box-sizing: border-box;
-  z-index: 1000;
-}
-
-#controls button {
-  flex: 1;
-  font-size: 2em;
-  padding: 14px 0;
-  cursor: pointer;
-  border: none;
-  background-color: #444;
-  color: white;
-  margin: 0 5px;
-  border-radius: 6px;
-}
-
-#controls button:hover {
-  background-color: #666;
-}
-
-.content {
-  margin-top: 70px;
-  padding: 10px;
-}
-
-p {
-  font-size: calc(2.2vw + 2.2em);
-  word-wrap: break-word;
-}
-</style>
-<script>
-let speedLevel = 0;
-let speedPixelsPerSecond = 0;
-let lastTimestamp = null;
-let wakeLock = null;
-let animationFrameId = null;
-
-function smoothScroll(timestamp) {
-  if (!lastTimestamp) lastTimestamp = timestamp;
-  const deltaTime = (timestamp - lastTimestamp) / 1000; // seconds
-  lastTimestamp = timestamp;
-
-  const distance = speedPixelsPerSecond * deltaTime;
-  window.scrollTo(0, window.scrollY + distance);
-
-  animationFrameId = requestAnimationFrame(smoothScroll);
-}
-
-function startAutoScroll() {
-  if (animationFrameId) {
-    cancelAnimationFrame(animationFrameId);
-  }
-  lastTimestamp = null;
-  animationFrameId = requestAnimationFrame(smoothScroll);
-}
-
-function changeSpeed(newSpeed) {
-  // Define how many pixels per second for each level
-  const speedTable = [1, 60, 90, 110, 130, 150, 170]; 
-  speedLevel = parseInt(newSpeed);
-  speedPixelsPerSecond = speedTable[speedLevel];
-}
-
-async function requestWakeLock() {
-  try {
-    if ('wakeLock' in navigator) {
-      wakeLock = await navigator.wakeLock.request('screen');
-      console.log('Wake Lock is active');
-      wakeLock.addEventListener('release', () => {
-        console.log('Wake Lock was released');
-      });
-    } else {
-      console.warn('Wake Lock API not supported on this browser.');
-    }
-  } catch (err) {
-    console.error(`${err.name}, ${err.message}`);
-  }
-}
-
-document.addEventListener('visibilitychange', () => {
-  if (wakeLock !== null && document.visibilityState === 'visible') {
-    requestWakeLock();
-  }
-});
-
-window.onload = function() {
-  startAutoScroll();
-  requestWakeLock();
-};
-</script>
-</head>
-<body>
-
-<div id="controls">
-  <button onclick="changeSpeed(0)">1x</button>
-  <button onclick="changeSpeed(1)">2x</button>
-  <button onclick="changeSpeed(2)">3x</button>
-  <button onclick="changeSpeed(3)">4x</button>
-  <button onclick="changeSpeed(4)">5x</button>
-  <button onclick="changeSpeed(5)">6x</button>
-  <button onclick="changeSpeed(6)">7x</button>
-</div>
-
-<div class="content">
-<p>
-
+thisisthefirstline
 Joduniyaa kara charanee ttevilaa mathaa<BR>
 Parisawee vinanthee maajzee Sadgurunaathaa<BR>
 Aso naso bhaava aalo tujziyaa ttaayaa<BR>
@@ -136,8 +7,6 @@ Akhandeeta asaave aise vaatate paayee<BR>
 Sandoonee sankoch ttaava todaasaa deyee.<BR>
 Tukaahmane Devaa maajzee vedeevaakudee<BR>
 Naame bhavapaasaa haathee aapulyaa thondi<BR>
-<p>
-
 2 . BHUPALI<BR>
 Composed by :: Sant Janabai<BR>
 Uttaa Paandurangaa aataa prabhaatasamayo paatalaa<BR>
@@ -148,8 +17,6 @@ Suka anakaadika naarada tumbara bhaktanchyaa kotee<BR>
 Trisool damaroo ghewooni wubhaa girijechaa patee<BR>
 Kaleeyugeechaa bhakta Namaa ubhaa keertanee<BR>
 Paatteemaage wubhee dolaa laavuniyaa Janee<BR>
-<p>
-
 3 BHUPALI<BR>
 Composed by :: Shri Krishna Jogiswar Bhishma<BR>
 Utta utta Sri Sainaathaguru charana kamala daavaa<BR>
@@ -172,8 +39,6 @@ Ranjavee madhuravaanee haree taapa Sainaatha<BR>
 Aamhceecha aapule karyaasthava tuja kashtavito Deva<BR>
 Sahana karisil te aikuni dyaavee bhett Krishna daava<BR>
 Utha adhivyadhi<BR>
-<p>
-
 4. BHUPALI<BR>
 Composed by :: Sant Namdev<BR>
 Utta Panduranga aataa darash dhya sakala<BR>
@@ -188,8 +53,6 @@ Garud Hanumant ubhe paahatee wat<BR>
 Swargiche surwar ghewuni aale bobhat<BR>
 Zhale muktha dwar laabha zhala rokada<BR>
 Vishnudas naama ubha ghewooni kakada.<BR>
-<p>
-
 5. ABHANG Aarthi with Five-Wick Lamp<BR>
 Composed by :: Shri Krishna Jogiswar Bhishma<BR>
 Ghewuniya panchaarati, karoo Babansi aarati<BR>
@@ -198,8 +61,6 @@ Karooniya sthira man, pahu gambhirira he dhyan<BR>
 Sayeeche he dhyan pahu gambhirira he dhyan<BR>
 Krishnanatha Datt Sai jado chitta tujze paayee<BR>
 Chitta Deva paayee Jado chitta tuzhe paayee<BR>
-<p>
-
 6.KAKAD AARTHI<BR>
 Composed by:: Shri Krishna Jogiswar Bhishma<BR>
 Kaakad aarati kareeto Sainatha deva<BR>
@@ -222,8 +83,6 @@ Proshuni twadvachanaamrita aamuche dehabhaan haarpale<BR>
 Sodooniyaa durabhimaan maanas twaccharanee waahile<BR>
 Kripa karooniya Sai maawle daas padari ghyaawaa<BR>
 Chinmaya . Kaakad. Aarati.<BR>
-<p>
-
 7. KAKADA AARTHI<BR>
 Composed by :: Sant Tukaram Maharaj<BR>
 Bhaktaachiya potee bodh kaakada jyoti<BR>
@@ -237,8 +96,6 @@ Mayur pincha chaamara dhaaliti thaayee che thaayee<BR>
 Tuka mhane deep ghewuni unmaneet shobhaa<BR>
 Vittevaree ubha dise laawanya gaabhaa.<BR>
 Owaaloo aaratee <BR>
-<p>
-
 8. PADH<BR>
 Composed by :: Sant Namadev<BR>
 Utta utta saadhu sant aapulale hit<BR>
@@ -253,16 +110,12 @@ Daaree waajantree vaajatee dhol damaame garijatee<BR>
 Hote kaakad aarati maazhyaa Sadguru rayaanchee<BR>
 Simhanaad shankabheree aanand hoto mahaa dwaaree<BR>
 Keshawaraaj vittewaree naamaa charan vandito<BR>
-<p>
-
 9. BHAJAN<BR>
 Composed by :: Smt. Raghunath Savitri Tendulkar<BR>
 Sainath Guru maajhe aaee<BR>
 Majlaa thaav dhyaavaa paayeen<BR>
 Datta raaja Guru majhe aaee<BR>
 Majlaa thaav dhyaavaa paayeen<BR>
-<p>
-
 10. SAINATH PHABHATASTAK<BR>
 Composed by :: Shri Krishna Jogiswar Bhisma<BR>
 Prabhaat samayeen nabhaa shubh ravi prabha phaankalee<BR>
@@ -304,8 +157,6 @@ Braanti mee nitya shaantee<BR>
 Aise he Sainathe kathuneesuchvileh jevee yaa baalakaasee<BR>
 Tevee tyaa Krishnapaayee namuni<BR>
 Savinayeh arpito ashtakaasee<BR>
-<p>
-
 XI. PADH<BR>
 Composed by :: Sri Dasganu Maharaj<BR>
 Sai raham nazar karnaa Bachonkaa paalan karnaa<BR>
@@ -316,8 +167,6 @@ Mein andhaa hoon bandaa aabkaa Mujhse prabhu dikhlaanaa<BR>
 Mein andhaa hoon bandaa aabkaa Mujhse prabhu dikhlaanaa Sai raham<BR>
 Daas ganu kahe ab kyaa boloo Thak gayi meree rasnaa.<BR>
 Daas Ganu kahe ab kyaa boloo Thak gayi meree rasnaa. Sai raham<BR>
-<p>
-
 XII. PADH<BR>
 Composed by :: Sri Dasganu Maharaj<BR>
 Raham nazar karo, ab more Sayee Tumbin naheen mujze maa baap bhaayee<BR>
@@ -328,8 +177,6 @@ Khalee jamaanaa meineh gamaayaa Khalee jamaanaa meineh gamaayaa<BR>
 Saathee aakhar kaa Saathee aakhar kaa Saathee aakhar kaa kiyaa na koyee Raham ....<BR>
 Apne maszhid ka zhaadoo Ganoo hai Apne maszhid ka zhaadoo Ganoo hai<BR>
 Maalik hamaare Maalik hamaare Maalik hamaare tum Baabaa Sayee Raham ....<BR>
-<p>
-
 XIII. PADH<BR>
 Composed by :: Sant Jana Bai<BR>
 Tujze kai devoon Saawalyaa mee khaayaa taree hoo<BR>
@@ -346,8 +193,6 @@ Ja hoieel tujha re kaakadaa hee raolaantaree hoo<BR>
 Ja hoieel tujha re kaakadaa hee raolaantaree<BR>
 Aanateel bhakt naivedya hi naanaaparee<BR>
 Aanateel bhakt naivedya hi naanaaparee<BR>
-<p>
-
 XIV. PADH<BR>
 Composed by:: Shri Krishna Jogiswar Bhishma<BR>
 Shreesadguru Baabaa Saayee hoo Shreesadguru Baabaa Saayee<BR>
@@ -360,10 +205,11 @@ Guruvaraa majzasi paamaraa ataan udharaa<BR>
 Tvarit lavlaahee tvarit lavlaahee<BR>
 Mee budato bhavbhaya dohee udharaa Mee budato bhavbhaya dohee udharaa<BR>
 Shreesadguru Baabaa......<BR>
-<p>
-
 Shri Satchitaanand Sadguru Sainaath Maharaaj ki Jai<BR>
 Aum Raajaadhiraaja Yogiraaja ParaBrahma Sainaath Maharaaj<BR>
-Shri Satchitaanand Sadguru Sainaath Maharaaj ki
- </BODY>
-</HTML>
+
+</p>
+</div>
+</body>
+</html>
+

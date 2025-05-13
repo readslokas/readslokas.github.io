@@ -1,161 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<style type="text/css">
-body {
-opacity: 1;
-background-image: radial-gradient(ellipse farthest-corner at 4px 4px, #D1AA49, #D1AA49 50%, #dbbf79 50%);
-background-size: 4px 4px;
-color: #8B0000; /* Default text color */
-padding-left: 15px; /* Padding on the left */
-}
-
-.color-strip {
-background-color: #8B0000; /* Change to your desired color */
-height: 40px; /* Adjust height as needed */
-width: 99%;
-display: flex;
-align-items: center; /* Center vertically */
-justify-content: left; /* Center horizontally */
-color: #dbbf79; /* Text color */
-font-family: 'Montserrat', sans-serif;
-font-weight: normal; /* Make the text bold */
-font-size: 40px;
-padding-left: 10px; /* Space before the text */
-border-radius: 10px; /* Rounded corners */
-padding-bottom: 10px;
-padding-top: 10px;
-}
-
-.text {
-display: inline-block;
-font-family: monospace; /* Fixed-width font */
-color: #8B0000; /* Text color */
-text-decoration: none; /* Remove underline */
-font-size: 1.4em; /* Increase font size */
-padding-left: 15px; /* Space before the text */
-}
-
-/* Hyperlinks styling */
-a {
-color: #8B0000; /* Use the specified color */
-}
-
-ol {
-padding-left: 65px; /* Adds padding to the left of the numbering */
-}
-
-ol li {
-padding-left: 10px; /* Adjust padding for list items if necessary */
-}
-
-</style>
-<script>
-var speed = 0.1; // Default speed
-var currentpos = 0, alt = 1, curpos1 = 0, curpos2 = -1;
-
-let wakeLock = null;
-
-async function requestWakeLock() {
-  try {
-wakeLock = await navigator.wakeLock.request('screen');
-console.log('Wake Lock is active');
-  } catch (err) {
-console.error(`${err.name}, ${err.message}`);
-  }
-}
-
-function releaseWakeLock() {
-  if (wakeLock !== null) {
-wakeLock.release().then(() => {
-  wakeLock = null;
-  console.log('Wake Lock has been released');
-});
-  }
-}
-
-function initialize() {
-  startIt();
-  requestWakeLock(); // Request wake lock on initialization
-}
-
-function scrollWindow() {
-  if (document.all && !document.getElementById) {
-temp = document.body.scrollTop;
-  } else {
-temp = window.pageYOffset;
-  }
-
-  if (alt == 0) alt = 2;
-  else alt = 1;
-
-  if (alt == 0) {
-curpos1 = temp;
-  } else {
-curpos2 = temp;
-  }
-
-  if (curpos1 != curpos2) {
-if (document.all) {
-  currentpos = document.body.scrollTop + speed;
-} else {
-  currentpos = window.pageYOffset + speed;
-}
-window.scroll(0, currentpos);
-  } else {
-currentpos = 0;
-window.scroll(0, currentpos);
-  }
-}
-
-function startIt() {
-  setInterval(scrollWindow, 50);
-}
-
-function openDropdown() {
-  const dropdown = document.getElementById('speedSelector');
-  dropdown.focus(); // Focus on the dropdown
-  const event = new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true });
-  dropdown.dispatchEvent(event); // Simulate pressing "Arrow Down"
-}
-
-
-// Function to dynamically change the speed
-function changeSpeed(newSpeed) {
-  speed = parseInt(newSpeed, 10);
-}
-
-document.addEventListener('visibilitychange', () => {
-  if (document.visibilityState === 'hidden') {
-releaseWakeLock();
-  } else {
-requestWakeLock();
-  }
-});
-
-window.onload = initialize;
-</script>
-</head>
-<div class="color-strip">கூட்டு பிரார்த்தனை 2025-01-18</div>
-<table style="width: 93%; margin-right: calc(7%);" cellspacing="0">
-<tbody>
-<p>
-
+thisisthefirstline
  வக்ரதுண்ட மஹாகாய<BR>
  ஸூர்யகோடி ஸமப்ரப<BR>
  நிர்விக்னம் குருமே தேவ<BR>
  ஸர்வ கார்யேஷு ஸர்வதா<BR>
-
-<div style="color: #8B0000; font-size: 20px;"><strong>விநாயகர்</strong></div>
-<ol>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/ஶ்ரீ விக்னேஶ்வர ஷோடஶனாம ஸ்தோத்ரம்.html" target="_blank">ஶ்ரீ விக்னேஶ்வர ஷோடஶனாம ஸ்தோத்ரம்</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/கைத்தல நிறைகனி.html" target="_blank">கைத்தல நிறைகனி</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/நினது திருவடி.html" target="_blank">நினது திருவடி</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/பக்கரைவி சித்ரமணி.html" target="_blank">பக்கரை விசித்ரமணி</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/விநாயகர் அகவல்.html" target="_blank">விநாயகர் அகவல்</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/பொம்ம பொம்மதா.html" target="_blank">பொம்ம பொம்மதா</a></li>
-</ol>
 <BR>
 குரு பிரம்மா குரு விஷ்ணு குரு தேவோ மகேஸ்வர<BR>
 குரு சாஷாத் பரப்பிரம்மா தஸ்மை ஸ்ரீகுருவே நமஹ<BR>
@@ -173,59 +20,7 @@ window.onload = initialize;
 சகல ஜன சுகம் சண்முகம் தம் <BR>
 பிரசாதம் ஓம் ஸ்ரீ குருவே நமஹ<BR>
 <BR>
-<ol>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/என்ன சொல்லி அழைத்தால்.html" target="_blank">என்ன சொல்லி அழைத்தால்</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/விழி கிடைக்குமா.html" target="_blank">விழி கிடைக்குமா</a></li>
-</ol>
 <BR>
-
-<div style="color: #8B0000; font-size: 20px;"><strong>முருகர்</strong></div>
-<ol>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/பால்.html" target="_blank">பால் பஞ்சாமிர்த வண்ணம்</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/கந்தர் ஷஷ்டி கவசம்.html" target="_blank">கந்தர் ஷஷ்டி கவசம்</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/ஸ்ரீ சுப்ரமண்ய புஜங்கம்.html" target="_blank">ஸ்ரீ சுப்ரமண்ய புஜங்கம்</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/வேல் மாறல்.html" target="_blank">வேல் மாறல்</a></li>
-</ol>
-
-<div style="color: #8B0000; font-size: 15px;"><strong>திருப்புகழ்</strong></div>
-<ol>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/முத்தைத்தரு.html" target="_blank">முத்தைத்தரு</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/அதல சேடனார்.html" target="_blank">அதல சேடனார்</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/அன்பாக வந்து.html" target="_blank">அன்பாக வந்து</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/அமுதினை மெத்த.html" target="_blank">அமுதினை மெத்த</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/அகரமும் ஆகி.html" target="_blank">அகரமும் ஆகி</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/அண்டர்பதி குடியேற.html" target="_blank">அண்டர்பதி குடியேற</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/ஆறுமுகம் ஆறுமுகம்.html" target="_blank">ஆறுமுகம் ஆறுமுகம்</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/இருமலு ரோக.html" target="_blank">இருமலு ரோக</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/விறல்மார னைந்து.html" target="_blank">விறல்மார னைந்து</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/நீலங்கொள் மேகத்தின்.html" target="_blank">நீலங்கொள் மேகத்தின்</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/இருவினை யஞ்ச மலவகை மங்க.html" target="_blank">இருவினை யஞ்ச மலவகை மங்க</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/இருவினை யஞ்ச வருவினை கெஞ்ச.html" target="_blank">இருவினை யஞ்ச வருவினை கெஞ்ச</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/உரத்துறை போத.html" target="_blank">உரத்துறை போத</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/உனைத்தினம்.html" target="_blank">உனைத்தினம்</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/கருவடைந்து.html" target="_blank">கருவடைந்து</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/காமியத் தழுந்தி.html" target="_blank">காமியத் தழுந்தி</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/சினத்தவர்.html" target="_blank">சினத்தவர்</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/சரவண பவநிதி.html" target="_blank">சரவண பவநிதி</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/நினைத்த தெத்தனை.html" target="_blank">நினைத்த தெத்தனை</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/சூலமென வோடு.html" target="_blank">சூலமென வோடு</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/காதின்மணி ஓலையிட்டு.html" target="_blank">காதின்மணி ஓலையிட்டு</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/தமரும் அமரு.html" target="_blank">தமரும் அமரு</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/சிவமா துடனே.html" target="_blank">சிவமா துடனே</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/சிவனார் மனங்குளிர.html" target="_blank">சிவனார் மனங்குளிர</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/தந்த பசிதனை.html" target="_blank">தந்த பசிதனை</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/துப்பா ரப்பா.html" target="_blank">துப்பா ரப்பா</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/தொந்தி சரிய.html" target="_blank">தொந்தி சரிய</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/நிலையாத சமுத்திர.html" target="_blank">நிலையாத சமுத்திர</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/வாசித்துக் காணொணாதது.html" target="_blank">வாசித்துக் காணொணாதது</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/விந்ததி னூறி.html" target="_blank">விந்ததி னூறி</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/வாதினையடர்ந்த.html" target="_blank">வாதினையடர்ந்த</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/விரகற நோக்கி.html" target="_blank">விரகற நோக்கி</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/பத்தியால் யானுனை.html" target="_blank">பத்தியால் யானுனை</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/நாடா பிறப்பு.html" target="_blank">நாடா பிறப்பு</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/திருமகள் உலாவும்.html" target="_blank">திருமகள் உலாவும்</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/ஏறுமயிலேறி.html" target="_blank">ஏறுமயிலேறி</a></li>
-</ol>
 <BR>
 மனத்தூய்மையுடன் உன்னை நினைந்து <BR>
 உருகியும் வாழ்த்தியும் <BR>
@@ -239,36 +34,6 @@ window.onload = initialize;
  நீ வரவேண்டும் காட்சி தர வேண்டும்<BR>
 என் அப்பனே முருகா<BR>
 <BR>
-
-<div style="color: #8B0000; font-size: 15px;"><strong>முருகன் பாடல்கள்</strong></div>
-<ol>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/திருப்புகழைப் பாடப் பாட.html" target="_blank">திருப்புகழைப் பாடப் பாட</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/வேலுண்டு வினையில்லை.html" target="_blank">வேலுண்டு வினையில்லை</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/நீயல்லால் தெய்வமில்லை.html" target="_blank">நீயல்லால் தெய்வமில்லை</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/கந்தா முருகா வருவாயே.html" target="_blank">கந்தா முருகா வருவாயே</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/கருணை முகங்கள் ஓராறு.html" target="_blank">கருணை முகங்கள் ஓராறு</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/பழனி என்னும் ஊரிலே.html" target="_blank">பழனி என்னும் ஊரிலே</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/குலதெய்வமே உன்னைக் கொண்டாடினேன்.html" target="_blank">குலதெய்வமே உன்னைக் கொண்டாடினேன்</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/அடியார்கள் உள்ளத்தில்.html" target="_blank">அடியார்கள் உள்ளத்தில்</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/உன்னைத்தான் பாடவந்தேன்.html" target="_blank">உன்னைத்தான் பாடவந்தேன்</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/ஷண்முக நாயகன்.html" target="_blank">ஷண்முக நாயகன்</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/முருகனை நினை மனமே.html" target="_blank">முருகனை நினை மனமே</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/முருகா நீ வரவேண்டும்.html" target="_blank">முருகா நீ வரவேண்டும்</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/முத்துக்குமாரனடி அம்மா.html" target="_blank">முத்துக்குமாரனடி அம்மா</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/கற்பனை என்றாலும்.html" target="_blank">கற்பனை என்றாலும்</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/வந்து பணிந்தாலும்.html" target="_blank">வந்து பணிந்தாலும்</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/காலை இளம் கதிரில்.html" target="_blank">காலை இளம் கதிரில்</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/அன்னை சொற்கு.html" target="_blank">அன்னை சொற்கு</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/ஓரு தரம் சரவணபவா.html" target="_blank">ஓரு தரம் சரவணபவா</a></li>
-</ol>
-
-<div style="color: #8B0000; font-size: 20px;"><strong>சிவபெருமான்</strong></div>
-<ol>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/லிங்காஷ்டகம்.html" target="_blank">லிங்காஷ்டகம்</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/கோளறு பதிகம்.html" target="_blank">கோளறு பதிகம்</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/சிவபுராணம்.html" target="_blank">சிவபுராணம்</a></li>
-</ol>
-
 <BR>
 1. பித்தாபிறைசூடீ பெருமானே அருளாளா<BR>
 எத்தான்மற வாதேநினைக்கின்றேன்மனத் துன்னை<BR>
@@ -331,11 +96,6 @@ window.onload = initialize;
 கற்றுணைப் பூட்டியோர் கடலிற் பாய்ச்சினும்<BR>
 நற்றுணை யாவது நமச்சி வாயவே<BR>
 <BR>
-
-<div style="color: #8B0000; font-size: 20px;"><strong>அம்பாள்</strong></div>
-<ol>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/ஸ்ரீ லலிதா நவரத்தின மாலை.html" target="_blank">ஸ்ரீ லலிதா நவரத்தின மாலை</a></li>
-</ol>
 <BR>
 1. பிறவிப் பிணி தீர்ப்பாய் பிரம்ம சக்தி தாயே கேள்<BR>
 துன்பத்தை துடைத்திடவே <BR>
@@ -433,17 +193,7 @@ window.onload = initialize;
 சகலமும் உனதொரு கருணையில் எழுவது <BR>
 வருவாய் துர்கா அம்மா<BR>
 <BR>
-<div style="color: #8B0000; font-size: 20px;"><strong>மஹாலட்சுமி</strong></div>
-<ol>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/Mahalakshmi Ashtakam.html" target="_blank">Mahalakshmi Ashtakam</a></li>
-</ol>
 <BR>
-
-
-<div style="color: #8B0000; font-size: 20px;"><strong>மஹாவிஷ்ணு</strong></div>
-<ol>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/குறை ஒன்றும் இல்லை.html" target="_blank">குறை ஒன்றும் இல்லை</a></li>
-</ol>
 <BR>
 குலம் தரும் செல்வம் தந்திடும் அடியார் <BR>
 படுதுயராயினவெல்லாம் நிலந்தரஞ்செய்யும் <BR>
@@ -481,12 +231,6 @@ window.onload = initialize;
 சஹஸ்ர நாம தத்துல்யம்<BR>
 ராம நாம வரானனே<BR>
 <BR>
-
-
-<div style="color: #8B0000; font-size: 20px;"><strong>ஹனுமான்</strong></div>
-<ol>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/அனுமான் சாலீசா.html" target="_blank">அனுமான் சாலீசா</a></li>
-</ol>
 <BR>
 அஞ்சிலே ஒன்று பெற்றான் அஞ்சிலே ஒன்றைத் தாவி<BR>
 அஞ்சிலே ஒன்று ஆறு ஆக ஆரியர்க்காக ஏகி<BR>
@@ -514,16 +258,10 @@ window.onload = initialize;
 பரிவோடு மகிழ்ந்து<BR>
 அருள் செய்யு மன்றோ<BR>
 <BR>
-
-<ol>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/முருகனுக்கு அரோகரா.html" target="_blank">முருகனுக்கு அரோகரா</a></li>
-<li><a style="color:#8B0000;" href="https://readslokas.github.io/நாத விந்து.html" target="_blank">நாத விந்து</a></li>
-</ol>
 <BR>
-
-<div style="color: #8B0000; font-size: 20px;"><strong>சாந்தம் சௌக்கியம் கல்யாணம் மங்களம் சுப்ரமணிய பிரசாதம் சுபம்</strong></div>
 
 </p>
 </div>
 </body>
 </html>
+

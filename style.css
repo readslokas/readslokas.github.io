@@ -22,7 +22,7 @@ body {
 }
 
 #controls button {
-  font-size: 1.2em; /* Reduced the font size */
+  font-size: 1.0em; /* Reduced the font size */
   padding: 8px 0; /* Reduced padding to make buttons smaller */
   cursor: pointer;
   border: none;

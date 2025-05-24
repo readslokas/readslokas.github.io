@@ -1,9 +1,8 @@
-// scripts.js
 let speedLevel = 0;
 let speedPixelsPerSecond = 0;
 let lastTimestamp = null;
-let wakeLock = null;
 let animationFrameId = null;
+let wakeLock = null; // Variable for wake lock
 
 function smoothScroll(timestamp) {
   if (!lastTimestamp) lastTimestamp = timestamp;
@@ -29,19 +28,9 @@ function changeSpeed(newSpeed) {
   const speedTable = [1, 60, 90, 110, 130, 150, 170]; 
   speedLevel = parseInt(newSpeed);
   speedPixelsPerSecond = speedTable[speedLevel];
-  
-  // Request fullscreen when speed changes
-  if (document.documentElement.requestFullscreen) {
-    document.documentElement.requestFullscreen();
-  } else if (document.documentElement.mozRequestFullScreen) { // Firefox
-    document.documentElement.mozRequestFullScreen();
-  } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari and Opera
-    document.documentElement.webkitRequestFullscreen();
-  } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
-    document.documentElement.msRequestFullscreen();
-  }
 }
 
+// Request Wake Lock to keep the screen on
 async function requestWakeLock() {
   try {
     if ('wakeLock' in navigator) {
@@ -59,12 +48,14 @@ async function requestWakeLock() {
 }
 
 document.addEventListener('visibilitychange', () => {
-  if (wakeLock !== null && document.visibilityState === 'visible') {
+  // Re-request wake lock when the page becomes visible again
+  if (document.visibilityState === 'visible' && wakeLock === null) {
     requestWakeLock();
   }
 });
 
+// On page load, start scrolling and request wake lock
 window.onload = function() {
   startAutoScroll();
-  requestWakeLock();
+  requestWakeLock();  // Request wake lock to keep the screen on
 };

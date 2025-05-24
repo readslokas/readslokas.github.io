@@ -13,23 +13,24 @@ body {
   left: 0;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly; /* Distribute buttons evenly across the width */
   background-color: #222;
   padding: 5px;
   box-sizing: border-box;
   z-index: 1000;
+  height: 60px; /* Set a fixed height for the controls */
 }
 
 #controls button {
-  flex: 1;
-  font-size: 1.5em;
-  padding: 10px 0;
+  font-size: 1.2em; /* Reduced the font size */
+  padding: 8px 0; /* Reduced padding to make buttons smaller */
   cursor: pointer;
   border: none;
   background-color: #444;
   color: white;
   margin: 0 5px;
   border-radius: 6px;
+  flex: 1;
 }
 
 #controls button:hover {
@@ -37,11 +38,11 @@ body {
 }
 
 .content {
-  margin-top: 70px;
+  margin-top: 100px; /* Increased top margin to provide more space for controls */
   padding: 10px;
 }
 
 p {
-  font-size: calc(2.5vw + 2.5em);
+  font-size: calc(3vw + 3em); /* Increased the font size */
   word-wrap: break-word;
 }

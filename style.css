@@ -6,7 +6,7 @@ body {
   margin: 0;
   overflow-y: auto;
   scroll-behavior: auto;
-  font-size: calc(2.2vw + 2.2em);  /* Dynamic font size based on viewport width */
+  font-size: calc(1.2vw + 1.2em);  /* Reduced font size dynamically */
   padding: 20px;
 }
 
@@ -26,7 +26,7 @@ body {
 
 #controls button {
   flex: 1;
-  font-size: 2em;
+  font-size: 1.5em;  /* Smaller font for buttons */
   padding: 14px 0;
   cursor: pointer;
   border: none;
@@ -47,40 +47,40 @@ body {
 }
 
 p {
-  font-size: calc(2.2vw + 2.2em); /* Maintain dynamic font size */
+  font-size: calc(1.2vw + 1.2em); /* Reduced font size */
   word-wrap: break-word;
 }
 
 /* Use media queries to adjust layout based on screen size */
 @media (max-width: 1200px) {
   body {
-    font-size: calc(2.0vw + 2.0em);  /* Slightly smaller font on medium screens */
+    font-size: calc(1.1vw + 1.1em);  /* Slightly smaller font on medium screens */
   }
 
   #controls button {
-    font-size: 1.8em;
+    font-size: 1.3em;
     padding: 12px 0;
   }
 }
 
 @media (max-width: 992px) {
   body {
-    font-size: calc(1.8vw + 1.8em);  /* Even smaller font on smaller screens */
+    font-size: calc(1.0vw + 1.0em);  /* Smaller font on smaller screens */
   }
 
   #controls button {
-    font-size: 1.6em;
+    font-size: 1.2em;
     padding: 10px 0;
   }
 }
 
 @media (max-width: 768px) {
   body {
-    font-size: calc(1.6vw + 1.6em);  /* Even smaller font for very small screens */
+    font-size: calc(0.9vw + 0.9em);  /* Even smaller font for very small screens */
   }
 
   #controls button {
-    font-size: 1.4em;
+    font-size: 1.1em;
     padding: 8px 0;
   }
 
@@ -91,11 +91,11 @@ p {
 
 @media (max-width: 480px) {
   body {
-    font-size: calc(1.4vw + 1.4em);  /* Reduce font size on extremely small screens */
+    font-size: calc(0.8vw + 0.8em);  /* Reduce font size even further on very small screens */
   }
 
   #controls button {
-    font-size: 1.2em;
+    font-size: 1em;
     padding: 6px 0;
   }
 
@@ -107,7 +107,7 @@ p {
 /* Adjust the content size based on height */
 @media (max-height: 700px) {
   body {
-    font-size: calc(1.0vw + 1.0em);  /* Further reduce font size if viewport height is smaller */
+    font-size: calc(0.7vw + 0.7em);  /* Further reduce font size if viewport height is smaller */
   }
 }
 

@@ -23,7 +23,7 @@ body {
 
 #controls button {
   font-size: 1.2em; /* Reduced the font size */
-  padding: 6px 0; /* Reduced padding to make buttons smaller */
+  padding: 8px 0; /* Reduced padding to make buttons smaller */
   cursor: pointer;
   border: none;
   background-color: #444;
@@ -40,9 +40,10 @@ body {
 .content {
   margin-top: 100px; /* Increased top margin to provide more space for controls */
   padding: 10px;
+  font-size: 1.2em;
 }
 
 p {
-  font-size: calc(.5vw + 3.5em); /* Increased the font size */
+  font-size: calc(3vw + 3em); /* Increased the font size */
   word-wrap: break-word;
 }

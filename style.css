@@ -1,14 +1,16 @@
-/* styles.css */
+/* General styling for body */
 body {
   background-color: black;
   color: white;
   font-family: Calibri, sans-serif;
   margin: 0;
   overflow-y: auto;
-  scroll-behavior: auto; /* we control smoothness in JS now */
-  font-size: calc(2.2vw + 2.2em); /* Keep the original font size */
+  scroll-behavior: auto;
+  font-size: calc(2.2vw + 2.2em);  /* Dynamic font size based on viewport width */
+  padding: 20px;
 }
 
+/* Controls styling */
 #controls {
   position: fixed;
   top: 0;
@@ -17,7 +19,7 @@ body {
   display: flex;
   justify-content: space-between;
   background-color: #222;
-  padding: 5px;
+  padding: 10px;
   box-sizing: border-box;
   z-index: 1000;
 }
@@ -38,19 +40,74 @@ body {
   background-color: #666;
 }
 
+/* Content section */
 .content {
   margin-top: 70px;
   padding: 10px;
 }
 
 p {
-  font-size: calc(2.2vw + 2.2em); /* Keep font size the same */
+  font-size: calc(2.2vw + 2.2em); /* Maintain dynamic font size */
   word-wrap: break-word;
 }
 
-/* Prevent changes in font size when in fullscreen */
-@media screen and (fullscreen) {
-  body, p {
-    font-size: calc(2.2vw + 2.2em); /* Keep the same font size during fullscreen */
+/* Use media queries to adjust layout based on screen size */
+@media (max-width: 1200px) {
+  body {
+    font-size: calc(2.0vw + 2.0em);  /* Slightly smaller font on medium screens */
+  }
+
+  #controls button {
+    font-size: 1.8em;
+    padding: 12px 0;
   }
 }
+
+@media (max-width: 992px) {
+  body {
+    font-size: calc(1.8vw + 1.8em);  /* Even smaller font on smaller screens */
+  }
+
+  #controls button {
+    font-size: 1.6em;
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: calc(1.6vw + 1.6em);  /* Even smaller font for very small screens */
+  }
+
+  #controls button {
+    font-size: 1.4em;
+    padding: 8px 0;
+  }
+
+  .content {
+    margin-top: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: calc(1.4vw + 1.4em);  /* Reduce font size on extremely small screens */
+  }
+
+  #controls button {
+    font-size: 1.2em;
+    padding: 6px 0;
+  }
+
+  .content {
+    margin-top: 50px;
+  }
+}
+
+/* Adjust the content size based on height */
+@media (max-height: 700px) {
+  body {
+    font-size: calc(1.0vw + 1.0em);  /* Further reduce font size if viewport height is smaller */
+  }
+}
+

@@ -47,6 +47,6 @@ body {
 }
 
 p {
-  font-size: calc(1.7vw + 1.5em);
+  font-size: calc(2vw + 1.8em);
   word-wrap: break-word;
 }

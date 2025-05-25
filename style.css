@@ -13,12 +13,15 @@ body {
   left: 0;
   width: 100%;
   display: flex;
-  justify-content: space-evenly; /* Distribute buttons evenly across the width */
+  justify-content: space-evenly;
   background-color: #222;
   padding: 5px;
   box-sizing: border-box;
   z-index: 1000;
-  height: 60px; /* Set a fixed height for the controls */
+  height: 60px;
+
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 #controls button {
@@ -41,7 +44,9 @@ body {
   margin-top: 60px;
   padding: 10px;
   font-size: 1.6em;
-  width: 100%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
   box-sizing: border-box;
 }
 

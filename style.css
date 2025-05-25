@@ -4,7 +4,7 @@ body {
   font-family: Calibri, sans-serif;
   margin: 0;
   overflow-y: auto;
-  scroll-behavior: auto; /* we control smoothness in JS now */
+  scroll-behavior: auto;
 }
 
 #controls {
@@ -15,21 +15,22 @@ body {
   display: flex;
   justify-content: space-between;
   background-color: #222;
-  padding: 5px;
+  padding: 4px;
   box-sizing: border-box;
   z-index: 1000;
+  height: 50px;
 }
 
 #controls button {
   flex: 1;
-  font-size: 2em;
-  padding: 14px 0;
+  font-size: 1em;          /* ↓ Reduced from 2em */
+  padding: 6px 0;          /* ↓ Smaller padding */
   cursor: pointer;
   border: none;
   background-color: #444;
   color: white;
-  margin: 0 5px;
-  border-radius: 6px;
+  margin: 0 4px;
+  border-radius: 4px;
 }
 
 #controls button:hover {
@@ -37,11 +38,11 @@ body {
 }
 
 .content {
-  margin-top: 70px;
-  padding: 10px;
+  margin-top: 60px;
+  padding: 12px;
 }
 
 p {
-  font-size: calc(2.2vw + 2.2em);
+  font-size: calc(2.5vw + 2.5em);  /* ↑ Increased text size */
   word-wrap: break-word;
 }

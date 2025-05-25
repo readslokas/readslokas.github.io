@@ -24,7 +24,7 @@ function startAutoScroll() {
 }
 
 function changeSpeed(newSpeed) {
-  const speedTable = [1, 60, 90, 110, 130, 150, 170]; 
+  const speedTable = [1, 30, 40, 60, 80, 100, 120]; 
   speedLevel = parseInt(newSpeed);
   speedPixelsPerSecond = speedTable[speedLevel];
 }

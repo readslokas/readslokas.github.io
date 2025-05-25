@@ -37,6 +37,10 @@ body {
   background-color: #666;
 }
 
+#controls button.active {
+  background-color: #2467b3; /* Blue background for active button */
+}
+
 .content {
   margin-top: 60px;
   padding: 12px;

@@ -34,13 +34,13 @@ body {
 }
 
 #controls button:hover {
-  background-color: #094181;
+  background-color: #666;
 }
 
 .content {
-  margin-top: 60px; /* Increased top margin to provide more space for controls */
+  margin-top: 100px; /* Increased top margin to provide more space for controls */
   padding: 10px;
-  font-size: 1.6em;
+  font-size: 1.8em;
 }
 
 p {

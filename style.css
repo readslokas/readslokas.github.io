@@ -43,6 +43,6 @@ body {
 }
 
 p {
-  font-size: calc(3vw + 2.8em);  /* ↑ Increased again */
+  font-size: calc(4vw + 3.6em);  /* ↑ Increased again */
   word-wrap: break-word;
 }

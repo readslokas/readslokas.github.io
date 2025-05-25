@@ -38,12 +38,14 @@ body {
 }
 
 .content {
-  margin-top: 60px; /* Increased top margin to provide more space for controls */
+  margin-top: 60px;
   padding: 10px;
   font-size: 1.6em;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 p {
-  font-size: calc(3vw + 3em); /* Increased the font size */
+  font-size: calc(1vw + 1.5em);
   word-wrap: break-word;
 }

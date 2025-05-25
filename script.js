@@ -25,7 +25,7 @@ function startAutoScroll() {
 
 function changeSpeed(newSpeed) {
   // Define how many pixels per second for each level
-  const speedTable = [1, 30, 40, 65, 80, 100, 120]; 
+  const speedTable = [1, 30, 40, 70, 90, 110, 130]; 
   speedLevel = parseInt(newSpeed);
   speedPixelsPerSecond = speedTable[speedLevel];
 }

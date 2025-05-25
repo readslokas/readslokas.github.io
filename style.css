@@ -8,43 +8,42 @@ body {
 }
 
 #controls {
-  display: flex;
-  flex-wrap: wrap; /* ALLOWS wrapping on small screens */
-  justify-content: center; /* center the buttons */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  display: flex;
+  justify-content: space-evenly; /* Distribute buttons evenly across the width */
   background-color: #222;
   padding: 5px;
   box-sizing: border-box;
   z-index: 1000;
-  height: auto; /* Let it grow if buttons wrap */
+  height: 60px; /* Set a fixed height for the controls */
 }
 
 #controls button {
-  flex: 0 1 auto;
-  min-width: 60px;
-  margin: 5px;
-  padding: 8px 12px;
-  font-size: 1em;
+  font-size: 1.0em; /* Reduced the font size */
+  padding: 8px 0; /* Reduced padding to make buttons smaller */
+  cursor: pointer;
+  border: none;
+  background-color: #444;
+  color: white;
+  margin: 0 5px;
+  border-radius: 6px;
+  flex: 1;
 }
 
 #controls button:hover {
-  background-color: #2467b3;
+  background-color: #094181;
 }
 
 .content {
-  margin-top: 60px;
+  margin-top: 60px; /* Increased top margin to provide more space for controls */
   padding: 10px;
   font-size: 1.6em;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  box-sizing: border-box;
 }
 
 p {
-  font-size: calc(1vw + 1.5em);
+  font-size: calc(3vw + 3em); /* Increased the font size */
   word-wrap: break-word;
 }

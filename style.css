@@ -47,6 +47,6 @@ body {
 }
 
 p {
-  font-size: calc(5vw + 4em); /* Significantly larger text */
+  font-size: calc(3vw + 2.8em); /* Significantly larger text */
   word-wrap: break-word;
 }

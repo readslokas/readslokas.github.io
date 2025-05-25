@@ -1,8 +1,8 @@
 let speedLevel = 0;
 let speedPixelsPerSecond = 0;
 let lastTimestamp = null;
+let wakeLock = null;
 let animationFrameId = null;
-let wakeLock = null; // Variable for wake lock
 
 function smoothScroll(timestamp) {
   if (!lastTimestamp) lastTimestamp = timestamp;
@@ -24,13 +24,11 @@ function startAutoScroll() {
 }
 
 function changeSpeed(newSpeed) {
-  // Define how many pixels per second for each level
-  const speedTable = [1, 30, 40, 70, 90, 110, 130]; 
+  const speedTable = [1, 60, 90, 110, 130, 150, 170]; 
   speedLevel = parseInt(newSpeed);
   speedPixelsPerSecond = speedTable[speedLevel];
 }
 
-// Request Wake Lock to keep the screen on
 async function requestWakeLock() {
   try {
     if ('wakeLock' in navigator) {
@@ -48,14 +46,12 @@ async function requestWakeLock() {
 }
 
 document.addEventListener('visibilitychange', () => {
-  // Re-request wake lock when the page becomes visible again
-  if (document.visibilityState === 'visible' && wakeLock === null) {
+  if (wakeLock !== null && document.visibilityState === 'visible') {
     requestWakeLock();
   }
 });
 
-// On page load, start scrolling and request wake lock
 window.onload = function() {
   startAutoScroll();
-  requestWakeLock();  // Request wake lock to keep the screen on
+  requestWakeLock();
 };

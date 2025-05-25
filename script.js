@@ -6,7 +6,7 @@ let animationFrameId = null;
 
 function smoothScroll(timestamp) {
   if (!lastTimestamp) lastTimestamp = timestamp;
-  const deltaTime = (timestamp - lastTimestamp) / 1000; // seconds
+  const deltaTime = (timestamp - lastTimestamp) / 1000;
   lastTimestamp = timestamp;
 
   const distance = speedPixelsPerSecond * deltaTime;
@@ -24,9 +24,18 @@ function startAutoScroll() {
 }
 
 function changeSpeed(newSpeed) {
-  const speedTable = [1, 30, 40, 60, 80, 100, 120]; 
+  const speedTable = [1, 30, 40, 60, 80, 100, 120];
   speedLevel = parseInt(newSpeed);
   speedPixelsPerSecond = speedTable[speedLevel];
+
+  // Highlight the active button
+  document.querySelectorAll('#controls button').forEach((btn, idx) => {
+    if (idx === speedLevel) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
 }
 
 async function requestWakeLock() {
@@ -51,7 +60,8 @@ document.addEventListener('visibilitychange', () => {
   }
 });
 
-window.onload = function() {
+window.onload = function () {
   startAutoScroll();
   requestWakeLock();
+  changeSpeed(0); // Set initial speed and highlight first button
 };

@@ -38,7 +38,7 @@ body {
 }
 
 #controls button.active {
-  background-color: #2467b3; /* Blue background for active button */
+  background-color: #2467b3;
 }
 
 .content {
@@ -47,6 +47,6 @@ body {
 }
 
 p {
-  font-size: calc(3vw + 2.8em); /* Significantly larger text */
+  font-size: calc(2vw + 1.8em);
   word-wrap: break-word;
 }

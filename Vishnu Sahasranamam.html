@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dynamic Speed Controller</title>
   <style>
     body {
       background-color: black;
@@ -24,7 +25,6 @@
       padding: 4px;
       box-sizing: border-box;
       z-index: 1000;
-      height: auto;
     }
 
     #controls button {
@@ -60,94 +60,6 @@
 
   <div class="content">
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et tristique nunc. Sed laoreet consectetur arcu, a sagittis ipsum. 
-      <!-- Add more text to enable scrolling -->
-      <br /><br />
-      [Repeat this paragraph many times to enable scrolling easily.]
-    </p>
-  </div>
-
-  <script>
-    let speedTable = [1, 30, 40, 50, 60, 75, 100];
-    let currentSpeedIndex = 0;
-    let speedPixelsPerSecond = speedTable[0];
-    let expandedIndex = null;
-    let lastTimestamp = null;
-    let animationFrameId = null;
-
-    function smoothScroll(timestamp) {
-      if (!lastTimestamp) lastTimestamp = timestamp;
-      const deltaTime = (timestamp - lastTimestamp) / 1000;
-      lastTimestamp = timestamp;
-      const distance = speedPixelsPerSecond * deltaTime;
-      window.scrollTo(0, window.scrollY + distance);
-      animationFrameId = requestAnimationFrame(smoothScroll);
-    }
-
-    function startAutoScroll() {
-      cancelAnimationFrame(animationFrameId);
-      lastTimestamp = null;
-      animationFrameId = requestAnimationFrame(smoothScroll);
-    }
-
-    function buildButtons() {
-      const controls = document.getElementById("controls");
-      controls.innerHTML = "";
-
-      for (let i = 0; i < speedTable.length; i++) {
-        const btn = document.createElement("button");
-        btn.textContent = `${i + 1}x`;
-        btn.onclick = () => handleSpeedClick(i, btn);
-        if (i === currentSpeedIndex) btn.classList.add("active");
-        controls.appendChild(btn);
-
-        if (expandedIndex === i && i < speedTable.length - 1) {
-          const finerSpeeds = generateFineSpeeds(speedTable[i], speedTable[i + 1], 5);
-          finerSpeeds.forEach((val, j) => {
-            const fineBtn = document.createElement("button");
-            const label = `${(i + 1) + ((j + 1) / (finerSpeeds.length + 1))}x`;
-            fineBtn.textContent = label;
-            fineBtn.onclick = () => {
-              speedPixelsPerSecond = val;
-              currentSpeedIndex = -1; // No main button is active
-              highlightButton(fineBtn);
-            };
-            controls.appendChild(fineBtn);
-          });
-        }
-      }
-    }
-
-    function handleSpeedClick(index, buttonElement) {
-      if (expandedIndex === index) {
-        expandedIndex = null;
-      } else {
-        expandedIndex = index;
-      }
-
-      currentSpeedIndex = index;
-      speedPixelsPerSecond = speedTable[index];
-      buildButtons();
-    }
-
-    function generateFineSpeeds(start, end, count) {
-      const step = (end - start) / (count + 1);
-      return Array.from({ length: count }, (_, i) => start + step * (i + 1));
-    }
-
-    function highlightButton(activeBtn) {
-      document.querySelectorAll("#controls button").forEach(btn => {
-        btn.classList.toggle("active", btn === activeBtn);
-      });
-    }
-
-    window.onload = () => {
-      buildButtons();
-      startAutoScroll();
-    };
-  </script>
-<p>
-
 
 
   Om Shuklam Bharatharam Vishnum Sashivarnam Chathurbhujam<BR>
@@ -543,9 +455,125 @@
   Samkeertya Narayana Shabta Matram Vimukta Dhukka Sukhino Bhavanthu<BR><BR>
   Kayena Vacha Manasendriyerva Budhyatma Nava Prakrute Swabhavath<BR>
   Karomi Yadyat Sakalam Parasmai Narayanayetu Samarpayami<BR><BR>
+</p>
+  </div>
 
-</p>  
+  <script>
+    let speedTable = [1, 30, 40, 50, 60, 75, 100];
+    let currentSpeedIndex = 0;
+    let speedPixelsPerSecond = speedTable[0];
+    let lastTimestamp = null;
+    let animationFrameId = null;
+    let expandedIndex = null;
+
+    function smoothScroll(timestamp) {
+      if (!lastTimestamp) lastTimestamp = timestamp;
+      const deltaTime = (timestamp - lastTimestamp) / 1000;
+      lastTimestamp = timestamp;
+      const distance = speedPixelsPerSecond * deltaTime;
+      window.scrollTo(0, window.scrollY + distance);
+      animationFrameId = requestAnimationFrame(smoothScroll);
+    }
+
+    function startAutoScroll() {
+      cancelAnimationFrame(animationFrameId);
+      lastTimestamp = null;
+      animationFrameId = requestAnimationFrame(smoothScroll);
+    }
+
+    function buildButtons() {
+      const controls = document.getElementById("controls");
+      controls.innerHTML = "";
+
+      if (expandedIndex === null) {
+        // Show all standard speed buttons
+        for (let i = 0; i < speedTable.length; i++) {
+          const btn = document.createElement("button");
+          btn.textContent = `${i + 1}x`;
+          btn.onclick = () => handleSpeedClick(i);
+          if (i === currentSpeedIndex) btn.classList.add("active");
+          controls.appendChild(btn);
+        }
+      } else {
+        // Show only expanded range: prev, current, finer, next
+        const prev = expandedIndex - 1;
+        const curr = expandedIndex;
+        const next = expandedIndex + 1;
+
+        if (prev >= 0) {
+          const btnPrev = document.createElement("button");
+          btnPrev.textContent = `${prev + 1}x`;
+          btnPrev.onclick = () => handleSpeedClick(prev);
+          controls.appendChild(btnPrev);
+        }
+
+        const btnCurr = document.createElement("button");
+        btnCurr.textContent = `${curr + 1}x`;
+        btnCurr.classList.add("active");
+        btnCurr.onclick = () => handleSpeedClick(curr);
+        controls.appendChild(btnCurr);
+
+        if (next < speedTable.length) {
+          const finerButtons = generateFinerButtons(curr, next);
+          finerButtons.forEach(({ label, value }) => {
+            const fineBtn = document.createElement("button");
+            fineBtn.textContent = label;
+            fineBtn.onclick = () => {
+              speedPixelsPerSecond = value;
+              currentSpeedIndex = -1;
+              highlightButton(fineBtn);
+            };
+            controls.appendChild(fineBtn);
+          });
+
+          const btnNext = document.createElement("button");
+          btnNext.textContent = `${next + 1}x`;
+          btnNext.onclick = () => handleSpeedClick(next);
+          controls.appendChild(btnNext);
+        }
+      }
+    }
+
+    function handleSpeedClick(index) {
+      if (expandedIndex === index) {
+        // Collapse view
+        expandedIndex = null;
+      } else {
+        // Expand view
+        expandedIndex = index;
+        speedPixelsPerSecond = speedTable[index];
+      }
+      currentSpeedIndex = index;
+      buildButtons();
+    }
+
+    function generateFinerButtons(index1, index2) {
+      const speed1 = speedTable[index1];
+      const speed2 = speedTable[index2];
+      const labels = ["0.2x", "0.4x", "0.6x", "0.8x"];
+      const fineSpeeds = [];
+
+      labels.forEach((label, i) => {
+        const step = (i + 1) * 0.2;
+        const fullLabel = `${(index1 + 1 + step).toFixed(1)}x`;
+        const interpolatedValue = speed1 + ((speed2 - speed1) * step);
+        fineSpeeds.push({ label: fullLabel, value: interpolatedValue });
+      });
+
+      return fineSpeeds;
+    }
+
+    function highlightButton(activeBtn) {
+      document.querySelectorAll("#controls button").forEach(btn => {
+        btn.classList.toggle("active", btn === activeBtn);
+      });
+    }
+
+    window.onload = () => {
+      buildButtons();
+      startAutoScroll();
+    };
+  </script>
 
 </body>
 </html>
-

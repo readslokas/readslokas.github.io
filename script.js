@@ -4,6 +4,7 @@ let speedPixelsPerSecond = speedTable[0];
 let lastTimestamp = null;
 let animationFrameId = null;
 let expandedIndex = null;
+let wakeLock = null;
 
 function smoothScroll(timestamp) {
   if (!lastTimestamp) lastTimestamp = timestamp;
@@ -104,7 +105,31 @@ function highlightButton(activeBtn) {
   });
 }
 
+async function requestWakeLock() {
+  try {
+    if ('wakeLock' in navigator) {
+      wakeLock = await navigator.wakeLock.request('screen');
+      console.log('Wake Lock is active');
+
+      wakeLock.addEventListener('release', () => {
+        console.log('Wake Lock was released');
+      });
+    } else {
+      console.warn('Wake Lock API not supported on this browser.');
+    }
+  } catch (err) {
+    console.error(`${err.name}, ${err.message}`);
+  }
+}
+
+document.addEventListener('visibilitychange', () => {
+  if (wakeLock !== null && document.visibilityState === 'visible') {
+    requestWakeLock();
+  }
+});
+
 window.onload = () => {
   buildButtons();
   startAutoScroll();
+  requestWakeLock(); // Prevent screen from sleeping
 };

@@ -1,4 +1,4 @@
-let speedTable = [1, 30, 40, 50, 60, 75, 100];
+let speedTable = [1, 30, 45, 60, 75, 90, 105];
 let currentSpeedIndex = 0;
 let speedPixelsPerSecond = speedTable[0];
 let lastTimestamp = null;

@@ -1,10 +1,10 @@
-let speedTable = [10, 30, 55, 80, 90, 96, 100]; // Speeds for 1x - 7x
-let speedPixelsPerSecond = speedTable[0];
+let speedTable = [10, 30, 55, 80, 90, 96, 100]; // 1x to 7x
 let currentSpeedIndex = 0;
+let speedPixelsPerSecond = speedTable[0];
 let lastTimestamp = null;
 let animationFrameId = null;
 let wakeLock = null;
-let selectedLabel = null;
+let selectedLabel = "1x";
 
 function smoothScroll(timestamp) {
   if (!lastTimestamp) lastTimestamp = timestamp;
@@ -25,43 +25,31 @@ function buildButtons() {
   const controls = document.getElementById("controls");
   controls.innerHTML = "";
 
-  let buttons = [];
   const allButtons = [];
 
-  // Generate base buttons (1x to 7x)
+  // Build all buttons: main + finer
   for (let i = 0; i < speedTable.length; i++) {
-    const label = `${i + 1}x`;
-    allButtons.push({ label, value: speedTable[i], isMain: true });
+    allButtons.push({ label: `${i + 1}x`, value: speedTable[i], isMain: true });
 
-    // Generate finer steps between current and next
     if (i < speedTable.length - 1) {
       const finer = generateFinerSpeeds(i, i + 1);
       allButtons.push(...finer);
     }
   }
 
-  // Determine selected index
-  let index = allButtons.findIndex(btn => btn.label === selectedLabel);
+  let selectedIndex = allButtons.findIndex(btn => btn.label === selectedLabel);
+  if (selectedIndex === -1) selectedIndex = 0;
 
-  if (index === -1) {
-    index = 0;
-    selectedLabel = allButtons[0].label;
-    speedPixelsPerSecond = allButtons[0].value;
-  }
+  const start = Math.max(0, Math.min(selectedIndex - 3, allButtons.length - 7));
+  const visibleButtons = allButtons.slice(start, start + 7);
 
-  // Pick 7 buttons centered around the selected one
-  const start = Math.max(0, Math.min(index - 3, allButtons.length - 7));
-  buttons = allButtons.slice(start, start + 7);
-
-  // Render buttons
-  buttons.forEach(btn => {
+  visibleButtons.forEach(btn => {
     const button = document.createElement("button");
     button.textContent = btn.label;
-    button.className = (btn.label === selectedLabel) ? "active" : "";
+    if (btn.label === selectedLabel) button.classList.add("active");
     button.onclick = () => {
       speedPixelsPerSecond = btn.value;
       selectedLabel = btn.label;
-      currentSpeedIndex = btn.isMain ? parseInt(btn.label) - 1 : -1;
       buildButtons();
     };
     controls.appendChild(button);
@@ -69,16 +57,17 @@ function buildButtons() {
 }
 
 function generateFinerSpeeds(index1, index2) {
-  if (index2 >= speedTable.length) return [];
   const speed1 = speedTable[index1];
   const speed2 = speedTable[index2];
   const finer = [];
+
   for (let i = 1; i <= 5; i++) {
     const step = 0.2 * i;
     const label = `${(index1 + 1 + step).toFixed(1)}x`;
     const value = speed1 + ((speed2 - speed1) * step);
-    finer.push({ label, value });
+    finer.push({ label, value, isMain: false });
   }
+
   return finer;
 }
 

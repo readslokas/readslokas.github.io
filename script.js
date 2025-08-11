@@ -1,4 +1,4 @@
-let speedTable = [10, 30, 55, 80, 90, 96, 100, 120]; // 1X to 8X speeds
+let speedTable = [1, 30, 45, 60, 75, 85, 95, 100]; // 1X to 8X speeds
 let currentSpeed = speedTable[0];
 let currentSpeedIndex = 0; // Index of main speed or -1 if finer speed
 let currentFinerSpeed = null; // store current finer speed value if selected

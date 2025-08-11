@@ -1,4 +1,4 @@
-let speedTable = [10, 30, 55, 80, 90, 96, 100]; // 1x - 7x
+let speedTable = [10, 30, 55, 80, 90, 96, 100]; // Speeds for 1x - 7x
 let speedPixelsPerSecond = speedTable[0];
 let currentSpeedIndex = 0;
 let lastTimestamp = null;
@@ -26,61 +26,42 @@ function buildButtons() {
   controls.innerHTML = "";
 
   let buttons = [];
+  const allButtons = [];
 
-  if (!selectedLabel) {
-    // Default: show 1x to 7x
-    for (let i = 0; i < speedTable.length; i++) {
-      const label = `${i + 1}x`;
-      buttons.push({ label, value: speedTable[i], isMain: true });
-    }
-  } else if (selectedLabel.includes(".")) {
-    // Finer speed clicked
-    const value = parseFloat(selectedLabel);
-    const mainIndex = Math.floor(value - 1);
-    const finer = generateFinerSpeeds(mainIndex, mainIndex + 1);
-    const selectedIndex = finer.findIndex(f => f.label === selectedLabel);
+  // Generate base buttons (1x to 7x)
+  for (let i = 0; i < speedTable.length; i++) {
+    const label = `${i + 1}x`;
+    allButtons.push({ label, value: speedTable[i], isMain: true });
 
-    const slice = finer.slice(Math.max(0, selectedIndex - 2), selectedIndex + 3);
-
-    if (mainIndex >= 0) {
-      buttons.push({ label: `${mainIndex + 1}x`, value: speedTable[mainIndex], isMain: true });
-    }
-    buttons = buttons.concat(slice);
-    if (mainIndex + 1 < speedTable.length) {
-      buttons.push({ label: `${mainIndex + 2}x`, value: speedTable[mainIndex + 1], isMain: true });
-    }
-
-  } else {
-    // Main speed clicked
-    const index = parseInt(selectedLabel);
-    const finer = generateFinerSpeeds(index, index + 1);
-    buttons.push({ label: `${index + 1}x`, value: speedTable[index], isMain: true });
-    buttons = buttons.concat(finer);
-    if (index + 1 < speedTable.length) {
-      buttons.push({ label: `${index + 2}x`, value: speedTable[index + 1], isMain: true });
-    }
-    if (index > 0) {
-      buttons.unshift({ label: `${index}x`, value: speedTable[index - 1], isMain: true });
+    // Generate finer steps between current and next
+    if (i < speedTable.length - 1) {
+      const finer = generateFinerSpeeds(i, i + 1);
+      allButtons.push(...finer);
     }
   }
 
-  // Limit to 7 buttons max
-  buttons = buttons.slice(0, 7);
+  // Determine selected index
+  let index = allButtons.findIndex(btn => btn.label === selectedLabel);
+
+  if (index === -1) {
+    index = 0;
+    selectedLabel = allButtons[0].label;
+    speedPixelsPerSecond = allButtons[0].value;
+  }
+
+  // Pick 7 buttons centered around the selected one
+  const start = Math.max(0, Math.min(index - 3, allButtons.length - 7));
+  buttons = allButtons.slice(start, start + 7);
 
   // Render buttons
   buttons.forEach(btn => {
     const button = document.createElement("button");
     button.textContent = btn.label;
-    button.className = (btn.label === selectedLabel || btn.label === `${currentSpeedIndex + 1}x`) ? "active" : "";
+    button.className = (btn.label === selectedLabel) ? "active" : "";
     button.onclick = () => {
       speedPixelsPerSecond = btn.value;
-      if (btn.isMain) {
-        currentSpeedIndex = parseInt(btn.label) - 1;
-        selectedLabel = `${currentSpeedIndex}`;
-      } else {
-        selectedLabel = btn.label;
-        currentSpeedIndex = -1;
-      }
+      selectedLabel = btn.label;
+      currentSpeedIndex = btn.isMain ? parseInt(btn.label) - 1 : -1;
       buildButtons();
     };
     controls.appendChild(button);

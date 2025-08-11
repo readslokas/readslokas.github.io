@@ -29,16 +29,42 @@ function buildButtons() {
   const btn1x = document.createElement("button");
   btn1x.textContent = "1x";
   btn1x.onclick = () => {
-    expandedIndex = null;
+    if (expandedIndex === 0) {
+      expandedIndex = null;
+    } else {
+      expandedIndex = 0;
+      speedPixelsPerSecond = speedTable[0];
+    }
     currentSpeedIndex = 0;
-    speedPixelsPerSecond = speedTable[0];
     buildButtons();
   };
   if (currentSpeedIndex === 0) btn1x.classList.add("active");
   controls.appendChild(btn1x);
 
-  if (expandedIndex === null || expandedIndex === 0) {
-    // Default mode: show whole numbers starting from 2x
+  if (expandedIndex === 0) {
+    // If 1x is expanded
+    const fineButtons = generateFinerButtons(0);
+    fineButtons.forEach(({ label, value }) => {
+      const btn = document.createElement("button");
+      btn.textContent = label;
+      btn.onclick = () => {
+        speedPixelsPerSecond = value;
+        currentSpeedIndex = -1;
+        highlightButton(btn);
+      };
+      controls.appendChild(btn);
+    });
+
+    // Add 2x button at end
+    if (speedTable.length > 1) {
+      const btn2x = document.createElement("button");
+      btn2x.textContent = "2x";
+      btn2x.onclick = () => handleSpeedClick(1);
+      if (currentSpeedIndex === 1) btn2x.classList.add("active");
+      controls.appendChild(btn2x);
+    }
+  } else if (expandedIndex === null) {
+    // Show whole number buttons from 2x onward
     for (let i = 1; i < Math.min(speedTable.length, 7); i++) {
       const btn = document.createElement("button");
       btn.textContent = `${i + 1}x`;
@@ -47,6 +73,7 @@ function buildButtons() {
       controls.appendChild(btn);
     }
   } else {
+    // Expanded for other buttons
     const center = expandedIndex;
 
     const btnMain = document.createElement("button");
@@ -67,7 +94,7 @@ function buildButtons() {
       controls.appendChild(btn);
     });
 
-    // Append the next whole button (if exists)
+    // Add next whole number
     if (center + 1 < speedTable.length) {
       const btnNext = document.createElement("button");
       btnNext.textContent = `${center + 2}x`;
@@ -80,7 +107,6 @@ function buildButtons() {
 
 function handleSpeedClick(index) {
   if (expandedIndex === index) {
-    // Collapse
     expandedIndex = null;
   } else {
     expandedIndex = index;

@@ -1,7 +1,5 @@
-let speedTable = [0, 10, 30, 55, 80, 90, 96, 100]; 
-// Note: 0 speed for 1x, then speeds for 1.2x, 2x, 3x... (adjust if you want)
-
-let currentSpeedIndex = 0; // start at 1x (no scroll)
+let speedTable = [0, 10, 30, 55, 80, 90, 96, 100]; // 0 for 1x (no scroll)
+let currentSpeedIndex = 0;
 let speedPixelsPerSecond = speedTable[0];
 let lastTimestamp = null;
 let animationFrameId = null;
@@ -27,108 +25,84 @@ function buildButtons() {
   const controls = document.getElementById("controls");
   controls.innerHTML = "";
 
-  // Always add 1x fixed on left
-  const btnOne = document.createElement("button");
-  btnOne.textContent = "1x";
-  btnOne.onclick = () => handleSpeedClick(0);
-  if (currentSpeedIndex === 0) btnOne.classList.add("active");
-  controls.appendChild(btnOne);
+  // Always render 1x
+  const btn1x = document.createElement("button");
+  btn1x.textContent = "1x";
+  btn1x.onclick = () => {
+    expandedIndex = null;
+    currentSpeedIndex = 0;
+    speedPixelsPerSecond = speedTable[0];
+    buildButtons();
+  };
+  if (currentSpeedIndex === 0) btn1x.classList.add("active");
+  controls.appendChild(btn1x);
 
   if (expandedIndex === null || expandedIndex === 0) {
-    // Collapsed: show whole numbers starting from 1.2x (index 1) onward
-    for (let i = 1; i < speedTable.length; i++) {
+    // Default mode: show whole numbers starting from 2x
+    for (let i = 1; i < Math.min(speedTable.length, 7); i++) {
       const btn = document.createElement("button");
-      btn.textContent = `${(i === 1 ? 1.2 : i + 0) }x`; // Customize label for index 1 as 1.2x
+      btn.textContent = `${i + 1}x`;
       btn.onclick = () => handleSpeedClick(i);
       if (i === currentSpeedIndex) btn.classList.add("active");
       controls.appendChild(btn);
     }
   } else {
-    // Expanded mode, show 6 buttons around expandedIndex
-    const expandedButtons = getExpandedButtons(expandedIndex);
+    const center = expandedIndex;
 
-    expandedButtons.forEach(btnData => {
+    const btnMain = document.createElement("button");
+    btnMain.textContent = `${center + 1}x`;
+    btnMain.classList.add("active");
+    btnMain.onclick = () => handleSpeedClick(center);
+    controls.appendChild(btnMain);
+
+    const fineButtons = generateFinerButtons(center);
+    fineButtons.forEach(({ label, value }) => {
       const btn = document.createElement("button");
-      btn.textContent = btnData.label;
+      btn.textContent = label;
       btn.onclick = () => {
-        if (btnData.isMain) {
-          handleSpeedClick(btnData.index);
-        } else {
-          speedPixelsPerSecond = btnData.value;
-          currentSpeedIndex = -1;
-          highlightButton(btn);
-        }
+        speedPixelsPerSecond = value;
+        currentSpeedIndex = -1;
+        highlightButton(btn);
       };
-      if (
-        (btnData.isMain && btnData.index === currentSpeedIndex) ||
-        (!btnData.isMain && speedPixelsPerSecond === btnData.value)
-      ) {
-        btn.classList.add("active");
-      }
       controls.appendChild(btn);
     });
-  }
-}
 
-function getExpandedButtons(centerIndex) {
-  // Build main + finer buttons between 1.2x and onwards (index 1 to end)
-  let allButtons = [];
-
-  for (let i = 1; i < speedTable.length; i++) {
-    const label = i === 1 ? "1.2x" : `${i}x`;
-    allButtons.push({ label, index: i, isMain: true, value: speedTable[i] });
-    if (i < speedTable.length - 1) {
-      allButtons.push(...generateFinerButtons(i, i + 1));
+    // Append the next whole button (if exists)
+    if (center + 1 < speedTable.length) {
+      const btnNext = document.createElement("button");
+      btnNext.textContent = `${center + 2}x`;
+      btnNext.onclick = () => handleSpeedClick(center + 1);
+      if (currentSpeedIndex === center + 1) btnNext.classList.add("active");
+      controls.appendChild(btnNext);
     }
   }
-
-  // Find center position by label matching
-  const centerLabel = centerIndex === 1 ? "1.2x" : `${centerIndex}x`;
-  let centerPos = allButtons.findIndex(b => b.label === centerLabel);
-  if (centerPos === -1) centerPos = 0;
-
-  let start = centerPos - 2;
-  if (start < 0) start = 0;
-  if (start + 6 > allButtons.length) start = allButtons.length - 6;
-
-  return allButtons.slice(start, start + 6);
-}
-
-function generateFinerButtons(index1, index2) {
-  const speed1 = speedTable[index1];
-  const speed2 = speedTable[index2];
-  const finer = [];
-
-  for (let i = 1; i <= 5; i++) {
-    const step = 0.2 * i;
-    const labelValue = (index1 === 1 ? 1.2 : index1) + step;
-    if (labelValue >= speedTable.length) break;
-    const label = `${labelValue.toFixed(1)}x`;
-    const value = speed1 + ((speed2 - speed1) * (step / 1)); // Linear interpolation
-    finer.push({ label, index: -1, isMain: false, value });
-  }
-  return finer;
 }
 
 function handleSpeedClick(index) {
   if (expandedIndex === index) {
-    // Collapse if same clicked
+    // Collapse
     expandedIndex = null;
-    speedPixelsPerSecond = speedTable[index];
-    currentSpeedIndex = index;
   } else {
-    if (index === 0) {
-      // 1x clicked: collapse and zero speed
-      expandedIndex = null;
-      speedPixelsPerSecond = 0;
-      currentSpeedIndex = 0;
-    } else {
-      expandedIndex = index;
-      speedPixelsPerSecond = speedTable[index];
-      currentSpeedIndex = index;
-    }
+    expandedIndex = index;
+    speedPixelsPerSecond = speedTable[index];
   }
+  currentSpeedIndex = index;
   buildButtons();
+}
+
+function generateFinerButtons(index) {
+  const buttons = [];
+  const speed1 = speedTable[index];
+  const speed2 = speedTable[index + 1] ?? speed1;
+  const steps = [0.2, 0.4, 0.6, 0.8];
+
+  steps.forEach(step => {
+    const label = `${(index + 1 + step).toFixed(1)}x`;
+    const value = speed1 + (speed2 - speed1) * step;
+    buttons.push({ label, value });
+  });
+
+  return buttons;
 }
 
 function highlightButton(activeBtn) {

@@ -1,16 +1,17 @@
-let speedTable = [10, 30, 55, 80, 90, 96, 100];
-let currentSpeedIndex = 0;
-let speedPixelsPerSecond = speedTable[0];
-let lastTimestamp = null;
+let speedTable = [10, 30, 55, 80, 90, 96, 100, 120]; // 1X to 8X speeds
+let currentSpeed = speedTable[0];
+let currentSpeedIndex = 0; // Index of main speed or -1 if finer speed
+let currentFinerSpeed = null; // store current finer speed value if selected
+
 let animationFrameId = null;
-let expandedIndex = null;
+let lastTimestamp = null;
 let wakeLock = null;
 
 function smoothScroll(timestamp) {
   if (!lastTimestamp) lastTimestamp = timestamp;
   const deltaTime = (timestamp - lastTimestamp) / 1000;
   lastTimestamp = timestamp;
-  const distance = speedPixelsPerSecond * deltaTime;
+  const distance = currentSpeed * deltaTime;
   window.scrollTo(0, window.scrollY + distance);
   animationFrameId = requestAnimationFrame(smoothScroll);
 }
@@ -21,88 +22,104 @@ function startAutoScroll() {
   animationFrameId = requestAnimationFrame(smoothScroll);
 }
 
+// Generate finer increments between two main speeds
+function generateFinerSpeeds(index1, index2) {
+  const speed1 = speedTable[index1];
+  const speed2 = speedTable[index2];
+  const finerSpeeds = [];
+  const increments = [0.2, 0.4, 0.6, 0.8];
+  increments.forEach(step => {
+    const label = `${(index1 + 1 + step).toFixed(1)}x`;
+    const value = speed1 + (speed2 - speed1) * step;
+    finerSpeeds.push({ label, value });
+  });
+  return finerSpeeds;
+}
+
+// Build buttons based on current selection (main or finer)
 function buildButtons() {
   const controls = document.getElementById("controls");
   controls.innerHTML = "";
 
-  if (expandedIndex === null) {
-    for (let i = 0; i < speedTable.length; i++) {
-      const btn = document.createElement("button");
-      btn.textContent = `${i + 1}x`;
-      btn.onclick = () => handleSpeedClick(i);
-      if (i === currentSpeedIndex) btn.classList.add("active");
-      controls.appendChild(btn);
-    }
-  } else {
-    const prev = expandedIndex - 1;
-    const curr = expandedIndex;
-    const next = expandedIndex + 1;
+  // Helper to create button and add active class if needed
+  function createButton(label, isActive, onClick) {
+    const btn = document.createElement("button");
+    btn.textContent = label;
+    if (isActive) btn.classList.add("active");
+    btn.onclick = onClick;
+    return btn;
+  }
 
-    if (prev >= 0) {
-      const btnPrev = document.createElement("button");
-      btnPrev.textContent = `${prev + 1}x`;
-      btnPrev.onclick = () => handleSpeedClick(prev);
-      controls.appendChild(btnPrev);
-    }
+  // Show main speeds + finer speeds depends on current selection
 
-    const btnCurr = document.createElement("button");
-    btnCurr.textContent = `${curr + 1}x`;
-    btnCurr.classList.add("active");
-    btnCurr.onclick = () => handleSpeedClick(curr);
-    controls.appendChild(btnCurr);
+  if (currentSpeedIndex >= 0) {
+    // Clicked a main speed: show that speed + all finer increments up to next main speed + next main speed
+    const i = currentSpeedIndex;
 
-    if (next < speedTable.length) {
-      const finerButtons = generateFinerButtons(curr, next);
-      finerButtons.forEach(({ label, value }) => {
-        const fineBtn = document.createElement("button");
-        fineBtn.textContent = label;
-        fineBtn.onclick = () => {
-          speedPixelsPerSecond = value;
-          currentSpeedIndex = -1;
-          highlightButton(fineBtn);
-        };
-        controls.appendChild(fineBtn);
+    // Show clicked main speed
+    controls.appendChild(createButton(`${i + 1}x`, true, () => handleMainSpeedClick(i)));
+
+    // Show all finer increments between i and i+1
+    if (i < speedTable.length - 1) {
+      const finerSpeeds = generateFinerSpeeds(i, i + 1);
+      finerSpeeds.forEach(({ label, value }) => {
+        controls.appendChild(createButton(label, false, () => handleFinerSpeedClick(value)));
       });
 
-      const btnNext = document.createElement("button");
-      btnNext.textContent = `${next + 1}x`;
-      btnNext.onclick = () => handleSpeedClick(next);
-      controls.appendChild(btnNext);
+      // Show next main speed
+      controls.appendChild(createButton(`${i + 2}x`, false, () => handleMainSpeedClick(i + 1)));
     }
+  } else {
+    // Clicked a finer speed: find where it fits in between main speeds and show window around it
+
+    // Find main speeds bracketing currentFinerSpeed
+    let lowerIndex = 0;
+    for (let j = 0; j < speedTable.length - 1; j++) {
+      if (currentFinerSpeed > speedTable[j] && currentFinerSpeed < speedTable[j + 1]) {
+        lowerIndex = j;
+        break;
+      }
+    }
+
+    // We want to show:
+    // - previous main speed (lowerIndex)
+    // - finer increments between lowerIndex and lowerIndex+1, including the clicked finer speed and some after it
+    // - next main speed (lowerIndex+1)
+
+    // Add previous main speed
+    controls.appendChild(createButton(`${lowerIndex + 1}x`, false, () => handleMainSpeedClick(lowerIndex)));
+
+    // Generate finer speeds between lowerIndex and lowerIndex+1
+    const finerSpeeds = generateFinerSpeeds(lowerIndex, lowerIndex + 1);
+
+    // Show all finer speeds, highlighting the clicked one, plus up to 2 after clicked finer speed if any
+    let clickedIndex = finerSpeeds.findIndex(fs => Math.abs(fs.value - currentFinerSpeed) < 0.0001);
+
+    // We'll show from start to clickedIndex + 2 (if possible)
+    let maxIndexToShow = Math.min(clickedIndex + 2, finerSpeeds.length - 1);
+
+    for (let k = 0; k <= maxIndexToShow; k++) {
+      const { label, value } = finerSpeeds[k];
+      controls.appendChild(createButton(label, k === clickedIndex, () => handleFinerSpeedClick(value)));
+    }
+
+    // Show next main speed
+    controls.appendChild(createButton(`${lowerIndex + 2}x`, false, () => handleMainSpeedClick(lowerIndex + 1)));
   }
 }
 
-function handleSpeedClick(index) {
-  if (expandedIndex === index) {
-    expandedIndex = null;
-  } else {
-    expandedIndex = index;
-    speedPixelsPerSecond = speedTable[index];
-  }
+function handleMainSpeedClick(index) {
+  currentSpeed = speedTable[index];
   currentSpeedIndex = index;
+  currentFinerSpeed = null;
   buildButtons();
 }
 
-function generateFinerButtons(index1, index2) {
-  const speed1 = speedTable[index1];
-  const speed2 = speedTable[index2];
-  const labels = ["0.2x", "0.4x", "0.6x", "0.8x"];
-  const fineSpeeds = [];
-
-  labels.forEach((label, i) => {
-    const step = (i + 1) * 0.2;
-    const fullLabel = `${(index1 + 1 + step).toFixed(1)}x`;
-    const interpolatedValue = speed1 + ((speed2 - speed1) * step);
-    fineSpeeds.push({ label: fullLabel, value: interpolatedValue });
-  });
-
-  return fineSpeeds;
-}
-
-function highlightButton(activeBtn) {
-  document.querySelectorAll("#controls button").forEach(btn => {
-    btn.classList.toggle("active", btn === activeBtn);
-  });
+function handleFinerSpeedClick(speedValue) {
+  currentSpeed = speedValue;
+  currentSpeedIndex = -1; // indicate finer speed selected
+  currentFinerSpeed = speedValue;
+  buildButtons();
 }
 
 async function requestWakeLock() {
@@ -110,7 +127,6 @@ async function requestWakeLock() {
     if ('wakeLock' in navigator) {
       wakeLock = await navigator.wakeLock.request('screen');
       console.log('Wake Lock is active');
-
       wakeLock.addEventListener('release', () => {
         console.log('Wake Lock was released');
       });
@@ -131,5 +147,5 @@ document.addEventListener('visibilitychange', () => {
 window.onload = () => {
   buildButtons();
   startAutoScroll();
-  requestWakeLock(); // Prevent screen from sleeping
+  requestWakeLock();
 };

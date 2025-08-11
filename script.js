@@ -1,12 +1,10 @@
-let speedTable = [10, 30, 55, 80, 90, 96, 100]; // main speeds (1x..7x)
-let speedLabels = speedTable.map((_, i) => `${i + 1}x`);
+let speedTable = [10, 30, 55, 80, 90, 96, 100];
 let currentSpeedIndex = 0;
 let speedPixelsPerSecond = speedTable[0];
 let lastTimestamp = null;
 let animationFrameId = null;
+let expandedIndex = null;
 let wakeLock = null;
-
-let expandedIndex = null; // null = collapsed whole numbers, else expanded around this index
 
 function smoothScroll(timestamp) {
   if (!lastTimestamp) lastTimestamp = timestamp;
@@ -27,103 +25,97 @@ function buildButtons() {
   const controls = document.getElementById("controls");
   controls.innerHTML = "";
 
-  let buttonsToShow = [];
-
   if (expandedIndex === null) {
-    // Show only whole numbers (1x..7x)
-    buttonsToShow = speedTable.map((speed, i) => ({
-      label: `${i + 1}x`,
-      value: speed,
-      index: i,
-      isMain: true,
-    }));
-  } else {
-    // Show expanded decimals around expandedIndex with 7 buttons total
-
-    // Collect all buttons: main + finer speeds
-    const allButtons = [];
-
     for (let i = 0; i < speedTable.length; i++) {
-      allButtons.push({ label: `${i + 1}x`, value: speedTable[i], index: i, isMain: true });
-      if (i < speedTable.length - 1) {
-        allButtons.push(...generateFinerSpeeds(i, i + 1));
-      }
+      const btn = document.createElement("button");
+      btn.textContent = `${i + 1}x`;
+      btn.onclick = () => handleSpeedClick(i);
+      if (i === currentSpeedIndex) btn.classList.add("active");
+      controls.appendChild(btn);
+    }
+  } else {
+    const prev = expandedIndex - 1;
+    const curr = expandedIndex;
+    const next = expandedIndex + 1;
+
+    if (prev >= 0) {
+      const btnPrev = document.createElement("button");
+      btnPrev.textContent = `${prev + 1}x`;
+      btnPrev.onclick = () => handleSpeedClick(prev);
+      controls.appendChild(btnPrev);
     }
 
-    // Find index of expandedIndex's main speed in allButtons
-    const mainButtonLabel = `${expandedIndex + 1}x`;
-    let centerIndex = allButtons.findIndex(btn => btn.label === mainButtonLabel);
+    const btnCurr = document.createElement("button");
+    btnCurr.textContent = `${curr + 1}x`;
+    btnCurr.classList.add("active");
+    btnCurr.onclick = () => handleSpeedClick(curr);
+    controls.appendChild(btnCurr);
 
-    // We want 7 buttons centered on centerIndex (adjust if near start/end)
-    let start = Math.max(0, centerIndex - 3);
-    if (start + 7 > allButtons.length) start = allButtons.length - 7;
-    if (start < 0) start = 0;
+    if (next < speedTable.length) {
+      const finerButtons = generateFinerButtons(curr, next);
+      finerButtons.forEach(({ label, value }) => {
+        const fineBtn = document.createElement("button");
+        fineBtn.textContent = label;
+        fineBtn.onclick = () => {
+          speedPixelsPerSecond = value;
+          currentSpeedIndex = -1;
+          highlightButton(fineBtn);
+        };
+        controls.appendChild(fineBtn);
+      });
 
-    buttonsToShow = allButtons.slice(start, start + 7);
+      const btnNext = document.createElement("button");
+      btnNext.textContent = `${next + 1}x`;
+      btnNext.onclick = () => handleSpeedClick(next);
+      controls.appendChild(btnNext);
+    }
   }
-
-  // Render buttons
-  buttonsToShow.forEach(btn => {
-    const button = document.createElement("button");
-    button.textContent = btn.label;
-    if (
-      (expandedIndex === null && btn.index === currentSpeedIndex) ||
-      (expandedIndex !== null && btn.label === `${expandedIndex + 1}x`) ||
-      (btn.value === speedPixelsPerSecond)
-    ) {
-      button.classList.add("active");
-    }
-
-    button.onclick = () => handleButtonClick(btn);
-    controls.appendChild(button);
-  });
 }
 
-function generateFinerSpeeds(index1, index2) {
+function handleSpeedClick(index) {
+  if (expandedIndex === index) {
+    expandedIndex = null;
+  } else {
+    expandedIndex = index;
+    speedPixelsPerSecond = speedTable[index];
+  }
+  currentSpeedIndex = index;
+  buildButtons();
+}
+
+function generateFinerButtons(index1, index2) {
   const speed1 = speedTable[index1];
   const speed2 = speedTable[index2];
-  const finer = [];
+  const labels = ["0.2x", "0.4x", "0.6x", "0.8x"];
+  const fineSpeeds = [];
 
-  for (let i = 1; i <= 5; i++) {
-    const step = 0.2 * i;
-    const rawLabel = index1 + 1 + step;
-    if (rawLabel >= speedTable.length) break;
-    const label = `${rawLabel.toFixed(1)}x`;
-    const value = speed1 + ((speed2 - speed1) * step);
-    finer.push({ label, value, index: -1, isMain: false });
-  }
-  return finer;
+  labels.forEach((label, i) => {
+    const step = (i + 1) * 0.2;
+    const fullLabel = `${(index1 + 1 + step).toFixed(1)}x`;
+    const interpolatedValue = speed1 + ((speed2 - speed1) * step);
+    fineSpeeds.push({ label: fullLabel, value: interpolatedValue });
+  });
+
+  return fineSpeeds;
 }
 
-function handleButtonClick(btn) {
-  if (btn.isMain) {
-    // Clicked a whole number button
-    if (expandedIndex === btn.index) {
-      // Collapse if clicked same expanded whole number
-      expandedIndex = null;
-      currentSpeedIndex = btn.index;
-      speedPixelsPerSecond = speedTable[btn.index];
-    } else {
-      // Expand decimals around clicked whole number
-      expandedIndex = btn.index;
-      currentSpeedIndex = btn.index;
-      speedPixelsPerSecond = speedTable[btn.index];
-    }
-  } else {
-    // Clicked a finer decimal button
-    speedPixelsPerSecond = btn.value;
-    currentSpeedIndex = -1; // no main button selected
-  }
-  buildButtons();
+function highlightButton(activeBtn) {
+  document.querySelectorAll("#controls button").forEach(btn => {
+    btn.classList.toggle("active", btn === activeBtn);
+  });
 }
 
 async function requestWakeLock() {
   try {
     if ('wakeLock' in navigator) {
       wakeLock = await navigator.wakeLock.request('screen');
+      console.log('Wake Lock is active');
+
       wakeLock.addEventListener('release', () => {
         console.log('Wake Lock was released');
       });
+    } else {
+      console.warn('Wake Lock API not supported on this browser.');
     }
   } catch (err) {
     console.error(`${err.name}, ${err.message}`);
@@ -139,5 +131,5 @@ document.addEventListener('visibilitychange', () => {
 window.onload = () => {
   buildButtons();
   startAutoScroll();
-  requestWakeLock();
+  requestWakeLock(); // Prevent screen from sleeping
 };

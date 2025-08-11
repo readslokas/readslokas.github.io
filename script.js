@@ -1,4 +1,4 @@
-let speedTable = [0, 10, 30, 55, 80, 90, 96, 100]; // 0 for 1x (no scroll)
+let speedTable = [0, 10, 30, 55, 80, 90, 96, 100]; // 0 = no scroll for 1x
 let currentSpeedIndex = 0;
 let speedPixelsPerSecond = speedTable[0];
 let lastTimestamp = null;
@@ -29,42 +29,16 @@ function buildButtons() {
   const btn1x = document.createElement("button");
   btn1x.textContent = "1x";
   btn1x.onclick = () => {
-    if (expandedIndex === 0) {
-      expandedIndex = null;
-    } else {
-      expandedIndex = 0;
-      speedPixelsPerSecond = speedTable[0];
-    }
+    expandedIndex = 0;
     currentSpeedIndex = 0;
+    speedPixelsPerSecond = speedTable[0];
     buildButtons();
   };
-  if (currentSpeedIndex === 0) btn1x.classList.add("active");
+  if (currentSpeedIndex === 0 || expandedIndex === 0) btn1x.classList.add("active");
   controls.appendChild(btn1x);
 
-  if (expandedIndex === 0) {
-    // If 1x is expanded
-    const fineButtons = generateFinerButtons(0);
-    fineButtons.forEach(({ label, value }) => {
-      const btn = document.createElement("button");
-      btn.textContent = label;
-      btn.onclick = () => {
-        speedPixelsPerSecond = value;
-        currentSpeedIndex = -1;
-        highlightButton(btn);
-      };
-      controls.appendChild(btn);
-    });
-
-    // Add 2x button at end
-    if (speedTable.length > 1) {
-      const btn2x = document.createElement("button");
-      btn2x.textContent = "2x";
-      btn2x.onclick = () => handleSpeedClick(1);
-      if (currentSpeedIndex === 1) btn2x.classList.add("active");
-      controls.appendChild(btn2x);
-    }
-  } else if (expandedIndex === null) {
-    // Show whole number buttons from 2x onward
+  if (expandedIndex === null) {
+    // Show whole number speeds starting from 2x
     for (let i = 1; i < Math.min(speedTable.length, 7); i++) {
       const btn = document.createElement("button");
       btn.textContent = `${i + 1}x`;
@@ -73,7 +47,7 @@ function buildButtons() {
       controls.appendChild(btn);
     }
   } else {
-    // Expanded for other buttons
+    // Expanded view: show 1x + main + decimals + next
     const center = expandedIndex;
 
     const btnMain = document.createElement("button");
@@ -94,7 +68,7 @@ function buildButtons() {
       controls.appendChild(btn);
     });
 
-    // Add next whole number
+    // Append the next whole number if it exists
     if (center + 1 < speedTable.length) {
       const btnNext = document.createElement("button");
       btnNext.textContent = `${center + 2}x`;
@@ -107,6 +81,7 @@ function buildButtons() {
 
 function handleSpeedClick(index) {
   if (expandedIndex === index) {
+    // Collapse view
     expandedIndex = null;
   } else {
     expandedIndex = index;
@@ -124,7 +99,11 @@ function generateFinerButtons(index) {
 
   steps.forEach(step => {
     const label = `${(index + 1 + step).toFixed(1)}x`;
-    const value = speed1 + (speed2 - speed1) * step;
+    let value = speed1 + (speed2 - speed1) * step;
+
+    // Ensure small non-zero speeds are visible
+    if (value < 2 && value > 0) value = 2;
+
     buttons.push({ label, value });
   });
 

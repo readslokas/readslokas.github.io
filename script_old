@@ -1,11 +1,11 @@
- let speedTable = [10, 30, 55, 80, 90, 96, 100];
+
+    let speedTable = [10, 30, 55, 80, 90, 96, 100];
     let currentSpeedIndex = 0;
-    let speedPixelsPerSecond = 0.5; // start slow at 1x
+    let speedPixelsPerSecond = 0.5; // start at slow 1x
     let lastTimestamp = null;
     let animationFrameId = null;
     let expandedIndex = null;
     let wakeLock = null;
-    let fractionalActive = false;
 
     function smoothScroll(timestamp) {
       if (!lastTimestamp) lastTimestamp = timestamp;
@@ -27,7 +27,6 @@
       controls.innerHTML = "";
 
       if (expandedIndex === null) {
-        // Default: show all whole numbers
         for (let i = 0; i < speedTable.length; i++) {
           const btn = document.createElement("button");
           btn.textContent = `${i + 1}x`;
@@ -36,60 +35,40 @@
           controls.appendChild(btn);
         }
       } else {
-        // Expanded mode
         const prev = expandedIndex - 1;
         const curr = expandedIndex;
         const next = expandedIndex + 1;
 
-        // If fractional is not yet active, show prev number
-        if (!fractionalActive && prev >= 0) {
+        if (prev >= 0) {
           const btnPrev = document.createElement("button");
           btnPrev.textContent = `${prev + 1}x`;
           btnPrev.onclick = () => handleSpeedClick(prev);
           controls.appendChild(btnPrev);
         }
 
-        // Current whole number
         const btnCurr = document.createElement("button");
         btnCurr.textContent = `${curr + 1}x`;
         btnCurr.classList.add("active");
         btnCurr.onclick = () => handleSpeedClick(curr);
         controls.appendChild(btnCurr);
 
-        // Add fractional buttons
-        const finerButtons = generateFinerButtons(curr, next);
-        finerButtons.forEach(({ label, value }) => {
-          const fineBtn = document.createElement("button");
-          fineBtn.textContent = label;
-          fineBtn.onclick = () => {
-            speedPixelsPerSecond = value;
-            fractionalActive = true; // mark fractional mode
-            currentSpeedIndex = -1;
-            highlightButton(fineBtn);
-            buildButtons(); // rebuild UI with new fractional rules
-          };
-          controls.appendChild(fineBtn);
-        });
-
-        // Always show next full number
         if (next < speedTable.length) {
+          const finerButtons = generateFinerButtons(curr, next);
+          finerButtons.forEach(({ label, value }) => {
+            const fineBtn = document.createElement("button");
+            fineBtn.textContent = label;
+            fineBtn.onclick = () => {
+              speedPixelsPerSecond = value;
+              currentSpeedIndex = -1;
+              highlightButton(fineBtn);
+            };
+            controls.appendChild(fineBtn);
+          });
+
           const btnNext = document.createElement("button");
           btnNext.textContent = `${next + 1}x`;
           btnNext.onclick = () => handleSpeedClick(next);
           controls.appendChild(btnNext);
-        }
-
-        // If fractional active, add "extra fractional" (e.g. 2.5x)
-        if (fractionalActive) {
-          const extraBtn = document.createElement("button");
-          extraBtn.textContent = `${curr + 1}.5x`;
-          extraBtn.onclick = () => {
-            const speed1 = speedTable[curr];
-            const speed2 = speedTable[next];
-            speedPixelsPerSecond = speed1 + ((speed2 - speed1) * 0.5);
-            highlightButton(extraBtn);
-          };
-          controls.appendChild(extraBtn);
         }
       }
     }
@@ -97,11 +76,9 @@
     function handleSpeedClick(index) {
       if (expandedIndex === index) {
         expandedIndex = null;
-        fractionalActive = false;
       } else {
         expandedIndex = index;
-        fractionalActive = false;
-        // Special case: 1x is very slow
+        // Special case: make 1x very slow
         if (index === 0) {
           speedPixelsPerSecond = 0.5;
         } else {
@@ -139,9 +116,12 @@
         if ('wakeLock' in navigator) {
           wakeLock = await navigator.wakeLock.request('screen');
           console.log('Wake Lock is active');
+
           wakeLock.addEventListener('release', () => {
             console.log('Wake Lock was released');
           });
+        } else {
+          console.warn('Wake Lock API not supported on this browser.');
         }
       } catch (err) {
         console.error(`${err.name}, ${err.message}`);
@@ -157,5 +137,5 @@
     window.onload = () => {
       buildButtons();
       startAutoScroll();
-      requestWakeLock();
+      requestWakeLock(); // Prevent screen from sleeping
     };

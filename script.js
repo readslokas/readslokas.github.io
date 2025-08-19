@@ -1,9 +1,10 @@
 let speedTable = [1, 2, 3, 4, 5, 6];
 let currentSpeed = 1;
-let speedPixelsPerSecond = 5; // Very slow base
+let speedPixelsPerSecond = 5;
 let lastTimestamp = null;
 let animationFrameId = null;
 let expandedIndex = null;
+let finerMap = {}; // stores finer buttons per integer speed
 let wakeLock = null;
 
 function smoothScroll(timestamp) {
@@ -27,15 +28,15 @@ function buildButtons() {
 
   if (expandedIndex === null) {
     // Normal buttons
-    for (let i = 0; i < speedTable.length; i++) {
+    speedTable.forEach((val, i) => {
       const btn = document.createElement("button");
-      btn.textContent = `${speedTable[i]}x`;
+      btn.textContent = `${val}x`;
       btn.onclick = () => handleSpeedClick(i);
-      if (speedTable[i] === currentSpeed) btn.classList.add("active");
+      if (val === currentSpeed) btn.classList.add("active");
       controls.appendChild(btn);
-    }
+    });
   } else {
-    // Expanded view around one speed
+    // Expanded view
     const curr = expandedIndex;
     const prev = curr - 1;
     const next = curr + 1;
@@ -47,15 +48,12 @@ function buildButtons() {
       controls.appendChild(btnPrev);
     }
 
-    const btnCurr = document.createElement("button");
-    btnCurr.textContent = `${speedTable[curr]}x`;
-    btnCurr.classList.add("active");
-    btnCurr.onclick = () => handleSpeedClick(curr);
-    controls.appendChild(btnCurr);
+    // remove the integer button once finer expansion is chosen
+    if (!finerMap[speedTable[curr]]) {
+      finerMap[speedTable[curr]] = generateFinerButtons(speedTable[curr], speedTable[next]);
+    }
 
-    // Add finer buttons
-    const finerButtons = generateFinerButtons(speedTable[curr], speedTable[next]);
-    finerButtons.forEach(({ label, value }) => {
+    finerMap[speedTable[curr]].forEach(({ label, value }) => {
       const fineBtn = document.createElement("button");
       fineBtn.textContent = label;
       fineBtn.onclick = () => {
@@ -63,8 +61,8 @@ function buildButtons() {
         speedPixelsPerSecond = value;
         highlightButton(fineBtn);
 
-        // Insert a new finer button if clicked
-        insertDynamicFiner(label, value, curr, next);
+        // when a finer button is clicked, insert the next one in sequence
+        insertNextFiner(speedTable[curr], label, value, next);
       };
       if (parseFloat(label) === currentSpeed) fineBtn.classList.add("active");
       controls.appendChild(fineBtn);
@@ -85,46 +83,36 @@ function handleSpeedClick(index) {
   } else {
     expandedIndex = index;
     currentSpeed = speedTable[index];
-    speedPixelsPerSecond = currentSpeed * 50; // adjust multiplier
+    speedPixelsPerSecond = currentSpeed * 50;
   }
   buildButtons();
 }
 
 function generateFinerButtons(start, end) {
   const labels = ["0.2", "0.4", "0.6", "0.8"];
-  const fineSpeeds = [];
-
-  labels.forEach((step) => {
+  return labels.map(step => {
     const fraction = parseFloat(step);
     const label = `${(start + fraction).toFixed(1)}x`;
     const interpolatedValue = start * 50 + ((end * 50 - start * 50) * fraction);
-    fineSpeeds.push({ label, value: interpolatedValue });
+    return { label, value: interpolatedValue };
   });
-
-  return fineSpeeds;
 }
 
-function insertDynamicFiner(label, value, curr, next) {
-  // Remove the previous full integer (like 2x or 3x) to make space
-  const controls = document.getElementById("controls");
-  const buttons = Array.from(controls.querySelectorAll("button"));
+function insertNextFiner(base, label, value, nextIndex) {
+  const num = parseFloat(label);
+  const step = 0.1;
+  const nextFine = (num + step).toFixed(1);
 
-  buttons.forEach((btn) => {
-    if (btn.textContent === `${speedTable[curr]}x`) {
-      btn.remove();
-    }
-  });
-
-  // Insert a new finer button between current clicked and the next
-  const idx = buttons.findIndex(b => b.textContent === `${speedTable[next]}x`);
-  const newBtn = document.createElement("button");
-  newBtn.textContent = `${parseFloat(label) + 0.1}x`;
-  newBtn.onclick = () => {
-    currentSpeed = parseFloat(newBtn.textContent);
-    speedPixelsPerSecond = value + 5;
-    highlightButton(newBtn);
-  };
-  controls.insertBefore(newBtn, buttons[idx]);
+  // Avoid duplicates
+  if (!finerMap[base].some(b => b.label === `${nextFine}x`) && num + step < speedTable[nextIndex]) {
+    finerMap[base].push({
+      label: `${nextFine}x`,
+      value: value + 5
+    });
+    // keep order
+    finerMap[base].sort((a, b) => parseFloat(a.label) - parseFloat(b.label));
+    buildButtons();
+  }
 }
 
 function highlightButton(activeBtn) {
@@ -137,7 +125,6 @@ async function requestWakeLock() {
   try {
     if ('wakeLock' in navigator) {
       wakeLock = await navigator.wakeLock.request('screen');
-      console.log('Wake Lock is active');
       wakeLock.addEventListener('release', () => console.log('Wake Lock released'));
     }
   } catch (err) {

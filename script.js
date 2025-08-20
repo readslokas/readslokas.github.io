@@ -1,11 +1,13 @@
 let speedTable = [10, 30, 55, 80, 90, 96, 100];
 let currentSpeedIndex = 0;
-let speedPixelsPerSecond = 0.5;
+let speedPixelsPerSecond = 0.5; 
 let lastTimestamp = null;
 let animationFrameId = null;
 let expandedIndex = null;
 let wakeLock = null;
-let activeFiner = null;
+
+// Store dynamically added finer speeds
+let dynamicFinerSpeeds = {}; // Example: { "1-2": [ {label: "1.1x", value: 12}, ... ] }
 
 function smoothScroll(timestamp) {
   if (!lastTimestamp) lastTimestamp = timestamp;
@@ -27,103 +29,118 @@ function buildButtons() {
   controls.innerHTML = "";
 
   if (expandedIndex === null) {
-    // Show 7 main buttons
+    // Show only main speeds
     for (let i = 0; i < speedTable.length; i++) {
-      const btn = document.createElement("button");
-      btn.textContent = `${i + 1}x`;
-      btn.onclick = () => handleSpeedClick(i);
+      const btn = createButton(`${i + 1}x`, () => handleSpeedClick(i));
       if (i === currentSpeedIndex) btn.classList.add("active");
       controls.appendChild(btn);
     }
   } else {
-    const prev = expandedIndex;
+    // Show finer controls around selected index
+    const prev = expandedIndex - 1;
+    const curr = expandedIndex;
     const next = expandedIndex + 1;
 
-    // Always show previous main button if available
-    if (prev > 0) {
-      const btnPrev = document.createElement("button");
-      btnPrev.textContent = `${prev}x`;
-      btnPrev.onclick = () => handleSpeedClick(prev - 1);
+    // Add previous main speed button
+    if (prev >= 0) {
+      const btnPrev = createButton(`${prev + 1}x`, () => handleSpeedClick(prev));
       controls.appendChild(btnPrev);
     }
 
-    // Current main button
-    const btnCurr = document.createElement("button");
-    btnCurr.textContent = `${prev + 1}x`;
-    btnCurr.onclick = () => handleSpeedClick(prev);
-    if (activeFiner === null) btnCurr.classList.add("active");
+    // Add current main speed
+    const btnCurr = createButton(`${curr + 1}x`, () => handleSpeedClick(curr));
+    btnCurr.classList.add("active");
     controls.appendChild(btnCurr);
 
-    // Finer buttons between current and next main speed
-    const finerButtons = generateFinerButtons(prev, next);
-    finerButtons.forEach(({ label, value }, idx) => {
-      const fineBtn = document.createElement("button");
-      fineBtn.textContent = label;
-      fineBtn.onclick = () => handleFinerClick(idx, prev, next, finerButtons);
-      if (activeFiner === idx) fineBtn.classList.add("active");
-      controls.appendChild(fineBtn);
-    });
-
-    // Show next main button
+    // Generate finer buttons between current and next
     if (next < speedTable.length) {
-      const btnNext = document.createElement("button");
-      btnNext.textContent = `${next + 1}x`;
-      btnNext.onclick = () => handleSpeedClick(next);
-      if (activeFiner === null && currentSpeedIndex === next) btnNext.classList.add("active");
+      const finerButtons = generateFinerButtons(curr, next);
+      finerButtons.forEach(({ label, value }) => {
+        const fineBtn = createButton(label, () => handleFinerClick(curr, next, label, value));
+        if (Math.abs(value - speedPixelsPerSecond) < 0.01) fineBtn.classList.add("active");
+        controls.appendChild(fineBtn);
+      });
+
+      // Add next main speed button
+      const btnNext = createButton(`${next + 1}x`, () => handleSpeedClick(next));
       controls.appendChild(btnNext);
     }
   }
 }
 
+function createButton(label, onClick) {
+  const btn = document.createElement("button");
+  btn.textContent = label;
+  btn.onclick = onClick;
+  return btn;
+}
+
 function handleSpeedClick(index) {
-  // Reset if clicked same main button
   if (expandedIndex === index) {
+    // Collapse back to main speeds
     expandedIndex = null;
-    activeFiner = null;
   } else {
+    // Expand around this main speed
     expandedIndex = index;
-    activeFiner = null;
-    speedPixelsPerSecond = speedTable[index];
+    speedPixelsPerSecond = index === 0 ? 0.5 : speedTable[index];
   }
   currentSpeedIndex = index;
   buildButtons();
 }
 
-function handleFinerClick(idx, index1, index2, finerButtons) {
-  // Update finer active state
-  activeFiner = idx;
-  speedPixelsPerSecond = finerButtons[idx].value;
+function handleFinerClick(index1, index2, label, value) {
+  speedPixelsPerSecond = value;
+  currentSpeedIndex = -1;
 
-  // Dynamically adjust finer buttons
-  if (idx < finerButtons.length - 1) {
-    // Replace earlier finer with next finer if possible
-    finerButtons[idx + 1].label = `${(index1 + 1 + (idx + 2) * 0.1).toFixed(1)}x`;
-    finerButtons[idx + 1].value = speedTable[index1] + ((speedTable[index2] - speedTable[index1]) * ((idx + 2) * 0.1));
+  // Parse clicked decimal, figure out its neighbors
+  const clicked = parseFloat(label);
+  const finerArray = dynamicFinerSpeeds[`${index1}-${index2}`] || [];
+
+  // Find where to insert new finer button (midpoint logic)
+  for (let i = 0; i < finerArray.length - 1; i++) {
+    const curr = parseFloat(finerArray[i].label);
+    const next = parseFloat(finerArray[i + 1].label);
+    if (Math.abs(clicked - curr) < 0.001) {
+      // Insert midpoint between clicked and next
+      const midValue = speedTable[index1] + ((speedTable[index2] - speedTable[index1]) * ((next - clicked)));
+      const midLabel = `${((clicked + next) / 2).toFixed(1)}x`;
+      finerArray.splice(i + 1, 0, { label: midLabel, value: midValue });
+      break;
+    }
   }
 
+  // Save updated finer speeds
+  dynamicFinerSpeeds[`${index1}-${index2}`] = finerArray;
+  highlightButton(label);
   buildButtons();
 }
 
 function generateFinerButtons(index1, index2) {
-  const speed1 = speedTable[index1];
-  const speed2 = speedTable[index2];
-  const finer = [];
-  for (let i = 1; i <= 4; i++) {
-    const step = i * 0.2;
-    const label = `${(index1 + 1 + step).toFixed(1)}x`;
-    const interpolatedValue = speed1 + ((speed2 - speed1) * step);
-    finer.push({ label, value: interpolatedValue });
+  const key = `${index1}-${index2}`;
+  if (!dynamicFinerSpeeds[key]) {
+    // Initialize with .2, .4, .6, .8
+    const speed1 = speedTable[index1];
+    const speed2 = speedTable[index2];
+    dynamicFinerSpeeds[key] = [0.2, 0.4, 0.6, 0.8].map(step => {
+      const label = `${(index1 + 1 + step).toFixed(1)}x`;
+      const value = speed1 + ((speed2 - speed1) * step);
+      return { label, value };
+    });
   }
-  return finer;
+  return dynamicFinerSpeeds[key];
+}
+
+function highlightButton(label) {
+  document.querySelectorAll("#controls button").forEach(btn => {
+    btn.classList.toggle("active", btn.textContent === label);
+  });
 }
 
 async function requestWakeLock() {
   try {
     if ('wakeLock' in navigator) {
       wakeLock = await navigator.wakeLock.request('screen');
-      wakeLock.addEventListener('release', () => {
-        console.log('Wake Lock released');
-      });
+      wakeLock.addEventListener('release', () => console.log('Wake Lock was released'));
     }
   } catch (err) {
     console.error(`${err.name}, ${err.message}`);

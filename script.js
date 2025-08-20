@@ -1,13 +1,13 @@
 let speedTable = [10, 30, 55, 80, 90, 96, 100];
 let currentSpeedIndex = 0;
-let speedPixelsPerSecond = 0.5; 
+let speedPixelsPerSecond = 0.5;
 let lastTimestamp = null;
 let animationFrameId = null;
 let expandedIndex = null;
 let wakeLock = null;
 
-// Store dynamically added finer speeds
-let dynamicFinerSpeeds = {}; // Example: { "1-2": [ {label: "1.1x", value: 12}, ... ] }
+// Store dynamically generated finer speeds between main speeds
+let dynamicFinerSpeeds = {}; // Example: { "1-2": [ {label: "2.2x", value: 22}, ... ] }
 
 function smoothScroll(timestamp) {
   if (!lastTimestamp) lastTimestamp = timestamp;
@@ -29,14 +29,13 @@ function buildButtons() {
   controls.innerHTML = "";
 
   if (expandedIndex === null) {
-    // Show only main speeds
+    // Show only main speed buttons
     for (let i = 0; i < speedTable.length; i++) {
       const btn = createButton(`${i + 1}x`, () => handleSpeedClick(i));
       if (i === currentSpeedIndex) btn.classList.add("active");
       controls.appendChild(btn);
     }
   } else {
-    // Show finer controls around selected index
     const prev = expandedIndex - 1;
     const curr = expandedIndex;
     const next = expandedIndex + 1;
@@ -47,12 +46,12 @@ function buildButtons() {
       controls.appendChild(btnPrev);
     }
 
-    // Add current main speed
+    // Add current main speed button
     const btnCurr = createButton(`${curr + 1}x`, () => handleSpeedClick(curr));
     btnCurr.classList.add("active");
     controls.appendChild(btnCurr);
 
-    // Generate finer buttons between current and next
+    // Add finer buttons between current and next
     if (next < speedTable.length) {
       const finerButtons = generateFinerButtons(curr, next);
       finerButtons.forEach(({ label, value }) => {
@@ -77,7 +76,7 @@ function createButton(label, onClick) {
 
 function handleSpeedClick(index) {
   if (expandedIndex === index) {
-    // Collapse back to main speeds
+    // Collapse back to main speeds only
     expandedIndex = null;
   } else {
     // Expand around this main speed
@@ -92,24 +91,30 @@ function handleFinerClick(index1, index2, label, value) {
   speedPixelsPerSecond = value;
   currentSpeedIndex = -1;
 
-  // Parse clicked decimal, figure out its neighbors
   const clicked = parseFloat(label);
   const finerArray = dynamicFinerSpeeds[`${index1}-${index2}`] || [];
 
-  // Find where to insert new finer button (midpoint logic)
-  for (let i = 0; i < finerArray.length - 1; i++) {
-    const curr = parseFloat(finerArray[i].label);
-    const next = parseFloat(finerArray[i + 1].label);
-    if (Math.abs(clicked - curr) < 0.001) {
-      // Insert midpoint between clicked and next
-      const midValue = speedTable[index1] + ((speedTable[index2] - speedTable[index1]) * ((next - clicked)));
-      const midLabel = `${((clicked + next) / 2).toFixed(1)}x`;
-      finerArray.splice(i + 1, 0, { label: midLabel, value: midValue });
-      break;
+  // Find where clicked finer is in the list
+  const clickedIndex = finerArray.findIndex(f => parseFloat(f.label) === clicked);
+
+  // Add a new finer speed only if there’s space between clicked and its next neighbor
+  if (clickedIndex !== -1 && clickedIndex < finerArray.length - 1) {
+    const nextLabel = parseFloat(finerArray[clickedIndex + 1].label);
+    const gap = nextLabel - clicked;
+
+    // Only insert midpoint if gap is still > 0.1 (prevent duplicates)
+    if (gap > 0.1) {
+      const mid = clicked + gap / 2;
+      const speed1 = speedTable[index1];
+      const speed2 = speedTable[index2];
+      const midValue = speed1 + ((speed2 - speed1) * ((mid - (index1 + 1)) / ((index2 - index1))));
+      finerArray.splice(clickedIndex + 1, 0, {
+        label: `${mid.toFixed(1)}x`,
+        value: midValue
+      });
     }
   }
 
-  // Save updated finer speeds
   dynamicFinerSpeeds[`${index1}-${index2}`] = finerArray;
   highlightButton(label);
   buildButtons();
@@ -118,7 +123,7 @@ function handleFinerClick(index1, index2, label, value) {
 function generateFinerButtons(index1, index2) {
   const key = `${index1}-${index2}`;
   if (!dynamicFinerSpeeds[key]) {
-    // Initialize with .2, .4, .6, .8
+    // Initialize with 4 fixed finer buttons: .2, .4, .6, .8
     const speed1 = speedTable[index1];
     const speed2 = speedTable[index2];
     dynamicFinerSpeeds[key] = [0.2, 0.4, 0.6, 0.8].map(step => {

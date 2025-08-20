@@ -1,6 +1,6 @@
 let speedTable = [10, 30, 55, 80, 90, 96, 100];
 let currentSpeedIndex = 0;
-let speedPixelsPerSecond = 0.5; // start at slow 1x
+let speedPixelsPerSecond = 0.5; // start at 1x slow
 let lastTimestamp = null;
 let animationFrameId = null;
 let expandedIndex = null;
@@ -29,7 +29,7 @@ function buildButtons() {
   controls.innerHTML = "";
 
   if (expandedIndex === null) {
-    // Show top-level buttons
+    // Show top-level buttons only
     for (let i = 0; i < speedTable.length; i++) {
       const btn = document.createElement("button");
       btn.textContent = `${i + 1}x`;
@@ -57,7 +57,7 @@ function buildButtons() {
 
     if (next < speedTable.length) {
       const finerButtons = generateFinerButtons(curr, next);
-      finerButtons.forEach(({ label, value }) => {
+      finerButtons.forEach(({ label, value }, idx) => {
         const fineBtn = document.createElement("button");
         fineBtn.textContent = label;
 
@@ -66,15 +66,16 @@ function buildButtons() {
           currentSpeedIndex = -1;
           highlightButton(fineBtn);
 
-          // Add dynamic finer in-between buttons on click
+          // Insert the **next** decimal button
           const num = parseFloat(label);
-          const left = parseFloat(finerButtons.find(b => b.label === label)?.left ?? 0);
-          const right = parseFloat(finerButtons.find(b => b.label === label)?.right ?? 0);
+          const nextDecimal = num + 0.1;
 
-          if (right && num < right) {
-            dynamicFiner[curr] = { insert: num + 0.1, between: [num, right] };
-          } else if (left && num > left) {
-            dynamicFiner[curr] = { insert: num - 0.1, between: [left, num] };
+          // Only insert if it's within the upper bound
+          const upperBound = parseFloat(finerButtons[finerButtons.length - 1].label);
+          if (nextDecimal <= upperBound) {
+            dynamicFiner[curr] = { insert: nextDecimal };
+          } else {
+            delete dynamicFiner[curr];
           }
 
           buildButtons();
@@ -85,17 +86,20 @@ function buildButtons() {
 
       // Insert dynamic finer button if exists
       if (dynamicFiner[curr]) {
-        const { insert, between } = dynamicFiner[curr];
+        const { insert } = dynamicFiner[curr];
         const insertBtn = document.createElement("button");
         insertBtn.textContent = `${insert.toFixed(1)}x`;
         insertBtn.onclick = () => {
-          speedPixelsPerSecond = speedTable[curr] + ((speedTable[next] - speedTable[curr]) * (insert - (curr + 1)));
+          speedPixelsPerSecond = speedTable[curr] +
+            ((speedTable[next] - speedTable[curr]) * (insert - (curr + 1)));
           highlightButton(insertBtn);
         };
 
-        // Place the dynamic finer button in correct position
+        // Place after the clicked finer button
         const allButtons = Array.from(controls.querySelectorAll("button"));
-        const leftIndex = allButtons.findIndex(b => parseFloat(b.textContent) === between[0]);
+        const leftIndex = allButtons.findIndex(
+          b => parseFloat(b.textContent) === insert - 0.1
+        );
         controls.insertBefore(insertBtn, allButtons[leftIndex + 1]);
       }
 
@@ -112,13 +116,13 @@ function handleSpeedClick(index) {
     expandedIndex = null;
   } else {
     expandedIndex = index;
-    // Special case: make 1x very slow
+    // Special case: 1x speed = slow
     if (index === 0) {
       speedPixelsPerSecond = 0.5;
     } else {
       speedPixelsPerSecond = speedTable[index];
     }
-    dynamicFiner = {}; // Reset dynamic finer buttons when switching full numbers
+    dynamicFiner = {}; // reset dynamic finer buttons when switching full numbers
   }
   currentSpeedIndex = index;
   buildButtons();
@@ -134,7 +138,7 @@ function generateFinerButtons(index1, index2) {
     const step = (i + 1) * 0.2;
     const fullLabel = `${(index1 + 1 + step).toFixed(1)}x`;
     const interpolatedValue = speed1 + ((speed2 - speed1) * step);
-    fineSpeeds.push({ label: fullLabel, value: interpolatedValue, left: index1 + 1 + (i) * 0.2, right: index1 + 1 + (i + 1) * 0.2 });
+    fineSpeeds.push({ label: fullLabel, value: interpolatedValue });
   });
 
   return fineSpeeds;

@@ -1,47 +1,11 @@
+let speedTable = [10, 30, 55, 80, 90, 96, 100];
 let currentSpeedIndex = 0;
-let speedPixelsPerSecond = 0.5; // 1x baseline
+let speedPixelsPerSecond = speedTable[0];
 let lastTimestamp = null;
 let animationFrameId = null;
 let expandedIndex = null;
 let wakeLock = null;
 
-// ---- Exponential Speed Curve ----
-function generateSpeedTable(steps = 7, min = 10, max = 100) {
-  let table = [];
-  for (let i = 0; i < steps; i++) {
-    let t = i / (steps - 1);
-    let value = min * Math.pow(max / min, t);
-    table.push(Math.round(value));
-  }
-  return table;
-}
-
-// 1x–7x major speeds
-let speedTable = generateSpeedTable();
-
-// ---- Finer Buttons ----
-function generateFinerButtons(index1, index2) {
-  const speed1 = speedTable[index1];
-  const speed2 = speedTable[index2];
-
-  // Bigger jumps for 1x–2x and 2x–3x, finer for the rest
-  let steps;
-  if (index1 < 2) {
-    steps = [0.5]; // e.g. 1.5x, 2.5x
-  } else {
-    steps = [0.2, 0.4, 0.6, 0.8]; // finer increments
-  }
-
-  return steps.map(step => {
-    const multiplier = (index1 + 1) + step; // e.g. 2 + 0.5 = 2.5
-    const label = `${multiplier.toFixed(1)}x`;
-    // exponential interpolation
-    const interpolatedValue = speed1 * Math.pow(speed2 / speed1, step);
-    return { label, value: interpolatedValue };
-  });
-}
-
-// ---- Core Scrolling ----
 function smoothScroll(timestamp) {
   if (!lastTimestamp) lastTimestamp = timestamp;
   const deltaTime = (timestamp - lastTimestamp) / 1000;
@@ -57,7 +21,6 @@ function startAutoScroll() {
   animationFrameId = requestAnimationFrame(smoothScroll);
 }
 
-// ---- UI Controls ----
 function buildButtons() {
   const controls = document.getElementById("controls");
   controls.innerHTML = "";
@@ -89,7 +52,6 @@ function buildButtons() {
     controls.appendChild(btnCurr);
 
     if (next < speedTable.length) {
-      // finer buttons for every step
       const finerButtons = generateFinerButtons(curr, next);
       finerButtons.forEach(({ label, value }) => {
         const fineBtn = document.createElement("button");
@@ -115,14 +77,26 @@ function handleSpeedClick(index) {
     expandedIndex = null;
   } else {
     expandedIndex = index;
-    if (index === 0) {
-      speedPixelsPerSecond = 0.5; // baseline
-    } else {
-      speedPixelsPerSecond = speedTable[index];
-    }
+    speedPixelsPerSecond = speedTable[index];
   }
   currentSpeedIndex = index;
   buildButtons();
+}
+
+function generateFinerButtons(index1, index2) {
+  const speed1 = speedTable[index1];
+  const speed2 = speedTable[index2];
+  const labels = ["0.2x", "0.4x", "0.6x", "0.8x"];
+  const fineSpeeds = [];
+
+  labels.forEach((label, i) => {
+    const step = (i + 1) * 0.2;
+    const fullLabel = `${(index1 + 1 + step).toFixed(1)}x`;
+    const interpolatedValue = speed1 + ((speed2 - speed1) * step);
+    fineSpeeds.push({ label: fullLabel, value: interpolatedValue });
+  });
+
+  return fineSpeeds;
 }
 
 function highlightButton(activeBtn) {
@@ -131,7 +105,6 @@ function highlightButton(activeBtn) {
   });
 }
 
-// ---- Wake Lock ----
 async function requestWakeLock() {
   try {
     if ('wakeLock' in navigator) {
@@ -158,5 +131,5 @@ document.addEventListener('visibilitychange', () => {
 window.onload = () => {
   buildButtons();
   startAutoScroll();
-  requestWakeLock();
+  requestWakeLock(); // Prevent screen from sleeping
 };

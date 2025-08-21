@@ -9,7 +9,6 @@ let wakeLock = null;
 function generateSpeedTable(steps = 7, min = 10, max = 100) {
   let table = [];
   for (let i = 0; i < steps; i++) {
-    // exponential curve
     let t = i / (steps - 1);
     let value = min * Math.pow(max / min, t);
     table.push(Math.round(value));
@@ -20,14 +19,17 @@ function generateSpeedTable(steps = 7, min = 10, max = 100) {
 // 1x–7x major speeds
 let speedTable = generateSpeedTable();
 
-// Add finer controls between 6x–7x
+// ---- Finer Buttons with Exponential Interpolation ----
 function generateFinerButtons(index1, index2) {
   const speed1 = speedTable[index1];
   const speed2 = speedTable[index2];
-  const steps = [0.2, 0.4, 0.6, 0.8]; // 6.2x, 6.4x, 6.6x, 6.8x
+  const steps = [0.2, 0.4, 0.6, 0.8]; // fractional multipliers between index1+1 → index2+1
+
   return steps.map(step => {
-    const label = `${(index1 + 1 + step).toFixed(1)}x`;
-    const interpolatedValue = speed1 + (speed2 - speed1) * step;
+    const multiplier = (index1 + 1) + step;   // e.g. 2 + 0.2 = 2.2
+    const label = `${multiplier.toFixed(1)}x`;
+    // exponential interpolation instead of linear
+    const interpolatedValue = speed1 * Math.pow(speed2 / speed1, step);
     return { label, value: interpolatedValue };
   });
 }
@@ -80,20 +82,18 @@ function buildButtons() {
     controls.appendChild(btnCurr);
 
     if (next < speedTable.length) {
-      // finer controls only for 6x → 7x
-      if (curr === 5 && next === 6) {
-        const finerButtons = generateFinerButtons(curr, next);
-        finerButtons.forEach(({ label, value }) => {
-          const fineBtn = document.createElement("button");
-          fineBtn.textContent = label;
-          fineBtn.onclick = () => {
-            speedPixelsPerSecond = value;
-            currentSpeedIndex = -1;
-            highlightButton(fineBtn);
-          };
-          controls.appendChild(fineBtn);
-        });
-      }
+      // finer buttons for every pair (curr → next)
+      const finerButtons = generateFinerButtons(curr, next);
+      finerButtons.forEach(({ label, value }) => {
+        const fineBtn = document.createElement("button");
+        fineBtn.textContent = label;
+        fineBtn.onclick = () => {
+          speedPixelsPerSecond = value;
+          currentSpeedIndex = -1;
+          highlightButton(fineBtn);
+        };
+        controls.appendChild(fineBtn);
+      });
 
       const btnNext = document.createElement("button");
       btnNext.textContent = `${next + 1}x`;

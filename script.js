@@ -30,22 +30,19 @@ function buildButtons() {
       const btn = document.createElement("button");
       btn.textContent = `${i + 1}x`;
       btn.onclick = () => expandSpeed(i);
+      if (baseSpeeds[i] === currentSpeed) btn.classList.add("active");
       controls.appendChild(btn);
     }
   } else {
     // expanded view
     const curr = expandedIndex;
-    if (curr === 0) {
-      // Special case for 1x (0.5 speed)
-      addButton("1x", baseSpeeds[0], true);
+
+    addButton(`${curr + 1}x`, baseSpeeds[curr], true); // main button active
+
+    if (curr < baseSpeeds.length - 1) {
       const finer = generateFinerButtons(curr, curr + 1);
-      finer.forEach(f => addButton(f.label, f.value));
-      addButton("2x", baseSpeeds[1]);
-    } else if (curr < baseSpeeds.length - 1) {
-      addButton(`${curr + 1}x`, baseSpeeds[curr], true);
-      const finer = generateFinerButtons(curr, curr + 1);
-      finer.forEach(f => addButton(f.label, f.value));
-      addButton(`${curr + 2}x`, baseSpeeds[curr + 1]);
+      finer.forEach(f => addButton(f.label, f.value)); // finer buttons
+      addButton(`${curr + 2}x`, baseSpeeds[curr + 1]); // next whole
     } else {
       // last one (6x), no expansion
       for (let i = 0; i < baseSpeeds.length; i++) {
@@ -68,8 +65,9 @@ function addButton(label, value, active = false) {
 }
 
 function expandSpeed(index) {
+  // toggle expand/collapse when clicking a whole number
   expandedIndex = (expandedIndex === index ? null : index);
-  if (expandedIndex !== null) currentSpeed = baseSpeeds[index];
+  currentSpeed = baseSpeeds[index];
   buildButtons();
 }
 
@@ -95,10 +93,7 @@ async function requestWakeLock() {
   try {
     if ('wakeLock' in navigator) {
       wakeLock = await navigator.wakeLock.request('screen');
-      console.log('Wake Lock is active');
-      wakeLock.addEventListener('release', () => {
-        console.log('Wake Lock was released');
-      });
+      wakeLock.addEventListener('release', () => {});
     }
   } catch (err) {
     console.error(`${err.name}, ${err.message}`);

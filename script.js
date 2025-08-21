@@ -1,4 +1,4 @@
-let baseSpeeds = [0.5, 15, 30, 55, 80, 100]; // 1x=0.5, 2x=15, 3x=30, 4x=55, 5x=80, 6x=100
+let baseSpeeds = [0.5, 15, 30, 55, 80, 100]; // 1x=0.5, 2x=15, ...
 let currentSpeed = baseSpeeds[0];
 let lastTimestamp = null;
 let animationFrameId = null;
@@ -25,29 +25,24 @@ function buildButtons() {
   controls.innerHTML = "";
 
   if (expandedIndex === null) {
-    // default view → whole numbers only
+    // default: show only whole numbers
     for (let i = 0; i < baseSpeeds.length; i++) {
       const btn = document.createElement("button");
       btn.textContent = `${i + 1}x`;
       btn.onclick = () => expandSpeed(i);
-      if (baseSpeeds[i] === currentSpeed) btn.classList.add("active");
+      if (currentSpeed === baseSpeeds[i]) btn.classList.add("active");
       controls.appendChild(btn);
     }
   } else {
-    // expanded view
+    // expanded view: show only main + finer + next whole
     const curr = expandedIndex;
 
-    addButton(`${curr + 1}x`, baseSpeeds[curr], true); // main button active
+    addButton(`${curr + 1}x`, baseSpeeds[curr], true);
 
     if (curr < baseSpeeds.length - 1) {
       const finer = generateFinerButtons(curr, curr + 1);
-      finer.forEach(f => addButton(f.label, f.value)); // finer buttons
-      addButton(`${curr + 2}x`, baseSpeeds[curr + 1]); // next whole
-    } else {
-      // last one (6x), no expansion
-      for (let i = 0; i < baseSpeeds.length; i++) {
-        addButton(`${i + 1}x`, baseSpeeds[i]);
-      }
+      finer.forEach(f => addButton(f.label, f.value));
+      addButton(`${curr + 2}x`, baseSpeeds[curr + 1]);
     }
   }
 }
@@ -59,15 +54,25 @@ function addButton(label, value, active = false) {
   btn.onclick = () => {
     currentSpeed = value;
     highlightButton(btn);
+
+    // if clicked a finer step (decimal), collapse to whole numbers after selection
+    if (label.includes(".")) {
+      expandedIndex = null;
+      buildButtons();
+    }
   };
   if (active) highlightButton(btn);
   controls.appendChild(btn);
 }
 
 function expandSpeed(index) {
-  // toggle expand/collapse when clicking a whole number
-  expandedIndex = (expandedIndex === index ? null : index);
-  currentSpeed = baseSpeeds[index];
+  // toggle: collapse if same button clicked again
+  if (expandedIndex === index) {
+    expandedIndex = null;
+  } else {
+    expandedIndex = index;
+    currentSpeed = baseSpeeds[index];
+  }
   buildButtons();
 }
 
@@ -93,17 +98,12 @@ async function requestWakeLock() {
   try {
     if ('wakeLock' in navigator) {
       wakeLock = await navigator.wakeLock.request('screen');
-      wakeLock.addEventListener('release', () => {});
     }
-  } catch (err) {
-    console.error(`${err.name}, ${err.message}`);
-  }
+  } catch (err) {}
 }
 
 document.addEventListener('visibilitychange', () => {
-  if (wakeLock !== null && document.visibilityState === 'visible') {
-    requestWakeLock();
-  }
+  if (wakeLock !== null && document.visibilityState === 'visible') requestWakeLock();
 });
 
 window.onload = () => {

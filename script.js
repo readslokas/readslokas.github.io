@@ -1,6 +1,6 @@
 let speedTable = [10, 30, 55, 80, 90, 96, 100];
 let currentSpeedIndex = 0;
-let speedPixelsPerSecond = speedTable[0];
+let speedPixelsPerSecond = 0.5; // force 1x to be 0.5
 let lastTimestamp = null;
 let animationFrameId = null;
 let expandedIndex = null;
@@ -77,14 +77,18 @@ function handleSpeedClick(index) {
     expandedIndex = null;
   } else {
     expandedIndex = index;
-    speedPixelsPerSecond = speedTable[index];
+    if (index === 0) {
+      speedPixelsPerSecond = 0.5; // hardcoded 1x
+    } else {
+      speedPixelsPerSecond = speedTable[index];
+    }
   }
   currentSpeedIndex = index;
   buildButtons();
 }
 
 function generateFinerButtons(index1, index2) {
-  const speed1 = speedTable[index1];
+  const speed1 = (index1 === 0 ? 0.5 : speedTable[index1]);
   const speed2 = speedTable[index2];
   const labels = ["0.2x", "0.4x", "0.6x", "0.8x"];
   const fineSpeeds = [];

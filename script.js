@@ -1,4 +1,4 @@
-let baseSpeeds = [0.5, 15, 30, 55, 80, 100]; // 1x=0.5, 2x=15, ... 6x=100
+let baseSpeeds = [0.5, 15, 30, 55, 80, 100]; // 1x=0.5, 2x=15, 3x=30, 4x=55, 5x=80, 6x=100
 let currentSpeed = baseSpeeds[0];
 let lastTimestamp = null;
 let animationFrameId = null;
@@ -30,7 +30,6 @@ function buildButtons() {
       const btn = document.createElement("button");
       btn.textContent = `${i + 1}x`;
       btn.onclick = () => expandSpeed(i);
-      if (baseSpeeds[i] === currentSpeed) btn.classList.add("active");
       controls.appendChild(btn);
     }
   } else {
@@ -40,12 +39,12 @@ function buildButtons() {
       // Special case for 1x (0.5 speed)
       addButton("1x", baseSpeeds[0], true);
       const finer = generateFinerButtons(curr, curr + 1);
-      finer.forEach(f => addButton(f.label, f.value, false, true));
+      finer.forEach(f => addButton(f.label, f.value));
       addButton("2x", baseSpeeds[1]);
     } else if (curr < baseSpeeds.length - 1) {
       addButton(`${curr + 1}x`, baseSpeeds[curr], true);
       const finer = generateFinerButtons(curr, curr + 1);
-      finer.forEach(f => addButton(f.label, f.value, false, true));
+      finer.forEach(f => addButton(f.label, f.value));
       addButton(`${curr + 2}x`, baseSpeeds[curr + 1]);
     } else {
       // last one (6x), no expansion
@@ -56,19 +55,13 @@ function buildButtons() {
   }
 }
 
-function addButton(label, value, active = false, isFine = false) {
+function addButton(label, value, active = false) {
   const controls = document.getElementById("controls");
   const btn = document.createElement("button");
   btn.textContent = label;
   btn.onclick = () => {
     currentSpeed = value;
     highlightButton(btn);
-
-    if (isFine) {
-      // after picking fine speed, collapse back to whole numbers
-      expandedIndex = null;
-      setTimeout(buildButtons, 200); // small delay for visual feedback
-    }
   };
   if (active) highlightButton(btn);
   controls.appendChild(btn);

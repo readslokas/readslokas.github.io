@@ -1,10 +1,18 @@
-let speedTableOriginal = [10, 30, 55, 80, 90, 96, 100];
+const baseSpeed = 20; // starting speed in pixels per second
+const baseLabel = 1.2; // starting label multiplier for buttons
 
-// 1x speed half original, others increased by 36%
-let speedTable = [
-  speedTableOriginal[0] * 0.5,
-  ...speedTableOriginal.slice(1).map(v => v * 1.36)
-];
+// Define percent increases per step — smaller increments as speed gets faster
+const percentIncreaseTable = [36, 30, 25, 20, 15, 10, 5]; 
+
+// Build speedTable dynamically from percentIncreaseTable
+let speedTable = [];
+let currentSpeed = baseSpeed;
+speedTable.push(currentSpeed);
+
+for (let i = 0; i < percentIncreaseTable.length; i++) {
+  currentSpeed = currentSpeed * (1 + percentIncreaseTable[i] / 100);
+  speedTable.push(currentSpeed);
+}
 
 let currentSpeedIndex = 0;
 let speedPixelsPerSecond = speedTable[0];
@@ -32,10 +40,12 @@ function buildButtons() {
   const controls = document.getElementById("controls");
   controls.innerHTML = "";
 
+  const totalButtons = speedTable.length;
+
   if (expandedIndex === null) {
-    for (let i = 0; i < speedTable.length; i++) {
+    for (let i = 0; i < totalButtons; i++) {
       const btn = document.createElement("button");
-      btn.textContent = `${i + 1}x`;
+      btn.textContent = `${(baseLabel + i).toFixed(1)}x`;
       btn.onclick = () => handleSpeedClick(i);
       if (i === currentSpeedIndex) btn.classList.add("active");
       controls.appendChild(btn);
@@ -47,18 +57,18 @@ function buildButtons() {
 
     if (prev >= 0) {
       const btnPrev = document.createElement("button");
-      btnPrev.textContent = `${prev + 1}x`;
+      btnPrev.textContent = `${(baseLabel + prev).toFixed(1)}x`;
       btnPrev.onclick = () => handleSpeedClick(prev);
       controls.appendChild(btnPrev);
     }
 
     const btnCurr = document.createElement("button");
-    btnCurr.textContent = `${curr + 1}x`;
+    btnCurr.textContent = `${(baseLabel + curr).toFixed(1)}x`;
     btnCurr.classList.add("active");
     btnCurr.onclick = () => handleSpeedClick(curr);
     controls.appendChild(btnCurr);
 
-    if (next < speedTable.length) {
+    if (next < totalButtons) {
       const finerButtons = generateFinerButtons(curr, next);
       finerButtons.forEach(({ label, value }) => {
         const fineBtn = document.createElement("button");
@@ -72,7 +82,7 @@ function buildButtons() {
       });
 
       const btnNext = document.createElement("button");
-      btnNext.textContent = `${next + 1}x`;
+      btnNext.textContent = `${(baseLabel + next).toFixed(1)}x`;
       btnNext.onclick = () => handleSpeedClick(next);
       controls.appendChild(btnNext);
     }
@@ -98,7 +108,7 @@ function generateFinerButtons(index1, index2) {
 
   labels.forEach((label, i) => {
     const step = (i + 1) * 0.2;
-    const fullLabel = `${(index1 + 1 + step).toFixed(1)}x`;
+    const fullLabel = `${(baseLabel + index1 + step).toFixed(1)}x`;
     const interpolatedValue = speed1 + ((speed2 - speed1) * step);
     fineSpeeds.push({ label: fullLabel, value: interpolatedValue });
   });

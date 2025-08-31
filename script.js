@@ -1,7 +1,10 @@
 let speedTableOriginal = [10, 30, 55, 80, 90, 96, 100];
 
-// Adjust 1x speed to 0.5 * original (half speed), rest as original (no increase)
-let speedTable = [speedTableOriginal[0] * 0.5, ...speedTableOriginal.slice(1)];
+// 1x speed half original, others increased by 36%
+let speedTable = [
+  speedTableOriginal[0] * 0.5,
+  ...speedTableOriginal.slice(1).map(v => v * 1.36)
+];
 
 let currentSpeedIndex = 0;
 let speedPixelsPerSecond = speedTable[0];

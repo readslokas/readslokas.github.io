@@ -1,8 +1,8 @@
 const baseSpeed = 20; // starting speed in pixels per second
 const baseLabel = 1.2; // starting label multiplier for buttons
 
-// Define percent increases per step — smaller increments as speed gets faster
-const percentIncreaseTable = [36, 30, 25, 20, 15, 10, 5]; 
+// Percent increases per step (smaller increments for faster speeds)
+const percentIncreaseTable = [36, 30, 25, 20, 15, 10, 5];
 
 // Build speedTable dynamically from percentIncreaseTable
 let speedTable = [];
@@ -35,6 +35,9 @@ function startAutoScroll() {
   lastTimestamp = null;
   animationFrameId = requestAnimationFrame(smoothScroll);
 }
+
+// — NO CHANGES to the entire buildButtons and handleSpeedClick functions —
+// They stay exactly the same as you had, using speedTable and expandedIndex, etc.
 
 function buildButtons() {
   const controls = document.getElementById("controls");

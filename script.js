@@ -1,7 +1,7 @@
+// Dynamically generate speed table from base and percent increases
 const baseSpeed = 20;
-const percentIncreaseTable = [36, 30, 25, 20, 15, 10, 5];
+const percentIncreaseTable = [50, 40, 30, 20, 15, 10]; // Only 6 increases → 7 speeds total
 
-// Dynamically generate the speed table using percent increases
 let speedTable = [baseSpeed];
 for (let i = 0; i < percentIncreaseTable.length; i++) {
   const lastSpeed = speedTable[i];

@@ -1,20 +1,19 @@
-// Define speed table
+// --- Speed Table Setup ---
+
 let speedTable = [0.5]; // 1x = 0.5
 
-// Base speed at 1.2x
-let baseSpeed = 20;
-
-// Growth factor (tweak this to change curve steepness)
-let growthFactor = 1.4;
-
-// Number of whole-number multipliers (up to 7x here)
-let levels = 6;
+const baseSpeed = 20;       // 1.2x = 20 px/s
+const growthFactor = 1.4;   // adjust curve steepness
+const levels = 6;           // number of whole-number multipliers after 1.2x
 
 // Build whole-number speeds
+// Index 1 is 1.2x = 20, then 2x, 3x, etc. via exponential growth
 for (let i = 0; i < levels; i++) {
-  let factor = Math.pow(growthFactor, i);
-  speedTable.push(baseSpeed * factor);
+  let value = baseSpeed * Math.pow(growthFactor, i);
+  speedTable.push(value);
 }
+
+// --- State ---
 
 let currentSpeedIndex = 0;
 let speedPixelsPerSecond = speedTable[0];
@@ -22,6 +21,8 @@ let lastTimestamp = null;
 let animationFrameId = null;
 let expandedIndex = null;
 let wakeLock = null;
+
+// --- Scrolling ---
 
 function smoothScroll(timestamp) {
   if (!lastTimestamp) lastTimestamp = timestamp;
@@ -38,11 +39,14 @@ function startAutoScroll() {
   animationFrameId = requestAnimationFrame(smoothScroll);
 }
 
+// --- UI Buttons ---
+
 function buildButtons() {
   const controls = document.getElementById("controls");
   controls.innerHTML = "";
 
   if (expandedIndex === null) {
+    // Whole-number buttons
     for (let i = 0; i < speedTable.length; i++) {
       const btn = document.createElement("button");
       btn.textContent = `${i + 1}x`;
@@ -100,16 +104,25 @@ function handleSpeedClick(index) {
   buildButtons();
 }
 
-// Generate fine buttons (2.2x, 2.4x, etc.) using exponential formula directly
+// --- Fine Speed Calculation ---
+
 function generateFinerButtons(index) {
   const fineSpeeds = [];
 
   for (let i = 1; i < 5; i++) {
     const step = i * 0.2; // 0.2x increments
-    const label = `${(index + 1 + step).toFixed(1)}x`;
+    const xValue = index + 1 + step; // e.g. 2.2, 2.4, etc.
+    const label = `${xValue.toFixed(1)}x`;
 
-    // Compute directly from exponential formula
-    const interpolatedValue = baseSpeed * Math.pow(growthFactor, index + step);
+    let interpolatedValue;
+
+    if (xValue === 1) {
+      interpolatedValue = 0.5; // exact 1x
+    } else if (Math.abs(xValue - 1.2) < 0.001) {
+      interpolatedValue = baseSpeed; // exact 1.2x
+    } else {
+      interpolatedValue = baseSpeed * Math.pow(growthFactor, (xValue - 1.2));
+    }
 
     fineSpeeds.push({ label, value: interpolatedValue });
   }
@@ -122,6 +135,8 @@ function highlightButton(activeBtn) {
     btn.classList.toggle("active", btn === activeBtn);
   });
 }
+
+// --- Wake Lock ---
 
 async function requestWakeLock() {
   try {
@@ -145,6 +160,8 @@ document.addEventListener('visibilitychange', () => {
     requestWakeLock();
   }
 });
+
+// --- Init ---
 
 window.onload = () => {
   buildButtons();

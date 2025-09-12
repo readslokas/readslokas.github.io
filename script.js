@@ -107,7 +107,8 @@ function generateFinerButtons(index1, index2) {
     const fullLabel = `${(index1 + 1 + step).toFixed(1)}x`;
 
     // Geometric (exponential) interpolation instead of linear
-    const interpolatedValue = speed1 * Math.pow(speed2 / speed1, step);
+    const interpolatedValue = speed1 * Math.pow(speed2 / speed1, step * 2); 
+
 
     fineSpeeds.push({ label: fullLabel, value: interpolatedValue });
   }

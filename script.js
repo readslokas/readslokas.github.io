@@ -4,12 +4,15 @@ let speedTable = [0.5]; // 1x = 0.5
 // Base speed at 1.2x
 let baseSpeed = 20;
 
-// Number of whole-number multipliers (up to 7x in this case)
+// Growth factor (tweak this to change curve steepness)
+let growthFactor = 1.4;
+
+// Number of whole-number multipliers (up to 7x here)
 let levels = 6;
 
-// Build rest of speed table using exponential curve
+// Build whole-number speeds
 for (let i = 0; i < levels; i++) {
-  let factor = Math.pow(1.4, i); // tweak 1.4 for faster/slower growth
+  let factor = Math.pow(growthFactor, i);
   speedTable.push(baseSpeed * factor);
 }
 
@@ -66,7 +69,7 @@ function buildButtons() {
     controls.appendChild(btnCurr);
 
     if (next < speedTable.length) {
-      const finerButtons = generateFinerButtons(curr, next);
+      const finerButtons = generateFinerButtons(curr);
       finerButtons.forEach(({ label, value }) => {
         const fineBtn = document.createElement("button");
         fineBtn.textContent = label;
@@ -97,20 +100,18 @@ function handleSpeedClick(index) {
   buildButtons();
 }
 
-function generateFinerButtons(index1, index2) {
-  const speed1 = speedTable[index1];
-  const speed2 = speedTable[index2];
+// Generate fine buttons (2.2x, 2.4x, etc.) using exponential formula directly
+function generateFinerButtons(index) {
   const fineSpeeds = [];
 
   for (let i = 1; i < 5; i++) {
     const step = i * 0.2; // 0.2x increments
-    const fullLabel = `${(index1 + 1 + step).toFixed(1)}x`;
+    const label = `${(index + 1 + step).toFixed(1)}x`;
 
-    // Geometric (exponential) interpolation instead of linear
-    const interpolatedValue = speed1 * Math.pow(speed2 / speed1, step * 2); 
+    // Compute directly from exponential formula
+    const interpolatedValue = baseSpeed * Math.pow(growthFactor, index + step);
 
-
-    fineSpeeds.push({ label: fullLabel, value: interpolatedValue });
+    fineSpeeds.push({ label, value: interpolatedValue });
   }
 
   return fineSpeeds;

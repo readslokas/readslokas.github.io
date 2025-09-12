@@ -1,18 +1,16 @@
 // Define speed table
 let speedTable = [0.5]; // 1x = 0.5
 
-// Percent increases from 1.2x onward
-const percentIncreaseTable = [100, 80, 55, 40, 20, 10];
+// Base speed at 1.2x
+let baseSpeed = 20;
 
-// Start dynamic speed at 1.2x = 20
-let dynamicSpeed = 20;
-speedTable.push(dynamicSpeed); // 1.2x
+// Number of whole-number multipliers (e.g., up to 7x)
+let levels = 6;
 
-// Build rest of speed table
-for (let i = 1; i < percentIncreaseTable.length; i++) {
-  const percent = percentIncreaseTable[i];
-  dynamicSpeed = dynamicSpeed * (1 + percent / 100);
-  speedTable.push(dynamicSpeed);
+// Build rest of speed table using exponential curve
+for (let i = 0; i < levels; i++) {
+  let factor = Math.pow(1.4, i); // adjust 1.4 for faster/slower growth
+  speedTable.push(baseSpeed * factor);
 }
 
 let currentSpeedIndex = 0;
@@ -102,15 +100,14 @@ function handleSpeedClick(index) {
 function generateFinerButtons(index1, index2) {
   const speed1 = speedTable[index1];
   const speed2 = speedTable[index2];
-  const labels = ["0.2x", "0.4x", "0.6x", "0.8x"];
   const fineSpeeds = [];
 
-  labels.forEach((label, i) => {
-    const step = (i + 1) * 0.2;
+  for (let i = 1; i < 5; i++) {
+    const step = i * 0.2;
     const fullLabel = `${(index1 + 1 + step).toFixed(1)}x`;
     const interpolatedValue = speed1 + ((speed2 - speed1) * step);
     fineSpeeds.push({ label: fullLabel, value: interpolatedValue });
-  });
+  }
 
   return fineSpeeds;
 }

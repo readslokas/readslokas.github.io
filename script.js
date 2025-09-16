@@ -45,8 +45,8 @@ function buildButtons() {
   const controls = document.getElementById("controls");
   controls.innerHTML = "";
 
-  if (expandedIndex === null) {
-    // Whole-number buttons
+  // Special case: last index (7x) should never collapse
+  if (expandedIndex === null || expandedIndex === speedTable.length - 1) {
     for (let i = 0; i < speedTable.length; i++) {
       const btn = document.createElement("button");
       btn.textContent = `${i + 1}x`;
@@ -54,47 +54,53 @@ function buildButtons() {
       if (i === currentSpeedIndex) btn.classList.add("active");
       controls.appendChild(btn);
     }
-  } else {
-    const prev = expandedIndex - 1;
-    const curr = expandedIndex;
-    const next = expandedIndex + 1;
+    return;
+  }
 
-    if (prev >= 0) {
-      const btnPrev = document.createElement("button");
-      btnPrev.textContent = `${prev + 1}x`;
-      btnPrev.onclick = () => handleSpeedClick(prev);
-      controls.appendChild(btnPrev);
-    }
+  // Expanded view for non-last buttons
+  const prev = expandedIndex - 1;
+  const curr = expandedIndex;
+  const next = expandedIndex + 1;
 
-    const btnCurr = document.createElement("button");
-    btnCurr.textContent = `${curr + 1}x`;
-    btnCurr.classList.add("active");
-    btnCurr.onclick = () => handleSpeedClick(curr);
-    controls.appendChild(btnCurr);
+  if (prev >= 0) {
+    const btnPrev = document.createElement("button");
+    btnPrev.textContent = `${prev + 1}x`;
+    btnPrev.onclick = () => handleSpeedClick(prev);
+    controls.appendChild(btnPrev);
+  }
 
-    if (next < speedTable.length) {
-      const finerButtons = generateFinerButtons(curr);
-      finerButtons.forEach(({ label, value }) => {
-        const fineBtn = document.createElement("button");
-        fineBtn.textContent = label;
-        fineBtn.onclick = () => {
-          speedPixelsPerSecond = value;
-          currentSpeedIndex = -1;
-          highlightButton(fineBtn);
-        };
-        controls.appendChild(fineBtn);
-      });
+  const btnCurr = document.createElement("button");
+  btnCurr.textContent = `${curr + 1}x`;
+  btnCurr.classList.add("active");
+  btnCurr.onclick = () => handleSpeedClick(curr);
+  controls.appendChild(btnCurr);
 
-      const btnNext = document.createElement("button");
-      btnNext.textContent = `${next + 1}x`;
-      btnNext.onclick = () => handleSpeedClick(next);
-      controls.appendChild(btnNext);
-    }
+  if (next < speedTable.length) {
+    const finerButtons = generateFinerButtons(curr);
+    finerButtons.forEach(({ label, value }) => {
+      const fineBtn = document.createElement("button");
+      fineBtn.textContent = label;
+      fineBtn.onclick = () => {
+        speedPixelsPerSecond = value;
+        currentSpeedIndex = -1;
+        highlightButton(fineBtn);
+      };
+      controls.appendChild(fineBtn);
+    });
+
+    const btnNext = document.createElement("button");
+    btnNext.textContent = `${next + 1}x`;
+    btnNext.onclick = () => handleSpeedClick(next);
+    controls.appendChild(btnNext);
   }
 }
 
 function handleSpeedClick(index) {
-  if (expandedIndex === index) {
+  if (index === speedTable.length - 1) {
+    // Last button: just select it, no expansion
+    expandedIndex = null;
+    speedPixelsPerSecond = speedTable[index];
+  } else if (expandedIndex === index) {
     expandedIndex = null;
   } else {
     expandedIndex = index;
@@ -104,7 +110,7 @@ function handleSpeedClick(index) {
   buildButtons();
 }
 
-// --- Fine Speed Calculation (FIXED) ---
+// --- Fine Speed Calculation (fixed with interpolation) ---
 
 function generateFinerButtons(index) {
   const fineSpeeds = [];

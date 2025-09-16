@@ -104,25 +104,21 @@ function handleSpeedClick(index) {
   buildButtons();
 }
 
-// --- Fine Speed Calculation ---
+// --- Fine Speed Calculation (FIXED) ---
 
 function generateFinerButtons(index) {
   const fineSpeeds = [];
+  const currSpeed = speedTable[index];
+  const nextSpeed = speedTable[index + 1];
 
   for (let i = 1; i < 5; i++) {
     const step = i * 0.2; // 0.2x increments
-    const xValue = index + 1 + step; // e.g. 2.2, 2.4, etc.
+    const xValue = index + 1 + step; // e.g. 3.2, 3.4, etc.
     const label = `${xValue.toFixed(1)}x`;
 
-    let interpolatedValue;
-
-    if (xValue === 1) {
-      interpolatedValue = 0.5; // exact 1x
-    } else if (Math.abs(xValue - 1.2) < 0.001) {
-      interpolatedValue = baseSpeed; // exact 1.2x
-    } else {
-      interpolatedValue = baseSpeed * Math.pow(growthFactor, (xValue - 1.2));
-    }
+    // Linear interpolation between current and next speed
+    const fraction = step; // 0.2, 0.4, 0.6, 0.8
+    const interpolatedValue = currSpeed + (nextSpeed - currSpeed) * fraction;
 
     fineSpeeds.push({ label, value: interpolatedValue });
   }

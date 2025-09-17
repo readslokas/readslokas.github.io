@@ -1,4 +1,6 @@
 <div id="controls"></div>
+
+<script>
 // --- Speed Formula Setup ---
 
 const baseSpeed = 20;       // 1.2x = 20 px/s
@@ -18,7 +20,7 @@ let currentMultiplier = 1;
 let speedPixelsPerSecond = getSpeedForMultiplier(currentMultiplier);
 let lastTimestamp = null;
 let animationFrameId = null;
-let expandedIndex = null; // which whole number is expanded
+let expandedIndex = null; // which whole number multiplier is expanded
 let wakeLock = null;
 
 // --- Scrolling ---
@@ -44,56 +46,32 @@ function buildButtons() {
   const controls = document.getElementById("controls");
   controls.innerHTML = "";
 
-  // Special case: last index (7x) should never collapse
-  if (expandedIndex === null || expandedIndex === maxMultiplier) {
-    for (let i = 1; i <= maxMultiplier; i++) {
-      const btn = document.createElement("button");
-      btn.textContent = `${i}x`;
-      btn.onclick = () => handleSpeedClick(i);
-      if (Math.abs(currentMultiplier - i) < 0.001) btn.classList.add("active");
-      controls.appendChild(btn);
+  for (let i = 1; i <= maxMultiplier; i++) {
+    const btn = document.createElement("button");
+    btn.textContent = `${i}x`;
+    btn.onclick = () => handleSpeedClick(i);
+    if (Math.abs(currentMultiplier - i) < 0.001 && expandedIndex === null) {
+      btn.classList.add("active");
     }
-    return;
-  }
+    controls.appendChild(btn);
 
-  // Expanded view for non-last buttons
-  const prev = expandedIndex - 1;
-  const curr = expandedIndex;
-  const next = expandedIndex + 1;
-
-  if (prev >= 1) {
-    const btnPrev = document.createElement("button");
-    btnPrev.textContent = `${prev}x`;
-    btnPrev.onclick = () => handleSpeedClick(prev);
-    controls.appendChild(btnPrev);
-  }
-
-  const btnCurr = document.createElement("button");
-  btnCurr.textContent = `${curr}x`;
-  btnCurr.classList.add("active");
-  btnCurr.onclick = () => handleSpeedClick(curr);
-  controls.appendChild(btnCurr);
-
-  if (next <= maxMultiplier) {
-    const finerButtons = generateFinerButtons(curr);
-    finerButtons.forEach(({ label, value, multiplier }) => {
-      const fineBtn = document.createElement("button");
-      fineBtn.textContent = label;
-      fineBtn.onclick = () => {
-        speedPixelsPerSecond = value;
-        currentMultiplier = multiplier;
-        highlightButton(fineBtn);
-      };
-      if (Math.abs(currentMultiplier - multiplier) < 0.001) {
-        fineBtn.classList.add("active");
-      }
-      controls.appendChild(fineBtn);
-    });
-
-    const btnNext = document.createElement("button");
-    btnNext.textContent = `${next}x`;
-    btnNext.onclick = () => handleSpeedClick(next);
-    controls.appendChild(btnNext);
+    // If this button is expanded (and not the last one), insert fine buttons after it
+    if (expandedIndex === i && i < maxMultiplier) {
+      const finerButtons = generateFinerButtons(i);
+      finerButtons.forEach(({ label, value, multiplier }) => {
+        const fineBtn = document.createElement("button");
+        fineBtn.textContent = label;
+        fineBtn.onclick = () => {
+          speedPixelsPerSecond = value;
+          currentMultiplier = multiplier;
+          highlightButton(fineBtn);
+        };
+        if (Math.abs(currentMultiplier - multiplier) < 0.001) {
+          fineBtn.classList.add("active");
+        }
+        controls.appendChild(fineBtn);
+      });
+    }
   }
 }
 
@@ -103,9 +81,9 @@ function handleSpeedClick(multiplier) {
     expandedIndex = null;
     speedPixelsPerSecond = getSpeedForMultiplier(multiplier);
   } else if (expandedIndex === multiplier) {
-    expandedIndex = null;
+    expandedIndex = null; // collapse if already expanded
   } else {
-    expandedIndex = multiplier;
+    expandedIndex = multiplier; // expand this one
     speedPixelsPerSecond = getSpeedForMultiplier(multiplier);
   }
   currentMultiplier = multiplier;
@@ -167,3 +145,4 @@ window.onload = () => {
   startAutoScroll();
   requestWakeLock(); // Prevent screen from sleeping
 };
+</script>

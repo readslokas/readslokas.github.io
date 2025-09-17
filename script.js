@@ -1,25 +1,24 @@
-// --- Speed Table Setup ---
-
-let speedTable = [0.5]; // 1x = 0.5
+<div id="controls"></div>
+// --- Speed Formula Setup ---
 
 const baseSpeed = 20;       // 1.2x = 20 px/s
 const growthFactor = 1.4;   // adjust curve steepness
-const levels = 6;           // number of whole-number multipliers after 1.2x
+const maxMultiplier = 7;    // show buttons up to 7x
 
-// Build whole-number speeds
-// Index 1 is 1.2x = 20, then 2x, 3x, etc. via exponential growth
-for (let i = 0; i < levels; i++) {
-  let value = baseSpeed * Math.pow(growthFactor, i);
-  speedTable.push(value);
+// Continuous formula: maps multiplier (e.g. 2.0, 2.2, 3.4) → speed
+function getSpeedForMultiplier(x) {
+  if (x === 1) return 0.5;       // 1x = 0.5 px/s
+  if (Math.abs(x - 1.2) < 0.001) return baseSpeed; // 1.2x = baseSpeed
+  return baseSpeed * Math.pow(growthFactor, (x - 1.2));
 }
 
 // --- State ---
 
-let currentSpeedIndex = 0;
-let speedPixelsPerSecond = speedTable[0];
+let currentMultiplier = 1;
+let speedPixelsPerSecond = getSpeedForMultiplier(currentMultiplier);
 let lastTimestamp = null;
 let animationFrameId = null;
-let expandedIndex = null;
+let expandedIndex = null; // which whole number is expanded
 let wakeLock = null;
 
 // --- Scrolling ---
@@ -46,12 +45,12 @@ function buildButtons() {
   controls.innerHTML = "";
 
   // Special case: last index (7x) should never collapse
-  if (expandedIndex === null || expandedIndex === speedTable.length - 1) {
-    for (let i = 0; i < speedTable.length; i++) {
+  if (expandedIndex === null || expandedIndex === maxMultiplier) {
+    for (let i = 1; i <= maxMultiplier; i++) {
       const btn = document.createElement("button");
-      btn.textContent = `${i + 1}x`;
+      btn.textContent = `${i}x`;
       btn.onclick = () => handleSpeedClick(i);
-      if (i === currentSpeedIndex) btn.classList.add("active");
+      if (Math.abs(currentMultiplier - i) < 0.001) btn.classList.add("active");
       controls.appendChild(btn);
     }
     return;
@@ -62,71 +61,69 @@ function buildButtons() {
   const curr = expandedIndex;
   const next = expandedIndex + 1;
 
-  if (prev >= 0) {
+  if (prev >= 1) {
     const btnPrev = document.createElement("button");
-    btnPrev.textContent = `${prev + 1}x`;
+    btnPrev.textContent = `${prev}x`;
     btnPrev.onclick = () => handleSpeedClick(prev);
     controls.appendChild(btnPrev);
   }
 
   const btnCurr = document.createElement("button");
-  btnCurr.textContent = `${curr + 1}x`;
+  btnCurr.textContent = `${curr}x`;
   btnCurr.classList.add("active");
   btnCurr.onclick = () => handleSpeedClick(curr);
   controls.appendChild(btnCurr);
 
-  if (next < speedTable.length) {
+  if (next <= maxMultiplier) {
     const finerButtons = generateFinerButtons(curr);
-    finerButtons.forEach(({ label, value }) => {
+    finerButtons.forEach(({ label, value, multiplier }) => {
       const fineBtn = document.createElement("button");
       fineBtn.textContent = label;
       fineBtn.onclick = () => {
         speedPixelsPerSecond = value;
-        currentSpeedIndex = -1;
+        currentMultiplier = multiplier;
         highlightButton(fineBtn);
       };
+      if (Math.abs(currentMultiplier - multiplier) < 0.001) {
+        fineBtn.classList.add("active");
+      }
       controls.appendChild(fineBtn);
     });
 
     const btnNext = document.createElement("button");
-    btnNext.textContent = `${next + 1}x`;
+    btnNext.textContent = `${next}x`;
     btnNext.onclick = () => handleSpeedClick(next);
     controls.appendChild(btnNext);
   }
 }
 
-function handleSpeedClick(index) {
-  if (index === speedTable.length - 1) {
+function handleSpeedClick(multiplier) {
+  if (multiplier === maxMultiplier) {
     // Last button: just select it, no expansion
     expandedIndex = null;
-    speedPixelsPerSecond = speedTable[index];
-  } else if (expandedIndex === index) {
+    speedPixelsPerSecond = getSpeedForMultiplier(multiplier);
+  } else if (expandedIndex === multiplier) {
     expandedIndex = null;
   } else {
-    expandedIndex = index;
-    speedPixelsPerSecond = speedTable[index];
+    expandedIndex = multiplier;
+    speedPixelsPerSecond = getSpeedForMultiplier(multiplier);
   }
-  currentSpeedIndex = index;
+  currentMultiplier = multiplier;
   buildButtons();
 }
 
-// --- Fine Speed Calculation (fixed with interpolation) ---
+// --- Fine Speed Calculation (continuous curve) ---
 
-function generateFinerButtons(index) {
+function generateFinerButtons(baseMultiplier) {
   const fineSpeeds = [];
-  const currSpeed = speedTable[index];
-  const nextSpeed = speedTable[index + 1];
 
   for (let i = 1; i < 5; i++) {
     const step = i * 0.2; // 0.2x increments
-    const xValue = index + 1 + step; // e.g. 3.2, 3.4, etc.
-    const label = `${xValue.toFixed(1)}x`;
+    const multiplier = baseMultiplier + step; // e.g. 2.2, 2.4, 3.2
+    const label = `${multiplier.toFixed(1)}x`;
+    const value = getSpeedForMultiplier(multiplier);
 
-    // Linear interpolation between current and next speed
-    const fraction = step; // 0.2, 0.4, 0.6, 0.8
-    const interpolatedValue = currSpeed + (nextSpeed - currSpeed) * fraction;
-
-    fineSpeeds.push({ label, value: interpolatedValue });
+    fineSpeeds.push({ label, value, multiplier });
   }
 
   return fineSpeeds;

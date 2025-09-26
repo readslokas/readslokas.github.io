@@ -3,7 +3,7 @@
 let speedTable = [0.5]; // 1x = 0.5
 
 const baseSpeed = 20;       // 1.2x = 20 px/s
-const growthFactor = 2;   // adjust curve steepness
+const growthFactor = 1.9;   // adjust curve steepness
 const levels = 6;           // number of whole-number multipliers after 1.2x
 
 // Build whole-number speeds

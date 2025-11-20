@@ -29,7 +29,6 @@ function buildButtons() {
   const controls = document.getElementById("controls");
   controls.innerHTML = "";
 
-  // Show all main buttons if nothing is expanded or last button
   if (expandedIndex === null || expandedIndex === speedTable.length - 1) {
     speedTable.forEach((_, i) => {
       const btn = document.createElement("button");
@@ -52,21 +51,20 @@ function buildButtons() {
     controls.appendChild(btnPrev);
   }
 
-  // Current main button (expanded)
   const btnCurr = document.createElement("button");
   btnCurr.textContent = `${curr + 1}x`;
   btnCurr.classList.add("active");
   btnCurr.onclick = () => handleSpeedClick(curr);
   controls.appendChild(btnCurr);
 
-  // Fine buttons between current and next
   if (next < speedTable.length) {
     generateFinerButtons(curr).forEach(({ label, value }) => {
       const fineBtn = document.createElement("button");
       fineBtn.textContent = label;
       fineBtn.onclick = () => {
-        speedPixelsPerSecond = value;
-        currentSpeedIndex = -1; // no main button active
+        // Clamp speed: always >= previous
+        speedPixelsPerSecond = Math.max(speedPixelsPerSecond, value);
+        currentSpeedIndex = -1; // fine speed
         highlightButton(fineBtn);
       };
       controls.appendChild(fineBtn);
@@ -82,14 +80,11 @@ function buildButtons() {
 // --- Handle Main Button Click ---
 function handleSpeedClick(index) {
   if (index === speedTable.length - 1) {
-    // Last button: select directly
     expandedIndex = null;
     speedPixelsPerSecond = speedTable[index];
   } else if (expandedIndex === index) {
-    // Collapse
     expandedIndex = null;
   } else {
-    // Expand
     expandedIndex = index;
     speedPixelsPerSecond = speedTable[index];
   }
@@ -103,13 +98,13 @@ function generateFinerButtons(index) {
   const nextSpeed = speedTable[index + 1];
   const fineSpeeds = [];
 
+  // Proper interpolation: fraction scaled 0.2, 0.4, 0.6, 0.8
   for (let i = 1; i < 5; i++) {
-    const fraction = i * 0.2; // 0.2, 0.4, 0.6, 0.8
+    const fraction = i * 0.2; 
+    const interpolatedSpeed = currSpeed + (nextSpeed - currSpeed) * fraction;
+    // Ensure strictly increasing
+    const value = Math.max(interpolatedSpeed, currSpeed + 0.1);
     const label = `${(index + 1 + fraction).toFixed(1)}x`;
-    
-    // Interpolate speed linearly
-    const value = currSpeed + (nextSpeed - currSpeed) * fraction;
-
     fineSpeeds.push({ label, value });
   }
   return fineSpeeds;

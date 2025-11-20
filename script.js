@@ -1,6 +1,5 @@
 // --- Speed Table Setup ---
 
-// Hard-coded speeds (index 0 = 1.0x, index 1 = 1.2x, ... index 31 = 7.0x)
 let speedTable = [
   0.5,    // 1.0x
   8.0,    // 1.2x
@@ -67,38 +66,20 @@ function buildButtons() {
   const controls = document.getElementById("controls");
   controls.innerHTML = "";
 
-  // Special case: last index (7x) should never collapse
-  if (expandedIndex === null || expandedIndex === speedTable.length - 1) {
-    for (let i = 0; i < speedTable.length; i++) {
-      const btn = document.createElement("button");
-      btn.textContent = `${i + 1}x`;
-      btn.onclick = () => handleSpeedClick(i);
-      if (i === currentSpeedIndex) btn.classList.add("active");
-      controls.appendChild(btn);
-    }
-    return;
-  }
+  // Only show whole-number buttons initially: 1x, 2x, ..., 7x
+  const wholeNumbers = [0, 5, 10, 15, 20, 25, 30]; // indices for 1x,2x,...7x
+  wholeNumbers.forEach(i => {
+    const btn = document.createElement("button");
+    const multiplier = (1 + i * 0.2).toFixed(0); // show whole number
+    btn.textContent = `${multiplier}x`;
+    btn.onclick = () => handleSpeedClick(i);
+    if (i === currentSpeedIndex) btn.classList.add("active");
+    controls.appendChild(btn);
+  });
 
-  // Expanded view for non-last buttons
-  const prev = expandedIndex - 1;
-  const curr = expandedIndex;
-  const next = expandedIndex + 1;
-
-  if (prev >= 0) {
-    const btnPrev = document.createElement("button");
-    btnPrev.textContent = `${prev + 1}x`;
-    btnPrev.onclick = () => handleSpeedClick(prev);
-    controls.appendChild(btnPrev);
-  }
-
-  const btnCurr = document.createElement("button");
-  btnCurr.textContent = `${curr + 1}x`;
-  btnCurr.classList.add("active");
-  btnCurr.onclick = () => handleSpeedClick(curr);
-  controls.appendChild(btnCurr);
-
-  if (next < speedTable.length) {
-    const finerButtons = generateFinerButtons(curr);
+  // If a button is expanded, show fine steps only between clicked and next whole number
+  if (expandedIndex !== null && expandedIndex < speedTable.length - 1) {
+    const finerButtons = generateFinerButtons(expandedIndex);
     finerButtons.forEach(({ label, value }) => {
       const fineBtn = document.createElement("button");
       fineBtn.textContent = label;
@@ -109,16 +90,12 @@ function buildButtons() {
       };
       controls.appendChild(fineBtn);
     });
-
-    const btnNext = document.createElement("button");
-    btnNext.textContent = `${next + 1}x`;
-    btnNext.onclick = () => handleSpeedClick(next);
-    controls.appendChild(btnNext);
   }
 }
 
 function handleSpeedClick(index) {
   if (index === speedTable.length - 1) {
+    // Last button: select only, no expansion
     expandedIndex = null;
     speedPixelsPerSecond = speedTable[index];
   } else if (expandedIndex === index) {
@@ -131,22 +108,22 @@ function handleSpeedClick(index) {
   buildButtons();
 }
 
-// --- Fine Speed Calculation (interpolation) ---
+// --- Fine Speed Calculation (linear interpolation between clicked and next whole-number) ---
 
 function generateFinerButtons(index) {
   const fineSpeeds = [];
+  
+  // Find next whole-number index
+  const nextWholeIndex = index + 5; 
   const currSpeed = speedTable[index];
-  const nextSpeed = speedTable[index + 1];
+  const nextSpeed = speedTable[nextWholeIndex];
 
   for (let i = 1; i < 5; i++) {
-    const step = i * 0.2;
-    const xValue = index + 1 + step;
-    const label = `${xValue.toFixed(1)}x`;
-
-    const fraction = step;
+    const step = i * 0.2; // 0.2 increments
+    const xValue = (1 + index * 0.2 + step).toFixed(1);
+    const fraction = step / 1; // fraction between current and next whole number
     const interpolatedValue = currSpeed + (nextSpeed - currSpeed) * fraction;
-
-    fineSpeeds.push({ label, value: interpolatedValue });
+    fineSpeeds.push({ label: `${xValue}x`, value: interpolatedValue });
   }
 
   return fineSpeeds;

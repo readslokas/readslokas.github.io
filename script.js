@@ -1,6 +1,6 @@
-// --- Speed Table Setup (Hard-coded) ---
+// --- Speed Table Setup ---
 
-// Index 0 = 1.0x, each index adds +0.2x, index 31 = 7.0x
+// Hard-coded speeds (index 0 = 1.0x, index 1 = 1.2x, ... index 31 = 7.0x)
 let speedTable = [
   0.5,    // 1.0x
   8.0,    // 1.2x
@@ -67,15 +67,11 @@ function buildButtons() {
   const controls = document.getElementById("controls");
   controls.innerHTML = "";
 
-  // Special case: last index (7.0x) should never collapse
+  // Special case: last index (7x) should never collapse
   if (expandedIndex === null || expandedIndex === speedTable.length - 1) {
     for (let i = 0; i < speedTable.length; i++) {
       const btn = document.createElement("button");
-
-      // FIXED LABEL: correct multiplier based on index
-      const multiplier = (1.0 + i * 0.2).toFixed(1);
-      btn.textContent = `${multiplier}x`;
-
+      btn.textContent = `${i + 1}x`;
       btn.onclick = () => handleSpeedClick(i);
       if (i === currentSpeedIndex) btn.classList.add("active");
       controls.appendChild(btn);
@@ -90,13 +86,13 @@ function buildButtons() {
 
   if (prev >= 0) {
     const btnPrev = document.createElement("button");
-    btnPrev.textContent = `${(1 + prev * 0.2).toFixed(1)}x`;
+    btnPrev.textContent = `${prev + 1}x`;
     btnPrev.onclick = () => handleSpeedClick(prev);
     controls.appendChild(btnPrev);
   }
 
   const btnCurr = document.createElement("button");
-  btnCurr.textContent = `${(1 + curr * 0.2).toFixed(1)}x`;
+  btnCurr.textContent = `${curr + 1}x`;
   btnCurr.classList.add("active");
   btnCurr.onclick = () => handleSpeedClick(curr);
   controls.appendChild(btnCurr);
@@ -115,7 +111,7 @@ function buildButtons() {
     });
 
     const btnNext = document.createElement("button");
-    btnNext.textContent = `${(1 + next * 0.2).toFixed(1)}x`;
+    btnNext.textContent = `${next + 1}x`;
     btnNext.onclick = () => handleSpeedClick(next);
     controls.appendChild(btnNext);
   }
@@ -135,7 +131,7 @@ function handleSpeedClick(index) {
   buildButtons();
 }
 
-// --- Fine Speed Calculation (linear interpolation between your custom speeds) ---
+// --- Fine Speed Calculation (interpolation) ---
 
 function generateFinerButtons(index) {
   const fineSpeeds = [];
@@ -143,11 +139,11 @@ function generateFinerButtons(index) {
   const nextSpeed = speedTable[index + 1];
 
   for (let i = 1; i < 5; i++) {
-    const step = i * 0.2; 
-    const xValue = (1.0 + index * 0.2 + step).toFixed(1);
-    const label = `${xValue}x`;
+    const step = i * 0.2;
+    const xValue = index + 1 + step;
+    const label = `${xValue.toFixed(1)}x`;
 
-    const fraction = step; 
+    const fraction = step;
     const interpolatedValue = currSpeed + (nextSpeed - currSpeed) * fraction;
 
     fineSpeeds.push({ label, value: interpolatedValue });

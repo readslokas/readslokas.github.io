@@ -1,16 +1,20 @@
 // --- Speed Table Setup ---
 
-const wholeSpeeds = [0.5, 20, 38, 72, 137, 260, 494]; 
-// 1x = 0.5, 2x = 20, 3x = 38, 4x = 72, 5x = 137, 6x = 260, 7x = 494
-// Adjusted so fractional steps are meaningful
+const minSpeed = 0.5;   // 1x
+const maxSpeed = 500;   // 7x
+const step = 0.2;       // fractional step
+const maxMultiplier = 7;
 
-const fractionalStep = 0.2; // 0.2x increments for finer buttons
-
-let speedTable = [...wholeSpeeds]; // store only whole speeds
+let speedTable = [];
+for (let x = 1; x <= maxMultiplier; x += step) {
+  const t = (x - 1) / (maxMultiplier - 1); // normalize 0→1
+  const speed = minSpeed * Math.pow(maxSpeed / minSpeed, t);
+  speedTable.push({ label: `${x.toFixed(1)}x`, value: speed });
+}
 
 // --- State ---
 let currentSpeedIndex = 0;
-let speedPixelsPerSecond = speedTable[0];
+let speedPixelsPerSecond = speedTable[0].value;
 let lastTimestamp = null;
 let animationFrameId = null;
 let expandedIndex = null;
@@ -37,81 +41,46 @@ function buildButtons() {
   const controls = document.getElementById("controls");
   controls.innerHTML = "";
 
-  if (expandedIndex === null || expandedIndex === speedTable.length - 1) {
-    for (let i = 0; i < speedTable.length; i++) {
-      const btn = document.createElement("button");
-      btn.textContent = `${i + 1}x`;
-      btn.onclick = () => handleSpeedClick(i);
-      if (i === currentSpeedIndex) btn.classList.add("active");
-      controls.appendChild(btn);
-    }
-    return;
+  const wholeIndices = [];
+  for (let i = 0; i < speedTable.length; i++) {
+    if (Math.abs((i * step) % 1) < 0.01) wholeIndices.push(i);
   }
 
-  const prev = expandedIndex - 1;
-  const curr = expandedIndex;
-  const next = expandedIndex + 1;
+  wholeIndices.forEach(idx => {
+    const btn = document.createElement("button");
+    btn.textContent = speedTable[idx].label;
+    btn.onclick = () => handleSpeedClick(idx);
+    if (idx === currentSpeedIndex) btn.classList.add("active");
+    controls.appendChild(btn);
+  });
 
-  if (prev >= 0) {
-    const btnPrev = document.createElement("button");
-    btnPrev.textContent = `${prev + 1}x`;
-    btnPrev.onclick = () => handleSpeedClick(prev);
-    controls.appendChild(btnPrev);
-  }
+  if (expandedIndex !== null && expandedIndex < speedTable.length - 1) {
+    const nextWhole = wholeIndices.find(i => i > expandedIndex);
+    const end = nextWhole || speedTable.length - 1;
 
-  const btnCurr = document.createElement("button");
-  btnCurr.textContent = `${curr + 1}x`;
-  btnCurr.classList.add("active");
-  btnCurr.onclick = () => handleSpeedClick(curr);
-  controls.appendChild(btnCurr);
-
-  if (next < speedTable.length) {
-    const finerButtons = generateFinerButtons(curr);
-    finerButtons.forEach(({ label, value }) => {
+    for (let i = expandedIndex + 1; i < end; i++) {
+      const s = speedTable[i];
       const fineBtn = document.createElement("button");
-      fineBtn.textContent = label;
+      fineBtn.textContent = s.label;
       fineBtn.onclick = () => {
-        speedPixelsPerSecond = value;
-        currentSpeedIndex = -1;
+        speedPixelsPerSecond = s.value;
+        currentSpeedIndex = i;
         highlightButton(fineBtn);
       };
       controls.appendChild(fineBtn);
-    });
-
-    const btnNext = document.createElement("button");
-    btnNext.textContent = `${next + 1}x`;
-    btnNext.onclick = () => handleSpeedClick(next);
-    controls.appendChild(btnNext);
+    }
   }
 }
 
 function handleSpeedClick(index) {
-  if (index === speedTable.length - 1) {
-    expandedIndex = null;
-    speedPixelsPerSecond = speedTable[index];
-  } else if (expandedIndex === index) {
+  if (expandedIndex === index) {
     expandedIndex = null;
   } else {
     expandedIndex = index;
-    speedPixelsPerSecond = speedTable[index];
+    speedPixelsPerSecond = speedTable[index].value;
   }
   currentSpeedIndex = index;
   buildButtons();
-}
-
-// --- Fine Speed Calculation (0.2x steps) ---
-function generateFinerButtons(index) {
-  const fineSpeeds = [];
-  const currSpeed = speedTable[index];
-  const nextSpeed = speedTable[index + 1];
-
-  for (let step = 0.2; step < 1; step += 0.2) {
-    const label = `${(index + 1 + step).toFixed(1)}x`;
-    const interpolatedValue = currSpeed + (nextSpeed - currSpeed) * step;
-    fineSpeeds.push({ label, value: interpolatedValue });
-  }
-
-  return fineSpeeds;
 }
 
 function highlightButton(activeBtn) {
@@ -125,11 +94,8 @@ async function requestWakeLock() {
   try {
     if ('wakeLock' in navigator) {
       wakeLock = await navigator.wakeLock.request('screen');
-      wakeLock.addEventListener('release', () => {});
     }
-  } catch (err) {
-    console.error(err);
-  }
+  } catch (err) { console.error(err); }
 }
 
 document.addEventListener('visibilitychange', () => {

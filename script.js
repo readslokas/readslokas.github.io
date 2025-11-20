@@ -2,15 +2,20 @@
 
 let speedTable = [0.5]; // 1x = 0.5
 
-const baseSpeed = 20;       // 1.2x = 20 px/s
-const growthFactor = 1.9;   // adjust curve steepness
-const levels = 6;           // number of whole-number multipliers after 1.2x
+const startSpeed = 8;     // 1.2x
+const endSpeed = 495;     // 7.0x
+const startIndex = 1.2;   // multiplier
+const endIndex = 7.0;     // multiplier
+const step = 0.2;         // increments (1.2, 1.4, ... 7.0)
 
-// Build whole-number speeds
-// Index 1 is 1.2x = 20, then 2x, 3x, etc. via exponential growth
-for (let i = 0; i < levels; i++) {
-  let value = baseSpeed * Math.pow(growthFactor, i);
-  speedTable.push(value);
+const steps = Math.round((endIndex - startIndex) / step) + 1;
+
+// Exponential growth factor
+const growthFactor = Math.pow(endSpeed / startSpeed, 1 / (steps - 1));
+
+for (let i = 0; i < steps; i++) {
+  const speed = startSpeed * Math.pow(growthFactor, i);
+  speedTable.push(speed);
 }
 
 // --- State ---

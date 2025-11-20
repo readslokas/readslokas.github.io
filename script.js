@@ -1,15 +1,15 @@
 // --- Speed Table Setup ---
 
-const baseSpeed = 20;       // speed for 1.2x in px/s
+const baseSpeed = 20;       // 1.2x = 20 px/s
 const growthFactor = 1.9;   // exponential growth for whole numbers
-const wholeLevels = 7;      // 1x through 7x
-const fractionalSteps = 4;  // number of fractional steps between whole numbers
+const wholeLevels = 7;      // 1x to 7x
+const fractionalStep = 0.2; // 0.2x increments for finer buttons
 
 let speedTable = [0.5]; // 1x = 0.5 px/s
 
-// Build whole-number speeds 1.2x → 7x
-for (let i = 0; i < wholeLevels; i++) {
-  let value = baseSpeed * Math.pow(growthFactor, i);
+// Build whole-number speeds 1 → 7x
+for (let i = 1; i < wholeLevels; i++) {
+  let value = baseSpeed * Math.pow(growthFactor, i - 1);
   speedTable.push(value);
 }
 
@@ -42,7 +42,7 @@ function buildButtons() {
   const controls = document.getElementById("controls");
   controls.innerHTML = "";
 
-  // If no button expanded or last button, show all whole-number buttons
+  // Show all whole-number buttons if no expansion or last button
   if (expandedIndex === null || expandedIndex === speedTable.length - 1) {
     for (let i = 0; i < speedTable.length; i++) {
       const btn = document.createElement("button");
@@ -54,7 +54,7 @@ function buildButtons() {
     return;
   }
 
-  // Expanded view: show previous, current, next + finer buttons
+  // Expanded view: prev, current, next + finer buttons
   const prev = expandedIndex - 1;
   const curr = expandedIndex;
   const next = expandedIndex + 1;
@@ -94,7 +94,7 @@ function buildButtons() {
 
 function handleSpeedClick(index) {
   if (index === speedTable.length - 1) {
-    // Last button: just select it, no expansion
+    // Last button: select, no expansion
     expandedIndex = null;
     speedPixelsPerSecond = speedTable[index];
   } else if (expandedIndex === index) {
@@ -108,16 +108,15 @@ function handleSpeedClick(index) {
   buildButtons();
 }
 
-// --- Fine Speed Calculation ---
+// --- Fine Speed Calculation (0.2x steps) ---
 function generateFinerButtons(index) {
   const fineSpeeds = [];
   const currSpeed = speedTable[index];
   const nextSpeed = speedTable[index + 1];
 
-  // Exponential interpolation for fractional speeds
-  for (let i = 1; i < fractionalSteps; i++) {
-    const step = i / fractionalSteps; // 0.25, 0.5, 0.75
+  for (let step = fractionalStep; step < 1; step += fractionalStep) {
     const label = `${(index + 1 + step).toFixed(1)}x`;
+    // Exponential interpolation
     const interpolatedValue = currSpeed * Math.pow(nextSpeed / currSpeed, step);
     fineSpeeds.push({ label, value: interpolatedValue });
   }

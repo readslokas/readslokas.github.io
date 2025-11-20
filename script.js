@@ -1,17 +1,12 @@
 // --- Speed Table Setup ---
 
-const baseSpeed = 20;       // 1.2x = 20 px/s
-const growthFactor = 1.9;   // exponential growth for whole numbers
-const wholeLevels = 7;      // 1x to 7x
+const wholeSpeeds = [0.5, 20, 38, 72, 137, 260, 494]; 
+// 1x = 0.5, 2x = 20, 3x = 38, 4x = 72, 5x = 137, 6x = 260, 7x = 494
+// Adjusted so fractional steps are meaningful
+
 const fractionalStep = 0.2; // 0.2x increments for finer buttons
 
-let speedTable = [0.5]; // 1x = 0.5 px/s
-
-// Build whole-number speeds 1 → 7x
-for (let i = 1; i < wholeLevels; i++) {
-  let value = baseSpeed * Math.pow(growthFactor, i - 1);
-  speedTable.push(value);
-}
+let speedTable = [...wholeSpeeds]; // store only whole speeds
 
 // --- State ---
 let currentSpeedIndex = 0;
@@ -42,7 +37,6 @@ function buildButtons() {
   const controls = document.getElementById("controls");
   controls.innerHTML = "";
 
-  // Show all whole-number buttons if no expansion or last button
   if (expandedIndex === null || expandedIndex === speedTable.length - 1) {
     for (let i = 0; i < speedTable.length; i++) {
       const btn = document.createElement("button");
@@ -54,7 +48,6 @@ function buildButtons() {
     return;
   }
 
-  // Expanded view: prev, current, next + finer buttons
   const prev = expandedIndex - 1;
   const curr = expandedIndex;
   const next = expandedIndex + 1;
@@ -79,7 +72,7 @@ function buildButtons() {
       fineBtn.textContent = label;
       fineBtn.onclick = () => {
         speedPixelsPerSecond = value;
-        currentSpeedIndex = -1; // fractional
+        currentSpeedIndex = -1;
         highlightButton(fineBtn);
       };
       controls.appendChild(fineBtn);
@@ -94,11 +87,9 @@ function buildButtons() {
 
 function handleSpeedClick(index) {
   if (index === speedTable.length - 1) {
-    // Last button: select, no expansion
     expandedIndex = null;
     speedPixelsPerSecond = speedTable[index];
   } else if (expandedIndex === index) {
-    // Collapse if same button clicked
     expandedIndex = null;
   } else {
     expandedIndex = index;
@@ -114,10 +105,9 @@ function generateFinerButtons(index) {
   const currSpeed = speedTable[index];
   const nextSpeed = speedTable[index + 1];
 
-  for (let step = fractionalStep; step < 1; step += fractionalStep) {
+  for (let step = 0.2; step < 1; step += 0.2) {
     const label = `${(index + 1 + step).toFixed(1)}x`;
-    // Exponential interpolation
-    const interpolatedValue = currSpeed * Math.pow(nextSpeed / currSpeed, step);
+    const interpolatedValue = currSpeed + (nextSpeed - currSpeed) * step;
     fineSpeeds.push({ label, value: interpolatedValue });
   }
 
@@ -135,16 +125,10 @@ async function requestWakeLock() {
   try {
     if ('wakeLock' in navigator) {
       wakeLock = await navigator.wakeLock.request('screen');
-      console.log('Wake Lock is active');
-
-      wakeLock.addEventListener('release', () => {
-        console.log('Wake Lock was released');
-      });
-    } else {
-      console.warn('Wake Lock API not supported on this browser.');
+      wakeLock.addEventListener('release', () => {});
     }
   } catch (err) {
-    console.error(`${err.name}, ${err.message}`);
+    console.error(err);
   }
 }
 
@@ -158,5 +142,5 @@ document.addEventListener('visibilitychange', () => {
 window.onload = () => {
   buildButtons();
   startAutoScroll();
-  requestWakeLock(); // Prevent screen from sleeping
+  requestWakeLock();
 };

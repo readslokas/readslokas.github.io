@@ -63,7 +63,7 @@ function buildButtons() {
   controls.innerHTML = "";
 
   // Show major steps (1x, 2x, 3x, ..., 7x) initially
-  for (let i = 0; i < 7; i++) {  // Limit to 7 steps
+  for (let i = 0; i < 7; i++) {  // Limit to 7 steps (1x through 7x)
     const btn = document.createElement("button");
     btn.textContent = `${i + 1}x`;
     btn.onclick = () => handleMajorStepClick(i);
@@ -96,25 +96,27 @@ function buildExpandedButtons(index) {
   majorBtn.onclick = () => handleMajorStepClick(index);  // Collapse the view when clicked
   controls.appendChild(majorBtn);
 
-  // Show substeps (e.g., 1.2x, 1.4x, 1.6x, ...) and next major steps
-  const startStep = index * 5; // Each major step has 5 substeps (1.2x, 1.4x, etc.)
-  const substeps = [];
-  for (let i = 1; i < 5; i++) { // We have 4 substeps (e.g., 1.2x, 1.4x, etc.)
-    const substepIndex = startStep + i;
-    const substepLabel = `${(index + 1 + i * 0.2).toFixed(1)}x`;
-    substeps.push({ label: substepLabel, index: substepIndex });
+  // Show substeps (e.g., 1.2x, 1.4x, 1.6x, ...) for 1x to 6x, but not for 7x
+  if (index < 6) {
+    const startStep = index * 5; // Each major step has 5 substeps (1.2x, 1.4x, etc.)
+    const substeps = [];
+    for (let i = 1; i < 5; i++) { // We have 4 substeps (e.g., 1.2x, 1.4x, etc.)
+      const substepIndex = startStep + i;
+      const substepLabel = `${(index + 1 + i * 0.2).toFixed(1)}x`;
+      substeps.push({ label: substepLabel, index: substepIndex });
+    }
+
+    // Show substeps for 1x, 2x, 3x, ..., 6x
+    substeps.forEach(({ label, index }) => {
+      const substepBtn = document.createElement("button");
+      substepBtn.textContent = label;
+      substepBtn.onclick = () => handleSubstepClick(index);
+      if (index === currentSpeedIndex) substepBtn.classList.add("active");
+      controls.appendChild(substepBtn);
+    });
   }
 
-  // Show substeps and next major steps
-  substeps.forEach(({ label, index }) => {
-    const substepBtn = document.createElement("button");
-    substepBtn.textContent = label;
-    substepBtn.onclick = () => handleSubstepClick(index);
-    if (index === currentSpeedIndex) substepBtn.classList.add("active");
-    controls.appendChild(substepBtn);
-  });
-
-  // Show the next major step after the substeps
+  // Show the next major step after the substeps (but not for 7x)
   if (index + 1 < 7) {
     const nextMajorStepBtn = document.createElement("button");
     nextMajorStepBtn.textContent = `${index + 2}x`;

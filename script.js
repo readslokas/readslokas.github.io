@@ -125,19 +125,20 @@ function handleSubstepClick(index) {
   // Select the substep speed
   speedPixelsPerSecond = speedTable[index];
   currentSpeedIndex = index;
+  
   // Update the active button to reflect the selected substep
-  highlightActiveButton(index);
+  highlightActiveButton();
 }
 
-function highlightActiveButton(index) {
-  // First, remove "active" class from all buttons
+function highlightActiveButton() {
+  // Remove the "active" class from all buttons
   const allButtons = document.querySelectorAll("#controls button");
   allButtons.forEach(btn => {
     btn.classList.remove("active");
   });
 
-  // Then, add the "active" class to the selected button
-  const selectedButton = document.querySelector(`#controls button:nth-child(${index + 1})`);
+  // Add the "active" class to the selected button
+  const selectedButton = document.querySelector(`#controls button:nth-child(${currentSpeedIndex + 1})`);
   if (selectedButton) {
     selectedButton.classList.add("active");
   }

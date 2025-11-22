@@ -1,12 +1,38 @@
-// --- Speed Table Setup ---
+// --- Speed Table Setup (HARD-CODED WITH MATCHING LABELS) ---
 
-let speedTable = [0.5]; // 1x = 0.5
-
-const baseSpeed = 20;       // 1.2x = 20 px/s
-const growthFactor = 1.9;   // adjust curve steepness
-const levels = 6;           // number of whole-number multipliers after 1.2x
-
-// --- Speed Table Setup (HARD-CODED) ---
+let speedLabels = [
+  "1.0x",
+  "1.2x",
+  "1.4x",
+  "1.6x",
+  "1.8x",
+  "2.0x",
+  "2.2x",
+  "2.4x",
+  "2.6x",
+  "2.8x",
+  "3.0x",
+  "3.2x",
+  "3.4x",
+  "3.6x",
+  "3.8x",
+  "4.0x",
+  "4.2x",
+  "4.4x",
+  "4.6x",
+  "4.8x",
+  "5.0x",
+  "5.2x",
+  "5.4x",
+  "5.6x",
+  "5.8x",
+  "6.0x",
+  "6.2x",
+  "6.4x",
+  "6.6x",
+  "6.8x",
+  "7.0x"
+];
 
 let speedTable = [
   0.5,   // 1.0x
@@ -42,7 +68,6 @@ let speedTable = [
   252    // 7.0x
 ];
 
-
 // --- State ---
 
 let currentSpeedIndex = 0;
@@ -77,30 +102,29 @@ function buildButtons() {
 
   // Special case: last index (7x) should never collapse
   if (expandedIndex === null || expandedIndex === speedTable.length - 1) {
-    for (let i = 0; i < speedTable.length; i++) {
-      const btn = document.createElement("button");
-      btn.textContent = `${i + 1}x`;
-      btn.onclick = () => handleSpeedClick(i);
-      if (i === currentSpeedIndex) btn.classList.add("active");
-      controls.appendChild(btn);
-    }
-    return;
+     for (let i = 0; i < speedTable.length; i++) {
+       const btn = document.createElement("button");
+       btn.textContent = speedLabels[i];
+       btn.onclick = () => handleSpeedClick(i);
+       if (i === currentSpeedIndex) btn.classList.add("active");
+       controls.appendChild(btn);
+     }
+     return;
   }
 
-  // Expanded view for non-last buttons
   const prev = expandedIndex - 1;
   const curr = expandedIndex;
   const next = expandedIndex + 1;
 
   if (prev >= 0) {
     const btnPrev = document.createElement("button");
-    btnPrev.textContent = `${prev + 1}x`;
+    btnPrev.textContent = speedLabels[prev];
     btnPrev.onclick = () => handleSpeedClick(prev);
     controls.appendChild(btnPrev);
   }
 
   const btnCurr = document.createElement("button");
-  btnCurr.textContent = `${curr + 1}x`;
+  btnCurr.textContent = speedLabels[curr];
   btnCurr.classList.add("active");
   btnCurr.onclick = () => handleSpeedClick(curr);
   controls.appendChild(btnCurr);
@@ -119,7 +143,7 @@ function buildButtons() {
     });
 
     const btnNext = document.createElement("button");
-    btnNext.textContent = `${next + 1}x`;
+    btnNext.textContent = speedLabels[next];
     btnNext.onclick = () => handleSpeedClick(next);
     controls.appendChild(btnNext);
   }
@@ -127,7 +151,6 @@ function buildButtons() {
 
 function handleSpeedClick(index) {
   if (index === speedTable.length - 1) {
-    // Last button: just select it, no expansion
     expandedIndex = null;
     speedPixelsPerSecond = speedTable[index];
   } else if (expandedIndex === index) {
@@ -140,7 +163,7 @@ function handleSpeedClick(index) {
   buildButtons();
 }
 
-// --- Fine Speed Calculation (fixed with interpolation) ---
+// --- Fine Speed Calculation (linear interpolation) ---
 
 function generateFinerButtons(index) {
   const fineSpeeds = [];
@@ -148,12 +171,11 @@ function generateFinerButtons(index) {
   const nextSpeed = speedTable[index + 1];
 
   for (let i = 1; i < 5; i++) {
-    const step = i * 0.2; // 0.2x increments
-    const xValue = index + 1 + step; // e.g. 3.2, 3.4, etc.
+    const step = i * 0.2; // 0.2 increments
+    const xValue = parseFloat(speedLabels[index]) + step; 
     const label = `${xValue.toFixed(1)}x`;
 
-    // Linear interpolation between current and next speed
-    const fraction = step; // 0.2, 0.4, 0.6, 0.8
+    const fraction = step;
     const interpolatedValue = currSpeed + (nextSpeed - currSpeed) * fraction;
 
     fineSpeeds.push({ label, value: interpolatedValue });
@@ -174,13 +196,7 @@ async function requestWakeLock() {
   try {
     if ('wakeLock' in navigator) {
       wakeLock = await navigator.wakeLock.request('screen');
-      console.log('Wake Lock is active');
-
-      wakeLock.addEventListener('release', () => {
-        console.log('Wake Lock was released');
-      });
-    } else {
-      console.warn('Wake Lock API not supported on this browser.');
+      wakeLock.addEventListener('release', () => {});
     }
   } catch (err) {
     console.error(`${err.name}, ${err.message}`);
@@ -198,5 +214,5 @@ document.addEventListener('visibilitychange', () => {
 window.onload = () => {
   buildButtons();
   startAutoScroll();
-  requestWakeLock(); // Prevent screen from sleeping
+  requestWakeLock();
 };

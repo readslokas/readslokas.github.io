@@ -1,36 +1,36 @@
 // --- Speed Table Setup ---
 let speedTable = [
-0.5,   // 1x (set explicitly to 0.5)
-20,    // 1.2x	
-28,    // 1.4x	
-36,    // 1.6x	
-44,    // 1.8x	
-52,   // 2.0x	
-60,   // 2.2x	
-68,   // 2.4x	
-76,   // 2.6x	
-84,   // 2.8x	
-92,   // 3.0x	
-100,   // 3.2x	
-108,   // 3.4x	
-116,   // 3.6x	
-124,   // 3.8x	
-132,   // 4.0x	
-140,   // 4.2x	
-148,   // 4.4x	
-156,   // 4.6x	
-164,   // 4.8x	
-172,   // 5.0x	
-180,   // 5.2x	
-188,   // 5.4x	
-196,   // 5.6x	
-204,   // 5.8x	
-212,   // 6.0x	
-220,   // 6.2x	
-228,   // 6.4x	
-236,   // 6.6x	
-244,   // 6.8x	
-252    // 7.0x
+  0.5,   // 1x (set explicitly to 0.5)
+  20,    // 1.2x	
+  28,    // 1.4x	
+  36,    // 1.6x	
+  44,    // 1.8x	
+  52,    // 2.0x	
+  60,    // 2.2x	
+  68,    // 2.4x	
+  76,    // 2.6x	
+  84,    // 2.8x	
+  92,    // 3.0x	
+  100,   // 3.2x	
+  108,   // 3.4x	
+  116,   // 3.6x	
+  124,   // 3.8x	
+  132,   // 4.0x	
+  140,   // 4.2x	
+  148,   // 4.4x	
+  156,   // 4.6x	
+  164,   // 4.8x	
+  172,   // 5.0x	
+  180,   // 5.2x	
+  188,   // 5.4x	
+  196,   // 5.6x	
+  204,   // 5.8x	
+  212,   // 6.0x	
+  220,   // 6.2x	
+  228,   // 6.4x	
+  236,   // 6.6x	
+  244,   // 6.8x	
+  252    // 7.0x
 ];
 
 // --- State ---
@@ -139,8 +139,8 @@ function highlightActiveButton() {
     btn.classList.remove("active");
   });
 
-  // Add the "active" class to the selected button
-  const selectedButton = document.querySelector(`#controls button:nth-child(${currentSpeedIndex + 1})`);
+  // Find the button with the corresponding index and add the "active" class
+  const selectedButton = Array.from(allButtons).find((btn, index) => index === currentSpeedIndex);
   if (selectedButton) {
     selectedButton.classList.add("active");
   }

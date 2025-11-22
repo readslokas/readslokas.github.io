@@ -1,40 +1,41 @@
 // --- Speed Table Setup ---
 let speedTable = [
-  20,   // 1.2x
-  40,   // 1.4x
-  60,   // 1.6x
-  80,   // 1.8x
-  100,  // 2.0x
-  120,  // 2.2x
-  140,  // 2.4x
-  160,  // 2.6x
-  180,  // 2.8x
-  200,  // 3.0x
-  220,  // 3.2x
-  240,  // 3.4x
-  260,  // 3.6x
-  280,  // 3.8x
-  300,  // 4.0x
-  320,  // 4.2x
-  340,  // 4.4x
-  360,  // 4.6x
-  380,  // 4.8x
-  400,  // 5.0x
-  420,  // 5.2x
-  440,  // 5.4x
-  460,  // 5.6x
-  480,  // 5.8x
-  500,  // 6.0x
-  520,  // 6.2x
-  540,  // 6.4x
-  560,  // 6.6x
-  580,  // 6.8x
-  600   // 7.0x
+  0.5,   // 1x (set explicitly to 0.5)
+  20,    // 1.2x (no change to the others)
+  40,    // 1.4x
+  60,    // 1.6x
+  80,    // 1.8x
+  100,   // 2.0x
+  120,   // 2.2x
+  140,   // 2.4x
+  160,   // 2.6x
+  180,   // 2.8x
+  200,   // 3.0x
+  220,   // 3.2x
+  240,   // 3.4x
+  260,   // 3.6x
+  280,   // 3.8x
+  300,   // 4.0x
+  320,   // 4.2x
+  340,   // 4.4x
+  360,   // 4.6x
+  380,   // 4.8x
+  400,   // 5.0x
+  420,   // 5.2x
+  440,   // 5.4x
+  460,   // 5.6x
+  480,   // 5.8x
+  500,   // 6.0x
+  520,   // 6.2x
+  540,   // 6.4x
+  560,   // 6.6x
+  580,   // 6.8x
+  600    // 7.0x
 ];
 
 // --- State ---
 let currentSpeedIndex = 0;
-let speedPixelsPerSecond = speedTable[0];
+let speedPixelsPerSecond = speedTable[0]; // Initial speed is set to 0.5 (for 1x)
 let lastTimestamp = null;
 let animationFrameId = null;
 let expandedIndex = null;  // Tracks expanded major step

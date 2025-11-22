@@ -3,7 +3,7 @@
 let speedTable = [0.5]; // 1x = 0.5
 
 const baseSpeed = 20;        // 1.2x = 20 px/s
-const increment = 5;         // Increment per step (e.g., 5 px/s per multiplier)
+const increment = 25;         // Increment per step (e.g., 5 px/s per multiplier)
 const levels = 6;            // Number of whole-number multipliers after 1.2x (i.e., 1.2x, 2x, 3x, etc.)
 
 // Build incremental speeds

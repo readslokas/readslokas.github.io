@@ -3,44 +3,42 @@
 // ---------------------------------------------------------------------
 
 const speedTable = [
-0.5,   // 1.0x
-20,    // 1.2x
-24,   // 1.4x
-28,   // 1.6x
-32,   // 1.8x
-36,   // 2.0x
-40,   // 2.2x
-44,   // 2.4x
-48,   // 2.6x
-52,   // 2.8x
-56,   // 3.0x
-60,   // 3.2x
-64,   // 3.4x
-68,   // 3.6x
-72,   // 3.8x
-76,   // 4.0x
-80,   // 4.2x
-84,   // 4.4x
-88,   // 4.6x
-92,   // 4.8x
-96,   // 5.0x
-100,  // 5.2x
-104,  // 5.4x
-108,  // 5.6x
-112,  // 5.8x
-116,  // 6.0x
-120,  // 6.2x
-124,  // 6.4x
-128,  // 6.6x
-132,  // 6.8x
-136   // 7.0x
+  0.5,   // 1.0x
+  20,    // 1.2x
+  24,    // 1.4x
+  28,    // 1.6x
+  32,    // 1.8x
+  36,    // 2.0x
+  40,    // 2.2x
+  44,    // 2.4x
+  48,    // 2.6x
+  52,    // 2.8x
+  56,    // 3.0x
+  60,    // 3.2x
+  64,    // 3.4x
+  68,    // 3.6x
+  72,    // 3.8x
+  76,    // 4.0x
+  80,    // 4.2x
+  84,    // 4.4x
+  88,    // 4.6x
+  92,    // 4.8x
+  96,    // 5.0x
+  100,   // 5.2x
+  104,   // 5.4x
+  108,   // 5.6x
+  112,   // 5.8x
+  116,   // 6.0x
+  120,   // 6.2x
+  124,   // 6.4x
+  128,   // 6.6x
+  132,   // 6.8x
+  136    // 7.0x
 ];
 
-// maps main-button indexes (0-6) → corresponding speedTable index
+// Main button references
 const mainIndices = [0, 5, 10, 15, 20, 25, 30];
-
-// main button labels
-const mainLabels = ["1x", "2x", "3x", "4x", "5x", "6x", "7x"];
+const mainLabels  = ["1x", "2x", "3x", "4x", "5x", "6x", "7x"];
 
 // ---------------------------------------------------------------------
 
@@ -84,7 +82,9 @@ function buildButtons() {
   const controls = document.getElementById("controls");
   controls.innerHTML = "";
 
-  // COLLAPSED MODE (default)
+  // ----------------------------
+  // COLLAPSED MODE: show only 1x..7x
+  // ----------------------------
   if (expandedIndex === null) {
     mainLabels.forEach((label, idx) => {
       const btn = document.createElement("button");
@@ -96,11 +96,29 @@ function buildButtons() {
     return;
   }
 
+  // ----------------------------
   // EXPANDED MODE
+  // ----------------------------
+  const lastMain = mainIndices.length - 1;
+
+  // SPECIAL CASE: if user clicked 7x → show ALL main buttons
+  if (expandedIndex === lastMain) {
+    mainLabels.forEach((label, idx) => {
+      const btn = document.createElement("button");
+      btn.textContent = label;
+
+      if (idx === expandedIndex) btn.classList.add("active");
+
+      btn.onclick = () => handleMainClick(idx);
+      controls.appendChild(btn);
+    });
+    return;
+  }
+
   const prev = expandedIndex - 1;
   const next = expandedIndex + 1;
 
-  // left neighbor
+  // left neighbour
   if (prev >= 0) {
     const btnPrev = document.createElement("button");
     btnPrev.textContent = mainLabels[prev];
@@ -115,34 +133,29 @@ function buildButtons() {
   btnCurr.onclick = () => handleMainClick(expandedIndex);
   controls.appendChild(btnCurr);
 
-  // finer buttons between mainIndices[x] and mainIndices[x+1]
-  if (next < mainIndices.length) {
-    const fineButtons = generateFineButtons(expandedIndex);
-    fineButtons.forEach(({ label, value }) => {
-      const fineBtn = document.createElement("button");
-      fineBtn.textContent = label;
-      fineBtn.onclick = () => {
-        speedPixelsPerSecond = value;
-        highlightButton(fineBtn);
-        currentMainIndex = -1;
-      };
-      controls.appendChild(fineBtn);
-    });
+  // fine buttons (0.2 increments)
+  const fineButtons = generateFineButtons(expandedIndex);
+  fineButtons.forEach(({ label, value }) => {
+    const fineBtn = document.createElement("button");
+    fineBtn.textContent = label;
+    fineBtn.onclick = () => {
+      speedPixelsPerSecond = value;
+      highlightButton(fineBtn);
+      currentMainIndex = -1;
+    };
+    controls.appendChild(fineBtn);
+  });
 
-    // right neighbor
-    const btnNext = document.createElement("button");
-    btnNext.textContent = mainLabels[next];
-    btnNext.onclick = () => handleMainClick(next);
-    controls.appendChild(btnNext);
-  }
+  // right neighbour
+  const btnNext = document.createElement("button");
+  btnNext.textContent = mainLabels[next];
+  btnNext.onclick = () => handleMainClick(next);
+  controls.appendChild(btnNext);
 }
 
 function handleMainClick(idx) {
-  if (expandedIndex === idx) {
-    expandedIndex = null; // collapse
-  } else {
-    expandedIndex = idx;  // expand this button
-  }
+  // toggle expand/collapse
+  expandedIndex = expandedIndex === idx ? null : idx;
 
   currentMainIndex = idx;
   speedPixelsPerSecond = speedTable[mainIndices[idx]];
@@ -162,14 +175,15 @@ function generateFineButtons(mainIndex) {
   const currSpeed = speedTable[startIndex];
   const nextSpeed = speedTable[endIndex];
 
-  const startX = mainIndex + 1;       // 1x, 2x, 3x, etc.
+  const startX = mainIndex + 1;
+
   const fine = [];
 
   for (let i = 1; i <= 4; i++) {
     const x = startX + i * 0.2;
     const label = `${x.toFixed(1)}x`;
 
-    const fraction = i * 0.2; // 0.2, 0.4, 0.6, 0.8
+    const fraction = i * 0.2;
     const value = currSpeed + (nextSpeed - currSpeed) * fraction;
 
     fine.push({ label, value });

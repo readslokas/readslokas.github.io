@@ -1,40 +1,8 @@
-// --- Speed Table Setup (HARD-CODED WITH MATCHING LABELS) ---
+// ---------------------------------------------------------------------
+// HARD-CODED SPEED TABLE (all speeds 1.0 → 7.0 including 0.2 steps)
+// ---------------------------------------------------------------------
 
-let speedLabels = [
-  "1.0x",
-  "1.2x",
-  "1.4x",
-  "1.6x",
-  "1.8x",
-  "2.0x",
-  "2.2x",
-  "2.4x",
-  "2.6x",
-  "2.8x",
-  "3.0x",
-  "3.2x",
-  "3.4x",
-  "3.6x",
-  "3.8x",
-  "4.0x",
-  "4.2x",
-  "4.4x",
-  "4.6x",
-  "4.8x",
-  "5.0x",
-  "5.2x",
-  "5.4x",
-  "5.6x",
-  "5.8x",
-  "6.0x",
-  "6.2x",
-  "6.4x",
-  "6.6x",
-  "6.8x",
-  "7.0x"
-];
-
-let speedTable = [
+const speedTable = [
   0.5,   // 1.0x
   20,    // 1.2x
   28,    // 1.4x
@@ -68,23 +36,36 @@ let speedTable = [
   252    // 7.0x
 ];
 
-// --- State ---
+// maps main-button indexes (0-6) → corresponding speedTable index
+const mainIndices = [0, 5, 10, 15, 20, 25, 30];
 
-let currentSpeedIndex = 0;
-let speedPixelsPerSecond = speedTable[0];
+// main button labels
+const mainLabels = ["1x", "2x", "3x", "4x", "5x", "6x", "7x"];
+
+// ---------------------------------------------------------------------
+
+let currentMainIndex = 0;
+let speedPixelsPerSecond = speedTable[mainIndices[0]];
+let expandedIndex = null;
+
 let lastTimestamp = null;
 let animationFrameId = null;
-let expandedIndex = null;
 let wakeLock = null;
 
-// --- Scrolling ---
+
+// ---------------------------------------------------------------------
+// SCROLLING
+// ---------------------------------------------------------------------
 
 function smoothScroll(timestamp) {
   if (!lastTimestamp) lastTimestamp = timestamp;
+
   const deltaTime = (timestamp - lastTimestamp) / 1000;
   lastTimestamp = timestamp;
+
   const distance = speedPixelsPerSecond * deltaTime;
   window.scrollTo(0, window.scrollY + distance);
+
   animationFrameId = requestAnimationFrame(smoothScroll);
 }
 
@@ -94,95 +75,113 @@ function startAutoScroll() {
   animationFrameId = requestAnimationFrame(smoothScroll);
 }
 
-// --- UI Buttons ---
+
+// ---------------------------------------------------------------------
+// UI BUTTONS
+// ---------------------------------------------------------------------
 
 function buildButtons() {
   const controls = document.getElementById("controls");
   controls.innerHTML = "";
 
-  // Special case: last index (7x) should never collapse
-  if (expandedIndex === null || expandedIndex === speedTable.length - 1) {
-     for (let i = 0; i < speedTable.length; i++) {
-       const btn = document.createElement("button");
-       btn.textContent = speedLabels[i];
-       btn.onclick = () => handleSpeedClick(i);
-       if (i === currentSpeedIndex) btn.classList.add("active");
-       controls.appendChild(btn);
-     }
-     return;
+  // COLLAPSED MODE (default)
+  if (expandedIndex === null) {
+    mainLabels.forEach((label, idx) => {
+      const btn = document.createElement("button");
+      btn.textContent = label;
+      btn.onclick = () => handleMainClick(idx);
+      if (idx === currentMainIndex) btn.classList.add("active");
+      controls.appendChild(btn);
+    });
+    return;
   }
 
+  // EXPANDED MODE
   const prev = expandedIndex - 1;
-  const curr = expandedIndex;
   const next = expandedIndex + 1;
 
+  // left neighbor
   if (prev >= 0) {
     const btnPrev = document.createElement("button");
-    btnPrev.textContent = speedLabels[prev];
-    btnPrev.onclick = () => handleSpeedClick(prev);
+    btnPrev.textContent = mainLabels[prev];
+    btnPrev.onclick = () => handleMainClick(prev);
     controls.appendChild(btnPrev);
   }
 
+  // current main button
   const btnCurr = document.createElement("button");
-  btnCurr.textContent = speedLabels[curr];
+  btnCurr.textContent = mainLabels[expandedIndex];
   btnCurr.classList.add("active");
-  btnCurr.onclick = () => handleSpeedClick(curr);
+  btnCurr.onclick = () => handleMainClick(expandedIndex);
   controls.appendChild(btnCurr);
 
-  if (next < speedTable.length) {
-    const finerButtons = generateFinerButtons(curr);
-    finerButtons.forEach(({ label, value }) => {
+  // finer buttons between mainIndices[x] and mainIndices[x+1]
+  if (next < mainIndices.length) {
+    const fineButtons = generateFineButtons(expandedIndex);
+    fineButtons.forEach(({ label, value }) => {
       const fineBtn = document.createElement("button");
       fineBtn.textContent = label;
       fineBtn.onclick = () => {
         speedPixelsPerSecond = value;
-        currentSpeedIndex = -1;
         highlightButton(fineBtn);
+        currentMainIndex = -1;
       };
       controls.appendChild(fineBtn);
     });
 
+    // right neighbor
     const btnNext = document.createElement("button");
-    btnNext.textContent = speedLabels[next];
-    btnNext.onclick = () => handleSpeedClick(next);
+    btnNext.textContent = mainLabels[next];
+    btnNext.onclick = () => handleMainClick(next);
     controls.appendChild(btnNext);
   }
 }
 
-function handleSpeedClick(index) {
-  if (index === speedTable.length - 1) {
-    expandedIndex = null;
-    speedPixelsPerSecond = speedTable[index];
-  } else if (expandedIndex === index) {
-    expandedIndex = null;
+function handleMainClick(idx) {
+  if (expandedIndex === idx) {
+    expandedIndex = null; // collapse
   } else {
-    expandedIndex = index;
-    speedPixelsPerSecond = speedTable[index];
+    expandedIndex = idx;  // expand this button
   }
-  currentSpeedIndex = index;
+
+  currentMainIndex = idx;
+  speedPixelsPerSecond = speedTable[mainIndices[idx]];
+
   buildButtons();
 }
 
-// --- Fine Speed Calculation (linear interpolation) ---
 
-function generateFinerButtons(index) {
-  const fineSpeeds = [];
-  const currSpeed = speedTable[index];
-  const nextSpeed = speedTable[index + 1];
+// ---------------------------------------------------------------------
+// GENERATE 0.2 STEP BUTTONS
+// ---------------------------------------------------------------------
 
-  for (let i = 1; i < 5; i++) {
-    const step = i * 0.2; // 0.2 increments
-    const xValue = parseFloat(speedLabels[index]) + step; 
-    const label = `${xValue.toFixed(1)}x`;
+function generateFineButtons(mainIndex) {
+  const startIndex = mainIndices[mainIndex];
+  const endIndex = mainIndices[mainIndex + 1];
 
-    const fraction = step;
-    const interpolatedValue = currSpeed + (nextSpeed - currSpeed) * fraction;
+  const currSpeed = speedTable[startIndex];
+  const nextSpeed = speedTable[endIndex];
 
-    fineSpeeds.push({ label, value: interpolatedValue });
+  const startX = mainIndex + 1;       // 1x, 2x, 3x, etc.
+  const fine = [];
+
+  for (let i = 1; i <= 4; i++) {
+    const x = startX + i * 0.2;
+    const label = `${x.toFixed(1)}x`;
+
+    const fraction = i * 0.2; // 0.2, 0.4, 0.6, 0.8
+    const value = currSpeed + (nextSpeed - currSpeed) * fraction;
+
+    fine.push({ label, value });
   }
 
-  return fineSpeeds;
+  return fine;
 }
+
+
+// ---------------------------------------------------------------------
+// UI HIGHLIGHTING
+// ---------------------------------------------------------------------
 
 function highlightButton(activeBtn) {
   document.querySelectorAll("#controls button").forEach(btn => {
@@ -190,26 +189,31 @@ function highlightButton(activeBtn) {
   });
 }
 
-// --- Wake Lock ---
+
+// ---------------------------------------------------------------------
+// WAKE LOCK
+// ---------------------------------------------------------------------
 
 async function requestWakeLock() {
   try {
-    if ('wakeLock' in navigator) {
-      wakeLock = await navigator.wakeLock.request('screen');
-      wakeLock.addEventListener('release', () => {});
+    if ("wakeLock" in navigator) {
+      wakeLock = await navigator.wakeLock.request("screen");
     }
   } catch (err) {
-    console.error(`${err.name}, ${err.message}`);
+    console.error(err);
   }
 }
 
-document.addEventListener('visibilitychange', () => {
-  if (wakeLock !== null && document.visibilityState === 'visible') {
+document.addEventListener("visibilitychange", () => {
+  if (wakeLock && document.visibilityState === "visible") {
     requestWakeLock();
   }
 });
 
-// --- Init ---
+
+// ---------------------------------------------------------------------
+// INIT
+// ---------------------------------------------------------------------
 
 window.onload = () => {
   buildButtons();

@@ -1,17 +1,37 @@
 // --- Speed Table Setup ---
 
-let speedTable = [0.5]; // 1x = 0.5
-
-const baseSpeed = 20;        // 1.2x = 20 px/s
-const increment = 25;         // Increment per step (e.g., 5 px/s per multiplier)
-const levels = 6;            // Number of whole-number multipliers after 1.2x (i.e., 1.2x, 2x, 3x, etc.)
-
-// Build incremental speeds
-// Index 1 is 1.2x = 20, then each subsequent step increments by a fixed amount
-for (let i = 1; i <= levels; i++) {
-  let value = baseSpeed + (increment * i); // Incremental increase
-  speedTable.push(value);
-}
+let speedTable = [
+  20,   // 1.2x
+  40,   // 1.4x
+  60,   // 1.6x
+  80,   // 1.8x
+  100,  // 2.0x
+  120,  // 2.2x
+  140,  // 2.4x
+  160,  // 2.6x
+  180,  // 2.8x
+  200,  // 3.0x
+  220,  // 3.2x
+  240,  // 3.4x
+  260,  // 3.6x
+  280,  // 3.8x
+  300,  // 4.0x
+  320,  // 4.2x
+  340,  // 4.4x
+  360,  // 4.6x
+  380,  // 4.8x
+  400,  // 5.0x
+  420,  // 5.2x
+  440,  // 5.4x
+  460,  // 5.6x
+  480,  // 5.8x
+  500,  // 6.0x
+  520,  // 6.2x
+  540,  // 6.4x
+  560,  // 6.6x
+  580,  // 6.8x
+  600   // 7.0x
+];
 
 // --- State ---
 
@@ -49,7 +69,7 @@ function buildButtons() {
   if (expandedIndex === null || expandedIndex === speedTable.length - 1) {
     for (let i = 0; i < speedTable.length; i++) {
       const btn = document.createElement("button");
-      btn.textContent = `${i + 1}x`;
+      btn.textContent = `${(i + 1) * 0.2 + 1.0}x`;  // Display 1.2x, 1.4x, ..., 7.0x
       btn.onclick = () => handleSpeedClick(i);
       if (i === currentSpeedIndex) btn.classList.add("active");
       controls.appendChild(btn);
@@ -64,13 +84,13 @@ function buildButtons() {
 
   if (prev >= 0) {
     const btnPrev = document.createElement("button");
-    btnPrev.textContent = `${prev + 1}x`;
+    btnPrev.textContent = `${(prev + 1) * 0.2 + 1.0}x`;
     btnPrev.onclick = () => handleSpeedClick(prev);
     controls.appendChild(btnPrev);
   }
 
   const btnCurr = document.createElement("button");
-  btnCurr.textContent = `${curr + 1}x`;
+  btnCurr.textContent = `${(curr + 1) * 0.2 + 1.0}x`;
   btnCurr.classList.add("active");
   btnCurr.onclick = () => handleSpeedClick(curr);
   controls.appendChild(btnCurr);
@@ -89,7 +109,7 @@ function buildButtons() {
     });
 
     const btnNext = document.createElement("button");
-    btnNext.textContent = `${next + 1}x`;
+    btnNext.textContent = `${(next + 1) * 0.2 + 1.0}x`;
     btnNext.onclick = () => handleSpeedClick(next);
     controls.appendChild(btnNext);
   }

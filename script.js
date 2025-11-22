@@ -61,27 +61,26 @@ function buildButtons() {
   const controls = document.getElementById("controls");
   controls.innerHTML = "";
 
-  // Only show major steps (1x, 2x, 3x, etc.) initially
+  // Show major steps (1x, 2x, 3x, etc.) initially
   for (let i = 0; i < 7; i++) {
     const btn = document.createElement("button");
     btn.textContent = `${i + 1}x`;
-    btn.onclick = () => handleSpeedClick(i);
+    btn.onclick = () => handleMajorStepClick(i);
     if (i === currentSpeedIndex) btn.classList.add("active");
     controls.appendChild(btn);
   }
 }
 
-function handleSpeedClick(index) {
+function handleMajorStepClick(index) {
   if (expandedIndex === index) {
-    // Collapse: if the clicked index is already expanded, collapse it
-    expandedIndex = null;
-    buildButtons(); // Rebuild major buttons view
-  } else {
-    // Expand: show 0.2 steps between major steps
-    expandedIndex = index;
-    speedPixelsPerSecond = speedTable[index * 5]; // Start at the major step (1x, 2x, etc.)
-    buildExpandedButtons(index);
+    // If the selected major step is already expanded, do nothing
+    return;
   }
+
+  // Expand the selected major step to show the substeps
+  expandedIndex = index;
+  speedPixelsPerSecond = speedTable[index * 5]; // Start at the major step (1x, 2x, etc.)
+  buildExpandedButtons(index);
 }
 
 function buildExpandedButtons(index) {
@@ -92,12 +91,12 @@ function buildExpandedButtons(index) {
   const majorBtn = document.createElement("button");
   majorBtn.textContent = `${index + 1}x`;
   majorBtn.classList.add("active");
-  majorBtn.onclick = () => handleSpeedClick(index); // Collapse when clicked
+  majorBtn.onclick = () => handleMajorStepClick(index); // Do nothing, as it should not collapse now
   controls.appendChild(majorBtn);
 
   // Show substeps (e.g., 1.2x, 1.4x, 1.6x, ...)
   const startStep = index * 5; // Each major step has 5 substeps (1.2x, 1.4x, etc.)
-  for (let i = 1; i < 5; i++) { // We have 4 substeps (e.g., 1.2x, 1.4x, 1.6x, etc.)
+  for (let i = 1; i < 5; i++) { // We have 4 substeps (e.g., 1.2x, 1.4x, etc.)
     const substepIndex = startStep + i;
     const substepLabel = `${(index + 1 + i * 0.2).toFixed(1)}x`;
     const substepBtn = document.createElement("button");

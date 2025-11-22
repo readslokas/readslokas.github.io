@@ -95,15 +95,29 @@ function buildExpandedButtons(index) {
   majorBtn.onclick = () => handleMajorStepClick(index);  // Collapse the view when clicked
   controls.appendChild(majorBtn);
 
-  // Show substeps (e.g., 1.2x, 1.4x, 1.6x, ...) up to the last substep before the next major step
+  // Show substeps (e.g., 1.2x, 1.4x, 1.6x, ...) and next major steps
   const startStep = index * 5; // Each major step has 5 substeps (1.2x, 1.4x, etc.)
+  const substeps = [];
   for (let i = 1; i < 5; i++) { // We have 4 substeps (e.g., 1.2x, 1.4x, etc.)
     const substepIndex = startStep + i;
     const substepLabel = `${(index + 1 + i * 0.2).toFixed(1)}x`;
+    substeps.push({ label: substepLabel, index: substepIndex });
+  }
+
+  // Show substeps and next major steps
+  substeps.forEach(({ label, index }) => {
     const substepBtn = document.createElement("button");
-    substepBtn.textContent = substepLabel;
-    substepBtn.onclick = () => handleSubstepClick(substepIndex);
+    substepBtn.textContent = label;
+    substepBtn.onclick = () => handleSubstepClick(index);
     controls.appendChild(substepBtn);
+  });
+
+  // Show the next major step after the substeps
+  if (index + 1 < 7) {
+    const nextMajorStepBtn = document.createElement("button");
+    nextMajorStepBtn.textContent = `${index + 2}x`;
+    nextMajorStepBtn.onclick = () => handleMajorStepClick(index + 1);
+    controls.appendChild(nextMajorStepBtn);
   }
 }
 

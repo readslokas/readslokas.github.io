@@ -73,14 +73,15 @@ function buildButtons() {
 
 function handleMajorStepClick(index) {
   if (expandedIndex === index) {
-    // If the selected major step is already expanded, do nothing
-    return;
+    // If the selected major step is already expanded, collapse it
+    expandedIndex = null;
+    buildButtons();  // Rebuild major buttons view
+  } else {
+    // Expand the selected major step to show the substeps
+    expandedIndex = index;
+    speedPixelsPerSecond = speedTable[index * 5]; // Start at the major step (1x, 2x, etc.)
+    buildExpandedButtons(index);
   }
-
-  // Expand the selected major step to show the substeps
-  expandedIndex = index;
-  speedPixelsPerSecond = speedTable[index * 5]; // Start at the major step (1x, 2x, etc.)
-  buildExpandedButtons(index);
 }
 
 function buildExpandedButtons(index) {
@@ -91,7 +92,7 @@ function buildExpandedButtons(index) {
   const majorBtn = document.createElement("button");
   majorBtn.textContent = `${index + 1}x`;
   majorBtn.classList.add("active");
-  majorBtn.onclick = () => handleMajorStepClick(index); // Do nothing, as it should not collapse now
+  majorBtn.onclick = () => handleMajorStepClick(index);  // Collapse the view when clicked
   controls.appendChild(majorBtn);
 
   // Show substeps (e.g., 1.2x, 1.4x, 1.6x, ...)
@@ -107,9 +108,10 @@ function buildExpandedButtons(index) {
 }
 
 function handleSubstepClick(index) {
+  // Select the substep speed
   speedPixelsPerSecond = speedTable[index];
   currentSpeedIndex = index;
-  buildButtons(); // Rebuild the major buttons view after selecting substep
+  // Don't collapse, just keep the expanded view
 }
 
 // --- Wake Lock ---

@@ -1,5 +1,4 @@
 // --- Speed Table Setup ---
-
 let speedTable = [
   20,   // 1.2x
   40,   // 1.4x
@@ -34,16 +33,14 @@ let speedTable = [
 ];
 
 // --- State ---
-
 let currentSpeedIndex = 0;
 let speedPixelsPerSecond = speedTable[0];
 let lastTimestamp = null;
 let animationFrameId = null;
-let expandedIndex = null;
+let expandedIndex = null;  // Tracks expanded major step
 let wakeLock = null;
 
 // --- Scrolling ---
-
 function smoothScroll(timestamp) {
   if (!lastTimestamp) lastTimestamp = timestamp;
   const deltaTime = (timestamp - lastTimestamp) / 1000;
@@ -60,106 +57,63 @@ function startAutoScroll() {
 }
 
 // --- UI Buttons ---
-
 function buildButtons() {
   const controls = document.getElementById("controls");
   controls.innerHTML = "";
 
-  // Special case: last index (7x) should never collapse
-  if (expandedIndex === null || expandedIndex === speedTable.length - 1) {
-    for (let i = 0; i < speedTable.length; i++) {
-      const btn = document.createElement("button");
-      btn.textContent = `${(i + 1) * 0.2 + 1.0}x`;  // Display 1.2x, 1.4x, ..., 7.0x
-      btn.onclick = () => handleSpeedClick(i);
-      if (i === currentSpeedIndex) btn.classList.add("active");
-      controls.appendChild(btn);
-    }
-    return;
-  }
-
-  // Expanded view for non-last buttons
-  const prev = expandedIndex - 1;
-  const curr = expandedIndex;
-  const next = expandedIndex + 1;
-
-  if (prev >= 0) {
-    const btnPrev = document.createElement("button");
-    btnPrev.textContent = `${(prev + 1) * 0.2 + 1.0}x`;
-    btnPrev.onclick = () => handleSpeedClick(prev);
-    controls.appendChild(btnPrev);
-  }
-
-  const btnCurr = document.createElement("button");
-  btnCurr.textContent = `${(curr + 1) * 0.2 + 1.0}x`;
-  btnCurr.classList.add("active");
-  btnCurr.onclick = () => handleSpeedClick(curr);
-  controls.appendChild(btnCurr);
-
-  if (next < speedTable.length) {
-    const finerButtons = generateFinerButtons(curr);
-    finerButtons.forEach(({ label, value }) => {
-      const fineBtn = document.createElement("button");
-      fineBtn.textContent = label;
-      fineBtn.onclick = () => {
-        speedPixelsPerSecond = value;
-        currentSpeedIndex = -1;
-        highlightButton(fineBtn);
-      };
-      controls.appendChild(fineBtn);
-    });
-
-    const btnNext = document.createElement("button");
-    btnNext.textContent = `${(next + 1) * 0.2 + 1.0}x`;
-    btnNext.onclick = () => handleSpeedClick(next);
-    controls.appendChild(btnNext);
+  // Only show major steps (1x, 2x, 3x, etc.) initially
+  for (let i = 0; i < 7; i++) {
+    const btn = document.createElement("button");
+    btn.textContent = `${i + 1}x`;
+    btn.onclick = () => handleSpeedClick(i);
+    if (i === currentSpeedIndex) btn.classList.add("active");
+    controls.appendChild(btn);
   }
 }
 
 function handleSpeedClick(index) {
-  if (index === speedTable.length - 1) {
-    // Last button: just select it, no expansion
+  if (expandedIndex === index) {
+    // Collapse: if the clicked index is already expanded, collapse it
     expandedIndex = null;
-    speedPixelsPerSecond = speedTable[index];
-  } else if (expandedIndex === index) {
-    expandedIndex = null;
+    buildButtons(); // Rebuild major buttons view
   } else {
+    // Expand: show 0.2 steps between major steps
     expandedIndex = index;
-    speedPixelsPerSecond = speedTable[index];
+    speedPixelsPerSecond = speedTable[index * 5]; // Start at the major step (1x, 2x, etc.)
+    buildExpandedButtons(index);
   }
+}
+
+function buildExpandedButtons(index) {
+  const controls = document.getElementById("controls");
+  controls.innerHTML = "";
+
+  // Show major step button (e.g., 1x, 2x, 3x, etc.)
+  const majorBtn = document.createElement("button");
+  majorBtn.textContent = `${index + 1}x`;
+  majorBtn.classList.add("active");
+  majorBtn.onclick = () => handleSpeedClick(index); // Collapse when clicked
+  controls.appendChild(majorBtn);
+
+  // Show substeps (e.g., 1.2x, 1.4x, 1.6x, ...)
+  const startStep = index * 5; // Each major step has 5 substeps (1.2x, 1.4x, etc.)
+  for (let i = 1; i < 5; i++) { // We have 4 substeps (e.g., 1.2x, 1.4x, 1.6x, etc.)
+    const substepIndex = startStep + i;
+    const substepLabel = `${(index + 1 + i * 0.2).toFixed(1)}x`;
+    const substepBtn = document.createElement("button");
+    substepBtn.textContent = substepLabel;
+    substepBtn.onclick = () => handleSubstepClick(substepIndex);
+    controls.appendChild(substepBtn);
+  }
+}
+
+function handleSubstepClick(index) {
+  speedPixelsPerSecond = speedTable[index];
   currentSpeedIndex = index;
-  buildButtons();
-}
-
-// --- Fine Speed Calculation (fixed with interpolation) ---
-
-function generateFinerButtons(index) {
-  const fineSpeeds = [];
-  const currSpeed = speedTable[index];
-  const nextSpeed = speedTable[index + 1];
-
-  for (let i = 1; i < 5; i++) {
-    const step = i * 0.2; // 0.2x increments
-    const xValue = index + 1 + step; // e.g. 3.2, 3.4, etc.
-    const label = `${xValue.toFixed(1)}x`;
-
-    // Linear interpolation between current and next speed
-    const fraction = step; // 0.2, 0.4, 0.6, 0.8
-    const interpolatedValue = currSpeed + (nextSpeed - currSpeed) * fraction;
-
-    fineSpeeds.push({ label, value: interpolatedValue });
-  }
-
-  return fineSpeeds;
-}
-
-function highlightButton(activeBtn) {
-  document.querySelectorAll("#controls button").forEach(btn => {
-    btn.classList.toggle("active", btn === activeBtn);
-  });
+  buildButtons(); // Rebuild the major buttons view after selecting substep
 }
 
 // --- Wake Lock ---
-
 async function requestWakeLock() {
   try {
     if ('wakeLock' in navigator) {
@@ -184,7 +138,6 @@ document.addEventListener('visibilitychange', () => {
 });
 
 // --- Init ---
-
 window.onload = () => {
   buildButtons();
   startAutoScroll();

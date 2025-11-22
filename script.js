@@ -62,8 +62,8 @@ function buildButtons() {
   const controls = document.getElementById("controls");
   controls.innerHTML = "";
 
-  // Show major steps (1x, 2x, 3x, ..., 7x) initially
-  for (let i = 0; i < 7; i++) {  // Limit to 7 steps
+  // Show only 7 major steps (1x, 2x, 3x, ..., 7x)
+  for (let i = 0; i < 7; i++) {  // Limit to 7 major steps (1x - 7x)
     const btn = document.createElement("button");
     btn.textContent = `${i + 1}x`;
     btn.onclick = () => handleMajorStepClick(i);
@@ -105,7 +105,7 @@ function buildExpandedButtons(index) {
     substeps.push({ label: substepLabel, index: substepIndex });
   }
 
-  // Show substeps and next major steps
+  // Show substeps
   substeps.forEach(({ label, index }) => {
     const substepBtn = document.createElement("button");
     substepBtn.textContent = label;

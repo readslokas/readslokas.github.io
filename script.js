@@ -1,47 +1,29 @@
 // --- Speed Table Setup ---
-let speedTable = [
-  0.5,    // 1x
-  20,     // 1.2x
-  28,     // 1.4x
-  36,     // 1.6x
-  44,     // 1.8x
-  52,     // 2.0x
-  60,     // 2.2x
-  68,     // 2.4x
-  76,     // 2.6x
-  84,     // 2.8x
-  92,     // 3.0x
-  100,    // 3.2x
-  108,    // 3.4x
-  116,    // 3.6x
-  124,    // 3.8x
-  132,    // 4.0x
-  140,    // 4.2x
-  148,    // 4.4x
-  156,    // 4.6x
-  164,    // 4.8x
-  172,    // 5.0x
-  180,    // 5.2x
-  188,    // 5.4x
-  196,    // 5.6x
-  204,    // 5.8x
-  212,    // 6.0x
-  220,    // 6.2x
-  228,    // 6.4x
-  236,    // 6.6x
-  244,    // 6.8x
-  252     // 7.0x
-];
+
+let speedTable = [0.5]; // 1x = 0.5
+
+const baseSpeed = 20;       // 1.2x = 20 px/s
+const growthFactor = 1.9;   // adjust curve steepness
+const levels = 6;           // number of whole-number multipliers after 1.2x
+
+// Build whole-number speeds
+// Index 1 is 1.2x = 20, then 2x, 3x, etc. via exponential growth
+for (let i = 0; i < levels; i++) {
+  let value = baseSpeed * Math.pow(growthFactor, i);
+  speedTable.push(value);
+}
 
 // --- State ---
+
 let currentSpeedIndex = 0;
-let speedPixelsPerSecond = speedTable[0]; // Initial speed is set to 0.5 (for 1x)
+let speedPixelsPerSecond = speedTable[0];
 let lastTimestamp = null;
 let animationFrameId = null;
-let expandedIndex = null;  // Tracks expanded major step
+let expandedIndex = null;
 let wakeLock = null;
 
 // --- Scrolling ---
+
 function smoothScroll(timestamp) {
   if (!lastTimestamp) lastTimestamp = timestamp;
   const deltaTime = (timestamp - lastTimestamp) / 1000;
@@ -58,95 +40,106 @@ function startAutoScroll() {
 }
 
 // --- UI Buttons ---
+
 function buildButtons() {
   const controls = document.getElementById("controls");
   controls.innerHTML = "";
 
-  // Show only 7 major steps (1x, 2x, 3x, ..., 7x)
-  for (let i = 0; i < 7; i++) {  // Limit to 7 major steps (1x - 7x)
-    const btn = document.createElement("button");
-    btn.textContent = `${i + 1}x`;
-    btn.onclick = () => handleMajorStepClick(i);
-    if (i === currentSpeedIndex) btn.classList.add("active");
-    controls.appendChild(btn);
+  // Special case: last index (7x) should never collapse
+  if (expandedIndex === null || expandedIndex === speedTable.length - 1) {
+    for (let i = 0; i < speedTable.length; i++) {
+      const btn = document.createElement("button");
+      btn.textContent = `${i + 1}x`;
+      btn.onclick = () => handleSpeedClick(i);
+      if (i === currentSpeedIndex) btn.classList.add("active");
+      controls.appendChild(btn);
+    }
+    return;
+  }
+
+  // Expanded view for non-last buttons
+  const prev = expandedIndex - 1;
+  const curr = expandedIndex;
+  const next = expandedIndex + 1;
+
+  if (prev >= 0) {
+    const btnPrev = document.createElement("button");
+    btnPrev.textContent = `${prev + 1}x`;
+    btnPrev.onclick = () => handleSpeedClick(prev);
+    controls.appendChild(btnPrev);
+  }
+
+  const btnCurr = document.createElement("button");
+  btnCurr.textContent = `${curr + 1}x`;
+  btnCurr.classList.add("active");
+  btnCurr.onclick = () => handleSpeedClick(curr);
+  controls.appendChild(btnCurr);
+
+  if (next < speedTable.length) {
+    const finerButtons = generateFinerButtons(curr);
+    finerButtons.forEach(({ label, value }) => {
+      const fineBtn = document.createElement("button");
+      fineBtn.textContent = label;
+      fineBtn.onclick = () => {
+        speedPixelsPerSecond = value;
+        currentSpeedIndex = -1;
+        highlightButton(fineBtn);
+      };
+      controls.appendChild(fineBtn);
+    });
+
+    const btnNext = document.createElement("button");
+    btnNext.textContent = `${next + 1}x`;
+    btnNext.onclick = () => handleSpeedClick(next);
+    controls.appendChild(btnNext);
   }
 }
 
-function handleMajorStepClick(index) {
-  if (expandedIndex === index) {
-    // If the selected major step is already expanded, collapse it
+function handleSpeedClick(index) {
+  if (index === speedTable.length - 1) {
+    // Last button: just select it, no expansion
     expandedIndex = null;
-    buildButtons();  // Rebuild major buttons view
+    speedPixelsPerSecond = speedTable[index];
+  } else if (expandedIndex === index) {
+    expandedIndex = null;
   } else {
-    // Expand the selected major step to show the substeps
     expandedIndex = index;
-    speedPixelsPerSecond = speedTable[index * 5]; // Start at the major step (1x, 2x, etc.)
-    buildExpandedButtons(index);
+    speedPixelsPerSecond = speedTable[index];
   }
-}
-
-function buildExpandedButtons(index) {
-  const controls = document.getElementById("controls");
-  controls.innerHTML = "";
-
-  // Show major step button (e.g., 1x, 2x, 3x, etc.)
-  const majorBtn = document.createElement("button");
-  majorBtn.textContent = `${index + 1}x`;
-  majorBtn.classList.add("active");
-  majorBtn.onclick = () => handleMajorStepClick(index);  // Collapse the view when clicked
-  controls.appendChild(majorBtn);
-
-  // Show substeps (e.g., 1.2x, 1.4x, 1.6x, ...) and next major steps
-  const startStep = index * 5; // Each major step has 5 substeps (1.2x, 1.4x, etc.)
-  const substeps = [];
-  for (let i = 1; i < 5; i++) { // We have 4 substeps (e.g., 1.2x, 1.4x, etc.)
-    const substepIndex = startStep + i;
-    const substepLabel = `${(index + 1 + i * 0.2).toFixed(1)}x`;
-    substeps.push({ label: substepLabel, index: substepIndex });
-  }
-
-  // Show substeps
-  substeps.forEach(({ label, index }) => {
-    const substepBtn = document.createElement("button");
-    substepBtn.textContent = label;
-    substepBtn.onclick = () => handleSubstepClick(index);
-    if (index === currentSpeedIndex) substepBtn.classList.add("active");
-    controls.appendChild(substepBtn);
-  });
-
-  // Show the next major step after the substeps
-  if (index + 1 < 7) {
-    const nextMajorStepBtn = document.createElement("button");
-    nextMajorStepBtn.textContent = `${index + 2}x`;
-    nextMajorStepBtn.onclick = () => handleMajorStepClick(index + 1);
-    controls.appendChild(nextMajorStepBtn);
-  }
-}
-
-function handleSubstepClick(index) {
-  // Select the substep speed
-  speedPixelsPerSecond = speedTable[index];
   currentSpeedIndex = index;
-  
-  // Update the active button to reflect the selected substep
-  highlightActiveButton();
+  buildButtons();
 }
 
-function highlightActiveButton() {
-  // Remove the "active" class from all buttons
-  const allButtons = document.querySelectorAll("#controls button");
-  allButtons.forEach(btn => {
-    btn.classList.remove("active");
-  });
+// --- Fine Speed Calculation (fixed with interpolation) ---
 
-  // Add the "active" class to the selected button
-  const selectedButton = document.querySelector(`#controls button:nth-child(${currentSpeedIndex + 1})`);
-  if (selectedButton) {
-    selectedButton.classList.add("active");
+function generateFinerButtons(index) {
+  const fineSpeeds = [];
+  const currSpeed = speedTable[index];
+  const nextSpeed = speedTable[index + 1];
+
+  for (let i = 1; i < 5; i++) {
+    const step = i * 0.2; // 0.2x increments
+    const xValue = index + 1 + step; // e.g. 3.2, 3.4, etc.
+    const label = `${xValue.toFixed(1)}x`;
+
+    // Linear interpolation between current and next speed
+    const fraction = step; // 0.2, 0.4, 0.6, 0.8
+    const interpolatedValue = currSpeed + (nextSpeed - currSpeed) * fraction;
+
+    fineSpeeds.push({ label, value: interpolatedValue });
   }
+
+  return fineSpeeds;
+}
+
+function highlightButton(activeBtn) {
+  document.querySelectorAll("#controls button").forEach(btn => {
+    btn.classList.toggle("active", btn === activeBtn);
+  });
 }
 
 // --- Wake Lock ---
+
 async function requestWakeLock() {
   try {
     if ('wakeLock' in navigator) {
@@ -171,6 +164,7 @@ document.addEventListener('visibilitychange', () => {
 });
 
 // --- Init ---
+
 window.onload = () => {
   buildButtons();
   startAutoScroll();

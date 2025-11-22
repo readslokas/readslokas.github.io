@@ -1,7 +1,7 @@
 // --- Speed Table Setup ---
 let speedTable = [
   0.5,   // 1x (set explicitly to 0.5)
-  20,    // 1.2x (no change to the others)
+  20,    // 1.2x
   40,    // 1.4x
   60,    // 1.6x
   80,    // 1.8x
@@ -110,6 +110,7 @@ function buildExpandedButtons(index) {
     const substepBtn = document.createElement("button");
     substepBtn.textContent = label;
     substepBtn.onclick = () => handleSubstepClick(index);
+    if (index === currentSpeedIndex) substepBtn.classList.add("active");
     controls.appendChild(substepBtn);
   });
 

@@ -4,36 +4,36 @@
 
 const speedTable = [
   0.5,   // 1.0x
-  32,   // 1.2x
-  36,   // 1.4x
-  40,   // 1.6x
-  44,   // 1.8x
-  46,   // 2.0x
-  48,   // 2.2x
-  50,   // 2.4x
-  52,   // 2.6x
-  54,   // 2.8x
-  56,   // 3.0x
-  58,   // 3.2x
-  60,   // 3.4x
-  62,   // 3.6x
-  64,   // 3.8x
-  66,   // 4.0x
-  68,   // 4.2x
-  70,   // 4.4x
-  72,   // 4.6x
-  74,   // 4.8x
-  78,   // 5.0x
-  80,   // 5.2x
-  81,   // 5.4x
-  82,   // 5.6x
-  83,   // 5.8x
-  84,   // 6.0x
-  85,   // 6.2x
-  86,   // 6.4x
-  87,   // 6.6x
-  88,   // 6.8x
-  90    // 7.0x
+  26,    // 1.2x
+  28,    // 1.4x
+  30,    // 1.6x
+  32,    // 1.8x
+  36,    // 2.0x
+  40,    // 2.2x
+  44,    // 2.4x
+  46,    // 2.6x
+  48,    // 2.8x
+  50,    // 3.0x
+  52,    // 3.2x
+  54,    // 3.4x
+  56,    // 3.6x
+  58,    // 3.8x
+  60,    // 4.0x
+  62,    // 4.2x
+  64,    // 4.4x
+  66,    // 4.6x
+  68,    // 4.8x
+  70,    // 5.0x
+  72,    // 5.2x
+  74,    // 5.4x
+  78,    // 5.6x
+  80,    // 5.8x
+  81,    // 6.0x
+  82,    // 6.2x
+  83,    // 6.4x
+  84,    // 6.6x
+  85,    // 6.8x
+  86,    // 7.0x
 ];
 
 // Main button references
@@ -50,9 +50,12 @@ let lastTimestamp = null;
 let animationFrameId = null;
 let wakeLock = null;
 
+// ✅ NEW: accumulator to preserve fractional pixels
+let scrollAccumulator = 0;
+
 
 // ---------------------------------------------------------------------
-// SCROLLING
+// SCROLLING (FIXED — smooth at low speeds)
 // ---------------------------------------------------------------------
 
 function smoothScroll(timestamp) {
@@ -61,8 +64,13 @@ function smoothScroll(timestamp) {
   const deltaTime = (timestamp - lastTimestamp) / 1000;
   lastTimestamp = timestamp;
 
-  const distance = speedPixelsPerSecond * deltaTime;
-  window.scrollTo(0, window.scrollY + distance);
+  scrollAccumulator += speedPixelsPerSecond * deltaTime;
+
+  const wholePixels = Math.floor(scrollAccumulator);
+  if (wholePixels !== 0) {
+    window.scrollBy(0, wholePixels);
+    scrollAccumulator -= wholePixels;
+  }
 
   animationFrameId = requestAnimationFrame(smoothScroll);
 }
@@ -70,6 +78,7 @@ function smoothScroll(timestamp) {
 function startAutoScroll() {
   cancelAnimationFrame(animationFrameId);
   lastTimestamp = null;
+  scrollAccumulator = 0;
   animationFrameId = requestAnimationFrame(smoothScroll);
 }
 
@@ -140,8 +149,9 @@ function buildButtons() {
     fineBtn.textContent = label;
     fineBtn.onclick = () => {
       speedPixelsPerSecond = value;
-      highlightButton(fineBtn);
       currentMainIndex = -1;
+      highlightButton(fineBtn);
+      scrollAccumulator = 0;
     };
     controls.appendChild(fineBtn);
   });
@@ -159,6 +169,7 @@ function handleMainClick(idx) {
 
   currentMainIndex = idx;
   speedPixelsPerSecond = speedTable[mainIndices[idx]];
+  scrollAccumulator = 0;
 
   buildButtons();
 }
@@ -176,7 +187,6 @@ function generateFineButtons(mainIndex) {
   const nextSpeed = speedTable[endIndex];
 
   const startX = mainIndex + 1;
-
   const fine = [];
 
   for (let i = 1; i <= 4; i++) {

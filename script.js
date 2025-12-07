@@ -1,24 +1,13 @@
-// -------------------------------------------------
-// SPEED SETUP
-// -------------------------------------------------
-
 const speedTable = [
-  0.5, 26, 28, 30, 32,
-  36, 40, 44, 46, 48,
-  50, 52, 54, 56, 58,
-  60, 62, 64, 66, 68,
-  70, 72, 74, 78, 80,
-  81, 82, 83, 84, 85, 86
+  0.5, 26, 28, 30, 32, 36, 40, 44, 46, 48,
+  50, 52, 54, 56, 58, 60, 62, 64, 66, 68,
+  70, 72, 74, 78, 80, 81, 82, 83, 84, 85, 86
 ];
 
 const mainIndices = [0, 5, 10, 15, 20, 25, 30];
 const mainLabels  = ["1x","2x","3x","4x","5x","6x","7x"];
 
 const controls = document.getElementById("controls");
-
-// -------------------------------------------------
-// STATE
-// -------------------------------------------------
 
 let currentMain = 0;
 let expanded = null;
@@ -28,10 +17,6 @@ let lastTime = null;
 let rafId = null;
 let accumulator = 0;
 let wakeLock = null;
-
-// -------------------------------------------------
-// SCROLLING
-// -------------------------------------------------
 
 function scrollLoop(t) {
   if (!lastTime) lastTime = t;
@@ -57,10 +42,6 @@ function startScroll() {
   rafId = requestAnimationFrame(scrollLoop);
 }
 
-// -------------------------------------------------
-// UI HELPERS
-// -------------------------------------------------
-
 function makeButton(text, onClick, active = false) {
   const btn = document.createElement("button");
   btn.textContent = text;
@@ -75,10 +56,6 @@ function setSpeedFromMain(idx) {
   accumulator = 0;
 }
 
-// -------------------------------------------------
-// UI BUILD
-// -------------------------------------------------
-
 function buildButtons() {
   controls.innerHTML = "";
 
@@ -92,7 +69,6 @@ function buildButtons() {
     return;
   }
 
-  // 7x expanded → show all mains
   if (expanded === mainLabels.length - 1) {
     mainLabels.forEach((l, i) =>
       controls.appendChild(
@@ -152,18 +128,10 @@ function generateFineButtons(mainIdx) {
   }));
 }
 
-// -------------------------------------------------
-// HIGHLIGHT
-// -------------------------------------------------
-
 function highlight(activeBtn) {
   document.querySelectorAll("#controls button")
     .forEach(b => b.classList.toggle("active", b === activeBtn));
 }
-
-// -------------------------------------------------
-// WAKE LOCK
-// -------------------------------------------------
 
 async function requestWakeLock() {
   if (!("wakeLock" in navigator)) return;
@@ -175,10 +143,6 @@ async function requestWakeLock() {
 document.addEventListener("visibilitychange", () => {
   if (wakeLock && document.visibilityState === "visible") requestWakeLock();
 });
-
-// -------------------------------------------------
-// INIT
-// -------------------------------------------------
 
 window.onload = () => {
   buildButtons();
